@@ -1,4 +1,25 @@
 # details https://docs.google.com/document/d/1Y067anGNJjpBCBMPvKif0gE6TbaAKA2-0jk5uNGwO4c/edit?tab=t.0
+# expected error message:
+# Mismatch between single_or_multi_winner and voting_method
+# Voting method used (STAR) is used with a single winner
+# Incorrect Data:
+# - single_or_multi_winner: "multi"
+# - voting_method: "STAR"
+#
+# What to do:
+# 1) Option 1
+# Change Voting method to either
+# "Block STAR"
+# or
+# "STAR PR" (STAR Proportional)
+# and
+# keep single_or_multi_winner: "multi"
+#
+# 2) Option 2
+# single_or_multi_winner: "single"
+# and
+# voting_method: "STAR"
+
 election_parameters:
   election_id: "BV10"
   election_title: "Basic - 2 candidates - 2 voters - STAR"
@@ -12,8 +33,8 @@ election_parameters:
   races:
     race_1:
       voting_method: "STAR"
-      single_or_multi_winner: "single"
-      candidates: ["Andre", "Blake"]
+      single_or_multi_winner: "multi"
+      candidates: [ "Andre", "Blake" ]
       ballots: |
         5, 4
         5, 5

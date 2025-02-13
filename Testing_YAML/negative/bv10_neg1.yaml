@@ -1,6 +1,10 @@
 # details https://docs.google.com/document/d/1Y067anGNJjpBCBMPvKif0gE6TbaAKA2-0jk5uNGwO4c/edit?tab=t.0
+# expected error:
+# Mismatch between number of candidates and ballot data
+# - Number of Candidates = 2
+# - Number of Columns 3
 election_parameters:
-  election_id: "BV10"
+  election_id: "BV10_neg1"
   election_title: "Basic - 2 candidates - 2 voters - STAR"
   race_abstention_allowed: true
   number_of_races: 1
@@ -13,9 +17,9 @@ election_parameters:
     race_1:
       voting_method: "STAR"
       single_or_multi_winner: "single"
-      candidates: ["Andre", "Blake"]
+      candidates: [ "Andre", "Blake" ]
       ballots: |
-        5, 4
-        5, 5
+        5, 4, 0
+        5, 5, 0
       expected_winner: "Andre"
       # results: https://bettervoting.com/gkq44f/results
