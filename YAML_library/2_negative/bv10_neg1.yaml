@@ -16,7 +16,7 @@ election_parameters:
   races:
     race_1:
       voting_method: "STAR"
-      single_or_multi_winner: "single"
+      single_or_multi_winner: "single-winner"
       candidates: [ "Andre", "Blake" ]
       ballots: |
         5, 4, 0
