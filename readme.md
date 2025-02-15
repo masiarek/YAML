@@ -1,12 +1,9 @@
 # YAML Better Voting Test Library
 
 Python code validates "YAML files" - the YAML Better Voting **Test Library**: consistency checks and plausibility checks
-before uploading into: https://bettervoting.com/. See
-GitHub Repository:
+before uploading into: https://bettervoting.com/. Open source code: https://github.com/Equal-Vote/star-server
 
-- Voting Website:
-- Open source code: https://github.com/Equal-Vote/star-server
-- Test Cases: https://github.com/masiarek/YAML
+Test cases: https://docs.google.com/spreadsheets/d/1EXQsABY2qEu8kKQJGQdyQHn-C89hbCnNqZoGxKXZJNE/edit?gid=0#gid=0
 
 Library contains both positive (happy path with expected winners) and negative test cases (with expected error
 messages):
@@ -40,3 +37,5 @@ Additional Links:
 # Example ballot - STAR Voting:
 
 ![img_1.png](img_1.png)
+
+- GitGub Link - YAML Better Voting Test Library: https://github.com/masiarek/YAML
