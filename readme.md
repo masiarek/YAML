@@ -36,3 +36,7 @@ Additional Links:
 - Why YAML format: https://docs.google.com/document/d/171HVrwNQGzqnBsdOfU-6e9QEVcMS-Joh8b61whg1z1o/edit?tab=t.0
 
 ![img.png](img.png)
+
+# Example ballot - STAR Voting:
+
+![img_1.png](img_1.png)
