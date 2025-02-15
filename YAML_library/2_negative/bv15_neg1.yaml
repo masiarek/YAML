@@ -1,0 +1,25 @@
+# https://bettervoting.com/4h89vj/
+# Expected error message:
+# You are using Plurality Voting Method, illegal value in ballots section
+# - e.g. typically only 1 and 0 are allowed in Plurality Voting
+# - in th example below - we have ballot with value 5 (it should be 1 or 0, or "~")
+election_parameters:
+  election_id: "BV15"
+  election_title: "Basic - 2 candidates - Plurality"
+  race_abstention_allowed: true
+  number_of_races: 1
+  ballot_format_parameters:
+    ballot_file_type: "csv"
+    voter_left_candidate_blank: "^"
+    race_abstention_level_character: "~"
+
+  races:
+    race_1:
+      voting_method: "Plurality"
+      single_or_multi_winner: "single-winner"
+      candidates: [ "Andre", "Blake" ]
+      ballots: |
+        0, 1
+        0, 5
+        ~, ~
+      expected_winner: "Blake"
