@@ -1,4 +1,3 @@
-# https://bettervoting.com/4h89vj/
 # Expected error message:
 # You are using Plurality Voting Method, illegal value in ballots section
 # - e.g. typically only 1 and 0 are allowed in Plurality Voting

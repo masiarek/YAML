@@ -1,0 +1,24 @@
+# Scenarios: https://docs.google.com/spreadsheets/d/1EXQsABY2qEu8kKQJGQdyQHn-C89hbCnNqZoGxKXZJNE/edit?gid=0#gid=0
+election_parameters:
+  election_id: "BV25"
+  election_title: "BV25 - Basic - 3 candidates - Approval - nonWeighted"
+  race_abstention_allowed: false
+  number_of_races: 1
+  ballot_format_parameters:
+    ballot_file_type: "csv"
+    voter_left_candidate_blank: "^"
+    race_abstention_level_character: "~"
+    weighted_voting_allowed: false
+
+  races:
+    race_1:
+      voting_method: "Approval"
+      single_or_multi_winner: "single-winner"
+      candidates: [ "Andre", "Blake", "Carmen" ]
+      ballots: |
+        0, 0, 1
+        0, 0, 1
+        0, 0, 1
+        0, 1, 1
+        0, 1, 1
+      expected_winner: "Carmen"

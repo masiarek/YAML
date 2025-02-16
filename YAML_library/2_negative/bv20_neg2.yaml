@@ -1,0 +1,28 @@
+# Expected error message:
+# Mismatch between
+# race_abstention_level_character: "a"
+# and
+# unrecognized ballot data character ~ (it should be "a")
+
+election_parameters:
+  election_id: "BV20"
+  election_title: "BV20 - Basic - 3 candidates - Approval - Abstention"
+  race_abstention_allowed: true
+  number_of_races: 1
+  ballot_format_parameters:
+    ballot_file_type: "csv"
+    voter_left_candidate_blank: "^"
+    race_abstention_level_character: "a"
+
+  races:
+    race_1:
+      voting_method: "Approval"
+      single_or_multi_winner: "single-winner"
+      candidates: [ "Andre", "Blake", "Carmen" ]
+      ballots: |
+        0, 0, 1
+        0, 1, 1
+        ~, ~, ~
+        1, 0, 0
+        0, 1, 1
+      expected_winner: "Carmen"

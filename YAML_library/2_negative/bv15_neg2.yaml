@@ -1,4 +1,3 @@
-# https://bettervoting.com/4h89vj/
 # expected error message:
 # You deactivated abstentions (race_abstention_allowed: false)
 # - however your ballots have a special character "~" indicating abstentions.
