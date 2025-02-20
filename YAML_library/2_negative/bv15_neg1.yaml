@@ -1,7 +1,8 @@
-# Expected error message:
-# You are using Plurality Voting Method, illegal value in ballots section
+# Plurality Voting Method accepts
 # - e.g. typically only 1 and 0 are allowed in Plurality Voting
 # - in th example below - we have ballot with value 5 (it should be 1 or 0, or "~")
+# Expected error message: incompatible voting method and ballot data
+# voting method "Plurality" allows only 0 and 1 in the ballots section
 election_parameters:
   election_id: "BV15"
   election_title: "Basic - 2 candidates - Plurality"

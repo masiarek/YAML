@@ -1,6 +1,6 @@
 # details https://docs.google.com/document/d/1Y067anGNJjpBCBMPvKif0gE6TbaAKA2-0jk5uNGwO4c/edit?tab=t.0
 # expected error message:
-# Mismatch between single_or_multi_winner and voting_method
+# Mismatch between number of winners and voting method.
 # Voting method used (STAR) is used with a single winner
 # Incorrect Data:
 # - single_or_multi_winner: "multi"
