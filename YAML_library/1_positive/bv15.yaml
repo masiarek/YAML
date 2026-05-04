@@ -13,7 +13,9 @@ election_parameters:
     race_1:
       voting_method: "Plurality"
       single_or_multi_winner: "single-winner"
-      candidates: [ "Andre", "Blake" ]
+      candidates:
+      - Andre,
+      - Blake,
       ballots: |
         0, 1
         0, 1

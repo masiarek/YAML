@@ -1,24 +1,27 @@
 election_parameters:
-  election_id: "BV22"
-  election_title: "BV22 - Approval - Abstention: activate"
+  election_id: BV22
+  election_title: BV22 - Approval - Abstention - activate
   number_of_races: 1
   number_of_voters: 5
 
   races:
     race_1:
-      voting_method: "Approval"
-      single_or_multi_winner: "single-winner"
+      voting_method: Approval
+      single_or_multi_winner: single-winner
       race_abstention_allowed: true
-      race_abstention_level_character: "~"
-      ballot_file_type: "csv"
-      candidates: [ "Andre", "Blake", "Carmen" ]
+      race_abstention_level_character: ~
+      ballot_file_type: csv
+      candidates:
+      - Andre
+      - Blake
+      - Carmen
       ballots: |
         0, 0, 0
         ~, ~, ~
         0, 0, 1
         0, 1, 1
         0, 1, 1
-      expected_winner: "Carmen"
+      expected_winner: Carmen
       expected_report: |
         Candidate Votes Percentage
         ========= ===== ==========
