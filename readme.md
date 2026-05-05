@@ -1,4 +1,20 @@
-# YAML Better Voting Test Library
+# "YAML Better Voting" Test Library
+
+## Purpose & Scope
+The core objective of this library is to ensure the structural integrity and internal consistency of YAML ballot data before it reaches downstream tabulation systems. It acts as a defensive validation layer to catch incorrect formatting and invalid configurations.
+
+**Primary Focus**:
+This testing suite is purpose-built to thoroughly flesh out and support the testing environments for:
+
+* STAR Voting (Single-Winner)
+* STAR Multi-Winner (Block STAR, STAR-PR)
+* Approval Voting
+* RCV-RR
+
+The library rigorously tests both positive test cases (ensuring valid configurations process cleanly) and negative test cases (ensuring purposefully flawed data throws the exact, expected error messages) for these core methods.
+
+**Secondary Focus**:
+While the schema is capable of parsing and validating standard RCV-IRV and Plurality ballots, support for these methods is entirely secondary. They are covered in passing by the broader validation logic, but they are not the main priority or focus of this repository.
 
 Python code validates "YAML files" - the YAML Better Voting **Test Library**: consistency checks and plausibility checks
 before uploading into: https://bettervoting.com/. Open source code: https://github.com/Equal-Vote/star-server
