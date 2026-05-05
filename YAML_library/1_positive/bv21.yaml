@@ -8,7 +8,7 @@ election_parameters:
       voting_method: Approval
       single_or_multi_winner: single-winner
       race_abstention_allowed: false
-      race_abstention_level_character: "~"
+      race_abstention_level_character: ~
       ballot_file_type: csv
       candidates:
       - Andre

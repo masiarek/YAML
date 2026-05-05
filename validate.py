@@ -1,5 +1,6 @@
 import os
 import glob
+import re
 from strictyaml import load, YAMLError
 
 # Your target directory
@@ -18,18 +19,33 @@ if not files:
 failed_files = []
 summary_lines = []
 
+# Regex pattern to detect quotes on active (non-comment) portions of a line.
+quote_pattern = re.compile(r'^[^#]*[\'"]')
+
 for file_path in files:
     filename = os.path.basename(file_path)
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
 
+        # Parse with StrictYAML
         load(content)
-        # Store the success message instead of printing it
-        summary_lines.append(f"✅ Valid: {filename}")
+
+        # Check for quotes line by line
+        affected_lines = []
+        for line_num, line in enumerate(content.splitlines(), start=1):
+            if quote_pattern.search(line):
+                # Strip leading/trailing whitespace so it aligns cleanly in the output
+                affected_lines.append(f"      Line {line_num}: {line.strip()}")
+
+        if affected_lines:
+            summary_lines.append(f"⚠️ Valid (Quotes Detected): {filename}")
+            # Add all the affected lines directly below the filename
+            summary_lines.extend(affected_lines)
+        else:
+            summary_lines.append(f"✅ Valid & Clean: {filename}")
 
     except YAMLError as exc:
-        # Store the failure message and the detailed error
         summary_lines.append(f"❌ Invalid: {filename}")
         failed_files.append((filename, f"Invalid YAML syntax/features:\n{exc}"))
     except Exception as e:
