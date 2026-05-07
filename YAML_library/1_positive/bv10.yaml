@@ -1,7 +1,21 @@
-# details https://docs.google.com/document/d/1Y067anGNJjpBCBMPvKif0gE6TbaAKA2-0jk5uNGwO4c/edit?tab=t.0
 election_parameters:
   election_id: BV10
   election_title: Basic - 2 candidates - 2 voters - STAR
+  brief_description: Baseline two-candidate STAR Voting scenario.
+
+  long_description: |
+    While a two-candidate election is typically handled via Plurality (choose-one) voting, this scenario serves as a critical baseline test to verify that STAR Voting tabulation handles minimal candidate fields correctly. 
+
+    This test case specifically validates the core Scoring tabulation logic and the automatic runoff mechanism without triggering tie-breakers. Both voters score the candidates highly, but Andre secures the victory in the runoff phase.
+
+    Details: https://docs.google.com/document/d/1Y067anGNJjpBCBMPvKif0gE6TbaAKA2-0jk5uNGwO4c/edit?tab=t.0
+    Results: https://bettervoting.com/gkq44f/results
+
+  tags:
+  - STAR
+  - baseline
+  - 2-candidate
+
   race_abstention_allowed: true
   number_of_races: 1
   ballot_format_parameters:
@@ -20,4 +34,3 @@ election_parameters:
         5, 4
         5, 5
       expected_winner: Andre
-      # results: https://bettervoting.com/gkq44f/results

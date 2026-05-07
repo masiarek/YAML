@@ -13,13 +13,38 @@ This testing suite is purpose-built to thoroughly flesh out and support the test
 
 The library rigorously tests both positive test cases (ensuring valid configurations process cleanly) and negative test cases (ensuring purposefully flawed data throws the exact, expected error messages) for these core methods.
 
-**Secondary Focus**:
-While the schema is capable of parsing and validating standard RCV-IRV and Plurality ballots, support for these methods is entirely secondary. They are covered in passing by the broader validation logic, but they are not the main priority or focus of this repository.
-
-Python code validates "YAML files" - the YAML Better Voting **Test Library**: consistency checks and plausibility checks
-before uploading into: https://bettervoting.com/. Open source code: https://github.com/Equal-Vote/star-server
-
 Test cases: https://docs.google.com/spreadsheets/d/1EXQsABY2qEu8kKQJGQdyQHn-C89hbCnNqZoGxKXZJNE/edit?gid=0#gid=0
+
+## Validation Architecture: StrictYAML vs. Pydantic
+
+When building the test suite for our voting tabulation library, we require a robust way to ingest test cases (written in YAML) and convert them into mathematically reliable Python objects. 
+
+Because we rely on multi-line text for ballot data (especially crucial for cleanly representing STAR Voting Scoring arrays), standard YAML parsers are prone to type-coercion errors (e.g., the "Norway Problem"). To solve this, we enforce **StrictYAML** as our baseline parser. 
+
+However, parsing is only half the battle. We also need complex cross-field validation (e.g., "If `race_abstention_allowed` is true, the `input_data` format must align"). We evaluated two architectural approaches to handle this validation.
+
+### Approach 1: Pure StrictYAML + Procedural Validation
+In this approach, StrictYAML handles both parsing and basic type enforcement using its native schema definitions. Complex business logic is handled via custom Python functions after the parse is complete.
+
+* **Workflow:** Read YAML -> `strictyaml.load()` -> Extract Dict -> Run custom `if/else` validation functions.
+* **Pros:** Very lightweight; minimal dependencies.
+* **Cons:** Business logic is decoupled from the data structure. It requires writing manual error-handling loops and leaves validation logic floating in external scripts.
+
+### Approach 2: StrictYAML + Pydantic (Recommended)
+This hybrid approach uses StrictYAML strictly as a secure "string-to-dictionary" parser to avoid type coercion, and hands the resulting dictionary over to **Pydantic** for deep validation and serialization.
+
+* **Workflow:** Read YAML -> `strictyaml.load()` -> Pass Dict to Pydantic `BaseModel` -> Pydantic enforces complex rules via `@model_validator`.
+* **Pros:**
+    * **Encapsulation:** All cross-field validation rules live securely inside the data model itself.
+    * **Strong Typing:** Generates heavily typed Python objects, providing full IDE autocomplete support.
+    * **Native Serialization:** Pydantic objects can be instantly exported to highly structured, machine-friendly JSON files (`model_dump_json()`), establishing perfect regression baselines.
+* **Cons:** Introduces an additional dependency (Pydantic), though the architectural benefits far outweigh the cost.
+
+### The Decision
+We utilize **Approach 2 (StrictYAML + Pydantic)**. 
+
+StrictYAML provides the perfect human-authored interface for maintaining clean multi-line parameters and ballot inputs. Pydantic then acts as an industrial-grade gatekeeper, ensuring that no malformed test case ever reaches the tabulation logic, and easily serializing validated cases into strict JSON baselines for secondary systems.
+
 
 Library contains both positive (happy path with expected winners) and negative test cases (with expected error
 messages):
