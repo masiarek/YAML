@@ -1,4 +1,4 @@
-election_parameters:
+test_election_parameters:
   election_id: BV22
   election_title: BV22 - Approval - Abstention - activate
   number_of_races: 1

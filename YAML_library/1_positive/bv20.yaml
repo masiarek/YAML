@@ -1,5 +1,5 @@
 
-election_parameters:
+test_election_parameters:
   election_id: BV20
   election_title: BV20 - Approval - Abstention
   number_of_races: 1

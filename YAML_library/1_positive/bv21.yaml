@@ -1,4 +1,4 @@
-election_parameters:
+test_election_parameters:
   election_id: BV21
   election_title: BV21 - Approval - Abstention
   number_of_races: 1

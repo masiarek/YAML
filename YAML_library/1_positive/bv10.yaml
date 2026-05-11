@@ -1,7 +1,8 @@
-election_parameters:
+test_election_parameters:
   election_id: BV10
   election_title: Basic - 2 candidates - 2 voters - STAR
-  brief_description: Baseline two-candidate STAR Voting scenario.
+
+  brief_description: Two-candidate STAR Voting scenario (unusual edge case).
 
   long_description: |
     While a two-candidate election is typically handled via Plurality (choose-one) voting, this scenario serves as a critical baseline test to verify that STAR Voting tabulation handles minimal candidate fields correctly. 
@@ -12,9 +13,8 @@ election_parameters:
     Results: https://bettervoting.com/gkq44f/results
 
   tags:
-  - STAR
-  - baseline
-  - 2-candidate
+  - degenerate_case
+  - edge_case
 
   race_abstention_allowed: true
   number_of_races: 1

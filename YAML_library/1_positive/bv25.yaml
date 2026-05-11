@@ -1,5 +1,5 @@
 # Scenarios: https://docs.google.com/spreadsheets/d/1EXQsABY2qEu8kKQJGQdyQHn-C89hbCnNqZoGxKXZJNE/edit?gid=0#gid=0
-election_parameters:
+test_election_parameters:
   election_id: BV25
   election_title: BV25 - Basic - 3 candidates - Approval - nonWeighted
   race_abstention_allowed: false

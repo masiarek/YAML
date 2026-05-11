@@ -1,5 +1,7 @@
 # https://bettervoting.com/4h89vj/
-election_parameters:
+# read about voter_left_candidate_blank and race_abstention_level_character
+# at: https://docs.google.com/document/d/171HVrwNQGzqnBsdOfU-6e9QEVcMS-Joh8b61whg1z1o/edit?tab=t.0
+test_election_parameters:
   election_id: BV15
   election_title: Basic - 2 candidates - Plurality
   race_abstention_allowed: true

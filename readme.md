@@ -1,4 +1,48 @@
 # "YAML Better Voting" Test Library
+# Better Voting Test Library
+
+## Overview
+This test library supports [Better Voting methods](https://bettervoting.com/) by providing a standardized schema for election test cases. 
+
+### Why StrictYAML?
+A pure CSV file with ballot data often lacks crucial context—such as the specific voting method, the number of seats, candidate names, and expected ballot formats. By bundling election parameters and ballot information into a predefined StrictYAML format, this schema enables:
+- Robust data validations
+- Consistency and plausibility checks
+- Easy hand-editing
+- Universal compatibility across different voting tabulation engines
+
+## Schema Structure
+Each test case is written as a simple text file and consists of three main sections:
+1. **Input – Election Parameters:** Global settings like election ID, title, and description.
+2. **Input – Races & Ballots:** Specific race parameters (voting method, candidates) and the ballot data.
+3. **Output – Expected Results:** Predicted winners, detailed reports, and edge case handling (e.g., ties).
+
+---
+
+## Format Examples
+
+We recommend progressing through the examples below to understand how the schema scales from a simple baseline to complex, multi-race elections.
+
+### 1. The Baseline: Minimal Individual Ballots
+For a small number of voters, ballots are listed individually. This example demonstrates the minimum required data for a single STAR voting race.
+
+```text
+election_parameters:
+  election_id: e_001
+  election_title: STAR Voting - Baseline 
+  election_description: |
+    Test Election Goal: Demonstrate a minimum set of data with three candidates and two individual ballots.
+race_1:
+  voting_method: STAR
+  candidates: 
+    - name: Ann
+    - name: Bob
+    - name: Cal
+  ballots: |
+    Ann,Bob,Cal
+    0,3,5
+    0,3,5
+    
 
 ## Purpose & Scope
 The core objective of this library is to ensure the structural integrity and internal consistency of YAML ballot data before it reaches downstream tabulation systems. It acts as a defensive validation layer to catch incorrect formatting and invalid configurations.
