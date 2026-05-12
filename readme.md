@@ -1,4 +1,79 @@
-# Better Voting Test Library using Pydantic Schema Validation 
+# Better Voting Test Library using Pydantic Schema Validation - new
+
+This project provides a standardized schema for defining election test cases to support Better Voting methods.
+
+## Why StrictYAML & Pydantic?
+
+A pure CSV file with ballot data often lacks crucial context. Ambiguities inevitably arise regarding the specific voting method used, the number of seats available, the candidate roster, and the expected format of the ballots. 
+
+**The Critical Gap: Edge Cases and Election Rules**
+Beyond basic context, flat data files fail to capture the complex, real-world edge cases that dictate an election's actual outcome. Simple formats make it exceedingly difficult to accurately communicate nuances such as:
+
+* **Abstentions:** Differentiating between a race-level abstention (skipping the race entirely) versus a candidate-level abstention[cite: 1].
+* **Special Ballot Designations:** Handling "None of the Above" (NOTA) options, voided or spoiled ballots, and tracking the true total of ballots issued (including re-issues)[cite: 1].
+* **Threshold Definitions:** Establishing the precise rules for quorums and majority thresholds based on ballot status (e.g., clearly defining if a "simple majority" requires 50%+1 of *all* ballots cast, or only of the *valid* ballots minus abstentions).
+
+By bundling election parameters, explicit edge-case rulesets, and ballot information into a predefined StrictYAML format, this schema enables robust data validations, consistency checks, and plausibility checks. These test cases are written as simple text files that can be easily edited by hand and utilized universally across different voting tabulation engines.
+
+## Purpose & Scope
+
+**What this library DOES:**
+
+* **Strict Input Validation:** Parses and validates the logic, structure, and consistency of election data using StrictYAML and Pydantic.
+* **Schema Enforcement:** Ensures that Global Election Parameters (ID, title, format definition, quorum rules) and specific Race/Ballot structures strictly adhere to the defined format.
+* **Edge Case Preservation:** Captures complex ballot statuses using standardized special characters to ensure tabulation engines have the exact denominator needed to correctly calculate majorities, statistics, and quorums[cite: 1].
+* **Error Handling Verification:** Confirms that malformed inputs trigger the correct schema validation errors.
+
+**What this library DOES NOT DO:**
+
+* **Calculate Winners:** This library is not an election calculation engine.
+* **Dictate Results:** You will see expected outcomes (like round-by-round results or final winners) included in the test cases. These are included strictly as reference data to verify engine accuracy.
+
+## Ballot Data Formatting Standards
+
+To ensure parser reliability and maintain readability, the schema expects ballot data to be explicitly formatted within text blocks. For test cases with a small number of ballots, ballots are listed individually to preserve clarity. 
+
+### Edge Cases & Special Characters
+To accurately capture voter intent, out-of-band communication, and election anomalies without corrupting the tabulation math, the schema utilizes specific characters. These ensure that tabulation engines process missing data and spoiled ballots correctly[cite: 1].
+
+* `~` **(Tilde): Race-Level Abstention.** The voter abstained from the entire race (e.g., wrote "Abstain" at the top)[cite: 1].
+* `&` **(Ampersand): Candidate-Level Abstention.** The voter explicitly abstained for a specific candidate[cite: 1].
+* `^` **(Caret): Blank / Unmarked.** The candidate was left completely blank (no score/rank selected)[cite: 1].
+* `?` **(Question Mark): Spoiled / Voided Ballot.** A wasted or protest vote (e.g., overvotes, writing "Void" across the ballot, or marking multiple scores incorrectly)[cite: 1].
+* `%` **(Percent): Spoiled & Re-issued.** The voter made a mistake, the ballot was voided, and a new ballot was issued by the election admin[cite: 1].
+
+### Ranked-Choice Scenarios (Ranks Format)
+For ranked elections, such as RCV-IRV or RCV-RR, use the `>` separator to indicate preference order.
+
+```text
+A>B>C>D>E>F
+A>B
+C>B>A
+?       # Spoiled ballot
+```
+
+### Scored Scenarios (Scores Format)
+For scored or rated elections, such as STAR Voting or Approval voting, use a comma-separated list of scores corresponding to the candidate roster. Note that for STAR Voting, equal scores are counted as an "Equal Preference" in the runoff, not discarded.
+
+```text
+5,4,3,2,1,0
+5,^,^,^,^,^  # One candidate scored, the rest left blank
+&,5,3,0,0,0  # Candidate A explicitly abstained
+~,~,~,~,~,~  # Race-level abstention
+```
+
+### Grouped Ballots
+For large batches of identical ballots, group them by placing a colon (`:`) immediately after the ballot count, followed by a space and the ballot data.
+
+```text
+50: A>B>C
+25: B>C>A
+12: C>A>B
+2:  ~,~,~
+```
+
+
+old:
 
 This project provides a standardized schema for defining election test cases to support [Better Voting methods](https://bettervoting.com/).
 
