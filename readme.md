@@ -1,4 +1,84 @@
-# Better Voting Test Library using Pydantic Schema Validation - new
+# Better Voting Test Library using Pydantic Schema Validation
+
+This project provides a standardized schema for defining election test cases to support Better Voting methods.
+
+## Why StrictYAML & Pydantic?
+
+A pure CSV file with ballot data often lacks crucial context. Ambiguities inevitably arise regarding the specific voting method used, the number of seats available, the candidate roster, and the expected format of the ballots. 
+
+### The Ambiguity of Zeros and Blanks
+Historically, election data files have relied on zeros (`0`) or empty spaces to represent anything that isn't a direct, valid vote. However, this creates dangerous ambiguity when communicating between developers, management, and stakeholders. If a tabulation engine receives a `0` or a blank space, what does it actually mean?
+
+* Did the voter intentionally leave the candidate blank (which mathematically behaves as zero)?
+* Was the ballot spoiled or voided entirely?
+* Did the voter explicitly write "Abstain" next to a candidate, or across the entire race?
+
+While a blank space, an explicit abstention, and a voided ballot might all result in "zero points" or "zero stars" for a specific candidate during the calculation phase, they represent completely different scenarios when determining the election's metadata. 
+
+Without explicitly differentiating these voter intents, it is impossible to:
+1. Accurately calculate quorums.
+2. Define exact majority thresholds (e.g., determining whether explicit abstentions should be included in or excluded from the total valid ballot count).
+3. Generate accurate statistical reports regarding voter behavior and spoiled ballots.
+
+Resolving this ambiguity—and ensuring that edge cases are explicitly preserved from the ballot box to the final report—was a primary driver for creating this schema library. By bundling election parameters, explicit edge-case rulesets, and ballot information into a predefined StrictYAML format, this schema enables robust data validations and consistency checks that simple flat files cannot support.
+
+## Purpose & Scope
+
+**What this library DOES:**
+
+* **Strict Input Validation:** Parses and validates the logic, structure, and consistency of election data using StrictYAML and Pydantic.
+* **Schema Enforcement:** Ensures that Global Election Parameters (ID, title, format definition, quorum rules) and specific Race/Ballot structures strictly adhere to the defined format.
+* **Edge Case Preservation:** Captures complex ballot statuses using standardized special characters to ensure tabulation engines have the exact denominator needed to correctly calculate majorities, statistics, and quorums.
+* **Error Handling Verification:** Confirms that malformed inputs trigger the correct schema validation errors.
+
+**What this library DOES NOT DO:**
+
+* **Calculate Winners:** This library is not an election calculation engine.
+* **Dictate Results:** You will see expected outcomes (like round-by-round results or final winners) included in the test cases. These are included strictly as reference data to verify engine accuracy.
+
+## Ballot Data Formatting Standards
+
+To ensure parser reliability and maintain readability, the schema expects ballot data to be explicitly formatted within text blocks. For test cases with a small number of ballots, ballots are listed individually to preserve clarity. 
+
+### Edge Cases & Special Characters
+To capture voter intent, out-of-band communication, and election anomalies without corrupting the tabulation math, the schema utilizes specific characters. These ensure that tabulation engines process missing data and spoiled ballots correctly.
+
+* `~` **(Tilde): Race-Level Abstention.** The voter abstained from the entire race (e.g., wrote "Abstain" at the top).
+* `&` **(Ampersand): Candidate-Level Abstention.** The voter explicitly abstained for a specific candidate.
+* `^` **(Caret): Blank / Unmarked.** The candidate was left completely blank (no score/rank selected).
+* `?` **(Question Mark): Spoiled / Voided Ballot.** A wasted or protest vote (e.g., overvotes, writing "Void" across the ballot, or marking multiple scores incorrectly).
+* `%` **(Percent): Spoiled & Re-issued.** The voter made a mistake, the ballot was voided, and a new ballot was issued by the election admin.
+
+### Ranked-Choice Scenarios (Ranks Format)
+For ranked elections, such as RCV-IRV or RCV-RR, use the `>` separator to indicate preference order.
+
+```text
+A>B>C>D>E>F
+A>B
+C>B>A
+?
+```
+
+### Scored Scenarios (Scores Format)
+For scored or rated elections, such as STAR Voting or Approval voting, use a comma-separated list of scores corresponding to the candidate roster. Note that for STAR Voting, equal scores are counted as an "Equal Preference" in the runoff, not discarded.
+
+```text
+5,4,3,2,1,0
+5,^,^,^,^,^
+&,5,3,0,0,0
+~,~,~,~,~,~
+```
+
+### Grouped Ballots
+For batches of identical ballots, group them by placing a colon (`:`) immediately after the ballot count, followed by a space and the ballot data.
+
+```text
+5: A>B>C
+3: B>C>A
+2: ~,~,~
+```
+
+# Better Voting Test Library using Pydantic Schema Validation - old
 
 This project provides a standardized schema for defining election test cases to support Better Voting methods.
 
@@ -259,3 +339,4 @@ Our testing strategy follows a strict order of operations to prevent "refactorin
 * **GitHub Link:** [YAML Better Voting Test Library](https://github.com/masiarek/YAML)
 * **Test Cases Spreadsheet:** [Google Sheets Link](https://docs.google.com/spreadsheets/d/1EXQsABY2qEu8kKQJGQdyQHn-C89hbCnNqZoGxKXZJNE/edit?gid=0#gid=0) - includes screenshots and additional explanations to each test case
 * **Why YAML format:** [Google Docs Link](https://docs.google.com/document/d/171HVrwNQGzqnBsdOfU-6e9QEVcMS-Joh8b61whg1z1o/edit?tab=t.0)
+* **Blank-space (^), Abstain race (~), Abstain candidate (&) and Score Zero**:   https://docs.google.com/document/d/17X4kOgXrmgbLrEyXvAJLMnLQDbV-pMcwbMZPERcnIQs/edit?tab=t.0
