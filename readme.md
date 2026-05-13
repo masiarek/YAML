@@ -1,6 +1,122 @@
+# Better Voting Test Library: Pydantic Schema Validation
+
+This project provides a standardized, strongly-typed schema for defining election test cases to support Better Voting methods.
+
+## Why StrictYAML & Pydantic?
+
+Pure CSV files containing ballot data inherently lack crucial context. Ambiguities inevitably arise regarding the specific voting method used, the number of available seats, the candidate roster, and the expected format of the ballots. 
+
+### The Ambiguity of Zeros and Blanks
+Historically, election data files have relied on zeros (`0`) or empty spaces to represent anything that isn't a standard, valid vote. However, this creates dangerous ambiguity between developers, management, and election stakeholders. If a tabulation engine receives a `0` or a blank space, what does it actually mean?
+
+* Did the voter intentionally leave the candidate blank (which mathematically behaves as zero)?
+* Was the ballot spoiled or voided entirely?
+* Did the voter explicitly write "Abstain" next to a candidate, or across the entire race?
+
+While a blank space, an explicit abstention, and a voided ballot might all result in "zero points" or "zero stars" for a specific candidate during the calculation phase, they represent fundamentally different scenarios when determining the election's metadata. 
+
+Without explicitly differentiating these voter intents, it is impossible to:
+1. Accurately calculate quorums.
+2. Define exact majority thresholds (e.g., determining whether explicit abstentions should be included in, or excluded from, the total valid ballot count).
+3. Generate accurate statistical reports regarding voter behavior and spoiled ballots.
+
+Resolving this ambiguity—and ensuring that edge cases are explicitly preserved from the ballot box to the final report—was a primary driver for creating this schema library. 
+
+### The "Missing Schema" Problem: Context-Blind Data
+Passing around a CSV is like passing around an untyped data payload without a header—the system is forced to guess how to parse it. This is incredibly dangerous for something as precise as election tabulation.
+
+Consider a system that receives the following simple CSV input:
+```
+A,B,C,D,E
+1,1,0, ,0
+```
+Notice the empty space for Candidate D. What is the meaning of that space? Did the voter skip it? Did the scanner fail to read it? Is it a typo that will crash the parser?
+
+Without a strongly defined schema, the tabulation engine has no idea how to interpret this ballot. Depending on the missing context, this exact same string of data could be perfectly valid or entirely corrupt:
+
+* **Ranked Voting Method:** **Invalid input.** The system should be expecting preference syntax (e.g., `A>B>C`), not an array of scores.
+* **Plurality Election:** **Invalid data.** The voter has selected two candidates (an overvote), meaning the ballot should be voided or flagged.
+* **Approval Voting:** **Valid.** The voter simply approved of candidates A and B. The parser might just assume the blank space means "unapproved."
+* **STAR Voting (Single Winner):** **Valid.** The voter gave candidates A and B a score of 1 star, and the rest 0 stars (assuming the engine is hard-coded to treat spaces as zeros).
+* **Bloc STAR Voting (3 seats, min. 3 selections required):** **Invalid.** The voter only provided scores for two candidates, violating the minimum selection rule.
+
+When election data is decoupled from election rules, tabulation engines are forced to make assumptions about both the math and the data types. By bundling the Global Election Parameters (the voting method, the number of seats, and specific constraints) directly with the ballot data using StrictYAML, this library ensures that a `1,1,0, ,0` ballot is instantly validated, explicitly understood, or correctly rejected based on the actual rules of that specific race.
+
+## Purpose & Scope
+
+**What this library DOES:**
+
+* **Strict Input Validation:** Parses and validates the logic, structure, and consistency of election data using StrictYAML and Pydantic.
+* **Schema Enforcement:** Ensures that Global Election Parameters (ID, title, format definition, quorum rules) and specific Race/Ballot structures strictly adhere to defined formats.
+* **Edge Case Preservation:** Captures complex ballot statuses using standardized special characters to ensure tabulation engines have the exact denominator needed to calculate majorities, statistics, and quorums correctly.
+* **Error Handling Verification:** Confirms that malformed inputs trigger the appropriate schema validation errors.
+
+**What this library DOES NOT DO:**
+
+* **Calculate Winners:** This library is not an election calculation engine.
+* **Dictate Results:** Expected outcomes (like round-by-round results or final winners) included in the test cases are strictly for reference data to verify engine accuracy.
+
+## Ballot Data Formatting Standards
+
+To ensure parser reliability and maintain readability, the schema expects ballot data to be explicitly formatted within text blocks. For test cases with a small number of ballots, list ballots individually to preserve clarity. 
+
+### Edge Cases & Special Characters
+To capture voter intent, out-of-band communication, and election anomalies without corrupting the tabulation math, the schema utilizes specific characters. These ensure that tabulation engines process missing data and spoiled ballots correctly.
+
+* `~` **(Tilde): Race-Level Abstention.** The voter abstained from the entire race (e.g., wrote "Abstain" at the top).
+* `&` **(Ampersand): Candidate-Level Abstention.** The voter explicitly abstained for a specific candidate.
+* `^` **(Caret): Blank / Unmarked.** The candidate was left completely blank (no score/rank selected).
+* `?` **(Question Mark): Spoiled / Voided Ballot.** A wasted or protest vote (e.g., overvotes, writing "Void" across the ballot, or marking multiple scores incorrectly).
+* `%` **(Percent): Spoiled & Re-issued.** The voter made a mistake, the ballot was voided, and a new ballot was issued by the election admin.
+
+### Ranked-Choice Scenarios (Ranks Format)
+For ranked elections, such as RCV-IRV or RCV-RR, use the `>` separator to indicate preference order.
+
+A>B>C>D>E>F
+A>B
+C>B>A
+?
+
+### Scored Scenarios (Scores Format)
+For scored or rated elections, such as STAR Voting or Approval voting, use a comma-separated list of scores corresponding to the candidate roster. Note that for STAR Voting, equal scores are counted as an "Equal Preference" in the runoff, not discarded.
+```5,4,3,2,1,0
+5,^,^,^,^,^
+&,5,3,0,0,0
+~,~,~,~,~,~
+```
+### Grouped Ballots
+For large batches of identical ballots, group them by placing a colon (`:`) immediately after the ballot count, followed by a space and the ballot data.
+```
+50: A>B>C
+25: B>C>A
+12: ~,~,~
+```
 # Better Voting Test Library using Pydantic Schema Validation
 
 This project provides a standardized schema for defining election test cases to support Better Voting methods.
+
+### CSV Files Carry No Embedded Schema
+
+Passing around a CSV is like passing around an untyped data payload without a header—the system has to guess how to parse it, which is incredibly dangerous for something as precise as election tabulation.
+
+Consider a system that receives the following simple CSV input:
+
+```csv
+A,B,C,D,E
+1,1,0, ,0
+```
+
+Notice the empty space for Candidate D. What is the meaning of that space? Did the voter skip it? Did the scanner fail to read it? Is it a typo that will crash the parser?
+
+Without a strongly defined schema, the tabulation engine has no idea how to interpret this ballot. Depending on the missing context, this exact same string of data could be perfectly valid or entirely corrupt:
+
+*   **Is it a Ranked Voting method?** Invalid input. The system should be expecting preference syntax (e.g., `A>B>C`), not an array of scores.
+*   **Is it a Plurality election?** Invalid data. The voter has selected two candidates (an overvote), and the ballot should be voided or flagged.
+*   **Is it Approval Voting?** Valid. The voter simply approved of candidates A and B, and the parser might just assume the blank space means "unapproved."
+*   **Is it a single-winner STAR Voting election?** Valid. The voter gave candidates A and B a score of 1 star, and the rest 0 stars (assuming the engine is hard-coded to treat spaces as zeros).
+*   **Is it a Bloc STAR Voting election (3 seats, min. 3 selections required)?** Invalid. The voter only provided scores for two candidates, violating the minimum selection rule.
+
+When election data is decoupled from election rules, tabulation engines are forced to make assumptions about both the math and the data types. By bundling the Global Election Parameters (the voting method, the number of seats, and specific constraints) directly with the ballot data using StrictYAML, this library ensures that a `1,1,0, ,0` ballot is instantly validated, explicitly understood, or correctly rejected based on the actual rules of that specific race.
 
 ## Why StrictYAML & Pydantic?
 
@@ -48,16 +164,6 @@ To capture voter intent, out-of-band communication, and election anomalies witho
 * `^` **(Caret): Blank / Unmarked.** The candidate was left completely blank (no score/rank selected).
 * `?` **(Question Mark): Spoiled / Voided Ballot.** A wasted or protest vote (e.g., overvotes, writing "Void" across the ballot, or marking multiple scores incorrectly).
 * `%` **(Percent): Spoiled & Re-issued.** The voter made a mistake, the ballot was voided, and a new ballot was issued by the election admin.
-
-### Ranked-Choice Scenarios (Ranks Format)
-For ranked elections, such as RCV-IRV or RCV-RR, use the `>` separator to indicate preference order.
-
-```text
-A>B>C>D>E>F
-A>B
-C>B>A
-?
-```
 
 ### Scored Scenarios (Scores Format)
 For scored or rated elections, such as STAR Voting or Approval voting, use a comma-separated list of scores corresponding to the candidate roster. Note that for STAR Voting, equal scores are counted as an "Equal Preference" in the runoff, not discarded.
