@@ -9,7 +9,88 @@ A standardized, strongly-typed schema for defining election test cases that supp
 This library provides a robust validation layer for election data. By bundling **Global Election Parameters** (voting method, seat count, candidate roster, and edge-case rules) directly with ballot data using **StrictYAML** and **Pydantic**, this schema ensures that data is explicitly understood, correctly validated, and safely handed off to downstream tabulation engines.
 
 ---
+---
 
+## Quick Start
+
+### 1. Install
+
+```bash
+pip install better-voting-test-lib
+```
+
+### 2. Create a test case file
+
+Create a file called `testcase.yaml` in a new directory (e.g., `tests/star_basic/testcase.yaml`):
+
+```yaml
+# tests/star_basic/testcase.yaml
+
+election_parameters:
+  election_id: e_001
+  election_title: "STAR Voting — Basic 3-Candidate Race"
+  description: >
+    A simple single-winner STAR Voting election with 7 ballots.
+    Cal wins the scoring round; Bob wins the runoff.
+
+race_1:
+  voting_method: STAR
+  seats: 1
+  candidates:
+    - name: Ann
+    - name: Bob
+    - name: Cal
+  ballots: |
+    Ann,Bob,Cal
+    5,4,3
+    0,3,5
+    0,3,5
+    5,1,0
+    1,5,3
+    3,5,2
+    2,4,5
+
+expected_results:
+  race_1:
+    status: completed
+    winners:
+      - Bob
+    detailed_metrics:
+      total_ballots_cast: 7
+      scoring_round_winner: Cal
+      runoff_round_winner: Bob
+      runoff_equal_preference_count: 0
+    edge_cases:
+      tie_occurred: false
+      tie_resolution_method: none
+```
+
+### 3. Validate it
+
+```bash
+python -m bettervoting_testlib validate tests/star_basic/testcase.yaml
+```
+
+A passing validation produces:
+
+```
+✅  e_001 — STAR Voting — Basic 3-Candidate Race
+    race_1: 7 ballots parsed, 0 errors.
+    Schema valid. Baselines written to tests/star_basic/
+```
+
+### 4. What just happened?
+
+| Step | What the library did |
+|---|---|
+| **Parsed** | StrictYAML read the file without any type-coercion guessing. |
+| **Validated** | Pydantic confirmed candidate names match the ballot header, seat count is valid, and all ballot lines conform to STAR format. |
+| **Asserted** | The `expected_results` block was stored as a reference baseline for downstream engine verification. |
+| **Serialized** | A `testcase.json` and `testcase.toml` baseline were written alongside the YAML for use by external tabulation engines. |
+
+> **Next steps:** Try adding a spoiled ballot (`?`) or a race-level abstention (`~,~,~`) to see how the schema captures edge cases — and run the validator again to confirm the metadata changes.
+
+---
 ## Why StrictYAML & Pydantic?
 
 ### The "Missing Schema" Problem: Context-Blind Data
