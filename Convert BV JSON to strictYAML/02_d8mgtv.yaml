@@ -1,0 +1,19 @@
+Election:
+  title: test election - header
+  description: d8mgtv
+  races:
+  - title: Race one test. Using single winner STAR.
+    description: Race description - keep it.
+    num_winners: 1
+    voting_method: STAR
+    candidates:
+    - candidate_name: Ann
+    - candidate_name: Bob
+  - title: 'Race test twp - Bloc STAR multi-winner '
+    description: Keep this race description.
+    num_winners: 2
+    voting_method: Bloc STAR
+    candidates:
+    - candidate_name: Cand x
+    - candidate_name: Cand Y
+    - candidate_name: Cand Z

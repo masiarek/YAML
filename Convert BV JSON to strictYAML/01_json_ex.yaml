@@ -1,0 +1,11 @@
+Election:
+  title: election xyz
+  description: Test description. 3hywvp
+  races:
+  - title: race 1
+    num_winners: 1
+    voting_method: STAR
+    candidates:
+    - candidate_name: a
+    - candidate_name: b
+    - candidate_name: c
