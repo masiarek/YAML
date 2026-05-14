@@ -1,0 +1,60 @@
+{
+  "Election": {
+    "election_id": "3hywvp",
+    "title": "election xyz",
+    "description": "Test description.",
+    "frontend_url": "",
+    "start_time": "2025-02-27T15:43:00.000Z",
+    "end_time": "2026-01-28T15:43:00.000Z",
+    "owner_id": "ea09e7c7-b00d-427a-bef8-32ade437d49d",
+    "audit_ids": null,
+    "admin_ids": null,
+    "credential_ids": null,
+    "state": "closed",
+    "races": [
+      {
+        "title": "race 1",
+        "race_id": "bc92675d-a0aa-4b9f-a7a7-8d0bd322cca1",
+        "num_winners": 1,
+        "voting_method": "STAR",
+        "candidates": [
+          {
+            "candidate_id": "9255a168-8399-4813-9a21-b6cf12312b59",
+            "candidate_name": "a"
+          },
+          {
+            "candidate_id": "65b2f526-f65b-4dcd-8ed1-222c30f4ae92",
+            "candidate_name": "b"
+          },
+          {
+            "candidate_id": "7fee83db-7a46-4e1a-b33a-446e34636153",
+            "candidate_name": "c"
+          }
+        ]
+      }
+    ],
+    "settings": {
+      "voter_authentication": {
+        "voter_id": false,
+        "email": false,
+        "ip_address": false
+      },
+      "ballot_updates": false,
+      "public_results": true,
+      "time_zone": "America/New_York",
+      "random_candidate_order": false,
+      "require_instruction_confirmation": true,
+      "term_type": "election",
+      "voter_access": "open",
+      "contact_email": ""
+    },
+    "claim_key_hash": null,
+    "is_public": null,
+    "create_date": "2025-01-27T15:43:45.681Z",
+    "update_date": "1776443626366",
+    "head": true,
+    "ballot_source": "live_election",
+    "public_archive_id": null
+  },
+  "Ballots": []
+}

@@ -28,7 +28,7 @@ Create a file called `testcase.yaml` in a new directory (e.g., `tests/star_basic
 
 election_parameters:
   election_id: e_001
-  election_title: "STAR Voting — Basic 3-Candidate Race"
+  election_title: STAR Voting — Basic 3-Candidate Race
   description: >
     A simple single-winner STAR Voting election with 7 ballots.
     Cal wins the scoring round; Bob wins the runoff.
