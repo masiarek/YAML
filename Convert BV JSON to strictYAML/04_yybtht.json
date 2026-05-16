@@ -1,0 +1,998 @@
+{
+  "Election": {
+    "election_id": "yybtht",
+    "title": "Favorite Open Season Character ",
+    "description": "",
+    "frontend_url": "",
+    "start_time": null,
+    "end_time": null,
+    "owner_id": "9501044c-18c9-4a99-9b61-b582957424e4",
+    "audit_ids": null,
+    "admin_ids": null,
+    "credential_ids": null,
+    "state": "open",
+    "races": [
+      {
+        "title": "Favorite Open Season Character ",
+        "race_id": "0",
+        "num_winners": 1,
+        "voting_method": "RankedRobin",
+        "candidates": [
+          {
+            "candidate_id": "0",
+            "candidate_name": "Boog"
+          },
+          {
+            "candidate_id": "1",
+            "candidate_name": "Eliot "
+          },
+          {
+            "candidate_id": "2",
+            "candidate_name": "Giselle"
+          },
+          {
+            "candidate_id": "3",
+            "candidate_name": "Ian"
+          },
+          {
+            "candidate_id": "4",
+            "candidate_name": "McSquizzy"
+          },
+          {
+            "candidate_id": "5",
+            "candidate_name": "Reilly "
+          },
+          {
+            "candidate_id": "6",
+            "candidate_name": "Shaw"
+          },
+          {
+            "candidate_id": "7",
+            "candidate_name": "Serge"
+          },
+          {
+            "candidate_id": "8",
+            "candidate_name": "Mr. Weenie "
+          },
+          {
+            "candidate_id": "9",
+            "candidate_name": "Gordy"
+          },
+          {
+            "candidate_id": "10",
+            "candidate_name": "Beth"
+          },
+          {
+            "candidate_id": "11",
+            "candidate_name": "Maria (Skunk)"
+          }
+        ]
+      }
+    ],
+    "settings": {
+      "voter_authentication": {
+        "voter_id": false,
+        "email": false,
+        "ip_address": false
+      },
+      "ballot_updates": false,
+      "public_results": true,
+      "time_zone": "America/Los_Angeles",
+      "random_candidate_order": false,
+      "require_instruction_confirmation": true,
+      "term_type": "poll",
+      "voter_access": "open",
+      "contact_email": "",
+      "max_rankings": 6
+    },
+    "claim_key_hash": null,
+    "is_public": true,
+    "create_date": "2025-01-25T06:37:48.387Z",
+    "update_date": "1737787271422",
+    "head": true,
+    "ballot_source": "live_election",
+    "public_archive_id": null
+  },
+  "Ballots": [
+    {
+      "ballot_id": "2e962f01-7afd-4268-980b-b89d72cb69bf",
+      "election_id": "yybtht",
+      "precinct": null,
+      "votes": [
+        {
+          "scores": [
+            {
+              "score": 2,
+              "candidate_id": "0"
+            },
+            {
+              "score": 3,
+              "candidate_id": "1"
+            },
+            {
+              "score": 4,
+              "candidate_id": "2"
+            },
+            {
+              "score": 1,
+              "candidate_id": "3"
+            },
+            {
+              "score": 5,
+              "candidate_id": "4"
+            },
+            {
+              "score": null,
+              "candidate_id": "5"
+            },
+            {
+              "score": 6,
+              "candidate_id": "6"
+            },
+            {
+              "score": null,
+              "candidate_id": "7"
+            },
+            {
+              "score": null,
+              "candidate_id": "8"
+            },
+            {
+              "score": null,
+              "candidate_id": "9"
+            },
+            {
+              "score": null,
+              "candidate_id": "10"
+            },
+            {
+              "score": null,
+              "candidate_id": "11"
+            }
+          ],
+          "race_id": "0"
+        }
+      ]
+    },
+    {
+      "ballot_id": "30bde38c-9092-4546-8526-22ff19ac4c6a",
+      "election_id": "yybtht",
+      "precinct": null,
+      "votes": [
+        {
+          "scores": [
+            {
+              "score": 2,
+              "candidate_id": "0"
+            },
+            {
+              "score": 3,
+              "candidate_id": "1"
+            },
+            {
+              "score": null,
+              "candidate_id": "2"
+            },
+            {
+              "score": 1,
+              "candidate_id": "3"
+            },
+            {
+              "score": 4,
+              "candidate_id": "4"
+            },
+            {
+              "score": null,
+              "candidate_id": "5"
+            },
+            {
+              "score": 5,
+              "candidate_id": "6"
+            },
+            {
+              "score": null,
+              "candidate_id": "7"
+            },
+            {
+              "score": 6,
+              "candidate_id": "8"
+            },
+            {
+              "score": null,
+              "candidate_id": "9"
+            },
+            {
+              "score": null,
+              "candidate_id": "10"
+            },
+            {
+              "score": null,
+              "candidate_id": "11"
+            }
+          ],
+          "race_id": "0"
+        }
+      ]
+    },
+    {
+      "ballot_id": "3b53565c-ec74-4053-b903-167f6673f7bc",
+      "election_id": "yybtht",
+      "precinct": null,
+      "votes": [
+        {
+          "scores": [
+            {
+              "score": null,
+              "candidate_id": "0"
+            },
+            {
+              "score": null,
+              "candidate_id": "1"
+            },
+            {
+              "score": 3,
+              "candidate_id": "2"
+            },
+            {
+              "score": 2,
+              "candidate_id": "3"
+            },
+            {
+              "score": 1,
+              "candidate_id": "4"
+            },
+            {
+              "score": 4,
+              "candidate_id": "5"
+            },
+            {
+              "score": 5,
+              "candidate_id": "6"
+            },
+            {
+              "score": null,
+              "candidate_id": "7"
+            },
+            {
+              "score": 6,
+              "candidate_id": "8"
+            },
+            {
+              "score": null,
+              "candidate_id": "9"
+            },
+            {
+              "score": null,
+              "candidate_id": "10"
+            },
+            {
+              "score": null,
+              "candidate_id": "11"
+            }
+          ],
+          "race_id": "0"
+        }
+      ]
+    },
+    {
+      "ballot_id": "480438ae-a0c4-4ce6-97d7-041a0937768f",
+      "election_id": "yybtht",
+      "precinct": null,
+      "votes": [
+        {
+          "scores": [
+            {
+              "score": 1,
+              "candidate_id": "0"
+            },
+            {
+              "score": 2,
+              "candidate_id": "1"
+            },
+            {
+              "score": 4,
+              "candidate_id": "2"
+            },
+            {
+              "score": 3,
+              "candidate_id": "3"
+            },
+            {
+              "score": 5,
+              "candidate_id": "4"
+            },
+            {
+              "score": 6,
+              "candidate_id": "5"
+            },
+            {
+              "score": null,
+              "candidate_id": "6"
+            },
+            {
+              "score": null,
+              "candidate_id": "7"
+            },
+            {
+              "score": null,
+              "candidate_id": "8"
+            },
+            {
+              "score": null,
+              "candidate_id": "9"
+            },
+            {
+              "score": null,
+              "candidate_id": "10"
+            },
+            {
+              "score": null,
+              "candidate_id": "11"
+            }
+          ],
+          "race_id": "0"
+        }
+      ]
+    },
+    {
+      "ballot_id": "4956d8d4-1c32-49cb-b2fa-6ae30994ff92",
+      "election_id": "yybtht",
+      "precinct": null,
+      "votes": [
+        {
+          "scores": [
+            {
+              "score": 1,
+              "candidate_id": "0"
+            },
+            {
+              "score": 3,
+              "candidate_id": "1"
+            },
+            {
+              "score": null,
+              "candidate_id": "2"
+            },
+            {
+              "score": 2,
+              "candidate_id": "3"
+            },
+            {
+              "score": null,
+              "candidate_id": "4"
+            },
+            {
+              "score": null,
+              "candidate_id": "5"
+            },
+            {
+              "score": null,
+              "candidate_id": "6"
+            },
+            {
+              "score": null,
+              "candidate_id": "7"
+            },
+            {
+              "score": 4,
+              "candidate_id": "8"
+            },
+            {
+              "score": null,
+              "candidate_id": "9"
+            },
+            {
+              "score": 6,
+              "candidate_id": "10"
+            },
+            {
+              "score": 5,
+              "candidate_id": "11"
+            }
+          ],
+          "race_id": "0"
+        }
+      ]
+    },
+    {
+      "ballot_id": "681581af-d4ce-4c01-9f04-57a60aa436e2",
+      "election_id": "yybtht",
+      "precinct": null,
+      "votes": [
+        {
+          "scores": [
+            {
+              "score": 6,
+              "candidate_id": "0"
+            },
+            {
+              "score": 5,
+              "candidate_id": "1"
+            },
+            {
+              "score": null,
+              "candidate_id": "2"
+            },
+            {
+              "score": 4,
+              "candidate_id": "3"
+            },
+            {
+              "score": null,
+              "candidate_id": "4"
+            },
+            {
+              "score": 3,
+              "candidate_id": "5"
+            },
+            {
+              "score": 2,
+              "candidate_id": "6"
+            },
+            {
+              "score": null,
+              "candidate_id": "7"
+            },
+            {
+              "score": null,
+              "candidate_id": "8"
+            },
+            {
+              "score": null,
+              "candidate_id": "9"
+            },
+            {
+              "score": null,
+              "candidate_id": "10"
+            },
+            {
+              "score": 1,
+              "candidate_id": "11"
+            }
+          ],
+          "race_id": "0"
+        }
+      ]
+    },
+    {
+      "ballot_id": "8ee3f42a-36f0-447d-be68-ad1b9b31d2b4",
+      "election_id": "yybtht",
+      "precinct": null,
+      "votes": [
+        {
+          "scores": [
+            {
+              "score": 3,
+              "candidate_id": "0"
+            },
+            {
+              "score": 4,
+              "candidate_id": "1"
+            },
+            {
+              "score": null,
+              "candidate_id": "2"
+            },
+            {
+              "score": 1,
+              "candidate_id": "3"
+            },
+            {
+              "score": 2,
+              "candidate_id": "4"
+            },
+            {
+              "score": null,
+              "candidate_id": "5"
+            },
+            {
+              "score": 6,
+              "candidate_id": "6"
+            },
+            {
+              "score": null,
+              "candidate_id": "7"
+            },
+            {
+              "score": 5,
+              "candidate_id": "8"
+            },
+            {
+              "score": null,
+              "candidate_id": "9"
+            },
+            {
+              "score": null,
+              "candidate_id": "10"
+            },
+            {
+              "score": null,
+              "candidate_id": "11"
+            }
+          ],
+          "race_id": "0"
+        }
+      ]
+    },
+    {
+      "ballot_id": "b2bd6279-0d10-4bb8-9a5b-23273871c609",
+      "election_id": "yybtht",
+      "precinct": null,
+      "votes": [
+        {
+          "scores": [
+            {
+              "score": 3,
+              "candidate_id": "0"
+            },
+            {
+              "score": 6,
+              "candidate_id": "1"
+            },
+            {
+              "score": 5,
+              "candidate_id": "2"
+            },
+            {
+              "score": 2,
+              "candidate_id": "3"
+            },
+            {
+              "score": 4,
+              "candidate_id": "4"
+            },
+            {
+              "score": null,
+              "candidate_id": "5"
+            },
+            {
+              "score": 1,
+              "candidate_id": "6"
+            },
+            {
+              "score": null,
+              "candidate_id": "7"
+            },
+            {
+              "score": null,
+              "candidate_id": "8"
+            },
+            {
+              "score": null,
+              "candidate_id": "9"
+            },
+            {
+              "score": null,
+              "candidate_id": "10"
+            },
+            {
+              "score": null,
+              "candidate_id": "11"
+            }
+          ],
+          "race_id": "0"
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-hfmyftbg",
+      "election_id": "yybtht",
+      "precinct": null,
+      "votes": [
+        {
+          "scores": [
+            {
+              "score": 1,
+              "candidate_id": "0"
+            },
+            {
+              "score": null,
+              "candidate_id": "1"
+            },
+            {
+              "score": null,
+              "candidate_id": "2"
+            },
+            {
+              "score": 2,
+              "candidate_id": "3"
+            },
+            {
+              "score": null,
+              "candidate_id": "4"
+            },
+            {
+              "score": null,
+              "candidate_id": "5"
+            },
+            {
+              "score": null,
+              "candidate_id": "6"
+            },
+            {
+              "score": null,
+              "candidate_id": "7"
+            },
+            {
+              "score": null,
+              "candidate_id": "8"
+            },
+            {
+              "score": null,
+              "candidate_id": "9"
+            },
+            {
+              "score": null,
+              "candidate_id": "10"
+            },
+            {
+              "score": null,
+              "candidate_id": "11"
+            }
+          ],
+          "race_id": "0"
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-m6bdt4gv",
+      "election_id": "yybtht",
+      "precinct": null,
+      "votes": [
+        {
+          "scores": [
+            {
+              "score": 2,
+              "candidate_id": "0"
+            },
+            {
+              "score": 1,
+              "candidate_id": "1"
+            },
+            {
+              "score": 5,
+              "candidate_id": "2"
+            },
+            {
+              "score": null,
+              "candidate_id": "3"
+            },
+            {
+              "score": null,
+              "candidate_id": "4"
+            },
+            {
+              "score": 3,
+              "candidate_id": "5"
+            },
+            {
+              "score": 6,
+              "candidate_id": "6"
+            },
+            {
+              "score": null,
+              "candidate_id": "7"
+            },
+            {
+              "score": 4,
+              "candidate_id": "8"
+            },
+            {
+              "score": 6,
+              "candidate_id": "9"
+            },
+            {
+              "score": 4,
+              "candidate_id": "10"
+            },
+            {
+              "score": 6,
+              "candidate_id": "11"
+            }
+          ],
+          "race_id": "0"
+        }
+      ]
+    },
+    {
+      "ballot_id": "c18a306c-d9e9-45a7-bc64-daecbe6a7c8f",
+      "election_id": "yybtht",
+      "precinct": null,
+      "votes": [
+        {
+          "scores": [
+            {
+              "score": 2,
+              "candidate_id": "0"
+            },
+            {
+              "score": null,
+              "candidate_id": "1"
+            },
+            {
+              "score": null,
+              "candidate_id": "2"
+            },
+            {
+              "score": 1,
+              "candidate_id": "3"
+            },
+            {
+              "score": null,
+              "candidate_id": "4"
+            },
+            {
+              "score": 3,
+              "candidate_id": "5"
+            },
+            {
+              "score": null,
+              "candidate_id": "6"
+            },
+            {
+              "score": 4,
+              "candidate_id": "7"
+            },
+            {
+              "score": 5,
+              "candidate_id": "8"
+            },
+            {
+              "score": 6,
+              "candidate_id": "9"
+            },
+            {
+              "score": null,
+              "candidate_id": "10"
+            },
+            {
+              "score": null,
+              "candidate_id": "11"
+            }
+          ],
+          "race_id": "0"
+        }
+      ]
+    },
+    {
+      "ballot_id": "ce619829-937a-44fc-8a51-34c635eebd61",
+      "election_id": "yybtht",
+      "precinct": null,
+      "votes": [
+        {
+          "scores": [
+            {
+              "score": 3,
+              "candidate_id": "0"
+            },
+            {
+              "score": null,
+              "candidate_id": "1"
+            },
+            {
+              "score": null,
+              "candidate_id": "2"
+            },
+            {
+              "score": 1,
+              "candidate_id": "3"
+            },
+            {
+              "score": 2,
+              "candidate_id": "4"
+            },
+            {
+              "score": 6,
+              "candidate_id": "5"
+            },
+            {
+              "score": 5,
+              "candidate_id": "6"
+            },
+            {
+              "score": null,
+              "candidate_id": "7"
+            },
+            {
+              "score": null,
+              "candidate_id": "8"
+            },
+            {
+              "score": null,
+              "candidate_id": "9"
+            },
+            {
+              "score": 4,
+              "candidate_id": "10"
+            },
+            {
+              "score": null,
+              "candidate_id": "11"
+            }
+          ],
+          "race_id": "0"
+        }
+      ]
+    },
+    {
+      "ballot_id": "e3aeebd4-7ae8-4386-8171-b9eb046adbc3",
+      "election_id": "yybtht",
+      "precinct": null,
+      "votes": [
+        {
+          "scores": [
+            {
+              "score": 2,
+              "candidate_id": "0"
+            },
+            {
+              "score": 6,
+              "candidate_id": "1"
+            },
+            {
+              "score": null,
+              "candidate_id": "2"
+            },
+            {
+              "score": 1,
+              "candidate_id": "3"
+            },
+            {
+              "score": 3,
+              "candidate_id": "4"
+            },
+            {
+              "score": 4,
+              "candidate_id": "5"
+            },
+            {
+              "score": null,
+              "candidate_id": "6"
+            },
+            {
+              "score": null,
+              "candidate_id": "7"
+            },
+            {
+              "score": 5,
+              "candidate_id": "8"
+            },
+            {
+              "score": null,
+              "candidate_id": "9"
+            },
+            {
+              "score": null,
+              "candidate_id": "10"
+            },
+            {
+              "score": null,
+              "candidate_id": "11"
+            }
+          ],
+          "race_id": "0"
+        }
+      ]
+    },
+    {
+      "ballot_id": "f8825826-5ff8-49b6-af07-3b35ab762266",
+      "election_id": "yybtht",
+      "precinct": null,
+      "votes": [
+        {
+          "scores": [
+            {
+              "score": 6,
+              "candidate_id": "0"
+            },
+            {
+              "score": null,
+              "candidate_id": "1"
+            },
+            {
+              "score": null,
+              "candidate_id": "2"
+            },
+            {
+              "score": 1,
+              "candidate_id": "3"
+            },
+            {
+              "score": 2,
+              "candidate_id": "4"
+            },
+            {
+              "score": 3,
+              "candidate_id": "5"
+            },
+            {
+              "score": 4,
+              "candidate_id": "6"
+            },
+            {
+              "score": null,
+              "candidate_id": "7"
+            },
+            {
+              "score": 5,
+              "candidate_id": "8"
+            },
+            {
+              "score": null,
+              "candidate_id": "9"
+            },
+            {
+              "score": null,
+              "candidate_id": "10"
+            },
+            {
+              "score": null,
+              "candidate_id": "11"
+            }
+          ],
+          "race_id": "0"
+        }
+      ]
+    },
+    {
+      "ballot_id": "fbd782dd-7d16-4bda-aae4-82cdfc72f6ec",
+      "election_id": "yybtht",
+      "precinct": null,
+      "votes": [
+        {
+          "scores": [
+            {
+              "score": null,
+              "candidate_id": "0"
+            },
+            {
+              "score": null,
+              "candidate_id": "1"
+            },
+            {
+              "score": null,
+              "candidate_id": "2"
+            },
+            {
+              "score": 6,
+              "candidate_id": "3"
+            },
+            {
+              "score": null,
+              "candidate_id": "4"
+            },
+            {
+              "score": 5,
+              "candidate_id": "5"
+            },
+            {
+              "score": 4,
+              "candidate_id": "6"
+            },
+            {
+              "score": null,
+              "candidate_id": "7"
+            },
+            {
+              "score": null,
+              "candidate_id": "8"
+            },
+            {
+              "score": 3,
+              "candidate_id": "9"
+            },
+            {
+              "score": 2,
+              "candidate_id": "10"
+            },
+            {
+              "score": 1,
+              "candidate_id": "11"
+            }
+          ],
+          "race_id": "0"
+        }
+      ]
+    }
+  ]
+}
