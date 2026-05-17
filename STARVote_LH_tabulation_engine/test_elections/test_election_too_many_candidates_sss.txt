@@ -1,0 +1,6 @@
+[Sequentially Spent Score]
+  Tabulating 5 ballots.
+  Maximum score is 5.
+  Want to fill 11 seats.
+  Hare score quota is 2+3/11.
+ElectionError('election must fill 11 seats but there are only 3 candidates')

@@ -1,0 +1,7 @@
+[Reweighted Range Voting]
+  Tabulating 5 ballots.
+  Maximum score is 5.
+  Want to fill 2 seats.
+
+[Reweighted Range Voting: Round 1]
+  There are exactly 2 candidates seeking 2 seats.  Every candidate wins.

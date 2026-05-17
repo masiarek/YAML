@@ -1,0 +1,10 @@
+[STAR Voting]
+  Tabulating 5 ballots.
+  Maximum score is 5.
+
+[STAR Voting: Scoring Round]
+  The two highest-scoring candidates advance to the next round.
+  Only one candidate, they win.
+
+[STAR Voting: Winner]
+  A

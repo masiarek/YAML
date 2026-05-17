@@ -1,0 +1,166 @@
+[Bloc STAR]
+  Tabulating 2909 ballots.
+  Maximum score is 5.
+  Want to fill 5 seats.
+
+[Bloc STAR: Round 1: Scoring Round]
+  The two highest-scoring candidates advance to the next round.
+    Justin Amash      -- 8018 (average 2+2200/2909) -- First place
+    Vermin Supreme    -- 7200 (average 2+1382/2909) -- Second place
+    Judge Jim Gray    -- 3826 (average 1+ 917/2909)
+    Jacob Hornberger  -- 3193 (average 1+ 284/2909)
+    Jo Jorgensen      -- 2625 (average 2625/2909)
+    Adam Kokesh       -- 2324 (average 2324/2909)
+    Daniel Behrman    -- 1941 (average 1941/2909)
+    John Monds        -- 1707 (average 1707/2909)
+    Sam Robb          -- 1315 (average 1315/2909)
+    Sorinne Ardeleanu --  929 (average  929/2909)
+    Arvin Vohra       --  919 (average  919/2909)
+    Brian Ellison     --  830 (average  830/2909)
+    Mark Whitney      --  807 (average  807/2909)
+    Phil Gray         --  687 (average  687/2909)
+    Kenneth Blevins   --  660 (average  660/2909)
+    Jedidiah Hill     --  613 (average  613/2909)
+    Steve Richey      --  572 (average  572/2909)
+    Keenan Dunham     --  559 (average  559/2909)
+    Erik Gerhardt     --  557 (average  557/2909)
+    James Ogle        --  557 (average  557/2909)
+    Rhett Smith       --  546 (average  546/2909)
+    Louis Vanacore    --  519 (average  519/2909)
+  Justin Amash and Vermin Supreme advance.
+
+[Bloc STAR: Round 1: Automatic Runoff Round]
+  The candidate preferred in the most head-to-head matchups wins.
+    Justin Amash   -- 1404 -- First place
+    Vermin Supreme -- 1138
+    No Preference  --  367
+  Justin Amash wins.
+
+[Bloc STAR: Round 2: Scoring Round]
+  The two highest-scoring candidates advance to the next round.
+    Vermin Supreme    -- 7200 (average 2+1382/2909) -- First place
+    Judge Jim Gray    -- 3826 (average 1+ 917/2909) -- Second place
+    Jacob Hornberger  -- 3193 (average 1+ 284/2909)
+    Jo Jorgensen      -- 2625 (average 2625/2909)
+    Adam Kokesh       -- 2324 (average 2324/2909)
+    Daniel Behrman    -- 1941 (average 1941/2909)
+    John Monds        -- 1707 (average 1707/2909)
+    Sam Robb          -- 1315 (average 1315/2909)
+    Sorinne Ardeleanu --  929 (average  929/2909)
+    Arvin Vohra       --  919 (average  919/2909)
+    Brian Ellison     --  830 (average  830/2909)
+    Mark Whitney      --  807 (average  807/2909)
+    Phil Gray         --  687 (average  687/2909)
+    Kenneth Blevins   --  660 (average  660/2909)
+    Jedidiah Hill     --  613 (average  613/2909)
+    Steve Richey      --  572 (average  572/2909)
+    Keenan Dunham     --  559 (average  559/2909)
+    Erik Gerhardt     --  557 (average  557/2909)
+    James Ogle        --  557 (average  557/2909)
+    Rhett Smith       --  546 (average  546/2909)
+    Louis Vanacore    --  519 (average  519/2909)
+  Vermin Supreme and Judge Jim Gray advance.
+
+[Bloc STAR: Round 2: Automatic Runoff Round]
+  The candidate preferred in the most head-to-head matchups wins.
+    Vermin Supreme -- 1351 -- First place
+    Judge Jim Gray --  726
+    No Preference  --  832
+  Vermin Supreme wins.
+
+[Bloc STAR: Round 3: Scoring Round]
+  The two highest-scoring candidates advance to the next round.
+    Judge Jim Gray    -- 3826 (average 1+917/2909) -- First place
+    Jacob Hornberger  -- 3193 (average 1+284/2909) -- Second place
+    Jo Jorgensen      -- 2625 (average 2625/2909)
+    Adam Kokesh       -- 2324 (average 2324/2909)
+    Daniel Behrman    -- 1941 (average 1941/2909)
+    John Monds        -- 1707 (average 1707/2909)
+    Sam Robb          -- 1315 (average 1315/2909)
+    Sorinne Ardeleanu --  929 (average  929/2909)
+    Arvin Vohra       --  919 (average  919/2909)
+    Brian Ellison     --  830 (average  830/2909)
+    Mark Whitney      --  807 (average  807/2909)
+    Phil Gray         --  687 (average  687/2909)
+    Kenneth Blevins   --  660 (average  660/2909)
+    Jedidiah Hill     --  613 (average  613/2909)
+    Steve Richey      --  572 (average  572/2909)
+    Keenan Dunham     --  559 (average  559/2909)
+    Erik Gerhardt     --  557 (average  557/2909)
+    James Ogle        --  557 (average  557/2909)
+    Rhett Smith       --  546 (average  546/2909)
+    Louis Vanacore    --  519 (average  519/2909)
+  Judge Jim Gray and Jacob Hornberger advance.
+
+[Bloc STAR: Round 3: Automatic Runoff Round]
+  The candidate preferred in the most head-to-head matchups wins.
+    Judge Jim Gray   --  706 -- First place
+    Jacob Hornberger --  506
+    No Preference    -- 1697
+  Judge Jim Gray wins.
+
+[Bloc STAR: Round 4: Scoring Round]
+  The two highest-scoring candidates advance to the next round.
+    Jacob Hornberger  -- 3193 (average 1+284/2909) -- First place
+    Jo Jorgensen      -- 2625 (average 2625/2909)  -- Second place
+    Adam Kokesh       -- 2324 (average 2324/2909)
+    Daniel Behrman    -- 1941 (average 1941/2909)
+    John Monds        -- 1707 (average 1707/2909)
+    Sam Robb          -- 1315 (average 1315/2909)
+    Sorinne Ardeleanu --  929 (average  929/2909)
+    Arvin Vohra       --  919 (average  919/2909)
+    Brian Ellison     --  830 (average  830/2909)
+    Mark Whitney      --  807 (average  807/2909)
+    Phil Gray         --  687 (average  687/2909)
+    Kenneth Blevins   --  660 (average  660/2909)
+    Jedidiah Hill     --  613 (average  613/2909)
+    Steve Richey      --  572 (average  572/2909)
+    Keenan Dunham     --  559 (average  559/2909)
+    Erik Gerhardt     --  557 (average  557/2909)
+    James Ogle        --  557 (average  557/2909)
+    Rhett Smith       --  546 (average  546/2909)
+    Louis Vanacore    --  519 (average  519/2909)
+  Jacob Hornberger and Jo Jorgensen advance.
+
+[Bloc STAR: Round 4: Automatic Runoff Round]
+  The candidate preferred in the most head-to-head matchups wins.
+    Jacob Hornberger --  577 -- First place
+    Jo Jorgensen     --  436
+    No Preference    -- 1896
+  Jacob Hornberger wins.
+
+[Bloc STAR: Round 5: Scoring Round]
+  The two highest-scoring candidates advance to the next round.
+    Jo Jorgensen      -- 2625 (average 2625/2909) -- First place
+    Adam Kokesh       -- 2324 (average 2324/2909) -- Second place
+    Daniel Behrman    -- 1941 (average 1941/2909)
+    John Monds        -- 1707 (average 1707/2909)
+    Sam Robb          -- 1315 (average 1315/2909)
+    Sorinne Ardeleanu --  929 (average  929/2909)
+    Arvin Vohra       --  919 (average  919/2909)
+    Brian Ellison     --  830 (average  830/2909)
+    Mark Whitney      --  807 (average  807/2909)
+    Phil Gray         --  687 (average  687/2909)
+    Kenneth Blevins   --  660 (average  660/2909)
+    Jedidiah Hill     --  613 (average  613/2909)
+    Steve Richey      --  572 (average  572/2909)
+    Keenan Dunham     --  559 (average  559/2909)
+    Erik Gerhardt     --  557 (average  557/2909)
+    James Ogle        --  557 (average  557/2909)
+    Rhett Smith       --  546 (average  546/2909)
+    Louis Vanacore    --  519 (average  519/2909)
+  Jo Jorgensen and Adam Kokesh advance.
+
+[Bloc STAR: Round 5: Automatic Runoff Round]
+  The candidate preferred in the most head-to-head matchups wins.
+    Jo Jorgensen  --  558 -- First place
+    Adam Kokesh   --  419
+    No Preference -- 1932
+  Jo Jorgensen wins.
+
+[Bloc STAR: Winners]
+  Justin Amash
+  Vermin Supreme
+  Judge Jim Gray
+  Jacob Hornberger
+  Jo Jorgensen
