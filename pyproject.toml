@@ -3,9 +3,11 @@ name = "yaml"
 version = "0.1.0"
 description = "Schema enforcement for parsing and validating test cases for methods like STAR Voting, RCV-RR, Approval, and RCV-IRV."
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.14"
 dependencies = [
+    "faker>=40.19.1",
     "mypy>=2.0.0",
+    "playwright>=1.60.0",
     "pydantic>=2.13.4",
     "pyyaml>=6.0.3",
     "strictyaml>=1.7.3",

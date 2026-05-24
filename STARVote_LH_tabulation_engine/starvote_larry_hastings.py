@@ -1,48 +1,10 @@
 """
-Script: add_extra_expl.py
+Script: starvote_larry_hastings.py
 Description: Runs a STAR Voting election with detailed tiebreaker analysis and matrix visualization.
-
-UPDATES (Current Version):
--------------------------------------------------------------------------------
-1. HYBRID PARSING SUPPORT:
-   The script now supports two distinct formats for defining ballots in the `csv_input` variable.
-
-   Format A: Standard CSV
-   ----------------------
-   Standard comma-separated values. Supports 'Weight:Score' prefix.
-   Example:
-     A,B,C
-     0,5,2
-     3:5,5,0   <-- (Weighted ballot: 3 voters voted 5,5,0)
-
-   Format B: Compact Underscore (New)
-   ----------------------------------
-   Useful for quick data entry. Ballots are defined as underscore-separated digit groups.
-   Each digit corresponds to a candidate in the Header order.
-   Constraint: Scores must be single digits (0-9).
-
-   Example:
-     A,B,C
-     052_225_323
-
-   Interpretation:
-     - 052 -> A=0, B=5, C=2
-     - 225 -> A=2, B=2, C=5
-     - 323 -> A=3, B=2, C=3
-
-2. VALIDATION:
-   The script now performs a plausibility check on compact segments.
-   If you provide '052' (3 digits) for 4 candidates, it will print a warning and ignore that segment.
-
-3. STANDARDIZED OUTPUT:
-   The "Input Ballot Data" section now always prints as normalized Standard CSV
-   to verify correct parsing.
--------------------------------------------------------------------------------
 """
 
 import starvote
 import re
-import random
 from collections import defaultdict
 from starvote import Tiebreaker
 
@@ -55,47 +17,51 @@ COLOR_RESET = "\033[0m"
 # ---
 # 1. TIEBREAKER CLASS
 # ---
-class SequenceTiebreaker(Tiebreaker):
-    def __init__(self, mode="last", manual_order=None, silent=False):
-        self.mode = mode.lower()
-        self.manual_order = manual_order or []
+class LotNumberTiebreaker(Tiebreaker):
+    def __init__(self, lot_numbers=None, silent=False):
+        self.lot_numbers = lot_numbers or []
         self.silent = silent
         self.order_map = {}
         self.info_printed = False
+        self.expl = ""
 
     def initialize(self, options, ballots):
         # Determine candidate order from the first ballot keys
         first_ballot = next(iter(ballots))
         cands_in_csv_order = list(first_ballot.keys())
 
-        if self.mode == "manual" and self.manual_order:
-            self.preferred_order = self.manual_order
-        elif self.mode in ("first", "left"):
-            self.preferred_order = cands_in_csv_order
+        # Check if the user provided lot numbers
+        if not self.lot_numbers:
+            # DEV MODE: Auto-generate and warn the user
+            if not self.silent:
+                pass
+                # print(f"No Tie-breaking Lot Numbers provided. Auto-generating fallback sequence based on CSV columns.")
+            self.lot_numbers = cands_in_csv_order
+            self.expl = "*** No official Tie-breaking Lot Numbers were provided \n- hence the Ties are resolved using an auto-generated fallback sequence based on the CSV column order."
         else:
-            # Default to 'right' / 'last' / 'reversed'
-            self.preferred_order = list(reversed(cands_in_csv_order))
+            # PRODUCTION MODE: Use the provided numbers
+            self.expl = "*(Ties are resolved by selecting the tied candidate with the highest priority official Lot Number).*"
 
-        # Create a mapping for O(1) lookups: {Candidate: Index}
-        self.order_map = {c: i for i, c in enumerate(self.preferred_order)}
-
-        if not self.info_printed and not self.silent:
-            direction = "Left/First" if self.mode in ("first", "left") else "Right/Last"
-            print(
-                f'Tiebreaker: "{self.mode.upper()}" ({direction}) - priority order: {self.preferred_order}'
-            )
-            self.info_printed = True
+        # Create an O(1) lookup map: {Candidate: Priority_Index}
+        self.order_map = {c: i for i, c in enumerate(self.lot_numbers)}
 
     def __call__(self, options, tie, desired, exception):
-        # Sort tied candidates by their index in the preferred_order list
+        # We only enter this function if an actual tie has occurred.
+
+        # Print the explanation if this is the first tie we've encountered
+        if not self.info_printed and not self.silent:
+            print(f"\n{self.expl}")
+            print(f"Tiebreaker: LOT NUMBERS - priority sequence: {self.lot_numbers}")
+            self.info_printed = True
+
+        # Sort tied candidates by their assigned lot number priority
         ranked = sorted(tie, key=lambda c: self.order_map.get(c, 999))
         winners = ranked[:desired]
 
         if not self.silent:
-            print("\n[Tiebreaker: Sequence Priority]")
+            print("\n[Tiebreaker: Lot Number Priority]")
             print(f"  Tie detected among: {tie}")
-            print(f"  Priority order: {self.preferred_order}")
-            print(f"  Result: {winners} selected based on sequence priority.")
+            print(f"  Result: {winners} selected based on lot numbers.")
 
         return winners
 
@@ -317,22 +283,19 @@ def print_extended_analysis(ballots, winners):
     top_scorers = [c for c, s in scores.items() if s == max_score]
 
     if runoff_winner_name not in top_scorers:
-        ranked_by_score = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-        score_winner_name = ranked_by_score[0][0]
-        print(f"\n{'  NOTE: SCORING / RUNOFF DIVERGENCE DETECTED  ':^60}")
+        # A Reversal HAPPENED (Runoff winner is NOT the score winner)
+        score_winners_str = ", ".join(top_scorers)
+        print(f"\n{'RUNOFF REVERSAL / MAJORITY PREFERENCE OVERRIDE:'}",f"Score Round Winner(s) = ({score_winners_str}) and Runoff Round Winner = ({runoff_winner_name})")
         print(
-            f"Score Winner ({score_winner_name}) != Runoff Winner ({runoff_winner_name})"
-        )
-    else:
-        print(
-            f"\n[Analysis] Winner '{runoff_winner_name}' had the highest score ({max_score}). No divergence."
-        )
+            f"Candidate {score_winners_str} earned the highest total score, but Candidate {runoff_winner_name} won the automatic runoff by being the head-to-head majority favorite.\n"
 
-
+        )
+    elif len(top_scorers) == 1:
+        pass
 # ---
 # 3. EXECUTION LOGIC
 # ---
-def run_election(csv_input, mode, manual_list, seed):
+def run_election(csv_input, lot_numbers, show_matrix=True):
     # Parse once, return both headers and parsed ballots
     candidates, ballots = parse_ballots_from_string(csv_input)
 
@@ -344,19 +307,9 @@ def run_election(csv_input, mode, manual_list, seed):
     matrix = calculate_preference_matrix(candidates, ballots)
     finalists = get_top_two_finalists(ballots)
 
-    if mode.lower() == "random":
-        tiebreaker_obj = lambda options, tie, desired, exception: random.sample(
-            list(tie), desired
-        )
-        tiebreaker_silent = tiebreaker_obj
-        random.seed(seed)
-    else:
-        tiebreaker_obj = SequenceTiebreaker(
-            mode=mode, manual_order=manual_list, silent=False
-        )
-        tiebreaker_silent = SequenceTiebreaker(
-            mode=mode, manual_order=manual_list, silent=True
-        )
+    # Initialize the new deterministic tiebreakers
+    tiebreaker_obj = LotNumberTiebreaker(lot_numbers=lot_numbers, silent=False)
+    tiebreaker_silent = LotNumberTiebreaker(lot_numbers=lot_numbers, silent=True)
 
     # Run silent election for analysis
     if winners_silent := starvote.election(
@@ -373,13 +326,13 @@ def run_election(csv_input, mode, manual_list, seed):
             # Reconstruct row from dict
             print(",".join(str(b[c]) for c in candidates))
 
-        print_matrix(candidates, matrix, finalists)
+        # CONFIGURED MATRIX OUTPUT
+        if show_matrix:
+            print_matrix(candidates, matrix, finalists)
+
         print_extended_analysis(ballots, winners_silent)
 
     print("\n--- STARVOTE results ---")
-    if mode.lower() == "random":
-        random.seed(seed)
-        print(f"Tiebreaker: RANDOM Mode (Seed: {seed})")
 
     winners = starvote.election(
         method=starvote.star,
@@ -392,17 +345,60 @@ def run_election(csv_input, mode, manual_list, seed):
 
 
 if __name__ == "__main__":
-    # Compact Format Input with intentional error for testing:
-    # '052' (3 digits) vs 'A,B,C,D' (4 candidates) -> Should warn
+
+
+
+
+
+
+
+
+
+
+# Code is available at: "https://github.com/larryhastings/starvote"
 
     csv_input = """
-A,B,C,D,E
-5,0,4,4,1
+A,B,C
+0,0,5
+0,0,5
+0,0,5
+0,0,5
+0,1,5
 """
-    # TIEBREAKER SETTINGS
-    # Options: 'left', 'right', 'random', 'manual'
-    TIEBREAKER_MODE = "left"
-    MANUAL_ORDER = ["B", "A", "C"]
-    RANDOM_SEED = 42
 
-    run_election(csv_input, TIEBREAKER_MODE, MANUAL_ORDER, RANDOM_SEED)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # TIEBREAKER SETTING
+    # Provide a list like ["B", "A", "C"] for production ties.
+    # Leave empty [] to auto-generate based on CSV columns for quick testing.
+    LOT_NUMBERS = []
+
+    # FLAG: Set to False to hide the Preference Matrix and Condorcet output
+    SHOW_MATRIX = False
+
+    run_election(csv_input, LOT_NUMBERS, SHOW_MATRIX)

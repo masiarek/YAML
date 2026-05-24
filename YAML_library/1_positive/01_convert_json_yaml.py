@@ -235,8 +235,12 @@ def convert_election_data(input_json_path, engine_module):
         if engine_module and "STAR" in voting_method:
             try:
                 import starvote
+
+                # Replace dashes with zeros specifically for the tabulation engine
+                tabulation_csv = csv_string.replace('-', '0')
+
                 # 1. Run silently for clean array of winners using exact number of seats
-                _, parsed_ballots = engine_module.parse_ballots_from_string(csv_string)
+                _, parsed_ballots = engine_module.parse_ballots_from_string(tabulation_csv)
                 if parsed_ballots:
                     tb = engine_module.SequenceTiebreaker(mode='left', silent=True)
                     winners_set = starvote.election(
@@ -253,7 +257,7 @@ def convert_election_data(input_json_path, engine_module):
                 log_capture = io.StringIO()
                 with redirect_stdout(log_capture):
                     engine_module.run_election(
-                        csv_input=csv_string,
+                        csv_input=tabulation_csv,
                         mode="left",
                         manual_list=[],
                         seed=42
@@ -268,7 +272,7 @@ def convert_election_data(input_json_path, engine_module):
 
         minimal_race["expected_results"] = {
             "winners": expected_winners,
-            "analysis_log": format_description(analysis_log)
+            "report": format_description(analysis_log)  # Changed from analysis_log to report
         }
         # ----------------------------------------------------
 
@@ -312,7 +316,7 @@ if __name__ == "__main__":
         if str(engine_dir) not in sys.path:
             sys.path.append(str(engine_dir))
         try:
-            import add_extra_expl as engine_module
+            import starvote_larry_hastings as engine_module
         except ImportError as e:
             print(f"Warning: Could not import add_extra_expl. Expected results will be skipped. ({e})")
     else:
