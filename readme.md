@@ -1,4 +1,4 @@
-# Better Voting Test Library: Pydantic Schema Validation
+# Better Voting Test Library (STAR Voting, Approval Voting, RCV Methods: Pydantic Schema Validation
 
 A standardized, strongly-typed schema for defining election test cases that support Better Voting methods.
 
