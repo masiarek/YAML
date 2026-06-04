@@ -285,9 +285,9 @@ def print_extended_analysis(ballots, winners):
     if runoff_winner_name not in top_scorers:
         # A Reversal HAPPENED (Runoff winner is NOT the score winner)
         score_winners_str = ", ".join(top_scorers)
-        print(f"\n{'RUNOFF REVERSAL / MAJORITY PREFERENCE OVERRIDE:'}",f"Score Round Winner(s) = ({score_winners_str}) and Runoff Round Winner = ({runoff_winner_name})")
+        print(f"\n{'Majority Preference Enforcement Principle:\n'}",f" - Score Round Winner(s) = ({score_winners_str}) \n  - Runoff Round Winner = ({runoff_winner_name})")
         print(
-            f"Candidate {score_winners_str} earned the highest total score, but Candidate {runoff_winner_name} won the automatic runoff by being the head-to-head majority favorite.\n"
+            f"  Candidate {score_winners_str} earned the highest total score, \n  but Candidate {runoff_winner_name} won the automatic runoff by being the head-to-head majority favorite.\n"
 
         )
     elif len(top_scorers) == 1:
@@ -359,11 +359,12 @@ if __name__ == "__main__":
 
     csv_input = """
 A,B,C
-0,0,5
-0,0,5
-0,0,5
-0,0,5
-0,1,5
+5,2,0
+5,2,0
+4,5,0
+4,5,0
+4,5,0
+
 """
 
 
@@ -399,6 +400,6 @@ A,B,C
     LOT_NUMBERS = []
 
     # FLAG: Set to False to hide the Preference Matrix and Condorcet output
-    SHOW_MATRIX = False
+    SHOW_MATRIX = True
 
     run_election(csv_input, LOT_NUMBERS, SHOW_MATRIX)

@@ -242,7 +242,7 @@ def convert_election_data(input_json_path, engine_module):
                 # 1. Run silently for clean array of winners using exact number of seats
                 _, parsed_ballots = engine_module.parse_ballots_from_string(tabulation_csv)
                 if parsed_ballots:
-                    tb = engine_module.SequenceTiebreaker(mode='left', silent=True)
+                    tb = engine_module.LotNumberTiebreaker(lot_numbers=[], silent=True)
                     winners_set = starvote.election(
                         method=starvote.star,
                         ballots=parsed_ballots,
@@ -258,9 +258,8 @@ def convert_election_data(input_json_path, engine_module):
                 with redirect_stdout(log_capture):
                     engine_module.run_election(
                         csv_input=tabulation_csv,
-                        mode="left",
-                        manual_list=[],
-                        seed=42
+                        lot_numbers=[],
+                        show_matrix=True
                     )
                 # Filter out potential ANSI color codes for clean YAML
                 raw_log = log_capture.getvalue()
