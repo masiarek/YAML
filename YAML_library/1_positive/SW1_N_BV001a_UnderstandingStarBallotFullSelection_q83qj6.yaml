@@ -1,0 +1,85 @@
+election:
+  election_title: BV001a - Understanding STAR Ballot - full selection
+  election_description: |-
+    Ballots with all selections made (fully marked ballots). BV id - q83qj6
+  races:
+  - race_id: '0'
+    race_description: |-
+      Show explicit zero for Blake.
+    num_winners: 1
+    voting_method: STAR
+    candidates:
+    - {cand_id: A, candidate_name: Andre}
+    - {cand_id: B, candidate_name: Blake}
+    - {cand_id: C, candidate_name: Carmen}
+    - {cand_id: D, candidate_name: David}
+    - {cand_id: E, candidate_name: Erin}
+    ballots: |-
+      A,B,C,D,E
+      5,0,4,4,1
+    expected_results:
+      winners:
+      - A
+      report: |-
+        --- Input Ballot Data ---
+        A,B,C,D,E
+        5,0,4,4,1
+
+        --- Runoff (Preference) Matrix ---
+        Legend: For - Against - No Preference
+                * indicates Top 2 Finalist
+                       |    * A     |     B     |   * C     |     D     |     E     |
+        -----------------------------------------------------------------------------
+                 * A > |    ---     |1 - 0 - 0  |1 - 0 - 0  |1 - 0 - 0  |1 - 0 - 0  |
+                   B > | 0 - 1 - 0  |   ---     |0 - 1 - 0  |0 - 1 - 0  |0 - 1 - 0  |
+                 * C > | 0 - 1 - 0  |1 - 0 - 0  |   ---     |0 - 0 - 1  |1 - 0 - 0  |
+                   D > | 0 - 1 - 0  |1 - 0 - 0  |0 - 0 - 1  |   ---     |1 - 0 - 0  |
+                   E > | 0 - 1 - 0  |1 - 0 - 0  |0 - 1 - 0  |0 - 1 - 0  |   ---     |
+
+        [Condorcet Winner]
+          A
+
+        --- STARVOTE results ---
+        [STAR Voting]
+         Tabulating 1 ballots.
+         Maximum score is 5.
+
+        [STAR Voting: Scoring Round]
+         The two highest-scoring candidates advance to the next round.
+           A -- 5 (average 5) -- First place
+           C -- 4 (average 4) -- Tied for second place
+           D -- 4 (average 4) -- Tied for second place
+           E -- 1 (average 1)
+           B -- 0 (average 0)
+         A advances, but there's a two-way tie for second.
+
+        [STAR Voting: Scoring Round: First tiebreaker]
+         The candidate preferred in the most head-to-head matchups advances.
+           C                -- 0 -- Tied for second place
+           D                -- 0 -- Tied for second place
+           Equal Preference -- 1
+         There's still a two-way tie for second.
+
+        [STAR Voting: Scoring Round: Second tiebreaker]
+         The candidate with the most votes of score 5 advances.
+           C -- 0 -- Tied for second place
+           D -- 0 -- Tied for second place
+         There's still a two-way tie for second.
+
+        *** No official Tie-breaking Lot Numbers were provided
+        - hence the Ties are resolved using an auto-generated fallback sequence based on the CSV column order.
+        Tiebreaker: LOT NUMBERS - priority sequence: ['A', 'B', 'C', 'D', 'E']
+
+        [Tiebreaker: Lot Number Priority]
+          Tie detected among: ['C', 'D']
+          Result: ['C'] selected based on lot numbers.
+
+        [STAR Voting: Automatic Runoff Round]
+         The candidate preferred in the most head-to-head matchups wins.
+           A                -- 1 -- First place
+           C                -- 0
+           Equal Preference -- 0
+         A wins.
+
+        [STAR Voting: Winner]
+         A
