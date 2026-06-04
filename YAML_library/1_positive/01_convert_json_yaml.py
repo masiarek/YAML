@@ -283,7 +283,7 @@ def convert_election_data(input_json_path, engine_module):
     pascal_title = "".join(word.capitalize() for word in clean_title_alpha.split()) or "Election"
 
     bv_part = f"{bv_prefix}_" if bv_prefix else ""
-    base_filename = f"{primary_method_code}W{primary_num_winners}_{tie_code}_{bv_part}{pascal_title}_{election_id}"
+    base_filename = f"{primary_method_code}_W{primary_num_winners}_{tie_code}_{bv_part}{pascal_title}_{election_id}"
 
     yaml_filename = f"{base_filename}.yaml"
     json_filename = f"{base_filename}.json"
@@ -299,7 +299,8 @@ def convert_election_data(input_json_path, engine_module):
     new_json_path = original_json_path.parent / json_filename
 
     if original_json_path.name != json_filename:
-        original_json_path.rename(new_json_path)
+        # Use replace() instead of rename() to overwrite existing files on Windows
+        original_json_path.replace(new_json_path)
         print(f"Renamed original JSON to: {json_filename}\n")
 
 

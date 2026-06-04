@@ -1,13 +1,11 @@
 election:
-  election_title: BV001b - Understanding STAR Ballot - limited selections (implicit
-    zeros)
+  election_title: BV001a - Understanding STAR Ballot - full selection
   election_description: |-
-    Candidate Blake receives an implicit zero. BV id - ch2hkq
+    Ballots with all selections made (fully marked ballots). BV id - q83qj6
   races:
   - race_id: '0'
-    race_title: BV001a - Understanding STAR Ballot - full selection
     race_description: |-
-      Show explicit (zero) and implicit (NULL / dash) zero for Blake.
+      Show explicit zero for Blake.
     num_winners: 1
     voting_method: STAR
     candidates:
@@ -18,7 +16,6 @@ election:
     - {cand_id: E, candidate_name: Erin}
     ballots: |-
       A,B,C,D,E
-      5,-,4,4,1
       5,0,4,4,1
     expected_results:
       winners:
@@ -27,41 +24,40 @@ election:
         --- Input Ballot Data ---
         A,B,C,D,E
         5,0,4,4,1
-        5,0,4,4,1
 
         --- Runoff (Preference) Matrix ---
         Legend: For - Against - No Preference
                 * indicates Top 2 Finalist
                        |    * A     |     B     |   * C     |     D     |     E     |
         -----------------------------------------------------------------------------
-                 * A > |    ---     |2 - 0 - 0  |2 - 0 - 0  |2 - 0 - 0  |2 - 0 - 0  |
-                   B > | 0 - 2 - 0  |   ---     |0 - 2 - 0  |0 - 2 - 0  |0 - 2 - 0  |
-                 * C > | 0 - 2 - 0  |2 - 0 - 0  |   ---     |0 - 0 - 2  |2 - 0 - 0  |
-                   D > | 0 - 2 - 0  |2 - 0 - 0  |0 - 0 - 2  |   ---     |2 - 0 - 0  |
-                   E > | 0 - 2 - 0  |2 - 0 - 0  |0 - 2 - 0  |0 - 2 - 0  |   ---     |
+                 * A > |    ---     |1 - 0 - 0  |1 - 0 - 0  |1 - 0 - 0  |1 - 0 - 0  |
+                   B > | 0 - 1 - 0  |   ---     |0 - 1 - 0  |0 - 1 - 0  |0 - 1 - 0  |
+                 * C > | 0 - 1 - 0  |1 - 0 - 0  |   ---     |0 - 0 - 1  |1 - 0 - 0  |
+                   D > | 0 - 1 - 0  |1 - 0 - 0  |0 - 0 - 1  |   ---     |1 - 0 - 0  |
+                   E > | 0 - 1 - 0  |1 - 0 - 0  |0 - 1 - 0  |0 - 1 - 0  |   ---     |
 
         [Condorcet Winner]
           A
 
         --- STARVOTE results ---
         [STAR Voting]
-         Tabulating 2 ballots.
+         Tabulating 1 ballots.
          Maximum score is 5.
 
         [STAR Voting: Scoring Round]
          The two highest-scoring candidates advance to the next round.
-           A -- 10 (average 5) -- First place
-           C --  8 (average 4) -- Tied for second place
-           D --  8 (average 4) -- Tied for second place
-           E --  2 (average 1)
-           B --  0 (average 0)
+           A -- 5 (average 5) -- First place
+           C -- 4 (average 4) -- Tied for second place
+           D -- 4 (average 4) -- Tied for second place
+           E -- 1 (average 1)
+           B -- 0 (average 0)
          A advances, but there's a two-way tie for second.
 
         [STAR Voting: Scoring Round: First tiebreaker]
          The candidate preferred in the most head-to-head matchups advances.
            C                -- 0 -- Tied for second place
            D                -- 0 -- Tied for second place
-           Equal Preference -- 2
+           Equal Preference -- 1
          There's still a two-way tie for second.
 
         [STAR Voting: Scoring Round: Second tiebreaker]
@@ -80,7 +76,7 @@ election:
 
         [STAR Voting: Automatic Runoff Round]
          The candidate preferred in the most head-to-head matchups wins.
-           A                -- 2 -- First place
+           A                -- 1 -- First place
            C                -- 0
            Equal Preference -- 0
          A wins.

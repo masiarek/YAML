@@ -39,7 +39,7 @@
             "candidate_name": "Erin"
           }
         ],
-        "description": "Show explicit zero for Blake."
+        "description": "Show explicit (zero) and implicit (NULL / dash) zero for Blake."
       }
     ],
     "settings": {
@@ -56,7 +56,7 @@
     "claim_key_hash": "65305c205cf534ef9ca93ad0f6515883fd0fb8404965267f3dc5776fad018b32",
     "is_public": false,
     "create_date": "2026-05-17T14:31:30.087Z",
-    "update_date": "1779028349712",
+    "update_date": "1780584888428",
     "head": true,
     "ballot_source": "live_election",
     "public_archive_id": null
