@@ -35,7 +35,6 @@ class LotNumberTiebreaker(Tiebreaker):
             # DEV MODE: Auto-generate and warn the user
             if not self.silent:
                 pass
-                # print(f"No Tie-breaking Lot Numbers provided. Auto-generating fallback sequence based on CSV columns.")
             self.lot_numbers = cands_in_csv_order
             self.expl = "*** No official Tie-breaking Lot Numbers were provided \n- hence the Ties are resolved using an auto-generated fallback sequence based on the CSV column order."
         else:
@@ -205,7 +204,7 @@ def print_matrix(candidates, matrix, finalists=None):
         finalists = []
     print("\n--- Runoff (Preference) Matrix ---")
     print(
-        f"Legend: {COLOR_GREEN}For{COLOR_RESET} - {COLOR_RED}Against{COLOR_RESET} - No Preference"
+        f"Legend: {COLOR_GREEN}For{COLOR_RESET} - {COLOR_RED}Against{COLOR_RESET} - Equal Preference (Equal Support or Equal Opposition)"
     )
     print("        * indicates Top 2 Finalist")
 
@@ -292,6 +291,8 @@ def print_extended_analysis(ballots, winners):
         )
     elif len(top_scorers) == 1:
         pass
+
+
 # ---
 # 3. EXECUTION LOGIC
 # ---
@@ -320,11 +321,10 @@ def run_election(csv_input, lot_numbers, show_matrix=True):
         verbosity=0,
     ):
         # STANDARDIZED OUTPUT: Print parsed data as Standard CSV
-        print("--- Input Ballot Data ---")
         print(",".join(candidates))
         for b in ballots:
             # Reconstruct row from dict
-            print(",".join(str(b[c]) for c in candidates))
+            print(",".join(str(b.get(c, 0)) for c in candidates))
 
         # CONFIGURED MATRIX OUTPUT
         if show_matrix:
@@ -334,6 +334,24 @@ def run_election(csv_input, lot_numbers, show_matrix=True):
 
     print("\n--- STARVOTE results ---")
 
+    # --- NEW: Intercept library print calls to fix grammar and terminology ---
+    def custom_print(*args, **kwargs):
+        if args and isinstance(args[0], str):
+            text = args[0]
+
+            # 1. Fix the pluralization
+            text = text.replace("Tabulating 1 ballots.", "Tabulating 1 ballot.")
+
+            # 2. Update terminology for Equal Preferences
+            text = re.sub(
+                r"(No Preference|Equal Preference)(\s*--\s*\d+)",
+                r"Equal Preference\2 (Equal Support or Equal Opposition)",
+                text
+            )
+
+            args = (text,) + args[1:]
+        print(*args, **kwargs)
+
     winners = starvote.election(
         method=starvote.star,
         ballots=ballots,
@@ -341,58 +359,19 @@ def run_election(csv_input, lot_numbers, show_matrix=True):
         tiebreaker=tiebreaker_obj,
         verbosity=1,
         maximum_score=5,
+        print=custom_print  # Inject the custom print function here
     )
 
 
 if __name__ == "__main__":
 
-
-
-
-
-
-
-
-
-
-# Code is available at: "https://github.com/larryhastings/starvote"
+    # Code is available at: "https://github.com/larryhastings/starvote"
 
     csv_input = """
+# A - Alice Adams, B - Brian Baker, C - Chloe Carter
 A,B,C
-5,2,0
-5,2,0
-4,5,0
-4,5,0
-4,5,0
-
+2,5,0
 """
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     # TIEBREAKER SETTING
     # Provide a list like ["B", "A", "C"] for production ties.
@@ -400,6 +379,6 @@ A,B,C
     LOT_NUMBERS = []
 
     # FLAG: Set to False to hide the Preference Matrix and Condorcet output
-    SHOW_MATRIX = True
+    SHOW_MATRIX = False
 
     run_election(csv_input, LOT_NUMBERS, SHOW_MATRIX)
