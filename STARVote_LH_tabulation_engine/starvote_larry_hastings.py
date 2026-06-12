@@ -370,7 +370,9 @@ if __name__ == "__main__":
     csv_input = """
 # A - Alice Adams, B - Brian Baker, C - Chloe Carter
 A,B,C
-2,5,0
+5,5,5
+5,5,5
+5,5,5
 """
 
     # TIEBREAKER SETTING

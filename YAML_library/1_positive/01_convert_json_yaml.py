@@ -6,6 +6,11 @@ import io
 from contextlib import redirect_stdout
 from pathlib import Path
 
+try:
+    import starvote
+except ImportError:
+    starvote = None
+
 
 # 1. Custom string class to force the YAML block scalar (|) style
 class LiteralString(str):
@@ -118,6 +123,13 @@ def convert_election_data(input_json_path, engine_module):
     # Variables for filename generation (derived from the primary/first race)
     primary_method_code = "U"
     primary_num_winners = 1
+    all_race_descs = []
+
+    # Pre-index ballots by race_id to avoid O(n²) lookup in the race loop
+    ballots_by_race = {}
+    for b in raw_ballots:
+        for v in b.get("votes", []):
+            ballots_by_race.setdefault(v.get("race_id"), []).append((b, v))
 
     for idx, race in enumerate(election.get("races", [])):
         race_id = race.get("race_id")
@@ -150,12 +162,12 @@ def convert_election_data(input_json_path, engine_module):
 
         # Extract categories and clean description at the Race level
         orig_race_desc = race.get("description") or ""
+        all_race_descs.append(orig_race_desc)
         clean_race_desc, race_cats = extract_categories_and_clean(orig_race_desc)
 
         candidates = race.get("candidates", [])
         cand_ids = []
         formatted_candidates = []
-        uuid_to_cand_id = {}
         used_ids = set()
 
         for index, c in enumerate(candidates):
@@ -175,28 +187,22 @@ def convert_election_data(input_json_path, engine_module):
                     new_cand_id = get_cand_id(fallback_idx)
 
             used_ids.add(new_cand_id)
-            uuid_to_cand_id[old_uuid] = new_cand_id
             cand_ids.append(new_cand_id)
 
             formatted_candidates.append(FlowDict({
                 "cand_id": new_cand_id,
-                "candidate_name": name or c.get("candidate_name", "")
+                "candidate_name": name
             }))
 
         race_ballots = []
-        for b in raw_ballots:
-            vote_for_race = next((v for v in b.get("votes", []) if v.get("race_id") == race_id), None)
+        for _b, vote_for_race in ballots_by_race.get(race_id, []):
+            score_map = {}
+            for s in vote_for_race.get("scores", []):
+                raw_score = s.get("score")
+                score_map[s.get("candidate_id")] = str(raw_score) if raw_score is not None else "-"
 
-            if vote_for_race:
-                score_map = {}
-                for s in vote_for_race.get("scores", []):
-                    raw_score = s.get("score")
-                    score_map[s.get("candidate_id")] = str(raw_score) if raw_score is not None else "-"
-
-                score_list = [score_map.get(c.get("candidate_id"), "-") for c in candidates]
-
-                # Append raw scores directly (No 1: prefix)
-                race_ballots.append(",".join(score_list))
+            score_list = [score_map.get(c.get("candidate_id"), "-") for c in candidates]
+            race_ballots.append(",".join(score_list))
 
         if race_ballots:
             header = ",".join(cand_ids)
@@ -232,10 +238,8 @@ def convert_election_data(input_json_path, engine_module):
         expected_winners = []
         analysis_log = ""
 
-        if engine_module and "STAR" in voting_method:
+        if engine_module and starvote and "STAR" in voting_method:
             try:
-                import starvote
-
                 # Replace dashes with zeros specifically for the tabulation engine
                 tabulation_csv = csv_string.replace('-', '0')
 
@@ -278,7 +282,7 @@ def convert_election_data(input_json_path, engine_module):
         minimal_data["election"]["races"].append(minimal_race)
 
     # --- Filename Generation ---
-    tie_code = "T" if "tie" in (elec_cats + orig_race_desc).lower() else "N"
+    tie_code = "T" if "tie" in (elec_cats + " ".join(all_race_descs)).lower() else "N"
     clean_title_alpha = re.sub(r'[^a-zA-Z0-9\s]', '', clean_title).strip()
     pascal_title = "".join(word.capitalize() for word in clean_title_alpha.split()) or "Election"
 
