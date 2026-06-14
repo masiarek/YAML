@@ -14,7 +14,7 @@
     Amy           -- 3 -- Tied for first place
     Brian         -- 3 -- Tied for first place
     Chuck         -- 3 -- Tied for first place
-    No Preference -- 0
+    Equal Preference -- 0
   There's still a three-way tie for first.
 
 [STAR Voting: Scoring Round: Second tiebreaker]

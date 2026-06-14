@@ -55,7 +55,11 @@ def inject_test_elections(cls, argv): # pragma: no cover
             text_clear, text_print, text_getvalue = starvote._printer()
 
             try:
-                starvote.main_with_usage(["-r", election_path], print=text_print)
+                # The committed .txt fixtures include the per-candidate
+                # averages and the "Maximum score is N." line, so request
+                # them explicitly with -a and -m (both are suppressed by
+                # default).
+                starvote.main_with_usage(["-r", "-a", "-M", election_path], print=text_print)
                 got = text_getvalue().strip().split("\n")
             except Exception as e: # pragma: no cover
                 got = [str(e)]
@@ -435,6 +439,8 @@ class StarvoteTests(unittest.TestCase):
             tiebreaker=t,
             print=text_print,
             verbosity=2,
+            print_averages=True,
+            print_maximum_score=True,
             )
         self.assertEqual(result, ['C'])
         expected_text = """
@@ -459,10 +465,10 @@ class StarvoteTests(unittest.TestCase):
 
 [STAR Voting: Scoring Round: First tiebreaker]
  The two candidates preferred in the most head-to-head matchups advance.
-   A             -- 3 -- Tied for first place
-   B             -- 3 -- Tied for first place
-   C             -- 3 -- Tied for first place
-   No Preference -- 0
+   A                -- 3 -- Tied for first place
+   B                -- 3 -- Tied for first place
+   C                -- 3 -- Tied for first place
+   Equal Preference -- 0
  There's still a three-way tie for first.
 
 [STAR Voting: Scoring Round: Second tiebreaker]
@@ -481,9 +487,9 @@ class StarvoteTests(unittest.TestCase):
 
 [STAR Voting: Automatic Runoff Round]
  The candidate preferred in the most head-to-head matchups wins.
-   C             -- 2 -- First place
-   A             -- 1
-   No Preference -- 0
+   C                -- 2 -- First place
+   A                -- 1
+   Equal Preference -- 0
  C wins.
 
 [STAR Voting: Winner]
@@ -505,6 +511,8 @@ class StarvoteTests(unittest.TestCase):
             tiebreaker=t,
             print=text_print,
             verbosity=2,
+            print_averages=True,
+            print_maximum_score=True,
             )
         self.assertEqual(result, ['A'])
         expected_text = """
@@ -521,10 +529,10 @@ class StarvoteTests(unittest.TestCase):
 
 [STAR Voting: Scoring Round: First tiebreaker]
  The two candidates preferred in the most head-to-head matchups advance.
-   A             -- 3 -- Tied for first place
-   B             -- 3 -- Tied for first place
-   C             -- 3 -- Tied for first place
-   No Preference -- 0
+   A                -- 3 -- Tied for first place
+   B                -- 3 -- Tied for first place
+   C                -- 3 -- Tied for first place
+   Equal Preference -- 0
  There's still a three-way tie for first.
 
 [STAR Voting: Scoring Round: Second tiebreaker]
@@ -543,9 +551,9 @@ class StarvoteTests(unittest.TestCase):
 
 [STAR Voting: Automatic Runoff Round]
  The candidate preferred in the most head-to-head matchups wins.
-   A             -- 2 -- First place
-   B             -- 1
-   No Preference -- 0
+   A                -- 2 -- First place
+   B                -- 1
+   Equal Preference -- 0
  A wins.
 
 [STAR Voting: Winner]

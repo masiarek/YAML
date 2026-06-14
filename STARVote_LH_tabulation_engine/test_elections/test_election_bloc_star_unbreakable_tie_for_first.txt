@@ -16,7 +16,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Brian         -- 5 -- First place
     Amy           -- 2
-    No Preference -- 7
+    Equal Preference -- 7
   Brian wins.
 
 [Bloc STAR: Round 2: Scoring Round]
@@ -31,7 +31,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Chuck         -- 3 -- First place
     Amy           -- 2
-    No Preference -- 9
+    Equal Preference -- 9
   Chuck wins.
 
 [Bloc STAR: Round 3: Scoring Round]
@@ -45,7 +45,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     David         -- 4 -- First place
     Amy           -- 2
-    No Preference -- 8
+    Equal Preference -- 8
   David wins.
 
 [Bloc STAR: Winners]

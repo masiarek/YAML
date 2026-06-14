@@ -16,7 +16,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Loren Culp    -- 772 -- First place
     Joshua Freed  -- 115
-    No Preference --  90
+    Equal Preference --  90
   Loren Culp wins.
 
 [STAR Voting: Winner]

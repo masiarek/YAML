@@ -780,6 +780,8 @@ _DEFAULT_PRINT = None
 _DEFAULT_SEATS = 1
 _DEFAULT_TIEBREAKER = hashed_ballots_tiebreaker
 _DEFAULT_VERBOSITY = 0
+_DEFAULT_PRINT_AVERAGES = False
+_DEFAULT_PRINT_MAXIMUM_SCORE = False
 
 class Options:
     """
@@ -797,6 +799,8 @@ class Options:
         seats = _DEFAULT_SEATS,
         tiebreaker = _DEFAULT_TIEBREAKER,
         verbosity = _DEFAULT_VERBOSITY,
+        print_averages = _DEFAULT_PRINT_AVERAGES,
+        print_maximum_score = _DEFAULT_PRINT_MAXIMUM_SCORE,
         ):
         if not isinstance(maximum_score, int):
             raise ValueError(f"invalid maximum score {maximum_score}")
@@ -822,6 +826,8 @@ class Options:
         self.seats = seats
         self.tiebreaker = tiebreaker
         self.verbosity = verbosity
+        self.print_averages = print_averages
+        self.print_maximum_score = print_maximum_score
 
         self.headers = []
         self.header = None
@@ -911,7 +917,8 @@ class Options:
         if self.verbosity:
             self.enter(self.method.name) # stay in this heading forever
             self.print_ballot_count_if_changed(ballots)
-            self.print(f"Maximum score is {maximum_score}.")
+            if self.print_maximum_score:
+                self.print(f"Maximum score is {maximum_score}.")
 
             if self.method.multiwinner:
                 self.print(f"Want to fill {self.seats} seats.")
@@ -1036,6 +1043,9 @@ class Options:
         self.print_result(first, second, tie, advance=advance)
 
     def print_scores_and_averages(self, ballots, scores, first, second, tie, *, advance=False, no_preference=None, ballot_count=None):
+        if not self.print_averages:
+            self.print_scores(scores, first, second, tie, advance=advance, averages=None, no_preference=no_preference)
+            return
         if ballot_count is None:
             ballot_count = len(ballots)
         averages = {candidate: Fraction(score, ballot_count) for candidate, score in scores.items()}
@@ -1744,6 +1754,8 @@ def star_voting(ballots, *,
     print=_DEFAULT_PRINT,
     tiebreaker=_DEFAULT_TIEBREAKER,
     verbosity=_DEFAULT_VERBOSITY,
+    print_averages=_DEFAULT_PRINT_AVERAGES,
+    print_maximum_score=_DEFAULT_PRINT_MAXIMUM_SCORE,
     ):
     """
     Tabulates an election using STAR Voting:
@@ -1775,6 +1787,8 @@ def star_voting(ballots, *,
         seats=1,
         tiebreaker=tiebreaker,
         verbosity=verbosity,
+        print_averages=print_averages,
+        print_maximum_score=print_maximum_score,
         )
     options.initialize(ballots)
 
@@ -1799,6 +1813,8 @@ def bloc_star_voting(ballots, *,
     seats,
     tiebreaker=_DEFAULT_TIEBREAKER,
     verbosity=_DEFAULT_VERBOSITY,
+    print_averages=_DEFAULT_PRINT_AVERAGES,
+    print_maximum_score=_DEFAULT_PRINT_MAXIMUM_SCORE,
     ):
     """
     Tabulates an election using Bloc STAR:
@@ -1830,6 +1846,8 @@ def bloc_star_voting(ballots, *,
         seats=seats,
         tiebreaker=tiebreaker,
         verbosity=verbosity,
+        print_averages=print_averages,
+        print_maximum_score=print_maximum_score,
         )
     options.initialize(ballots)
 
@@ -1877,6 +1895,8 @@ def allocated_score_voting(ballots, *,
     seats,
     tiebreaker=_DEFAULT_TIEBREAKER,
     verbosity=_DEFAULT_VERBOSITY,
+    print_averages=_DEFAULT_PRINT_AVERAGES,
+    print_maximum_score=_DEFAULT_PRINT_MAXIMUM_SCORE,
     ):
     """
     Tabulates an election using Allocated Score Voting:
@@ -1918,6 +1938,8 @@ def allocated_score_voting(ballots, *,
         seats=seats,
         tiebreaker=tiebreaker,
         verbosity=verbosity,
+        print_averages=print_averages,
+        print_maximum_score=print_maximum_score,
         )
 
     original_ballot_count = len(ballots)
@@ -2124,6 +2146,8 @@ def reweighted_range_voting(ballots, *,
     seats,
     tiebreaker=_DEFAULT_TIEBREAKER,
     verbosity=_DEFAULT_VERBOSITY,
+    print_averages=_DEFAULT_PRINT_AVERAGES,
+    print_maximum_score=_DEFAULT_PRINT_MAXIMUM_SCORE,
     ):
     """
     Tabulates an election using Reweighted Range Voting:
@@ -2156,6 +2180,8 @@ def reweighted_range_voting(ballots, *,
         seats=seats,
         tiebreaker=tiebreaker,
         verbosity=verbosity,
+        print_averages=print_averages,
+        print_maximum_score=print_maximum_score,
         )
     options.initialize(ballots)
 
@@ -2266,6 +2292,8 @@ def sequentially_spent_score(ballots, *,
     seats,
     tiebreaker=_DEFAULT_TIEBREAKER,
     verbosity=_DEFAULT_VERBOSITY,
+    print_averages=_DEFAULT_PRINT_AVERAGES,
+    print_maximum_score=_DEFAULT_PRINT_MAXIMUM_SCORE,
     ):
     """
     Tabulates an election using Sequentially Spent Score:
@@ -2298,6 +2326,8 @@ def sequentially_spent_score(ballots, *,
         seats=seats,
         tiebreaker=tiebreaker,
         verbosity=verbosity,
+        print_averages=print_averages,
+        print_maximum_score=print_maximum_score,
         )
 
     original_ballot_count = len(ballots)
@@ -2464,6 +2494,8 @@ def election(method, ballots, *,
     seats=_DEFAULT_SEATS,
     tiebreaker=_DEFAULT_TIEBREAKER,
     verbosity=_DEFAULT_VERBOSITY,
+    print_averages=_DEFAULT_PRINT_AVERAGES,
+    print_maximum_score=_DEFAULT_PRINT_MAXIMUM_SCORE,
     ):
     """
     Tabulates an election.  Returns a list of results.
@@ -2496,6 +2528,14 @@ def election(method, ballots, *,
     extra_kwargs = {}
     if method.multiwinner:
         extra_kwargs['seats'] = seats
+
+    # Only forward print_averages when it differs from the default,
+    # so we don't break method functions (e.g. the reference
+    # implementations) that predate this option.
+    if print_averages != _DEFAULT_PRINT_AVERAGES:
+        extra_kwargs['print_averages'] = print_averages
+    if print_maximum_score != _DEFAULT_PRINT_MAXIMUM_SCORE:
+        extra_kwargs['print_maximum_score'] = print_maximum_score
 
     return method.function(
         ballots,
@@ -2564,6 +2604,8 @@ def parse_starvote(starvote, *, path=None):
         method = <string>
         seats = <integer>
         verbosity = <integer>
+        print averages = <boolean>
+        print maximum score = <boolean>
         tiebreaker = <list>|<string>
     A starvote file can specify each of these options a maximum
     of once.
@@ -2651,7 +2693,17 @@ def parse_starvote(starvote, *, path=None):
 
     option_to_kwarg = {
         'maximum score': 'maximum_score',
+        'print averages': 'print_averages',
+        'print maximum score': 'print_maximum_score',
     }
+
+    def bool_converter(value):
+        v = value.strip().lower()
+        if v in ('1', 'true', 'yes', 'on'):
+            return True
+        if v in ('0', 'false', 'no', 'off'):
+            return False
+        raise ValueError(f"{exception_prefix}invalid boolean value {value!r}")
 
     def tiebreaker_converter(value):
         if isinstance(value, list):
@@ -2752,6 +2804,8 @@ def parse_starvote(starvote, *, path=None):
         'starvote_path': path_converter('.starvote'),
         'tiebreaker': tiebreaker_converter,
         'verbosity': int,
+        'print_averages': bool_converter,
+        'print_maximum_score': bool_converter,
         }
 
     def options_pragma(pragma):
@@ -3139,6 +3193,14 @@ def main(argv, print=builtins.print):
                 if cmdline_kwargs.get('verbosity', uninitialized) is uninitialized:
                     cmdline_kwargs['verbosity'] = 0
                 cmdline_kwargs['verbosity'] += 1
+                continue
+
+            if arg in ("-a", "--print-averages"):
+                cmdline_kwargs['print_averages'] = True
+                continue
+
+            if arg in ("-M", "--print-maximum-score"):
+                cmdline_kwargs['print_maximum_score'] = True
                 continue
 
             if arg == "--":

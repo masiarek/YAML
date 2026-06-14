@@ -29,7 +29,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Vermin Supreme -- 830 -- First place
     Judge Jim Gray -- 519
-    No Preference  -- 185
+    Equal Preference  -- 185
   Vermin Supreme wins.
 
 [STAR Voting: Winner]

@@ -13,7 +13,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Brian         -- 11 -- First place
     Amy           --  6
-    No Preference --  0
+    Equal Preference --  0
   Brian wins.
 
 [STAR Voting: Winner]

@@ -1,1 +1,4 @@
 .idea/
+
+# Browser/auth session state — contains live credentials, never commit
+**/auth_state.json

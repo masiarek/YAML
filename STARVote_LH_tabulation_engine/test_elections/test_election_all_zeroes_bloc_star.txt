@@ -15,7 +15,7 @@
     Amy           -- 0 -- Tied for first place
     Brian         -- 0 -- Tied for first place
     Chuck         -- 0 -- Tied for first place
-    No Preference -- 5
+    Equal Preference -- 5
   There's still a three-way tie for first.
 
 [Bloc STAR: Round 1: Scoring Round: Second tiebreaker]

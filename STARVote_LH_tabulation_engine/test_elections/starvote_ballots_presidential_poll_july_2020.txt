@@ -17,7 +17,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Jo Jorgensen  -- 645 -- First place
     Andrew Yang   -- 153
-    No Preference --  65
+    Equal Preference --  65
   Jo Jorgensen wins.
 
 [STAR Voting: Winner]

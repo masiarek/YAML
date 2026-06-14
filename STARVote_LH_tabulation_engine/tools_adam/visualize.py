@@ -3,6 +3,7 @@ import itertools
 import datetime
 import string
 
+
 def generate_all_unique_ballots(num_candidates, max_score):
     """
     Generates every possible permutation of scores for the given candidates.
@@ -12,7 +13,7 @@ def generate_all_unique_ballots(num_candidates, max_score):
     if num_candidates <= 26:
         candidates = list(string.ascii_uppercase[:num_candidates])
     else:
-        candidates = [f"C{i+1}" for i in range(num_candidates)]
+        candidates = [f"C{i + 1}" for i in range(num_candidates)]
 
     # 2. Setup Score Range (0 to Max)
     scores = range(max_score + 1)
@@ -23,13 +24,14 @@ def generate_all_unique_ballots(num_candidates, max_score):
 
     return candidates, ballot_permutations
 
+
 def save_to_csv(candidates, ballots, max_score):
     timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     # naming it "menu" because it lists the distinct options
     filename = f"ballot_menu_C{len(candidates)}_S{max_score}_{timestamp}.csv"
 
     try:
-        with open(filename, mode='w', newline='', encoding='utf-8') as file:
+        with open(filename, mode="w", newline="", encoding="utf-8") as file:
             writer = csv.writer(file)
 
             # Write Header: A, B
@@ -43,6 +45,7 @@ def save_to_csv(candidates, ballots, max_score):
 
     except IOError as e:
         print(f"❌ Error writing file: {e}")
+
 
 if __name__ == "__main__":
     # --- Configuration ---

@@ -41,7 +41,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Finland - &quot;Cha Cha Cha&quot; -- 3 -- First place
     Israel - &quot;Unicorn&quot;      -- 2
-    No Preference                     -- 1
+    Equal Preference                     -- 1
   Finland - &quot;Cha Cha Cha&quot; wins.
 
 [STAR Voting: Winner]

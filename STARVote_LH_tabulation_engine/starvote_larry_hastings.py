@@ -11,6 +11,7 @@ from starvote import Tiebreaker
 # --- ANSI Color Codes ---
 COLOR_GREEN = "\033[92m"
 COLOR_RED = "\033[91m"
+COLOR_BLUE = "\033[94m"
 COLOR_RESET = "\033[0m"
 
 
@@ -183,28 +184,28 @@ def calculate_preference_matrix(candidates, ballots):
     return matrix
 
 
-def get_top_two_finalists(ballots):
+def get_top_two_finalists(ballots, order_map=None):
+    """Top two by total score; score ties broken by lot-number priority
+    (same rule as LotNumberTiebreaker) so the matrix '*' markers match
+    the finalists starvote actually selects."""
+    if order_map is None:
+        order_map = {}
     scores = defaultdict(int)
     for b in ballots:
         for c, s in b.items():
             scores[c] += s
-    ranked = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-    finalists = []
-    if len(ranked) >= 1:
-        finalists.append(ranked[0][0])
-    if len(ranked) >= 2:
-        finalists.append(ranked[1][0])
-    return finalists
+    ranked = sorted(scores.items(), key=lambda x: (-x[1], order_map.get(x[0], 999)))
+    return [c for c, _ in ranked[:2]]
 
 
-def print_matrix(candidates, matrix, finalists=None):
+def print_matrix(candidates, matrix, finalists=None, star_winner=None):
     if not candidates or not matrix:
         return
     if finalists is None:
         finalists = []
     print("\n--- Runoff (Preference) Matrix ---")
     print(
-        f"Legend: {COLOR_GREEN}For{COLOR_RESET} - {COLOR_RED}Against{COLOR_RESET} - Equal Preference (Equal Support or Equal Opposition)"
+        f"Legend: {COLOR_GREEN}For{COLOR_RESET} - {COLOR_BLUE}Equal Preference{COLOR_RESET} - {COLOR_RED}Against{COLOR_RESET}"
     )
     print("        * indicates Top 2 Finalist")
 
@@ -213,7 +214,7 @@ def print_matrix(candidates, matrix, finalists=None):
     if matrix:
         max_data_str = max(
             (
-                f"{matrix[c1][c2][0]} - {matrix[c1][c2][1]} - {matrix[c1][c2][2]}"
+                f"{matrix[c1][c2][0]} - {matrix[c1][c2][2]} - {matrix[c1][c2][1]}"
                 for c1 in candidates
                 for c2 in candidates
                 if c1 != c2
@@ -240,34 +241,112 @@ def print_matrix(candidates, matrix, finalists=None):
                 row_str += f"{'---':^{col_width}} |"
             else:
                 for_val, against_val, no_pref_val = matrix[cand_i][cand_j]
-                raw_str = f"{for_val} - {against_val} - {no_pref_val}"
+                raw_str = f"{for_val} - {no_pref_val} - {against_val}"
                 padding = col_width - len(raw_str)
                 l_pad = padding // 2
                 colored_tuple = (
                     f"{COLOR_GREEN}{for_val}{COLOR_RESET} - "
-                    f"{COLOR_RED}{against_val}{COLOR_RESET} - "
-                    f"{no_pref_val}"
+                    f"{COLOR_BLUE}{no_pref_val}{COLOR_RESET} - "
+                    f"{COLOR_RED}{against_val}{COLOR_RESET}"
                 )
                 row_str += f"{' ' * l_pad}{colored_tuple}{' ' * (padding - l_pad)} |"
         print(row_str)
 
     print("\n[Condorcet Winner]")
-    condorcet_winner = None
+    print(f"  {analyze_condorcet(candidates, matrix, star_winner, finalists)}")
+
+
+def _star_comparison(cw, star_winner, finalists):
+    """Annotate how the Condorcet winner relates to the STAR result."""
+    if star_winner is None:
+        return ""
+    if cw == star_winner:
+        return " — matches the STAR winner"
+    note = f" — STAR elected {star_winner} instead"
+    if finalists and cw not in finalists:
+        note += f" ({cw} was eliminated in the scoring round)"
+    return note
+
+
+def analyze_condorcet(candidates, matrix, star_winner=None, finalists=None):
+    """Classify the pairwise outcome instead of conflating ties with cycles.
+
+    1. Strict winner: beats every other candidate head-to-head.
+    2. Unique weak winner: unbeaten, but ties at least one matchup.
+    3. Multiple unbeaten candidates: pairwise ties, no cycle among them.
+    4. Genuine cycle: every candidate loses at least one matchup.
+    """
+    beats = {c: set() for c in candidates}
+    losses = {c: 0 for c in candidates}
     for c1 in candidates:
-        is_winner = True
         for c2 in candidates:
             if c1 == c2:
                 continue
             for_c1, against_c1, _ = matrix[c1][c2]
-            if for_c1 <= against_c1:
-                is_winner = False
-                break
-        if is_winner:
-            condorcet_winner = c1
-            break
-    print(
-        f"  {condorcet_winner if condorcet_winner else 'No Condorcet Winner (cycle detected)'}"
-    )
+            if for_c1 > against_c1:
+                beats[c1].add(c2)
+            elif against_c1 > for_c1:
+                losses[c1] += 1
+
+    n_others = len(candidates) - 1
+    unbeaten = [c for c in candidates if losses[c] == 0]
+
+    # Case 1: strict Condorcet winner
+    for c in candidates:
+        if len(beats[c]) == n_others:
+            return f"Condorcet Winner: {c}" + _star_comparison(
+                c, star_winner, finalists
+            )
+
+    # Case 2: unique weak winner (unbeaten, but ties some matchups)
+    if len(unbeaten) == 1:
+        return (
+            f"No strict Condorcet winner; weak Condorcet winner: {unbeaten[0]}"
+            + _star_comparison(unbeaten[0], star_winner, finalists)
+        )
+
+    # Case 3: multiple unbeaten candidates (indifference, not intransitivity)
+    if len(unbeaten) > 1:
+        return (
+            f"No strict Condorcet winner; "
+            f"unbeaten candidates: {', '.join(unbeaten)} (pairwise ties)"
+        )
+
+    # Case 4: everyone loses at least once -> a majority cycle must exist
+    cycle = _find_beats_cycle(candidates, beats)
+    if cycle:
+        return f"No Condorcet winner (majority cycle: {' > '.join(cycle)})"
+    return "No Condorcet winner (every candidate loses at least one matchup)"
+
+
+def _find_beats_cycle(candidates, beats):
+    """DFS for a directed cycle in the 'beats' graph.
+    Returns the cycle as a list like ['A', 'B', 'C', 'A'], or None."""
+    WHITE, GRAY, BLACK = 0, 1, 2
+    color = {c: WHITE for c in candidates}
+    stack = []
+
+    def dfs(c):
+        color[c] = GRAY
+        stack.append(c)
+        for nxt in beats[c]:
+            if color[nxt] == GRAY:
+                i = stack.index(nxt)
+                return stack[i:] + [nxt]
+            if color[nxt] == WHITE:
+                found = dfs(nxt)
+                if found:
+                    return found
+        stack.pop()
+        color[c] = BLACK
+        return None
+
+    for c in candidates:
+        if color[c] == WHITE:
+            found = dfs(c)
+            if found:
+                return found
+    return None
 
 
 def print_extended_analysis(ballots, winners):
@@ -284,10 +363,12 @@ def print_extended_analysis(ballots, winners):
     if runoff_winner_name not in top_scorers:
         # A Reversal HAPPENED (Runoff winner is NOT the score winner)
         score_winners_str = ", ".join(top_scorers)
-        print(f"\n{'Majority Preference Enforcement Principle:\n'}",f" - Score Round Winner(s) = ({score_winners_str}) \n  - Runoff Round Winner = ({runoff_winner_name})")
+        print(
+            f"\n{'Majority Preference Enforcement Principle:\n'}",
+            f" - Score Round Winner(s) = ({score_winners_str}) \n  - Runoff Round Winner = ({runoff_winner_name})",
+        )
         print(
             f"  Candidate {score_winners_str} earned the highest total score, \n  but Candidate {runoff_winner_name} won the automatic runoff by being the head-to-head majority favorite.\n"
-
         )
     elif len(top_scorers) == 1:
         pass
@@ -306,7 +387,11 @@ def run_election(csv_input, lot_numbers, show_matrix=True):
 
     # Generate matrix from the already-parsed data
     matrix = calculate_preference_matrix(candidates, ballots)
-    finalists = get_top_two_finalists(ballots)
+
+    # Same priority rule the tiebreaker uses (falls back to CSV column order)
+    priority = lot_numbers or candidates
+    order_map = {c: i for i, c in enumerate(priority)}
+    finalists = get_top_two_finalists(ballots, order_map)
 
     # Initialize the new deterministic tiebreakers
     tiebreaker_obj = LotNumberTiebreaker(lot_numbers=lot_numbers, silent=False)
@@ -328,11 +413,17 @@ def run_election(csv_input, lot_numbers, show_matrix=True):
 
         # CONFIGURED MATRIX OUTPUT
         if show_matrix:
-            print_matrix(candidates, matrix, finalists)
+            # seats=1: election() returns a single winner or a list
+            star_winner = (
+                winners_silent[0]
+                if isinstance(winners_silent, list)
+                else winners_silent
+            )
+            print_matrix(candidates, matrix, finalists, star_winner)
 
         print_extended_analysis(ballots, winners_silent)
 
-    print("\n--- STARVOTE results ---")
+    # print("\n--- Larry Hasting's 'STARVOTE' tabulation engine results ---")
 
     # --- NEW: Intercept library print calls to fix grammar and terminology ---
     def custom_print(*args, **kwargs):
@@ -346,7 +437,7 @@ def run_election(csv_input, lot_numbers, show_matrix=True):
             text = re.sub(
                 r"(No Preference|Equal Preference)(\s*--\s*\d+)",
                 r"Equal Preference\2 (Equal Support or Equal Opposition)",
-                text
+                text,
             )
 
             args = (text,) + args[1:]
@@ -359,20 +450,18 @@ def run_election(csv_input, lot_numbers, show_matrix=True):
         tiebreaker=tiebreaker_obj,
         verbosity=1,
         maximum_score=5,
-        print=custom_print  # Inject the custom print function here
+        print=custom_print,  # Inject the custom print function here
     )
 
 
 if __name__ == "__main__":
-
     # Code is available at: "https://github.com/larryhastings/starvote"
 
     csv_input = """
-# A - Alice Adams, B - Brian Baker, C - Chloe Carter
-A,B,C
-5,5,5
-5,5,5
-5,5,5
+Ann,Bob,Cal,Dave,Eno,Fox
+1,5,5,1,1,5
+1,5,5,1,1,5
+
 """
 
     # TIEBREAKER SETTING
