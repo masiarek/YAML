@@ -42,7 +42,7 @@ class LotNumberTiebreaker(Tiebreaker):
         if not self.lot_numbers:
             # DEV MODE: Auto-generate a fallback sequence from CSV column order
             self.lot_numbers = cands_in_csv_order
-            self.expl = "*** No official Tie-breaking Lot Numbers were provided \n- hence the Ties are resolved using an auto-generated fallback sequence based on the CSV column order."
+            self.expl = "*** No official Tie-breaking Lot Numbers were provided \n- hence the Ties are resolved using fallback sequence - CSV column order."
         else:
             # PRODUCTION MODE: Use the provided numbers
             self.expl = "*(Ties are resolved by selecting the tied candidate with the highest priority official Lot Number).*"
@@ -385,7 +385,12 @@ def print_extended_analysis(ballots, winners):
 # ---
 # 3. EXECUTION LOGIC
 # ---
-def run_election(csv_input, lot_numbers, show_matrix=True):
+def run_election(
+    csv_input, lot_numbers, show_matrix=True, brief=False, seats=1, method=None
+):
+    if method is None:
+        method = starvote.star
+
     # Parse once, return both headers and parsed ballots
     candidates, ballots = parse_ballots_from_string(csv_input)
 
@@ -414,11 +419,8 @@ def run_election(csv_input, lot_numbers, show_matrix=True):
         verbosity=0,
         maximum_score=5,
     ):
-        # STANDARDIZED OUTPUT: Print parsed data as Standard CSV
-        print(",".join(candidates))
-        for b in ballots:
-            # Reconstruct row from dict
-            print(",".join(str(b.get(c, 0)) for c in candidates))
+        # (The normalized ballot CSV is printed by custom_print, right after
+        # the engine's "Tabulating N ballots." line.)
 
         # CONFIGURED MATRIX OUTPUT
         if show_matrix:
@@ -432,35 +434,106 @@ def run_election(csv_input, lot_numbers, show_matrix=True):
 
         print_extended_analysis(ballots, winners_silent)
 
-    # print("\n--- Larry Hasting's 'STARVOTE' tabulation engine results ---")
+    # Reject method/seats mismatches before tabulating — the intent is
+    # ambiguous, so make the user correct it rather than silently guessing.
+    method_name = getattr(method, "name", str(method))
+    single_winner = method is starvote.star
+    if single_winner and seats > 1:
+        print(
+            f"{COLOR_RED}Error:{COLOR_RESET} {method_name} elects a single winner,\n"
+            f"  but got seats={seats}.\n"
+            f"  Fix: set seats=1,\n"
+            f"       or choose a multi-winner method to elect {seats} winners:\n"
+            f"       starvote.bloc, starvote.sss,\n"
+            f"       starvote.rrv, starvote.allocated."
+        )
+        sys.exit(1)
+    if not single_winner and seats == 1:
+        print(
+            f"{COLOR_RED}Error:{COLOR_RESET} {method_name} elects multiple winners,\n"
+            f"  but got seats=1 (requires seats >= 2).\n"
+            f"  Fix: set seats to the number of winners you want,\n"
+            f"       or use method=starvote.star for a single winner."
+        )
+        sys.exit(1)
 
-    # --- NEW: Intercept library print calls to fix grammar and terminology ---
+    # Header banner naming the actual method + seat count.
+    if seats > 1:
+        print(f"\n--- {method_name} — {seats} seats — Larry Hastings engine ---")
+    else:
+        print(f"\n--- {method_name} — Larry Hastings engine ---")
+
+    # Intercept the engine's print() to fix grammar and relabel the
+    # "No Preference" bucket, re-aligning score columns so the longer
+    # label doesn't shove the " -- " separator out of column.
+    EQUAL_LABEL = "Equal Preference"
+    EQUAL_NOTE = "(Equal Support or Equal Opposition)"
+    row_re = re.compile(r"^(\s*)(\S.*?)\s+--\s+(.*)$")
+
     def custom_print(*args, **kwargs):
         if args and isinstance(args[0], str):
             text = args[0]
 
-            # 1. Fix the pluralization
+            # The engine bakes the trailing newline into the string and calls
+            # us with end='' — preserve it so rows don't run together.
+            trailing = "\n" if text.endswith("\n") else ""
+            if trailing:
+                text = text[:-1]
+
+            # 0. BRIEF mode: collapse the repetitive engine section headers.
+            #    "[STAR Voting]"               -> dropped entirely
+            #    "[STAR Voting: Scoring Round]" -> "Scoring Round"
+            #    (also works for "[Bloc STAR: Round 1: ...]")
+            stripped = text.strip()
+            if brief and stripped.startswith("[") and stripped.endswith("]"):
+                inner = stripped[1:-1]
+                if ":" in inner:
+                    text = inner.split(":", 1)[1].strip()
+                    args = (text + trailing,) + args[1:]
+                    print(*args, **kwargs)
+                else:
+                    # Bare top-level method header -> suppress.
+                    pass
+                return
+
+            # 1. Fix the singular/plural grammar.
             text = text.replace("Tabulating 1 ballots.", "Tabulating 1 ballot.")
 
-            # 2. Update terminology for Equal Preferences
-            text = re.sub(
-                r"(No Preference|Equal Preference)(\s*--\s*\d+)",
-                r"Equal Preference\2 (Equal Support or Equal Opposition)",
-                text,
-            )
+            # 1b. After the "Tabulating N ballot(s)." line, list the
+            #     normalized ballots as Standard CSV.
+            if text.lstrip().startswith("Tabulating ") and "ballot" in text:
+                csv_rows = [",".join(candidates)] + [
+                    ",".join(str(b.get(c, 0)) for c in candidates) for b in ballots
+                ]
+                text = text + "\n" + "\n".join(csv_rows) + "\n"
 
-            args = (text,) + args[1:]
+            # 2. Relabel the no-preference bucket.
+            relabeled = "No Preference" in text
+            text = text.replace("No Preference", EQUAL_LABEL)
+
+            # 3. Re-align score rows ("   <label> -- <value>"), skipping
+            #    section headers like "[STAR Voting: ...]".
+            m = row_re.match(text)
+            if m and not text.lstrip().startswith("["):
+                indent, label, rest = m.groups()
+                if relabeled and EQUAL_NOTE not in rest:
+                    rest = f"{rest} {EQUAL_NOTE}"
+                text = f"{indent}{label:<{len(EQUAL_LABEL)}} -- {rest}"
+
+            args = (text + trailing,) + args[1:]
         print(*args, **kwargs)
 
     winners = starvote.election(
-        method=starvote.star,
+        method=method,
         ballots=ballots,
-        seats=1,
+        seats=seats,
         tiebreaker=tiebreaker_obj,
         verbosity=1,
         maximum_score=5,
         print=custom_print,  # Inject the custom print function here
     )
+
+    return winners
 
 
 if __name__ == "__main__":
@@ -468,9 +541,8 @@ if __name__ == "__main__":
 
     csv_input = """
 Ann,Bob,Cal,Dave,Eno,Fox
-1,5,5,1,1,5
-1,5,5,1,1,5
-
+1,2,3,4,5,5
+1,2,3,4,5,5
 """
 
     # TIEBREAKER SETTING
@@ -481,4 +553,18 @@ Ann,Bob,Cal,Dave,Eno,Fox
     # FLAG: Set to False to hide the Preference Matrix and Condorcet output
     SHOW_MATRIX = False
 
-    run_election(csv_input, LOT_NUMBERS, SHOW_MATRIX)
+    # FLAG: Set to True for shorter output (collapses repetitive [STAR Voting: ...]
+    # section headers into plain sub-headings and drops the bare "[STAR Voting]").
+    BRIEF = True
+
+    # METHOD + SEATS.
+    #   starvote.star  -> single-winner STAR (use SEATS = 1)
+    #   starvote.bloc  -> Bloc STAR, multi-winner (use SEATS >= 2)
+    # A mismatch (star with SEATS>1, or bloc with SEATS=1) is rejected with an
+    # error and exits, so you must correct the combination.
+    METHOD = starvote.star
+    SEATS = 2
+
+    run_election(
+        csv_input, LOT_NUMBERS, SHOW_MATRIX, brief=BRIEF, seats=SEATS, method=METHOD
+    )
