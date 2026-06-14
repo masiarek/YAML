@@ -465,10 +465,10 @@ class StarvoteTests(unittest.TestCase):
 
 [STAR Voting: Scoring Round: First tiebreaker]
  The two candidates preferred in the most head-to-head matchups advance.
-   A                -- 3 -- Tied for first place
-   B                -- 3 -- Tied for first place
-   C                -- 3 -- Tied for first place
-   Equal Preference -- 0
+   A             -- 3 -- Tied for first place
+   B             -- 3 -- Tied for first place
+   C             -- 3 -- Tied for first place
+   No Preference -- 0
  There's still a three-way tie for first.
 
 [STAR Voting: Scoring Round: Second tiebreaker]
@@ -487,9 +487,9 @@ class StarvoteTests(unittest.TestCase):
 
 [STAR Voting: Automatic Runoff Round]
  The candidate preferred in the most head-to-head matchups wins.
-   C                -- 2 -- First place
-   A                -- 1
-   Equal Preference -- 0
+   C             -- 2 -- First place
+   A             -- 1
+   No Preference -- 0
  C wins.
 
 [STAR Voting: Winner]
@@ -529,10 +529,10 @@ class StarvoteTests(unittest.TestCase):
 
 [STAR Voting: Scoring Round: First tiebreaker]
  The two candidates preferred in the most head-to-head matchups advance.
-   A                -- 3 -- Tied for first place
-   B                -- 3 -- Tied for first place
-   C                -- 3 -- Tied for first place
-   Equal Preference -- 0
+   A             -- 3 -- Tied for first place
+   B             -- 3 -- Tied for first place
+   C             -- 3 -- Tied for first place
+   No Preference -- 0
  There's still a three-way tie for first.
 
 [STAR Voting: Scoring Round: Second tiebreaker]
@@ -551,9 +551,9 @@ class StarvoteTests(unittest.TestCase):
 
 [STAR Voting: Automatic Runoff Round]
  The candidate preferred in the most head-to-head matchups wins.
-   A                -- 2 -- First place
-   B                -- 1
-   Equal Preference -- 0
+   A             -- 2 -- First place
+   B             -- 1
+   No Preference -- 0
  A wins.
 
 [STAR Voting: Winner]

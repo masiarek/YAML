@@ -13,7 +13,7 @@
   The candidate preferred in the most head-to-head matchups advances.
     Amy           -- 1 -- Tied for second place
     Brian         -- 1 -- Tied for second place
-    Equal Preference -- 1
+    No Preference -- 1
   There's still a two-way tie for second.
 
 [STAR Voting: Scoring Round: Second tiebreaker]

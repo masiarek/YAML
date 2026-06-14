@@ -33,7 +33,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Justin Amash   -- 1404 -- First place
     Vermin Supreme -- 1138
-    Equal Preference  --  367
+    No Preference  --  367
   Justin Amash wins.
 
 [Bloc STAR: Round 2: Scoring Round]
@@ -65,7 +65,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Vermin Supreme -- 1351 -- First place
     Judge Jim Gray --  726
-    Equal Preference  --  832
+    No Preference  --  832
   Vermin Supreme wins.
 
 [Bloc STAR: Round 3: Scoring Round]
@@ -96,7 +96,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Judge Jim Gray   --  706 -- First place
     Jacob Hornberger --  506
-    Equal Preference    -- 1697
+    No Preference    -- 1697
   Judge Jim Gray wins.
 
 [Bloc STAR: Round 4: Scoring Round]
@@ -126,7 +126,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Jacob Hornberger --  577 -- First place
     Jo Jorgensen     --  436
-    Equal Preference    -- 1896
+    No Preference    -- 1896
   Jacob Hornberger wins.
 
 [Bloc STAR: Round 5: Scoring Round]
@@ -155,7 +155,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Jo Jorgensen  --  558 -- First place
     Adam Kokesh   --  419
-    Equal Preference -- 1932
+    No Preference -- 1932
   Jo Jorgensen wins.
 
 [Bloc STAR: Winners]

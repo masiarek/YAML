@@ -3,16 +3,23 @@ Script: starvote_larry_hastings.py
 Description: Runs a STAR Voting election with detailed tiebreaker analysis and matrix visualization.
 """
 
-import starvote
 import re
+import sys
 from collections import defaultdict
+
+import starvote
 from starvote import Tiebreaker
 
 # --- ANSI Color Codes ---
-COLOR_GREEN = "\033[92m"
-COLOR_RED = "\033[91m"
-COLOR_BLUE = "\033[94m"
-COLOR_RESET = "\033[0m"
+# Disabled automatically when output is not a TTY (e.g. piped to a file),
+# so redirected output doesn't get littered with escape sequences.
+if sys.stdout.isatty():
+    COLOR_GREEN = "\033[92m"
+    COLOR_RED = "\033[91m"
+    COLOR_BLUE = "\033[94m"
+    COLOR_RESET = "\033[0m"
+else:
+    COLOR_GREEN = COLOR_RED = COLOR_BLUE = COLOR_RESET = ""
 
 
 # ---
@@ -33,9 +40,7 @@ class LotNumberTiebreaker(Tiebreaker):
 
         # Check if the user provided lot numbers
         if not self.lot_numbers:
-            # DEV MODE: Auto-generate and warn the user
-            if not self.silent:
-                pass
+            # DEV MODE: Auto-generate a fallback sequence from CSV column order
             self.lot_numbers = cands_in_csv_order
             self.expl = "*** No official Tie-breaking Lot Numbers were provided \n- hence the Ties are resolved using an auto-generated fallback sequence based on the CSV column order."
         else:
@@ -55,7 +60,7 @@ class LotNumberTiebreaker(Tiebreaker):
             self.info_printed = True
 
         # Sort tied candidates by their assigned lot number priority
-        ranked = sorted(tie, key=lambda c: self.order_map.get(c, 999))
+        ranked = sorted(tie, key=lambda c: self.order_map.get(c, float("inf")))
         winners = ranked[:desired]
 
         if not self.silent:
@@ -194,7 +199,9 @@ def get_top_two_finalists(ballots, order_map=None):
     for b in ballots:
         for c, s in b.items():
             scores[c] += s
-    ranked = sorted(scores.items(), key=lambda x: (-x[1], order_map.get(x[0], 999)))
+    ranked = sorted(
+        scores.items(), key=lambda x: (-x[1], order_map.get(x[0], float("inf")))
+    )
     return [c for c, _ in ranked[:2]]
 
 
@@ -364,14 +371,15 @@ def print_extended_analysis(ballots, winners):
         # A Reversal HAPPENED (Runoff winner is NOT the score winner)
         score_winners_str = ", ".join(top_scorers)
         print(
-            f"\n{'Majority Preference Enforcement Principle:\n'}",
-            f" - Score Round Winner(s) = ({score_winners_str}) \n  - Runoff Round Winner = ({runoff_winner_name})",
+            "\nMajority Preference Enforcement Principle:\n"
+            f" - Score Round Winner(s) = ({score_winners_str})\n"
+            f"  - Runoff Round Winner = ({runoff_winner_name})"
         )
         print(
-            f"  Candidate {score_winners_str} earned the highest total score, \n  but Candidate {runoff_winner_name} won the automatic runoff by being the head-to-head majority favorite.\n"
+            f"  Candidate {score_winners_str} earned the highest total score,\n"
+            f"  but Candidate {runoff_winner_name} won the automatic runoff by "
+            "being the head-to-head majority favorite.\n"
         )
-    elif len(top_scorers) == 1:
-        pass
 
 
 # ---
@@ -404,6 +412,7 @@ def run_election(csv_input, lot_numbers, show_matrix=True):
         seats=1,
         tiebreaker=tiebreaker_silent,
         verbosity=0,
+        maximum_score=5,
     ):
         # STANDARDIZED OUTPUT: Print parsed data as Standard CSV
         print(",".join(candidates))

@@ -13,14 +13,14 @@
   The candidate preferred in the most head-to-head matchups advances.
     Brian         -- 2 -- Second place
     Amy           -- 1
-    Equal Preference -- 0
+    No Preference -- 0
   Chuck and Brian advance.
 
 [STAR Voting: Automatic Runoff Round]
   The candidate preferred in the most head-to-head matchups wins.
     Chuck         -- 3 -- First place
     Brian         -- 0
-    Equal Preference -- 0
+    No Preference -- 0
   Chuck wins.
 
 [STAR Voting: Winner]

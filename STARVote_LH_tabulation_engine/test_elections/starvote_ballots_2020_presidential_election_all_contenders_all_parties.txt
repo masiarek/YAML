@@ -45,7 +45,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Andrew Yang - D    -- 550 -- First place
     Bernie Sanders - D -- 272
-    Equal Preference      -- 200
+    No Preference      -- 200
   Andrew Yang - D wins.
 
 [STAR Voting: Winner]

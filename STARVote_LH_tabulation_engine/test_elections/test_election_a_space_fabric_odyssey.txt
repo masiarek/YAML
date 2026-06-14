@@ -13,7 +13,7 @@
  The candidate preferred in the most head-to-head matchups wins.
    Purple Space Fabric -- 6 -- First place
    Plain Purple Fabric -- 3
-   Equal Preference       -- 0
+   No Preference       -- 0
  Purple Space Fabric wins.
 
 [STAR Voting: Winner]

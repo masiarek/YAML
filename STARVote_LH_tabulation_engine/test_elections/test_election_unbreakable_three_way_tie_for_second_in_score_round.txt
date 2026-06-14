@@ -15,7 +15,7 @@
     Amy           -- 3 -- Tied for second place
     Brian         -- 3 -- Tied for second place
     Chuck         -- 3 -- Tied for second place
-    Equal Preference -- 0
+    No Preference -- 0
   There's still a three-way tie for second.
 
 [STAR Voting: Scoring Round: Second tiebreaker]
@@ -43,7 +43,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Darcy         -- 2 -- First place
     Chuck         -- 0
-    Equal Preference -- 1
+    No Preference -- 1
   Darcy wins.
 
 [STAR Voting: Winner]

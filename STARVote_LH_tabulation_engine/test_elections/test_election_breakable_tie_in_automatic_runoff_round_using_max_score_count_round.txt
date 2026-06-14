@@ -13,7 +13,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Brian         -- 1 -- Tied for first place
     Chuck         -- 1 -- Tied for first place
-    Equal Preference -- 1
+    No Preference -- 1
   There's a two-way tie for first.
 
 [STAR Voting: Automatic Runoff Round: First tiebreaker]

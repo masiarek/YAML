@@ -31,7 +31,7 @@
    Fred          --  0 -- Tied for first place
    Geraldine     --  0 -- Tied for first place
    Hank          --  0 -- Tied for first place
-   Equal Preference -- 12
+   No Preference -- 12
  There's still a eight-way tie for first.
 
 [Bloc STAR: Round 1: Scoring Round: Second tiebreaker]
@@ -74,7 +74,7 @@
  The candidate preferred in the most head-to-head matchups wins.
    Amy           --  0 -- Tied for first place
    Brian         --  0 -- Tied for first place
-   Equal Preference -- 12
+   No Preference -- 12
  There's a two-way tie for first.
 
 [Bloc STAR: Round 1: Automatic Runoff Round: First tiebreaker]
@@ -127,7 +127,7 @@
    Fred          --  0 -- Tied for first place
    Geraldine     --  0 -- Tied for first place
    Hank          --  0 -- Tied for first place
-   Equal Preference -- 12
+   No Preference -- 12
  There's still a seven-way tie for first.
 
 [Bloc STAR: Round 2: Scoring Round: Second tiebreaker]
@@ -168,7 +168,7 @@
  The candidate preferred in the most head-to-head matchups wins.
    Emily         --  0 -- Tied for first place
    Fred          --  0 -- Tied for first place
-   Equal Preference -- 12
+   No Preference -- 12
  There's a two-way tie for first.
 
 [Bloc STAR: Round 2: Automatic Runoff Round: First tiebreaker]
@@ -219,7 +219,7 @@
    Fred          --  0 -- Tied for first place
    Geraldine     --  0 -- Tied for first place
    Hank          --  0 -- Tied for first place
-   Equal Preference -- 12
+   No Preference -- 12
  There's still a six-way tie for first.
 
 [Bloc STAR: Round 3: Scoring Round: Second tiebreaker]
@@ -258,7 +258,7 @@
  The candidate preferred in the most head-to-head matchups wins.
    Amy           --  0 -- Tied for first place
    Fred          --  0 -- Tied for first place
-   Equal Preference -- 12
+   No Preference -- 12
  There's a two-way tie for first.
 
 [Bloc STAR: Round 3: Automatic Runoff Round: First tiebreaker]
@@ -307,7 +307,7 @@
    Fred          --  0 -- Tied for first place
    Geraldine     --  0 -- Tied for first place
    Hank          --  0 -- Tied for first place
-   Equal Preference -- 12
+   No Preference -- 12
  There's still a five-way tie for first.
 
 [Bloc STAR: Round 4: Scoring Round: Second tiebreaker]
@@ -344,7 +344,7 @@
  The candidate preferred in the most head-to-head matchups wins.
    David         --  0 -- Tied for first place
    Geraldine     --  0 -- Tied for first place
-   Equal Preference -- 12
+   No Preference -- 12
  There's a two-way tie for first.
 
 [Bloc STAR: Round 4: Automatic Runoff Round: First tiebreaker]
@@ -391,7 +391,7 @@
    David         --  0 -- Tied for first place
    Fred          --  0 -- Tied for first place
    Hank          --  0 -- Tied for first place
-   Equal Preference -- 12
+   No Preference -- 12
  There's still a four-way tie for first.
 
 [Bloc STAR: Round 5: Scoring Round: Second tiebreaker]
@@ -426,7 +426,7 @@
  The candidate preferred in the most head-to-head matchups wins.
    Chuck         --  0 -- Tied for first place
    Hank          --  0 -- Tied for first place
-   Equal Preference -- 12
+   No Preference -- 12
  There's a two-way tie for first.
 
 [Bloc STAR: Round 5: Automatic Runoff Round: First tiebreaker]

@@ -14,7 +14,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Amy           --  2 -- Tied for first place
     Clone Of Amy  --  2 -- Tied for first place
-    Equal Preference -- 13
+    No Preference -- 13
   There's a two-way tie for first.
 
 [STAR Voting: Automatic Runoff Round: First tiebreaker]

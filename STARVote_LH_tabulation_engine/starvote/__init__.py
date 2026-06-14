@@ -1003,7 +1003,7 @@ class Options:
         assert scores
         if no_preference is not None:
             scores = dict(scores)
-            scores['Equal Preference'] = no_preference
+            scores['No Preference'] = no_preference
 
         def annotation(candidate):
             if candidate == first:

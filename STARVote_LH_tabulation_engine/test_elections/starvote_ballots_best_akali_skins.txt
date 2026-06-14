@@ -26,7 +26,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Star Guardian -- 288 -- First place
     Prestige K/DA --  80
-    Equal Preference -- 301
+    No Preference -- 301
   Star Guardian wins.
 
 [STAR Voting: Winner]

@@ -14,7 +14,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Jorgensen, Jo (Libertarian) -- 461 -- First place
     Hawkins, Howie (Green)      -- 112
-    Equal Preference               --  55
+    No Preference               --  55
   Jorgensen, Jo (Libertarian) wins.
 
 [STAR Voting: Winner]

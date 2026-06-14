@@ -16,7 +16,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Condorcet Loser -- 8 -- Tied for first place
     First           -- 8 -- Tied for first place
-    Equal Preference   -- 0
+    No Preference   -- 0
   There's a two-way tie for first.
 
 [Bloc STAR: Round 1: Automatic Runoff Round: First tiebreaker]
@@ -57,7 +57,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Second          -- 11 -- First place
     Condorcet Loser --  5
-    Equal Preference   --  0
+    No Preference   --  0
   Second wins.
 
 [Bloc STAR: Round 3: Scoring Round]
@@ -71,7 +71,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Third           -- 11 -- First place
     Condorcet Loser --  5
-    Equal Preference   --  0
+    No Preference   --  0
   Third wins.
 
 [Bloc STAR: Round 4: Scoring Round]
@@ -84,7 +84,7 @@
   The candidate preferred in the most head-to-head matchups wins.
     Fourth          -- 9 -- First place
     Condorcet Loser -- 5
-    Equal Preference   -- 2
+    No Preference   -- 2
   Fourth wins.
 
 [Bloc STAR: Winners]
