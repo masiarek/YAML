@@ -1,0 +1,16 @@
+election:
+  election_title: Tennessee Capital — classic STAR example
+  election_description: |-
+    The well-known Memphis/Nashville/Chattanooga/Knoxville example.
+  races:
+  - race_id: '0'
+    race_description: |-
+      Where should the state capital be?
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+           Memphis,Nashville,Chattanooga,Knoxville
+           3:2, 3, 4, 5
+           2, 5, 4, 3
+           2, 3, 5, 4
+           5, 4, 3, 2

@@ -1,0 +1,14 @@
+# Single-race demo that controls its own output via `options:`.
+num_winners: 1
+voting_method: star
+
+options:
+  show_matrix: false
+  show_condorcet: true
+  show_score_counts: true
+
+ballots: |-
+  Ann,Bob,Cal,Don
+    3,  4,  2,  5  
+    3,  4,  2,  5  
+    3,  4,  2,  5
