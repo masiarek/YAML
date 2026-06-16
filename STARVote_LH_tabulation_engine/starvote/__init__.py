@@ -8,7 +8,7 @@
 ## * write a unit test that checks the code examples
 ##   in README.md are up to date
 ##     * confirms "example.py" and the output in README.md matches
-##     * confirms the "multi-winner elections" cmdline works
+##     * confirms the "multi-winner elections_demo" cmdline works
 ##   (I keep breaking 'em.)
 ##
 ## * have starvote format import detect a recursion loop and complain
@@ -29,35 +29,35 @@ __doc__ = "An election tabulator for the STAR electoral system, and others"
 __version__ = "2.1.6"
 
 __all__ = [
-    'Allocated_Score_Voting', # Method
-    'allocated', # Method (nickname)
-    'allocated_score_voting', # function
-    'Bloc_STAR_Voting', # Method
-    'bloc', # Method (nickname)
-    'bloc_star_voting', # function
-    'hashed_ballots_tiebreaker', # tiebreaker class
-    'Method', # class for method metadata
-    'methods', # maps string to Methods
-    'load_starvote_file', # function
-    'main', # function
-    'Options', # class
-    'predefined_permutation_tiebreaker', # tiebreaker class
-    'parse_starvote', # function
-    'on_demand_random_tiebreaker', # tiebreaker function
-    'Reweighted_Range_Voting', # Method
-    'rrv', # Method (nickname)
-    'reweighted_range_voting', # function
-    'Sequentially_Spent_Score', # Method
-    'sss', # Method (nickname)
-    'sequentially_spent_score', # function
-    'STAR_Voting', # Method
-    'star', # Method (nickname)
-    'star_voting', # function
-    'Tiebreaker', # class
-    'tiebreakers', # maps string to tiebreakers
-    'UnbreakableTieError', # exception class
-    'UsageException', # exception class
-    ]
+    "Allocated_Score_Voting",  # Method
+    "allocated",  # Method (nickname)
+    "allocated_score_voting",  # function
+    "Bloc_STAR_Voting",  # Method
+    "bloc",  # Method (nickname)
+    "bloc_star_voting",  # function
+    "hashed_ballots_tiebreaker",  # tiebreaker class
+    "Method",  # class for method metadata
+    "methods",  # maps string to Methods
+    "load_starvote_file",  # function
+    "main",  # function
+    "Options",  # class
+    "predefined_permutation_tiebreaker",  # tiebreaker class
+    "parse_starvote",  # function
+    "on_demand_random_tiebreaker",  # tiebreaker function
+    "Reweighted_Range_Voting",  # Method
+    "rrv",  # Method (nickname)
+    "reweighted_range_voting",  # function
+    "Sequentially_Spent_Score",  # Method
+    "sss",  # Method (nickname)
+    "sequentially_spent_score",  # function
+    "STAR_Voting",  # Method
+    "star",  # Method (nickname)
+    "star_voting",  # function
+    "Tiebreaker",  # class
+    "tiebreakers",  # maps string to tiebreakers
+    "UnbreakableTieError",  # exception class
+    "UsageException",  # exception class
+]
 
 
 LICENSE = """
@@ -108,21 +108,24 @@ def _version_float():
     vi = sys.version_info
     return vi.major + (vi.minor / 100)
 
-def _check_version(): # pragma: no cover
-    exception = ImportError("unsupported version of Python (starvote requires dicts to preserve order)")
+
+def _check_version():  # pragma: no cover
+    exception = ImportError(
+        "unsupported version of Python (starvote requires dicts to preserve order)"
+    )
     version = _version_float()
 
     if version > 4:
-        return # 4.0+ is okay... probably!  who knows!
+        return  # 4.0+ is okay... probably!  who knows!
     if version < 3:
         # python 2 is unsupported.  (how is this even running?!)
         raise exception
 
     # okay, we're on python 3.  what minor version?
     if version >= 3.07:
-        return # 3.7+ is fine.
+        return  # 3.7+ is fine.
     if version < 3.06:
-        raise exception # 3.5 and earlier is unsupported.
+        raise exception  # 3.5 and earlier is unsupported.
 
     # okay, version is exactly 3.6.
     # if we're using cpython, we're fine, as dicts are ordered in 3.6.
@@ -130,24 +133,26 @@ def _check_version(): # pragma: no cover
         return
     raise exception
 
+
 _check_version()
 
 
 try:
     from enum import global_enum
-except ImportError: # pragma: no cover
+except ImportError:  # pragma: no cover
+
     def global_enum(fn):
         return fn
 
 
-
 if _version_float() >= 3.10:
     from bisect import bisect_left
-else: # pragma: no cover
+else:  # pragma: no cover
     # bisect_left "key" parameter is new in 3.10.
     # we want to support older versions.
     # so we implement it ourselves
     import bisect
+
     def bisect_left(a, x, lo=0, hi=None, *, key=None):
         if key:
             a = [key(o) for o in a]
@@ -164,7 +169,7 @@ def split_int_or_fraction_as_str(i):
     assert isinstance(i, (int, Fraction))
 
     if not i:
-        return ('0', '', '', '')
+        return ("0", "", "", "")
 
     is_negative = i < 0
     if is_negative:
@@ -187,22 +192,23 @@ def split_int_or_fraction_as_str(i):
     if integer:
         integer_str = str(integer)
     else:
-        integer_str = ''
+        integer_str = ""
 
     if fraction:
         fraction_str = str(fraction)
-        numerator_str, _, denominator_str = fraction_str.partition('/')
-        denominator_str = '/' + denominator_str
+        numerator_str, _, denominator_str = fraction_str.partition("/")
+        denominator_str = "/" + denominator_str
     else:
-        numerator_str = denominator_str = ''
+        numerator_str = denominator_str = ""
 
-    plus_str = '+' if (integer_str and numerator_str) else ''
+    plus_str = "+" if (integer_str and numerator_str) else ""
     if is_negative:
         if integer_str:
-            integer_str = f'-{integer_str}'
+            integer_str = f"-{integer_str}"
         if numerator_str:
-            plus_str = '-'
+            plus_str = "-"
     return (integer_str, plus_str, numerator_str, denominator_str)
+
 
 def measure_int_or_fraction_as_str(i):
     # returns *five* widths:
@@ -211,7 +217,9 @@ def measure_int_or_fraction_as_str(i):
     if not i:
         return (1, 0, 0, 0)
 
-    integer_str, plus_str, numerator_str, denominator_str = split_int_or_fraction_as_str(i)
+    integer_str, plus_str, numerator_str, denominator_str = (
+        split_int_or_fraction_as_str(i)
+    )
 
     integer_width = len(integer_str)
     plus_width = 1 if plus_str else 0
@@ -220,8 +228,16 @@ def measure_int_or_fraction_as_str(i):
 
     return (integer_width, plus_width, numerator_width, denominator_width)
 
+
 def max_widths(widths, update):
-    max_integer_width, max_plus_width, max_plus_numerator_width, max_denominator_width, max_merged_width, max_no_plus_numerator_width = widths
+    (
+        max_integer_width,
+        max_plus_width,
+        max_plus_numerator_width,
+        max_denominator_width,
+        max_merged_width,
+        max_no_plus_numerator_width,
+    ) = widths
     integer_width, plus_width, numerator_width, denominator_width = update
 
     max_integer_width = max(max_integer_width, integer_width)
@@ -234,20 +250,38 @@ def max_widths(widths, update):
         max_merged_width = max(max_merged_width, merged_width)
     max_denominator_width = max(max_denominator_width, denominator_width)
 
-    return (max_integer_width, max_plus_width, max_plus_numerator_width, max_denominator_width, max_merged_width, max_no_plus_numerator_width)
+    return (
+        max_integer_width,
+        max_plus_width,
+        max_plus_numerator_width,
+        max_denominator_width,
+        max_merged_width,
+        max_no_plus_numerator_width,
+    )
 
 
 def format_int_or_fraction(i, widths):
     assert len(widths) == 6
-    integer_width, plus_width, plus_numerator_width, denominator_width, merged_width, no_plus_numerator_width = widths
-    integer_str, plus_str, numerator_str, denominator_str = split_int_or_fraction_as_str(i)
+    (
+        integer_width,
+        plus_width,
+        plus_numerator_width,
+        denominator_width,
+        merged_width,
+        no_plus_numerator_width,
+    ) = widths
+    integer_str, plus_str, numerator_str, denominator_str = (
+        split_int_or_fraction_as_str(i)
+    )
 
     if plus_width:
-        overall_width = integer_width + plus_width + plus_numerator_width + denominator_width
+        overall_width = (
+            integer_width + plus_width + plus_numerator_width + denominator_width
+        )
 
     if plus_str:
         strings = []
-        formats = ('>', '<', '>', '<')
+        formats = (">", "<", ">", "<")
         for s, format, width in zip(split_int_or_fraction_as_str(i), formats, widths):
             strings.append(f"{s:{format}{width}}")
         s = "".join(strings)
@@ -266,6 +300,7 @@ def format_int_or_fraction(i, widths):
 class ElectionError(ValueError):
     pass
 
+
 class UnbreakableTieError(ValueError):
     def __init__(self, description, candidates, desired):
         super().__init__(description)
@@ -274,15 +309,15 @@ class UnbreakableTieError(ValueError):
 
 
 class Tiebreaker:
-    def initialize(self, options, ballots): # pragma: no cover
+    def initialize(self, options, ballots):  # pragma: no cover
         pass
 
-    def __call__(self, options, tie, desired, exception): # pragma: no cover
+    def __call__(self, options, tie, desired, exception):  # pragma: no cover
         pass
 
     def print_description(self, options, description=None):
         description = description if description is not None else self.description
-        if not description: # pragma: no cover
+        if not description:  # pragma: no cover
             return
         if isinstance(description, str):
             options.print(description)
@@ -301,9 +336,11 @@ class TiebreakerFunctionWrapper(Tiebreaker):
 
         if description:
             heading = heading.strip()
-            description = [line.strip() for line in description.strip().split('\n')]
+            description = [line.strip() for line in description.strip().split("\n")]
         elif heading:
-            raise ValueError("if tiebreaker function docstring isn't empty, it must have at least two lines")
+            raise ValueError(
+                "if tiebreaker function docstring isn't empty, it must have at least two lines"
+            )
         else:
             heading = description = None
 
@@ -322,16 +359,18 @@ class TiebreakerFunctionWrapper(Tiebreaker):
         return self.function(options, tie, desired, exception)
 
 
-tiebreakers = {'None': None, 'none': None}
+tiebreakers = {"None": None, "none": None}
+
 
 def _add_tiebreaker(o):
     name = o.__name__
     tiebreakers[name] = o
     suffix = "_tiebreaker"
     if name.endswith(suffix):
-        name = name[:-len(suffix)]
+        name = name[: -len(suffix)]
         tiebreakers[name] = o
     return o
+
 
 @_add_tiebreaker
 def on_demand_random_tiebreaker(options, tie, desired, exception, *, random=None):
@@ -341,7 +380,7 @@ def on_demand_random_tiebreaker(options, tie, desired, exception, *, random=None
     Tie-breaking winners will be chosen at random, on demand.
     """
     if random is None:
-        random = sys.modules['random']
+        random = sys.modules["random"]
     tie = list(tie)
     _attempt_to_sort(tie)
     result = random.sample(population=tie, k=desired)
@@ -361,26 +400,30 @@ def on_demand_random_tiebreaker(options, tie, desired, exception, *, random=None
 class predefined_permutation_tiebreaker(Tiebreaker):
     def __init__(self, candidates=None, *, description=None, random=None):
         if (not candidates) and description:
-            raise ValueError("you can't specify a message unless you specify an iterable of candidates")
+            raise ValueError(
+                "you can't specify a message unless you specify an iterable of candidates"
+            )
         self.candidates = candidates
         self._description = description
         self.description = None
         if random is None:
-            random = sys.modules['random']
+            random = sys.modules["random"]
         self.random = random
 
-    def __repr__(self): # pragma: no cover
+    def __repr__(self):  # pragma: no cover
         if self.description:
             contents = f"candidates={self.candidates} description='{self.description}'"
         else:
-            contents = f"<not yet initialized>"
+            contents = "<not yet initialized>"
         return f"predefined_permutation_tiebreaker({contents})"
 
     def print_initialization(self, options, permuted):
         self.print_description(options)
         options.print(f"{permuted} list of candidates:")
         options.print_candidates(self.candidates, numbered=True)
-        options.print("Tiebreaker candidates will be selected from this list, preferring candidates with lower numbers.")
+        options.print(
+            "Tiebreaker candidates will be selected from this list, preferring candidates with lower numbers."
+        )
 
     def initialize(self, options, ballots):
         all_candidates = _candidates(ballots)
@@ -403,7 +446,9 @@ class predefined_permutation_tiebreaker(Tiebreaker):
                 if extraneous:
                     problems.append("extraneous " + str(list(extraneous)))
                 problems = ", ".join(problems)
-                raise ValueError(f"candidates list doesn't exactly match ballot, {problems}")
+                raise ValueError(
+                    f"candidates list doesn't exactly match ballot, {problems}"
+                )
             if self._description:
                 self.description = self._description
             else:
@@ -415,13 +460,17 @@ class predefined_permutation_tiebreaker(Tiebreaker):
 
     def __call__(self, options, tie, desired, exception):
         tie_set = set(tie)
-        result = [candidate for candidate in self.candidates if candidate in tie_set][:desired]
+        result = [candidate for candidate in self.candidates if candidate in tie_set][
+            :desired
+        ]
         if options.verbosity:
             with options.heading("Predefined permutation tiebreaker"):
                 if options.verbosity == 1:
                     self.print_initialization(options, "Pre-permuted")
                 two = "two " if desired == 2 else ""
-                options.print(f"Choosing the earliest {two}of these candidates from the permuted list:")
+                options.print(
+                    f"Choosing the earliest {two}of these candidates from the permuted list:"
+                )
                 options.print_candidates(tie)
                 if desired == 1:
                     options.print(f"Selected winner: {result[0]}")
@@ -430,22 +479,22 @@ class predefined_permutation_tiebreaker(Tiebreaker):
         return result
 
 
-_start_of_heading         = b'\x01'
-_start_of_text            = b'\x02'
-_end_of_text              = b'\x03'
-_control_character_escape = b'\x1a'
-_group_separator          = b'\x1d'
-_record_separator         = b'\x1e'
-_unit_separator           = b'\x1f'
+_start_of_heading = b"\x01"
+_start_of_text = b"\x02"
+_end_of_text = b"\x03"
+_control_character_escape = b"\x1a"
+_group_separator = b"\x1d"
+_record_separator = b"\x1e"
+_unit_separator = b"\x1f"
 
-_int_marker               =  'int'
-_serialized_int_marker    = b'int'
+_int_marker = "int"
+_serialized_int_marker = b"int"
 
-_ballot_marker            =  'ballots'
-_serialized_ballot_marker = b'ballots'
+_ballot_marker = "ballots"
+_serialized_ballot_marker = b"ballots"
+
 
 class _writer(list):
-
     def __call__(self, o):
         self.append(o)
 
@@ -455,19 +504,19 @@ class _writer(list):
             return
 
         if isinstance(o, int):
-            b = str(o).encode('ascii')
+            b = str(o).encode("ascii")
             self.append(b)
             return
 
         assert isinstance(o, str)
         for c in o:
-            c = c.encode('utf-8')
+            c = c.encode("utf-8")
             if c[0] < 32:
-                self.append(b'\x1a')
+                self.append(b"\x1a")
             self.append(c)
 
     def render(self):
-        return b''.join(self)
+        return b"".join(self)
 
 
 def starvote_custom_serializer(o):
@@ -513,14 +562,20 @@ def starvote_custom_serializer(o):
                 write(_group_separator)
 
             if not isinstance(ballot, list):
-                raise TypeError(f"each ballot in ballots must be a list, ballots[{ballot_number}] is type {type(ballot)}")
+                raise TypeError(
+                    f"each ballot in ballots must be a list, ballots[{ballot_number}] is type {type(ballot)}"
+                )
 
             for entry_number, t in enumerate(ballot):
                 if not (isinstance(t, tuple) and (len(t) == 2)):
-                    raise TypeError(f"each vote in each ballot in ballots must be a tuple of length 2, ballots[{ballot_number}][{entry_number}] is type {type(t)}")
+                    raise TypeError(
+                        f"each vote in each ballot in ballots must be a tuple of length 2, ballots[{ballot_number}][{entry_number}] is type {type(t)}"
+                    )
                 candidate, vote = t
                 if not isinstance(candidate, str):
-                    raise TypeError(f"candidate must be str, but {candidate!r} is {type(candidate)}")
+                    raise TypeError(
+                        f"candidate must be str, but {candidate!r} is {type(candidate)}"
+                    )
                 if not isinstance(vote, int):
                     raise TypeError(f"vote must be int, but {vote!r} is {type(vote)}")
 
@@ -538,7 +593,6 @@ def starvote_custom_serializer(o):
 
 
 class _reader(io.BytesIO):
-
     def __init__(self, b):
         super().__init__(b)
         self.waiting = None
@@ -562,14 +616,14 @@ class _reader(io.BytesIO):
         append = buffer.append
         while True:
             c = self()
-            if c < b' ':
+            if c < b" ":
                 if c == _control_character_escape:
                     c = self()
                 else:
                     self.waiting = c
                     break
             append(c)
-        s = b''.join(buffer).decode('utf-8')
+        s = b"".join(buffer).decode("utf-8")
         return s
 
     def read_int(self):
@@ -632,7 +686,9 @@ def starvote_custom_deserializer(b):
             assert i == 0
             ballot = []
         elif marker != _record_separator:
-            raise ValueError(f"expected start of text, end of text, group separator, or record separator, got {marker!r}")
+            raise ValueError(
+                f"expected start of text, end of text, group separator, or record separator, got {marker!r}"
+            )
 
         candidate = r.read_str()
         r.read_marker(_unit_separator)
@@ -687,10 +743,16 @@ class hashed_ballots_tiebreaker(Tiebreaker):
     behavior is 100% deterministic, which is both reassuring
     and satisfying.
     """
-    def __init__(self, *,
-            counter=1, hash='sha3_512', Random=random.Random,
-            serializer=starvote_custom_serializer, shuffles=3,
-            ):
+
+    def __init__(
+        self,
+        *,
+        counter=1,
+        hash="sha3_512",
+        Random=random.Random,
+        serializer=starvote_custom_serializer,
+        shuffles=3,
+    ):
         self.counter = counter
         self.hash = hash
         self.Random = Random
@@ -702,11 +764,11 @@ class hashed_ballots_tiebreaker(Tiebreaker):
         self.candidates = None
         self.serialized_ballots = None
 
-    def __repr__(self): # pragma: no cover
+    def __repr__(self):  # pragma: no cover
         if self.serialized_ballots:
             contents = f"counter={self.counter} serialized_ballots=(len({self.serialized_ballots} bytes)"
         else:
-            contents = f"<not yet initialized>"
+            contents = "<not yet initialized>"
         return f"hash_the_ballots_tiebreaker({contents})"
 
     def initialize(self, options, ballots):
@@ -732,10 +794,14 @@ class hashed_ballots_tiebreaker(Tiebreaker):
             with options.heading("Initializing Hashed Ballots tiebreaker"):
                 options.print(f"{len(self.candidates)} candidates")
                 options.print(f"Counter initialized to {self.counter}")
-                options.print(f"Serialized sorted ballots = ({len(self.serialized_ballots)} bytes)")
+                options.print(
+                    f"Serialized sorted ballots = ({len(self.serialized_ballots)} bytes)"
+                )
                 if options.verbosity >= 3:
                     digester = hashlib.new(self.hash, self.serialized_ballots)
-                    options.print(f"Hexdigest of serialized sorted ballots = {digester.hexdigest()}")
+                    options.print(
+                        f"Hexdigest of serialized sorted ballots = {digester.hexdigest()}"
+                    )
 
     def __call__(self, options, tie, desired, exception):
         assert 1 <= desired <= 2
@@ -753,16 +819,20 @@ class hashed_ballots_tiebreaker(Tiebreaker):
         for _ in range(self.shuffles):
             r.shuffle(candidates)
 
-        result = [candidate for candidate in candidates if candidate in tie_set][:desired]
+        result = [candidate for candidate in candidates if candidate in tie_set][
+            :desired
+        ]
         if options.verbosity:
             with options.heading("Hashed Ballots tiebreaker"):
                 options.print(f"Hashed {self.ballot_count} ballots")
                 options.print(f"Counter is now {self.counter}")
                 options.print(f"{self.shuffles} shuffles")
-                options.print(f"Permuted list of candidates:")
+                options.print("Permuted list of candidates:")
                 options.print_candidates(candidates, sorted=False)
                 two = "two " if desired == 2 else ""
-                options.print(f"Choosing the earliest {two}of these candidates from the permuted list:")
+                options.print(
+                    f"Choosing the earliest {two}of these candidates from the permuted list:"
+                )
                 options.print_candidates(tie)
                 if desired == 1:
                     options.print(f"Selected winner: {result[0]}")
@@ -774,7 +844,6 @@ class hashed_ballots_tiebreaker(Tiebreaker):
         return result
 
 
-
 _DEFAULT_MAXIMUM_SCORE = 5
 _DEFAULT_PRINT = None
 _DEFAULT_SEATS = 1
@@ -782,6 +851,7 @@ _DEFAULT_TIEBREAKER = hashed_ballots_tiebreaker
 _DEFAULT_VERBOSITY = 0
 _DEFAULT_PRINT_AVERAGES = False
 _DEFAULT_PRINT_MAXIMUM_SCORE = False
+
 
 class Options:
     """
@@ -791,17 +861,18 @@ class Options:
     and handling an unbreakable tie.
     """
 
-    def __init__(self,
+    def __init__(
+        self,
         method,
         *,
-        maximum_score = _DEFAULT_MAXIMUM_SCORE,
-        print = _DEFAULT_PRINT,
-        seats = _DEFAULT_SEATS,
-        tiebreaker = _DEFAULT_TIEBREAKER,
-        verbosity = _DEFAULT_VERBOSITY,
-        print_averages = _DEFAULT_PRINT_AVERAGES,
-        print_maximum_score = _DEFAULT_PRINT_MAXIMUM_SCORE,
-        ):
+        maximum_score=_DEFAULT_MAXIMUM_SCORE,
+        print=_DEFAULT_PRINT,
+        seats=_DEFAULT_SEATS,
+        tiebreaker=_DEFAULT_TIEBREAKER,
+        verbosity=_DEFAULT_VERBOSITY,
+        print_averages=_DEFAULT_PRINT_AVERAGES,
+        print_maximum_score=_DEFAULT_PRINT_MAXIMUM_SCORE,
+    ):
         if not isinstance(maximum_score, int):
             raise ValueError(f"invalid maximum score {maximum_score}")
         if not isinstance(seats, int):
@@ -837,7 +908,7 @@ class Options:
 
         self.last_printed_ballot_count = None
 
-    def __repr__(self): # pragma: no cover
+    def __repr__(self):  # pragma: no cover
         return f"<Options {self.method.name!r} maximum_score={self.maximum_score} seats={self.seats} tiebreaker={self.tiebreaker} verbosity={self.verbosity}>"
 
     @property
@@ -851,7 +922,7 @@ class Options:
         self._header = value
 
     def print(self, *a, sep=" ", end="\n"):
-        if not self._print: # pragma: no cover
+        if not self._print:  # pragma: no cover
             return
         if not self._header:
             header = self.header
@@ -860,7 +931,7 @@ class Options:
                 continued = ""
                 if header not in self.printed_headings:
                     self.printed_headings.add(header)
-                else: # pragma: no cover
+                else:  # pragma: no cover
                     continued = " (continued)"
                 if self.ever_printed_anything:
                     # print a blank line before a new heading
@@ -868,8 +939,8 @@ class Options:
                 self._print(f"[{header}{continued}]")
                 self.ever_printed_anything = True
         s = " " + sep.join(_ for _ in a) + end
-        self._print(s, end='')
-        if (not self.ever_printed_anything) and s.strip(): # pragma: no cover
+        self._print(s, end="")
+        if (not self.ever_printed_anything) and s.strip():  # pragma: no cover
             self.ever_printed_anything = True
 
     def enter(self, header):
@@ -910,12 +981,16 @@ class Options:
                 if not (candidate and isinstance(candidate, str)):
                     raise ValueError(f"invalid candidate {candidate!r}")
                 if not isinstance(score, int):
-                    raise ValueError(f"ballot[{candidate!r}] score is invalid, all scores must be integer, ballot={ballot} score={score}")
+                    raise ValueError(
+                        f"ballot[{candidate!r}] score is invalid, all scores must be integer, ballot={ballot} score={score}"
+                    )
                 if not (0 <= score <= maximum_score):
-                    raise ValueError(f"ballot[{candidate!r}] score {score} isn't in the range 0..{maximum_score}, ballot={ballot} score={score}")
+                    raise ValueError(
+                        f"ballot[{candidate!r}] score {score} isn't in the range 0..{maximum_score}, ballot={ballot} score={score}"
+                    )
 
         if self.verbosity:
-            self.enter(self.method.name) # stay in this heading forever
+            self.enter(self.method.name)  # stay in this heading forever
             self.print_ballot_count_if_changed(ballots)
             if self.print_maximum_score:
                 self.print(f"Maximum score is {maximum_score}.")
@@ -937,7 +1012,9 @@ class Options:
     def print_ballot_count_if_changed(self, ballots):
         ballot_count = len(ballots)
         if self.last_printed_ballot_count != ballot_count:
-            remaining = "remaining " if self.last_printed_ballot_count is not None else ""
+            remaining = (
+                "remaining " if self.last_printed_ballot_count is not None else ""
+            )
             self.last_printed_ballot_count = ballot_count
             self.print(f"Tabulating {ballot_count} {remaining}ballots.")
 
@@ -959,10 +1036,10 @@ class Options:
             if numbered:
                 prefix = f"{i:>{width}}. "
             else:
-                prefix = ''
+                prefix = ""
             self.print(f"  {prefix}{candidate}")
 
-    def print_result(self, first, second, tie, advance=False): # for scoring round
+    def print_result(self, first, second, tie, advance=False):  # for scoring round
         print = self.print
 
         if not isinstance(advance, str):
@@ -992,7 +1069,17 @@ class Options:
         print(f"{first} {advance}, but there's {still}a {tie_description} for second.")
         self.already_printed_first_advances = True
 
-    def print_scores(self, scores, first, second, tie, *, advance=False, averages=None, no_preference=None):
+    def print_scores(
+        self,
+        scores,
+        first,
+        second,
+        tie,
+        *,
+        advance=False,
+        averages=None,
+        no_preference=None,
+    ):
         """
         averages is optional.  if specified, it must also be a sorted score dict.
 
@@ -1003,17 +1090,17 @@ class Options:
         assert scores
         if no_preference is not None:
             scores = dict(scores)
-            scores['No Preference'] = no_preference
+            scores["No Preference"] = no_preference
 
         def annotation(candidate):
             if candidate == first:
-                return ' -- First place'
+                return " -- First place"
             if candidate == second:
-                return ' -- Second place'
+                return " -- Second place"
             if tie and (candidate in tie):
                 if first is None:
-                    return ' -- Tied for first place'
-                return ' -- Tied for second place'
+                    return " -- Tied for first place"
+                return " -- Tied for second place"
             return ""
 
         candidate_width = 0
@@ -1022,34 +1109,68 @@ class Options:
         # round 1: measure
         for candidate, score in scores.items():
             candidate_width = max(candidate_width, len(candidate))
-            score_widths = max_widths(score_widths, measure_int_or_fraction_as_str(score))
+            score_widths = max_widths(
+                score_widths, measure_int_or_fraction_as_str(score)
+            )
             if averages:
-                average_widths = max_widths(average_widths, measure_int_or_fraction_as_str(averages[candidate]))
+                average_widths = max_widths(
+                    average_widths, measure_int_or_fraction_as_str(averages[candidate])
+                )
 
         # round 2: print
         print = self.print
-        average = ''
+        average = ""
         for candidate, score in scores.items():
             score = format_int_or_fraction(score, score_widths)
             if averages:
                 average = format_int_or_fraction(averages[candidate], average_widths)
                 stripped = average.rstrip()
                 delta = len(average) - len(stripped)
-                spacer = ' ' * delta
+                spacer = " " * delta
                 average = f" (average {stripped}){spacer}"
             a = annotation(candidate)
             print(f"  {candidate:{candidate_width}} -- {score}{average}{a}".rstrip())
 
         self.print_result(first, second, tie, advance=advance)
 
-    def print_scores_and_averages(self, ballots, scores, first, second, tie, *, advance=False, no_preference=None, ballot_count=None):
+    def print_scores_and_averages(
+        self,
+        ballots,
+        scores,
+        first,
+        second,
+        tie,
+        *,
+        advance=False,
+        no_preference=None,
+        ballot_count=None,
+    ):
         if not self.print_averages:
-            self.print_scores(scores, first, second, tie, advance=advance, averages=None, no_preference=no_preference)
+            self.print_scores(
+                scores,
+                first,
+                second,
+                tie,
+                advance=advance,
+                averages=None,
+                no_preference=no_preference,
+            )
             return
         if ballot_count is None:
             ballot_count = len(ballots)
-        averages = {candidate: Fraction(score, ballot_count) for candidate, score in scores.items()}
-        self.print_scores(scores, first, second, tie, advance=advance, averages=averages, no_preference=no_preference)
+        averages = {
+            candidate: Fraction(score, ballot_count)
+            for candidate, score in scores.items()
+        }
+        self.print_scores(
+            scores,
+            first,
+            second,
+            tie,
+            advance=advance,
+            averages=averages,
+            no_preference=no_preference,
+        )
 
     def election_result(self, winners, tie, *, raise_tie=True):
         if not (winners or tie):
@@ -1086,9 +1207,13 @@ class Options:
         if not isinstance(candidates, list):
             raise TypeError(f"candidates must be a list, candidates={candidates!r}")
         if len(candidates) < 2:
-            raise ValueError(f"candidates must have at least two entries, candidates={candidates!r}")
+            raise ValueError(
+                f"candidates must have at least two entries, candidates={candidates!r}"
+            )
         if len(candidates) <= desired:
-            raise ValueError(f"candidates must have more than desired entries, candidates={candidates!r} desired={desired!r}")
+            raise ValueError(
+                f"candidates must have more than desired entries, candidates={candidates!r} desired={desired!r}"
+            )
 
         tie = self.unbreakable_tie(text, candidates, desired)
 
@@ -1097,7 +1222,9 @@ class Options:
             if not isinstance(result, list):
                 raise TypeError(f"tiebreaker result must be a list, result={result!r}")
             if len(result) != desired:
-                raise TypeError(f"tiebreaker result must have exactly {desired} elements, result={result!r}")
+                raise TypeError(
+                    f"tiebreaker result must have exactly {desired} elements, result={result!r}"
+                )
             return result
 
         raise tie
@@ -1123,6 +1250,7 @@ class Options:
 ##    starvote relies on dicts retaining insertion order.
 ##    So we confirm this, in _check_version() at import time.
 
+
 def _sort_score_list(score_list, *, reverse=False):
     """
     Sort a score list with the highest score first,
@@ -1132,6 +1260,7 @@ def _sort_score_list(score_list, *, reverse=False):
     """
     score_list.sort(key=lambda t: (-t[1], t[0]), reverse=reverse)
 
+
 def _sort_score_dict(score_dict, *, reverse=False):
     """
     Sort a score dict with the highest score first.
@@ -1140,11 +1269,13 @@ def _sort_score_dict(score_dict, *, reverse=False):
     _sort_score_list(score_list, reverse=reverse)
     return dict(score_list)
 
+
 def _attempt_to_sort(l):
     try:
         l.sort()
     except TypeError:
         pass
+
 
 def _width(i):
     """
@@ -1157,6 +1288,7 @@ def _width(i):
     if i < 1:
         return adjustment
     return floor(log10(i)) + adjustment
+
 
 def _fraction_or_int(numerator, denominator=1):
     """
@@ -1219,7 +1351,7 @@ def int_to_words(i, flowery=True):
     if not isinstance(i, int):
         raise ValueError("i must be int")
 
-    if (i >= 10**75) or (i <= -10**75):
+    if (i >= 10**75) or (i <= -(10**75)):
         return str(i)
 
     is_negative = i < 0
@@ -1228,20 +1360,43 @@ def int_to_words(i, flowery=True):
 
     first_twenty = (
         "zero",
-        "one", "two", "three", "four", "five",
-        "six", "seven", "eight", "nine", "ten",
-        "eleven", "twelve", "thirteen", "fourteen", "fifteen",
-        "sixteen", "seventeen", "eighteen", "nineteen",
-        )
+        "one",
+        "two",
+        "three",
+        "four",
+        "five",
+        "six",
+        "seven",
+        "eight",
+        "nine",
+        "ten",
+        "eleven",
+        "twelve",
+        "thirteen",
+        "fourteen",
+        "fifteen",
+        "sixteen",
+        "seventeen",
+        "eighteen",
+        "nineteen",
+    )
     tens = (
-        None, None, "twenty", "thirty", "forty", "fifty",
-        "sixty", "seventy", "eighty", "ninety",
-        )
+        None,
+        None,
+        "twenty",
+        "thirty",
+        "forty",
+        "fifty",
+        "sixty",
+        "seventy",
+        "eighty",
+        "ninety",
+    )
 
     # leave a spot to put in "negative " if needed
-    strings = ['']
+    strings = [""]
     append = strings.append
-    spacer = ''
+    spacer = ""
     written = False
 
     # go-faster stripes shortcut:
@@ -1252,37 +1407,37 @@ def int_to_words(i, flowery=True):
     if i >= 100:
         if i >= 10**12:
             quantities = (
-            # note!        v  leading spaces!
-            (10**63,      " vigintillion"),
-            (10**60,    " novemdecillion"),
-            (10**57,     " octodecillion"),
-            (10**54,     " septdecillion"),
-            (10**51,      " sexdecillion"),
-            (10**48,      " qindecillion"),
-            (10**45, " quattuordecillion"),
-            (10**42,      " tredecillion"),
-            (10**39,      " duodecillion"),
-            (10**36,       " undecillion"),
-            (10**33,       "   decillion"),
-            (10**30,       "   nonillion"),
-            (10**27,       "   octillion"),
-            (10**24,       "  septillion"),
-            (10**21,       "  sextillion"),
-            (10**18,       " quintillion"),
-            (10**15,       " quadrillion"),
-            (10**12,          " trillion"),
-            (10** 9,           " billion"),
-            (10** 6,           " million"),
-            (10** 3,          " thousand"),
-            (10** 2,           " hundred"),
+                # note!        v  leading spaces!
+                (10**63, " vigintillion"),
+                (10**60, " novemdecillion"),
+                (10**57, " octodecillion"),
+                (10**54, " septdecillion"),
+                (10**51, " sexdecillion"),
+                (10**48, " qindecillion"),
+                (10**45, " quattuordecillion"),
+                (10**42, " tredecillion"),
+                (10**39, " duodecillion"),
+                (10**36, " undecillion"),
+                (10**33, "   decillion"),
+                (10**30, "   nonillion"),
+                (10**27, "   octillion"),
+                (10**24, "  septillion"),
+                (10**21, "  sextillion"),
+                (10**18, " quintillion"),
+                (10**15, " quadrillion"),
+                (10**12, " trillion"),
+                (10**9, " billion"),
+                (10**6, " million"),
+                (10**3, " thousand"),
+                (10**2, " hundred"),
             )
         else:
             quantities = (
-            # note!             v  leading spaces!
-            (10** 9,           " billion"),
-            (10** 6,           " million"),
-            (10** 3,          " thousand"),
-            (10** 2,           " hundred"),
+                # note!             v  leading spaces!
+                (10**9, " billion"),
+                (10**6, " million"),
+                (10**3, " thousand"),
+                (10**2, " hundred"),
             )
 
         for threshold, english in quantities:
@@ -1292,7 +1447,7 @@ def int_to_words(i, flowery=True):
                 append(spacer)
                 append(int_to_words(upper, flowery=flowery))
                 append(english)
-                spacer = ', ' if flowery else ' '
+                spacer = ", " if flowery else " "
                 written = True
 
     if written:
@@ -1303,7 +1458,7 @@ def int_to_words(i, flowery=True):
         append(spacer)
         append(tens[t])
         written = True
-        spacer = '-'
+        spacer = "-"
         i = i % 10
 
     # don't add "zero" to the end if we already have strings
@@ -1316,8 +1471,10 @@ def int_to_words(i, flowery=True):
 
     return "".join(strings)
 
+
 def int_to_dashed_words(i):
     return int_to_words(i, flowery=False).replace(" ", "-")
+
 
 def pluralizer(i):
     return "" if i == 1 else "s"
@@ -1334,9 +1491,11 @@ def _candidates(ballots):
     _attempt_to_sort(candidates)
     return candidates
 
+
 ##
 ## Utility functions for the high-level election system functions.
 ##
+
 
 def _score_groups(scores, max_groups):
     """
@@ -1386,6 +1545,7 @@ def _compute_first_from_scores(scores):
         return score_group[0], None
     return None, score_group
 
+
 def _compute_first_and_second_from_score(scores, first):
     """
     Determines first and second place winners from a sorted scores dict.
@@ -1429,7 +1589,6 @@ def _compute_first_and_second_from_score(scores, first):
     return first, None, score_group
 
 
-
 ##
 ## Bare-metal score tabulators.
 ##
@@ -1458,6 +1617,7 @@ def _compute_first_and_second_from_score(scores, first):
 ##         * If "candidates" is None, the dict returned will
 ##           contain every candidate found in "ballots".
 ##     * These functions don't print anything.
+
 
 def _scoring_round(ballots, candidates=None):
     """
@@ -1616,7 +1776,6 @@ def _star_round(options, ballots, candidates=None):
     verbosity = options.verbosity
     print = options.print
 
-
     @contextmanager
     def score_round_heading():
         with options.round_heading("Scoring Round"):
@@ -1629,16 +1788,22 @@ def _star_round(options, ballots, candidates=None):
         with options.subround_heading("First tiebreaker"):
             if verbosity:
                 if first:
-                    print("The candidate preferred in the most head-to-head matchups advances.")
+                    print(
+                        "The candidate preferred in the most head-to-head matchups advances."
+                    )
                 else:
-                    print("The two candidates preferred in the most head-to-head matchups advance.")
+                    print(
+                        "The two candidates preferred in the most head-to-head matchups advance."
+                    )
             yield None
 
     @contextmanager
     def score_tiebreaker_2_heading():
         with options.subround_heading("Second tiebreaker"):
             if verbosity:
-                with_the_most_votes = f"with the most votes of score {options.maximum_score}"
+                with_the_most_votes = (
+                    f"with the most votes of score {options.maximum_score}"
+                )
                 if first:
                     print(f"The candidate {with_the_most_votes} advances.")
                 else:
@@ -1663,10 +1828,11 @@ def _star_round(options, ballots, candidates=None):
     def automatic_runoff_tiebreaker_2_heading():
         with options.subround_heading("Second tiebreaker"):
             if verbosity:
-                with_the_most_votes = f"with the most votes of score {options.maximum_score}"
+                with_the_most_votes = (
+                    f"with the most votes of score {options.maximum_score}"
+                )
                 print(f"The candidate {with_the_most_votes} wins.")
             yield None
-
 
     with score_round_heading():
         scores = _scoring_round(ballots, candidates)
@@ -1679,25 +1845,42 @@ def _star_round(options, ballots, candidates=None):
         first, second, tie = _compute_first_and_second_from_score(scores, None)
 
         if verbosity:
-            options.print_scores_and_averages(ballots, scores, first, second, tie, advance=True)
+            options.print_scores_and_averages(
+                ballots, scores, first, second, tie, advance=True
+            )
 
         if tie:
             with score_tiebreaker_1_heading():
                 scores, no_preference = _preference_round(ballots, tie)
                 first, second, tie = _compute_first_and_second_from_score(scores, first)
                 if verbosity:
-                    options.print_scores(scores, first, second, tie, no_preference=no_preference, advance=True)
+                    options.print_scores(
+                        scores,
+                        first,
+                        second,
+                        tie,
+                        no_preference=no_preference,
+                        advance=True,
+                    )
 
             if tie:
                 with score_tiebreaker_2_heading():
-                    scores = _maximum_score_count_round(ballots, options.maximum_score, tie)
-                    first, second, tie = _compute_first_and_second_from_score(scores, first)
+                    scores = _maximum_score_count_round(
+                        ballots, options.maximum_score, tie
+                    )
+                    first, second, tie = _compute_first_and_second_from_score(
+                        scores, first
+                    )
                     if verbosity:
                         options.print_scores(scores, first, second, tie, advance=True)
 
                 if tie:
                     needed = 1 if first else 2
-                    winners = options.break_tie("{int_to_words(len(tie), flowery=False)}-way tie in Scoring Round", tie, needed)
+                    winners = options.break_tie(
+                        "{int_to_words(len(tie), flowery=False)}-way tie in Scoring Round",
+                        tie,
+                        needed,
+                    )
                     if needed == 1:
                         second = winners[0]
                     else:
@@ -1718,13 +1901,19 @@ def _star_round(options, ballots, candidates=None):
 
             if tie:
                 with automatic_runoff_tiebreaker_2_heading():
-                    scores = _maximum_score_count_round(ballots, options.maximum_score, tie)
+                    scores = _maximum_score_count_round(
+                        ballots, options.maximum_score, tie
+                    )
                     first, tie = _compute_first_from_scores(scores)
                     if verbosity:
                         options.print_scores(scores, first, None, tie)
 
                 if tie:
-                    winners = options.break_tie("{int_to_words(len(tie), flowery=False)}-way tie in Automatic Runoff Round", tie, 1)
+                    winners = options.break_tie(
+                        "{int_to_words(len(tie), flowery=False)}-way tie in Automatic Runoff Round",
+                        tie,
+                        1,
+                    )
                     first = winners[0]
 
     return first
@@ -1746,17 +1935,20 @@ class Method:
         multiwinner = " multiwinner" if self.multiwinner else ""
         return f"<Method '{self.name}' {self.function.__name__}{multiwinner}>"
 
+
 methods = {}
 
 
-def star_voting(ballots, *,
+def star_voting(
+    ballots,
+    *,
     maximum_score=_DEFAULT_MAXIMUM_SCORE,
     print=_DEFAULT_PRINT,
     tiebreaker=_DEFAULT_TIEBREAKER,
     verbosity=_DEFAULT_VERBOSITY,
     print_averages=_DEFAULT_PRINT_AVERAGES,
     print_maximum_score=_DEFAULT_PRINT_MAXIMUM_SCORE,
-    ):
+):
     """
     Tabulates an election using STAR Voting:
         https://www.starvoting.org/
@@ -1771,7 +1963,7 @@ def star_voting(ballots, *,
       per vote, default 5.
     * "print" is a function called to print output.
     * "seats" specifies the number of seats,
-      for multiwinner elections.
+      for multiwinner elections_demo.
     * "tiebreaker" specifies how to break ties;
       should be a tiebreaker function or Tiebreaker
       object.
@@ -1781,7 +1973,6 @@ def star_voting(ballots, *,
     """
     options = Options(
         STAR_Voting,
-
         maximum_score=maximum_score,
         print=print,
         seats=1,
@@ -1789,7 +1980,7 @@ def star_voting(ballots, *,
         verbosity=verbosity,
         print_averages=print_averages,
         print_maximum_score=print_maximum_score,
-        )
+    )
     options.initialize(ballots)
 
     try:
@@ -1802,12 +1993,13 @@ def star_voting(ballots, *,
 
 
 STAR_Voting = star = Method("STAR Voting", star_voting, False)
-for _ in ('STAR Voting', 'star'):
+for _ in ("STAR Voting", "star"):
     methods[_] = STAR_Voting
 
 
-
-def bloc_star_voting(ballots, *,
+def bloc_star_voting(
+    ballots,
+    *,
     maximum_score=_DEFAULT_MAXIMUM_SCORE,
     print=_DEFAULT_PRINT,
     seats,
@@ -1815,7 +2007,7 @@ def bloc_star_voting(ballots, *,
     verbosity=_DEFAULT_VERBOSITY,
     print_averages=_DEFAULT_PRINT_AVERAGES,
     print_maximum_score=_DEFAULT_PRINT_MAXIMUM_SCORE,
-    ):
+):
     """
     Tabulates an election using Bloc STAR:
         https://www.starvoting.org/multi_winner
@@ -1830,7 +2022,7 @@ def bloc_star_voting(ballots, *,
       per vote, default 5.
     * "print" is a function called to print output.
     * "seats" specifies the number of seats,
-      for multiwinner elections.
+      for multiwinner elections_demo.
     * "tiebreaker" specifies how to break ties;
       should be a tiebreaker function or Tiebreaker
       object.
@@ -1840,7 +2032,6 @@ def bloc_star_voting(ballots, *,
     """
     options = Options(
         Bloc_STAR_Voting,
-
         maximum_score=maximum_score,
         print=print,
         seats=seats,
@@ -1848,16 +2039,20 @@ def bloc_star_voting(ballots, *,
         verbosity=verbosity,
         print_averages=print_averages,
         print_maximum_score=print_maximum_score,
-        )
+    )
     options.initialize(ballots)
 
     scores = _scoring_round(ballots)
     if len(scores) < seats:
-        raise ElectionError(f"election must fill {seats} seats but there are only {len(scores)} candidates")
+        raise ElectionError(
+            f"election must fill {seats} seats but there are only {len(scores)} candidates"
+        )
     if len(scores) == seats:
-        with options.heading(f"Round 1"):
+        with options.heading("Round 1"):
             if options.verbosity:
-                options.print(f"There are exactly {seats} candidates seeking {seats} seats.  Every candidate wins.")
+                options.print(
+                    f"There are exactly {seats} candidates seeking {seats} seats.  Every candidate wins."
+                )
         winners = list(scores)
         _attempt_to_sort(winners)
         return winners
@@ -1883,13 +2078,15 @@ def bloc_star_voting(ballots, *,
         tie = e
     return options.election_result(winners, tie)
 
+
 Bloc_STAR_Voting = bloc = Method("Bloc STAR", bloc_star_voting, True)
-for _ in ('Bloc STAR Voting', 'bloc'):
+for _ in ("Bloc STAR Voting", "bloc"):
     methods[_] = Bloc_STAR_Voting
 
 
-
-def allocated_score_voting(ballots, *,
+def allocated_score_voting(
+    ballots,
+    *,
     maximum_score=_DEFAULT_MAXIMUM_SCORE,
     print=_DEFAULT_PRINT,
     seats,
@@ -1897,7 +2094,7 @@ def allocated_score_voting(ballots, *,
     verbosity=_DEFAULT_VERBOSITY,
     print_averages=_DEFAULT_PRINT_AVERAGES,
     print_maximum_score=_DEFAULT_PRINT_MAXIMUM_SCORE,
-    ):
+):
     """
     Tabulates an election using Allocated Score Voting:
 
@@ -1916,7 +2113,7 @@ def allocated_score_voting(ballots, *,
       per vote, default 5.
     * "print" is a function called to print output.
     * "seats" specifies the number of seats,
-      for multiwinner elections.
+      for multiwinner elections_demo.
     * "tiebreaker" specifies how to break ties;
       should be a tiebreaker function or Tiebreaker
       object.
@@ -1932,7 +2129,6 @@ def allocated_score_voting(ballots, *,
 
     options = Options(
         Allocated_Score_Voting,
-
         maximum_score=maximum_score,
         print=print,
         seats=seats,
@@ -1940,7 +2136,7 @@ def allocated_score_voting(ballots, *,
         verbosity=verbosity,
         print_averages=print_averages,
         print_maximum_score=print_maximum_score,
-        )
+    )
 
     original_ballot_count = len(ballots)
     hare_quota = _fraction_or_int(original_ballot_count, seats)
@@ -1949,11 +2145,15 @@ def allocated_score_voting(ballots, *,
 
     scores = _scoring_round(ballots)
     if len(scores) < seats:
-        raise ElectionError(f"election must fill {seats} seats but there are only {len(scores)} candidates")
+        raise ElectionError(
+            f"election must fill {seats} seats but there are only {len(scores)} candidates"
+        )
     if len(scores) == seats:
-        with options.heading(f"Round 1"):
+        with options.heading("Round 1"):
             if options.verbosity:
-                options.print(f"There are exactly {seats} candidates seeking {seats} seats.  Every candidate wins.")
+                options.print(
+                    f"There are exactly {seats} candidates seeking {seats} seats.  Every candidate wins."
+                )
         winners = list(scores)
         _attempt_to_sort(winners)
         return winners
@@ -1963,11 +2163,11 @@ def allocated_score_voting(ballots, *,
 
     # decorated_ballots is a list of lists.
     # each sublist contains four things with these indices:
-    INDEX_SCORE = 0            # the
-    key_score = lambda t: t[0] # fn to use as key parameter to sort
-    INDEX_WEIGHT = 1           # the weight
+    INDEX_SCORE = 0  # the
+    key_score = lambda t: t[0]  # fn to use as key parameter to sort
+    INDEX_WEIGHT = 1  # the weight
     INDEX_WEIGHTED_BALLOT = 2  # the ballot with weighting applied
-    INDEX_BALLOT = 3           # the original ballot
+    INDEX_BALLOT = 3  # the original ballot
 
     decorated_ballots = [[None, 1, dict(ballot), dict(ballot)] for ballot in ballots]
     # "ballots" is just column 3 of this list.  we need a list
@@ -1980,10 +2180,12 @@ def allocated_score_voting(ballots, *,
     candidates = None
 
     try:
-        for polling_round in range(1, seats+1):
+        for polling_round in range(1, seats + 1):
             with options.round_heading(f"Round {polling_round}"):
                 if recalculate_weighted_ballots:
-                    weighted_ballots = [t[INDEX_WEIGHTED_BALLOT] for t in decorated_ballots]
+                    weighted_ballots = [
+                        t[INDEX_WEIGHTED_BALLOT] for t in decorated_ballots
+                    ]
                     recalculate_weighted_ballots = False
 
                 scores = _scoring_round(weighted_ballots, candidates)
@@ -1995,10 +2197,22 @@ def allocated_score_voting(ballots, *,
                 if options.verbosity:
                     options.print_ballot_count_if_changed(weighted_ballots)
                     options.print("The highest-scoring candidate wins a seat.")
-                    options.print_scores_and_averages(weighted_ballots, scores, first, None, tie, advance="wins a seat", ballot_count=original_ballot_count)
+                    options.print_scores_and_averages(
+                        weighted_ballots,
+                        scores,
+                        first,
+                        None,
+                        tie,
+                        advance="wins a seat",
+                        ballot_count=original_ballot_count,
+                    )
 
                 if tie:
-                    tie_winner = options.break_tie(f"{int_to_words(len(tie), flowery=False)}-way tie in Scoring Round", tie, 1)
+                    tie_winner = options.break_tie(
+                        f"{int_to_words(len(tie), flowery=False)}-way tie in Scoring Round",
+                        tie,
+                        1,
+                    )
                     first = tie_winner[0]
 
                 winners.append(first)
@@ -2011,7 +2225,9 @@ def allocated_score_voting(ballots, *,
                     quota = hare_quota
 
                     if options.verbosity:
-                        options.print(f"Allocating {''.join(split_int_or_fraction_as_str(quota))} ballots.")
+                        options.print(
+                            f"Allocating {''.join(split_int_or_fraction_as_str(quota))} ballots."
+                        )
 
                     # Ballots that gave a zero vote to the winner
                     # go in non_supporters, ballots that gave a
@@ -2034,10 +2250,11 @@ def allocated_score_voting(ballots, *,
                     while supporters:
                         allocation_round += 1
                         with options.subround_heading(f"Round {allocation_round}"):
-
                             if options.verbosity:
                                 if allocation_round != 1:
-                                    options.print(f"Remaining allocation quota is {quota}.")
+                                    options.print(
+                                        f"Remaining allocation quota is {quota}."
+                                    )
 
                             # supporters is sorted by score, therefore the last entry has the highest score.
                             # note that this might not be an integer!
@@ -2051,7 +2268,9 @@ def allocated_score_voting(ballots, *,
                             allocation_count = len(supporters) - score_start
 
                             if options.verbosity:
-                                options.print(f"Allocating {allocation_count} ballot{pluralizer(allocation_count)} at score {score}.")
+                                options.print(
+                                    f"Allocating {allocation_count} ballot{pluralizer(allocation_count)} at score {score}."
+                                )
                             if allocation_count <= quota:
                                 del supporters[score_start:]
                                 quota = _fraction_or_int(quota - allocation_count)
@@ -2067,23 +2286,35 @@ def allocated_score_voting(ballots, *,
                             # since this fills the quota, we always exit the loop after this.
                             score_group = supporters[score_start:]
 
-                            weight_reduction_ratio = _fraction_or_int(quota, allocation_count)
-                            one_minus_weight_reduction_ratio = 1 - weight_reduction_ratio
+                            weight_reduction_ratio = _fraction_or_int(
+                                quota, allocation_count
+                            )
+                            one_minus_weight_reduction_ratio = (
+                                1 - weight_reduction_ratio
+                            )
 
                             if options.verbosity:
-                                weight_reduction_ratio_as_percentage = float(100 * weight_reduction_ratio)
+                                weight_reduction_ratio_as_percentage = float(
+                                    100 * weight_reduction_ratio
+                                )
 
                                 remaining = "remaining " if quota != hare_quota else ""
-                                if len(score_group) == 1: # pragma: no cover
+                                if len(score_group) == 1:  # pragma: no cover
                                     these_ballots = "this ballot"
                                     their_weights = "its weight"
                                 else:
                                     these_ballots = "these ballots"
                                     their_weights = "their weights"
 
-                                options.print(f"This allocation overfills the {remaining}quota.  Returning fractional surplus.")
-                                options.print(f"Allocating only {weight_reduction_ratio_as_percentage:2.2f}% of {these_ballots}.")
-                                options.print(f"Keeping {these_ballots}, but multiplying {their_weights} by {one_minus_weight_reduction_ratio}.")
+                                options.print(
+                                    f"This allocation overfills the {remaining}quota.  Returning fractional surplus."
+                                )
+                                options.print(
+                                    f"Allocating only {weight_reduction_ratio_as_percentage:2.2f}% of {these_ballots}."
+                                )
+                                options.print(
+                                    f"Keeping {these_ballots}, but multiplying {their_weights} by {one_minus_weight_reduction_ratio}."
+                                )
 
                                 counts = defaultdict(int)
                                 modified = 0
@@ -2092,7 +2323,9 @@ def allocated_score_voting(ballots, *,
                                 _, weight, weighted_ballot, ballot = t
 
                                 starting_weight = weight
-                                weight = _fraction_or_int(weight * one_minus_weight_reduction_ratio)
+                                weight = _fraction_or_int(
+                                    weight * one_minus_weight_reduction_ratio
+                                )
                                 t[INDEX_WEIGHT] = weight
 
                                 for candidate, score in ballot.items():
@@ -2112,16 +2345,23 @@ def allocated_score_voting(ballots, *,
                                 counts = list(counts.items())
                                 if len(counts) == 1:
                                     prefix = ""
-                                else: # pragma: no cover
-                                    options.print(f"Reweighted {modified} ballot{pluralizer(modified)}:")
+                                else:  # pragma: no cover
+                                    options.print(
+                                        f"Reweighted {modified} ballot{pluralizer(modified)}:"
+                                    )
                                     prefix = "   "
                                     # convert counts to list,
                                     # then sort by a) count, b) starting weight, c) ending weight, highest first.
-                                    counts.sort(key=lambda t: (t[1], t[0][0], t[0][1]), reverse=True)
+                                    counts.sort(
+                                        key=lambda t: (t[1], t[0][0], t[0][1]),
+                                        reverse=True,
+                                    )
 
                                 for key, count in counts:
                                     starting_weight, weight = key
-                                    options.print(f"{prefix}{count} ballot{pluralizer(count)} reweighted from {starting_weight} to {weight}.")
+                                    options.print(
+                                        f"{prefix}{count} ballot{pluralizer(count)} reweighted from {starting_weight} to {weight}."
+                                    )
 
                             break
 
@@ -2135,12 +2375,17 @@ def allocated_score_voting(ballots, *,
         tie = e
     return options.election_result(winners, tie)
 
-Allocated_Score_Voting = allocated = Method("Allocated Score Voting", allocated_score_voting, True)
-for _ in ('Allocated Score Voting', 'allocated'):
+
+Allocated_Score_Voting = allocated = Method(
+    "Allocated Score Voting", allocated_score_voting, True
+)
+for _ in ("Allocated Score Voting", "allocated"):
     methods[_] = Allocated_Score_Voting
 
 
-def reweighted_range_voting(ballots, *,
+def reweighted_range_voting(
+    ballots,
+    *,
     maximum_score=_DEFAULT_MAXIMUM_SCORE,
     print=_DEFAULT_PRINT,
     seats,
@@ -2148,7 +2393,7 @@ def reweighted_range_voting(ballots, *,
     verbosity=_DEFAULT_VERBOSITY,
     print_averages=_DEFAULT_PRINT_AVERAGES,
     print_maximum_score=_DEFAULT_PRINT_MAXIMUM_SCORE,
-    ):
+):
     """
     Tabulates an election using Reweighted Range Voting:
         https://rangevoting.org/RRV.html
@@ -2163,7 +2408,7 @@ def reweighted_range_voting(ballots, *,
       per vote, default 5.
     * "print" is a function called to print output.
     * "seats" specifies the number of seats,
-      for multiwinner elections.
+      for multiwinner elections_demo.
     * "tiebreaker" specifies how to break ties;
       should be a tiebreaker function or Tiebreaker
       object.
@@ -2174,7 +2419,6 @@ def reweighted_range_voting(ballots, *,
 
     options = Options(
         Reweighted_Range_Voting,
-
         maximum_score=maximum_score,
         print=print,
         seats=seats,
@@ -2182,28 +2426,32 @@ def reweighted_range_voting(ballots, *,
         verbosity=verbosity,
         print_averages=print_averages,
         print_maximum_score=print_maximum_score,
-        )
+    )
     options.initialize(ballots)
 
     scores = _scoring_round(ballots)
     if len(scores) < seats:
-        raise ElectionError(f"election must fill {seats} seats but there are only {len(scores)} candidates")
+        raise ElectionError(
+            f"election must fill {seats} seats but there are only {len(scores)} candidates"
+        )
     if len(scores) == seats:
-        with options.heading(f"Round 1"):
+        with options.heading("Round 1"):
             if options.verbosity:
-                options.print(f"There are exactly {seats} candidates seeking {seats} seats.  Every candidate wins.")
+                options.print(
+                    f"There are exactly {seats} candidates seeking {seats} seats.  Every candidate wins."
+                )
         winners = list(scores)
         _attempt_to_sort(winners)
         return winners
 
     C = maximum_score
-    weight = 1 # aka C/C
+    weight = 1  # aka C/C
     # t = [weighted_ballot, ballot, C, weight]
     INDEX_WEIGHTED_BALLOT = 0
     INDEX_BALLOT = 1
     INDEX_C_PLUS_SCORES = 2
     INDEX_WEIGHT = 3
-    decorated_ballots = [ [dict(b), dict(b), C, weight] for b in ballots ]
+    decorated_ballots = [[dict(b), dict(b), C, weight] for b in ballots]
     ballots = [t[INDEX_WEIGHTED_BALLOT] for t in decorated_ballots]
     winners = []
     first = None
@@ -2212,7 +2460,7 @@ def reweighted_range_voting(ballots, *,
     try:
         for polling_round in range(1, seats + 1):
             with options.round_heading(f"Round {polling_round}"):
-                with options.subround_heading(f"Score round"):
+                with options.subround_heading("Score round"):
                     scores = _scoring_round(ballots, candidates)
                     first, tie = _compute_first_from_scores(scores)
 
@@ -2221,10 +2469,14 @@ def reweighted_range_voting(ballots, *,
 
                     if options.verbosity:
                         options.print("The highest-scoring candidate wins a seat.")
-                        options.print_scores_and_averages(ballots, scores, first, None, tie, advance="wins a seat")
+                        options.print_scores_and_averages(
+                            ballots, scores, first, None, tie, advance="wins a seat"
+                        )
 
                     if tie:
-                        first = options.break_tie(f"{int_to_dashed_words(len(tie))}-way tie", tie, 1)[0]
+                        first = options.break_tie(
+                            f"{int_to_dashed_words(len(tie))}-way tie", tie, 1
+                        )[0]
 
                     winners.append(first)
                     candidates.remove(first)
@@ -2252,7 +2504,9 @@ def reweighted_range_voting(ballots, *,
 
                                 for candidate, score in ballot.items():
                                     if score:
-                                        weighted_ballot[candidate] = _fraction_or_int(score * weight)
+                                        weighted_ballot[candidate] = _fraction_or_int(
+                                            score * weight
+                                        )
                                 t[INDEX_C_PLUS_SCORES] = C_plus_scores
                                 t[INDEX_WEIGHT] = weight
                                 if options.verbosity:
@@ -2265,14 +2519,20 @@ def reweighted_range_voting(ballots, *,
                         if len(counts) == 1:
                             prefix = ""
                         else:
-                            options.print(f"Reweighted {modified} ballot{pluralizer(modified)}:")
+                            options.print(
+                                f"Reweighted {modified} ballot{pluralizer(modified)}:"
+                            )
                             prefix = "  "
                             # sort by a) count, b) starting weight, c) ending weight, highest first.
-                            counts.sort(key=lambda t: (t[1], t[0][0], t[0][1]), reverse=True)
+                            counts.sort(
+                                key=lambda t: (t[1], t[0][0], t[0][1]), reverse=True
+                            )
 
                         for key, count in counts:
                             starting_weight, weight = key
-                            options.print(f"{prefix}{count} ballot{pluralizer(count)} reweighted from {starting_weight} to {weight}.")
+                            options.print(
+                                f"{prefix}{count} ballot{pluralizer(count)} reweighted from {starting_weight} to {weight}."
+                            )
 
         _attempt_to_sort(winners)
         tie = None
@@ -2281,12 +2541,17 @@ def reweighted_range_voting(ballots, *,
         tie = e
     return options.election_result(winners, tie)
 
-Reweighted_Range_Voting = rrv = Method("Reweighted Range Voting", reweighted_range_voting, True)
-for _ in ('Reweighted Range Voting', 'rrv'):
+
+Reweighted_Range_Voting = rrv = Method(
+    "Reweighted Range Voting", reweighted_range_voting, True
+)
+for _ in ("Reweighted Range Voting", "rrv"):
     methods[_] = Reweighted_Range_Voting
 
 
-def sequentially_spent_score(ballots, *,
+def sequentially_spent_score(
+    ballots,
+    *,
     maximum_score=_DEFAULT_MAXIMUM_SCORE,
     print=_DEFAULT_PRINT,
     seats,
@@ -2294,7 +2559,7 @@ def sequentially_spent_score(ballots, *,
     verbosity=_DEFAULT_VERBOSITY,
     print_averages=_DEFAULT_PRINT_AVERAGES,
     print_maximum_score=_DEFAULT_PRINT_MAXIMUM_SCORE,
-    ):
+):
     """
     Tabulates an election using Sequentially Spent Score:
         https://electowiki.org/wiki/Sequentially_Spent_Score
@@ -2309,7 +2574,7 @@ def sequentially_spent_score(ballots, *,
       per vote, default 5.
     * "print" is a function called to print output.
     * "seats" specifies the number of seats,
-      for multiwinner elections.
+      for multiwinner elections_demo.
     * "tiebreaker" specifies how to break ties;
       should be a tiebreaker function or Tiebreaker
       object.
@@ -2320,7 +2585,6 @@ def sequentially_spent_score(ballots, *,
 
     options = Options(
         Sequentially_Spent_Score,
-
         maximum_score=maximum_score,
         print=print,
         seats=seats,
@@ -2328,21 +2592,29 @@ def sequentially_spent_score(ballots, *,
         verbosity=verbosity,
         print_averages=print_averages,
         print_maximum_score=print_maximum_score,
-        )
+    )
 
     original_ballot_count = len(ballots)
     hare_score_quota = _fraction_or_int(original_ballot_count * maximum_score, seats)
-    presentation_hare_score_quota = "".join(split_int_or_fraction_as_str(hare_score_quota))
+    presentation_hare_score_quota = "".join(
+        split_int_or_fraction_as_str(hare_score_quota)
+    )
 
-    options.initialize(ballots, messages=[f"Hare score quota is {presentation_hare_score_quota}."])
+    options.initialize(
+        ballots, messages=[f"Hare score quota is {presentation_hare_score_quota}."]
+    )
 
     scores = _scoring_round(ballots)
     if len(scores) < seats:
-        raise ElectionError(f"election must fill {seats} seats but there are only {len(scores)} candidates")
+        raise ElectionError(
+            f"election must fill {seats} seats but there are only {len(scores)} candidates"
+        )
     if len(scores) == seats:
-        with options.heading(f"Round 1"):
+        with options.heading("Round 1"):
             if options.verbosity:
-                options.print(f"There are exactly {seats} candidates seeking {seats} seats.  Every candidate wins.")
+                options.print(
+                    f"There are exactly {seats} candidates seeking {seats} seats.  Every candidate wins."
+                )
         winners = list(scores)
         _attempt_to_sort(winners)
         return winners
@@ -2355,16 +2627,15 @@ def sequentially_spent_score(ballots, *,
     INDEX_BALLOT = 1
     INDEX_STARS = 2
     INDEX_WEIGHT = 3
-    decorated_ballots = [ [dict(b), dict(b), stars, weight] for b in ballots ]
+    decorated_ballots = [[dict(b), dict(b), stars, weight] for b in ballots]
     weighted_ballots = [t[INDEX_WEIGHTED_BALLOT] for t in decorated_ballots]
     winners = []
     first = None
     candidates = None
 
     try:
-        for polling_round in range(1, seats+1):
+        for polling_round in range(1, seats + 1):
             with options.round_heading(f"Round {polling_round}"):
-
                 scores = _scoring_round(weighted_ballots, candidates)
                 first, tie = _compute_first_from_scores(scores)
 
@@ -2374,10 +2645,16 @@ def sequentially_spent_score(ballots, *,
                 if options.verbosity:
                     options.print_ballot_count_if_changed(ballots)
                     options.print("The highest-scoring candidate wins a seat.")
-                    options.print_scores_and_averages(ballots, scores, first, None, tie, advance="wins a seat")
+                    options.print_scores_and_averages(
+                        ballots, scores, first, None, tie, advance="wins a seat"
+                    )
 
                 if tie:
-                    tie_winner = options.break_tie(f"{int_to_words(len(tie), flowery=False)}-way tie in Scoring Round", tie, 1)
+                    tie_winner = options.break_tie(
+                        f"{int_to_words(len(tie), flowery=False)}-way tie in Scoring Round",
+                        tie,
+                        1,
+                    )
                     first = tie_winner[0]
 
                 winners.append(first)
@@ -2394,7 +2671,9 @@ def sequentially_spent_score(ballots, *,
                         # nobody has to give back any stars.
                         continue
 
-                    weight_reduction_ratio = min( _fraction_or_int(hare_score_quota, winner_score), 1)
+                    weight_reduction_ratio = min(
+                        _fraction_or_int(hare_score_quota, winner_score), 1
+                    )
                     one_minus_weight_reduction_ratio = 1 - weight_reduction_ratio
                     have_surplus = weight_reduction_ratio < 1
 
@@ -2410,9 +2689,15 @@ def sequentially_spent_score(ballots, *,
                             giving_back_surplus = "no surplus to give back"
                             reduction = ""
 
-                        presentation_winner_score = "".join(split_int_or_fraction_as_str(winner_score))
-                        options.print(f"Total score is {presentation_winner_score}, Hare score quota is {presentation_hare_score_quota}, {giving_back_surplus}.")
-                        options.print(f"Reducing each ballot's stars by their vote{reduction}.")
+                        presentation_winner_score = "".join(
+                            split_int_or_fraction_as_str(winner_score)
+                        )
+                        options.print(
+                            f"Total score is {presentation_winner_score}, Hare score quota is {presentation_hare_score_quota}, {giving_back_surplus}."
+                        )
+                        options.print(
+                            f"Reducing each ballot's stars by their vote{reduction}."
+                        )
 
                         remaining_decorated_ballots = []
                         remaining_weighted_ballots = []
@@ -2427,7 +2712,9 @@ def sequentially_spent_score(ballots, *,
                                 starting_stars = stars
                                 star_reduction = score
                                 if have_surplus:
-                                    star_reduction = _fraction_or_int(star_reduction * weight_reduction_ratio)
+                                    star_reduction = _fraction_or_int(
+                                        star_reduction * weight_reduction_ratio
+                                    )
 
                                 stars = max(stars - star_reduction, 0)
                                 if stars != starting_stars:
@@ -2459,22 +2746,27 @@ def sequentially_spent_score(ballots, *,
 
                         if options.verbosity:
                             if allocated:
-                                options.print(f"Allocated {allocated} ballot{pluralizer(allocated)}.")
+                                options.print(
+                                    f"Allocated {allocated} ballot{pluralizer(allocated)}."
+                                )
 
                             # convert counts to list,
                             counts = list(counts.items())
                             if len(counts) == 1:
                                 prefix = ""
-                            else: # pragma: no cover
-                                options.print(f"Reweighted {modified} ballot{pluralizer(modified)}:")
+                            else:  # pragma: no cover
+                                options.print(
+                                    f"Reweighted {modified} ballot{pluralizer(modified)}:"
+                                )
                                 prefix = "   "
                                 # then sort by count then key, highest first.
                                 counts.sort(key=lambda t: (t[1], t[0]), reverse=True)
 
                             for key, count in counts:
                                 score, weight, starting_stars, stars = key
-                                options.print(f"{prefix}{count} ballot{pluralizer(count)} voted {score}, stars reduced from {starting_stars} to {stars}, reweighted to {weight}.")
-
+                                options.print(
+                                    f"{prefix}{count} ballot{pluralizer(count)} voted {score}, stars reduced from {starting_stars} to {stars}, reweighted to {weight}."
+                                )
 
         _attempt_to_sort(winners)
         tie = None
@@ -2483,12 +2775,18 @@ def sequentially_spent_score(ballots, *,
         tie = e
     return options.election_result(winners, tie)
 
-Sequentially_Spent_Score = sss = Method("Sequentially Spent Score", sequentially_spent_score, True)
-for _ in ('Sequentially Spent Score', 'sss'):
+
+Sequentially_Spent_Score = sss = Method(
+    "Sequentially Spent Score", sequentially_spent_score, True
+)
+for _ in ("Sequentially Spent Score", "sss"):
     methods[_] = Sequentially_Spent_Score
 
 
-def election(method, ballots, *,
+def election(
+    method,
+    ballots,
+    *,
     maximum_score=_DEFAULT_MAXIMUM_SCORE,
     print=_DEFAULT_PRINT,
     seats=_DEFAULT_SEATS,
@@ -2496,7 +2794,7 @@ def election(method, ballots, *,
     verbosity=_DEFAULT_VERBOSITY,
     print_averages=_DEFAULT_PRINT_AVERAGES,
     print_maximum_score=_DEFAULT_PRINT_MAXIMUM_SCORE,
-    ):
+):
     """
     Tabulates an election.  Returns a list of results.
 
@@ -2509,7 +2807,7 @@ def election(method, ballots, *,
       per vote, default 5.
     * "print" is a function called to print output.
     * "seats" specifies the number of seats,
-      for multiwinner elections.
+      for multiwinner elections_demo.
     * "tiebreaker" specifies how to break ties;
       should be a tiebreaker function or Tiebreaker
       object.
@@ -2527,27 +2825,24 @@ def election(method, ballots, *,
 
     extra_kwargs = {}
     if method.multiwinner:
-        extra_kwargs['seats'] = seats
+        extra_kwargs["seats"] = seats
 
     # Only forward print_averages when it differs from the default,
     # so we don't break method functions (e.g. the reference
     # implementations) that predate this option.
     if print_averages != _DEFAULT_PRINT_AVERAGES:
-        extra_kwargs['print_averages'] = print_averages
+        extra_kwargs["print_averages"] = print_averages
     if print_maximum_score != _DEFAULT_PRINT_MAXIMUM_SCORE:
-        extra_kwargs['print_maximum_score'] = print_maximum_score
+        extra_kwargs["print_maximum_score"] = print_maximum_score
 
     return method.function(
         ballots,
-
         maximum_score=maximum_score,
         print=print,
         tiebreaker=tiebreaker,
         verbosity=verbosity,
-
-        **extra_kwargs
-        )
-
+        **extra_kwargs,
+    )
 
 
 def parse_starvote(starvote, *, path=None):
@@ -2616,7 +2911,7 @@ def parse_starvote(starvote, *, path=None):
     (found in the "tiebreakers" dict).  If "tiebreaker" is a list
     of strings, this is used as a hard-coded pre-permuted list of
     candidates for the predefined_permutation_tiebreaker tiebreaker.
-    (This isn't a good idea for real elections, but it's useful
+    (This isn't a good idea for real elections_demo, but it's useful
     for testing.)
 
     The "options" section doesn't define any pragmas; it does
@@ -2677,7 +2972,7 @@ def parse_starvote(starvote, *, path=None):
     (Why'd I write this?  I got tired of CSV files.)
     """
 
-    exception_prefix_format = "Line {line_number}: " # deliberately not f-string
+    exception_prefix_format = "Line {line_number}: "  # deliberately not f-string
 
     if path:
         exception_prefix_format = f"File '{path}', " + exception_prefix_format
@@ -2686,22 +2981,21 @@ def parse_starvote(starvote, *, path=None):
         current_directory = pathlib.Path(os.getcwd())
         path = "<string>"
 
-
     ballots = []
     kwargs = {}
     _sentinel = object()
 
     option_to_kwarg = {
-        'maximum score': 'maximum_score',
-        'print averages': 'print_averages',
-        'print maximum score': 'print_maximum_score',
+        "maximum score": "maximum_score",
+        "print averages": "print_averages",
+        "print maximum score": "print_maximum_score",
     }
 
     def bool_converter(value):
         v = value.strip().lower()
-        if v in ('1', 'true', 'yes', 'on'):
+        if v in ("1", "true", "yes", "on"):
             return True
-        if v in ('0', 'false', 'no', 'off'):
+        if v in ("0", "false", "no", "off"):
             return False
         raise ValueError(f"{exception_prefix}invalid boolean value {value!r}")
 
@@ -2709,49 +3003,61 @@ def parse_starvote(starvote, *, path=None):
         if isinstance(value, list):
             if not value:
                 raise ValueError("tiebreaker list must not be empty")
-            return predefined_permutation_tiebreaker(value, description=f"Permutation was defined in '{path}'.")
+            return predefined_permutation_tiebreaker(
+                value, description=f"Permutation was defined in '{path}'."
+            )
         if isinstance(value, str):
             kwargs = None
             value = value.strip()
             ok = False
-            name, paren, arguments = value.partition('(')
+            name, paren, arguments = value.partition("(")
             if paren:
                 str_kwargs = {}
 
-                arguments, rparen, trailing = arguments.rpartition(')')
+                arguments, rparen, trailing = arguments.rpartition(")")
 
                 if not rparen:
-                    raise SyntaxError(f"invalid syntax in tiebreaker '{value}': no closing )")
+                    raise SyntaxError(
+                        f"invalid syntax in tiebreaker '{value}': no closing )"
+                    )
                 if trailing:
-                    raise SyntaxError(f"invalid syntax in tiebreaker '{value}': text after )")
-                for argument in arguments.split(','):
+                    raise SyntaxError(
+                        f"invalid syntax in tiebreaker '{value}': text after )"
+                    )
+                for argument in arguments.split(","):
                     argument = argument.strip()
                     if not argument:
                         continue
-                    a_name, equals, a_value = argument.partition('=')
+                    a_name, equals, a_value = argument.partition("=")
                     a_name = a_name.strip()
                     a_value = a_value.strip()
                     if not (a_name and equals and a_value):
                         raise SyntaxError(f"invalid syntax in tiebreaker '{value}'")
                     if a_name in str_kwargs:
-                        raise ValueError(f"argument '{a_name}' specified twice in tiebreaker '{value}'")
+                        raise ValueError(
+                            f"argument '{a_name}' specified twice in tiebreaker '{value}'"
+                        )
                     str_kwargs[a_name] = a_value
                 if str_kwargs:
                     kwargs = {}
+
                     def seed_converter(s):
                         try:
                             seed = int(s)
                         except ValueError:
                             raise ValueError(f"invalid seed in tiebreaker '{value}'")
-                        kwargs['random'] = random.Random(seed)
+                        kwargs["random"] = random.Random(seed)
                         return _sentinel
+
                     kwargs_converters = {
-                        'seed': seed_converter,
+                        "seed": seed_converter,
                     }
                     for a_name, a_value in str_kwargs.items():
                         converter = kwargs_converters.get(a_name, None)
                         if not converter:
-                            raise ValueError(f"invalid syntax in tiebreaker '{value}': unknown parameter '{a_name}'")
+                            raise ValueError(
+                                f"invalid syntax in tiebreaker '{value}': unknown parameter '{a_name}'"
+                            )
                         a_value = converter(a_value)
                         # the interface for converters here, in theory, is:
                         # if you return _sentinel, ignore return value
@@ -2790,6 +3096,7 @@ def parse_starvote(starvote, *, path=None):
             if path.suffix != extension:
                 raise ValueError(f"'{s}' is not a {extension} file")
             return path
+
         return path_converter
 
     # defines the function called to convert an option value
@@ -2797,16 +3104,16 @@ def parse_starvote(starvote, *, path=None):
     #
     # (use a function of 'str' if a str is okay.)
     option_converters = {
-        'csv_path': path_converter('.csv'),
-        'maximum_score': int,
-        'method': method_converter,
-        'seats': int,
-        'starvote_path': path_converter('.starvote'),
-        'tiebreaker': tiebreaker_converter,
-        'verbosity': int,
-        'print_averages': bool_converter,
-        'print_maximum_score': bool_converter,
-        }
+        "csv_path": path_converter(".csv"),
+        "maximum_score": int,
+        "method": method_converter,
+        "seats": int,
+        "starvote_path": path_converter(".starvote"),
+        "tiebreaker": tiebreaker_converter,
+        "verbosity": int,
+        "print_averages": bool_converter,
+        "print_maximum_score": bool_converter,
+    }
 
     def options_pragma(pragma):
         raise ValueError(f"{exception_prefix}unknown pragma {pragma}")
@@ -2840,10 +3147,14 @@ def parse_starvote(starvote, *, path=None):
                 # let's *do* this.
                 if s == " ballots":
                     if repetitions < 2:
-                        raise ValueError(f"{exception_prefix}ballots pragma must specify 2 or more repetitions")
+                        raise ValueError(
+                            f"{exception_prefix}ballots pragma must specify 2 or more repetitions"
+                        )
                 else:
                     if repetitions != 1:
-                        raise ValueError(f"{exception_prefix}ballot pragma must specify exactly 1 repetition")
+                        raise ValueError(
+                            f"{exception_prefix}ballot pragma must specify exactly 1 repetition"
+                        )
                 return
 
         raise ValueError(f"{exception_prefix}unsupported pragma {pragma}")
@@ -2857,15 +3168,24 @@ def parse_starvote(starvote, *, path=None):
             ballots.append(ballot)
         repetitions = 1
 
-
     section = None
     section_handler = pragma_handler = flush_after_every_line = None
 
     # section handler functions *must not keep a reference to d.*
     # we reuse a single dict for all parsing.
     section_handlers = {
-        'options': (options_handler, options_pragma, True, "specified option '{key}' twice"),
-        'ballots': (ballots_handler, ballots_pragma, False, "specified candidate '{key}' twice on one ballot"),
+        "options": (
+            options_handler,
+            options_pragma,
+            True,
+            "specified option '{key}' twice",
+        ),
+        "ballots": (
+            ballots_handler,
+            ballots_pragma,
+            False,
+            "specified candidate '{key}' twice on one ballot",
+        ),
     }
 
     d = {}
@@ -2882,42 +3202,53 @@ def parse_starvote(starvote, *, path=None):
     key = value = None
     exception_prefix = None
 
-    for line_number, line in enumerate(starvote.split('\n'), 1):
+    for line_number, line in enumerate(starvote.split("\n"), 1):
         exception_prefix = exception_prefix_format.format(line_number=line_number)
         line = line.strip()
 
-        is_empty_line_or_comment = (not line) or line.startswith('#')
+        is_empty_line_or_comment = (not line) or line.startswith("#")
 
         if is_empty_line_or_comment:
             if not list_mode:
                 flush()
             continue
 
-        if line.startswith('['):
+        if line.startswith("["):
             if list_mode:
-                raise ValueError(f"{exception_prefix}you can't change sections inside a list")
+                raise ValueError(
+                    f"{exception_prefix}you can't change sections inside a list"
+                )
             flush()
-            if not line.endswith(']'):
+            if not line.endswith("]"):
                 raise ValueError(f"{exception_prefix}bad syntax {line!r}")
             section = line[1:-1].strip()
             if section in sections_seen:
-                raise ValueError(f"{exception_prefix}section [{section}] specified twice")
+                raise ValueError(
+                    f"{exception_prefix}section [{section}] specified twice"
+                )
             sections_seen.add(section)
-            section_handler, pragma_handler, flush_after_every_line, repeated_key_format = section_handlers[section]
+            (
+                section_handler,
+                pragma_handler,
+                flush_after_every_line,
+                repeated_key_format,
+            ) = section_handlers[section]
             continue
 
         if not section:
             raise RuntimeError(f"{exception_prefix}no section specified")
 
-        if line.endswith(':'):
+        if line.endswith(":"):
             if list_mode:
-                raise ValueError(f"{exception_prefix}you can't use pragmas inside a list")
+                raise ValueError(
+                    f"{exception_prefix}you can't use pragmas inside a list"
+                )
             pragma_handler(line[:-1].strip())
             continue
 
         if list_mode:
             # value still contains the list we created for list mode.
-            if line == ']':
+            if line == "]":
                 list_mode = False
                 d[key] = value
                 if flush_after_every_line:
@@ -2926,19 +3257,19 @@ def parse_starvote(starvote, *, path=None):
             value.append(line)
             continue
 
-        key, equals, value = line.partition('=')
+        key, equals, value = line.partition("=")
         if not equals:
             raise ValueError(f"{exception_prefix}bad syntax {line!r}")
         key = key.strip()
         value = value.strip()
-        if value.startswith('['):
+        if value.startswith("["):
             # allow x = [] and x = [ ]
             value = value[1:].strip()
             if not value:
                 value = []
                 list_mode = True
                 continue
-            if value == ']':
+            if value == "]":
                 d[key] = []
                 continue
             raise ValueError(f"{exception_prefix}bad syntax {line!r}")
@@ -2947,28 +3278,30 @@ def parse_starvote(starvote, *, path=None):
             description = repeated_key_format.format(key=key)
             raise ValueError(f"{exception_prefix}{description}")
         # permit line comments in vote lines
-        if '#' in value:
-            value = value.partition('#')[0].strip()
+        if "#" in value:
+            value = value.partition("#")[0].strip()
         d[key] = value
         if flush_after_every_line:
             flush()
 
     flush()
     if repetitions != 1:
-        raise ValueError(f"'{repetitions} ballots: invalid as last line of a starvote format election")
+        raise ValueError(
+            f"'{repetitions} ballots: invalid as last line of a starvote format election"
+        )
 
-    csv_path = kwargs.pop('csv_path', None)
+    csv_path = kwargs.pop("csv_path", None)
     if csv_path:
         csv_ballots = load_csv_file(csv_path)
     else:
         csv_ballots = []
 
-    starvote_path = kwargs.pop('starvote_path', None)
+    starvote_path = kwargs.pop("starvote_path", None)
     if starvote_path:
         starvote_kwargs = load_starvote_file(starvote_path)
-        starvote_ballots = starvote_kwargs.pop('ballots', [])
+        starvote_ballots = starvote_kwargs.pop("ballots", [])
 
-        starvote_kwargs.update(kwargs) # kwargs takes precedence
+        starvote_kwargs.update(kwargs)  # kwargs takes precedence
         kwargs = starvote_kwargs
     else:
         starvote_ballots = []
@@ -2979,12 +3312,12 @@ def parse_starvote(starvote, *, path=None):
     if not ballots:
         raise ValueError("no ballots defined")
 
-    kwargs['ballots'] = ballots
+    kwargs["ballots"] = ballots
 
     return kwargs
 
 
-def load_starvote_file(path, *, encoding='utf-8'):
+def load_starvote_file(path, *, encoding="utf-8"):
     """
     Loads a text file from disk, parses it with parse_starvote,
     and returns the result.
@@ -2997,7 +3330,7 @@ def load_starvote_file(path, *, encoding='utf-8'):
     You may optionally specify an encoding for the file with
     the "encoding" keyword-only parameter; default is "utf-8".
     """
-    if not isinstance(path, pathlib.Path): # pragma: no cover
+    if not isinstance(path, pathlib.Path):  # pragma: no cover
         path = pathlib.Path(path)
 
     with path.open("rt", encoding=encoding) as f:
@@ -3012,7 +3345,7 @@ def load_csv_file(path):
 
     Returns a list of ballots.
     """
-    if not isinstance(path, pathlib.Path): # pragma: no cover
+    if not isinstance(path, pathlib.Path):  # pragma: no cover
         path = pathlib.Path(path)
 
     ballots = []
@@ -3050,23 +3383,25 @@ def _printer():
 
 
 class UsageException(Exception):
-    def __init__(self, s=''):
+    def __init__(self, s=""):
         super().__init__(s)
 
 
 def main(argv, print=builtins.print):
     import os.path
 
-    if print == builtins.print: # pragma: no cover
+    if print == builtins.print:  # pragma: no cover
         text_clear, text_print, text_getvalue = _printer()
     else:
         text_print = print
 
-        def text_clear(): # pragma: no cover
+        def text_clear():  # pragma: no cover
             pass
+
         def text_getvalue():
             return None
-        def text_flush(): # pragma: no cover
+
+        def text_flush():  # pragma: no cover
             pass
 
     if not argv:
@@ -3080,12 +3415,14 @@ def main(argv, print=builtins.print):
     class FalseObject:
         def __init__(self, name=None):
             self.name = name
-        def __repr__(self): # pragma: no cover
+
+        def __repr__(self):  # pragma: no cover
             return self.name or "<FalseObject>"
+
         def __bool__(self):
             return False
 
-    uninitialized = FalseObject('uninitialized')
+    uninitialized = FalseObject("uninitialized")
 
     path = uninitialized
     reference = uninitialized
@@ -3096,13 +3433,13 @@ def main(argv, print=builtins.print):
         description = key.replace("_", " ")
 
         if long_option == None:
-            long_option = '--' + key.replace('_', '-')
+            long_option = "--" + key.replace("_", "-")
 
         if short_option == None:
             short_option = long_option[1:3]
 
         if arg.startswith(short_option + "=") or arg.startswith(long_option + "="):
-            value = arg.partition('=')[2]
+            value = arg.partition("=")[2]
         elif arg.startswith(short_option) or arg.startswith(long_option):
             try:
                 value = next(argi)
@@ -3128,22 +3465,34 @@ def main(argv, print=builtins.print):
             return False
 
     def process_option_int(key, arg, long_option=None, short_option=None):
-        return process_option(key, arg,
-            test_int, int,
-            long_option=long_option, short_option=short_option,
-            )
+        return process_option(
+            key,
+            arg,
+            test_int,
+            int,
+            long_option=long_option,
+            short_option=short_option,
+        )
 
     def process_option_method(key, arg, long_option=None, short_option=None):
-        return process_option(key, arg,
-            methods.__contains__, methods.__getitem__,
-            long_option=long_option, short_option=short_option,
-            )
+        return process_option(
+            key,
+            arg,
+            methods.__contains__,
+            methods.__getitem__,
+            long_option=long_option,
+            short_option=short_option,
+        )
 
     def process_option_tiebreaker(key, arg, long_option=None, short_option=None):
-        return process_option(key, arg,
-            tiebreakers.__contains__, tiebreakers.__getitem__,
-            long_option=long_option, short_option=short_option,
-            )
+        return process_option(
+            key,
+            arg,
+            tiebreakers.__contains__,
+            tiebreakers.__getitem__,
+            long_option=long_option,
+            short_option=short_option,
+        )
 
     def process_positional_argument(arg):
         nonlocal path
@@ -3158,10 +3507,10 @@ def main(argv, print=builtins.print):
             continue
 
         if allow_options:
-            if process_option_method('method', arg):
+            if process_option_method("method", arg):
                 continue
 
-            if process_option_int('maximum_score', arg, "--maximum-score", "-x"):
+            if process_option_int("maximum_score", arg, "--maximum-score", "-x"):
                 continue
 
             if arg in ("-r", "--reference"):
@@ -3170,8 +3519,9 @@ def main(argv, print=builtins.print):
                 reference = True
                 try:
                     from . import reference
+
                     reference.monkey_patch()
-                except ImportError: # pragma: no cover
+                except ImportError:  # pragma: no cover
                     pass
                 continue
 
@@ -3180,6 +3530,7 @@ def main(argv, print=builtins.print):
                     raise UsageException(f"{arg} specified twice")
                 reference = True
                 from . import reference
+
                 reference.monkey_patch()
                 continue
 
@@ -3190,24 +3541,24 @@ def main(argv, print=builtins.print):
                 continue
 
             if arg in ("-v", "--verbose"):
-                if cmdline_kwargs.get('verbosity', uninitialized) is uninitialized:
-                    cmdline_kwargs['verbosity'] = 0
-                cmdline_kwargs['verbosity'] += 1
+                if cmdline_kwargs.get("verbosity", uninitialized) is uninitialized:
+                    cmdline_kwargs["verbosity"] = 0
+                cmdline_kwargs["verbosity"] += 1
                 continue
 
             if arg in ("-a", "--print-averages"):
-                cmdline_kwargs['print_averages'] = True
+                cmdline_kwargs["print_averages"] = True
                 continue
 
             if arg in ("-M", "--print-maximum-score"):
-                cmdline_kwargs['print_maximum_score'] = True
+                cmdline_kwargs["print_maximum_score"] = True
                 continue
 
             if arg == "--":
                 allow_options = False
                 continue
 
-            if arg.startswith('-'):
+            if arg.startswith("-"):
                 raise UsageException(f"unknown option {arg}")
 
         process_positional_argument(arg)
@@ -3222,19 +3573,21 @@ def main(argv, print=builtins.print):
 
     def load_election_from_csv_file(path):
         return {
-            'ballots': load_csv_file(path),
-            'method': STAR_Voting,
-            'verbosity': 1,
-            'tiebreaker': None,
-            }
+            "ballots": load_csv_file(path),
+            "method": STAR_Voting,
+            "verbosity": 1,
+            "tiebreaker": None,
+        }
 
     extension = path.suffix
     loader = {
-        '.csv': load_election_from_csv_file,
-        '.starvote': load_starvote_file,
+        ".csv": load_election_from_csv_file,
+        ".starvote": load_starvote_file,
     }.get(extension.lower())
     if not loader:
-        raise UsageException(f"invalid file extension: {extension} (should be either '.csv' or '.star')")
+        raise UsageException(
+            f"invalid file extension: {extension} (should be either '.csv' or '.star')"
+        )
 
     # the kwargs from the command-line take precedence.
     try:
@@ -3254,9 +3607,9 @@ def main(argv, print=builtins.print):
 
     # in order of arguments to election():
     kwargs.update(cmdline_kwargs)
-    kwargs['print'] = text_print
+    kwargs["print"] = text_print
 
-    if 'method' not in kwargs:
+    if "method" not in kwargs:
         print("electoral system undefined, specify with -e|--electoral-system")
         if extension == ".starvote":
             print("(or with method= in the [options] section of your starvote file)")
@@ -3281,16 +3634,24 @@ def main(argv, print=builtins.print):
         s = f"{name}({repr(str(e))})"
         text_print(s)
 
-    if (winners or tie) and (not kwargs.get('verbosity', 0)):
+    if (winners or tie) and (not kwargs.get("verbosity", 0)):
         # no output!  print the results ourselves.
-        fake_options = Options(STAR_Voting, print=text_print, verbosity=1, seats=1, tiebreaker=None, maximum_score=5)
+        fake_options = Options(
+            STAR_Voting,
+            print=text_print,
+            verbosity=1,
+            seats=1,
+            tiebreaker=None,
+            maximum_score=5,
+        )
         fake_options.election_result(winners, tie, raise_tie=False)
 
     s = text_getvalue()
-    if s: # pragma: no cover
-        print(s, end='')
+    if s:  # pragma: no cover
+        print(s, end="")
 
     return 0
+
 
 def main_with_usage(argv, print=builtins.print):
     try:
@@ -3300,7 +3661,8 @@ def main_with_usage(argv, print=builtins.print):
         if s:
             print(s)
             print()
-        print(f'''
+        print(
+            f"""
 usage: starvote.py [options] <ballots_file>
 
 Tabulates an election based on votes in a CSV or starvote file.
@@ -3350,6 +3712,8 @@ ballots_file should be a path to a file ending either in '.csv' or '.star':
       one seat, verbosity 1, and
     * .starvote files must be in "starvote format".
 
-'''.strip() + "\n")
+""".strip()
+            + "\n"
+        )
 
         return -1

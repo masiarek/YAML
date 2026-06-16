@@ -3,23 +3,67 @@ Script: starvote_larry_hastings.py
 Description: Runs a STAR Voting election with detailed tiebreaker analysis and matrix visualization.
 """
 
+import os
 import re
 import sys
 from collections import defaultdict
+from pathlib import Path
 
 import starvote
 from starvote import Tiebreaker
 
 # --- ANSI Color Codes ---
-# Disabled automatically when output is not a TTY (e.g. piped to a file),
-# so redirected output doesn't get littered with escape sequences.
-if sys.stdout.isatty():
+# Enabled for a real terminal AND for PyCharm's run console (which sets
+# PYCHARM_HOSTED and renders ANSI). Disabled when piped to a plain file, so
+# redirected output doesn't get littered with escape sequences. Set NO_COLOR
+# to force plain output anywhere.
+_USE_COLOR = os.environ.get("NO_COLOR") is None and (
+    sys.stdout.isatty() or os.environ.get("PYCHARM_HOSTED") == "1"
+)
+if _USE_COLOR:
     COLOR_GREEN = "\033[92m"
     COLOR_RED = "\033[91m"
     COLOR_BLUE = "\033[94m"
     COLOR_RESET = "\033[0m"
+    # Section-header palette (bold). Distinct color per phase.
+    COLOR_HEADER = "\033[1;95m"  # bold magenta — banner / fallback
+    COLOR_SCORING = "\033[1;96m"  # bold cyan   — Scoring Round (+ its tiebreakers)
+    COLOR_RUNOFF = "\033[1;93m"  # bold yellow — Automatic Runoff (+ its tiebreakers)
+    COLOR_WINNER = "\033[1;92m"  # bold green  — Winner / Winners
 else:
     COLOR_GREEN = COLOR_RED = COLOR_BLUE = COLOR_RESET = ""
+    COLOR_HEADER = COLOR_SCORING = COLOR_RUNOFF = COLOR_WINNER = ""
+
+
+def header_color(label):
+    """Pick a section-header color by phase, so tiebreaker sub-headers inherit
+    the color of their parent round."""
+    low = label.lower()
+    if "runoff" in low:
+        return COLOR_RUNOFF
+    if "winner" in low:
+        return COLOR_WINNER
+    if "scoring" in low:
+        return COLOR_SCORING
+    return COLOR_HEADER
+
+
+# --- Ballot marker characters ---
+# Any of these (and an empty cell) tabulate as 0; every ballot still counts.
+# A legend is printed listing only the markers that actually appear in the data.
+MARKER_MEANINGS = {
+    "-": "Blank (no score)",
+    "~": "Race-level abstention — voter abstained from the entire race",
+    "&": "Candidate-level abstention — explicitly abstained for this candidate",
+    "^": "Blank / unmarked — left completely blank (no score or rank)",
+    "?": "Spoiled / voided ballot — overvote, protest mark, or invalid format",
+    "%": "Spoiled & re-issued — ballot voided and a replacement was issued",
+}
+
+# Ballot-level markers apply to the WHOLE ballot, so they may not be mixed with
+# scores — a valid row is the marker in every column (e.g. "~,~,~,~").
+BALLOT_LEVEL_MARKERS = {"~", "?", "%"}
+# The rest (-, &, ^, empty) are per-candidate and may be mixed freely.
 
 
 # ---
@@ -74,6 +118,176 @@ class LotNumberTiebreaker(Tiebreaker):
 # ---
 # 2. HELPER FUNCTIONS
 # ---
+# Map a YAML "voting_method" string to a starvote method object.
+METHOD_BY_NAME = {
+    "star": starvote.star,
+    "bloc": starvote.bloc,
+    "bloc star": starvote.bloc,
+    "sss": starvote.sss,
+    "sequentially spent score": starvote.sss,
+    "rrv": starvote.rrv,
+    "reweighted range voting": starvote.rrv,
+    "allocated": starvote.allocated,
+    "allocated score voting": starvote.allocated,
+}
+
+
+def _find_race(data, race_index=0):
+    """Locate the race-like mapping that holds `ballots`, tolerating both the
+    full schema and flattened forms:
+      - election.races[i]          (full schema)
+      - election.{ballots,...}     (single race under election, no races list)
+      - races[i]                   (races list at top level)
+      - {ballots,...}              (fully flat, top level)
+    """
+    if isinstance(data, dict):
+        if isinstance(data.get("election"), dict):
+            el = data["election"]
+            return el["races"][race_index] if "races" in el else el
+        if "races" in data:
+            return data["races"][race_index]
+        if "ballots" in data:
+            return data
+    raise KeyError("could not find a 'ballots' block in the YAML file")
+
+
+# Output-control options a YAML file may set (under `options:` or top level).
+OPTION_KEYS = (
+    "show_matrix",
+    "show_condorcet",
+    "show_score_counts",
+    "brief",
+    "collapse_ballots",
+    "count_separator",
+)
+
+
+def _yaml_lite(text):
+    """Extract just the fields we need from the STAR election schema, without
+    requiring PyYAML: the first race's `ballots` block (a YAML `|` block
+    scalar), `num_winners`, `voting_method`, and any output `options`.
+    Returns (ballots_text, seats, method_name, options)."""
+    lines = text.splitlines()
+
+    seats = None
+    method_name = None
+    options = {}
+    for ln in lines:
+        m = re.match(r"\s*num_winners:\s*(\d+)", ln)
+        if m and seats is None:
+            seats = int(m.group(1))
+        m = re.match(r"\s*voting_method:\s*(\S.*?)\s*$", ln)
+        if m and method_name is None:
+            method_name = m.group(1).strip().strip("\"'")
+        m = re.match(r"\s*([a-z_]+):\s*(\S.*?)\s*$", ln)
+        if m and m.group(1) in OPTION_KEYS and m.group(1) not in options:
+            options[m.group(1)] = m.group(2).strip().strip("\"'")
+
+    ballots_text = None
+    for idx, ln in enumerate(lines):
+        key = re.match(r"(\s*)ballots:\s*\|", ln)
+        if not key:
+            continue
+        base = len(key.group(1))
+        block = []
+        for nxt in lines[idx + 1 :]:
+            if nxt.strip() == "":
+                block.append("")
+                continue
+            if len(nxt) - len(nxt.lstrip()) <= base:
+                break  # dedent -> end of block
+            block.append(nxt)
+        nonempty = [b for b in block if b.strip()]
+        if nonempty:
+            cut = min(len(b) - len(b.lstrip()) for b in nonempty)
+            ballots_text = "\n".join(b[cut:] if b.strip() else "" for b in block).strip(
+                "\n"
+            )
+        break
+    return ballots_text, seats, method_name, options
+
+
+def load_election(path, race_index=0):
+    """Load an election from a file. Returns a dict:
+        {"ballots": str, "seats": int|None, "method": obj|None, "options": dict}
+
+    - .yaml / .yml : reads the race; pulls the `ballots` block, `num_winners`
+      -> seats, `voting_method` -> method, and any output `options`. Uses
+      PyYAML when available, else a built-in extractor (no install needed).
+    - anything else : raw text as ballots; seats/method/options empty.
+    """
+    p = Path(path)
+    if not p.is_absolute() and not p.exists():
+        # Resolve relative to this script, so it works regardless of cwd.
+        p = Path(__file__).resolve().parent / path
+    text = p.read_text(encoding="utf-8")
+
+    if not str(path).lower().endswith((".yaml", ".yml")):
+        return {"ballots": text, "seats": None, "method": None, "options": {}}
+
+    try:
+        import yaml  # use PyYAML when present (most robust)
+
+        data = yaml.safe_load(text)
+        race = _find_race(data, race_index)
+        ballots_text = race["ballots"]
+        seats = int(race["num_winners"]) if "num_winners" in race else None
+        method_name = race.get("voting_method")
+        options = {}
+        if isinstance(data, dict) and isinstance(data.get("options"), dict):
+            options.update(data["options"])
+        if isinstance(race.get("options"), dict):
+            options.update(race["options"])
+    except ImportError:
+        ballots_text, seats, method_name, options = _yaml_lite(text)
+
+    method = (
+        METHOD_BY_NAME.get(str(method_name).strip().lower()) if method_name else None
+    )
+    return {
+        "ballots": ballots_text,
+        "seats": seats,
+        "method": method,
+        "options": options,
+    }
+
+
+_ANSI_RE = re.compile(r"\x1b\[[0-9;]*m")
+
+
+def strip_ansi(s):
+    """Remove ANSI color escape sequences (for saving plain text)."""
+    return _ANSI_RE.sub("", s)
+
+
+def save_results_to_file(path, winners, report):
+    """Append (or replace) a top-level `expected_results:` block in the file,
+    holding the winners and the plain-text tabulation report. Comments and
+    formatting elsewhere in the file are preserved (only this block is rewritten).
+    """
+    p = Path(path)
+    if not p.is_absolute() and not p.exists():
+        p = Path(__file__).resolve().parent / path
+    text = p.read_text(encoding="utf-8")
+
+    # Drop any previous top-level expected_results block (to end of file).
+    text = re.sub(
+        r"\n*^expected_results:.*\Z", "", text, flags=re.S | re.M
+    ).rstrip("\n")
+
+    winner_lines = "\n".join(f"  - {w}" for w in winners) or "  []"
+    report_body = "\n".join(
+        ("    " + ln).rstrip() for ln in strip_ansi(report).splitlines()
+    )
+    block = (
+        "\n\nexpected_results:\n"
+        f"  winners:\n{winner_lines}\n"
+        "  report: |-\n"
+        f"{report_body}\n"
+    )
+    p.write_text(text + "\n" + block, encoding="utf-8")
+
+
 def parse_ballots_from_string(ballot_string):
     """
     Parses ballot data. Supports two formats per line:
@@ -93,7 +307,7 @@ def parse_ballots_from_string(ballot_string):
             lines.append(clean_line)
 
     if not lines:
-        return [], []
+        return [], [], []
 
     # Parse Headers
     headers = [name.strip() for name in re.split(r"[,\t]+", lines[0]) if name.strip()]
@@ -101,30 +315,80 @@ def parse_ballots_from_string(ballot_string):
         headers.pop(0)
 
     ballots = []
+    display_rows = []  # parallel to ballots; keeps blanks visible as "-"
+
+    def cell_to_score(cell):
+        # An empty cell or any marker character counts as 0 (no support),
+        # same as an explicit 0. (Markers: see MARKER_MEANINGS.)
+        cell = cell.strip()
+        if cell == "" or cell in MARKER_MEANINGS:
+            return 0
+        return int(cell)  # may raise ValueError -> caller falls through
+
+    def display_cell(cell, score):
+        # Keep the original marker visible in the echo; blank empty cell -> "-".
+        cell = cell.strip()
+        if cell == "":
+            return "-"
+        if cell in MARKER_MEANINGS:
+            return cell
+        return str(score)
 
     for line_num, line in enumerate(lines[1:], start=2):
-        # 1. Attempt Standard CSV Parse first
-        parts = re.split(r"[,\t]+", line)
+        # 1. Attempt Standard CSV Parse first. Use a single-delimiter split so
+        #    blank cells keep their position (e.g. "5,5,,0" or "5,5,4,-").
+        parts = re.split(r"[,\t]", line)
         weight = 1
 
-        # Handle "Weight:Score" format
-        if ":" in parts[0]:
-            try:
-                w_str, s_str = parts[0].split(":", 1)
-                weight = int(w_str)
-                parts[0] = s_str
-            except ValueError:
-                pass
+        # Handle "Weight x Score" repetition, e.g. "9:5", "9x5", "9 × 5".
+        # Accepted separators: ":", "x"/"X", "×".
+        wmatch = re.match(r"\s*(\d+)\s*[:xX×]\s*(.*)", parts[0])
+        if wmatch:
+            weight = int(wmatch.group(1))
+            parts[0] = wmatch.group(2)
 
-        clean_parts = [p.strip() for p in parts if p.strip()]
+        cells = [p.strip() for p in parts]
+
+        # Whole-ballot markers (~, ?, %) apply to the entire race. They may only
+        # appear as a full row of one marker (e.g. "~,~,~,~") or a lone token
+        # ("~"); mixing with scores is an error.
+        present_ballot_markers = {c for c in cells if c in BALLOT_LEVEL_MARKERS}
+        if present_ballot_markers:
+            marker = next(iter(present_ballot_markers))
+            non_blank = [c for c in cells if c != ""]
+            is_whole_ballot = len(present_ballot_markers) == 1 and all(
+                c == marker for c in non_blank
+            )
+            if not is_whole_ballot:
+                full_row = ",".join([marker] * len(headers))
+                print(
+                    f"{COLOR_RED}Error (Line {line_num}):{COLOR_RESET} "
+                    f"'{marker}' is a whole-ballot marker "
+                    f"({MARKER_MEANINGS[marker].split(' — ')[0]}),\n"
+                    f"  so it cannot be mixed with scores.\n"
+                    f"  Got:  {line}\n"
+                    f"  Fix:  use a full row '{full_row}', or remove '{marker}'."
+                )
+                sys.exit(1)
+            # Valid whole-ballot row: every candidate scores 0, ballot counts.
+            ballot = {h: 0 for h in headers}
+            display = ",".join([marker] * len(headers))
+            for _ in range(weight):
+                ballots.append(ballot)
+                display_rows.append(display)
+            continue
 
         # Check if this matches Standard CSV (Score count == Header count)
-        if len(clean_parts) == len(headers):
+        if len(cells) == len(headers):
             try:
-                scores = [int(p) for p in clean_parts]
+                scores = [cell_to_score(p) for p in cells]
                 ballot = {h: s for h, s in zip(headers, scores)}
+                # Display keeps the original markers visible (source stays
+                # faithful) even though they tabulate as 0.
+                display = ",".join(display_cell(c, s) for c, s in zip(cells, scores))
                 for _ in range(weight):
                     ballots.append(ballot)
+                    display_rows.append(display)
                 continue  # Successfully parsed as CSV
             except ValueError:
                 pass  # Fall through
@@ -142,6 +406,7 @@ def parse_ballots_from_string(ballot_string):
                     scores = [int(char) for char in seg]
                     ballot = {h: s for h, s in zip(headers, scores)}
                     ballots.append(ballot)
+                    display_rows.append(",".join(str(s) for s in scores))
                 else:
                     # Found a digit-only chunk with wrong length -> WARN USER
                     print(
@@ -150,7 +415,7 @@ def parse_ballots_from_string(ballot_string):
                         f"for candidates {headers}. Ignored."
                     )
 
-    return headers, ballots
+    return headers, ballots, display_rows
 
 
 def calculate_preference_matrix(candidates, ballots):
@@ -259,8 +524,60 @@ def print_matrix(candidates, matrix, finalists=None, star_winner=None):
                 row_str += f"{' ' * l_pad}{colored_tuple}{' ' * (padding - l_pad)} |"
         print(row_str)
 
+
+def print_condorcet(candidates, matrix, star_winner=None, finalists=None):
+    """Print the Condorcet analysis line on its own (independent of the matrix)."""
+    if not candidates or not matrix:
+        return
     print("\n[Condorcet Winner]")
     print(f"  {analyze_condorcet(candidates, matrix, star_winner, finalists)}")
+
+
+def markers_used(display_rows):
+    """Return the marker characters that actually appear, in MARKER_MEANINGS order."""
+    seen = set()
+    for row in display_rows:
+        for cell in row.split(","):
+            cell = cell.strip()
+            if cell in MARKER_MEANINGS:
+                seen.add(cell)
+    return [m for m in MARKER_MEANINGS if m in seen]
+
+
+def print_marker_legend(used):
+    """Print a legend explaining only the markers present in the data."""
+    if not used:
+        return
+    print("\n[Legend] (these all count as score 0)")
+    for m in used:
+        print(f"  {m}  {MARKER_MEANINGS[m]}")
+
+
+def print_score_counts(candidates, ballots, max_score=5):
+    """Per-candidate score distribution: how many ballots gave each score value,
+    plus the total and average. Shows how each candidate's total is composed."""
+    if not candidates or not ballots:
+        return
+
+    counts = {c: defaultdict(int) for c in candidates}
+    totals = {c: 0 for c in candidates}
+    for b in ballots:
+        for c in candidates:
+            s = b.get(c, 0)
+            counts[c][s] += 1
+            totals[c] += s
+
+    scores = list(range(max_score, -1, -1))  # high to low, e.g. 5..0
+    n = len(ballots)
+    name_w = max((len(c) for c in candidates), default=4)
+
+    print("\n[Score Distribution] (number of ballots giving each score)")
+    header = f"{'':<{name_w}}  " + "  ".join(f"{s:>2}" for s in scores)
+    print(f"{header}  | Total   Avg")
+    for c in candidates:
+        cells = "  ".join(f"{counts[c][s]:>2}" for s in scores)
+        avg = totals[c] / n if n else 0.0
+        print(f"{c:<{name_w}}  {cells}  | {totals[c]:>5}  {avg:>4.1f}")
 
 
 def _star_comparison(cw, star_winner, finalists):
@@ -386,17 +703,29 @@ def print_extended_analysis(ballots, winners):
 # 3. EXECUTION LOGIC
 # ---
 def run_election(
-    csv_input, lot_numbers, show_matrix=True, brief=False, seats=1, method=None
+    csv_input,
+    lot_numbers,
+    show_matrix=True,
+    brief=False,
+    seats=1,
+    method=None,
+    show_condorcet=True,
+    show_score_counts=True,
+    collapse_ballots=True,
+    count_separator="×",
 ):
     if method is None:
         method = starvote.star
 
     # Parse once, return both headers and parsed ballots
-    candidates, ballots = parse_ballots_from_string(csv_input)
+    candidates, ballots, display_rows = parse_ballots_from_string(csv_input)
 
     if not ballots:
         print("Error: No valid ballots found in input.")
         return
+
+    # Which marker characters actually appear (for the legend).
+    used_markers = markers_used(display_rows)
 
     # Generate matrix from the already-parsed data
     matrix = calculate_preference_matrix(candidates, ballots)
@@ -422,15 +751,18 @@ def run_election(
         # (The normalized ballot CSV is printed by custom_print, right after
         # the engine's "Tabulating N ballots." line.)
 
-        # CONFIGURED MATRIX OUTPUT
+        # seats=1: election() returns a single winner or a list
+        star_winner = (
+            winners_silent[0] if isinstance(winners_silent, list) else winners_silent
+        )
+
+        # These analyses are independent toggles.
+        if show_score_counts:
+            print_score_counts(candidates, ballots, max_score=5)
         if show_matrix:
-            # seats=1: election() returns a single winner or a list
-            star_winner = (
-                winners_silent[0]
-                if isinstance(winners_silent, list)
-                else winners_silent
-            )
             print_matrix(candidates, matrix, finalists, star_winner)
+        if show_condorcet:
+            print_condorcet(candidates, matrix, star_winner, finalists)
 
         print_extended_analysis(ballots, winners_silent)
 
@@ -457,11 +789,9 @@ def run_election(
         )
         sys.exit(1)
 
-    # Header banner naming the actual method + seat count.
-    if seats > 1:
-        print(f"\n--- {method_name} — {seats} seats — Larry Hastings engine ---")
-    else:
-        print(f"\n--- {method_name} — Larry Hastings engine ---")
+    # Header banner naming the actual method + winner count.
+    winners_label = "single winner" if seats == 1 else f"{seats} winners"
+    print(f"\n{COLOR_HEADER}--- {method_name} ({winners_label}) ---{COLOR_RESET}")
 
     # Intercept the engine's print() to fix grammar and relabel the
     # "No Preference" bucket, re-aligning score columns so the longer
@@ -488,12 +818,19 @@ def run_election(
             if brief and stripped.startswith("[") and stripped.endswith("]"):
                 inner = stripped[1:-1]
                 if ":" in inner:
-                    text = inner.split(":", 1)[1].strip()
+                    label = inner.split(":", 1)[1].strip()
+                    text = f"{header_color(label)}{label}{COLOR_RESET}"
                     args = (text + trailing,) + args[1:]
                     print(*args, **kwargs)
                 else:
                     # Bare top-level method header -> suppress.
                     pass
+                return
+            if stripped.startswith("[") and stripped.endswith("]"):
+                # Non-brief: keep the full "[...]" header but colorize it.
+                text = f"{header_color(stripped)}{stripped}{COLOR_RESET}"
+                args = (text + trailing,) + args[1:]
+                print(*args, **kwargs)
                 return
 
             # 1. Fix the singular/plural grammar.
@@ -502,10 +839,50 @@ def run_election(
             # 1b. After the "Tabulating N ballot(s)." line, list the
             #     normalized ballots as Standard CSV.
             if text.lstrip().startswith("Tabulating ") and "ballot" in text:
-                csv_rows = [",".join(candidates)] + [
-                    ",".join(str(b.get(c, 0)) for c in candidates) for b in ballots
-                ]
-                text = text + "\n" + "\n".join(csv_rows) + "\n"
+                # Echo keeps original markers (display_rows), faithful to source,
+                # followed by a legend for any markers used. Each column is padded
+                # to its widest cell so it lines up — still valid, parseable CSV.
+                ncols = len(candidates)
+                has_dupes = len(set(display_rows)) < len(display_rows)
+                if collapse_ballots and has_dupes:
+                    # Collapse identical ballots into "count: scores" (matches the
+                    # weight syntax, so it round-trips), most common first.
+                    counts, first_idx = {}, {}
+                    for i, r in enumerate(display_rows):
+                        if r not in counts:
+                            counts[r], first_idx[r] = 0, i
+                        counts[r] += 1
+                    unique = sorted(counts, key=lambda r: (-counts[r], first_idx[r]))
+                    rows = [r.split(",") for r in unique]
+                    widths = [
+                        max(len(candidates[i]), max(len(rc[i]) for rc in rows))
+                        for i in range(ncols)
+                    ]
+                    count_w = max(len(str(counts[r])) for r in unique)
+                    # count_separator (":", "x"/"X", or "×") all round-trip.
+                    sep = f" {count_separator} "
+                    csv_rows = [
+                        " " * (count_w + len(sep))
+                        + ",".join(candidates[i].rjust(widths[i]) for i in range(ncols))
+                    ]
+                    for r in unique:
+                        rc = r.split(",")
+                        body = ",".join(rc[i].rjust(widths[i]) for i in range(ncols))
+                        csv_rows.append(f"{str(counts[r]).rjust(count_w)}{sep}{body}")
+                else:
+                    grid = [list(candidates)] + [r.split(",") for r in display_rows]
+                    widths = [max(len(row[i]) for row in grid) for i in range(ncols)]
+                    csv_rows = [
+                        ",".join(c.rjust(widths[i]) for i, c in enumerate(row))
+                        for row in grid
+                    ]
+                if used_markers:
+                    csv_rows.append("")
+                    csv_rows.append("[Legend] (these all count as score 0)")
+                    csv_rows += [
+                        f"  {mk}  {MARKER_MEANINGS[mk]}" for mk in used_markers
+                    ]
+                text = text + "\n" + "\n".join(csv_rows)
 
             # 2. Relabel the no-preference bucket.
             relabeled = "No Preference" in text
@@ -539,23 +916,32 @@ def run_election(
 if __name__ == "__main__":
     # Code is available at: "https://github.com/larryhastings/starvote"
 
-    csv_input = """
-Ann,Bob,Cal,Dave,Eno,Fox
-1,2,3,4,5,5
-1,2,3,4,5,5
-"""
-
     # TIEBREAKER SETTING
     # Provide a list like ["B", "A", "C"] for production ties.
     # Leave empty [] to auto-generate based on CSV columns for quick testing.
     LOT_NUMBERS = []
 
-    # FLAG: Set to False to hide the Preference Matrix and Condorcet output
+    # FLAG: Set to False to hide the Preference Matrix.
     SHOW_MATRIX = False
+
+    # FLAG: Set to False to hide the [Condorcet Winner] line.
+    # Independent of SHOW_MATRIX — prints by default even when the matrix is off.
+    SHOW_CONDORCET = False
+
+    # FLAG: Set to False to hide the per-candidate [Score Distribution] table.
+    SHOW_SCORE_COUNTS = False
 
     # FLAG: Set to True for shorter output (collapses repetitive [STAR Voting: ...]
     # section headers into plain sub-headings and drops the bare "[STAR Voting]").
     BRIEF = True
+
+    # FLAG: Collapse identical ballots in the echo into "count × scores"
+    # (most common first). Set to False to echo every ballot individually.
+    COLLAPSE_BALLOTS = True
+
+    # FLAG: Separator for the collapsed count. "×" reads as "times";
+    # ":" matches the input weight syntax. Both round-trip ("x"/"X" also work).
+    COUNT_SEPARATOR = "×"
 
     # METHOD + SEATS.
     #   starvote.star  -> single-winner STAR (use SEATS = 1)
@@ -563,8 +949,93 @@ Ann,Bob,Cal,Dave,Eno,Fox
     # A mismatch (star with SEATS>1, or bloc with SEATS=1) is rejected with an
     # error and exits, so you must correct the combination.
     METHOD = starvote.star
-    SEATS = 2
+    SEATS = 1
 
-    run_election(
-        csv_input, LOT_NUMBERS, SHOW_MATRIX, brief=BRIEF, seats=SEATS, method=METHOD
+    # BALLOTS (the data).
+    #
+    # Demo workflow: pass a YAML/CSV file on the command line and it is used
+    # instead of the inline csv_input below. In PyCharm, make a Run
+    # Configuration whose "Parameters" is the macro  $FilePath$  — then whatever
+    # election file is open in the editor is the one that gets tabulated. Open
+    # the next file, hit Run again.
+    #
+    #   python starvote_larry_hastings.py elections_demo/memphis.yaml
+    #
+    # A .yaml/.yml file also supplies its own num_winners -> SEATS,
+    # voting_method -> METHOD, and an optional `options:` block (see below).
+    #
+    # Add  --save  to write the result back into the YAML as an
+    # `expected_results:` block (winners + plain-text report):
+    #   python starvote_larry_hastings.py elections_demo/memphis.yaml --save
+    args = [a for a in sys.argv[1:]]
+    SAVE_RESULTS = "--save" in args
+    positional = [a for a in args if not a.startswith("-")]
+    BALLOTS_FILE = positional[0] if positional else None
+
+    csv_input = """
+Memphis,Nashville,Chattanooga,Knoxville
+3, 3, 4, 2
+2, 5, 4, 3
+2, 3, 5, 4
+5, 4, 3, 2
+"""
+
+    if BALLOTS_FILE:
+        election = load_election(BALLOTS_FILE)
+        csv_input = election["ballots"]
+        if election["seats"] is not None:
+            SEATS = election["seats"]
+        if election["method"] is not None:
+            METHOD = election["method"]
+
+        # A YAML `options:` block can override the display flags. Example:
+        #   options:
+        #     show_matrix: true
+        #     show_score_counts: true
+        #     brief: false
+        #     count_separator: ":"
+        def _as_bool(v):
+            return v if isinstance(v, bool) else str(v).strip().lower() in (
+                "1", "true", "yes", "on",
+            )
+
+        opts = election["options"]
+        if "show_matrix" in opts:
+            SHOW_MATRIX = _as_bool(opts["show_matrix"])
+        if "show_condorcet" in opts:
+            SHOW_CONDORCET = _as_bool(opts["show_condorcet"])
+        if "show_score_counts" in opts:
+            SHOW_SCORE_COUNTS = _as_bool(opts["show_score_counts"])
+        if "brief" in opts:
+            BRIEF = _as_bool(opts["brief"])
+        if "collapse_ballots" in opts:
+            COLLAPSE_BALLOTS = _as_bool(opts["collapse_ballots"])
+        if "count_separator" in opts:
+            COUNT_SEPARATOR = str(opts["count_separator"])
+
+    run_kwargs = dict(
+        show_matrix=SHOW_MATRIX,
+        brief=BRIEF,
+        seats=SEATS,
+        method=METHOD,
+        show_condorcet=SHOW_CONDORCET,
+        show_score_counts=SHOW_SCORE_COUNTS,
+        collapse_ballots=COLLAPSE_BALLOTS,
+        count_separator=COUNT_SEPARATOR,
     )
+
+    if SAVE_RESULTS and BALLOTS_FILE:
+        # Capture the output, show it, and write a plain-text copy into the file.
+        import contextlib
+        import io
+
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            winners = run_election(csv_input, LOT_NUMBERS, **run_kwargs)
+        out = buf.getvalue()
+        sys.stdout.write(out)  # still display on screen
+        names = winners if isinstance(winners, (list, tuple)) else [winners]
+        save_results_to_file(BALLOTS_FILE, [str(w) for w in names], out)
+        print(f"\n{COLOR_HEADER}[saved results to {BALLOTS_FILE}]{COLOR_RESET}")
+    else:
+        run_election(csv_input, LOT_NUMBERS, **run_kwargs)
