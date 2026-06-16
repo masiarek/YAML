@@ -2,8 +2,14 @@
 num_winners: 1
 voting_method: star
 
+# for demo - deactivate
+#Editor
+#└── Color Scheme
+#    └── General
+#        └── Code
+#            └── Identifier under caret <-- Uncheck "Background" on the right
 options:
-  show_matrix: false
+  show_matrix: true
   show_condorcet: true
   show_score_counts: true
 

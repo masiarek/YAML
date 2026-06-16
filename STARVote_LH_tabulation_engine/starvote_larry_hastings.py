@@ -30,9 +30,11 @@ if _USE_COLOR:
     COLOR_SCORING = "\033[1;96m"  # bold cyan   — Scoring Round (+ its tiebreakers)
     COLOR_RUNOFF = "\033[1;93m"  # bold yellow — Automatic Runoff (+ its tiebreakers)
     COLOR_WINNER = "\033[1;92m"  # bold green  — Winner / Winners
+    COLOR_DIM = "\033[2;90m"  # faint gray  — round-separator rule
 else:
     COLOR_GREEN = COLOR_RED = COLOR_BLUE = COLOR_RESET = ""
     COLOR_HEADER = COLOR_SCORING = COLOR_RUNOFF = COLOR_WINNER = ""
+    COLOR_DIM = ""
 
 
 def header_color(label):
@@ -796,9 +798,15 @@ def run_election(
     # Intercept the engine's print() to fix grammar and relabel the
     # "No Preference" bucket, re-aligning score columns so the longer
     # label doesn't shove the " -- " separator out of column.
-    EQUAL_LABEL = "Equal Preference"
-    EQUAL_NOTE = "(Equal Support or Equal Opposition)"
+    EQUAL_LABEL = "Equal Support"          # EVC (Equal Vote Coalition) terminology
+    EQUAL_NOTE = "(aka Equal Preference, No Preference)"  # appended inline after value
     row_re = re.compile(r"^(\s*)(\S.*?)\s+--\s+(.*)$")
+
+    # Round grouping: draw a faint rule before each new round's Scoring Round
+    # header (but not the first), so multi-round methods like Bloc STAR read as
+    # distinct blocks without spending another header color.
+    round_state = {"scoring_seen": False}
+    ROUND_RULE = f"{COLOR_DIM}{'─' * 50}{COLOR_RESET}"
 
     def custom_print(*args, **kwargs):
         if args and isinstance(args[0], str):
@@ -815,6 +823,15 @@ def run_election(
             #    "[STAR Voting: Scoring Round]" -> "Scoring Round"
             #    (also works for "[Bloc STAR: Round 1: ...]")
             stripped = text.strip()
+
+            # Round separator: before each main "Scoring Round" header after the
+            # first, emit a faint rule to visually group each round.
+            if stripped.startswith("[") and stripped.endswith("]"):
+                if stripped[1:-1].rstrip().endswith("Scoring Round"):
+                    if round_state["scoring_seen"]:
+                        print(ROUND_RULE)
+                    round_state["scoring_seen"] = True
+
             if brief and stripped.startswith("[") and stripped.endswith("]"):
                 inner = stripped[1:-1]
                 if ":" in inner:
