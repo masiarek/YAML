@@ -41,7 +41,7 @@ import starvote
 def inject_test_elections(cls, argv):  # pragma: no cover
     """
     Finds all the test_election/{*.starvote, *.csv} files,
-    runs the elections_demo within, and compares the results to
+    runs the elections_illustrations within, and compares the results to
     the corresponding .txt file.
 
     Creates one callable for each test file and injects it into cls.

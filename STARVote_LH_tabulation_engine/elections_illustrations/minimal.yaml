@@ -1,0 +1,39 @@
+# =============================================================================
+# Illustration: Bloc STAR vs. proportional STAR multi-winner methods diverge
+# =============================================================================
+# Same ballots, 2 seats, 4 candidates, 9 voters -> different winner sets.
+#
+#   5 "majority" voters back Ann (4) and Bob (3)
+#   4 "minority" voters back Cal (4) and Don (3)
+#
+# Score totals:  Ann=20  >  Cal=16  >  Bob=15  >  Don=12   (all distinct)
+#   Note Cal is the 2nd-highest-scoring candidate overall.
+#
+# Winners by method (verified with the starvote engine, max score 5):
+#   bloc       (Bloc STAR, majoritarian) -> [Ann, Bob]   <-- majority sweeps
+#   allocated  (Allocated Score, PR)     -> [Ann, Cal]
+#   sss        (Sequentially Spent Score)-> [Ann, Cal]
+#   rrv        (Reweighted Range, PR)    -> [Ann, Cal]
+#
+# Why: Ann wins seat 1 under every method. For seat 2, Bloc STAR runs the
+# top two remaining scorers (Cal 16, Bob 15) in a head-to-head runoff; the
+# 5-voter majority prefers Bob to Cal 5-4, so Bob takes the seat and the
+# minority is shut out entirely -- even though Cal outscored Bob. The
+# proportional methods reweight/spend the majority's ballots after Ann is
+# seated, freeing the minority faction to elect Cal.
+#
+# Swap voting_method below to bloc / allocated / sss / rrv to reproduce.
+# =============================================================================
+num_winners: 2
+voting_method: rrv
+ballots: |-
+  Ann,Bob,Cal,Don
+  4,3,0,0
+  4,3,0,0
+  4,3,0,0
+  4,3,0,0
+  4,3,0,0
+  0,0,4,3
+  0,0,4,3
+  0,0,4,3
+  0,0,4,3

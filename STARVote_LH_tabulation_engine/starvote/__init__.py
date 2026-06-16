@@ -8,7 +8,7 @@
 ## * write a unit test that checks the code examples
 ##   in README.md are up to date
 ##     * confirms "example.py" and the output in README.md matches
-##     * confirms the "multi-winner elections_demo" cmdline works
+##     * confirms the "multi-winner elections_illustrations" cmdline works
 ##   (I keep breaking 'em.)
 ##
 ## * have starvote format import detect a recursion loop and complain
@@ -1963,7 +1963,7 @@ def star_voting(
       per vote, default 5.
     * "print" is a function called to print output.
     * "seats" specifies the number of seats,
-      for multiwinner elections_demo.
+      for multiwinner elections_illustrations.
     * "tiebreaker" specifies how to break ties;
       should be a tiebreaker function or Tiebreaker
       object.
@@ -2022,7 +2022,7 @@ def bloc_star_voting(
       per vote, default 5.
     * "print" is a function called to print output.
     * "seats" specifies the number of seats,
-      for multiwinner elections_demo.
+      for multiwinner elections_illustrations.
     * "tiebreaker" specifies how to break ties;
       should be a tiebreaker function or Tiebreaker
       object.
@@ -2113,7 +2113,7 @@ def allocated_score_voting(
       per vote, default 5.
     * "print" is a function called to print output.
     * "seats" specifies the number of seats,
-      for multiwinner elections_demo.
+      for multiwinner elections_illustrations.
     * "tiebreaker" specifies how to break ties;
       should be a tiebreaker function or Tiebreaker
       object.
@@ -2408,7 +2408,7 @@ def reweighted_range_voting(
       per vote, default 5.
     * "print" is a function called to print output.
     * "seats" specifies the number of seats,
-      for multiwinner elections_demo.
+      for multiwinner elections_illustrations.
     * "tiebreaker" specifies how to break ties;
       should be a tiebreaker function or Tiebreaker
       object.
@@ -2574,7 +2574,7 @@ def sequentially_spent_score(
       per vote, default 5.
     * "print" is a function called to print output.
     * "seats" specifies the number of seats,
-      for multiwinner elections_demo.
+      for multiwinner elections_illustrations.
     * "tiebreaker" specifies how to break ties;
       should be a tiebreaker function or Tiebreaker
       object.
@@ -2807,7 +2807,7 @@ def election(
       per vote, default 5.
     * "print" is a function called to print output.
     * "seats" specifies the number of seats,
-      for multiwinner elections_demo.
+      for multiwinner elections_illustrations.
     * "tiebreaker" specifies how to break ties;
       should be a tiebreaker function or Tiebreaker
       object.
@@ -2911,7 +2911,7 @@ def parse_starvote(starvote, *, path=None):
     (found in the "tiebreakers" dict).  If "tiebreaker" is a list
     of strings, this is used as a hard-coded pre-permuted list of
     candidates for the predefined_permutation_tiebreaker tiebreaker.
-    (This isn't a good idea for real elections_demo, but it's useful
+    (This isn't a good idea for real elections_illustrations, but it's useful
     for testing.)
 
     The "options" section doesn't define any pragmas; it does

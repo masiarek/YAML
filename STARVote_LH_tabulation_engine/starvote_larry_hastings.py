@@ -271,9 +271,9 @@ def save_results_to_file(path, winners, report):
     text = p.read_text(encoding="utf-8")
 
     # Drop any previous top-level expected_results block (to end of file).
-    text = re.sub(
-        r"\n*^expected_results:.*\Z", "", text, flags=re.S | re.M
-    ).rstrip("\n")
+    text = re.sub(r"\n*^expected_results:.*\Z", "", text, flags=re.S | re.M).rstrip(
+        "\n"
+    )
 
     winner_lines = "\n".join(f"  - {w}" for w in winners) or "  []"
     report_body = "\n".join(
@@ -959,14 +959,14 @@ if __name__ == "__main__":
     # election file is open in the editor is the one that gets tabulated. Open
     # the next file, hit Run again.
     #
-    #   python starvote_larry_hastings.py elections_demo/memphis.yaml
+    #   python starvote_larry_hastings.py elections_illustrations/memphis.yaml
     #
     # A .yaml/.yml file also supplies its own num_winners -> SEATS,
     # voting_method -> METHOD, and an optional `options:` block (see below).
     #
     # Add  --save  to write the result back into the YAML as an
     # `expected_results:` block (winners + plain-text report):
-    #   python starvote_larry_hastings.py elections_demo/memphis.yaml --save
+    #   python starvote_larry_hastings.py elections_illustrations/memphis.yaml --save
     args = [a for a in sys.argv[1:]]
     SAVE_RESULTS = "--save" in args
     positional = [a for a in args if not a.startswith("-")]
@@ -995,8 +995,16 @@ Memphis,Nashville,Chattanooga,Knoxville
         #     brief: false
         #     count_separator: ":"
         def _as_bool(v):
-            return v if isinstance(v, bool) else str(v).strip().lower() in (
-                "1", "true", "yes", "on",
+            return (
+                v
+                if isinstance(v, bool)
+                else str(v).strip().lower()
+                in (
+                    "1",
+                    "true",
+                    "yes",
+                    "on",
+                )
             )
 
         opts = election["options"]

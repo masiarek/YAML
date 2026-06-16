@@ -1,0 +1,20 @@
+# Election: Municipal By-Election
+# Position: Sergeant-at-Arms
+#   A - Amanda Aguilar
+#   B - Brenda Bray
+#   C - Charles Cook
+#   D - David Dickson
+#   E - Elaine Evans
+num_winners: 1
+voting_method: star
+
+options:
+  show_matrix: false
+  show_condorcet: true
+  show_score_counts: true
+
+ballots: |-
+  A,B,C,D,E
+  3,4,2,5,2  
+  3,4,2,5,1  
+  3,4,2,5,0

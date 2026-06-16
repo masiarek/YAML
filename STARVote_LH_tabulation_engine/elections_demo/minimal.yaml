@@ -1,7 +1,0 @@
-# Minimal single-race form
-# One ballot with 4 Candidates
-num_winners: 1
-voting_method: star
-ballots: |-
-  Ann,Bob,Cal,Don
-  1,  0,  4,  5
