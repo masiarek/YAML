@@ -122,8 +122,30 @@ def winners(method_fn, ballots, seats, max_score, tb_seed=0):
             tiebreaker=_tiebreaker(tb_seed),
         )
         return frozenset(w)
-    except starvote.UnbreakableTieError, starvote.ElectionError:
+    except (starvote.UnbreakableTieError, starvote.ElectionError):
         return None
+
+
+def tabulation_text(method_fn, ballots, seats, max_score, tb_seed):
+    """Run the election verbosely and capture its step-by-step tabulation."""
+    chunks = []
+
+    def collect(s="", end="\n"):
+        chunks.append(str(s) + end)
+
+    try:
+        starvote.election(
+            method_fn,
+            ballots,
+            seats=seats,
+            maximum_score=max_score,
+            tiebreaker=_tiebreaker(tb_seed),
+            verbosity=1,
+            print=collect,
+        )
+    except (starvote.UnbreakableTieError, starvote.ElectionError) as e:
+        chunks.append(f"(could not tabulate: {e})\n")
+    return "".join(chunks).rstrip("\n")
 
 
 def stable_winners(method_fn, ballots, seats, max_score, tb_seeds):
@@ -167,6 +189,7 @@ def search_at_count(rng, names, seats, n_ballots, max_score, prop_keys, trials, 
                 continue
             return {
                 "trial": t,
+                "robust": robust,
                 "n_ballots": n_ballots,
                 "ballots": ballots,
                 "bloc_winners": bloc_set,
@@ -217,6 +240,24 @@ def ballot_table(ballots, names):
 def print_result(res, names, seats, max_score, prop_choice):
     b = res["ballots"]
     totals = {c: sum(x[c] for x in b) for c in names}
+
+    # Tie-free seed for a clean, reproducible tabulation.
+    tb_seed = 101 if res.get("robust", True) else 0
+    bloc_tab = tabulation_text(BLOC[1], b, seats, max_score, tb_seed)
+    prop_fn = PROP_METHODS[res["prop_key"]][1]
+    prop_tab = tabulation_text(prop_fn, b, seats, max_score, tb_seed)
+
+    print("=" * 64)
+    print(f"TABULATION: {BLOC[0]}")
+    print("=" * 64)
+    print(bloc_tab)
+    print()
+    print("=" * 64)
+    print(f"TABULATION: {res['prop_label']}")
+    print("=" * 64)
+    print(prop_tab)
+    print()
+
     print("=" * 64)
     if res.get("minimal"):
         print(f"DIVERGENCE FOUND  (minimal ballot count = {res['n_ballots']})")
