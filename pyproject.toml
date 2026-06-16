@@ -10,6 +10,7 @@ dependencies = [
     "playwright>=1.60.0",
     "pydantic>=2.13.4",
     "pyyaml>=6.0.3",
+    "starvote",
     "strictyaml>=1.7.3",
 ]
 
@@ -19,3 +20,11 @@ strict = true
 [[tool.mypy.overrides]]
 module = "strictyaml.*"
 ignore_missing_imports = true
+
+[tool.uv.workspace]
+members = [
+    "STARVote_LH_tabulation_engine",
+]
+
+[tool.uv.sources]
+starvote = { workspace = true, editable = true }
