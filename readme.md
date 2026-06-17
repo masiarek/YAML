@@ -16,7 +16,7 @@ This library provides a robust validation layer for election data. By bundling *
 ### 1. Install
 
 ```bash
-pip install better-voting-test-lib
+tbd
 ```
 
 ### 2. Create a test case file
