@@ -2,7 +2,7 @@
 SOURCE FILE:     proportional_allocated_score.yaml
 SOURCE MODIFIED: 2026-06-16 17:37:42
 TABULATED FILE:  proportional_allocated_score_tabulated.txt
-TABULATED AT:    2026-06-16 22:13:43
+TABULATED AT:    2026-06-16 22:38:33
 ======================================================================
 
 # Proportional multi-winner example: Allocated Score Voting (Proportional STAR).

@@ -2,7 +2,7 @@
 SOURCE FILE:     with_options.yaml
 SOURCE MODIFIED: 2026-06-16 17:37:01
 TABULATED FILE:  with_options_tabulated.txt
-TABULATED AT:    2026-06-16 22:13:44
+TABULATED AT:    2026-06-16 22:38:34
 ======================================================================
 
 # Single-race demo that controls its own output via `options:`.

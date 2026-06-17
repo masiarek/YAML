@@ -2,7 +2,7 @@
 SOURCE FILE:     02_02b - 3 candidates and 2 ballots.yaml
 SOURCE MODIFIED: 2026-06-16 22:24:00
 TABULATED FILE:  02_02b - 3 candidates and 2 ballots_tabulated.txt
-TABULATED AT:    2026-06-16 22:26:27
+TABULATED AT:    2026-06-16 22:38:34
 ======================================================================
 
 election_title: 3 Candidates - single-winner STAR example

@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     05_02 Voting styles - protest vote.yaml
-SOURCE MODIFIED: 2026-06-16 21:36:51
+SOURCE MODIFIED: 2026-06-16 17:36:51
 TABULATED FILE:  05_02 Voting styles - protest vote_tabulated.txt
-TABULATED AT:    2026-06-17 02:16:45
+TABULATED AT:    2026-06-16 22:38:34
 ======================================================================
 
 election_title: Voting styles — protest vote

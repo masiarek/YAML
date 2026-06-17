@@ -2,7 +2,7 @@
 SOURCE FILE:     05_01 Voting styles - bullet voting.yaml
 SOURCE MODIFIED: 2026-06-16 20:37:11
 TABULATED FILE:  05_01 Voting styles - bullet voting_tabulated.txt
-TABULATED AT:    2026-06-16 22:13:44
+TABULATED AT:    2026-06-16 22:38:34
 ======================================================================
 
 # Voting styles — what a valid STAR ballot may look like.
