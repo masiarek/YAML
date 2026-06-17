@@ -1,8 +1,8 @@
 ======================================================================
-SOURCE FILE:     z_Andre Blake Carmen David Ella.yaml
-SOURCE MODIFIED: 2026-06-16 17:37:22
-TABULATED FILE:  z_Andre Blake Carmen David Ella_tabulated.txt
-TABULATED AT:    2026-06-17 07:09:50
+SOURCE FILE:     05a_unanimous-ballots.yaml
+SOURCE MODIFIED: 2026-06-17 07:42:06
+TABULATED FILE:  05a_unanimous-ballots_tabulated.txt
+TABULATED AT:    2026-06-17 08:21:14
 ======================================================================
 
 election_title: Unanimous ballots (five candidates)
@@ -24,6 +24,9 @@ ballots: |-
       5,    1,     4,    3,   0
       5,    1,     4,    3,   0
       5,    1,     4,    3,   0
+
+expected_winners:
+  - Andre
 
 ======================================================================
 TABULATION RESULTS

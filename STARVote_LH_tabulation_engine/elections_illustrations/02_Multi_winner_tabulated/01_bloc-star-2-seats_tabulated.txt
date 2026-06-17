@@ -1,8 +1,8 @@
 ======================================================================
-SOURCE FILE:     minimal2.yaml
-SOURCE MODIFIED: 2026-06-17 07:17:55
-TABULATED FILE:  minimal2_tabulated.txt
-TABULATED AT:    2026-06-17 07:26:54
+SOURCE FILE:     01_bloc-star-2-seats.yaml
+SOURCE MODIFIED: 2026-06-17 07:42:06
+TABULATED FILE:  01_bloc-star-2-seats_tabulated.txt
+TABULATED AT:    2026-06-17 08:21:14
 ======================================================================
 
 election_title: "Bloc STAR Voting: 2-Seat Committee Election"
@@ -23,6 +23,10 @@ ballots: |-
   Ann,Bob,Cal,Don
   1,  0,  4,  5
   1,  2,  4,  5
+
+expected_winners:
+  - Don
+  - Cal
 
 ======================================================================
 TABULATION RESULTS

@@ -1,6 +1,6 @@
 # Proportional multi-winner example: Reweighted Range Voting (RRV).
 # Run: python starvote_larry_hastings.py \
-#        "elections_illustrations/Multi_winner/proportional_rrv.yaml"
+#        "elections_illustrations/02_Multi_winner/proportional_rrv.yaml"
 #
 # RRV is an older score-based proportional method: after each seat, every
 # ballot is reweighted by 1/(1 + sum of scores already given to winners), so

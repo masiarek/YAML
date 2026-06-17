@@ -1,31 +1,30 @@
 ======================================================================
-SOURCE FILE:     proportional_rrv.yaml
-SOURCE MODIFIED: 2026-06-16 17:37:54
-TABULATED FILE:  proportional_rrv_tabulated.txt
-TABULATED AT:    2026-06-17 07:09:49
+SOURCE FILE:     02b_proportional-sss.yaml
+SOURCE MODIFIED: 2026-06-17 07:52:50
+TABULATED FILE:  02b_proportional-sss_tabulated.txt
+TABULATED AT:    2026-06-17 08:21:15
 ======================================================================
 
-# Proportional multi-winner example: Reweighted Range Voting (RRV).
+# Proportional multi-winner example: Sequentially Spent Score (SSS).
 # Run: python starvote_larry_hastings.py \
-#        "elections_illustrations/Multi_winner/proportional_rrv.yaml"
+#        "elections_illustrations/02_Multi_winner/proportional_sss.yaml"
 #
-# RRV is an older score-based proportional method: after each seat, every
-# ballot is reweighted by 1/(1 + sum of scores already given to winners), so
-# voters who already got a winner have less weight in later seats. It is NOT
-# part of STAR's score-then-runoff family and has weaker proportionality
-# guarantees than Allocated Score or SSS, but it's useful for comparison.
+# SSS is a modern proportional-score method with strong monotonicity behaviour.
+# After each seat, the ballots that elected the winner have score "spent" in
+# proportion to how much they supported them. Like Allocated Score, it gives a
+# cohesive minority representation that Bloc STAR would deny.
 #
 # Same ballots as proportional_allocated_score.yaml so you can compare methods:
-# switch voting_method between `rrv`, `allocated`, `sss`, and `bloc`.
+# switch voting_method between `sss`, `allocated`, `rrv`, and `bloc`.
 
-election_title: Proportional — Reweighted Range Voting
+election_title: Proportional STAR — Sequentially Spent Score
 scenario_description: |-
-  Same majority/minority ballots as the other proportional examples, tabulated
-  with Reweighted Range Voting (RRV). Older and not part of STAR's score-then-
-  runoff family, but it also seats the minority bloc — included for comparison.
+  Same majority/minority ballots as the Allocated Score example, tabulated with
+  Sequentially Spent Score (SSS), a modern proportional-score method. The
+  minority bloc again earns a seat that Bloc STAR would deny.
 
 num_winners: 3
-voting_method: rrv
+voting_method: sss
 
 options:
   show_matrix: false
@@ -42,14 +41,19 @@ ballots: |-
   5: 0, 0, 0, 5, 4
   3: 0, 0, 0, 4, 5
 
+expected_winners:
+  - Alice
+  - Ben
+  - Dan
+
 ======================================================================
 TABULATION RESULTS
 ======================================================================
 
-=== Proportional — Reweighted Range Voting ===
-  Same majority/minority ballots as the other proportional examples, tabulated
-  with Reweighted Range Voting (RRV). Older and not part of STAR's score-then-
-  runoff family, but it also seats the minority bloc — included for comparison.
+=== Proportional STAR — Sequentially Spent Score ===
+  Same majority/minority ballots as the Allocated Score example, tabulated with
+  Sequentially Spent Score (SSS), a modern proportional-score method. The
+  minority bloc again earns a seat that Bloc STAR would deny.
 
 [Score Distribution] (number of ballots giving each score)
         5   4   3   2   1   0  | Total   Avg
@@ -74,8 +78,8 @@ Legend: For - Equal Preference - Against
 [Condorcet Winner]
   Condorcet Winner: Ben — matches the STAR winner
 
---- Reweighted Range Voting (3 winners) ---
-[Reweighted Range Voting]
+--- Sequentially Spent Score (3 winners) ---
+[Sequentially Spent Score]
  Tabulating 21 ballots.
     Alice,Ben,Cara,Dan,Eve
 6 ×     5,  4,   3,  0,  0
@@ -84,8 +88,9 @@ Legend: For - Equal Preference - Against
 3 ×     3,  4,   5,  0,  0
 3 ×     0,  0,   0,  4,  5
  Want to fill 3 seats.
+ Hare score quota is 35.
 
-[Reweighted Range Voting: Round 1: Score round]
+[Sequentially Spent Score: Round 1]
  The highest-scoring candidate wins a seat.
    Ben           -- 56 -- First place
    Alice         -- 55
@@ -94,32 +99,36 @@ Legend: For - Equal Preference - Against
    Eve           -- 35
  Ben wins a seat.
 
-[Reweighted Range Voting: Round 1: Reweighing Ballots]
+[Sequentially Spent Score: Round 1: Ballot allocation round]
+ Total score is 56, Hare score quota is 35, giving back surplus.
+ Reducing each ballot's stars by their vote * 3/8.
  Reweighted 13 ballots:
-   9 ballots reweighted from 1 to 5/9.
-   4 ballots reweighted from 1 to 1/2.
+    9 ballots voted 4, stars reduced from 5 to 5/2, reweighted to 1/2.
+    4 ballots voted 5, stars reduced from 5 to 15/8, reweighted to 3/8.
 
-[Reweighted Range Voting: Round 2: Score round]
+[Sequentially Spent Score: Round 2]
  The highest-scoring candidate wins a seat.
    Dan           -- 37     -- First place
    Eve           -- 35
-   Alice         -- 29+2/3
-   Cara          -- 24+1/3
+   Alice         -- 25+1/2
+   Cara          -- 21
  Dan wins a seat.
 
-[Reweighted Range Voting: Round 2: Reweighing Ballots]
+[Sequentially Spent Score: Round 2: Ballot allocation round]
+ Total score is 37, Hare score quota is 35, giving back surplus.
+ Reducing each ballot's stars by their vote * 2/37.
  Reweighted 8 ballots:
-   5 ballots reweighted from 1 to 1/2.
-   3 ballots reweighted from 1 to 5/9.
+    5 ballots voted 5, stars reduced from 5 to 10/37, reweighted to 2/37.
+    3 ballots voted 4, stars reduced from 5 to 45/37, reweighted to 9/37.
 
-[Reweighted Range Voting: Round 3: Score round]
+[Sequentially Spent Score: Round 3]
  The highest-scoring candidate wins a seat.
-   Alice         -- 29+2/3 -- First place
-   Cara          -- 24+1/3
-   Eve           -- 18+1/3
+   Alice         -- 25+ 1/2  -- First place
+   Cara          -- 21
+   Eve           -- 4+27/37
  Alice wins a seat.
 
-[Reweighted Range Voting: Winners (Reweighted Range Voting Method — 3 winners)]
+[Sequentially Spent Score: Winners (Sequentially Spent Score Method — 3 winners)]
  Alice
  Ben
  Dan

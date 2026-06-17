@@ -1,8 +1,8 @@
 ======================================================================
-SOURCE FILE:     05_01 Voting styles - bullet voting.yaml
-SOURCE MODIFIED: 2026-06-16 20:37:11
-TABULATED FILE:  05_01 Voting styles - bullet voting_tabulated.txt
-TABULATED AT:    2026-06-17 07:09:50
+SOURCE FILE:     03a_style-bullet-vote.yaml
+SOURCE MODIFIED: 2026-06-17 07:42:06
+TABULATED FILE:  03a_style-bullet-vote_tabulated.txt
+TABULATED AT:    2026-06-17 08:21:14
 ======================================================================
 
 # Voting styles — what a valid STAR ballot may look like.
@@ -23,6 +23,9 @@ ballots: |-
       1,     2,      5   # full/expressive style
       0,     5,      5   # equal scores are OK.
       0,     0,      5   # bullet voting
+
+expected_winners:
+  - Vanilla
 
 ======================================================================
 TABULATION RESULTS

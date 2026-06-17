@@ -1,8 +1,8 @@
 ======================================================================
-SOURCE FILE:     with_options2.yaml
-SOURCE MODIFIED: 2026-06-16 17:37:13
-TABULATED FILE:  with_options2_tabulated.txt
-TABULATED AT:    2026-06-17 07:09:50
+SOURCE FILE:     04b_display-options-all.yaml
+SOURCE MODIFIED: 2026-06-17 07:42:06
+TABULATED FILE:  04b_display-options-all_tabulated.txt
+TABULATED AT:    2026-06-17 08:21:14
 ======================================================================
 
 # Single-race demo exercising EVERY supported field and `options:` flag.
@@ -41,6 +41,9 @@ ballots: |-
        0,     2,     3,         5
        0,     2,     3,         5
        0,     2,     5,         3
+
+expected_winners:
+  - Strawberry
 
 ======================================================================
 TABULATION RESULTS

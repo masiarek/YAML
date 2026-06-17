@@ -331,7 +331,7 @@ def tabulated_output_path(src_path):
     The copy goes into a sibling folder whose name is the source folder + the
     '_tabulated' suffix, and the file itself also gets a '_tabulated' suffix.
     Example:
-        .../elections_illustrations/Multi_winner/foo.yaml
+        .../elections_illustrations/02_Multi_winner/foo.yaml
         -> .../elections_illustrations/Multi_winner_tabulated/foo_tabulated.txt
         .../elections_illustrations/bar.yaml
         -> .../elections_illustrations_tabulated/bar_tabulated.txt
@@ -1029,7 +1029,10 @@ def run_election(
             m = row_re.match(text)
             if m and not text.lstrip().startswith("["):
                 indent, label, rest = m.groups()
-                if relabeled and EQUAL_NOTE not in rest:
+                # The "(aka …)" note is explanatory but noisy on screen. Show it
+                # only in verbose (non-brief) output — i.e. the saved _tabulated
+                # file — and keep the live/brief demo output clean.
+                if relabeled and not brief and EQUAL_NOTE not in rest:
                     rest = f"{rest} {EQUAL_NOTE}"
                 if round_state["in_runoff"]:
                     rest = colorize_runoff_value(label.strip(), rest)

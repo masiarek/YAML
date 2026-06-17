@@ -16,6 +16,7 @@ Regenerate / add expectations with:
     python tools_adam/add_expected_winners.py --force   # rewrite all
 """
 
+import re
 import sys
 from pathlib import Path
 
@@ -27,7 +28,13 @@ sys.path.insert(0, str(ENGINE_DIR / "tools_adam"))
 
 import yaml  # noqa: E402
 
-from scenario_eval import scenario_winners  # noqa: E402
+from scenario_eval import scenario_counts, scenario_winners  # noqa: E402
+
+# Optional filename convention: "..._c<CANDIDATES>_b<BALLOTS>_..."
+# e.g. 01a_c2_b1_two-candidates.yaml  ->  2 candidates, 1 ballot.
+# If present, the encoded counts must match the file's actual contents, so a
+# name can never silently drift from its data.
+COUNT_CODE_RE = re.compile(r"_c(\d+)_b(\d+)_")
 
 SCENARIO_ROOT = ENGINE_DIR / "elections_illustrations"
 
@@ -36,7 +43,10 @@ def _scenario_files():
     files = []
     for p in sorted(SCENARIO_ROOT.rglob("*")):
         if p.is_file() and p.suffix.lower() in (".yaml", ".yml"):
-            if not any(part.endswith("_tabulated") for part in p.relative_to(SCENARIO_ROOT).parts):
+            if not any(
+                part.endswith("_tabulated")
+                for part in p.relative_to(SCENARIO_ROOT).parts
+            ):
                 files.append(p)
     return files
 
@@ -52,7 +62,7 @@ def _expected_winners(path):
 
 
 SCENARIOS = _scenario_files()
-# Pretty ids like "Multi_winner/proportional_sss.yaml"
+# Pretty ids like "02_Multi_winner/proportional_sss.yaml"
 SCENARIO_IDS = [str(p.relative_to(SCENARIO_ROOT)) for p in SCENARIOS]
 
 
@@ -71,6 +81,26 @@ def test_scenario_winners(path):
     # Number of winners must equal the number of seats.
     assert len(winners) == seats, (
         f"{path.name}: elected {len(winners)} winner(s) but num_winners={seats}"
+    )
+
+
+@pytest.mark.parametrize("path", SCENARIOS, ids=SCENARIO_IDS)
+def test_filename_counts_match(path):
+    """If a filename encodes _c<N>_b<M>_, it must match the actual contents."""
+    match = COUNT_CODE_RE.search(path.name)
+    if not match:
+        pytest.skip("filename does not encode _cN_bM_ counts")
+
+    name_cands, name_ballots = int(match.group(1)), int(match.group(2))
+    actual_cands, actual_ballots = scenario_counts(path)
+
+    assert name_cands == actual_cands, (
+        f"{path.name}: name says c{name_cands} but file has "
+        f"{actual_cands} candidate(s)"
+    )
+    assert name_ballots == actual_ballots, (
+        f"{path.name}: name says b{name_ballots} but file has "
+        f"{actual_ballots} ballot(s) (weighted rows are expanded)"
     )
 
 

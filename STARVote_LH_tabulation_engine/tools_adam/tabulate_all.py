@@ -6,11 +6,11 @@ Run every election file in `elections_illustrations/` (recursively) through the
 STAR tabulation engine and write a plain-text result for each.
 
 For every folder that contains election files, a sibling "mirror" folder is
-created with the `_tabulated` suffix (e.g. `Multi_winner` -> `Multi_winner_tabulated`,
+created with the `_tabulated` suffix (e.g. `02_Multi_winner` -> `Multi_winner_tabulated`,
 and the top-level `elections_illustrations` -> `elections_illustrations_tabulated`).
 Each output file also gets a `_tabulated` suffix, e.g.:
 
-    elections_illustrations/Multi_winner/foo.yaml
+    elections_illustrations/02_Multi_winner/foo.yaml
     -> elections_illustrations/Multi_winner_tabulated/foo_tabulated.txt
 
 All `*_tabulated` mirror folders are WIPED before the run, so the output always
@@ -53,16 +53,21 @@ def find_election_files(root):
 
 
 def wipe_tabulated_dirs(root, files):
-    """Delete every '<folder>_tabulated' mirror dir that this run will write to.
+    """Delete EVERY '*_tabulated' mirror dir under (and beside) the root.
+
+    We remove all of them — not just the dirs this run will write to — so that
+    renaming or deleting source folders never leaves orphaned or doubled mirrors
+    (e.g. 'Old_tabulated', 'X_tabulated_tabulated') behind.
 
     Best-effort: if the filesystem blocks deletion of a file (e.g. some external
     drives), we don't crash — the per-file writes below overwrite in place, and
     we warn so the user knows a folder may still hold stale files.
     """
-    targets = {engine.tabulated_output_path(f).parent for f in files}
-    for d in sorted(targets):
-        if not d.exists():
-            continue
+    targets = {d for d in root.rglob("*_tabulated") if d.is_dir()}
+    # The mirror for files directly in root is a sibling: root + '_tabulated'.
+    targets.add(root.parent / (root.name + "_tabulated"))
+
+    for d in sorted(t for t in targets if t.exists()):
         errors = []
         shutil.rmtree(d, onerror=lambda fn, path, exc: errors.append(path))
         if errors:
@@ -106,7 +111,9 @@ def main(argv=None):
         )
         out_path = engine.tabulated_output_path(f)
         if result.returncode == 0:
-            print(f"  OK   {f.relative_to(root)}  ->  {out_path.relative_to(root.parent)}")
+            print(
+                f"  OK   {f.relative_to(root)}  ->  {out_path.relative_to(root.parent)}"
+            )
         else:
             failures.append(f)
             print(f"  FAIL {f.relative_to(root)}")

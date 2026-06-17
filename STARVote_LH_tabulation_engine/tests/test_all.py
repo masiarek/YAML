@@ -1189,5 +1189,11 @@ class StarvoteTests(unittest.TestCase):
 
 if __name__ == "__main__":
     # is_ok imports this to get the test tiebreakers
+    # When run directly (e.g. from an IDE) we must load harness.py ourselves so
+    # the test-only tiebreakers are registered; otherwise a few .starvote
+    # fixtures fail with "invalid tiebreaker". By now starvote is importable
+    # (preload_local_starvote ran at module import), so harness can import it.
+    import harness  # noqa: F401
+
     inject_test_elections(StarvoteTests, sys.argv[1:])
     unittest.main()
