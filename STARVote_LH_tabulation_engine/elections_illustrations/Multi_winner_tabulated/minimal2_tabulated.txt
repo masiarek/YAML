@@ -1,19 +1,19 @@
 ======================================================================
 SOURCE FILE:     minimal2.yaml
-SOURCE MODIFIED: 2026-06-16 17:37:31
+SOURCE MODIFIED: 2026-06-17 07:17:55
 TABULATED FILE:  minimal2_tabulated.txt
-TABULATED AT:    2026-06-16 22:40:26
+TABULATED AT:    2026-06-17 07:26:54
 ======================================================================
 
-# Minimal single-race form
-election_title: Minimal Bloc STAR (2 winners)
+election_title: "Bloc STAR Voting: 2-Seat Committee Election"
 scenario_description: |-
-  Smallest multi-winner example: 4 candidates, 2 seats, Bloc STAR. Shows how
-  Bloc STAR fills each seat with its own score round + automatic runoff.
+  A basic multi-winner example with 4 candidates and 2 seats. It demonstrates how 
+  Bloc STAR fills each seat sequentially through a dedicated scoring round and 
+  automatic runoff.
 
 options:
   show_matrix: true
-  matrix_finalists_only: false
+  matrix_finalists_only: true
   show_condorcet: true
   show_score_counts: false
 
@@ -28,9 +28,10 @@ ballots: |-
 TABULATION RESULTS
 ======================================================================
 
-=== Minimal Bloc STAR (2 winners) ===
-  Smallest multi-winner example: 4 candidates, 2 seats, Bloc STAR. Shows how
-  Bloc STAR fills each seat with its own score round + automatic runoff.
+=== Bloc STAR Voting: 2-Seat Committee Election ===
+  A basic multi-winner example with 4 candidates and 2 seats. It demonstrates how 
+  Bloc STAR fills each seat sequentially through a dedicated scoring round and 
+  automatic runoff.
 
 [Score Distribution] (number of ballots giving each score)
       5   4   3   2   1   0  | Total   Avg
@@ -97,13 +98,13 @@ Ann,Bob,Cal,Don
    Bob           -- 0 -- Tied for second place
  There's still a two-way tie for second.
 
-*** No official Tie-breaking Lot Numbers were provided 
-- hence the Ties are resolved using fallback sequence - CSV column order.
-Tiebreaker: LOT NUMBERS - priority sequence: ['Ann', 'Bob', 'Cal', 'Don']
+*** No official tie-breaking lot numbers were provided.
+    Ties are resolved using a fallback order: CSV column order.
+    Lot-number priority order: ['Ann', 'Bob', 'Cal', 'Don']
 
 [Tiebreaker: Lot Number Priority]
-  Tie detected among: ['Ann', 'Bob']
-  Result: ['Ann'] selected based on lot numbers.
+  Tie among: ['Ann', 'Bob']
+  Resolved: ['Ann'] (selected by lot-number priority).
 
 [Bloc STAR: Round 2: Automatic Runoff Round]
  The candidate preferred in the most head-to-head matchups wins.

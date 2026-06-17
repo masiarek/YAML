@@ -88,10 +88,16 @@ class LotNumberTiebreaker(Tiebreaker):
         if not self.lot_numbers:
             # DEV MODE: Auto-generate a fallback sequence from CSV column order
             self.lot_numbers = cands_in_csv_order
-            self.expl = "*** No official Tie-breaking Lot Numbers were provided \n- hence the Ties are resolved using fallback sequence - CSV column order."
+            self.expl = (
+                "*** No official tie-breaking lot numbers were provided.\n"
+                "    Ties are resolved using a fallback order: CSV column order."
+            )
         else:
             # PRODUCTION MODE: Use the provided numbers
-            self.expl = "*(Ties are resolved by selecting the tied candidate with the highest priority official Lot Number).*"
+            self.expl = (
+                "*(Ties are resolved by choosing the tied candidate with the "
+                "highest-priority official lot number.)*"
+            )
 
         # Create an O(1) lookup map: {Candidate: Priority_Index}
         self.order_map = {c: i for i, c in enumerate(self.lot_numbers)}
@@ -102,7 +108,7 @@ class LotNumberTiebreaker(Tiebreaker):
         # Print the explanation if this is the first tie we've encountered
         if not self.info_printed and not self.silent:
             print(f"\n{self.expl}")
-            print(f"Tiebreaker: LOT NUMBERS - priority sequence: {self.lot_numbers}")
+            print(f"    Lot-number priority order: {self.lot_numbers}")
             self.info_printed = True
 
         # Sort tied candidates by their assigned lot number priority
@@ -111,8 +117,8 @@ class LotNumberTiebreaker(Tiebreaker):
 
         if not self.silent:
             print("\n[Tiebreaker: Lot Number Priority]")
-            print(f"  Tie detected among: {tie}")
-            print(f"  Result: {winners} selected based on lot numbers.")
+            print(f"  Tie among: {tie}")
+            print(f"  Resolved: {winners} (selected by lot-number priority).")
 
         return winners
 

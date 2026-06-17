@@ -14,6 +14,11 @@ dependencies = [
     "strictyaml>=1.7.3",
 ]
 
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
+
 [tool.mypy]
 strict = true
 

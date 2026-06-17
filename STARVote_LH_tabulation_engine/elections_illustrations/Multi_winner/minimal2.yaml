@@ -1,12 +1,12 @@
-# Minimal single-race form
-election_title: Minimal Bloc STAR (2 winners)
+election_title: "Bloc STAR Voting: 2-Seat Committee Election"
 scenario_description: |-
-  Smallest multi-winner example: 4 candidates, 2 seats, Bloc STAR. Shows how
-  Bloc STAR fills each seat with its own score round + automatic runoff.
+  A basic multi-winner example with 4 candidates and 2 seats. It demonstrates how 
+  Bloc STAR fills each seat sequentially through a dedicated scoring round and 
+  automatic runoff.
 
 options:
   show_matrix: true
-  matrix_finalists_only: false
+  matrix_finalists_only: true
   show_condorcet: true
   show_score_counts: false
 
@@ -16,3 +16,7 @@ ballots: |-
   Ann,Bob,Cal,Don
   1,  0,  4,  5
   1,  2,  4,  5
+
+expected_winners:
+  - Don
+  - Cal

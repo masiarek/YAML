@@ -1,17 +1,17 @@
 ======================================================================
 SOURCE FILE:     01_01a - 2 candidates and 1 ballot.yaml
-SOURCE MODIFIED: 2026-06-16 20:21:31
+SOURCE MODIFIED: 2026-06-17 07:10:39
 TABULATED FILE:  01_01a - 2 candidates and 1 ballot_tabulated.txt
-TABULATED AT:    2026-06-16 22:40:27
+TABULATED AT:    2026-06-17 07:10:46
 ======================================================================
 
 election_title: The simplest possible single-winner STAR example
-scenario_description: |-
-  Election: Pick your favorite ice cream flavor.
-  
-  Caroline - she likes both flavors:
-  - she loves Choco flavor (5 stars)
-  - she is OK with Vanilla flavor (3 stars)
+#scenario_description: |-
+#  Election: Pick your favorite ice cream flavor.
+#
+#  Caroline - she likes both flavors:
+#  - she loves Choco flavor (5 stars)
+#  - she is OK with Vanilla flavor (3 stars)
 
 voting_method: STAR   # STAR Voting - Single-winner
 num_winners: 1
@@ -24,11 +24,6 @@ TABULATION RESULTS
 ======================================================================
 
 === The simplest possible single-winner STAR example ===
-  Election: Pick your favorite ice cream flavor.
-
-  Caroline - she likes both flavors:
-  - she loves Choco flavor (5 stars)
-  - she is OK with Vanilla flavor (3 stars)
 
 [Score Distribution] (number of ballots giving each score)
           5   4   3   2   1   0  | Total   Avg

@@ -14,3 +14,6 @@ ballots: |-
       0,     1,      0   # "protest vote"
       0,     0,      1   # "protest vote"
       0,     1,      0   # "protest vote"
+
+expected_winners:
+  - Almond

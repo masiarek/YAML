@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     proportional_sss.yaml
-SOURCE MODIFIED: 2026-06-16 17:37:47
+SOURCE MODIFIED: 2026-06-17 11:40:34
 TABULATED FILE:  proportional_sss_tabulated.txt
-TABULATED AT:    2026-06-16 22:40:27
+TABULATED AT:    2026-06-17 11:41:07
 ======================================================================
 
 # Proportional multi-winner example: Sequentially Spent Score (SSS).
@@ -40,6 +40,11 @@ ballots: |-
   3: 3, 4, 5, 0, 0
   5: 0, 0, 0, 5, 4
   3: 0, 0, 0, 4, 5
+
+expected_winners:
+  - Alice
+  - Ben
+  - Cara
 
 ======================================================================
 TABULATION RESULTS

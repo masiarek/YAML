@@ -19,3 +19,6 @@ ballots: |-
   Choco,Vanilla
       5,      3       # Caroline - she likes both flavors
       5,      0       # George - he likes only one flavor (Choco)
+
+expected_winners:
+  - Choco

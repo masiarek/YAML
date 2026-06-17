@@ -1,13 +1,16 @@
 election_title: The simplest possible single-winner STAR example
-scenario_description: |-
-  Election: Pick your favorite ice cream flavor.
-  
-  Caroline - she likes both flavors:
-  - she loves Choco flavor (5 stars)
-  - she is OK with Vanilla flavor (3 stars)
+#scenario_description: |-
+#  Election: Pick your favorite ice cream flavor.
+#
+#  Caroline - she likes both flavors:
+#  - she loves Choco flavor (5 stars)
+#  - she is OK with Vanilla flavor (3 stars)
 
 voting_method: STAR   # STAR Voting - Single-winner
 num_winners: 1
 ballots: |-
   Choco,Vanilla
       5,      3       # Caroline - she likes both flavors
+
+expected_winners:
+  - Choco

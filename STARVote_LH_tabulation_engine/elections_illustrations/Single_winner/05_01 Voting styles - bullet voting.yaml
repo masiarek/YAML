@@ -16,3 +16,6 @@ ballots: |-
       1,     2,      5   # full/expressive style
       0,     5,      5   # equal scores are OK.
       0,     0,      5   # bullet voting
+
+expected_winners:
+  - Vanilla

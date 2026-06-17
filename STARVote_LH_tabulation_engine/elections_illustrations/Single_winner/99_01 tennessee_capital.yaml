@@ -13,3 +13,6 @@ ballots: |-
   26: 2, 5, 4, 3
   15: 2, 3, 5, 4
   17: 2, 3, 4, 5
+
+expected_winners:
+  - Nashville

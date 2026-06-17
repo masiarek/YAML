@@ -34,3 +34,6 @@ ballots: |-
        0,     2,     3,         5
        0,     2,     3,         5
        0,     2,     5,         3
+
+expected_winners:
+  - Strawberry

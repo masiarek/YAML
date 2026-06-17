@@ -17,3 +17,6 @@ ballots: |-
       5,    1,     4,    3,   0
       5,    1,     4,    3,   0
       5,    1,     4,    3,   0
+
+expected_winners:
+  - Andre
