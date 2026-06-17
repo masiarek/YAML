@@ -1,5 +1,15 @@
 # Minimal single-race form
-# One ballot with 4 Candidates
+election_title: Minimal Bloc STAR (2 winners)
+scenario_description: |-
+  Smallest multi-winner example: 4 candidates, 2 seats, Bloc STAR. Shows how
+  Bloc STAR fills each seat with its own score round + automatic runoff.
+
+options:
+  show_matrix: true
+  matrix_finalists_only: false
+  show_condorcet: true
+  show_score_counts: false
+
 num_winners: 2
 voting_method: bloc
 ballots: |-

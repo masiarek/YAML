@@ -1,0 +1,26 @@
+options:
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: true
+  show_score_counts: false
+
+election_title: 3 Candidates - single-winner STAR example
+scenario_description: |-
+  Election: Pick your favorite ice cream flavor. Two voters (two ballots).
+
+  Caroline:
+  - She loves Chocolate (5 stars)
+  - She is okay with Vanilla (3 stars)
+  - She dislikes Almond (0 stars)
+
+  David:
+  - He likes Vanilla best (5 stars)
+  - He quite likes Almond (4 stars)
+  - He dislikes Chocolate (0 stars)
+
+voting_method: STAR   # STAR Voting - Single-winner
+num_winners: 1
+ballots: |-
+  Choco,Vanilla,Almond
+      5,      3,     0 # Caroline likes Choco (5) and Vanilla (3)
+      0,      5,     4 # David likes Vanilla (5) best and Almond (4)

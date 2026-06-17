@@ -1,0 +1,16 @@
+election_title: Voting styles — protest vote
+scenario_description: |-
+  A "protest vote" is possible when you dislike all the candidates: you can give
+  low or zero scores across the board and still express a relative preference.
+  Shows that minimal, low-score ballots are valid and still count.
+
+voting_method: STAR   # STAR Voting - Single-winner
+                      # A "protest vote" is possible if you dislike all candidates.
+                      # You can still indicate a least-bad option with the scores.
+
+num_winners: 1
+ballots: |-
+  Choco,Almond,Vanilla
+      0,     1,      0   # "protest vote"
+      0,     0,      1   # "protest vote"
+      0,     1,      0   # "protest vote"

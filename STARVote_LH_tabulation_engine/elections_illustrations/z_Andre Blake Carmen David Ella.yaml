@@ -1,0 +1,19 @@
+election_title: Unanimous ballots (five candidates)
+scenario_description: |-
+  Every voter casts an identical ballot, so the outcome is unanimous and the
+  finalists are never in doubt. A simple sanity check / smallest-contrast case
+  for the five-candidate display.
+
+options:
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: true
+  show_score_counts: false
+
+num_winners: 1
+voting_method: STAR
+ballots: |-
+  Andre,Blake,Carmen,David,Ella
+      5,    1,     4,    3,   0
+      5,    1,     4,    3,   0
+      5,    1,     4,    3,   0

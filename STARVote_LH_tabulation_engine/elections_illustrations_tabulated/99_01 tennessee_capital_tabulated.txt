@@ -1,0 +1,80 @@
+======================================================================
+SOURCE FILE:     99_01 tennessee_capital.yaml
+SOURCE MODIFIED: 2026-06-16 17:37:37
+TABULATED FILE:  99_01 tennessee_capital_tabulated.txt
+TABULATED AT:    2026-06-16 22:13:43
+======================================================================
+
+election_title: Tennessee Capital — classic STAR example
+scenario_description: |-
+  The textbook Tennessee example. Memphis has the plurality (42%) but is too
+  far from everyone else; Nashville, the central consensus choice, wins both the
+  score round and the runoff. Shows why STAR rewards broad support over a large
+  but isolated faction.
+
+num_winners: 1
+voting_method: STAR
+ballots: |-
+  Memphis,Nashville,Chattanooga,Knoxville
+  42: 5, 4, 3, 2
+  26: 2, 5, 4, 3
+  15: 2, 3, 5, 4
+  17: 2, 3, 4, 5
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Tennessee Capital — classic STAR example ===
+  The textbook Tennessee example. Memphis has the plurality (42%) but is too
+  far from everyone else; Nashville, the central consensus choice, wins both the
+  score round and the runoff. Shows why STAR rewards broad support over a large
+  but isolated faction.
+
+[Score Distribution] (number of ballots giving each score)
+              5   4   3   2   1   0  | Total   Avg
+Memphis      42   0   0  58   0   0  |   326   3.3
+Nashville    26  42  32   0   0   0  |   394   3.9
+Chattanooga  15  43  42   0   0   0  |   373   3.7
+Knoxville    17  15  26  42   0   0  |   307   3.1
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Preference - Against
+        * indicates Top 2 Finalist
+                    |      Memphis    |  * Nashville   | * Chattanooga  |    Knoxville   |
+------------------------------------------------------------------------------------------
+          Memphis > |       ---       |  42 - 0 - 58   |  42 - 0 - 58   |  42 - 0 - 58   |
+      * Nashville > |   58 - 0 - 42   |      ---       |  68 - 0 - 32   |  68 - 0 - 32   |
+    * Chattanooga > |   58 - 0 - 42   |  32 - 0 - 68   |      ---       |  83 - 0 - 17   |
+        Knoxville > |   58 - 0 - 42   |  32 - 0 - 68   |  17 - 0 - 83   |      ---       |
+
+[Condorcet Winner]
+  Condorcet Winner: Nashville — matches the STAR winner
+
+--- STAR Voting (single winner) ---
+[STAR Voting]
+ Tabulating 100 ballots.
+     Memphis,Nashville,Chattanooga,Knoxville
+42 ×       5,        4,          3,        2
+26 ×       2,        5,          4,        3
+17 ×       2,        3,          4,        5
+15 ×       2,        3,          5,        4
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Nashville     -- 394 -- First place
+   Chattanooga   -- 373 -- Second place
+   Memphis       -- 326
+   Knoxville     -- 307
+ Nashville and Chattanooga advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Nashville     -- 68 -- First place
+   Chattanooga   -- 32
+   Equal Support -- 0 (aka Equal Preference, No Preference)
+ Nashville wins.
+
+[STAR Voting: Winner (STAR Voting Method — single winner)]
+ Nashville

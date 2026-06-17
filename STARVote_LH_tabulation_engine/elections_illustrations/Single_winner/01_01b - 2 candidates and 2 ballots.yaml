@@ -1,0 +1,21 @@
+election_title: STAR Voting Basics
+scenario_description: |-
+  Election: Pick your favorite ice cream flavor.
+  
+  Two Candidates and two Ballots (two Voters):
+  
+  Caroline - she likes both flavors:
+  - she loves Choco flavor (5 stars)
+  - she is OK with Vanilla flavor (3 stars)
+
+  George - he likes only Choco:
+  - he loves the Choco flavor (5 stars)
+  - he dislikes Vanilla (0 stars)
+
+
+voting_method: STAR   # STAR Voting - Single-winner
+num_winners: 1
+ballots: |-
+  Choco,Vanilla
+      5,      3       # Caroline - she likes both flavors
+      5,      0       # George - he likes only one flavor (Choco)

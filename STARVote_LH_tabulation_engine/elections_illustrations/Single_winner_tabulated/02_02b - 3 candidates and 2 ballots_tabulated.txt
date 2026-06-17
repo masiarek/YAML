@@ -1,0 +1,99 @@
+======================================================================
+SOURCE FILE:     02_02b - 3 candidates and 2 ballots.yaml
+SOURCE MODIFIED: 2026-06-16 21:40:02
+TABULATED FILE:  02_02b - 3 candidates and 2 ballots_tabulated.txt
+TABULATED AT:    2026-06-16 22:13:43
+======================================================================
+
+options:
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: true
+  show_score_counts: false
+
+election_title: 3 Candidates - single-winner STAR example
+scenario_description: |-
+  Election: Pick your favorite ice cream flavor. Two voters (two ballots).
+
+  Caroline:
+  - She loves Chocolate (5 stars)
+  - She is okay with Vanilla (3 stars)
+  - She dislikes Almond (0 stars)
+
+  David:
+  - He likes Vanilla best (5 stars)
+  - He quite likes Almond (4 stars)
+  - He dislikes Chocolate (0 stars)
+
+voting_method: STAR   # STAR Voting - Single-winner
+num_winners: 1
+ballots: |-
+  Choco,Vanilla,Almond
+      5,      3,     0 # Caroline likes Choco (5) and Vanilla (3)
+      0,      5,     4 # David likes Vanilla (5) best and Almond (4)
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== 3 Candidates - single-winner STAR example ===
+  Election: Pick your favorite ice cream flavor. Two voters (two ballots).
+
+  Caroline:
+  - She loves Chocolate (5 stars)
+  - She is okay with Vanilla (3 stars)
+  - She dislikes Almond (0 stars)
+
+  David:
+  - He likes Vanilla best (5 stars)
+  - He quite likes Almond (4 stars)
+  - He dislikes Chocolate (0 stars)
+
+[Score Distribution] (number of ballots giving each score)
+          5   4   3   2   1   0  | Total   Avg
+Choco     1   0   0   0   0   1  |     5   2.5
+Vanilla   1   0   1   0   0   0  |     8   4.0
+Almond    0   1   0   0   0   1  |     4   2.0
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Preference - Against
+        * indicates Top 2 Finalist
+                |   * Choco   | * Vanilla  |   Almond   |
+---------------------------------------------------------
+      * Choco > |     ---     | 1 - 0 - 1  | 1 - 0 - 1  |
+    * Vanilla > |  1 - 0 - 1  |    ---     | 2 - 0 - 0  |
+       Almond > |  1 - 0 - 1  | 0 - 0 - 2  |    ---     |
+
+[Condorcet Winner]
+  No strict Condorcet winner; unbeaten candidates: Choco, Vanilla (pairwise ties)
+
+--- STAR Voting (single winner) ---
+[STAR Voting]
+ Tabulating 2 ballots.
+Choco,Vanilla,Almond
+    5,      3,     0
+    0,      5,     4
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Vanilla       -- 8 -- First place
+   Choco         -- 5 -- Second place
+   Almond        -- 4
+ Vanilla and Choco advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Choco         -- 1 -- Tied for first place
+   Vanilla       -- 1 -- Tied for first place
+   Equal Support -- 0 (aka Equal Preference, No Preference)
+ There's a two-way tie for first.
+
+[STAR Voting: Automatic Runoff Round: First tiebreaker]
+ The highest-scoring candidate wins.
+   Vanilla       -- 8 -- First place
+   Choco         -- 5
+ Vanilla wins.
+
+[STAR Voting: Winner (STAR Voting Method — single winner)]
+ Vanilla

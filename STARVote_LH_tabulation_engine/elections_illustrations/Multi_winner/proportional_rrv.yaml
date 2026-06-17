@@ -1,0 +1,36 @@
+# Proportional multi-winner example: Reweighted Range Voting (RRV).
+# Run: python starvote_larry_hastings.py \
+#        "elections_illustrations/Multi_winner/proportional_rrv.yaml"
+#
+# RRV is an older score-based proportional method: after each seat, every
+# ballot is reweighted by 1/(1 + sum of scores already given to winners), so
+# voters who already got a winner have less weight in later seats. It is NOT
+# part of STAR's score-then-runoff family and has weaker proportionality
+# guarantees than Allocated Score or SSS, but it's useful for comparison.
+#
+# Same ballots as proportional_allocated_score.yaml so you can compare methods:
+# switch voting_method between `rrv`, `allocated`, `sss`, and `bloc`.
+
+election_title: Proportional — Reweighted Range Voting
+scenario_description: |-
+  Same majority/minority ballots as the other proportional examples, tabulated
+  with Reweighted Range Voting (RRV). Older and not part of STAR's score-then-
+  runoff family, but it also seats the minority bloc — included for comparison.
+
+num_winners: 3
+voting_method: rrv
+
+options:
+  show_matrix: false
+  show_condorcet: false
+  show_score_counts: true
+  brief: true
+  collapse_ballots: true
+
+ballots: |-
+  Alice,Ben,Cara,Dan,Eve
+  6: 5, 4, 3, 0, 0
+  4: 4, 5, 3, 0, 0
+  3: 3, 4, 5, 0, 0
+  5: 0, 0, 0, 5, 4
+  3: 0, 0, 0, 4, 5

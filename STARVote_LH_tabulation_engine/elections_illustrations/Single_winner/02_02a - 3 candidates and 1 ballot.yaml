@@ -1,0 +1,15 @@
+election_title: 3 Candidates - single-winner STAR example
+scenario_description: |-
+  Election: Pick your favorite ice cream flavor.
+  Edge case: one voter only (one ballot)
+  
+  Caroline - she rates all three flavors:
+  - she loves Choco flavor (5 stars)
+  - she is OK with Vanilla flavor (3 stars)
+  - she dislikes Almond flavor (0 stars)
+
+voting_method: STAR   # STAR Voting - Single-winner
+num_winners: 1
+ballots: |-
+  Choco,Vanilla,Almond
+      5,      3,     0       # Caroline - loves Choco (5), OK with Vanilla (3), dislikes Almond (0)

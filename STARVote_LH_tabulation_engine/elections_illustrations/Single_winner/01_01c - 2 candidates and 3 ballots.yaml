@@ -1,0 +1,22 @@
+election_title: STAR Voting Basics
+scenario_description: |-
+  Election: Pick your favorite ice cream flavor.
+  Note: equal scores are OK! Julia likes both flavors equally.
+
+  Caroline - she likes both flavors:
+  - she loves Choco flavor (5 stars)
+  - she is OK with Vanilla flavor (3 stars)
+
+  George - he likes only Choco:
+  - he loves the Choco flavor (5 stars), he dislikes Vanilla (0 stars)
+
+  Julia - she likes both flavors equally (both 5 stars).
+  - in the Automatic Runoff Round - Equal Support = 1 (this is from Julia)
+
+voting_method: STAR   # STAR Voting - Single-winner
+num_winners: 1
+ballots: |-
+  Choco,Vanilla
+      5,      3       # Caroline - she likes both flavors
+      5,      0       # George - he likes only one flavor (Choco)
+      5,      5       # Julia - she likes both flavors equally

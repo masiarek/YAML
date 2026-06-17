@@ -1,0 +1,98 @@
+======================================================================
+SOURCE FILE:     with_options2.yaml
+SOURCE MODIFIED: 2026-06-16 17:37:13
+TABULATED FILE:  with_options2_tabulated.txt
+TABULATED AT:    2026-06-16 22:13:44
+======================================================================
+
+# Single-race demo exercising EVERY supported field and `options:` flag.
+# Run:  python starvote_larry_hastings.py elections_illustrations/with_options2.yaml
+
+# election_title + scenario_description print as a header above the results.
+election_title: All options demo
+scenario_description: |-
+  Reference example that sets every supported field and display option, so you
+  can see exactly what each one does. Single-winner STAR over four candidates;
+  the finalists-only matrix, Condorcet line, and score distribution are all on.
+
+num_winners: 1        # 1 = single-winner STAR; >=2 requires voting_method: bloc
+voting_method: STAR   # STAR (single winner) or bloc (multi-winner Bloc STAR)
+
+options:
+  # --- Preference (head-to-head) matrix ---
+  show_matrix: true            # show the Runoff (Preference) Matrix
+  matrix_finalists_only: true  # true = only the 2 finalists (decisive matchup);
+                               # false = full N×N grid. Requires show_matrix.
+
+  # --- Analyses ---
+  show_condorcet: true     # show the [Condorcet Winner] line
+  show_score_counts: true  # show the per-candidate [Score Distribution] table
+
+  # --- Output style ---
+  brief: true              # true = collapse repetitive "[STAR Voting: ...]" headers
+                           # into plain sub-headings; false = keep full headers
+  collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
+                           # (most common first); false = echo every ballot
+  count_separator: "×"     # separator for the collapsed count: "×", ":", or "x"/"X"
+                           # (all round-trip back to valid input)
+
+ballots: |-
+  Choco,Almond,Vanilla,Strawberry
+       0,     2,     3,         5
+       0,     2,     3,         5
+       0,     2,     5,         3
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== All options demo ===
+  Reference example that sets every supported field and display option, so you
+  can see exactly what each one does. Single-winner STAR over four candidates;
+  the finalists-only matrix, Condorcet line, and score distribution are all on.
+
+[Score Distribution] (number of ballots giving each score)
+             5   4   3   2   1   0  | Total   Avg
+Choco        0   0   0   0   0   3  |     0   0.0
+Almond       0   0   0   3   0   0  |     6   2.0
+Vanilla      1   0   2   0   0   0  |    11   3.7
+Strawberry   2   0   1   0   0   0  |    13   4.3
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Preference - Against
+        * indicates Top 2 Finalist
+                   |      Choco     |     Almond    |  * Vanilla    | * Strawberry  |
+-------------------------------------------------------------------------------------
+           Choco > |      ---       |  0 - 0 - 3    |  0 - 0 - 3    |  0 - 0 - 3    |
+          Almond > |   3 - 0 - 0    |     ---       |  0 - 0 - 3    |  0 - 0 - 3    |
+       * Vanilla > |   3 - 0 - 0    |  3 - 0 - 0    |     ---       |  1 - 0 - 2    |
+    * Strawberry > |   3 - 0 - 0    |  3 - 0 - 0    |  2 - 0 - 1    |     ---       |
+
+[Condorcet Winner]
+  Condorcet Winner: Strawberry — matches the STAR winner
+
+--- STAR Voting (single winner) ---
+[STAR Voting]
+ Tabulating 3 ballots.
+    Choco,Almond,Vanilla,Strawberry
+2 ×     0,     2,      3,         5
+1 ×     0,     2,      5,         3
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Strawberry    -- 13 -- First place
+   Vanilla       -- 11 -- Second place
+   Almond        -- 6
+   Choco         -- 0
+ Strawberry and Vanilla advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Strawberry    -- 2 -- First place
+   Vanilla       -- 1
+   Equal Support -- 0 (aka Equal Preference, No Preference)
+ Strawberry wins.
+
+[STAR Voting: Winner (STAR Voting Method — single winner)]
+ Strawberry

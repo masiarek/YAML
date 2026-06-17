@@ -1,0 +1,18 @@
+# Voting styles — what a valid STAR ballot may look like.
+# STAR lets you score each candidate 0–5 independently, so several styles are
+# all legal on the same ballot set.
+
+election_title: Voting styles — bullet voting
+scenario_description: |-
+  Shows three legal STAR ballot styles on one ballot set: a full/expressive
+  ballot, a ballot with equal scores, and a bullet vote (only one candidate
+  scored). All are valid; bullet voting is allowed but not recommended.
+
+voting_method: STAR   # STAR Voting — single-winner
+num_winners: 1
+
+ballots: |-
+  Choco,Almond,Vanilla
+      1,     2,      5   # full/expressive style
+      0,     5,      5   # equal scores are OK.
+      0,     0,      5   # bullet voting

@@ -1,0 +1,117 @@
+======================================================================
+SOURCE FILE:     minimal2.yaml
+SOURCE MODIFIED: 2026-06-16 17:37:31
+TABULATED FILE:  minimal2_tabulated.txt
+TABULATED AT:    2026-06-16 22:13:43
+======================================================================
+
+# Minimal single-race form
+election_title: Minimal Bloc STAR (2 winners)
+scenario_description: |-
+  Smallest multi-winner example: 4 candidates, 2 seats, Bloc STAR. Shows how
+  Bloc STAR fills each seat with its own score round + automatic runoff.
+
+options:
+  show_matrix: true
+  matrix_finalists_only: false
+  show_condorcet: true
+  show_score_counts: false
+
+num_winners: 2
+voting_method: bloc
+ballots: |-
+  Ann,Bob,Cal,Don
+  1,  0,  4,  5
+  1,  2,  4,  5
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Minimal Bloc STAR (2 winners) ===
+  Smallest multi-winner example: 4 candidates, 2 seats, Bloc STAR. Shows how
+  Bloc STAR fills each seat with its own score round + automatic runoff.
+
+[Score Distribution] (number of ballots giving each score)
+      5   4   3   2   1   0  | Total   Avg
+Ann   0   0   0   0   2   0  |     2   1.0
+Bob   0   0   0   1   0   1  |     2   1.0
+Cal   0   2   0   0   0   0  |     8   4.0
+Don   2   0   0   0   0   0  |    10   5.0
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Preference - Against
+        * indicates Top 2 Finalist
+               |     Ann    |    Bob    |  * Cal    |  * Don    |
+-----------------------------------------------------------------
+         Ann > |    ---     |1 - 0 - 1  |0 - 0 - 2  |0 - 0 - 2  |
+         Bob > | 1 - 0 - 1  |   ---     |0 - 0 - 2  |0 - 0 - 2  |
+       * Cal > | 2 - 0 - 0  |2 - 0 - 0  |   ---     |0 - 0 - 2  |
+       * Don > | 2 - 0 - 0  |2 - 0 - 0  |2 - 0 - 0  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Don — matches the STAR winner
+
+--- Bloc STAR (2 winners) ---
+[Bloc STAR]
+ Tabulating 2 ballots.
+Ann,Bob,Cal,Don
+  1,  0,  4,  5
+  1,  2,  4,  5
+ Want to fill 2 seats.
+
+[Bloc STAR: Round 1: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Don           -- 10 -- First place
+   Cal           -- 8 -- Second place
+   Ann           -- 2
+   Bob           -- 2
+ Don and Cal advance.
+
+[Bloc STAR: Round 1: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Don           -- 2 -- First place
+   Cal           -- 0
+   Equal Support -- 0 (aka Equal Preference, No Preference)
+ Don wins.
+
+──────────────────────────────────────────────────
+[Bloc STAR: Round 2: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Cal           -- 8 -- First place
+   Ann           -- 2 -- Tied for second place
+   Bob           -- 2 -- Tied for second place
+ Cal advances, but there's a two-way tie for second.
+
+[Bloc STAR: Round 2: Scoring Round: First tiebreaker]
+ The candidate preferred in the most head-to-head matchups advances.
+   Ann           -- 1 -- Tied for second place
+   Bob           -- 1 -- Tied for second place
+   Equal Support -- 0 (aka Equal Preference, No Preference)
+ There's still a two-way tie for second.
+
+[Bloc STAR: Round 2: Scoring Round: Second tiebreaker]
+ The candidate with the most votes of score 5 advances.
+   Ann           -- 0 -- Tied for second place
+   Bob           -- 0 -- Tied for second place
+ There's still a two-way tie for second.
+
+*** No official Tie-breaking Lot Numbers were provided 
+- hence the Ties are resolved using fallback sequence - CSV column order.
+Tiebreaker: LOT NUMBERS - priority sequence: ['Ann', 'Bob', 'Cal', 'Don']
+
+[Tiebreaker: Lot Number Priority]
+  Tie detected among: ['Ann', 'Bob']
+  Result: ['Ann'] selected based on lot numbers.
+
+[Bloc STAR: Round 2: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Cal           -- 2 -- First place
+   Ann           -- 0
+   Equal Support -- 0 (aka Equal Preference, No Preference)
+ Cal wins.
+
+[Bloc STAR: Winners (Bloc STAR Method — 2 winners)]
+ Don
+ Cal

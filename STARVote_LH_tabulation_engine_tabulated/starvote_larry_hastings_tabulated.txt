@@ -1105,6 +1105,10 @@ if __name__ == "__main__":
     #   python starvote_larry_hastings.py elections_illustrations/99_01 tennessee_capital.yaml --save
     args = [a for a in sys.argv[1:]]
     SAVE_RESULTS = "--save" in args
+    # --full-tabulated: the on-screen output still honors the file's own
+    # options, but the saved '_tabulated' copy is rendered with every analysis
+    # on and maximum verbosity. Used by tools_adam/tabulate_all.py.
+    FULL_TABULATED = "--full-tabulated" in args
     positional = [a for a in args if not a.startswith("-")]
     BALLOTS_FILE = positional[0] if positional else None
 
@@ -1189,19 +1193,21 @@ Memphis,Nashville,Chattanooga,Knoxville
         winners, out = _capture(run_kwargs)
         sys.stdout.write(out)  # still display on screen
 
-        # The saved '_tabulated' file ALWAYS uses the full, most explanatory
-        # render (every analysis on, maximum verbosity) regardless of the file's
-        # own options — only the on-screen echo above honors those options.
-        full_kwargs = dict(run_kwargs)
-        full_kwargs.update(
-            show_matrix=True,
-            matrix_finalists_only=False,
-            show_condorcet=True,
-            show_score_counts=True,
-            brief=False,
-            collapse_ballots=True,  # collapsed counts are clearer than a raw dump
-        )
-        _, file_out = _capture(full_kwargs)
+        # Render for the saved file. With --full-tabulated, force every analysis
+        # on and maximum verbosity, regardless of the file's options.
+        if FULL_TABULATED:
+            full_kwargs = dict(run_kwargs)
+            full_kwargs.update(
+                show_matrix=True,
+                matrix_finalists_only=False,
+                show_condorcet=True,
+                show_score_counts=True,
+                brief=False,
+                collapse_ballots=True,  # collapsed counts are clearer than a raw dump
+            )
+            _, file_out = _capture(full_kwargs)
+        else:
+            file_out = out
 
         # The '_tabulated' file is the ORIGINAL election file copied as-is,
         # followed by the tabulation results.
@@ -1209,33 +1215,16 @@ Memphis,Nashville,Chattanooga,Knoxville
             original = Path(BALLOTS_FILE).read_text(encoding="utf-8")
         except OSError:
             original = ""
-        import datetime
-
         divider = "=" * 70
-        src_name = Path(BALLOTS_FILE).name
-        tab_path = tabulated_output_path(BALLOTS_FILE)
-        out_name = tab_path.name
-        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S %Z").strip()
-        try:
-            mtime = datetime.datetime.fromtimestamp(
-                Path(BALLOTS_FILE).stat().st_mtime
-            ).strftime("%Y-%m-%d %H:%M:%S")
-        except OSError:
-            mtime = "unknown"
         composed = (
-            f"{divider}\n"
-            f"SOURCE FILE:     {src_name}\n"
-            f"SOURCE MODIFIED: {mtime}\n"
-            f"TABULATED FILE:  {out_name}\n"
-            f"TABULATED AT:    {timestamp}\n"
-            f"{divider}\n\n"
             f"{original.rstrip()}\n\n"
             f"{divider}\n"
             f"TABULATION RESULTS\n"
             f"{divider}\n\n"
             f"{strip_ansi(file_out).lstrip()}"
         )
-        write_tabulated_copy(BALLOTS_FILE, composed)
+        tab_path = write_tabulated_copy(BALLOTS_FILE, composed)
+        print(f"\n{COLOR_HEADER}[tabulated copy: {tab_path}]{COLOR_RESET}")
 
         if SAVE_RESULTS:
             names = winners if isinstance(winners, (list, tuple)) else [winners]
@@ -1243,3 +1232,11 @@ Memphis,Nashville,Chattanooga,Knoxville
             print(f"\n{COLOR_HEADER}[saved results to {BALLOTS_FILE}]{COLOR_RESET}")
     else:
         run_election(csv_input, LOT_NUMBERS, **run_kwargs)
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+Warning (Line 266): Segment '225' has 3 digits, but expected 1 for candidates ['"""']. Ignored.
+Warning (Line 266): Segment '323' has 3 digits, but expected 1 for candidates ['"""']. Ignored.
+Error: No valid ballots found in input.
