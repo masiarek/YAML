@@ -1,24 +1,23 @@
 ======================================================================
 SOURCE FILE:     01_01c - 2 candidates and 3 ballots.yaml
-SOURCE MODIFIED: 2026-06-16 20:40:27
+SOURCE MODIFIED: 2026-06-17 06:57:01
 TABULATED FILE:  01_01c - 2 candidates and 3 ballots_tabulated.txt
-TABULATED AT:    2026-06-16 22:40:27
+TABULATED AT:    2026-06-17 06:57:01
 ======================================================================
 
-election_title: STAR Voting Basics
-scenario_description: |-
-  Election: Pick your favorite ice cream flavor.
-  Note: equal scores are OK! Julia likes both flavors equally.
-
-  Caroline - she likes both flavors:
-  - she loves Choco flavor (5 stars)
-  - she is OK with Vanilla flavor (3 stars)
-
-  George - he likes only Choco:
-  - he loves the Choco flavor (5 stars), he dislikes Vanilla (0 stars)
-
-  Julia - she likes both flavors equally (both 5 stars).
-  - in the Automatic Runoff Round - Equal Support = 1 (this is from Julia)
+#election_title: STAR Voting Basics
+#scenario_description: |-
+#  Note: equal scores are OK! Julia likes both flavors equally.
+#
+#  Caroline - she likes both flavors:
+#  - she loves Choco flavor (5 stars)
+#  - she is OK with Vanilla flavor (3 stars)
+#
+#  George - he likes only Choco:
+#  - he loves the Choco flavor (5 stars), he dislikes Vanilla (0 stars)
+#
+#  Julia - she likes both flavors equally (both 5 stars).
+#  - in the Automatic Runoff Round - Equal Support = 1 (this is from Julia)
 
 voting_method: STAR   # STAR Voting - Single-winner
 num_winners: 1
@@ -31,20 +30,6 @@ ballots: |-
 ======================================================================
 TABULATION RESULTS
 ======================================================================
-
-=== STAR Voting Basics ===
-  Election: Pick your favorite ice cream flavor.
-  Note: equal scores are OK! Julia likes both flavors equally.
-
-  Caroline - she likes both flavors:
-  - she loves Choco flavor (5 stars)
-  - she is OK with Vanilla flavor (3 stars)
-
-  George - he likes only Choco:
-  - he loves the Choco flavor (5 stars), he dislikes Vanilla (0 stars)
-
-  Julia - she likes both flavors equally (both 5 stars).
-  - in the Automatic Runoff Round - Equal Support = 1 (this is from Julia)
 
 [Score Distribution] (number of ballots giving each score)
           5   4   3   2   1   0  | Total   Avg

@@ -18,6 +18,10 @@ keep it as part of this project (the `masiarek/YAML` repo).
 in `starvote/`. "Is this about *my* analysis, display, or workflow?" → it goes
 in our script/tools.
 
+> Our wrapper script (`starvote_larry_hastings.py`), its display options, the
+> `_tabulated` output format, and the `tools_adam/tabulate_all.py` batch runner
+> are documented in **[`README_larry_hastings.md`](README_larry_hastings.md)**.
+
 ## Upstream baseline
 
 The pristine upstream version is **starvote 2.1.6**, verified byte-identical to

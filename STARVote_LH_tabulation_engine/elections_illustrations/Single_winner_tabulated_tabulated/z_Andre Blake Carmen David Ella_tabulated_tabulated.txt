@@ -1,0 +1,96 @@
+======================================================================
+SOURCE FILE:     z_Andre Blake Carmen David Ella_tabulated.txt
+SOURCE MODIFIED: 2026-06-16 22:40:27
+TABULATED FILE:  z_Andre Blake Carmen David Ella_tabulated_tabulated.txt
+TABULATED AT:    2026-06-16 22:41:31
+======================================================================
+
+======================================================================
+SOURCE FILE:     z_Andre Blake Carmen David Ella.yaml
+SOURCE MODIFIED: 2026-06-16 17:37:22
+TABULATED FILE:  z_Andre Blake Carmen David Ella_tabulated.txt
+TABULATED AT:    2026-06-16 22:40:27
+======================================================================
+
+election_title: Unanimous ballots (five candidates)
+scenario_description: |-
+  Every voter casts an identical ballot, so the outcome is unanimous and the
+  finalists are never in doubt. A simple sanity check / smallest-contrast case
+  for the five-candidate display.
+
+options:
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: true
+  show_score_counts: false
+
+num_winners: 1
+voting_method: STAR
+ballots: |-
+  Andre,Blake,Carmen,David,Ella
+      5,    1,     4,    3,   0
+      5,    1,     4,    3,   0
+      5,    1,     4,    3,   0
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Unanimous ballots (five candidates) ===
+  Every voter casts an identical ballot, so the outcome is unanimous and the
+  finalists are never in doubt. A simple sanity check / smallest-contrast case
+  for the five-candidate display.
+
+[Score Distribution] (number of ballots giving each score)
+         5   4   3   2   1   0  | Total   Avg
+Andre    3   0   0   0   0   0  |    15   5.0
+Blake    0   0   0   0   3   0  |     3   1.0
+Carmen   0   3   0   0   0   0  |    12   4.0
+David    0   0   3   0   0   0  |     9   3.0
+Ella     0   0   0   0   0   3  |     0   0.0
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Preference - Against
+        * indicates Top 2 Finalist
+               |  * Andre   |   Blake   | * Carmen  |   David   |    Ella   |
+-----------------------------------------------------------------------------
+     * Andre > |    ---     |3 - 0 - 0  |3 - 0 - 0  |3 - 0 - 0  |3 - 0 - 0  |
+       Blake > | 0 - 0 - 3  |   ---     |0 - 0 - 3  |0 - 0 - 3  |3 - 0 - 0  |
+    * Carmen > | 0 - 0 - 3  |3 - 0 - 0  |   ---     |3 - 0 - 0  |3 - 0 - 0  |
+       David > | 0 - 0 - 3  |3 - 0 - 0  |0 - 0 - 3  |   ---     |3 - 0 - 0  |
+        Ella > | 0 - 0 - 3  |0 - 0 - 3  |0 - 0 - 3  |0 - 0 - 3  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Andre — matches the STAR winner
+
+--- STAR Voting (single winner) ---
+[STAR Voting]
+ Tabulating 3 ballots.
+    Andre,Blake,Carmen,David,Ella
+3 ×     5,    1,     4,    3,   0
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Andre         -- 15 -- First place
+   Carmen        -- 12 -- Second place
+   David         -- 9
+   Blake         -- 3
+   Ella          -- 0
+ Andre and Carmen advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Andre         -- 3 -- First place
+   Carmen        -- 0
+   Equal Support -- 0 (aka Equal Preference, No Preference)
+ Andre wins.
+
+[STAR Voting: Winner (STAR Voting Method — single winner)]
+ Andre
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+Error: No valid ballots found in input.
