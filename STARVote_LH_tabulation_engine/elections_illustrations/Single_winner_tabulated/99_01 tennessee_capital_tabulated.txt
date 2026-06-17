@@ -2,7 +2,7 @@
 SOURCE FILE:     99_01 tennessee_capital.yaml
 SOURCE MODIFIED: 2026-06-16 17:37:37
 TABULATED FILE:  99_01 tennessee_capital_tabulated.txt
-TABULATED AT:    2026-06-16 22:38:33
+TABULATED AT:    2026-06-16 22:40:27
 ======================================================================
 
 election_title: Tennessee Capital — classic STAR example

@@ -2,7 +2,7 @@
 SOURCE FILE:     minimal2.yaml
 SOURCE MODIFIED: 2026-06-16 17:37:31
 TABULATED FILE:  minimal2_tabulated.txt
-TABULATED AT:    2026-06-16 22:38:33
+TABULATED AT:    2026-06-16 22:40:26
 ======================================================================
 
 # Minimal single-race form

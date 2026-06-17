@@ -2,7 +2,7 @@
 SOURCE FILE:     01_01c - 2 candidates and 3 ballots.yaml
 SOURCE MODIFIED: 2026-06-16 20:40:27
 TABULATED FILE:  01_01c - 2 candidates and 3 ballots_tabulated.txt
-TABULATED AT:    2026-06-16 22:38:34
+TABULATED AT:    2026-06-16 22:40:27
 ======================================================================
 
 election_title: STAR Voting Basics

@@ -2,7 +2,7 @@
 SOURCE FILE:     with_options2.yaml
 SOURCE MODIFIED: 2026-06-16 17:37:13
 TABULATED FILE:  with_options2_tabulated.txt
-TABULATED AT:    2026-06-16 22:38:34
+TABULATED AT:    2026-06-16 22:40:27
 ======================================================================
 
 # Single-race demo exercising EVERY supported field and `options:` flag.

@@ -2,7 +2,7 @@
 SOURCE FILE:     proportional_sss.yaml
 SOURCE MODIFIED: 2026-06-16 17:37:47
 TABULATED FILE:  proportional_sss_tabulated.txt
-TABULATED AT:    2026-06-16 22:38:33
+TABULATED AT:    2026-06-16 22:40:27
 ======================================================================
 
 # Proportional multi-winner example: Sequentially Spent Score (SSS).
