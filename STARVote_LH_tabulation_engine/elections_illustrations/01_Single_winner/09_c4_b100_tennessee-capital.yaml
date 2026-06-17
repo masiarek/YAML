@@ -16,3 +16,5 @@ ballots: |-
 
 expected_winners:
   - Nashville
+
+# file: 09_c4_b100_tennessee-capital.yaml

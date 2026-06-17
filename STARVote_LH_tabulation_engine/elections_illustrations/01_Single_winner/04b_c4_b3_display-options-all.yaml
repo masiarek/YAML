@@ -37,3 +37,5 @@ ballots: |-
 
 expected_winners:
   - Strawberry
+
+# file: 04b_c4_b3_display-options-all.yaml

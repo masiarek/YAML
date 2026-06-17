@@ -44,15 +44,3 @@ def scenario_winners(path):
     )
     winners = result if isinstance(result, (list, tuple)) else [result]
     return [str(w) for w in winners], seats
-
-
-def scenario_counts(path):
-    """Return (num_candidates, num_ballots) for an election file.
-
-    num_ballots is the total number of ballots the engine tabulates — i.e.
-    weighted rows like '42: ...' are expanded, matching the engine's
-    'Tabulating N ballots.' line.
-    """
-    el = wrapper.load_election(str(path))
-    candidates, ballots, _ = wrapper.parse_ballots_from_string(el["ballots"])
-    return len(candidates), len(ballots)

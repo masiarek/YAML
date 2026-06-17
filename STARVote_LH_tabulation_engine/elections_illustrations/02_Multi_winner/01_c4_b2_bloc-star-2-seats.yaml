@@ -20,3 +20,5 @@ ballots: |-
 expected_winners:
   - Don
   - Cal
+
+# file: 01_c4_b2_bloc-star-2-seats.yaml

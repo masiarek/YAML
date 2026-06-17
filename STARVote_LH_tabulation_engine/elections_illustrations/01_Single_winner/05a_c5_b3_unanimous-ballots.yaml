@@ -20,3 +20,5 @@ ballots: |-
 
 expected_winners:
   - Andre
+
+# file: 05a_c5_b3_unanimous-ballots.yaml

@@ -1,13 +1,7 @@
-election_title: STAR Voting Basics
+election_title: The simplest possible single-winner STAR example
 scenario_description: |-
-  Election: Pick your favorite ice cream flavor.
+  Same as before, but this time with one more ballot — from George:
   
-  Two Candidates and two Ballots (two Voters):
-  
-  Caroline - she likes both flavors:
-  - she loves Choco flavor (5 stars)
-  - she is OK with Vanilla flavor (3 stars)
-
   George - he likes only Choco:
   - he loves the Choco flavor (5 stars)
   - he dislikes Vanilla (0 stars)
@@ -15,6 +9,7 @@ scenario_description: |-
 
 voting_method: STAR   # STAR Voting - Single-winner
 num_winners: 1
+
 ballots: |-
   Choco,Vanilla
       5,      3       # Caroline - she likes both flavors
@@ -22,3 +17,5 @@ ballots: |-
 
 expected_winners:
   - Choco
+
+# file: 01b_c2_b2_two-candidates.yaml

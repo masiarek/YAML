@@ -1,19 +1,13 @@
-#election_title: STAR Voting Basics
-#scenario_description: |-
-#  Note: equal scores are OK! Julia likes both flavors equally.
-#
-#  Caroline - she likes both flavors:
-#  - she loves Choco flavor (5 stars)
-#  - she is OK with Vanilla flavor (3 stars)
-#
-#  George - he likes only Choco:
-#  - he loves the Choco flavor (5 stars), he dislikes Vanilla (0 stars)
-#
-#  Julia - she likes both flavors equally (both 5 stars).
-#  - in the Automatic Runoff Round - Equal Support = 1 (this is from Julia)
+election_title: The simplest possible single-winner STAR example
+
+scenario_description: |-
+  Now we add a third ballot, from Julia, who likes both flavors equally (both 5 stars).
+  Because she scores the two finalists the same, her ballot counts as
+  "Equal Support = 1" in the Automatic Runoff Round.
 
 voting_method: STAR   # STAR Voting - Single-winner
 num_winners: 1
+
 ballots: |-
   Choco,Vanilla
       5,      3       # Caroline - she likes both flavors
@@ -22,3 +16,5 @@ ballots: |-
 
 expected_winners:
   - Choco
+
+# file: 01c_c2_b3_two-candidates.yaml

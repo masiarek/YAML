@@ -1,16 +1,17 @@
-election_title: 3 Candidates - single-winner STAR example
+election_title: Three candidates, two ballots - single-winner STAR
 scenario_description: |-
   Election: Pick your favorite ice cream flavor. Two voters (two ballots).
-
-  Caroline:
-  - She loves Chocolate (5 stars)
-  - She is okay with Vanilla (3 stars)
-  - She dislikes Almond (0 stars)
+  Same as before, but now we add a second ballot from David.
 
   David:
   - He likes Vanilla best (5 stars)
   - He quite likes Almond (4 stars)
-  - He dislikes Chocolate (0 stars)
+  - He dislikes Choco (0 stars)
+
+  Watch the winner change. Choco is polarizing (Caroline 5, David 0), while
+  Vanilla has broad support (Caroline 3, David 5) - so Vanilla now wins. 
+  STAR rewards the broadly-liked compromise over a candidate that half the voters
+  reject.
 
 voting_method: STAR   # STAR Voting - Single-winner
 num_winners: 1
@@ -21,3 +22,5 @@ ballots: |-
 
 expected_winners:
   - Vanilla
+
+# file: 02b_c3_b2_three-candidates.yaml

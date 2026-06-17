@@ -29,3 +29,5 @@ ballots: |-
 
 expected_winners:
   - Don
+
+# file: 04a_c4_b4_display-options.yaml

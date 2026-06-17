@@ -341,6 +341,30 @@ def tabulated_output_path(src_path):
     return out_dir / (p.stem + "_tabulated.txt")
 
 
+def ensure_filename_comment(path):
+    """Make sure a YAML election file ends with a '# file: <name>' comment that
+    matches its CURRENT name. Rewrites only when missing/stale, so a normal run
+    (already correct) changes nothing — no needless edits or editor reloads.
+    """
+    p = Path(path)
+    if p.suffix.lower() not in (".yaml", ".yml"):
+        return
+    try:
+        text = p.read_text(encoding="utf-8")
+    except OSError:
+        return
+    lines = text.splitlines()
+    # Drop trailing blanks and any existing '# file:' trailer.
+    while lines and (not lines[-1].strip() or lines[-1].lstrip().startswith("# file:")):
+        lines.pop()
+    desired = "\n".join(lines).rstrip() + f"\n\n# file: {p.name}\n"
+    if desired != text:
+        try:
+            p.write_text(desired, encoding="utf-8")
+        except OSError:
+            pass  # read-only / locked file: skip silently, don't break the run
+
+
 def write_tabulated_copy(src_path, output_text):
     """Write the (ANSI-stripped) tabulation text next to its source, under the
     '<folder>_tabulated' mirror folder. Returns the path written."""
@@ -1183,6 +1207,10 @@ Memphis,Nashville,Chattanooga,Knoxville
     )
 
     if BALLOTS_FILE:
+        # Keep the file's trailing '# file:' comment in sync with its name
+        # (only writes if missing/stale).
+        ensure_filename_comment(BALLOTS_FILE)
+
         # Capture the output so we can both display it and write a plain-text
         # '_tabulated' copy (and, with --save, embed results into the YAML).
         import contextlib
@@ -1196,6 +1224,8 @@ Memphis,Nashville,Chattanooga,Knoxville
 
         # On-screen render: honors the file's own options.
         winners, out = _capture(run_kwargs)
+        # Show which file produced this output (handy in demos / scrollback).
+        print(f"{COLOR_DIM}# file: {Path(BALLOTS_FILE).name}{COLOR_RESET}")
         sys.stdout.write(out)  # still display on screen
 
         # The saved '_tabulated' file ALWAYS uses the full, most explanatory
