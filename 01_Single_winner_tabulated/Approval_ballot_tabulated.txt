@@ -1,0 +1,95 @@
+======================================================================
+SOURCE FILE:     Approval_ballot.yaml
+SOURCE MODIFIED: 2026-06-20 00:16:52
+TABULATED FILE:  Approval_ballot_tabulated.txt
+TABULATED AT:    2026-06-20 08:02:31
+======================================================================
+
+voting_method: STAR
+
+num_winners: 1
+ballots: |-
+  A,B,C,D
+  -,-,1,1
+  -,-,0,0
+  1,0,0,1
+  1,1,0,1
+  ~,~,~,~
+  0,0,0,0
+  5,5,5,5
+  -,-,-,-
+
+# file: Approval_ballot.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+[Score Distribution] (number of ballots giving each score)
+    5   4   3   2   1   0  | Total   Avg
+A   1   0   0   0   2   5  |     7   0.9
+B   1   0   0   0   1   6  |     6   0.8
+C   1   0   0   0   1   6  |     6   0.8
+D   1   0   0   0   3   4  |     8   1.0
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Preference - Against
+        * indicates Top 2 Finalist
+               |    * A     |     B     |     C     |   * D     |
+-----------------------------------------------------------------
+         * A > |    ---     |1 - 7 - 0  |2 - 5 - 1  |0 - 7 - 1  |
+           B > | 0 - 7 - 1  |   ---     |1 - 6 - 1  |0 - 6 - 2  |
+           C > | 1 - 5 - 2  |1 - 6 - 1  |   ---     |0 - 6 - 2  |
+         * D > | 1 - 7 - 0  |2 - 6 - 0  |2 - 6 - 0  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: D — matches the STAR winner
+
+[Divergence from STAR]
+  STAR      = D
+  RCV-IRV   = A   (differs from STAR)
+  Approval  = A   (differs from STAR)
+  Condorcet = D
+  Note: 4 of 8 ballots (50%) had equal non-zero scores, so their ranks were
+        decided by candidate priority order. The RCV-IRV result may be an
+        artifact of score-to-rank tie-breaking rather than a deep
+        difference.
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 8 ballots. Note: 2 of 8 ballots are marked as abstentions.
+A,B,C,D
+-,-,1,1   # partial — A, B left blank (counts as 0)
+-,-,0,0   # cast, no support — A, B left blank
+1,0,0,1
+1,1,0,1
+~,~,~,~   # abstention — whole race
+0,0,0,0   # cast, no support
+5,5,5,5   # cast, equal support (no preference)
+-,-,-,-   # abstention — left blank
+
+[Legend] (these all count as score 0)
+  -  Blank — no score / voter left the candidate blank
+  ~  Race-level abstention — voter abstained from the entire race
+  Note: '-' = candidate left blank / skipped (e.g. BetterVoting export);
+        '0' = explicitly scored zero. Both tabulate as 0 stars — the
+        difference only preserves voter intent (skipped vs rated low).
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   D             -- 8 -- First place
+   A             -- 7 -- Second place
+   B             -- 6
+   C             -- 6
+ D and A advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   D             -- 1 -- First place
+   A             -- 0
+   Equal Support -- 7 (aka Equal Preference, No Preference)
+ D wins.
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ D

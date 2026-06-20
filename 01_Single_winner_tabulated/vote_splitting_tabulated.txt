@@ -1,0 +1,22 @@
+======================================================================
+SOURCE FILE:     vote_splitting.yaml
+SOURCE MODIFIED: 2026-06-19 18:50:39
+TABULATED FILE:  vote_splitting_tabulated.txt
+TABULATED AT:    2026-06-19 18:50:39
+======================================================================
+
+voting_method: STAR   # STAR Voting - Single-winner
+
+num_winners: 1
+ballots: |-
+  40:A>C>B
+  35:B>C>A
+  25:C>A>B
+
+# file: vote_splitting.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+Error: No valid ballots found in input.

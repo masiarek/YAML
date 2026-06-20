@@ -1,0 +1,104 @@
+======================================================================
+SOURCE FILE:     options_examples.yaml
+SOURCE MODIFIED: 2026-06-19 01:40:00
+TABULATED FILE:  options_examples_tabulated.txt
+TABULATED AT:    2026-06-20 03:28:56
+======================================================================
+
+voting_method: STAR        # STAR (single-winner) or Bloc STAR (num_winners >= 2)
+num_winners: 1
+
+# ---------------------------------------------------------------------------
+# options: — every display/analysis toggle the engine understands.
+# Booleans accept: true/false, 1/0, yes/no, on/off.
+# All are optional; the values shown here are illustrative, not the defaults.
+# ---------------------------------------------------------------------------
+options:
+  show_matrix: true            # show the pairwise Preference Matrix
+  matrix_finalists_only: false # if show_matrix: restrict it to the two finalists
+  show_condorcet: true         # show the [Condorcet Winner] line
+  show_score_counts: true      # show the per-candidate [Score Distribution] table
+  brief: false                 # false = verbose round headers; true = compact
+  collapse_ballots: true       # group identical ballots as "count × scores"
+  count_separator: "×"         # separator for collapsed counts: "×", ":", or "x"/"X"
+
+  # RCV / IRV cross-check.
+  #   The [RCV-IRV, STAR, and Approval comparison] block is now ALWAYS printed,
+  #   so this flag no longer changes anything. It is kept only so older YAML
+  #   files that still set show_irv continue to parse. Scores are converted to
+  #   ranks for RCV-IRV (higher score = higher preference, 0 = unranked); equal
+  #   non-zero scores are broken by candidate priority order. Approval counts a
+  #   score of 3, 4, or 5 (stars) as an approval. The Condorcet line appears
+  #   only when a Condorcet winner exists and differs from all three.
+  show_irv: true
+
+# Tennessee-capital scenario: STAR and Condorcet elect Nashville, RCV-IRV elects
+# Knoxville. Good demonstration of the [RCV-IRV, STAR, and Approval comparison]
+# block (here the Condorcet line is hidden because Condorcet matches STAR).
+ballots: |-
+  Count:Memphis,Nashville,Chattanooga,Knoxville
+  42:5,4,3,2
+  26:2,5,4,3
+  15:2,3,5,4
+  17:2,3,4,5
+
+# file: options_examples.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+[Score Distribution] (number of ballots giving each score)
+              5   4   3   2   1   0  | Total   Avg
+Memphis      42   0   0  58   0   0  |   326   3.3
+Nashville    26  42  32   0   0   0  |   394   3.9
+Chattanooga  15  43  42   0   0   0  |   373   3.7
+Knoxville    17  15  26  42   0   0  |   307   3.1
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Preference - Against
+        * indicates Top 2 Finalist
+                    |      Memphis    |  * Nashville   | * Chattanooga  |    Knoxville   |
+------------------------------------------------------------------------------------------
+          Memphis > |       ---       |  42 - 0 - 58   |  42 - 0 - 58   |  42 - 0 - 58   |
+      * Nashville > |   58 - 0 - 42   |      ---       |  68 - 0 - 32   |  68 - 0 - 32   |
+    * Chattanooga > |   58 - 0 - 42   |  32 - 0 - 68   |      ---       |  83 - 0 - 17   |
+        Knoxville > |   58 - 0 - 42   |  32 - 0 - 68   |  17 - 0 - 83   |      ---       |
+
+[Condorcet Winner]
+  Condorcet Winner: Nashville — matches the STAR winner
+
+[Divergence from STAR]
+  STAR      = Nashville
+  RCV-IRV   = Knoxville   (differs from STAR)
+  Approval  = Nashville
+  Condorcet = Nashville
+  Note: no ballots had tied scores, so RCV-IRV vs STAR here is a genuine method difference, not a tie-breaking artifact.
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 100 ballots.
+Count × Memphis,Nashville,Chattanooga,Knoxville
+   42 ×       5,        4,          3,        2
+   26 ×       2,        5,          4,        3
+   17 ×       2,        3,          4,        5
+   15 ×       2,        3,          5,        4
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Nashville     -- 394 -- First place
+   Chattanooga   -- 373 -- Second place
+   Memphis       -- 326
+   Knoxville     -- 307
+ Nashville and Chattanooga advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Nashville     -- 68 -- First place
+   Chattanooga   -- 32
+   Equal Support -- 0 (aka Equal Preference, No Preference)
+ Nashville wins.
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Nashville

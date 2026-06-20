@@ -1,0 +1,88 @@
+======================================================================
+SOURCE FILE:     01a_c2_b1_two-candidates.yaml
+SOURCE MODIFIED: 2026-06-18 13:46:45
+TABULATED FILE:  01a_c2_b1_two-candidates_tabulated.txt
+TABULATED AT:    2026-06-18 13:46:45
+======================================================================
+
+election_title: The simplest possible single-winner STAR example
+
+# This is an unusual scenario - used only for illustration purposes to show Two Rounds in STAR Voting.
+
+#scenario_description: |-
+#  Pick your favorite ice cream flavor.
+#  Only one ballot (Voter) and only two candidates (Flavors).
+#
+#  Caroline - she likes both flavors
+#  - she loves Choco flavor (5 stars)
+#  - she is OK with Vanilla flavor (3 stars)
+
+# Presenter notes (ignored by the engine; not shown to the audience).
+video_script: |-
+  SAY: "We just saw that STAR runs two rounds on one ballot. Let's watch those
+       two rounds turn on the smallest election possible: one voter, two flavors."
+  HOW: Slow and calm. This is the 'here are the gears' moment - no surprises.
+  WHY: Establish the mechanics (Scoring Round, then Automatic Runoff) before any
+       interesting behavior competes for attention.
+  POINT OUT: With only two candidates STAR lands on the same winner as ordinary
+       voting - that is expected, and it's exactly why we start here.
+  TRANSITION: "Choco wins - no surprise with one voter. Now let's add more
+       voters, and then a third flavor, and watch the winner start to move."
+ballots: |-
+  Chocolate,Vanilla
+          5,      3       # Caroline - she likes both flavors
+          5,      3       # Caroline - she likes both flavors
+
+options:
+  show_matrix: true
+  matrix_finalists_only: true
+
+expected_winners:
+  - Choco
+
+# file: 01a_c2_b1_two-candidates.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== The simplest possible single-winner STAR example ===
+
+[Score Distribution] (number of ballots giving each score)
+            5   4   3   2   1   0  | Total   Avg
+Chocolate   2   0   0   0   0   0  |    10   5.0
+Vanilla     0   0   2   0   0   0  |     6   3.0
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Preference - Against
+        * indicates Top 2 Finalist
+                  |  * Chocolate  |  * Vanilla   |
+--------------------------------------------------
+    * Chocolate > |      ---      |  2 - 0 - 0   |
+      * Vanilla > |   0 - 0 - 2   |     ---      |
+
+[Condorcet Winner]
+  Condorcet Winner: Chocolate — matches the STAR winner
+
+--- STAR Voting (single winner) ---
+[STAR Voting]
+ Tabulating 2 ballots.
+    Chocolate,Vanilla
+2 ×         5,      3
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Chocolate     -- 10 -- First place
+   Vanilla       -- 6 -- Second place
+ Chocolate and Vanilla advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Chocolate     -- 2 -- First place
+   Vanilla       -- 0
+   Equal Support -- 0 (aka Equal Preference, No Preference)
+ Chocolate wins.
+
+[STAR Voting: Winner (STAR Voting Method — single winner)]
+ Chocolate

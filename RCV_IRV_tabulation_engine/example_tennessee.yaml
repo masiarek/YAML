@@ -1,0 +1,13 @@
+voting_method: RCV   # Instant-Runoff Voting (single winner)
+
+num_winners: 1
+ballots: |-
+  Count:Memphis,Nashville,Chattanooga,Knoxville
+  42:5,4,3,2
+  26:2,5,4,3
+  15:2,3,5,4
+  17:2,3,4,5
+
+# file: example_tennessee.yaml
+# Classic Tennessee-capital scenario. Scores are converted to ranks:
+#   higher score = higher preference, 0 = unranked.
