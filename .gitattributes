@@ -1,0 +1,7 @@
+# Normalize line endings: store all text files with LF in the repository,
+# regardless of the OS they were authored on. Prevents CRLF-vs-LF churn and
+# the "about to commit CRLF" warnings.
+* text=auto eol=lf
+
+# Python's csv.writer emits CRLF by default (RFC 4180); keep CSVs as LF in git.
+*.csv text eol=lf
