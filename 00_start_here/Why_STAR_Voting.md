@@ -5,6 +5,13 @@
 - Score Then Automatic Runoff
 - A better ballot, a fairer winner, a count anyone can verify
 
+> 🎬 Video script: Open with the name as a promise — "STAR stands for Score Then
+> Automatic Runoff." In one sentence, tell them what they'll walk away
+> understanding: a ballot that lets you say *how much* you support each
+> candidate, a winner who genuinely beats the runner-up, and a count any citizen
+> can re-add by hand. Set the frame: this isn't a tweak to counting, it's a
+> better ballot. ~15 seconds — don't explain the mechanics yet.
+
 ### Slide 2 — The Problem Isn't Just Spoilers
 
 - Choose-One Plurality forces your whole opinion into a single name
@@ -14,6 +21,13 @@
 
 > Speaker note: Lead with the deeper failure (the ballot can't express the electorate), not just "spoilers," so RCV-IRV folks can't say "we fix that too."
 
+> 🎬 Video script: Name the pain everyone has felt — being handed a ballot that
+> only lets you pick one name and abandon everyone else. Walk the chain out loud:
+> one pick → vote splitting → spoilers → holding your nose for the "lesser evil."
+> Then land the deeper point slowly: the ballot itself can't capture what voters
+> actually think, so the result can't reflect them. This is the "here's why we
+> need something better" beat — sit in the problem before offering the fix.
+
 ### Slide 3 — What STAR Voting Is
 
 - Score every candidate 0 to 5 by how much you support them
@@ -21,12 +35,26 @@
 - **Automatic runoff:** every ballot counts as a full vote for whichever finalist it scored higher
 - Two simple steps: degree of support, then a clear head-to-head finish
 
+> 🎬 Video script: Now show the ballot. Demo the two steps with a tiny on-screen
+> example: "Score everyone 0 to 5, like rating movies. Add up the scores — the
+> top two become finalists. Then your ballot counts as a full vote for whichever
+> finalist *you* scored higher." Keep it mechanical and calm; this is the
+> "how it works" beat, not the sales pitch. If you have a 3-candidate sample,
+> run it live so they watch the two rounds turn.
+
 ### Slide 4 — You Never Have to Betray Your Favorite
 
 - Supporting a new candidate you love never costs a candidate you also like
 - Score both high — no forced ranking, no "wasted" vote
 - Express how much you support each candidate, not just a single pick
 - Honesty is your best ballot
+
+> 🎬 Video script: This is the emotional core — slow down. Tell a relatable
+> story: you love a long-shot candidate but you also like a front-runner. Under
+> Choose-One you're forced to abandon one of them. Under STAR you give both a
+> high score — no split, no wasted vote, no regret. Land on "honesty is your
+> best ballot" and let it breathe before moving on. This is the line people
+> remember.
 
 ### Slide 5 — Every Winner Earns a Majority
 
@@ -37,12 +65,25 @@
 
 > Speaker note: This is the differentiator against anyone who claims majoritarianism. STAR is the synthesis of expressive scoring and a real majority finish.
 
+> 🎬 Video script: Pre-empt the "but isn't scoring just an average?" worry by
+> putting the spotlight on the runoff. "The very last step is a real head-to-head
+> — between the top two, whoever more voters preferred wins." Contrast it with
+> plurality winners who took office on 30–40% while most voters opposed them.
+> The payoff phrase: "no more 10%-plurality winners." If you only have one
+> anti-skeptic slide, this is it.
+
 ### Slide 6 — Simple to Vote
 
 - It's the familiar five-star rating — movies, rideshares, now elections
 - Equal scores allowed: rate two candidates the same if you feel the same
 - Low ballot-error rates; no confusing forced strict order
 - No exhausted (discarded) ballots in the runoff
+
+> 🎬 Video script: Lower the stakes — "you already know how to do this." It's
+> five stars, like every app on your phone. Stress two reliefs: equal scores are
+> allowed (you're never forced to invent a preference you don't feel), and you
+> can't accidentally spoil your ballot the way a ranked overvote does. Show a
+> real filled-in ballot on screen so it feels familiar, not novel.
 
 ### Slide 7 — Easy to Count and Verify
 
@@ -51,6 +92,13 @@
 - Any precinct's numbers can be checked and added independently
 - Transparent, auditable, fast
 
+> 🎬 Video script: This is the slide for the officials and skeptics in the room.
+> Explain "summable" plainly: each precinct posts its score totals and a small
+> for/equal/against grid, and you add them up like sports scores — no shipping
+> every ballot to one central computer to run sequential eliminations. The
+> trust line: "any citizen can re-add the numbers and get the same winner."
+> Optional contrast: this is exactly what RCV-IRV can't do.
+
 ### Slide 8 — Better Incentives for Candidates
 
 - To win, you want to be the high score of your opponents' supporters too
@@ -58,12 +106,26 @@
 - Tends toward broadly supported, consensus winners
 - Healthier campaigns by design
 
+> 🎬 Video script: Shift the camera from voters to candidates. The winning move
+> under STAR is to be liked by your *opponents'* supporters too — so trashing
+> them backfires, because their voters can lower your score. Predict the culture
+> change: more outreach, less mudslinging. Be honest about the evidence — say
+> "this is what the incentives reward," not "this is proven," so you don't
+> overclaim (see Slide 10).
+
 ### Slide 9 — Equal Vote
 
 - Every voter has the identical 0–5 range for every candidate
 - Identical maximum influence in both the scoring round and the runoff
 - Passes the Test of Balance: any support a ballot can express can be met by an equal and opposite opposition
 - Equal weight, structurally
+
+> 🎬 Video script: Address the "but some people hand out more points!" myth
+> head-on. Everyone has the *same* 0–5 range for *every* candidate, so everyone
+> has identical maximum influence in both rounds — total points handed out
+> don't matter. Name the Test of Balance as the precise version of "equal
+> weight." Keep this one short and confident unless the audience is wonky; with
+> a policy crowd you can dwell, with the public, move on.
 
 ### Slide 10 — What STAR Does (and Doesn't) Claim
 
@@ -75,11 +137,23 @@
 
 > Speaker note: This slide builds credibility. Audiences trust a reformer who states the boundary lines.
 
+> 🎬 Video script: Change your tone here — slow, plain, honest. Read the four
+> distinctions deliberately: what STAR *does*, what it *dramatically reduces*,
+> what it *usually* does, what it's *resistant* to. Then say the quiet part out
+> loud: "I'm telling you the limits because that's why you can trust everything
+> else on these slides." Don't rush this — the honesty IS the persuasion.
+
 ### Slide 11 — What You Can Do
 
 - Try a STAR ballot at BetterVoting.com
 - Bring STAR to your next club, org, or local election
 - Learn more / get involved with the Equal Vote Coalition
+
+> 🎬 Video script: Close with ONE concrete next step, not a menu. Put a QR code
+> on screen and say "try a STAR ballot right now at BetterVoting.com." Then the
+> bigger ask: "run your next club, board, or HOA vote with STAR — that's how
+> this spreads." Point to the Equal Vote Coalition for anyone who wants to go
+> deeper. End warm and specific; the call to action should feel doable tonight.
 
 ---
 
@@ -169,5 +243,3 @@ Each argument: the claim (in precise, defensible wording), the rebuttal it tends
 - **Academics / skeptics:** Tier 2 throughout, stated with the precise caveats. Your willingness to say "resistant, not proof" and "not Condorcet-compliant" is what earns the room.
 
 ---
-
-*Source: Google Doc "Why STAR Voting 2" — https://docs.google.com/document/d/1hoXGfwFkxMTnYdOmXonnyhweYzMD2Nc98cVS96mRwdo/edit*
