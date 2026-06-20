@@ -1,0 +1,29 @@
+election_title: Vote splitting — scenario 1 of 3 — the spoiler strikes
+scenario_description: |-
+  A bloc that is a MAJORITY can still LOSE under Choose-One when it splits.
+
+  90 voters. 55 are chocolate lovers (a 61% majority), but they split across two
+  chocolates — 30 for DarkChoco, 25 for MilkChoco. The other 35 prefer Vanilla.
+
+  Choose-One first choices: Vanilla 35, DarkChoco 30, MilkChoco 25. Vanilla wins
+  with 38.9% even though 61% wanted chocolate — that is the spoiler effect.
+
+  STAR lets chocolate lovers score BOTH chocolates, so the bloc is not split and
+  DarkChoco wins. Watch the [Vote-splitting check] confirm it.
+
+blocs:
+  Chocolate: [DarkChoco, MilkChoco]
+
+voting_method: STAR
+num_winners: 1
+
+ballots: |-
+  Count:DarkChoco,MilkChoco,Vanilla
+  30:5,4,0   # love dark, like milk, no vanilla
+  25:4,5,0   # love milk, like dark, no vanilla
+  35:2,1,5   # love vanilla, mild on chocolate
+
+expected_winners:
+  - DarkChoco
+
+# file: vote_splitting_scenario1_spoiler.yaml

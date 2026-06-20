@@ -2,7 +2,7 @@
 SOURCE FILE:     options_examples.yaml
 SOURCE MODIFIED: 2026-06-19 01:40:00
 TABULATED FILE:  options_examples_tabulated.txt
-TABULATED AT:    2026-06-20 03:28:56
+TABULATED AT:    2026-06-20 13:20:07
 ======================================================================
 
 voting_method: STAR        # STAR (single-winner) or Bloc STAR (num_winners >= 2)
@@ -74,7 +74,8 @@ Legend: For - Equal Preference - Against
   RCV-IRV   = Knoxville   (differs from STAR)
   Approval  = Nashville
   Condorcet = Nashville
-  Note: no ballots had tied scores, so RCV-IRV vs STAR here is a genuine method difference, not a tie-breaking artifact.
+  Note: no ballots had tied scores, so RCV-IRV vs STAR here is a genuine
+        method difference, not a tie-breaking artifact.
 
 --- STAR Voting Method (single winner) ---
 [STAR Voting]

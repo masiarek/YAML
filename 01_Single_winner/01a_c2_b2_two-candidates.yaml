@@ -24,13 +24,14 @@ video_script: |-
 ballots: |-
   Chocolate,Vanilla
           5,      3       # Caroline - she likes both flavors
-          5,      3       # Caroline - she likes both flavors
+          5,      3       # Bob - he likes both flavors too
 
 options:
-  show_matrix: true
-  matrix_finalists_only: true
+  show_matrix: f
+  matrix_finalists_only: f
+  show_score_counts: f
 
 expected_winners:
   - Choco
 
-# file: 01a_c2_b1_two-candidates.yaml
+# file: 01a_c2_b2_two-candidates.yaml

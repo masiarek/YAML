@@ -1,0 +1,31 @@
+election_title: Vote splitting — scenario 3 of 3 — no spoiler (the outsider truly wins)
+scenario_description: |-
+  When the outsider is the genuine favorite, there is no spoiler — uniting the
+  bloc would not change the result.
+
+  31 voters. Vanilla 20, DarkChoco 6, MilkChoco 5. Chocolate combined is only 11,
+  far short of Vanilla's 20.
+
+  Choose-One first choices: Vanilla 20, DarkChoco 6, MilkChoco 5. Vanilla wins —
+  and would still win even if the two chocolates merged into one (11 < 20). STAR
+  also elects Vanilla. Fair and square.
+
+  The [Vote-splitting check] reports: even combined, the bloc does not out-poll
+  the winner, so no spoiler occurred.
+
+blocs:
+  Chocolate: [DarkChoco, MilkChoco]
+
+voting_method: STAR
+num_winners: 1
+
+ballots: |-
+  Count:DarkChoco,MilkChoco,Vanilla
+  6:5,4,0    # love dark, like milk, no vanilla
+  5:4,5,0    # love milk, like dark, no vanilla
+  20:1,0,5   # love vanilla, mild on chocolate
+
+expected_winners:
+  - Vanilla
+
+# file: vote_splitting_scenario3_outsider_wins.yaml

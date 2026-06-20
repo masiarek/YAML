@@ -1,0 +1,29 @@
+election_title: Vote splitting — scenario 2 of 3 — no spoiler (bloc leader wins anyway)
+scenario_description: |-
+  A split does NOT always cause a spoiler. If the bloc's larger half still
+  out-polls the outsider, the bloc wins Choose-One regardless of the split.
+
+  36 voters. Chocolate = 24 (DarkChoco 14, MilkChoco 10); Vanilla 12.
+
+  Choose-One first choices: DarkChoco 14, Vanilla 12, MilkChoco 10. DarkChoco — a
+  chocolate — already wins, so there is nothing for STAR to "fix" here.
+
+  The [Vote-splitting check] reports: the bloc's own front-runner also wins
+  Choose-One overall, so no spoiler occurred.
+
+blocs:
+  Chocolate: [DarkChoco, MilkChoco]
+
+voting_method: STAR
+num_winners: 1
+
+ballots: |-
+  Count:DarkChoco,MilkChoco,Vanilla
+  14:5,4,0   # love dark, like milk, no vanilla
+  10:4,5,0   # love milk, like dark, no vanilla
+  12:2,1,5   # love vanilla, mild on chocolate
+
+expected_winners:
+  - DarkChoco
+
+# file: vote_splitting_scenario2_bloc_leads.yaml

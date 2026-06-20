@@ -1,0 +1,30 @@
+election_title: Vote splitting — two chocolates split the majority
+scenario_description: |-
+  tbd
+blocs:
+  Chocolate: [DarkChoco, MilkChoco]
+
+voting_method: STAR   # STAR Voting - Single-winner
+num_winners: 1
+
+options:
+  # Layer 1 (general audience): keep the render clean. The matrix and the
+  # Condorcet line are the Layer 2 deep-dive — flip either to true to discuss
+  # the head-to-head winner with a more advanced audience from this SAME file.
+  show_matrix: false
+  show_condorcet: false
+  show_score_counts: false   # the per-flavor score distribution reads well on screen
+  brief: true               # collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true    # group identical ballots as "count × scores"
+  count_separator: "×"
+
+ballots: |-
+  Count:DarkChoco,MilkChoco,Vanilla
+  8:5,4,3   # love dark, like milk, vanilla is OK
+  7:4,5,0   # love milk, like dark, no vanilla
+  6:2,1,5   # love vanilla, mild on chocolate
+
+expected_winners:
+  - DarkChoco
+
+# file: vote_splitting3.yaml

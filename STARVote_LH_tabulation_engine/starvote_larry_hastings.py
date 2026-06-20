@@ -306,9 +306,18 @@ def load_election(path, race_index=0):
         if eligible_voters is not None:
             eligible_voters = int(eligible_voters)
         quorum = _num("quorum", "minimum_quorum")
+
+        # Optional candidate blocs for the vote-splitting check, e.g.
+        #   blocs:
+        #     Chocolate: [DarkChoco, MilkChoco]
+        blocs = None
+        for _src in (race, el, top):
+            if isinstance(_src, dict) and isinstance(_src.get("blocs"), dict):
+                blocs = _src.get("blocs")
+                break
     except ImportError:
         ballots_text, seats, method_name, options = _yaml_lite(text)
-        eligible_voters = quorum = None
+        eligible_voters = quorum = blocs = None
 
     method = (
         METHOD_BY_NAME.get(str(method_name).strip().lower()) if method_name else None
@@ -323,6 +332,7 @@ def load_election(path, race_index=0):
         "description": description,
         "eligible_voters": eligible_voters,
         "quorum": quorum,
+        "blocs": blocs,
     }
 
 
@@ -946,6 +956,90 @@ def print_method_comparison(candidates, ballots, star_winner, priority):
             )
 
 
+def first_choice_counts(candidates, ballots, priority):
+    """
+    Choose-One Plurality tally: each ballot gives one vote to its highest-scored
+    candidate (ties broken by `priority` order). Ballots that score no one above
+    0 (blank / abstention / all-zero) are undervotes and count for nobody.
+    Returns (counts dict, n_undervotes).
+    """
+    order = [c for c in (priority or candidates) if c in candidates]
+    for c in candidates:
+        if c not in order:
+            order.append(c)
+    rank = {c: i for i, c in enumerate(order)}
+    counts = {c: 0 for c in candidates}
+    undervotes = 0
+    for b in ballots:
+        top_score = max((b.get(c, 0) for c in candidates), default=0)
+        if top_score <= 0:
+            undervotes += 1
+            continue
+        leaders = [c for c in candidates if b.get(c, 0) == top_score]
+        leaders.sort(key=lambda c: rank[c])
+        counts[leaders[0]] += 1
+    return counts, undervotes
+
+
+def print_vote_splitting(candidates, ballots, blocs, star_winner, priority):
+    """
+    Apply the vote-splitting / spoiler test to each declared bloc. A bloc B
+    "split" the vote when, under Choose-One Plurality:
+        (1) the plurality winner P is NOT in B,
+        (2) the bloc's combined first choices exceed P's  (Σf(b) > f(P)),
+        (3) [strong] the bloc is an outright majority      (Σf(b) > N/2).
+    """
+    if not blocs:
+        return
+    f, undervotes = first_choice_counts(candidates, ballots, priority)
+    n = sum(f.values())  # voters who expressed a first choice
+    if n == 0:
+        return
+    order = [c for c in (priority or candidates) if c in candidates]
+    for c in candidates:
+        if c not in order:
+            order.append(c)
+    rank = {c: i for i, c in enumerate(order)}
+    ranked = sorted(candidates, key=lambda c: (-f[c], rank[c]))
+    P = ranked[0]
+
+    def _wrap(text):
+        print(textwrap.fill(text, width=76, initial_indent="  ",
+                            subsequent_indent="     "))
+
+    print("\n[Vote-splitting check]")
+    tally = ", ".join(f"{c} {f[c]}" for c in ranked)
+    print(f"  Choose-One first choices: {tally}"
+          + (f"  (+{undervotes} undervote{'s' if undervotes != 1 else ''})"
+             if undervotes else ""))
+    print(f"  Plurality winner: {P} ({f[P]}, {f[P] / n * 100:.1f}%)")
+
+    for name, members in blocs.items():
+        members = [m for m in members if m in candidates]
+        if len(members) < 2:
+            continue  # a "bloc" needs at least two candidates to split
+        bloc_sum = sum(f[m] for m in members)
+        inside = P in members
+        splitting = (not inside) and (bloc_sum > f[P])
+        majority = bloc_sum > n / 2
+        loc = "INSIDE" if inside else "OUTSIDE"
+        print(f"  Bloc '{name}' = {', '.join(members)}: combined "
+              f"{bloc_sum} ({bloc_sum / n * 100:.1f}%); winner {P} is {loc} it.")
+        if splitting:
+            strength = ("an outright majority" if majority
+                        else "more than the plurality winner")
+            _wrap(f"=> VOTE SPLITTING: the '{name}' bloc is {strength} "
+                  f"({bloc_sum} vs {P}'s {f[P]}) but split across "
+                  f"{len(members)} candidates, so {P} won Choose-One. "
+                  f"STAR elected {star_winner}.")
+        elif inside:
+            _wrap(f"=> No vote splitting: the bloc's own front-runner ({P}) "
+                  f"also wins Choose-One overall.")
+        else:
+            _wrap(f"=> No vote splitting: even combined ({bloc_sum}), the "
+                  f"'{name}' bloc does not outpoll {P} ({f[P]}).")
+
+
 def markers_used(display_rows):
     """Return the marker characters that actually appear, in MARKER_MEANINGS order."""
     seen = set()
@@ -1032,30 +1126,54 @@ def print_marker_legend(used):
         print(f"  {m}  {MARKER_MEANINGS[m]}")
 
 
-def print_score_counts(candidates, ballots, max_score=5):
+def print_score_counts(candidates, ballots, max_score=5, display_rows=None):
     """Per-candidate score distribution: how many ballots gave each score value,
-    plus the total and average. Shows how each candidate's total is composed."""
+    plus an Abs (abstained / left blank) bucket so a blank is not conflated with
+    an explicit 0. Avg is over ballots that actually scored the candidate.
+
+    Uses display_rows (which preserve the original markers) when available, so a
+    blank/'~' counts in Abs rather than as a 0."""
     if not candidates or not ballots:
         return
 
     counts = {c: defaultdict(int) for c in candidates}
     totals = {c: 0 for c in candidates}
-    for b in ballots:
-        for c in candidates:
-            s = b.get(c, 0)
-            counts[c][s] += 1
-            totals[c] += s
+    abstain = {c: 0 for c in candidates}
+
+    if display_rows:
+        for row in display_rows:
+            cells = [x.strip() for x in row.split(",")]
+            for i, c in enumerate(candidates):
+                cell = cells[i] if i < len(cells) else ""
+                if cell.isdigit():
+                    s = int(cell)
+                    counts[c][s] += 1
+                    totals[c] += s
+                else:  # blank or a marker -> abstained on this candidate
+                    abstain[c] += 1
+    else:  # fallback: numeric ballots only (cannot tell blank from explicit 0)
+        for b in ballots:
+            for c in candidates:
+                s = b.get(c, 0)
+                counts[c][s] += 1
+                totals[c] += s
 
     scores = list(range(max_score, -1, -1))  # high to low, e.g. 5..0
     n = len(ballots)
     name_w = max((len(c) for c in candidates), default=4)
+    show_abs = any(abstain[c] for c in candidates)
 
     print("\n[Score Distribution] (number of ballots giving each score)")
     header = f"{'':<{name_w}}  " + "  ".join(f"{s:>2}" for s in scores)
+    if show_abs:
+        header += "  Abs"
     print(f"{header}  | Total   Avg")
     for c in candidates:
         cells = "  ".join(f"{counts[c][s]:>2}" for s in scores)
-        avg = totals[c] / n if n else 0.0
+        if show_abs:
+            cells += f"  {abstain[c]:>3}"
+        scored = n - abstain[c]
+        avg = totals[c] / scored if scored else 0.0
         print(f"{c:<{name_w}}  {cells}  | {totals[c]:>5}  {avg:>4.1f}")
 
 
@@ -1314,6 +1432,7 @@ def run_election(
     show_irv=False,
     eligible_voters=None,
     quorum=None,
+    blocs=None,
 ):
     if method is None:
         method = starvote.star
@@ -1440,7 +1559,8 @@ def run_election(
 
         # These analyses are independent toggles.
         if show_score_counts:
-            print_score_counts(candidates, ballots, max_score=5)
+            print_score_counts(candidates, ballots, max_score=5,
+                                display_rows=display_rows)
         if show_matrix:
             print_matrix(
                 candidates,
@@ -1456,6 +1576,9 @@ def run_election(
         # appears only when it differs from all three). priority == STAR's
         # tiebreak order, used for the score->rank conversion.
         print_method_comparison(candidates, ballots, star_winner, priority)
+
+        # Vote-splitting / spoiler check for any declared candidate blocs.
+        print_vote_splitting(candidates, ballots, blocs, star_winner, priority)
 
         print_extended_analysis(ballots, winners_silent)
 
@@ -1840,6 +1963,8 @@ Memphis,Nashville,Chattanooga,Knoxville
         #     brief: false
         #     count_separator: ":"
         def _as_bool(v):
+            # Accept booleans plus common truthy spellings, including the short
+            # "t" / "y". Anything else (including "f", "false", "n") is False.
             return (
                 v
                 if isinstance(v, bool)
@@ -1847,7 +1972,9 @@ Memphis,Nashville,Chattanooga,Knoxville
                 in (
                     "1",
                     "true",
+                    "t",
                     "yes",
+                    "y",
                     "on",
                 )
             )
@@ -1885,6 +2012,7 @@ Memphis,Nashville,Chattanooga,Knoxville
         description=(election["description"] if BALLOTS_FILE else None),
         eligible_voters=(election["eligible_voters"] if BALLOTS_FILE else None),
         quorum=(election["quorum"] if BALLOTS_FILE else None),
+        blocs=(election["blocs"] if BALLOTS_FILE else None),
     )
 
     if BALLOTS_FILE:

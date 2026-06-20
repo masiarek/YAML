@@ -1,8 +1,8 @@
 ======================================================================
-SOURCE FILE:     01a_c2_b1_two-candidates.yaml
-SOURCE MODIFIED: 2026-06-18 13:46:45
-TABULATED FILE:  01a_c2_b1_two-candidates_tabulated.txt
-TABULATED AT:    2026-06-18 13:46:45
+SOURCE FILE:     01a_c2_b2_two-candidates.yaml
+SOURCE MODIFIED: 2026-06-20 14:02:15
+TABULATED FILE:  01a_c2_b2_two-candidates_tabulated.txt
+TABULATED AT:    2026-06-20 14:02:15
 ======================================================================
 
 election_title: The simplest possible single-winner STAR example
@@ -31,16 +31,17 @@ video_script: |-
 ballots: |-
   Chocolate,Vanilla
           5,      3       # Caroline - she likes both flavors
-          5,      3       # Caroline - she likes both flavors
+          5,      3       # Bob - he likes both flavors too
 
 options:
-  show_matrix: true
-  matrix_finalists_only: true
+  show_matrix: f
+  matrix_finalists_only: f
+  show_score_counts: f
 
 expected_winners:
   - Choco
 
-# file: 01a_c2_b1_two-candidates.yaml
+# file: 01a_c2_b2_two-candidates.yaml
 
 ======================================================================
 TABULATION RESULTS
@@ -65,11 +66,11 @@ Legend: For - Equal Preference - Against
 [Condorcet Winner]
   Condorcet Winner: Chocolate — matches the STAR winner
 
---- STAR Voting (single winner) ---
+--- STAR Voting Method (single winner) ---
 [STAR Voting]
  Tabulating 2 ballots.
-    Chocolate,Vanilla
-2 ×         5,      3
+Count × Chocolate,Vanilla
+    2 ×         5,      3
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
@@ -84,5 +85,5 @@ Legend: For - Equal Preference - Against
    Equal Support -- 0 (aka Equal Preference, No Preference)
  Chocolate wins.
 
-[STAR Voting: Winner (STAR Voting Method — single winner)]
+[STAR Voting: Winner — STAR Voting Method (single winner)]
  Chocolate

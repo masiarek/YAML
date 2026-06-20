@@ -1,14 +1,15 @@
 election_title: Vote splitting — two chocolates split the majority
 scenario_description: |-
-  Election: pick ONE dessert for the party. 360 voters.
+  Election: pick ONE dessert for the party. Eighteen voters.
  
-  220 of the 360 are chocolate lovers — a clear 61% majority. But there are TWO
-  chocolates on the menu, DarkChoco and MilkChoco, and 140 voters prefer Vanilla.
+  Eleven of the eighteen are chocolate lovers — a clear 61% majority. But there
+  are TWO chocolates on the menu, DarkChoco and MilkChoco, and only seven voters
+  prefer Vanilla.
  
   Under Choose-One Plurality each voter may name only one flavor, so the
-  chocolate majority splits its vote — 120 for DarkChoco, 100 for MilkChoco —
-  and Vanilla wins with just 140 of 360 (38.9%), a dessert a 61% majority
-  actively dislikes. That is vote splitting / the spoiler effect.
+  chocolate majority splits its vote — 6 for DarkChoco, 5 for MilkChoco — and
+  Vanilla wins with just 7 of 18 (38.9%), a dessert a 61% majority actively
+  dislikes. That is vote splitting / the spoiler effect.
  
   STAR fixes it without asking chocolate to drop a flavor: every voter scores
   all three 0–5, so a chocolate lover can give BOTH chocolates a high score
@@ -17,24 +18,20 @@ scenario_description: |-
 
 # Presenter notes (ignored by the engine; not shown to the audience).
 video_script: |-
-  SAY: "Two hundred twenty of our three hundred sixty voters love chocolate — a
-       clear majority. But there are two chocolates on the menu, DarkChoco and
-       MilkChoco, and under today's Choose-One rules each fan can pick only one.
-       So the chocolate vote splits, one hundred twenty to one hundred — and
-       Vanilla wins with a hundred forty votes, a dessert a sixty-one percent
-       majority didn't even want."
-  HOW: Show the Choose-One tally FIRST (Vanilla 140, DarkChoco 120, MilkChoco
-       100) and let the wrong winner sting for a beat before STAR appears. Then
-       reveal the same 360 ballots as 0–5 scores.
+  SAY: "Eleven of our eighteen voters love chocolate — a clear majority. But
+       there are two chocolates on the menu, DarkChoco and MilkChoco, and under
+       today's Choose-One rules each fan can pick only one. So the chocolate
+       vote splits, six to five — and Vanilla wins with seven votes, a dessert a
+       sixty-one percent majority didn't even want."
+  HOW: Show the Choose-One tally FIRST (Vanilla 7, DarkChoco 6, MilkChoco 5) and
+       let the wrong winner sting for a beat before STAR appears. Then reveal the
+       same eighteen ballots as 0–5 scores.
   WHY: This is the payoff scenario — the entire case for STAR in one race. Hold
        the candidates at three so the ONLY things that change are the ballot and
        the count, not the field.
-  TRANSITION: "Now watch the SAME 360 voters fill out a STAR ballot — giving
+  TRANSITION: "Now watch the SAME eighteen voters fill out a STAR ballot — giving
        both chocolates a score instead of choosing between them — and see who
        actually wins."
-
-blocs:
-  Chocolate: [DarkChoco, MilkChoco]
 
 voting_method: STAR   # STAR Voting - Single-winner
 num_winners: 1
@@ -45,18 +42,18 @@ options:
   # the head-to-head winner with a more advanced audience from this SAME file.
   show_matrix: false
   show_condorcet: false
-  show_score_counts: false   # the per-flavor score distribution reads well on screen
+  show_score_counts: true   # the per-flavor score distribution reads well on screen
   brief: true               # collapse repetitive "[STAR Voting: ...]" headers
   collapse_ballots: true    # group identical ballots as "count × scores"
   count_separator: "×"
 
 ballots: |-
   Count:DarkChoco,MilkChoco,Vanilla
-  120:5,4,0   # love dark, like milk, no vanilla
-  100:4,5,0   # love milk, like dark, no vanilla
-  140:2,1,5   # love vanilla, mild on chocolate
+  6:5,4,0   # love dark, like milk, no vanilla
+  5:4,5,0   # love milk, like dark, no vanilla
+  7:2,1,5   # love vanilla, mild on chocolate
 
 expected_winners:
   - DarkChoco
 
-# file: vote_splitting2.yaml
+# file: vote_splitting.yaml

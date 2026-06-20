@@ -1,0 +1,107 @@
+======================================================================
+SOURCE FILE:     vote_splitting_scenario3_outsider_wins.yaml
+SOURCE MODIFIED: 2026-06-20 13:23:19
+TABULATED FILE:  vote_splitting_scenario3_outsider_wins_tabulated.txt
+TABULATED AT:    2026-06-20 13:23:30
+======================================================================
+
+election_title: Vote splitting — scenario 3 of 3 — no spoiler (the outsider truly wins)
+scenario_description: |-
+  When the outsider is the genuine favorite, there is no spoiler — uniting the
+  bloc would not change the result.
+
+  31 voters. Vanilla 20, DarkChoco 6, MilkChoco 5. Chocolate combined is only 11,
+  far short of Vanilla's 20.
+
+  Choose-One first choices: Vanilla 20, DarkChoco 6, MilkChoco 5. Vanilla wins —
+  and would still win even if the two chocolates merged into one (11 < 20). STAR
+  also elects Vanilla. Fair and square.
+
+  The [Vote-splitting check] reports: even combined, the bloc does not out-poll
+  the winner, so no spoiler occurred.
+
+blocs:
+  Chocolate: [DarkChoco, MilkChoco]
+
+voting_method: STAR
+num_winners: 1
+
+ballots: |-
+  Count:DarkChoco,MilkChoco,Vanilla
+  6:5,4,0    # love dark, like milk, no vanilla
+  5:4,5,0    # love milk, like dark, no vanilla
+  20:1,0,5   # love vanilla, mild on chocolate
+
+expected_winners:
+  - Vanilla
+
+# file: vote_splitting_scenario3_outsider_wins.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Vote splitting — scenario 3 of 3 — no spoiler (the outsider truly wins) ===
+  When the outsider is the genuine favorite, there is no spoiler — uniting the
+  bloc would not change the result.
+
+  31 voters. Vanilla 20, DarkChoco 6, MilkChoco 5. Chocolate combined is only 11,
+  far short of Vanilla's 20.
+
+  Choose-One first choices: Vanilla 20, DarkChoco 6, MilkChoco 5. Vanilla wins —
+  and would still win even if the two chocolates merged into one (11 < 20). STAR
+  also elects Vanilla. Fair and square.
+
+  The [Vote-splitting check] reports: even combined, the bloc does not out-poll
+  the winner, so no spoiler occurred.
+
+[Score Distribution] (number of ballots giving each score)
+            5   4   3   2   1   0  | Total   Avg
+DarkChoco   6   5   0   0  20   0  |    70   2.3
+MilkChoco   5   6   0   0   0  20  |    49   1.6
+Vanilla    20   0   0   0   0  11  |   100   3.2
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Preference - Against
+        * indicates Top 2 Finalist
+                  |  * DarkChoco  |   MilkChoco  |  * Vanilla   |
+-----------------------------------------------------------------
+    * DarkChoco > |      ---      | 26 - 0 - 5   | 11 - 0 - 20  |
+      MilkChoco > |  5 - 0 - 26   |     ---      | 11 - 0 - 20  |
+      * Vanilla > |  20 - 0 - 11  | 20 - 0 - 11  |     ---      |
+
+[Condorcet Winner]
+  Condorcet Winner: Vanilla — matches the STAR winner
+
+[Vote-splitting check]
+  Choose-One first choices: Vanilla 20, DarkChoco 6, MilkChoco 5
+  Plurality winner: Vanilla (20, 64.5%)
+  Bloc 'Chocolate' = DarkChoco, MilkChoco: combined 11 (35.5%); winner Vanilla is OUTSIDE it.
+  => No vote splitting: even combined (11), the 'Chocolate' bloc does not
+     outpoll Vanilla (20).
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 31 ballots.
+Count × DarkChoco,MilkChoco,Vanilla
+   20 ×         1,        0,      5
+    6 ×         5,        4,      0
+    5 ×         4,        5,      0
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Vanilla       -- 100 -- First place
+   DarkChoco     -- 70 -- Second place
+   MilkChoco     -- 49
+ Vanilla and DarkChoco advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Vanilla       -- 20 -- First place
+   DarkChoco     -- 11
+   Equal Support -- 0 (aka Equal Preference, No Preference)
+ Vanilla wins.
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Vanilla
