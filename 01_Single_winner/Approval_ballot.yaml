@@ -1,0 +1,15 @@
+voting_method: STAR
+
+num_winners: 1
+ballots: |-
+  A,B,C,D
+  -,-,1,1
+  -,-,0,0
+  1,0,0,1
+  1,1,0,1
+  ~,~,~,~
+  0,0,0,0
+  5,5,5,5
+  -,-,-,-
+
+# file: Approval_ballot.yaml

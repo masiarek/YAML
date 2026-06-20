@@ -11,6 +11,26 @@ This library provides a robust validation layer for election data. By bundling *
 ---
 ---
 
+## Scored (Rated) vs Ranked — a quick explainer
+
+People new to STAR Voting — especially folks coming from a ranked-choice background — constantly conflate **rated/scored** methods with **ranked** methods. They sound like cousins but do opposite things.
+
+**Ranked = put them in order. Scored = give each a star rating.**
+
+- **Ranked (RCV / IRV):** you line the candidates up — 1st, 2nd, 3rd. It is purely *relative order*. You cannot say a candidate is your 1st by a mile versus by a hair, and you cannot give two candidates the same position.
+- **Scored / Starred (STAR, Score, Approval):** you rate each candidate independently, 0 to 5 stars — exactly like rating movies on Letterboxd or sellers on Amazon. It is *absolute and independent*: you can give two candidates 5 stars, or everyone 0, because each rating stands on its own.
+
+The "tell" that trips people up: in ranked ballots, equal marks are illegal (no two candidates may share a rank). In scored ballots, equal marks are not just legal, they are the whole point — that is how a voter expresses "I like these two the same."
+
+**STAR** is just the name spelled out: **S**core **T**hen **A**utomatic **R**unoff. Every voter stars all the candidates (the "rated" half people keep colliding with ranked), the two highest *totals* advance, and then — the one idea borrowed from ranked voting — the automatic runoff checks which of those two finalists is preferred on more ballots. So STAR is a scored method with a single ranked-style comparison bolted on at the end, which is likely *why* the two words keep blurring together.
+
+One-liner to hand someone who is confused: *"You don't rank in STAR — you give each candidate a star rating, and equal ratings are allowed."*
+
+> Terminology note: this project prefers **scored / scores / stars** over "rated / rating," because "rated" is the word most easily confused with "ranked."
+
+---
+---
+
 ## Quick Start
 
 ### 1. Install

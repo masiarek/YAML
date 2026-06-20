@@ -1,0 +1,66 @@
+# Proportional multi-winner example: Allocated Score Voting (Proportional STAR).
+# Run: python starvote_larry_hastings.py \
+#        "elections_illustrations/02_Multi_winner/02a_c5_b21_proportional-allocated-score.yaml"
+#
+# Unlike Bloc STAR (where a cohesive majority can sweep every seat),
+# proportional methods reweight ("spend") ballots after each seat is filled,
+# so a cohesive minority can still earn representation.
+#
+# Here ~2/3 of voters are an A/B/C "majority" bloc and ~1/3 are a D/E
+# "minority" bloc. With 3 seats, a proportional method gives the minority a
+# seat; Bloc STAR would hand all 3 to the majority. Switch voting_method to
+# `bloc` to see the contrast.
+#
+# Other proportional methods accepted by voting_method:
+#   allocated  -> Allocated Score Voting (canonical Proportional STAR)
+#   sss        -> Sequentially Spent Score
+#   rrv        -> Reweighted Range Voting
+
+election_title: Proportional STAR — Allocated Score Voting
+scenario_description: |-
+  A ~2/3 majority bloc (A/B/C) and a ~1/3 minority bloc (D/E) elect 3 seats.
+  Allocated Score (canonical Proportional STAR) gives the minority a seat, while
+  Bloc STAR would sweep all three to the majority. Switch voting_method to bloc
+  to see the contrast.
+
+# Presenter notes (ignored by the engine; not shown to the audience).
+video_script: |-
+  SAY: "Two-thirds of voters love A/B/C; one-third love D/E. Three seats. Bloc
+       STAR would give the majority ALL three. Proportional STAR gives the
+       minority the seat they earned - here Dan wins one."
+  HOW: First run this (proportional), note the winners include Dan. Then change
+       voting_method to 'bloc', rerun, and show the minority gets shut out. The
+       side-by-side is the whole lesson.
+  WHY: This is the case FOR proportional representation - it's the payoff of the
+       multi-winner section, mirroring how single-winner's payoff was the
+       compromise winner.
+  HOW IT WORKS (1 line): after each seat, the ballots that won it are partly
+       'spent', so later seats reflect the voters not yet represented.
+  TRANSITION: "Allocated Score is the canonical method. There are alternatives -
+       SSS and RRV - that reach the same fair result by different math."
+
+num_winners: 3
+voting_method: allocated
+
+options:
+  # Matrix/Condorcet are single-winner concepts, so leave them off here.
+  show_matrix: false
+  show_condorcet: false
+  show_score_counts: true
+  brief: true
+  collapse_ballots: true
+
+ballots: |-
+  Alice,Ben,Cara,Dan,Eve
+  6: 5, 4, 3, 0, 0
+  4: 4, 5, 3, 0, 0
+  3: 3, 4, 5, 0, 0
+  5: 0, 0, 0, 5, 4
+  3: 0, 0, 0, 4, 5
+
+expected_winners:
+  - Alice
+  - Ben
+  - Dan
+
+# file: 02a_c5_b21_proportional-allocated-score.yaml

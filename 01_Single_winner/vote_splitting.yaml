@@ -1,0 +1,9 @@
+voting_method: STAR   # STAR Voting - Single-winner
+
+num_winners: 1
+ballots: |-
+  40:A>C>B
+  35:B>C>A
+  25:C>A>B
+
+# file: vote_splitting.yaml

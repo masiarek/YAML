@@ -1,0 +1,9 @@
+voting_method: RCV_IRV   # RCV-IRV Example  - Single-winner
+
+num_winners: 1
+ballots: |-
+  40:A>C>B
+  35:B>C>A
+  25:C>A>B
+
+# file: RCV_ballot_example.yaml

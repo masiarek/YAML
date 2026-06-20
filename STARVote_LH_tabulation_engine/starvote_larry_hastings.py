@@ -3,14 +3,34 @@ Script: starvote_larry_hastings.py
 Description: Runs a STAR Voting election with detailed tiebreaker analysis and matrix visualization.
 """
 
+import math
 import os
 import re
 import sys
+import textwrap
 from collections import defaultdict
 from pathlib import Path
 
 import starvote
 from starvote import Tiebreaker
+
+# Optional cross-check against RCV-IRV. The sibling engine vendors pyrankvote
+# and the score->rank conversion. If it isn't present, IRV comparison is simply
+# skipped and STAR tabulation is unaffected.
+try:
+    _IRV_ENGINE = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        "..",
+        "RCV_IRV_tabulation_engine",
+    )
+    if _IRV_ENGINE not in sys.path:
+        sys.path.insert(0, _IRV_ENGINE)
+    import pyrankvote as _pyrankvote
+    from pyrankvote import Ballot as _IRVBallot, Candidate as _IRVCandidate
+    from rcv_irv_tabulation import score_ballot_to_ranking as _score_to_rank
+    _IRV_AVAILABLE = True
+except Exception:  # pragma: no cover - IRV cross-check is optional
+    _IRV_AVAILABLE = False
 
 # --- ANSI Color Codes ---
 # Enabled for a real terminal AND for PyCharm's run console (which sets
@@ -54,10 +74,9 @@ def header_color(label):
 # Any of these (and an empty cell) tabulate as 0; every ballot still counts.
 # A legend is printed listing only the markers that actually appear in the data.
 MARKER_MEANINGS = {
-    "-": "Blank (no score)",
+    "-": "Blank — no score / voter left the candidate blank",
     "~": "Race-level abstention — voter abstained from the entire race",
     "&": "Candidate-level abstention — explicitly abstained for this candidate",
-    "^": "Blank / unmarked — left completely blank (no score or rank)",
     "?": "Spoiled / voided ballot — overvote, protest mark, or invalid format",
     "%": "Spoiled & re-issued — ballot voided and a replacement was issued",
 }
@@ -167,6 +186,7 @@ OPTION_KEYS = (
     "brief",
     "collapse_ballots",
     "count_separator",
+    "show_irv",
 )
 
 
@@ -273,8 +293,22 @@ def load_election(path, race_index=0):
         description = _pick(
             "scenario_description", "race_description", "election_description"
         )
+
+        def _num(*keys):
+            for src in (race, el, top):
+                if isinstance(src, dict):
+                    for k in keys:
+                        if src.get(k) is not None:
+                            return src.get(k)
+            return None
+
+        eligible_voters = _num("eligible_voters", "electorate", "registered_voters")
+        if eligible_voters is not None:
+            eligible_voters = int(eligible_voters)
+        quorum = _num("quorum", "minimum_quorum")
     except ImportError:
         ballots_text, seats, method_name, options = _yaml_lite(text)
+        eligible_voters = quorum = None
 
     method = (
         METHOD_BY_NAME.get(str(method_name).strip().lower()) if method_name else None
@@ -283,9 +317,12 @@ def load_election(path, race_index=0):
         "ballots": ballots_text,
         "seats": seats,
         "method": method,
+        "method_name": method_name,
         "options": options,
         "title": title,
         "description": description,
+        "eligible_voters": eligible_voters,
+        "quorum": quorum,
     }
 
 
@@ -399,6 +436,11 @@ def parse_ballots_from_string(ballot_string):
     headers = [name.strip() for name in re.split(r"[,\t]+", lines[0]) if name.strip()]
     if headers and headers[0] == "#":
         headers.pop(0)
+
+    # The first column may carry a "Count" label documenting the colon-weight
+    # prefix (e.g. "Count:Chocolate"). It's not part of the candidate name.
+    if headers and re.match(r"(?i)^count\s*:", headers[0]):
+        headers[0] = headers[0].split(":", 1)[1].strip()
 
     ballots = []
     display_rows = []  # parallel to ballots; keeps blanks visible as "-"
@@ -628,6 +670,282 @@ def print_condorcet(candidates, matrix, star_winner=None, finalists=None):
     print(f"  {analyze_condorcet(candidates, matrix, star_winner, finalists)}")
 
 
+def compute_irv_winner(candidates, ballots, priority):
+    """
+    Tabulate the same election under RCV-IRV and return the winner's name
+    (or None if unavailable / no winner).
+
+    The STAR ballots are *scores*; IRV needs *ranks*. Conversion (see
+    rcv_irv_tabulation.score_ballot_to_ranking): higher score = higher
+    preference, score 0 = unranked. IRV cannot represent equal ranks, so ties
+    between equal non-zero scores are broken by `priority` order — the same
+    left-to-right candidate priority STAR uses for its tiebreaks. This keeps the
+    two methods' tiebreak philosophy aligned (documented for the comparison).
+    """
+    if not _IRV_AVAILABLE or not candidates or not ballots:
+        return None, 0, 0
+    order = [c for c in (priority or candidates) if c in candidates]
+    for c in candidates:  # include any candidate missing from priority
+        if c not in order:
+            order.append(c)
+
+    cand_objs = {c: _IRVCandidate(c) for c in candidates}
+    pv_ballots = []
+    tie_ballots = 0  # ballots whose score->rank order depended on the tiebreak
+    for b in ballots:
+        # A consequential tie = two ranked (non-zero) candidates share a score,
+        # so their relative rank is decided by candidate priority order.
+        nonzero = [b[c] for c in candidates if b.get(c, 0) > 0]
+        if len(nonzero) != len(set(nonzero)):
+            tie_ballots += 1
+        ranking = _score_to_rank(b, order)
+        pv_ballots.append(_IRVBallot(ranked_candidates=[cand_objs[n] for n in ranking]))
+
+    try:
+        result = _pyrankvote.instant_runoff_voting(
+            list(cand_objs.values()), pv_ballots
+        )
+        winners = result.get_winners()
+        winner = winners[0].name if winners else None
+        return winner, tie_ballots, len(ballots)
+    except Exception:  # pragma: no cover
+        return None, 0, 0
+
+
+def approval_winner(candidates, ballots, priority):
+    """
+    Approval winner (single): a candidate is approved on a ballot for every
+    score of 3, 4, or 5 (stars). The candidate with the most approvals wins;
+    a tie is broken by `priority` order (left-to-right CSV column sequence) —
+    the same tiebreak STAR uses — so a single winner is returned.
+    """
+    approvals = {
+        c: sum(1 for b in ballots if b.get(c, 0) >= 3) for c in candidates
+    }
+    if not approvals:
+        return None
+    top = max(approvals.values())
+    order = [c for c in (priority or candidates) if c in candidates]
+    for c in candidates:  # any candidate missing from priority falls in last
+        if c not in order:
+            order.append(c)
+    tied = [c for c in candidates if approvals[c] == top]
+    tied.sort(key=lambda c: order.index(c))
+    return tied[0]
+
+
+def _approval_raw_problems(ballots_text):
+    """
+    Validate Approval ballots against the RAW source rows (not the parsed
+    ballots, which silently drop malformed rows). Returns (headers, problems)
+    where each problem is (row_number, raw_line, reason). Catches non-numeric
+    cells (e.g. 'a'), out-of-range values (not 0/1), and wrong column counts.
+    """
+    lines = []
+    for raw in ballots_text.strip().splitlines():
+        line = raw if raw.strip().startswith("#,") else raw.split("#")[0]
+        line = line.strip()
+        if line:
+            lines.append(line)
+    if len(lines) < 2:
+        return [], []
+
+    headers = [h.strip() for h in re.split(r"[,\t]+", lines[0]) if h.strip()]
+    if headers and headers[0] == "#":
+        headers.pop(0)
+    if headers and re.match(r"(?i)^count\s*:", headers[0]):
+        headers[0] = headers[0].split(":", 1)[1].strip()
+    count_col = bool(headers) and headers[0].lower() == "count"
+    if count_col:
+        headers.pop(0)
+
+    problems = []
+    for i, line in enumerate(lines[1:], 1):
+        parts = re.split(r"[,\t]", line)
+        m = re.match(r"\s*(\d+)\s*[:xX×]\s*(.*)", parts[0])  # weight prefix
+        if m:
+            parts = [m.group(2)] + parts[1:]
+        cells = [p.strip() for p in parts]
+        if count_col and cells:
+            cells = cells[1:]
+        if len(cells) != len(headers):
+            problems.append((i, line,
+                             f"has {len(cells)} value(s), expected {len(headers)}"))
+            continue
+        # Valid Approval cell: "1" = approved; "0", blank, or a recognized
+        # marker (e.g. "-") = not approved. Anything else is an error.
+        bad = [f"{h}={c}" for h, c in zip(headers, cells)
+               if not (c in ("0", "1", "") or c in MARKER_MEANINGS)]
+        if bad:
+            problems.append((i, line, "invalid: " + ", ".join(bad)))
+    return headers, problems
+
+
+def tabulate_approval(ballots_text, seats=1, priority=None):
+    """
+    Tabulate an Approval Voting election. Ballots are approvals, so ANY non-zero
+    score counts as one approval (unlike the 3+ stars threshold the STAR
+    comparison block uses on 0..5 score ballots).
+
+    Single-winner: the most-approved candidate wins. Multi-winner (seats >= 2)
+    uses block/at-large approval: the `seats` most-approved candidates win.
+    Ties are broken by candidate priority order (left-to-right CSV columns).
+    """
+    # Validate raw rows first, so malformed ballots error instead of being
+    # silently dropped by the shared parser.
+    header_names, problems = _approval_raw_problems(ballots_text)
+    if problems:
+        print(
+            f"{COLOR_RED}Error: Approval ballots may only use scores {{0, 1}} "
+            f"(0 = not approved, 1 = approved).{COLOR_RESET}\n"
+            f"  Offending ballot(s)  [{','.join(header_names)}]:"
+        )
+        for i, line, reason in problems:
+            print(f"    ballot {i}: {line}   ({reason})")
+        print(f"  Accepted marks: 1 (approved), 0 / blank / a marker "
+              f"({', '.join(MARKER_MEANINGS)}) = not approved.")
+        print("  Fix or remove these rows. If they are 0..5 score ballots, set "
+              "voting_method to STAR.")
+        return
+
+    candidates, ballots, _ = parse_ballots_from_string(ballots_text)
+    if not ballots:
+        print("Error: No valid ballots found in input.")
+        return
+
+    counts = {c: sum(1 for b in ballots if b.get(c, 0) > 0) for c in candidates}
+    order = [c for c in (priority or candidates) if c in candidates]
+    for c in candidates:
+        if c not in order:
+            order.append(c)
+    ranked = sorted(candidates, key=lambda c: (-counts[c], order.index(c)))
+
+    seats = max(1, min(int(seats), len(candidates)))
+    winners = ranked[:seats]
+    label = "single winner" if seats == 1 else f"{seats} winners"
+
+    total = len(ballots)
+    abstentions = sum(1 for b in ballots
+                      if all(b.get(c, 0) == 0 for c in candidates))
+
+    print(f"\n{COLOR_HEADER}--- Approval Voting ({label}) ---{COLOR_RESET}")
+    print(f" Tabulating {total} ballots (any non-zero score = approval).")
+    if abstentions:
+        cast = total - abstentions
+        print(f" Abstentions: {abstentions} of {total} ballots approved no one "
+              f"({cast} ballot{'' if cast == 1 else 's'} cast an approval).")
+    name_w = max(len(c) for c in candidates)
+    for i, c in enumerate(ranked):
+        tag = " -- Elected" if i < seats else ""
+        print(f"   {c.ljust(name_w)} -- {counts[c]}{tag}")
+
+    # Flag a tie straddling the cut and spell out exactly how it was resolved.
+    if seats < len(candidates) and counts[ranked[seats - 1]] == counts[ranked[seats]]:
+        cutoff = counts[ranked[seats - 1]]
+        tied = sorted((c for c in candidates if counts[c] == cutoff),
+                      key=lambda c: order.index(c))
+        above = sum(1 for c in candidates if counts[c] > cutoff)
+        remaining_seats = seats - above           # seats the tied group splits
+        elected_tied = [c for c in tied if c in winners]
+        missed_tied = [c for c in tied if c not in winners]
+        seat_word = "seat" if remaining_seats == 1 else "seats"
+        prio = " > ".join(tied)                    # their left-to-right priority
+        print(
+            f"  Note: {', '.join(tied)} each have {cutoff} approval"
+            f"{'' if cutoff == 1 else 's'} and tie for the last {remaining_seats} "
+            f"{seat_word}."
+        )
+        print(
+            f"        Candidate priority order ({prio}) broke the tie: "
+            f"{', '.join(elected_tied)} elected, {', '.join(missed_tied)} not elected."
+        )
+
+    word = "Winner" if seats == 1 else "Winners"
+    print(f"\n{COLOR_WINNER}{word} — Approval Voting ({label}){COLOR_RESET}")
+    print(f"  {', '.join(winners)}")
+
+
+def condorcet_winner(candidates, ballots):
+    """
+    Condorcet winner: the candidate who wins every head-to-head pairwise
+    matchup by strict majority. Returns the name, or None if none exists.
+    """
+    for c in candidates:
+        wins_all = True
+        for o in candidates:
+            if c == o:
+                continue
+            for_c = sum(1 for b in ballots if b.get(c, 0) > b.get(o, 0))
+            against_c = sum(1 for b in ballots if b.get(o, 0) > b.get(c, 0))
+            if not (for_c > against_c):
+                wins_all = False
+                break
+        if wins_all:
+            return c
+    return None
+
+
+def print_method_comparison(candidates, ballots, star_winner, priority):
+    """
+    Use STAR as the baseline and only surface the comparison when it is
+    interesting: if RCV-IRV, Approval, or Condorcet elects a DIFFERENT winner
+    than STAR, print the block; if every method agrees with STAR, print nothing.
+
+    A method "differs" when:
+      * RCV-IRV  : its winner != the STAR winner
+      * Approval : its (single) winner != the STAR winner
+      * Condorcet: a Condorcet winner exists and != the STAR winner
+        (no Condorcet winner / a cycle is not treated as a disagreement)
+    """
+    irv, tie_ballots, total = compute_irv_winner(candidates, ballots, priority)
+    approval = approval_winner(candidates, ballots, priority)
+    condorcet = condorcet_winner(candidates, ballots)
+
+    irv_diff = irv is not None and irv != star_winner
+    approval_diff = approval is not None and approval != star_winner
+    condorcet_diff = condorcet is not None and condorcet != star_winner
+
+    if not (irv_diff or approval_diff or condorcet_diff):
+        return  # every method agrees with STAR — nothing to learn here
+
+    def line(label, value, differs, width):
+        tag = "   (differs from STAR)" if differs else ""
+        return f"  {label.ljust(width)} = {value}{tag}"
+
+    # "Condorcet" (9) is the widest label whenever it is shown.
+    width = 9 if condorcet is not None else 8
+
+    print("\n[Divergence from STAR]")
+    print(line("STAR", star_winner if star_winner else "(tie)", False, width))
+    print(line("RCV-IRV", irv if irv else "(none)", irv_diff, width))
+    print(line("Approval", approval if approval else "(none)",
+               approval_diff, width))
+    if condorcet is not None:
+        print(line("Condorcet", condorcet, condorcet_diff, width))
+
+    # Smart note: when RCV-IRV differs, say whether the score->rank tiebreak
+    # could be responsible (an artifact) or not (a genuine method difference).
+    def _note(text):
+        # Wrap to a readable width with a hanging indent under "Note: ".
+        print(textwrap.fill(text, width=76, initial_indent="  ",
+                            subsequent_indent="        "))
+
+    if irv_diff:
+        if tie_ballots:
+            pct = (100 * tie_ballots / total) if total else 0
+            _note(
+                f"Note: {tie_ballots} of {total} ballots ({pct:.0f}%) had equal "
+                f"non-zero scores, so their ranks were decided by candidate "
+                f"priority order. The RCV-IRV result may be an artifact of "
+                f"score-to-rank tie-breaking rather than a deep difference."
+            )
+        else:
+            _note(
+                f"Note: no ballots had tied scores, so RCV-IRV vs STAR here is a "
+                f"genuine method difference, not a tie-breaking artifact."
+            )
+
+
 def markers_used(display_rows):
     """Return the marker characters that actually appear, in MARKER_MEANINGS order."""
     seen = set()
@@ -637,6 +955,72 @@ def markers_used(display_rows):
             if cell in MARKER_MEANINGS:
                 seen.add(cell)
     return [m for m in MARKER_MEANINGS if m in seen]
+
+
+def classify_ballot(display_row, candidates=None):
+    """
+    Label "special" ballot rows for the echo, or return None for a normal
+    fully-scored preference ballot. Buckets:
+      * abstention — whole race : explicit race-abstention mark (e.g. "~,~,~")
+      * abstention — left blank : every candidate blank, no score ("-,-,-")
+      * spoiled ballot          : full row of a spoiled marker ("?" / "%")
+      * cast, no support        : has scores, but none above 0 ("0,0,0", "-,-,-,0")
+      * cast, equal support (no preference) : every candidate the same score > 0
+      * partial — left blank    : some candidates scored, others left blank
+                                  ("-,-,1,1"); the blanks count as 0
+    """
+    cells = [c.strip() for c in display_row.split(",")]
+    digits = [c for c in cells if c.isdigit()]
+    nonblank = [c for c in cells if c != ""]
+
+    if not digits:  # no numeric score at all -> an abstention of some kind
+        if nonblank and all(c == "~" for c in nonblank):
+            return "abstention — whole race"
+        if nonblank and all(c in ("?", "%") for c in nonblank) \
+                and len(set(nonblank)) == 1:
+            return "spoiled ballot"
+        return "abstention — left blank"
+
+    blank_idx = [i for i, c in enumerate(cells) if not c.isdigit()]
+
+    def _blanks():
+        if candidates and len(candidates) == len(cells):
+            return ", ".join(candidates[i] for i in blank_idx)
+        return "some candidates"
+
+    if all(int(c) == 0 for c in digits):
+        # Supports no one; still note any left-blank candidates so the label is
+        # consistent with the partial case below.
+        if blank_idx:
+            return f"cast, no support — {_blanks()} left blank"
+        return "cast, no support"
+
+    # Every candidate scored the same value > 0 (no blanks): a real vote with
+    # no preference between candidates.
+    if len(digits) == len(cells) and len(set(digits)) == 1 and int(digits[0]) > 0:
+        return "cast, equal support (no preference)"
+
+    # Partial: some candidates scored above 0, others left blank (a marker, not
+    # an explicit 0). The blanks count as 0.
+    if blank_idx:
+        return f"partial — {_blanks()} left blank (counts as 0)"
+
+    return None
+
+
+def _append_ballot_flags(body_rows):
+    """
+    body_rows: list of (row_text, label_or_None). Append an aligned trailing
+    "# label" comment to flagged rows; leave normal rows untouched. The comments
+    are '#' comments, so the echo still round-trips as valid input.
+    """
+    if not any(label for _, label in body_rows):
+        return [t for t, _ in body_rows]
+    pad = max(len(t) for t, _ in body_rows)
+    out = []
+    for t, label in body_rows:
+        out.append(f"{t.ljust(pad)}   # {label}" if label else t)
+    return out
 
 
 def print_marker_legend(used):
@@ -797,6 +1181,122 @@ def print_extended_analysis(ballots, winners):
 # ---
 # 3. EXECUTION LOGIC
 # ---
+def evaluate_quorum(participation, total_cast, eligible_voters, quorum_spec):
+    """
+    Decide whether an election meets quorum.
+
+    participation : ballots counting toward quorum (abstentions INCLUDED, since a
+                    cast abstention is still participation).
+    total_cast    : total ballots cast (for messaging).
+    eligible_voters: size of the electorate, or None if unknown.
+    quorum_spec   : None  -> default = majority (>50%) of eligible voters
+                    "50%" / 0.5 -> a fraction of eligible voters
+                    integer >= 1 -> an absolute minimum number of ballots
+
+    Returns (met, message):
+      met = True / False / None  (None = cannot be assessed)
+    """
+    # Interpret the spec into either a fraction (of eligible) or absolute count.
+    fraction = None
+    absolute = None
+    default_used = quorum_spec is None
+    if quorum_spec is None:
+        fraction = 0.5  # majority of eligible voters
+    elif isinstance(quorum_spec, str) and quorum_spec.strip().endswith("%"):
+        fraction = float(quorum_spec.strip().rstrip("%")) / 100.0
+    else:
+        v = float(quorum_spec)
+        if 0 < v <= 1:
+            fraction = v
+        else:
+            absolute = int(round(v))
+
+    if absolute is not None:
+        met = participation >= absolute
+        msg = (f"Quorum: {participation} of {total_cast} ballots count toward "
+               f"quorum; requires at least {absolute}. "
+               f"{'MET' if met else 'NOT MET'}.")
+        return met, msg
+
+    # Fraction of eligible voters — needs the electorate size.
+    if not eligible_voters:
+        how = "default majority (>50%)" if default_used else f"{fraction:.0%}"
+        return None, (
+            f"Quorum not assessed: a turnout quorum ({how} of eligible voters) "
+            f"needs an 'eligible_voters:' field, which is not set. "
+            f"({total_cast} ballots cast.)"
+        )
+    required = math.floor(fraction * eligible_voters) + 1  # strictly more than
+    met = participation >= required
+    turnout = participation / eligible_voters * 100
+    msg = (f"Quorum: {participation} of {eligible_voters} eligible voters "
+           f"participated ({turnout:.0f}% turnout); requires more than "
+           f"{fraction:.0%} (>= {required}). {'MET' if met else 'NOT MET'}.")
+    return met, msg
+
+
+def validate_star_rows(ballots_text, max_score=5):
+    """
+    Validate STAR score rows against the RAW source (so malformed rows error
+    instead of being silently dropped by the parser). Only standard comma/tab
+    grids are checked; the compact underscore format (e.g. "052_225") is left to
+    the parser. A cell is valid if it is an int 0..max_score, blank, or a
+    recognized marker. Returns (headers, problems) with (row_number, raw, reason).
+    """
+    lines = []
+    for raw in ballots_text.strip().splitlines():
+        line = raw if raw.strip().startswith("#,") else raw.split("#")[0]
+        line = line.strip()
+        if line:
+            lines.append(line)
+    if len(lines) < 2:
+        return [], []
+
+    headers = [h.strip() for h in re.split(r"[,\t]+", lines[0]) if h.strip()]
+    if headers and headers[0] == "#":
+        headers.pop(0)
+    if headers and re.match(r"(?i)^count\s*:", headers[0]):
+        headers[0] = headers[0].split(":", 1)[1].strip()
+    count_col = bool(headers) and headers[0].lower() == "count"
+    if count_col:
+        headers.pop(0)
+
+    problems = []
+    for i, line in enumerate(lines[1:], 1):
+        if "," not in line and "\t" not in line:
+            continue  # compact underscore / single token -> leave to the parser
+        parts = re.split(r"[,\t]", line)
+        m = re.match(r"\s*(\d+)\s*[:xX×]\s*(.*)", parts[0])  # weight prefix
+        if m:
+            parts = [m.group(2)] + parts[1:]
+        cells = [p.strip() for p in parts]
+        if count_col and cells:
+            cells = cells[1:]
+        # A full row of one ballot-level marker (e.g. "~,~,~") is valid.
+        nonblank = [c for c in cells if c != ""]
+        if (nonblank and len(set(nonblank)) == 1
+                and nonblank[0] in BALLOT_LEVEL_MARKERS):
+            continue
+        if len(cells) != len(headers):
+            problems.append((i, line,
+                             f"has {len(cells)} value(s), expected {len(headers)}"))
+            continue
+        bad = []
+        for h, c in zip(headers, cells):
+            if c == "" or c in MARKER_MEANINGS:
+                continue
+            try:
+                v = int(c)
+            except ValueError:
+                bad.append(f"{h}={c}")
+                continue
+            if not (0 <= v <= max_score):
+                bad.append(f"{h}={c}")
+        if bad:
+            problems.append((i, line, "invalid: " + ", ".join(bad)))
+    return headers, problems
+
+
 def run_election(
     csv_input,
     lot_numbers,
@@ -811,9 +1311,34 @@ def run_election(
     count_separator="×",
     title=None,
     description=None,
+    show_irv=False,
+    eligible_voters=None,
+    quorum=None,
 ):
     if method is None:
         method = starvote.star
+
+    # Reject method/seats mismatches up front (before any tabulation), so the
+    # intent must be corrected rather than silently guessed.
+    method_name = getattr(method, "name", str(method))
+    single_winner = method is starvote.star
+    if single_winner and seats > 1:
+        print(
+            f"{COLOR_RED}Error:{COLOR_RESET} {method_name} elects a single winner,\n"
+            f"  but got seats={seats}.\n"
+            f"  Fix: set seats=1 (num_winners: 1),\n"
+            f"       or choose a multi-winner method to elect {seats} winners:\n"
+            f"       starvote.bloc, starvote.sss, starvote.rrv, starvote.allocated."
+        )
+        sys.exit(1)
+    if not single_winner and seats == 1:
+        print(
+            f"{COLOR_RED}Error:{COLOR_RESET} {method_name} elects multiple winners,\n"
+            f"  but got seats=1 (requires seats >= 2).\n"
+            f"  Fix: set seats to the number of winners you want,\n"
+            f"       or use method=starvote.star for a single winner."
+        )
+        sys.exit(1)
 
     # Optional scenario context from the YAML (election_title / scenario_description).
     if title or description:
@@ -823,12 +1348,63 @@ def run_election(
             for line in str(description).splitlines():
                 print(f"  {line}" if line.strip() else "")
 
+    # Validate raw rows first, so invalid characters / out-of-range scores /
+    # wrong column counts error instead of being silently dropped.
+    _hdrs, _star_problems = validate_star_rows(csv_input, max_score=5)
+    if _star_problems:
+        print(
+            f"{COLOR_RED}Error: STAR ballots use scores 0..5 "
+            f"(blank or a marker counts as 0).{COLOR_RESET}\n"
+            f"  Offending ballot(s)  [{','.join(_hdrs)}]:"
+        )
+        for _i, _line, _reason in _star_problems:
+            print(f"    ballot {_i}: {_line}   ({_reason})")
+        print(f"  Accepted marks: 0..5, blank, or a marker "
+              f"({', '.join(MARKER_MEANINGS)}).")
+        sys.exit(1)
+
     # Parse once, return both headers and parsed ballots
     candidates, ballots, display_rows = parse_ballots_from_string(csv_input)
 
     if not ballots:
-        print("Error: No valid ballots found in input.")
+        # A '>' in the input means these are ranked ballots (e.g. "A>C>B"),
+        # which STAR cannot tabulate — it needs scores. Point the user to the
+        # RCV-IRV engine instead of a bare "no ballots" error.
+        if ">" in (csv_input or ""):
+            print(
+                "Error: this file contains RANKED ballots (e.g. 'A>C>B'), which "
+                "the STAR engine cannot tabulate — STAR needs score ballots.\n"
+                "  Run it through the RCV-IRV engine instead:\n"
+                "    python RCV_IRV_tabulation_engine/rcv_irv_tabulation.py "
+                "<this_file>.yaml"
+            )
+        else:
+            print("Error: No valid ballots found in input.")
         return
+
+    # Quorum check (before declaring any winner). Only engaged when the file
+    # opts in via eligible_voters and/or quorum; otherwise behaves as before.
+    # Abstentions count toward quorum (a cast ballot is participation), so
+    # participation = total ballots cast.
+    if eligible_voters is not None or quorum is not None:
+        _q_label = "single winner" if seats == 1 else f"{seats} winners"
+        quorum_met, quorum_msg = evaluate_quorum(
+            participation=len(ballots),
+            total_cast=len(ballots),
+            eligible_voters=eligible_voters,
+            quorum_spec=quorum,
+        )
+        if quorum_met is False:
+            print(f"\n{COLOR_HEADER}--- {method_name} Method ({_q_label}) "
+                  f"---{COLOR_RESET}")
+            print(f"{COLOR_RED} {quorum_msg}{COLOR_RESET}")
+            print(f"{COLOR_RED} No winner declared — quorum not reached."
+                  f"{COLOR_RESET}")
+            return
+        if quorum_met is None:
+            print(f"{COLOR_DIM} {quorum_msg}{COLOR_RESET}")  # warning, continue
+        else:
+            print(f" {quorum_msg}")  # quorum MET
 
     # Which marker characters actually appear (for the legend).
     used_markers = markers_used(display_rows)
@@ -876,34 +1452,17 @@ def run_election(
         if show_condorcet:
             print_condorcet(candidates, matrix, star_winner, finalists)
 
-        print_extended_analysis(ballots, winners_silent)
+        # Always show the RCV-IRV / STAR / Approval comparison (Condorcet line
+        # appears only when it differs from all three). priority == STAR's
+        # tiebreak order, used for the score->rank conversion.
+        print_method_comparison(candidates, ballots, star_winner, priority)
 
-    # Reject method/seats mismatches before tabulating — the intent is
-    # ambiguous, so make the user correct it rather than silently guessing.
-    method_name = getattr(method, "name", str(method))
-    single_winner = method is starvote.star
-    if single_winner and seats > 1:
-        print(
-            f"{COLOR_RED}Error:{COLOR_RESET} {method_name} elects a single winner,\n"
-            f"  but got seats={seats}.\n"
-            f"  Fix: set seats=1,\n"
-            f"       or choose a multi-winner method to elect {seats} winners:\n"
-            f"       starvote.bloc, starvote.sss,\n"
-            f"       starvote.rrv, starvote.allocated."
-        )
-        sys.exit(1)
-    if not single_winner and seats == 1:
-        print(
-            f"{COLOR_RED}Error:{COLOR_RESET} {method_name} elects multiple winners,\n"
-            f"  but got seats=1 (requires seats >= 2).\n"
-            f"  Fix: set seats to the number of winners you want,\n"
-            f"       or use method=starvote.star for a single winner."
-        )
-        sys.exit(1)
+        print_extended_analysis(ballots, winners_silent)
 
     # Header banner naming the actual method + winner count.
     winners_label = "single winner" if seats == 1 else f"{seats} winners"
-    print(f"\n{COLOR_HEADER}--- {method_name} ({winners_label}) ---{COLOR_RESET}")
+    method_label = method_name if method_name.endswith("Voting") else f"{method_name} Voting"
+    print(f"\n{COLOR_HEADER}--- {method_label} Method ({winners_label}) ---{COLOR_RESET}")
 
     # Intercept the engine's print() to fix grammar and relabel the
     # "No Preference" bucket, re-aligning score columns so the longer
@@ -911,6 +1470,9 @@ def run_election(
     EQUAL_LABEL = "Equal Support"  # EVC (Equal Vote Coalition) terminology
     EQUAL_NOTE = "(aka Equal Preference, No Preference)"  # appended inline after value
     row_re = re.compile(r"^(\s*)(\S.*?)\s+--\s+(.*)$")
+    # Pad the label column to the widest of any candidate name or "Equal Support"
+    # so the " -- " separators line up even for long names like "Chocolate Chip".
+    label_width = max([len(EQUAL_LABEL)] + [len(c) for c in candidates])
 
     # Round grouping: draw a faint rule before each new round's Scoring Round
     # header (but not the first), so multi-round methods like Bloc STAR read as
@@ -973,8 +1535,15 @@ def run_election(
                     # Restate the method on the final Winner(s) line, since the
                     # top banner has usually scrolled off by then.
                     if label in ("Winner", "Winners"):
-                        label = f"{label} ({method_name} Method — {winners_label})"
-                    text = f"{header_color(label)}{label}{COLOR_RESET}"
+                        # "Winner" stays green; the restated method matches the
+                        # purple top banner.
+                        suffix = f" — {method_label} Method ({winners_label})"
+                        text = (
+                            f"{COLOR_WINNER}{label}{COLOR_RESET}"
+                            f"{COLOR_HEADER}{suffix}{COLOR_RESET}"
+                        )
+                    else:
+                        text = f"{header_color(label)}{label}{COLOR_RESET}"
                     args = (text + trailing,) + args[1:]
                     print(*args, **kwargs)
                 else:
@@ -986,7 +1555,7 @@ def run_election(
                 inner_nb = stripped[1:-1]
                 if inner_nb.rsplit(":", 1)[-1].strip() in ("Winner", "Winners"):
                     stripped = (
-                        f"{stripped[:-1]} ({method_name} Method — {winners_label})]"
+                        f"{stripped[:-1]} — {method_label} Method ({winners_label})]"
                     )
                 text = f"{header_color(stripped)}{stripped}{COLOR_RESET}"
                 args = (text + trailing,) + args[1:]
@@ -999,6 +1568,23 @@ def run_election(
             # 1b. After the "Tabulating N ballot(s)." line, list the
             #     normalized ballots as Standard CSV.
             if text.lstrip().startswith("Tabulating ") and "ballot" in text:
+                # Note true abstentions: ballots that recorded NO numeric score
+                # for any candidate — i.e. entirely blank / abstention markers
+                # (e.g. "~,~,~" or "-,-,-"). An explicit all-zeros ballot
+                # ("0,0,0") is a cast ballot that supports no one, NOT an
+                # abstention, so it is not counted here.
+                _abs = sum(
+                    1 for r in display_rows
+                    if not any(cell.strip().isdigit() for cell in r.split(","))
+                )
+                if _abs:
+                    _n = len(ballots)
+                    if _abs == 1:
+                        text += f" Note: 1 of {_n} ballots is marked as an abstention."
+                    else:
+                        text += (f" Note: {_abs} of {_n} ballots are marked as "
+                                 f"abstentions.")
+
                 # Echo keeps original markers (display_rows), faithful to source,
                 # followed by a legend for any markers used. Each column is padded
                 # to its widest cell so it lines up — still valid, parseable CSV.
@@ -1018,30 +1604,59 @@ def run_election(
                         max(len(candidates[i]), max(len(rc[i]) for rc in rows))
                         for i in range(ncols)
                     ]
-                    count_w = max(len(str(counts[r])) for r in unique)
+                    count_w = max(len("Count"), max(len(str(counts[r])) for r in unique))
                     # count_separator (":", "x"/"X", or "×") all round-trip.
                     sep = f" {count_separator} "
                     csv_rows = [
-                        " " * (count_w + len(sep))
+                        "Count".rjust(count_w)
+                        + sep
                         + ",".join(candidates[i].rjust(widths[i]) for i in range(ncols))
                     ]
+                    body_rows = []
                     for r in unique:
                         rc = r.split(",")
                         body = ",".join(rc[i].rjust(widths[i]) for i in range(ncols))
-                        csv_rows.append(f"{str(counts[r]).rjust(count_w)}{sep}{body}")
+                        body_rows.append(
+                            (f"{str(counts[r]).rjust(count_w)}{sep}{body}",
+                             classify_ballot(r, candidates))
+                        )
+                    csv_rows += _append_ballot_flags(body_rows)
                 else:
-                    grid = [list(candidates)] + [r.split(",") for r in display_rows]
-                    widths = [max(len(row[i]) for row in grid) for i in range(ncols)]
+                    grid = [r.split(",") for r in display_rows]
+                    header = list(candidates)
+                    widths = [max(len(row[i]) for row in ([header] + grid))
+                              for i in range(ncols)]
                     csv_rows = [
-                        ",".join(c.rjust(widths[i]) for i, c in enumerate(row))
-                        for row in grid
+                        ",".join(c.rjust(widths[i]) for i, c in enumerate(header))
                     ]
+                    body_rows = [
+                        (",".join(c.rjust(widths[i]) for i, c in enumerate(row)),
+                         classify_ballot(display_rows[j], candidates))
+                        for j, row in enumerate(grid)
+                    ]
+                    csv_rows += _append_ballot_flags(body_rows)
                 if used_markers:
                     csv_rows.append("")
                     csv_rows.append("[Legend] (these all count as score 0)")
                     csv_rows += [
                         f"  {mk}  {MARKER_MEANINGS[mk]}" for mk in used_markers
                     ]
+                    # Clarify the blank-vs-explicit-zero distinction only when a
+                    # blank actually appears (common with BetterVoting exports /
+                    # hand-punched paper ballots).
+                    if "-" in used_markers:
+                        csv_rows.append(
+                            "  Note: '-' = candidate left blank / skipped "
+                            "(e.g. BetterVoting export);"
+                        )
+                        csv_rows.append(
+                            "        '0' = explicitly scored zero. Both tabulate "
+                            "as 0 stars — the"
+                        )
+                        csv_rows.append(
+                            "        difference only preserves voter intent "
+                            "(skipped vs rated low)."
+                        )
                 text = text + "\n" + "\n".join(csv_rows)
 
             # 2. Relabel the no-preference bucket.
@@ -1060,7 +1675,7 @@ def run_election(
                     rest = f"{rest} {EQUAL_NOTE}"
                 if round_state["in_runoff"]:
                     rest = colorize_runoff_value(label.strip(), rest)
-                text = f"{indent}{label:<{len(EQUAL_LABEL)}} -- {rest}"
+                text = f"{indent}{label:<{label_width}} -- {rest}"
 
             args = (text + trailing,) + args[1:]
         print(*args, **kwargs)
@@ -1096,6 +1711,11 @@ if __name__ == "__main__":
     # FLAG: Set to False to hide the [Condorcet Winner] line.
     # Independent of SHOW_MATRIX — prints by default even when the matrix is off.
     SHOW_CONDORCET = False
+
+    # NOTE: The [RCV-IRV, STAR, and Approval comparison] block is now ALWAYS
+    # printed, so this flag no longer gates it; it is kept only so existing
+    # YAML `options:` blocks that set show_irv still parse without error.
+    SHOW_IRV = False
 
     # FLAG: Set to False to hide the per-candidate [Score Distribution] table.
     SHOW_SCORE_COUNTS = False
@@ -1152,6 +1772,62 @@ Memphis,Nashville,Chattanooga,Knoxville
     if BALLOTS_FILE:
         election = load_election(BALLOTS_FILE)
         csv_input = election["ballots"]
+
+        # On-the-fly engine dispatch based on the declared voting_method (or the
+        # ballot style), so one command routes STAR / RCV-IRV / Approval files.
+        import difflib
+
+        _mname = str(election.get("method_name") or "").strip().lower()
+        _is_rcv = _mname in {"rcv", "irv", "rcv_irv", "rcv-irv", "rcv/irv",
+                             "ranked_choice", "instant_runoff"}
+        # Approval and its explicit single/multi-winner variants, tolerant of
+        # typos like "Arroval". A name carrying "multi"/"single" must agree with
+        # num_winners (checked below).
+        _norm = _mname.replace("-", "_")
+        _is_approval = (
+            "approval" in _norm
+            or _norm in {"approve", "av"}
+            or bool(difflib.get_close_matches(_norm, ["approval"], cutoff=0.6))
+        )
+
+        # Ranked ballots ("A>C>B") can only be RCV-IRV, regardless of the label.
+        if _is_rcv or ">" in (csv_input or ""):
+            if _IRV_AVAILABLE:
+                import rcv_irv_tabulation
+                rcv_irv_tabulation.run(BALLOTS_FILE)
+                sys.exit(0)
+            print("Error: this file needs the RCV-IRV engine, but it could not "
+                  "be imported (RCV_IRV_tabulation_engine missing?).")
+            sys.exit(1)
+
+        if _is_approval:
+            _seats = election["seats"] if election["seats"] is not None else 1
+            _raw = election.get("method_name")
+            # Plain "Approval" means SINGLE winner. Multi-winner must be opted
+            # into explicitly (Approval_Multi_Winner / block / *_mw).
+            _wants_multi = ("multi" in _norm or "block" in _norm
+                            or _norm.endswith("_mw"))
+
+            # The method name must not contradict num_winners.
+            if _wants_multi and _seats < 2:
+                print(f"{COLOR_RED}Error: voting_method '{_raw}' is multi-winner, "
+                      f"but num_winners is {_seats}.{COLOR_RESET}\n"
+                      f"  Set num_winners >= 2, or use voting_method: Approval "
+                      f"(single winner).")
+                sys.exit(1)
+            if not _wants_multi and _seats > 1:
+                print(f"{COLOR_RED}Error: voting_method '{_raw}' is single-winner, "
+                      f"but num_winners is {_seats}.{COLOR_RESET}\n"
+                      f"  For multiple seats, use voting_method: "
+                      f"Approval_Multi_Winner; otherwise set num_winners: 1.")
+                sys.exit(1)
+
+            if _norm not in {"approval", "approve", "av", "approval_voting",
+                             "approval_single_winner", "approval_multi_winner"}:
+                print(f"(Interpreting voting_method '{_raw}' as Approval.)")
+            tabulate_approval(csv_input, seats=_seats)
+            sys.exit(0)
+
         if election["seats"] is not None:
             SEATS = election["seats"]
         if election["method"] is not None:
@@ -1183,6 +1859,8 @@ Memphis,Nashville,Chattanooga,Knoxville
             MATRIX_FINALISTS_ONLY = _as_bool(opts["matrix_finalists_only"])
         if "show_condorcet" in opts:
             SHOW_CONDORCET = _as_bool(opts["show_condorcet"])
+        if "show_irv" in opts:
+            SHOW_IRV = _as_bool(opts["show_irv"])
         if "show_score_counts" in opts:
             SHOW_SCORE_COUNTS = _as_bool(opts["show_score_counts"])
         if "brief" in opts:
@@ -1202,8 +1880,11 @@ Memphis,Nashville,Chattanooga,Knoxville
         show_score_counts=SHOW_SCORE_COUNTS,
         collapse_ballots=COLLAPSE_BALLOTS,
         count_separator=COUNT_SEPARATOR,
+        show_irv=SHOW_IRV,
         title=(election["title"] if BALLOTS_FILE else None),
         description=(election["description"] if BALLOTS_FILE else None),
+        eligible_voters=(election["eligible_voters"] if BALLOTS_FILE else None),
+        quorum=(election["quorum"] if BALLOTS_FILE else None),
     )
 
     if BALLOTS_FILE:
@@ -1218,8 +1899,15 @@ Memphis,Nashville,Chattanooga,Knoxville
 
         def _capture(kwargs):
             b = io.StringIO()
-            with contextlib.redirect_stdout(b):
-                w = run_election(csv_input, LOT_NUMBERS, **kwargs)
+            try:
+                with contextlib.redirect_stdout(b):
+                    w = run_election(csv_input, LOT_NUMBERS, **kwargs)
+            except SystemExit:
+                # run_election bailed out (e.g. a method/seats mismatch error).
+                # Flush what it printed so the message isn't swallowed, then
+                # propagate the exit code.
+                sys.stdout.write(b.getvalue())
+                raise
             return w, b.getvalue()
 
         # On-screen render: honors the file's own options.
@@ -1239,6 +1927,7 @@ Memphis,Nashville,Chattanooga,Knoxville
             show_score_counts=True,
             brief=False,
             collapse_ballots=True,  # collapsed counts are clearer than a raw dump
+            show_irv=True,
         )
         _, file_out = _capture(full_kwargs)
 

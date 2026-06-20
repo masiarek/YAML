@@ -1,0 +1,52 @@
+# Proportional multi-winner example: Sequentially Spent Score (SSS).
+# Run: python starvote_larry_hastings.py \
+#        "elections_illustrations/02_Multi_winner/02b_c5_b21_proportional-sss.yaml"
+#
+# SSS is a modern proportional-score method with strong monotonicity behaviour.
+# After each seat, the ballots that elected the winner have score "spent" in
+# proportion to how much they supported them. Like Allocated Score, it gives a
+# cohesive minority representation that Bloc STAR would deny.
+#
+# Same ballots as proportional_allocated_score.yaml so you can compare methods:
+# switch voting_method between `sss`, `allocated`, `rrv`, and `bloc`.
+
+election_title: Proportional STAR — Sequentially Spent Score
+scenario_description: |-
+  Same majority/minority ballots as the Allocated Score example, tabulated with
+  Sequentially Spent Score (SSS), a modern proportional-score method. The
+  minority bloc again earns a seat that Bloc STAR would deny.
+
+# Presenter notes (ignored by the engine; not shown to the audience).
+video_script: |-
+  SAY: "Same election, a different proportional method - Sequentially Spent
+       Score. Same fair outcome: the minority still earns a seat."
+  HOW: Run right after Allocated Score; emphasize the winners match. The point
+       is that 'proportional' isn't one trick - several methods achieve it.
+  WHY: Show robustness - fair representation isn't an artifact of one algorithm.
+  TRANSITION: "One more, for comparison: Reweighted Range Voting - older, not
+       part of the STAR family, but it lands in the same place here."
+
+num_winners: 3
+voting_method: sss
+
+options:
+  show_matrix: false
+  show_condorcet: false
+  show_score_counts: true
+  brief: true
+  collapse_ballots: true
+
+ballots: |-
+  Alice,Ben,Cara,Dan,Eve
+  6: 5, 4, 3, 0, 0
+  4: 4, 5, 3, 0, 0
+  3: 3, 4, 5, 0, 0
+  5: 0, 0, 0, 5, 4
+  3: 0, 0, 0, 4, 5
+
+expected_winners:
+  - Alice
+  - Ben
+  - Dan
+
+# file: 02b_c5_b21_proportional-sss.yaml

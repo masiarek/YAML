@@ -1,0 +1,34 @@
+election_title: Unanimous ballots (five candidates)
+scenario_description: |-
+  Every voter casts an identical ballot, so the outcome is unanimous and the
+  finalists are never in doubt. A simple sanity check / smallest-contrast case
+  for the five-candidate display.
+
+# Presenter notes (ignored by the engine; not shown to the audience).
+video_script: |-
+  SAY: "An edge case for completeness: everyone votes identically. The result is
+       unanimous - no drama, no ties. Useful as a sanity check."
+  HOW: Quick. Skip in a time-limited session.
+  WHY: Shows STAR behaves sensibly in the degenerate 'everyone agrees' case, and
+       gives a clean five-candidate display to point at.
+  TRANSITION: "Now a famous real-world-flavored example before we leave
+       single-winner: the Tennessee state-capital problem."
+
+options:
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: true
+  show_score_counts: false
+
+num_winners: 1
+voting_method: STAR
+ballots: |-
+  Andre,Blake,Carmen,David,Ella
+      5,    1,     4,    3,   0
+      5,    1,     4,    3,   0
+      5,    1,     4,    3,   0
+
+expected_winners:
+  - Andre
+
+# file: 05a_c5_b3_unanimous-ballots.yaml

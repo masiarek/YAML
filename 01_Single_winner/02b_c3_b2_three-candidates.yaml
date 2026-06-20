@@ -1,0 +1,42 @@
+election_title: Three candidates, two ballots - single-winner STAR
+scenario_description: |-
+  Election: Pick your favorite ice cream flavor. Two voters (two ballots).
+  Same as before, but now we add a second ballot from David.
+
+  David:
+  - He likes Vanilla best (5 stars)
+  - He quite likes Almond (4 stars)
+  - He dislikes Choco (0 stars)
+
+  Watch the winner change. Choco flavor candidate is polarizing (Caroline 5, David 0), while
+  Vanilla has broad support (Caroline 3, David 5) - so Vanilla now wins. 
+  STAR rewards the broadly-liked compromise over a candidate that half the voters reject.
+
+# Presenter notes (ignored by the engine; not shown to the audience). THIS IS THE PAYOFF.
+video_script: |-
+  SAY: "One more voter, David, and the winner flips from Choco to Vanilla. Why?
+       Choco is polarizing - one voter loves it, one rejects it. Vanilla is the
+       flavor BOTH can live with."
+  HOW: This is the 'aha'. Slow down. Contrast Choco's 5/0 split with Vanilla's
+       3/5. Let the flip land before explaining.
+  WHY: This is the whole reason STAR exists - it elects the broadly-supported
+       compromise instead of a divisive plurality winner. Everything before this
+       was setup for this moment.
+  POINT OUT (if asked): The runoff here is actually a 1-1 tie (each voter
+       prefers a different finalist); it's broken by the score round, where
+       Vanilla led 8 to 5. Only mention this if someone asks "why Vanilla if
+       it's 1-1?".
+  TRANSITION: "That's the core idea. Now let's look at how you're ALLOWED to
+       fill out a ballot - bullet votes, equal scores, and low scores."
+
+voting_method: STAR   # STAR Voting - Single-winner
+num_winners: 1
+ballots: |-
+  Choco,Vanilla,Almond
+      5,      3,     0 # Caroline likes Choco (5) and Vanilla (3)
+      0,      5,     4 # David likes Vanilla (5) best and Almond (4)
+
+expected_winners:
+  - Vanilla
+
+# file: 02b_c3_b2_three-candidates.yaml

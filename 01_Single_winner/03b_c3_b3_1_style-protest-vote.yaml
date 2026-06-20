@@ -1,0 +1,36 @@
+election_title: Voting styles — low-score ballots
+scenario_description: |-
+  What if you dislike all the candidates? You can still vote: even low scores
+  register a relative preference, and STAR will count them. Here every voter
+  scores only 0s and 1s, yet a winner still emerges (Almond) from the 1s.
+
+#  Caveat worth teaching: compressing all your scores into the bottom of the
+#  0-5 range also shrinks your ballot's influence in the score round. Expressing
+#  a "least-bad" choice counts - but using the full range expresses it louder.
+
+# Presenter notes (ignored by the engine; not shown to the audience).
+video_script: |-
+  SAY: "The opposite of a bullet vote: what if you dislike everyone? You can
+       still vote. Even all 0s and 1s register a relative preference, and STAR
+       counts it - here Almond wins on the 1s."
+  HOW: Reassuring tone - this answers 'do I have to like someone?'. No.
+  WHY: Show that minimal, low-score ballots are valid and still decide outcomes.
+  POINT OUT: Honest caveat - scoring everyone low also shrinks your influence in
+       the scoring round. A least-bad choice counts; the full range counts
+       louder. (Don't sell low-scoring as a smart strategy.)
+  TRANSITION: "Does the absolute number matter, or just the order? Let's test
+       that next by raising those scores."
+
+voting_method: STAR   # STAR Voting - Single-winner
+
+num_winners: 1
+ballots: |-
+  Choco,Almond,Vanilla
+      0,     1,      0   # least-bad = Almond
+      0,     0,      1   # least-bad = Vanilla
+      0,     1,      0   # least-bad = Almond
+
+expected_winners:
+  - Almond
+
+# file: 03b_c3_b3_1_style-protest-vote.yaml
