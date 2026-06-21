@@ -1,0 +1,12 @@
+voting_method: RCV_IRV   # RCV-IRV — monotonicity demo (BEFORE: X wins)
+num_winners: 1
+
+# Non-monotonicity demo, part 1 of 2 (see _after). Classic 3-candidate example.
+# 34 voters. Round 1: X 12, Y 12, Z 10 -> Z eliminated; Z>X transfers -> X 22. X WINS.
+# Then in the _after file, 4 voters RAISE X to first (X>Y) and X LOSES — the paradox.
+ballots: |-
+  12:X>Y
+  12:Y>Z
+  10:Z>X
+
+# file: monotonicity_irv_before.yaml

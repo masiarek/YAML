@@ -1,0 +1,35 @@
+election_title: Monotonicity — STAR counterpart (AFTER — X still wins)
+scenario_description: |-
+  The ONLY change from _before: 4 voters raise X to the top (their ballot goes from
+  Y>Z to X>Y, i.e. scores 0,5,3 → 5,3,0). X gained support.
+
+  STAR still elects X — raising the winner did not hurt them. Compare the RCV-IRV
+  twin (01_Single_winner/monotonicity_irv_after.yaml), where the same change makes
+  X LOSE to Z. The [Divergence from STAR] block below shows RCV-IRV electing Z on
+  these very ballots: STAR is monotone, RCV-IRV is not.
+  See 00_start_here/concepts/monotonicity.md.
+
+options:
+  show_description: true
+  show_matrix: true
+  matrix_finalists_only: false
+  show_condorcet: true
+  show_score_counts: true
+  show_irv: true                # show the [Divergence from STAR] RCV-IRV comparison
+  brief: false
+  collapse_ballots: true
+  count_separator: "×"
+
+voting_method: STAR
+num_winners: 1
+
+ballots: |-
+  Count:X,Y,Z
+  16:5,3,0   # X>Y  (12 + the 4 who raised X)
+  8:0,5,3    # Y>Z
+  10:3,0,5   # Z>X
+
+expected_winners:
+  - X
+
+# file: monotonicity_star_after.yaml

@@ -1,0 +1,13 @@
+voting_method: RCV_IRV   # RCV-IRV — monotonicity demo (AFTER: X now LOSES)
+num_winners: 1
+
+# Non-monotonicity demo, part 2 of 2 (see _before). The ONLY change from _before:
+# 4 voters moved X to the top (Y>Z became X>Y), keeping Y above Z. X gained support.
+# Round 1: X 16, Y 8, Z 10 -> Y eliminated; Y>Z transfers -> Z 18, X 16. Z WINS.
+# X went from 12 first-choices and a win to 16 first-choices and a loss: monotonicity failure.
+ballots: |-
+  16:X>Y
+  8:Y>Z
+  10:Z>X
+
+# file: monotonicity_irv_after.yaml
