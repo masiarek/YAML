@@ -1,4 +1,4 @@
-election_title: The simplest possible single-winner STAR example
+election_title: The simplest possible STAR Voting example
 
 scenario_description: |-
   The smallest election that still shows BOTH of STAR's rounds: one ballot, two
@@ -19,8 +19,7 @@ video_script: |-
   HOW: Slow and calm. This is the 'here are the gears' moment - no surprises.
   WHY: Establish the mechanics (Scoring Round, then Automatic Runoff) before any
        interesting behavior competes for attention.
-  POINT OUT: With only two candidates STAR lands on the same winner as ordinary, plurality
-       voting - that is expected, and it's exactly why we start here.
+  POINT OUT: With only two candidates STAR lands on the same winner as ordinary, plurality voting - that is expected, and it's exactly why we start here.
   TRANSITION: "Chocolate wins - no surprise with one voter. Now let's add more
        voters, and then a third flavor, and watch the winner start to move."
 ballots: |-
@@ -28,11 +27,17 @@ ballots: |-
           5,      3       # Caroline - she likes both flavors
 
 options:
-  show_matrix: f
-  matrix_finalists_only: f
-  show_score_counts: n
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
+  show_matrix: false
+  matrix_finalists_only: false
+  show_score_counts: false
+  show_condorcet: false        # show the [Condorcet Winner] line
+  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
+  brief: false                # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true      # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
 
 expected_winners:
   - Chocolate
 
-# file: 00a_c2_b1_two-candidates.yaml
+# file: 01a_c2_b1_two-candidates.yaml

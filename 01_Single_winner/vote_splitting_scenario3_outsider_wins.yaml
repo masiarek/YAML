@@ -3,11 +3,11 @@ scenario_description: |-
   When the outsider is the genuine favorite, there is no spoiler — uniting the
   bloc would not change the result.
 
-  31 voters. Vanilla 20, DarkChoco 6, MilkChoco 5. Chocolate combined is only 11,
-  far short of Vanilla's 20.
+  62 voters. Vanilla 40, DarkChoco 12, MilkChoco 10. Chocolate combined is only
+  22, far short of Vanilla's 40.
 
-  Choose-One first choices: Vanilla 20, DarkChoco 6, MilkChoco 5. Vanilla wins —
-  and would still win even if the two chocolates merged into one (11 < 20). STAR
+  Choose-One first choices: Vanilla 40, DarkChoco 12, MilkChoco 10. Vanilla wins —
+  and would still win even if the two chocolates merged into one (22 < 40). STAR
   also elects Vanilla. Fair and square.
 
   The [Vote-splitting check] reports: even combined, the bloc does not out-poll
@@ -16,14 +16,25 @@ scenario_description: |-
 blocs:
   Chocolate: [DarkChoco, MilkChoco]
 
+options:
+  show_description: true   # show the scenario context on screen (study/reference)
+  show_matrix: true           # show the Runoff (Preference) Matrix
+  matrix_finalists_only: false  # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_condorcet: true        # show the [Condorcet Winner] line
+  show_score_counts: true     # show the per-candidate [Score Distribution] table
+  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
+  brief: false                # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true      # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
+
 voting_method: STAR
 num_winners: 1
 
 ballots: |-
   Count:DarkChoco,MilkChoco,Vanilla
-  6:5,4,0    # love dark, like milk, no vanilla
-  5:4,5,0    # love milk, like dark, no vanilla
-  20:1,0,5   # love vanilla, mild on chocolate
+  12:5,4,0   # love dark, like milk, no vanilla
+  10:4,5,0   # love milk, like dark, no vanilla
+  40:1,0,5   # love vanilla, mild on chocolate
 
 expected_winners:
   - Vanilla

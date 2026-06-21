@@ -1,11 +1,11 @@
 ======================================================================
 SOURCE FILE:     00a_c2_b1_two-candidates.yaml
-SOURCE MODIFIED: 2026-06-20 14:02:15
+SOURCE MODIFIED: 2026-06-20 15:54:44
 TABULATED FILE:  00a_c2_b1_two-candidates_tabulated.txt
-TABULATED AT:    2026-06-20 14:02:15
+TABULATED AT:    2026-06-20 15:54:44
 ======================================================================
 
-election_title: The simplest possible single-winner STAR example
+election_title: The simplest possible STAR Voting example
 
 scenario_description: |-
   The smallest election that still shows BOTH of STAR's rounds: one ballot, two
@@ -48,7 +48,7 @@ expected_winners:
 TABULATION RESULTS
 ======================================================================
 
-=== The simplest possible single-winner STAR example ===
+=== The simplest possible STAR Voting example ===
   The smallest election that still shows BOTH of STAR's rounds: one ballot, two
   flavors. (An unusual, illustration-only scenario.)
 

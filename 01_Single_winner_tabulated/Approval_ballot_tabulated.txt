@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     Approval_ballot.yaml
-SOURCE MODIFIED: 2026-06-20 00:16:52
+SOURCE MODIFIED: 2026-06-20 04:16:52
 TABULATED FILE:  Approval_ballot_tabulated.txt
-TABULATED AT:    2026-06-20 08:02:31
+TABULATED AT:    2026-06-21 11:13:06
 ======================================================================
 
 voting_method: STAR
@@ -26,15 +26,15 @@ TABULATION RESULTS
 ======================================================================
 
 [Score Distribution] (number of ballots giving each score)
-    5   4   3   2   1   0  | Total   Avg
-A   1   0   0   0   2   5  |     7   0.9
-B   1   0   0   0   1   6  |     6   0.8
-C   1   0   0   0   1   6  |     6   0.8
-D   1   0   0   0   3   4  |     8   1.0
+    5   4   3   2   1   0  Abs  | Total   Avg
+A   1   0   0   0   2   1    4  |     7   1.8
+B   1   0   0   0   1   2    4  |     6   1.5
+C   1   0   0   0   1   4    2  |     6   1.0
+D   1   0   0   0   3   2    2  |     8   1.3
 
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
-Legend: For - Equal Preference - Against
+Legend: For - Equal Support - Against
         * indicates Top 2 Finalist
                |    * A     |     B     |     C     |   * D     |
 -----------------------------------------------------------------
@@ -47,10 +47,9 @@ Legend: For - Equal Preference - Against
   Condorcet Winner: D — matches the STAR winner
 
 [Divergence from STAR]
-  STAR      = D
-  RCV-IRV   = A   (differs from STAR)
-  Approval  = A   (differs from STAR)
-  Condorcet = D
+  STAR     = D
+  RCV-IRV  = A   (differs from STAR)
+  Approval = A   (differs from STAR)
   Note: 4 of 8 ballots (50%) had equal non-zero scores, so their ranks were
         decided by candidate priority order. The RCV-IRV result may be an
         artifact of score-to-rank tie-breaking rather than a deep

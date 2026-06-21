@@ -187,6 +187,7 @@ OPTION_KEYS = (
     "collapse_ballots",
     "count_separator",
     "show_irv",
+    "show_description",
 )
 
 
@@ -622,26 +623,22 @@ def print_matrix(
     print("\n--- Runoff (Preference) Matrix ---")
     print("Head-to-head / pairwise comparison")
     print(
-        f"Legend: {COLOR_GREEN}For{COLOR_RESET} - {COLOR_BLUE}Equal Preference{COLOR_RESET} - {COLOR_RED}Against{COLOR_RESET}"
+        f"Legend: {COLOR_GREEN}For{COLOR_RESET} - {COLOR_BLUE}Equal Support{COLOR_RESET} - {COLOR_RED}Against{COLOR_RESET}"
     )
     print("        * indicates Top 2 Finalist")
 
     # +4 = 2 for the "* "/"  " finalist prefix + 2 for an even left/right margin,
     # so the longest name still centers instead of sitting flush to the divider.
     col_width = max((len(c) + 4 for c in candidates), default=10)
-    max_data_str = "0 - 0 - 0"
-    if matrix:
-        max_data_str = max(
-            (
-                f"{matrix[c1][c2][0]} - {matrix[c1][c2][2]} - {matrix[c1][c2][1]}"
-                for c1 in candidates
-                for c2 in candidates
-                if c1 != c2
-            ),
-            key=len,
-            default=max_data_str,
-        )
-    col_width = max(col_width, len(max_data_str), 10)
+    # Pad every For/Equal/Against number to the same width so the three columns
+    # line up across rows (e.g. "34 -  0 - 66" lines up with "24 - 34 - 42").
+    val_w = max(
+        (len(str(v)) for c1 in candidates for c2 in candidates
+         if c1 != c2 for v in matrix[c1][c2]),
+        default=1,
+    )
+    data_len = val_w * 3 + len(" - ") * 2   # "F - E - A", each value width val_w
+    col_width = max(col_width, data_len, 10)
     row_label_width = col_width + 4
     header = " " * row_label_width + " | "
 
@@ -660,13 +657,16 @@ def print_matrix(
                 row_str += f"{'---':^{col_width}} |"
             else:
                 for_val, against_val, no_pref_val = matrix[cand_i][cand_j]
-                raw_str = f"{for_val} - {no_pref_val} - {against_val}"
+                fv = f"{for_val:>{val_w}}"
+                ev = f"{no_pref_val:>{val_w}}"
+                av = f"{against_val:>{val_w}}"
+                raw_str = f"{fv} - {ev} - {av}"
                 padding = col_width - len(raw_str)
                 l_pad = padding // 2
                 colored_tuple = (
-                    f"{COLOR_GREEN}{for_val}{COLOR_RESET} - "
-                    f"{COLOR_BLUE}{no_pref_val}{COLOR_RESET} - "
-                    f"{COLOR_RED}{against_val}{COLOR_RESET}"
+                    f"{COLOR_GREEN}{fv}{COLOR_RESET} - "
+                    f"{COLOR_BLUE}{ev}{COLOR_RESET} - "
+                    f"{COLOR_RED}{av}{COLOR_RESET}"
                 )
                 row_str += f"{' ' * l_pad}{colored_tuple}{' ' * (padding - l_pad)} |"
         print(row_str)
@@ -898,10 +898,13 @@ def condorcet_winner(candidates, ballots):
 def print_method_comparison(candidates, ballots, star_winner, priority):
     """
     Use STAR as the baseline and only surface the comparison when it is
-    interesting: if RCV-IRV, Approval, or Condorcet elects a DIFFERENT winner
-    than STAR, print the block; if every method agrees with STAR, print nothing.
+    interesting: if Choose-One (Plurality), RCV-IRV, Approval, or Condorcet elects
+    a DIFFERENT winner than STAR, print the block; if every method agrees with
+    STAR, print nothing.
 
     A method "differs" when:
+      * Choose-One (Plurality): its winner != the STAR winner (each ballot's one
+        vote goes to its top-scored candidate)
       * RCV-IRV  : its winner != the STAR winner
       * Approval : its (single) winner != the STAR winner
       * Condorcet: a Condorcet winner exists and != the STAR winner
@@ -911,27 +914,43 @@ def print_method_comparison(candidates, ballots, star_winner, priority):
     approval = approval_winner(candidates, ballots, priority)
     condorcet = condorcet_winner(candidates, ballots)
 
+    # Choose-One Plurality: each ballot's single vote goes to its top-scored
+    # candidate (the same tally the [Vote-splitting check] uses). Ties broken by
+    # candidate priority; an all-zero ballot is an undervote that counts for no one.
+    fc_counts, _ = first_choice_counts(candidates, ballots, priority)
+    _order = [c for c in (priority or candidates) if c in candidates]
+    for _c in candidates:
+        if _c not in _order:
+            _order.append(_c)
+    _prank = {c: i for i, c in enumerate(_order)}
+    plurality = (min(candidates, key=lambda c: (-fc_counts[c], _prank[c]))
+                 if any(v > 0 for v in fc_counts.values()) else None)
+
+    plurality_diff = plurality is not None and plurality != star_winner
     irv_diff = irv is not None and irv != star_winner
     approval_diff = approval is not None and approval != star_winner
     condorcet_diff = condorcet is not None and condorcet != star_winner
 
-    if not (irv_diff or approval_diff or condorcet_diff):
+    if not (plurality_diff or irv_diff or approval_diff or condorcet_diff):
         return  # every method agrees with STAR — nothing to learn here
 
-    def line(label, value, differs, width):
-        tag = "   (differs from STAR)" if differs else ""
-        return f"  {label.ljust(width)} = {value}{tag}"
-
-    # "Condorcet" (9) is the widest label whenever it is shown.
-    width = 9 if condorcet is not None else 8
+    # Show STAR (the baseline) plus ONLY the methods that disagree with it;
+    # methods that agree are hidden to keep the block focused on the divergence.
+    shown = [("STAR", star_winner if star_winner else "(tie)")]
+    if plurality_diff:
+        shown.append(("Choose-One (Plurality)", plurality))
+    if irv_diff:
+        shown.append(("RCV-IRV", irv))
+    if approval_diff:
+        shown.append(("Approval", approval))
+    if condorcet_diff:
+        shown.append(("Condorcet", condorcet))
+    width = max(len(label) for label, _ in shown)
 
     print("\n[Divergence from STAR]")
-    print(line("STAR", star_winner if star_winner else "(tie)", False, width))
-    print(line("RCV-IRV", irv if irv else "(none)", irv_diff, width))
-    print(line("Approval", approval if approval else "(none)",
-               approval_diff, width))
-    if condorcet is not None:
-        print(line("Condorcet", condorcet, condorcet_diff, width))
+    for label, value in shown:
+        tag = "   (differs from STAR)" if label != "STAR" else ""
+        print(f"  {label.ljust(width)} = {value}{tag}")
 
     # Smart note: when RCV-IRV differs, say whether the score->rank tiebreak
     # could be responsible (an artifact) or not (a genuine method difference).
@@ -1433,6 +1452,7 @@ def run_election(
     eligible_voters=None,
     quorum=None,
     blocs=None,
+    show_description=True,
 ):
     if method is None:
         method = starvote.star
@@ -1460,10 +1480,13 @@ def run_election(
         sys.exit(1)
 
     # Optional scenario context from the YAML (election_title / scenario_description).
-    if title or description:
+    # The title is a one-line banner; the (often multi-paragraph) description can
+    # be suppressed with `show_description: false` for a clean demo / recording,
+    # WITHOUT removing it from the file.
+    if title or (description and show_description):
         if title:
             print(f"\n{COLOR_HEADER}=== {title} ==={COLOR_RESET}")
-        if description:
+        if description and show_description:
             for line in str(description).splitlines():
                 print(f"  {line}" if line.strip() else "")
 
@@ -1500,6 +1523,28 @@ def run_election(
         else:
             print("Error: No valid ballots found in input.")
         return
+
+    # Validate declared blocs against the ballot candidates, so a typo or a
+    # candidate not on the ballot errors instead of being silently dropped.
+    if blocs:
+        problems = []
+        for _name, _members in blocs.items():
+            _members = list(_members or [])
+            _unknown = [m for m in _members if m not in candidates]
+            if _unknown:
+                problems.append(f"  Bloc '{_name}': not on the ballot -> "
+                                f"{', '.join(_unknown)}")
+            elif len(_members) < 2:
+                problems.append(f"  Bloc '{_name}': needs at least 2 candidates "
+                                f"to split (got {len(_members)}).")
+        if problems:
+            print(f"{COLOR_RED}Error: invalid 'blocs:' definition.{COLOR_RESET}")
+            print(f"  Ballot candidates: {', '.join(candidates)}")
+            for p in problems:
+                print(p)
+            print("  Fix the names under 'blocs:' to match the ballot header "
+                  "exactly (or remove the bloc).")
+            sys.exit(1)
 
     # Quorum check (before declaring any winner). Only engaged when the file
     # opts in via eligible_voters and/or quorum; otherwise behaves as before.
@@ -1840,6 +1885,10 @@ if __name__ == "__main__":
     # YAML `options:` blocks that set show_irv still parse without error.
     SHOW_IRV = False
 
+    # FLAG: Set to False to hide the scenario_description on screen (keeps it in
+    # the file). Use for a clean demo / recording — just ballots and tabulation.
+    SHOW_DESCRIPTION = True
+
     # FLAG: Set to False to hide the per-candidate [Score Distribution] table.
     SHOW_SCORE_COUNTS = False
 
@@ -1884,6 +1933,30 @@ if __name__ == "__main__":
     positional = [a for a in args if not a.startswith("-")]
     BALLOTS_FILE = positional[0] if positional else None
 
+    # Guard: refuse a generated *_tabulated.txt artifact (or anything carrying its
+    # banner). These embed the full report — including the Preference Matrix whose
+    # rows contain ">" — which would otherwise misroute to the RCV-IRV engine and
+    # crash with a confusing YAML traceback. Point the user at the SOURCE FILE.
+    if BALLOTS_FILE:
+        try:
+            _head = Path(BALLOTS_FILE).read_text(encoding="utf-8").splitlines()[:8]
+        except OSError:
+            _head = []
+        _nonblank = [ln for ln in _head if ln.strip()]
+        _is_tabulated = bool(_nonblank) and _nonblank[0].strip("= ") == "" \
+            and any(ln.startswith(("SOURCE FILE:", "TABULATED FILE:")) for ln in _head)
+        if _is_tabulated:
+            _src = next((ln.split(":", 1)[1].strip()
+                         for ln in _head if ln.startswith("SOURCE FILE:")), None)
+            print(
+                f"Error: '{Path(BALLOTS_FILE).name}' is a generated _tabulated.txt "
+                "report, not a source election file.\n"
+                "       Run the source YAML instead"
+                + (f" (SOURCE FILE: {_src})." if _src else ".")
+                + "\n       _tabulated files are regenerated by re-running their YAML."
+            )
+            sys.exit(1)
+
     csv_input = """
 Memphis,Nashville,Chattanooga,Knoxville
 3, 3, 4, 2
@@ -1914,7 +1987,30 @@ Memphis,Nashville,Chattanooga,Knoxville
         )
 
         # Ranked ballots ("A>C>B") can only be RCV-IRV, regardless of the label.
-        if _is_rcv or ">" in (csv_input or ""):
+        # Check for ">" only in the ballot data, NOT in trailing "# comments"
+        # (which may legitimately contain "->" arrows).
+        _ballot_body = "\n".join(
+            ln.split("#")[0] for ln in (csv_input or "").splitlines()
+        )
+        _ranked_ballots = ">" in _ballot_body
+
+        # A file that EXPLICITLY declares a score method (STAR, Approval, Bloc /
+        # Proportional STAR, …) but supplies RANKED ballots ("A>C>B") is self-
+        # contradictory: score methods need 0–5 scores; ranked ballots are an
+        # RCV-IRV input. Flag the mismatch instead of silently switching engines.
+        # (No voting_method declared + ranked ballots still auto-routes to RCV-IRV.)
+        if _ranked_ballots and _mname and not _is_rcv:
+            print(
+                f"Error: voting_method '{election.get('method_name')}' is a "
+                "score-ballot method, but the ballots are ranked (e.g. 'A>C>B').\n"
+                "       Score methods (STAR, Approval, Bloc / Proportional STAR) "
+                "need 0–5 scores; ranked ballots are tabulated by RCV-IRV.\n"
+                "       Fix the mismatch: set 'voting_method: RCV_IRV', or rewrite "
+                "the ballots as scores (header + rows, e.g. 'A,B,C' then '5,4,0')."
+            )
+            sys.exit(1)
+
+        if _is_rcv or _ranked_ballots:
             if _IRV_AVAILABLE:
                 import rcv_irv_tabulation
                 rcv_irv_tabulation.run(BALLOTS_FILE)
@@ -1988,6 +2084,8 @@ Memphis,Nashville,Chattanooga,Knoxville
             SHOW_CONDORCET = _as_bool(opts["show_condorcet"])
         if "show_irv" in opts:
             SHOW_IRV = _as_bool(opts["show_irv"])
+        if "show_description" in opts:
+            SHOW_DESCRIPTION = _as_bool(opts["show_description"])
         if "show_score_counts" in opts:
             SHOW_SCORE_COUNTS = _as_bool(opts["show_score_counts"])
         if "brief" in opts:
@@ -2013,6 +2111,7 @@ Memphis,Nashville,Chattanooga,Knoxville
         eligible_voters=(election["eligible_voters"] if BALLOTS_FILE else None),
         quorum=(election["quorum"] if BALLOTS_FILE else None),
         blocs=(election["blocs"] if BALLOTS_FILE else None),
+        show_description=SHOW_DESCRIPTION,
     )
 
     if BALLOTS_FILE:
@@ -2056,6 +2155,7 @@ Memphis,Nashville,Chattanooga,Knoxville
             brief=False,
             collapse_ballots=True,  # collapsed counts are clearer than a raw dump
             show_irv=True,
+            show_description=True,  # the saved file always keeps the full context
         )
         _, file_out = _capture(full_kwargs)
 

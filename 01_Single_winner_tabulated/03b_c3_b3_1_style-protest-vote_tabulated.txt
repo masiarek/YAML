@@ -1,0 +1,110 @@
+======================================================================
+SOURCE FILE:     03b_c3_b3_1_style-protest-vote.yaml
+SOURCE MODIFIED: 2026-06-21 12:31:23
+TABULATED FILE:  03b_c3_b3_1_style-protest-vote_tabulated.txt
+TABULATED AT:    2026-06-21 13:34:23
+======================================================================
+
+election_title: Voting styles — low-score ballots
+scenario_description: |-
+  What if you dislike all the candidates? You can still vote: even low scores
+  register a relative preference, and STAR will count them. Here every voter
+  scores only 0s and 1s, yet a winner still emerges (Almond) from the 1s.
+
+#  Caveat worth teaching: compressing all your scores into the bottom of the
+#  0-5 range also shrinks your ballot's influence in the score round. Expressing
+#  a "least-bad" choice counts - but using the full range expresses it louder.
+
+# Presenter notes (ignored by the engine; not shown to the audience).
+video_script: |-
+  SAY: "The opposite of a bullet vote: what if you dislike everyone? You can
+       still vote. Even all 0s and 1s register a relative preference, and STAR
+       counts it - here Almond wins on the 1s."
+  HOW: Reassuring tone - this answers 'do I have to like someone?'. No.
+  WHY: Show that minimal, low-score ballots are valid and still decide outcomes.
+  POINT OUT: Honest caveat - scoring everyone low also shrinks your influence in
+       the scoring round. A least-bad choice counts; the full range counts
+       louder. (Don't sell low-scoring as a smart strategy.)
+  TRANSITION: "Does the absolute number matter, or just the order? Let's test
+       that next by raising those scores."
+
+options:
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
+  show_matrix: true           # show the Runoff (Preference) Matrix
+  matrix_finalists_only: false  # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_condorcet: true        # show the [Condorcet Winner] line
+  show_score_counts: true     # show the per-candidate [Score Distribution] table
+  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
+  brief: false                # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true      # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
+
+voting_method: STAR   # STAR Voting - Single-winner
+
+num_winners: 1
+ballots: |-
+  Choco,Almond,Vanilla
+      0,     1,      0   # least-bad = Almond
+      0,     0,      1   # least-bad = Vanilla
+      0,     1,      0   # least-bad = Almond
+
+expected_winners:
+  - Almond
+
+# file: 03b_c3_b3_1_style-protest-vote.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Voting styles — low-score ballots ===
+  What if you dislike all the candidates? You can still vote: even low scores
+  register a relative preference, and STAR will count them. Here every voter
+  scores only 0s and 1s, yet a winner still emerges (Almond) from the 1s.
+
+[Score Distribution] (number of ballots giving each score)
+          5   4   3   2   1   0  | Total   Avg
+Choco     0   0   0   0   0   3  |     0   0.0
+Almond    0   0   0   0   2   1  |     2   0.7
+Vanilla   0   0   0   0   1   2  |     1   0.3
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+                |     Choco   | * Almond   | * Vanilla  |
+---------------------------------------------------------
+        Choco > |     ---     | 0 - 1 - 2  | 0 - 2 - 1  |
+     * Almond > |  2 - 1 - 0  |    ---     | 2 - 0 - 1  |
+    * Vanilla > |  1 - 2 - 0  | 1 - 0 - 2  |    ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Almond — matches the STAR winner
+
+[Divergence from STAR]
+  STAR     = Almond
+  Approval = Choco   (differs from STAR)
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 3 ballots.
+Count × Choco,Almond,Vanilla
+    2 ×     0,     1,      0
+    1 ×     0,     0,      1
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Almond        -- 2 -- First place
+   Vanilla       -- 1 -- Second place
+   Choco         -- 0
+ Almond and Vanilla advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Almond        -- 2 -- First place
+   Vanilla       -- 1
+   Equal Support -- 0 (aka Equal Preference, No Preference)
+ Almond wins.
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Almond

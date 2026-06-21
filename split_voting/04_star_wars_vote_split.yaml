@@ -1,0 +1,59 @@
+election_title: The Voting Dilemma — Skywalker & Leia split the Rebel vote
+scenario_description: |-
+  Matches the "THE VOTING DILEMMA" slide: you expect Skywalker and Vader to be the
+  frontrunners, but you actually prefer Leia. 100 voters. A 60% Rebel majority
+  prefers a Rebel (Skywalker or Leia) over the Empire's Vader — but they're split
+  on which Rebel.
+
+  Under Choose-One Plurality each voter names ONE candidate, so the Rebels split:
+  Skywalker 33, Leia 27. Vader wins with just 40 — the candidate 60% ranked LAST.
+  That is vote-splitting handing the seat to the minority.
+
+  STAR lets every voter score all three 0-5, so Rebel voters can back BOTH
+  Skywalker and Leia. The two highest totals advance (Leia and Skywalker), and the
+  automatic runoff elects Leia — the broad consensus Rebel, and the candidate who
+  beats every other head-to-head (the Condorcet winner). The one you actually
+  preferred wins. Watch the [Vote-splitting check] confirm it.
+
+# Presenter notes (ignored by the engine; not shown to the audience).
+video_script: |-
+  SAY: "Skywalker and Vader look like the frontrunners — but your heart is with
+       Leia. In a Choose-One election, voting Leia feels like 'wasting' your vote,
+       so Rebels hold their nose and split between Skywalker and Leia. Vader walks
+       in with 40%."
+  HOW: [DEMO] Run this file. Point at the [Vote-splitting check]: the Rebellion
+       bloc's combined support dwarfs Vader, yet Choose-One would split it.
+  WHY: STAR lets you score Skywalker AND Leia, so the coalition isn't divided.
+       Leia advances and wins the runoff — the consensus pick.
+  TRANSITION: "Same voters, no split, no spoiler: STAR elects the candidate the
+       majority actually preferred."
+  SLIDE: Full Deck 2025 — "THE VOTING DILEMMA" (Skywalker / Vader / Leia) and
+       "PROBLEM: VOTE-SPLITTING".
+
+blocs:
+  Rebellion: [Skywalker, Leia]
+
+options:
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
+  show_matrix: f             # show the Runoff (Preference) Matrix
+  matrix_finalists_only: false  # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_condorcet: f          # show the [Condorcet Winner] line (Leia)
+  show_score_counts: f       # show the per-candidate [Score Distribution] table
+  show_irv: false               # show the [Divergence from STAR] RCV-IRV comparison
+  brief: false                  # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true        # true = group identical ballots as "count × scores"
+  count_separator: "×"          # collapsed-count separator: ×, :, or x/X
+
+voting_method: STAR
+num_winners: 1
+
+ballots: |-
+  Count:Skywalker,Leia,Vader
+  33:5,4,0   # Rebels who'd "hold their nose" for electable Luke — but love Leia
+  27:4,5,0   # Leia's base — Luke a strong second
+  40:0,1,5   # Empire / Vader bloc — a mild nod to Leia over Luke
+
+expected_winners:
+  - Leia
+
+# file: 04_star_wars_vote_split.yaml

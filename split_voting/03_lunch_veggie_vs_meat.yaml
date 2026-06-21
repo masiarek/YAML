@@ -1,0 +1,43 @@
+election_title: Spoiler — the veggie majority splits, the burger wins the lunch vote
+scenario_description: |-
+  100 people vote on ONE dish to cater. A 70% MAJORITY wants vegetarian, but the
+  veggie vote is spread across three dishes — VeggieCurry, TofuStirFry, and
+  GardenSalad. A single BeefBurger holds the other 30%.
+
+  Under Choose-One each person picks one dish, so the veggie vote splits:
+  TofuStirFry 28, VeggieCurry 26, GardenSalad 16. BeefBurger wins with just 30 of
+  100 — even though 70% wanted something vegetarian. The split handed the win to
+  the minority.
+
+  STAR lets veggie voters score all three vegetarian dishes, so the majority
+  isn't split. The runoff elects VeggieCurry — the dish the most veggie voters
+  can agree on — instead of the spoiler BeefBurger.
+
+blocs:
+  Veggie: [VeggieCurry, TofuStirFry, GardenSalad]
+
+options:
+  show_description: true   # show the scenario context on screen (study/reference)
+  show_matrix: true           # show the Runoff (Preference) Matrix
+  matrix_finalists_only: false  # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_condorcet: true        # show the [Condorcet Winner] line
+  show_score_counts: true     # show the per-candidate [Score Distribution] table
+  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
+  brief: false                # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true      # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
+
+voting_method: STAR
+num_winners: 1
+
+ballots: |-
+  Count:VeggieCurry,TofuStirFry,GardenSalad,BeefBurger
+  26:5,4,4,0   # curry base — like the other veggies
+  28:4,5,2,0   # tofu base — curry is a fine backup
+  16:4,2,5,0   # salad base — curry is a fine backup
+  30:0,0,0,5   # burger bloc
+
+expected_winners:
+  - VeggieCurry
+
+# file: 03_lunch_veggie_vs_meat.yaml

@@ -32,6 +32,7 @@
 
 - Score every candidate 0 to 5 by how much you support them
 - **Scoring round:** the two highest-scored candidates become finalists
+
 - **Automatic runoff:** every ballot counts as a full vote for whichever finalist it scored higher
 - Two simple steps: degree of support, then a clear head-to-head finish
 
@@ -232,6 +233,12 @@ Each argument: the claim (in precise, defensible wording), the rebuttal it tends
 - **Claim:** Because candidates want to be the high score of rivals' supporters, STAR rewards broad outreach over base-energizing attacks.
 - **Rebuttal:** "That's speculative — where's the evidence?"
 - **Response:** It's an incentive-structure argument, well-grounded in theory and consistent with limited real-world use, but the large-scale empirical record is thin because adoption is recent. Present it as a predicted incentive effect, not a proven outcome. Conceding that boundary protects your credibility on everything else.
+
+**12. "Only RCV avoids favorite betrayal"** *(Voting 301 — the deep-dive behind Slide 4)*
+
+- **Claim:** In STAR you can always give your true favorite a 5 and never have to abandon them — and in the competitive races that actually matter, STAR protects your favorite better than RCV-IRV does.
+- **Rebuttal:** "Only Ranked Choice guarantees that supporting your favorite never backfires. STAR isn't favorite-betrayal-proof — you admit it yourself."
+- **Response:** Correct that STAR is not formally **Favorite-Betrayal-Criterion (FBC)** compliant — but here's the thing: *neither is RCV-IRV.* The property the RCV advocate is actually invoking is **Later-No-Harm** (adding/ranking lower choices can't hurt your favorite), which RCV *does* satisfy — and that is a **different criterion**. RCV **fails** FBC. The textbook proof is Alaska 2022: voters who ranked Palin first were punished for it — that ranking helped elect their *last* choice, Peltola; they'd have done better by betraying Palin and ranking Begich first. That's a favorite-betrayal failure in a real, competitive (center-squeeze) election. The kicker: FBC and Later-No-Harm are **provably incompatible** — *no* method can have both. Cardinal methods (Approval, Score) satisfy FBC and fail Later-No-Harm; RCV satisfies Later-No-Harm and fails FBC; STAR satisfies *neither at 100%* but scores ~98% on **both** — the deliberate "best of both" compromise. The honest one-liner: *"Neither of us is favorite-betrayal-proof. You fail it in realistic center-squeeze races; STAR fails it only in rare, hard-to-engineer constructions — and what you're calling 'no favorite betrayal' is Later-No-Harm, a different criterion."* (Pair this with #9: it's the favorite-betrayal twin of the later-no-harm / center-squeeze argument.)
 
 ---
 

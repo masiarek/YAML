@@ -1,0 +1,43 @@
+election_title: Spoiler — a split coalition hands the seat to the minority
+scenario_description: |-
+  100 voters. A progressive coalition — Green, Labour, and SocialDem — is a clear
+  66% MAJORITY. One Conservative holds the other 34%.
+
+  Under Choose-One Plurality each voter names a single party, so the coalition
+  splits: Green 24, Labour 22, SocialDem 20. The Conservative wins with just 34
+  of 100 — a candidate two-thirds of voters ranked LAST. That is the spoiler
+  effect at full force.
+
+  STAR lets every voter score all four 0–5, so coalition voters can back all
+  three progressive parties. The two highest totals advance, and the automatic
+  runoff elects Labour — the coalition's broad consensus pick — not the minority
+  Conservative. Watch the [Vote-splitting check] confirm it.
+
+blocs:
+  Coalition: [Green, Labour, SocialDem]
+
+options:
+  show_description: true   # show the scenario context on screen (study/reference)
+  show_matrix: true           # show the Runoff (Preference) Matrix
+  matrix_finalists_only: false  # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_condorcet: true        # show the [Condorcet Winner] line
+  show_score_counts: true     # show the per-candidate [Score Distribution] table
+  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
+  brief: false                # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true      # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
+
+voting_method: STAR
+num_winners: 1
+
+ballots: |-
+  Count:Green,Labour,SocialDem,Conservative
+  24:5,4,2,0   # Green base — also like Labour
+  22:4,5,4,0   # Labour base — like the whole coalition
+  20:2,4,5,0   # SocialDem base — also like Labour
+  34:0,0,0,5   # Conservative bloc
+
+expected_winners:
+  - Labour
+
+# file: 01_political_left_split.yaml

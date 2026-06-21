@@ -21,6 +21,17 @@ video_script: |-
   TRANSITION: "Does the absolute number matter, or just the order? Let's test
        that next by raising those scores."
 
+options:
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
+  show_matrix: true           # show the Runoff (Preference) Matrix
+  matrix_finalists_only: false  # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_condorcet: true        # show the [Condorcet Winner] line
+  show_score_counts: true     # show the per-candidate [Score Distribution] table
+  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
+  brief: false                # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true      # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
+
 voting_method: STAR   # STAR Voting - Single-winner
 
 num_winners: 1

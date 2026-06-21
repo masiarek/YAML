@@ -2,14 +2,14 @@
 # STAR lets you score each candidate 0–5 independently, so several styles are
 # all legal on the same ballot set.
 
-election_title: Voting styles — bullet voting
-scenario_description: |-
-  Shows three legal STAR ballot styles on one ballot set: a full/expressive
-  ballot, a ballot with equal scores, and a bullet vote (only one candidate
-  scored). All are valid; bullet voting is allowed but not recommended -
-  scoring only one candidate gives your ballot no say in the automatic runoff
-  unless that candidate is a finalist, so you forfeit influence over the final
-  head-to-head.
+#election_title: Voting styles — bullet voting
+#scenario_description: |-
+#  Shows three legal STAR ballot styles on one ballot set: a full/expressive
+#  ballot, a ballot with equal scores, and a bullet vote (only one candidate
+#  scored). All are valid; bullet voting is allowed but not recommended -
+#  scoring only one candidate gives your ballot no say in the automatic runoff
+#  unless that candidate is a finalist, so you forfeit influence over the final
+#  head-to-head.
 
 # Presenter notes (ignored by the engine; not shown to the audience).
 video_script: |-
@@ -23,6 +23,17 @@ video_script: |-
        runoff, your ballot has no say in the final head-to-head.
   TRANSITION: "Bullet voting under-uses the ballot. Next: what about the opposite
        worry - what if you dislike everyone?"
+
+options:
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
+  show_matrix: true           # show the Runoff (Preference) Matrix
+  matrix_finalists_only: false  # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_condorcet: true        # show the [Condorcet Winner] line
+  show_score_counts: true     # show the per-candidate [Score Distribution] table
+  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
+  brief: false                # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true      # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
 
 voting_method: STAR   # STAR Voting — single-winner
 num_winners: 1

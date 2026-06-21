@@ -1,0 +1,42 @@
+election_title: Spoiler — chocolate's majority splits, vanilla steals the win
+scenario_description: |-
+  100 dessert voters. Chocolate lovers are a 66% MAJORITY, but there are THREE
+  chocolates on the menu — DarkChoco, MilkChoco, and ChocoChip. Only 34 prefer
+  Vanilla.
+
+  Under Choose-One each voter picks one flavor, so chocolate splits: DarkChoco
+  24, MilkChoco 22, ChocoChip 20. Vanilla wins with 34 of 100 — a flavor a
+  two-thirds majority didn't want. Classic vote splitting.
+
+  STAR lets chocolate lovers give all three chocolates high scores, so the
+  majority isn't split. The runoff elects MilkChoco — the chocolate everyone in
+  the bloc can live with — over the spoiler Vanilla.
+
+blocs:
+  Chocolate: [DarkChoco, MilkChoco, ChocoChip]
+
+options:
+  show_description: true   # show the scenario context on screen (study/reference)
+  show_matrix: true           # show the Runoff (Preference) Matrix
+  matrix_finalists_only: false  # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_condorcet: true        # show the [Condorcet Winner] line
+  show_score_counts: true     # show the per-candidate [Score Distribution] table
+  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
+  brief: false                # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true      # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
+
+voting_method: STAR
+num_winners: 1
+
+ballots: |-
+  Count:DarkChoco,MilkChoco,ChocoChip,Vanilla
+  24:5,4,2,0   # dark base — also like milk
+  22:4,5,4,0   # milk base — like all chocolate
+  20:2,4,5,0   # chip base — also like milk
+  34:0,0,0,5   # vanilla bloc
+
+expected_winners:
+  - MilkChoco
+
+# file: 02_icecream_chocolate_split.yaml

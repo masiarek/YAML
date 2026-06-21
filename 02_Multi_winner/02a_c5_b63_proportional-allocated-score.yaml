@@ -43,24 +43,28 @@ num_winners: 3
 voting_method: allocated
 
 options:
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
   # Matrix/Condorcet are single-winner concepts, so leave them off here.
   show_matrix: false
   show_condorcet: false
   show_score_counts: true
   brief: true
   collapse_ballots: true
+  matrix_finalists_only: false  # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
+  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
 
 ballots: |-
   Alice,Ben,Cara,Dan,Eve
-  6: 5, 4, 3, 0, 0
-  4: 4, 5, 3, 0, 0
-  3: 3, 4, 5, 0, 0
-  5: 0, 0, 0, 5, 4
-  3: 0, 0, 0, 4, 5
+  18: 5, 4, 3, 0, 0
+  12: 4, 5, 3, 0, 0
+   9: 3, 4, 5, 0, 0
+  15: 0, 0, 0, 5, 4
+   9: 0, 0, 0, 4, 5
 
 expected_winners:
   - Alice
   - Ben
   - Dan
 
-# file: 02a_c5_b21_proportional-allocated-score.yaml
+# file: 02a_c5_b63_proportional-allocated-score.yaml

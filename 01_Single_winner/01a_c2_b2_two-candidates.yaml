@@ -27,9 +27,15 @@ ballots: |-
           5,      3       # Bob - he likes both flavors too
 
 options:
-  show_matrix: f
-  matrix_finalists_only: f
-  show_score_counts: f
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
+  show_matrix: false
+  matrix_finalists_only: false
+  show_score_counts: false
+  show_condorcet: true        # show the [Condorcet Winner] line
+  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
+  brief: true                 # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true      # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
 
 expected_winners:
   - Choco

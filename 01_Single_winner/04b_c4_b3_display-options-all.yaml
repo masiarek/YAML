@@ -23,6 +23,7 @@ num_winners: 1        # 1 = single-winner STAR; >=2 requires voting_method: bloc
 voting_method: STAR   # STAR (single winner) or bloc (multi-winner Bloc STAR)
 
 options:
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
   # --- Preference (head-to-head) matrix ---
   show_matrix: true            # show the Runoff (Preference) Matrix
   matrix_finalists_only: true  # true = only the 2 finalists (decisive matchup);

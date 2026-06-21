@@ -25,11 +25,14 @@ voting_method: star
 #        └── Code
 #            └── Identifier under caret <-- Uncheck "Background" on the right
 options:
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
   show_matrix: true
   matrix_finalists_only: true
   show_condorcet: true
   show_score_counts: false
-
+blocs:
+  faction1: [Ann, Don]
+  faction2: [Bob, Cal]
 ballots: |-
   Ann,Bob,Cal,Don
     3,  4,  2,  5  

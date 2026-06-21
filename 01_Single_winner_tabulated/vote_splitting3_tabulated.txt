@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     vote_splitting3.yaml
-SOURCE MODIFIED: 2026-06-20 13:19:53
+SOURCE MODIFIED: 2026-06-21 12:31:23
 TABULATED FILE:  vote_splitting3_tabulated.txt
-TABULATED AT:    2026-06-20 13:19:53
+TABULATED AT:    2026-06-21 13:34:24
 ======================================================================
 
 election_title: Vote splitting — two chocolates split the majority
@@ -15,6 +15,7 @@ voting_method: STAR   # STAR Voting - Single-winner
 num_winners: 1
 
 options:
+  show_description: true   # show the scenario context on screen (study/reference)
   # Layer 1 (general audience): keep the render clean. The matrix and the
   # Condorcet line are the Layer 2 deep-dive — flip either to true to discuss
   # the head-to-head winner with a more advanced audience from this SAME file.
@@ -24,6 +25,8 @@ options:
   brief: true               # collapse repetitive "[STAR Voting: ...]" headers
   collapse_ballots: true    # group identical ballots as "count × scores"
   count_separator: "×"
+  matrix_finalists_only: false  # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
 
 ballots: |-
   Count:DarkChoco,MilkChoco,Vanilla
@@ -51,13 +54,13 @@ Vanilla     6   0   8   0   0   7  |    54   2.6
 
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
-Legend: For - Equal Preference - Against
+Legend: For - Equal Support - Against
         * indicates Top 2 Finalist
                   |  * DarkChoco  | * MilkChoco  |    Vanilla   |
 -----------------------------------------------------------------
-    * DarkChoco > |      ---      | 14 - 0 - 7   | 15 - 0 - 6   |
-    * MilkChoco > |  7 - 0 - 14   |     ---      | 15 - 0 - 6   |
-        Vanilla > |  6 - 0 - 15   | 6 - 0 - 15   |     ---      |
+    * DarkChoco > |      ---      |14 -  0 -  7  |15 -  0 -  6  |
+    * MilkChoco > |  7 -  0 - 14  |     ---      |15 -  0 -  6  |
+        Vanilla > |  6 -  0 - 15  | 6 -  0 - 15  |     ---      |
 
 [Condorcet Winner]
   Condorcet Winner: DarkChoco — matches the STAR winner

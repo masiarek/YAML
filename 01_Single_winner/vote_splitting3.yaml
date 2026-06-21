@@ -8,6 +8,7 @@ voting_method: STAR   # STAR Voting - Single-winner
 num_winners: 1
 
 options:
+  show_description: true   # show the scenario context on screen (study/reference)
   # Layer 1 (general audience): keep the render clean. The matrix and the
   # Condorcet line are the Layer 2 deep-dive — flip either to true to discuss
   # the head-to-head winner with a more advanced audience from this SAME file.
@@ -17,6 +18,8 @@ options:
   brief: true               # collapse repetitive "[STAR Voting: ...]" headers
   collapse_ballots: true    # group identical ballots as "count × scores"
   count_separator: "×"
+  matrix_finalists_only: false  # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
 
 ballots: |-
   Count:DarkChoco,MilkChoco,Vanilla

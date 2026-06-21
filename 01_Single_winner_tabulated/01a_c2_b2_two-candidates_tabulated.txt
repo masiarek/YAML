@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     01a_c2_b2_two-candidates.yaml
-SOURCE MODIFIED: 2026-06-20 14:02:15
+SOURCE MODIFIED: 2026-06-21 12:36:25
 TABULATED FILE:  01a_c2_b2_two-candidates_tabulated.txt
-TABULATED AT:    2026-06-20 14:02:15
+TABULATED AT:    2026-06-21 13:34:22
 ======================================================================
 
 election_title: The simplest possible single-winner STAR example
@@ -34,9 +34,15 @@ ballots: |-
           5,      3       # Bob - he likes both flavors too
 
 options:
-  show_matrix: f
-  matrix_finalists_only: f
-  show_score_counts: f
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
+  show_matrix: false
+  matrix_finalists_only: false
+  show_score_counts: false
+  show_condorcet: true        # show the [Condorcet Winner] line
+  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
+  brief: true                 # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true      # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
 
 expected_winners:
   - Choco
@@ -56,7 +62,7 @@ Vanilla     0   0   2   0   0   0  |     6   3.0
 
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
-Legend: For - Equal Preference - Against
+Legend: For - Equal Support - Against
         * indicates Top 2 Finalist
                   |  * Chocolate  |  * Vanilla   |
 --------------------------------------------------

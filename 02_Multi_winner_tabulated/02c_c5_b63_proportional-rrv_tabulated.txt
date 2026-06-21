@@ -1,0 +1,154 @@
+======================================================================
+SOURCE FILE:     02c_c5_b63_proportional-rrv.yaml
+SOURCE MODIFIED: 2026-06-21 12:31:23
+TABULATED FILE:  02c_c5_b63_proportional-rrv_tabulated.txt
+TABULATED AT:    2026-06-21 13:34:25
+======================================================================
+
+# Proportional multi-winner example: Reweighted Range Voting (RRV).
+# Run: python starvote_larry_hastings.py \
+#        "elections_illustrations/02_Multi_winner/02c_c5_b21_proportional-rrv.yaml"
+#
+# RRV is an older score-based proportional method: after each seat, every
+# ballot is reweighted by 1/(1 + sum of scores already given to winners), so
+# voters who already got a winner have less weight in later seats. It is NOT
+# part of STAR's score-then-runoff family and has weaker proportionality
+# guarantees than Allocated Score or SSS, but it's useful for comparison.
+#
+# Same ballots as proportional_allocated_score.yaml so you can compare methods:
+# switch voting_method between `rrv`, `allocated`, `sss`, and `bloc`.
+
+election_title: Proportional — Reweighted Range Voting
+scenario_description: |-
+  Same majority/minority ballots as the other proportional examples, tabulated
+  with Reweighted Range Voting (RRV). Older and not part of STAR's score-then-
+  runoff family, but it also seats the minority bloc — included for comparison.
+
+# Presenter notes (ignored by the engine; not shown to the audience).
+video_script: |-
+  SAY: "Finally, an older method - Reweighted Range Voting - for comparison.
+       It's not part of the STAR family and has weaker guarantees, but on this
+       election it reaches the same fair result."
+  HOW: Optional / comparative. Good for an audience that asks 'what about other
+       methods?'. Be honest that it's included for contrast, not endorsed.
+  WHY: Round out the proportional picture and show STAR's allocated/SSS aren't
+       the only options - while flagging that not all methods are equal.
+  TRANSITION: "That wraps the tour: single-winner STAR, Bloc STAR, and three
+       ways to do proportional representation. Back to Lesson 0's promise - one
+       honest ballot, fair results, whether for one seat or many."
+
+num_winners: 3
+voting_method: rrv
+
+options:
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
+  show_matrix: false
+  show_condorcet: false
+  show_score_counts: true
+  brief: true
+  collapse_ballots: true
+  matrix_finalists_only: false  # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
+  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
+
+ballots: |-
+  Alice,Ben,Cara,Dan,Eve
+  18: 5, 4, 3, 0, 0
+  12: 4, 5, 3, 0, 0
+   9: 3, 4, 5, 0, 0
+  15: 0, 0, 0, 5, 4
+   9: 0, 0, 0, 4, 5
+
+expected_winners:
+  - Alice
+  - Ben
+  - Dan
+
+# file: 02c_c5_b63_proportional-rrv.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Proportional — Reweighted Range Voting ===
+  Same majority/minority ballots as the other proportional examples, tabulated
+  with Reweighted Range Voting (RRV). Older and not part of STAR's score-then-
+  runoff family, but it also seats the minority bloc — included for comparison.
+
+[Score Distribution] (number of ballots giving each score)
+        5   4   3   2   1   0  | Total   Avg
+Alice  18  12   9   0   0  24  |   165   2.6
+Ben    12  27   0   0   0  24  |   168   2.7
+Cara    9   0  30   0   0  24  |   135   2.1
+Dan    15   9   0   0   0  39  |   111   1.8
+Eve     9  15   0   0   0  39  |   105   1.7
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+                 |   * Alice    |   * Ben     |     Cara    |     Dan     |     Eve     |
+-----------------------------------------------------------------------------------------
+       * Alice > |     ---      |18 - 24 - 21 |30 - 24 -  9 |39 -  0 - 24 |39 -  0 - 24 |
+         * Ben > | 21 - 24 - 18 |    ---      |30 - 24 -  9 |39 -  0 - 24 |39 -  0 - 24 |
+          Cara > |  9 - 24 - 30 | 9 - 24 - 30 |    ---      |39 -  0 - 24 |39 -  0 - 24 |
+           Dan > | 24 -  0 - 39 |24 -  0 - 39 |24 -  0 - 39 |    ---      |15 - 39 -  9 |
+           Eve > | 24 -  0 - 39 |24 -  0 - 39 |24 -  0 - 39 | 9 - 39 - 15 |    ---      |
+
+[Condorcet Winner]
+  Condorcet Winner: Ben — matches the STAR winner
+
+[Divergence from STAR]
+  STAR                   = Ben
+  Choose-One (Plurality) = Alice   (differs from STAR)
+  Approval               = Alice   (differs from STAR)
+
+--- Reweighted Range Voting Method (3 winners) ---
+[Reweighted Range Voting]
+ Tabulating 63 ballots.
+Count × Alice,Ben,Cara,Dan,Eve
+   18 ×     5,  4,   3,  0,  0
+   15 ×     0,  0,   0,  5,  4
+   12 ×     4,  5,   3,  0,  0
+    9 ×     3,  4,   5,  0,  0
+    9 ×     0,  0,   0,  4,  5
+ Want to fill 3 seats.
+
+[Reweighted Range Voting: Round 1: Score round]
+ The highest-scoring candidate wins a seat.
+   Ben           -- 168 -- First place
+   Alice         -- 165
+   Cara          -- 135
+   Dan           -- 111
+   Eve           -- 105
+ Ben wins a seat.
+
+[Reweighted Range Voting: Round 1: Reweighing Ballots]
+ Reweighted 39 ballots:
+   27 ballots reweighted from 1 to 5/9.
+   12 ballots reweighted from 1 to 1/2.
+
+[Reweighted Range Voting: Round 2: Score round]
+ The highest-scoring candidate wins a seat.
+   Dan           -- 111 -- First place
+   Eve           -- 105
+   Alice         -- 89
+   Cara          -- 73
+ Dan wins a seat.
+
+[Reweighted Range Voting: Round 2: Reweighing Ballots]
+ Reweighted 24 ballots:
+   15 ballots reweighted from 1 to 1/2.
+   9 ballots reweighted from 1 to 5/9.
+
+[Reweighted Range Voting: Round 3: Score round]
+ The highest-scoring candidate wins a seat.
+   Alice         -- 89 -- First place
+   Cara          -- 73
+   Eve           -- 55
+ Alice wins a seat.
+
+[Reweighted Range Voting: Winners — Reweighted Range Voting Method (3 winners)]
+ Alice
+ Ben
+ Dan

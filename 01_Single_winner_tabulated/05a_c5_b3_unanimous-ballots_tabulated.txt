@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     05a_c5_b3_unanimous-ballots.yaml
-SOURCE MODIFIED: 2026-06-17 15:58:14
+SOURCE MODIFIED: 2026-06-21 12:31:23
 TABULATED FILE:  05a_c5_b3_unanimous-ballots_tabulated.txt
-TABULATED AT:    2026-06-19 01:47:56
+TABULATED AT:    2026-06-21 13:34:23
 ======================================================================
 
 election_title: Unanimous ballots (five candidates)
@@ -22,10 +22,15 @@ video_script: |-
        single-winner: the Tennessee state-capital problem."
 
 options:
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
   show_matrix: true
   matrix_finalists_only: true
   show_condorcet: true
   show_score_counts: false
+  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
+  brief: false                # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true      # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
 
 num_winners: 1
 voting_method: STAR
@@ -59,7 +64,7 @@ Ella     0   0   0   0   0   3  |     0   0.0
 
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
-Legend: For - Equal Preference - Against
+Legend: For - Equal Support - Against
         * indicates Top 2 Finalist
                |  * Andre   |   Blake   | * Carmen  |   David   |    Ella   |
 -----------------------------------------------------------------------------
