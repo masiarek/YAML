@@ -1,0 +1,14 @@
+voting_method: RCV_IRV   # RCV-IRV — center squeeze (Center eliminated; Left wins)
+num_winners: 1
+
+# Minimal center squeeze. 27 voters. Center is the 2nd choice of BOTH poles and the
+# Condorcet winner (beats Left 15–12, beats Right 18–9), but has the fewest
+# first-choices (6) — so IRV eliminates Center first and the polar Left wins.
+# STAR and Condorcet/Ranked Robin elect Center: see center_squeeze_star.yaml and
+# 00_start_here/concepts/center_squeeze.md.
+ballots: |-
+  12:Left>Center>Right
+  9:Right>Center>Left
+  6:Center>Left>Right
+
+# file: center_squeeze_irv.yaml

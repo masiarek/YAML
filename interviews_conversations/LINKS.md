@@ -12,6 +12,16 @@ _Last full review: 2026-06-21._
 
 ---
 
+## Master index (start here)
+
+> The full topic-by-topic FAQ for the wider STAR/RCV knowledge base — every
+> Google-doc note, organized. When a source isn't yet pulled into this repo, look
+> here first.
+
+| Short name | Purpose | URL | Last reviewed |
+|------------|---------|-----|---------------|
+| **Index FAQ** | Master index of all topic-specific voting docs (computational social choice) | https://docs.google.com/document/d/1ChP00lDS4c8v30KxqZ8dC5EnqHVmQnjrbISQZBWWPVs/edit | 2026-06-21 |
+
 ## Presentations (decks)
 
 | Short name | Purpose | URL | Last reviewed |
@@ -52,6 +62,30 @@ _Last full review: 2026-06-21._
 | **Exhausted Ballot — definition** | The precise RCV-IRV definitions + the red / blue / yellow box exhaustion types | https://docs.google.com/document/d/1cZa8RdDeTZF25tfQ3zvLN8QQGhctNUAM-Hnr82ePxWg/edit | 2026-06-21 |
 | **RCV-IRV tabulation is confusing** | RCV-IRV opacity: round-by-round rules, central tabulation, lack of transparency | https://docs.google.com/document/d/18Ai1vBTudOUdJOmEIbeVw7wO8aY288DDMQtnG9YaxGs/edit | 2026-06-21 |
 | **Exhausted ballots — commentary** | Evenhanded critic-vs-proponent framing (Electowiki commentary) of RCV-IRV exhaustion | https://docs.google.com/document/d/1-iim_UdVhbZpuIGzo4idBr3glCW6pRGB_AUWu5-mdUs/edit | 2026-06-21 |
+
+## RCV-IRV monotonicity source notes (research)
+
+> **RCV-IRV-specific** — the research behind `concepts/monotonicity.md`. Not STAR material.
+
+| Short name | Purpose | URL | Last reviewed |
+|------------|---------|-----|---------------|
+| **Monotonicity (main)** | Overview: monotonic vs non-monotonic methods; STAR satisfies it, IRV doesn't | https://docs.google.com/document/d/1_AWr5vLYlhpb7opqX6fchPV2u-qOr23GC_LVfadXS-o/edit | 2026-06-21 |
+| **Monotonicity vs Later-No-Harm** | Why the two criteria are distinct (a common conflation) | https://docs.google.com/document/d/1z8Lskca2DZ04GGzbUj_ru0DWra2bOK5-Vp54Z1TuKXY/edit | 2026-06-21 |
+| **Upward monotonicity paradox** | Raising the winner can make them lose (Alaska 2022 worked case) | https://docs.google.com/document/d/1vgTCjhwSmn2eKyuGM5jDXGQUnuMqfvayaxCrI-kckI8/edit | 2026-06-21 |
+| **Downward monotonicity paradox** | Lowering a loser can make them win (San Francisco 2020 D7) | https://docs.google.com/document/d/142XGRQC-cm9QvRelILWLuNKplokzytavvETd8CRsOW4/edit | 2026-06-21 |
+
+## RCV-IRV center-squeeze & polarization source notes (research)
+
+> **RCV-IRV-specific / context** — research behind `concepts/center_squeeze.md`.
+
+| Short name | Purpose | URL | Last reviewed |
+|------------|---------|-----|---------------|
+| **Center Squeeze & Vote Splitting** | Main explainer: the squeeze vs vote splitting, spatial-model visuals | https://docs.google.com/document/d/1qkFx-oVhcpSUK4GaF5zDOVU-W8ae6L-HIseP2CkVvEE/edit | 2026-06-21 |
+| **Center squeeze: IRV vs STAR (case)** | 9-voter compare — Condorcet winner squeezed by IRV, elected by STAR | https://docs.google.com/document/d/19oOiZxKNkSMk8aEJpon74VNI-C3L0G2qA44EGqWsabU/edit | 2026-06-21 |
+| **Core support (myth)** | IRV's "lacked first-place votes" excuse rebutted (squeezed CW can have more) | https://docs.google.com/document/d/1C2N_AvFB4v_tIIoconxj9bbAyv5K9Jp_JLIJZ5MMyr0/edit | 2026-06-21 |
+| **Spoiler: IRV vs STAR (5-cand)** | 5-candidate Carmen consensus example across Plurality/IRV/Approval/STAR | https://docs.google.com/document/d/1J98xLECNF7lOeuu9tIFXFi5gx2EWvgwD-eSQ10C8KYY/edit | 2026-06-21 |
+| **Polarization** | Why center squeeze matters: primaries, gridlock, depolarization | https://docs.google.com/document/d/1d27POvoxpfp9rLIPOUuRExH_iV4R6mjY8i9rlbY4Ig4/edit | 2026-06-21 |
+| **Candidate Incentive Distributions** | Ogren 2023: which voters each method makes candidates court (depolarization) | https://docs.google.com/document/d/1TDJX31hs4PHLoPZcR6_r8o9Jnadhl6o2HfRRZqaA8Ao/edit | 2026-06-21 |
 
 ## Supporting docs (linked from the runoff materials)
 

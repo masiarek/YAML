@@ -22,21 +22,49 @@ Condorcet count of the *same* ballot) reads every ranking and elects the head-to
 winner, so it has **no** center squeeze. Saying "RCV has center squeeze" is
 imprecise — it's **IRV**. (See [`TIPS_terminology.md`](../TIPS_terminology.md).)
 
-## Test case (run it)
+## Minimal test case — run it
 
-→ [`split_voting/04_star_wars_vote_split.yaml`](../../split_voting/04_star_wars_vote_split.yaml)
+The smallest clean squeeze, as a matched pair (27 voters, Left / Center / Right):
 
-Leia is the **Condorcet winner** (beats both others head-to-head) but has the
-**fewest first-choices (27)**, so she'd be eliminated first under IRV. The engine's
-`[Divergence from STAR]` block shows it directly:
+→ [`center_squeeze_irv.yaml`](../../01_Single_winner/center_squeeze_irv.yaml)
+ · [`center_squeeze_star.yaml`](../../01_Single_winner/center_squeeze_star.yaml)
+
+Center is the **Condorcet winner** (beats Left 15–12, Right 18–9) but has the
+**fewest first-choices (6)**. The STAR file's output shows all four methods on the
+same ballots:
 
 ```
-STAR                   = Leia
-Choose-One (Plurality) = Vader
-RCV-IRV                = Skywalker   (differs from STAR)
+Choose-One (Plurality) = Left     RCV-IRV = Left     Approval = Left
+STAR = Center   ( = Condorcet winner — also what Ranked Robin would elect )
 ```
 
-STAR elects Leia; IRV elects Skywalker — the squeeze, in numbers.
+IRV eliminates Center in round 1; STAR advances Center on strength of support and
+wins the runoff. (Verified on the engine.) A richer themed version is the Star Wars
+vote-split demo, [`04_star_wars_vote_split.yaml`](../../split_voting/04_star_wars_vote_split.yaml).
+
+## Vote splitting vs center squeeze
+
+They look alike but aren't. **Vote splitting** is *similar* candidates sharing one
+pool of supporters. **Center squeeze** is a *distinct* moderate squeezed by two
+poles whose voters are different — the moderate can beat each pole head-to-head and
+still be eliminated for too few first-choices. (Volić, *Making Democracy Count*, 2024.)
+
+## "Core support" doesn't rescue IRV
+
+IRV advocates excuse the squeeze by saying the moderate simply lacked **"core
+support"** (first-place votes). But the squeezed Condorcet winner can have *more*
+first-place votes than the eventual IRV winner and still be eliminated — so the
+"core support" defense doesn't hold. (A sharper 4-candidate version of this can be
+added as a test case on request.)
+
+## Why it matters: polarization
+
+Center squeeze is a depolarization argument, not just a fairness one. A simulation
+study of candidate incentives (**Ogren 2023**, *Candidate Incentive Distributions*,
+arXiv 2306.07147) finds IRV pushes candidates to court their **base** far more than
+opposing voters, while **STAR and Condorcet methods** reward appealing to
+opposing-side voters roughly *as much* as the base — and the gap grows with more
+candidates. Electing squeezed moderates is how a method lowers the temperature.
 
 ## Real elections
 
@@ -49,10 +77,15 @@ STAR elects Leia; IRV elects Skywalker — the squeeze, in numbers.
 
 ## How STAR avoids it
 
-STAR's scoring round advances the **two highest totals**, so a candidate who is
-broadly liked (lots of 4s and 5s) reaches the runoff on *strength of support*, not
-just first-place counts — exactly the support a moderate has and IRV ignores. STAR
-is also highly **Condorcet-efficient**: it usually elects the head-to-head winner.
+STAR's scoring round advances the **two highest totals**, so a broadly-liked
+candidate (lots of 4s and 5s) reaches the runoff on *strength of support*, not just
+first-place counts — exactly the support a moderate has and IRV ignores. STAR is
+highly **Condorcet-efficient**: it usually elects the head-to-head winner.
 
-Sources: [Burlington 2009 (Wikipedia)](https://en.wikipedia.org/wiki/2009_Burlington_mayoral_election),
-[center squeeze / monotonicity criterion (Wikipedia)](https://en.wikipedia.org/wiki/Monotonicity_criterion).
+→ More source notes: **RCV-IRV center-squeeze & polarization** group in
+[`LINKS.md`](../../interviews_conversations/LINKS.md).
+
+Sources: [center squeeze (electionscience)](https://electionscience.org/library/the-center-squeeze-effect/),
+[Ogren 2023, Candidate Incentive Distributions (arXiv)](https://arxiv.org/abs/2306.07147),
+[Burlington 2009 (Wikipedia)](https://en.wikipedia.org/wiki/2009_Burlington_mayoral_election),
+[Alaska 2022 center squeeze (arXiv)](https://arxiv.org/abs/2303.00108).

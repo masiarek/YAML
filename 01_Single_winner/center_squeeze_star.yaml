@@ -1,0 +1,37 @@
+election_title: Center squeeze — STAR elects the consensus (Center)
+scenario_description: |-
+  The SAME 27-voter profile as center_squeeze_irv.yaml, translated to 0–5 scores.
+  Center is the broad consensus — the 2nd choice of both poles and the Condorcet
+  winner — but has the fewest first-choices.
+
+  RCV-IRV eliminates Center first (too little "core support") and elects the polar
+  Left. STAR counts every ballot in both rounds: Center reaches the runoff on
+  strength of support and wins. The [Divergence from STAR] and [Condorcet Winner]
+  lines below show Choose-One = Left, RCV-IRV = Left, STAR = Center = Condorcet
+  winner (also what Ranked Robin would elect).
+  See 00_start_here/concepts/center_squeeze.md.
+
+options:
+  show_description: true
+  show_matrix: true
+  matrix_finalists_only: false
+  show_condorcet: true
+  show_score_counts: true
+  show_irv: true                # show the [Divergence from STAR] RCV-IRV comparison
+  brief: false
+  collapse_ballots: true
+  count_separator: "×"
+
+voting_method: STAR
+num_winners: 1
+
+ballots: |-
+  Count:Left,Center,Right
+  12:5,4,3   # Left > Center > Right
+  9:3,4,5    # Right > Center > Left
+  6:4,5,3    # Center > Left > Right
+
+expected_winners:
+  - Center
+
+# file: center_squeeze_star.yaml
