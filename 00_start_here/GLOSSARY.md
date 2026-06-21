@@ -9,7 +9,7 @@ beginner vocabulary to advanced theory.
 - **Score / star rating** — a 0–5 value expressing *how much* you support a candidate (like a five-star review).
 - **Scoring round** — STAR's first round: add up each candidate's scores; the top two become finalists.
 - **Finalists** — the two highest-scoring candidates, who advance to the runoff.
-- **Automatic runoff** — STAR's second round: each ballot counts as a full vote for whichever finalist it scored higher; the preferred finalist wins.
+- **Automatic runoff** — STAR's second round: each ballot counts as a full vote for whichever finalist it scored higher; the preferred finalist wins. (Deep-dive deck: **Automatic Runoff** — see `interviews_conversations/LINKS.md`.)
 - **Head-to-head / pairwise** — a direct comparison of two candidates: which one more ballots scored higher.
 - **Equal Support / Equal Preference** — scoring two candidates the same; counts as "no preference" between them in the runoff.
 - **Scored (cardinal) ballot** — rates each candidate independently 0–5; equal ratings allowed.
