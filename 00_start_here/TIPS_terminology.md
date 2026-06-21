@@ -23,11 +23,12 @@ the US, "RCV" has been hijacked to mean **IRV specifically** — that's the abus
 
 ## The ranked-method family tree
 
-"RCV" (the ranked-ballot family) splits into two branches. Knowing which is which
-keeps you precise — and keeps you from lumping a Condorcet method in with IRV.
+The ranked ballot ("RCV") is counted by a whole family of *methods*, which split
+into two branches. Knowing which is which keeps you precise — and keeps you from
+lumping a Condorcet method in with IRV.
 
 ```
-Ranked-Choice Voting (RCV) = any method counted from a RANKED ballot
+Ranked-Choice Methods = any method counted from a RANKED ballot
 ├── Condorcet methods  (always elect the head-to-head winner when one exists)
 │     • Ranked Robin (Equal Vote's "most pairwise wins"; Copeland-style)
 │     • Ranked Pairs (Tideman)
@@ -35,16 +36,16 @@ Ranked-Choice Voting (RCV) = any method counted from a RANKED ballot
 │     • Minimax (Simpson–Kramer)
 │     • Copeland
 └── Non-Condorcet ranked methods  (can MISS the Condorcet winner)
-      • Hare / IRV   (eliminate-and-transfer; "RCV" in US usage)
+      • RCV-IRV      (a.k.a. Hare, single-winner; eliminate-and-transfer; "RCV" in US usage)
       • Borda        (positional points)
       • Bucklin      (Grand Junction; median-style)
-      • Coombs
+      • Coombs       (eliminates the candidate with the most last-place votes)
 ```
 
 True statements that follow (and good ways to test your own precision):
 - "Ranked Robin, Ranked Pairs, Schulze, and Minimax are forms of **Condorcet**
   RCV." ✅
-- "Condorcet [methods], Borda, Bucklin, and Hare/IRV are forms of **RCV**." ✅
+- "Condorcet [methods], Borda, Bucklin, and RCV-IRV are forms of **RCV**." ✅
   (All ranked ballots — though *Condorcet* is a family, the others are specific
   methods, so they sit at slightly different levels.)
 - "Borda / Bucklin are Condorcet methods." ❌ — ranked, yes; Condorcet, no.

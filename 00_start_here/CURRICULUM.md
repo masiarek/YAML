@@ -109,6 +109,15 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 - **Objective:** Confirm a spoiler in numbers for a declared bloc.
 - **Material:** the `blocs:` field + `[Vote-splitting check]` (see the engine); `split_voting/`.
 
+## 301.6 — "Exhausted ballots": what FairVote's word hides
+- **Objective:** Untangle the overloaded RCV-IRV term — separate the fair, voter-side
+  cases from the method-caused ones a fully and correctly ranked ballot still suffers.
+- **Key terms:** ballot exhaustion, inactive ballot, exhausted-untransferable,
+  nonexhausted-untransferred, ranking limit, majority-of-remaining-ballots.
+- **Episode:** `exhausted_ballots_301.md`; contrast `are_equal_score_votes_discounted.md`.
+- **Emphasize:** exhaustion is **IRV**-specific (Ranked Robin reads every rank); STAR
+  counts every ballot in both rounds, so nothing exhausts.
+
 ---
 
 ## Suggested pacing by audience

@@ -39,6 +39,20 @@ _Last full review: 2026-06-21._
 | **Exhausted Ballots (doc)** | RCV-IRV exhausted-ballot explainer (the contrast case) | https://docs.google.com/document/d/1ASC5BS10rCfAYZWGeCyS7dKdKc4p5wwI6DHs4F7ScGc/edit | 2026-06-21 |
 | **Exhausted Ballots (deck)** | RCV-IRV exhausted-ballot slides | https://docs.google.com/presentation/d/1ipof9WSSy0GenVKWfKLu_jlYwUIT0TU0WVSAap0VZ5Q/edit | 2026-06-21 |
 
+## RCV-IRV exhausted-ballot source notes (research)
+
+> All **RCV-IRV-specific** — the research behind `exhausted_ballots_301.md`. Not STAR
+> material; kept here so the critique stays sourced and separable.
+
+| Short name | Purpose | URL | Last reviewed |
+|------------|---------|-----|---------------|
+| **RCV-IRV wasted-votes glossary** | Index of RCV-IRV wasted-vote terms (exhausted / inactive / spoiled / skipped / overvote / truncation) | https://docs.google.com/document/d/1VxnZI9X0Y-MK6wwB0KiwlqXObkdH33FFbR3596PNF1c/edit | 2026-06-21 |
+| **Exhausted Ballots (link index)** | Curated link list behind the RCV-IRV exhausted-ballots topic | https://docs.google.com/document/d/1DIpvfK1ZZKr1nGRyOexuSbNsMagwLuDStk18loh4AYw/edit | 2026-06-21 |
+| **Ranking Limit (ballot length)** | RCV-IRV ballot-length caps → involuntary truncation / exhaustion of fully-ranked ballots | https://docs.google.com/document/d/1dgZl0g1-cA_KZUv1Urdenzcyd4QDXvFnDs7ekMWi3IM/edit | 2026-06-21 |
+| **Exhausted Ballot — definition** | The precise RCV-IRV definitions + the red / blue / yellow box exhaustion types | https://docs.google.com/document/d/1cZa8RdDeTZF25tfQ3zvLN8QQGhctNUAM-Hnr82ePxWg/edit | 2026-06-21 |
+| **RCV-IRV tabulation is confusing** | RCV-IRV opacity: round-by-round rules, central tabulation, lack of transparency | https://docs.google.com/document/d/18Ai1vBTudOUdJOmEIbeVw7wO8aY288DDMQtnG9YaxGs/edit | 2026-06-21 |
+| **Exhausted ballots — commentary** | Evenhanded critic-vs-proponent framing (Electowiki commentary) of RCV-IRV exhaustion | https://docs.google.com/document/d/1-iim_UdVhbZpuIGzo4idBr3glCW6pRGB_AUWu5-mdUs/edit | 2026-06-21 |
+
 ## Supporting docs (linked from the runoff materials)
 
 | Short name | Purpose | URL | Last reviewed |

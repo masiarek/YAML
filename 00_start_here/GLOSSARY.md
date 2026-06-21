@@ -29,7 +29,7 @@ beginner vocabulary to advanced theory.
 ## Mechanics
 
 - **Equal scores allowed** — you may give two candidates the same score; you're never forced to invent a preference.
-- **Exhausted ballot** — (a ranked-method term) a ballot discarded mid-count because it ranked no remaining candidate; STAR's runoff doesn't discard ballots this way.
+- **Exhausted ballot** — (an **RCV-IRV** term; IRV-specific, *not* all ranked methods — Ranked Robin / Condorcet counts read every rank) a ballot set aside mid-count because all its ranked candidates were eliminated. FairVote's single word covers several very different cases (voter-side vs method-caused); STAR's runoff never eliminates anyone, so it doesn't discard ballots this way. See `interviews_conversations/exhausted_ballots_301.md`.
 - **Tiebreaker** — a rule that resolves ties (for the finalists or the runoff); here, candidate priority / lot order.
 - **Undervote / abstention** — a ballot that scores no one (blank or `~`); counts as turnout but supports no candidate.
 

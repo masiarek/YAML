@@ -66,6 +66,10 @@ voting, gate-kept candidates, and two parties that demonize each other.
 majority just got divided and conquered by their own ballot. That's not a freak
 event — it can happen in *any* race with more than two candidates.
 
+> [REPO] The deeper *diagnosis* — is the system really broken, how often, how
+> serious? — `interviews_conversations/our_voting_system_is_broken.md` (the
+> foundational "Problem with Plurality" episode).
+
 ---
 
 ## Segment 2 — Ranks vs Scores (the key conceptual move)

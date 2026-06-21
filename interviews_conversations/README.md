@@ -29,6 +29,7 @@ demo or a memorable one-liner.
 |---|----------------|---------------|-----------|---------------|
 | 0 | Why do you love STAR? (cold open) | the personal "why" | — | Full Deck title + dilemma |
 | 1 | What's so good about STAR? | the whole pitch in one arc | flagship file's demos | Full Deck (all) |
+| 1.5 | Is our voting system broken? (Problem with Plurality) | is it broken — frequent? serious? worsening? | `split_voting/01*`, `04*` | "Problem: Vote-Splitting", "The Voting Dilemma" |
 | 2 | The spoiler effect | why Choose-One breaks with 3+ | `split_voting/01*`, `03*` | "Vote-Splitting", "Domino Effect" |
 | 3 | Ranks vs Scores | why scores carry more info | (whiteboard) + `00a` | "Rating vs Ranking" |
 | 4 | The STAR ballot | how do I vote? | — | "Instructions" / 5-star ballot |
@@ -41,6 +42,7 @@ demo or a memorable one-liner.
 | 10 | The honest limits | "resistant, not proof" | — | "Voting Theory Facts" |
 | 11 | "Discounted votes?" (objection) | are equal-score votes ignored? | `01_Single_winner/equal_support_runoff_demo.yaml` | "No-Preference Votes in the Runoff" |
 | 12 | Favorite betrayal (Voting 301) | does *only* RCV avoid it? | — | "RCV Common False Claims", "Alaska '22", pass/fail criteria |
+| 13 | "Exhausted ballots," untangled (301) | what FairVote's word actually hides | `equal_support_runoff_demo` (contrast) | "Ranked Choice Deal Breakers", "Alaska '22", Exhausted Ballots deck |
 
 Episodes 1, 2, 5, and 7 are the highest-value if you only make four. Episode 11
 ([are_equal_score_votes_discounted.md](./are_equal_score_votes_discounted.md)) is
