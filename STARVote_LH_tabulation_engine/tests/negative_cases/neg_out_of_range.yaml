@@ -1,0 +1,10 @@
+# NEGATIVE: a score above 5 (STAR scores are 0..5).
+# Expected error: "invalid: Bob=7"
+voting_method: STAR
+num_winners: 1
+ballots: |-
+  Ann,Bob,Cal
+  5,4,0
+  5,7,0
+
+# file: neg_out_of_range.yaml

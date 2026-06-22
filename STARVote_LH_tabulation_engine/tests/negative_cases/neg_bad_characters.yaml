@@ -1,0 +1,10 @@
+# NEGATIVE: a non-numeric score ("x").
+# Expected error: "invalid: Bob=x"
+voting_method: STAR
+num_winners: 1
+ballots: |-
+  Ann,Bob,Cal
+  5,4,0
+  5,x,0
+
+# file: neg_bad_characters.yaml

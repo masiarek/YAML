@@ -1,0 +1,10 @@
+# NEGATIVE: single-winner STAR asked to fill 3 seats.
+# Expected error: "elects a single winner, but got seats=3"
+voting_method: STAR
+num_winners: 3
+ballots: |-
+  Ann,Bob,Cal
+  5,4,0
+  4,5,0
+
+# file: neg_seats_mismatch.yaml

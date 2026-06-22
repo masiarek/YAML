@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+# ---------------------------------------------------------------------------
+# Git PRE-COMMIT hook for this repo.
+#
+# A "pre-commit hook" is just a script git runs automatically every time you
+# type `git commit`, BEFORE the commit is recorded. If this script exits with
+# an error, git cancels the commit. So it's a safety net: it runs the STAR
+# YAML test suite and stops you from committing if something is broken.
+#
+# It is wired up via:   git config core.hooksPath scripts/git-hooks
+# (so the hook lives in the repo and is version-controlled, unlike .git/hooks).
+# ---------------------------------------------------------------------------
+set -u
+
+ROOT="$(git rev-parse --show-toplevel)"
+ENGINE="$ROOT/STARVote_LH_tabulation_engine"
+
+# Prefer the project's virtualenv python; fall back to system python3.
+PY="python3"
+[ -x "$ROOT/.venv/bin/python" ] && PY="$ROOT/.venv/bin/python"
+
+# If pytest isn't installed, don't block the commit — just say how to get it.
+if ! "$PY" -c "import pytest" >/dev/null 2>&1; then
+  echo "pre-commit: pytest not installed for $PY — skipping tests."
+  echo "            install it with:  $PY -m pip install pytest"
+  exit 0
+fi
+
+echo "pre-commit: running STAR YAML test suite…"
+( cd "$ENGINE" && "$PY" -m pytest \
+    tests/test_single_winner_positive.py \
+    tests/test_negative_validation.py \
+    tests/test_harness_selfcheck.py \
+    tests/test_json_to_yaml_conversion.py -q )
+status=$?
+
+if [ "$status" -ne 0 ]; then
+  echo
+  echo "  ✗ Tests failed — commit aborted."
+  echo "    Fix the issue (or run the tests above to see what broke), then commit again."
+  echo "    To bypass this check once (not recommended):  git commit --no-verify"
+  exit 1
+fi
+
+echo "  ✓ Tests passed."
+exit 0

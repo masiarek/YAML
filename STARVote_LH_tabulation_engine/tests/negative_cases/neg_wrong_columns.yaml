@@ -1,0 +1,10 @@
+# NEGATIVE: a ballot row with too few columns (header has 3, row has 2).
+# Expected error: "has 2 value(s), expected 3"
+voting_method: STAR
+num_winners: 1
+ballots: |-
+  Ann,Bob,Cal
+  5,4,0
+  5,4
+
+# file: neg_wrong_columns.yaml

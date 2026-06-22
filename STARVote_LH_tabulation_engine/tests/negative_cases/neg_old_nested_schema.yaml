@@ -1,0 +1,12 @@
+# NEGATIVE — the OLD nested schema (election_parameters -> races -> race_1 -> ballots).
+# The current engine reads a flat 'ballots:' block; this should now produce a
+# FRIENDLY error (not a Python traceback) pointing the user to the flat format.
+election_parameters:
+  election_id: "OLD"
+  races:
+    race_1:
+      voting_method: "STAR"
+      candidates: [ "Andre", "Blake" ]
+      ballots: |
+        5, 4
+        4, 5

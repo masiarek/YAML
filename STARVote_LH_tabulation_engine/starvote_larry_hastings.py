@@ -236,6 +236,24 @@ def _yaml_lite(text):
     return ballots_text, seats, method_name, options
 
 
+KEY_COMPONENTS_HELP = """\
+A STAR election file needs three things:
+  - voting_method : STAR (default) | Approval | bloc | sss | rrv | allocated | RCV_IRV
+  - num_winners   : how many seats to fill (1 = single-winner)
+  - ballots       : a 0-5 score grid -- a header row of candidate names, then one
+                    row per voter
+
+Minimal example (copy & paste):
+
+  voting_method: STAR
+  num_winners: 1
+  ballots: |-
+    Ann,Bob,Cal
+    5,4,0
+    3,5,2
+"""
+
+
 def load_election(path, race_index=0):
     """Load an election from a file. Returns a dict:
         {"ballots": str, "seats": int|None, "method": obj|None, "options": dict}
@@ -281,8 +299,17 @@ def load_election(path, race_index=0):
                 "       the block early). Move candidate-legend comments ABOVE `ballots:`."
             )
             sys.exit(1)
-        race = _find_race(data, race_index)
-        ballots_text = race["ballots"]
+        try:
+            race = _find_race(data, race_index)
+            ballots_text = race["ballots"]
+        except (KeyError, TypeError, IndexError):
+            print(
+                f"Error: no 'ballots:' block found in '{p.name}'.\n"
+                "(If this is the old nested schema 'election_parameters -> races ->\n"
+                " race_1 -> ballots', convert it to the flat form shown below.)\n\n"
+                + KEY_COMPONENTS_HELP
+            )
+            sys.exit(1)
         seats = int(race["num_winners"]) if "num_winners" in race else None
         method_name = race.get("voting_method")
         options = {}
@@ -831,7 +858,7 @@ def tabulate_approval(ballots_text, seats=1, priority=None):
               f"({', '.join(MARKER_MEANINGS)}) = not approved.")
         print("  Fix or remove these rows. If they are 0..5 score ballots, set "
               "voting_method to STAR.")
-        return
+        sys.exit(1)
 
     candidates, ballots, _ = parse_ballots_from_string(ballots_text)
     if not ballots:
@@ -1851,11 +1878,8 @@ def run_election(
             m = row_re.match(text)
             if m and not text.lstrip().startswith("["):
                 indent, label, rest = m.groups()
-                # The "(aka …)" note is explanatory but noisy on screen. Show it
-                # only in verbose (non-brief) output — i.e. the saved _tabulated
-                # file — and keep the live/brief demo output clean.
-                if relabeled and not brief and EQUAL_NOTE not in rest:
-                    rest = f"{rest} {EQUAL_NOTE}"
+                # House term is just "Equal Support" (the aka lives in GLOSSARY.md,
+                # not repeated on every runoff line).
                 if round_state["in_runoff"]:
                     rest = colorize_runoff_value(label.strip(), rest)
                 text = f"{indent}{label:<{label_width}} -- {rest}"
@@ -1983,6 +2007,17 @@ Memphis,Nashville,Chattanooga,Knoxville
     if BALLOTS_FILE:
         election = load_election(BALLOTS_FILE)
         csv_input = election["ballots"]
+
+        # Helpful note when the optional key components are omitted (they have
+        # safe defaults, so this is informational, not an error).
+        _defaulted = []
+        if not election.get("method_name"):
+            _defaulted.append("voting_method: STAR")
+        if election.get("seats") is None:
+            _defaulted.append("num_winners: 1")
+        if _defaulted:
+            print(f"{COLOR_DIM}Note: {' and '.join(_defaulted)} not set in the file "
+                  f"— using defaults.{COLOR_RESET}")
 
         # On-the-fly engine dispatch based on the declared voting_method (or the
         # ballot style), so one command routes STAR / RCV-IRV / Approval files.
@@ -2155,9 +2190,7 @@ Memphis,Nashville,Chattanooga,Knoxville
 
         # On-screen render: honors the file's own options.
         winners, out = _capture(run_kwargs)
-        # Show which file produced this output (handy in demos / scrollback).
-        print(f"{COLOR_DIM}# file: {Path(BALLOTS_FILE).name}{COLOR_RESET}")
-        sys.stdout.write(out)  # still display on screen
+        sys.stdout.write(out)  # display on screen
 
         # The saved '_tabulated' file ALWAYS uses the full, most explanatory
         # render (every analysis on, maximum verbosity) regardless of the file's

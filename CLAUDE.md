@@ -48,8 +48,10 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
 - **STAR** = Score Then Automatic Runoff (a *score* ballot + that tabulation; the
   same ballot can be Approval / Score / Proportional STAR).
 - **Equal Support** is the canonical label for the no-preference runoff bucket
-  (matrix legend *and* runoff). Note "(aka Equal Preference, No Preference)". Do
-  **not** reintroduce "Equal Preference" as the lead term.
+  (matrix legend *and* runoff) — printed **plain**, just "Equal Support". The aka
+  (Equal Preference / No Preference) is documented once in `GLOSSARY.md`, **not**
+  echoed on every runoff line. Do **not** reintroduce "Equal Preference" as the
+  lead term.
 - **Favorite Betrayal Criterion ≠ Later-No-Harm** — keep distinct. Neither STAR
   nor IRV is FBC-compliant; RCV-IRV fails it structurally (center squeeze), STAR
   only in rare constructions. See `interviews_conversations/favorite_betrayal_voting_301.md`.
@@ -74,7 +76,7 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
     show_condorcet: false
     show_score_counts: false
     show_irv: false
-    brief: false
+    brief: true
     collapse_ballots: true
     count_separator: "×"
   ```
@@ -83,15 +85,21 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
   `matrix_finalists_only: false` (a "Top 2 Finalist" matrix is a single-winner
   concept and prints misleadingly for PR/Bloc). **Exceptions:** the options-demo
   files (`04b_…display-options-all`, `options_examples`) keep their illustrative
-  all-on settings — they exist to showcase options. The `[Divergence from STAR]`
+  all-on settings — they exist to showcase options; and **two-candidate intro
+  files set `show_matrix: false`** — with only two candidates the finalists matrix
+  is trivial (it just echoes the runoff). The `[Divergence from STAR]`
   block prints whenever methods differ regardless of these flags, so comparative
   demos keep their punch on screen even with the minimal block.
 - **`show_description`**: per the block above, default `false` (clean demo —
   description stays in the file and the always-full `_tabulated` copy, hidden on
   screen). Flip to `true` only for a deliberate study/reference render.
-- **Voter counts:** weighted `Count` values must be **≥ 6** (avoid collision with
-  0–5 scores), or use individual ballots. Scaling all weights ×N preserves
-  STAR/proportional winners and percentages. See `TIPS_choosing_voter_counts.md`.
+- **Voter counts — keep examples SMALL.** Default to the *fewest ballots* that
+  make the point; prefer **individual ballots** (one row per voter, a handful of
+  them) over large weighted blocs. A 3-voter example that shows the effect beats a
+  100-voter one. Only scale up when a larger electorate is genuinely essential
+  (e.g., percentages or proportional seats). When you *do* weight, `Count` values
+  must be **≥ 6** (avoid collision with 0–5 scores); scaling all weights ×N
+  preserves STAR/proportional winners. See `TIPS_choosing_voter_counts.md`.
 - **Markers (all tabulate as 0):** `-` blank · `~` race abstention · `&` candidate
   abstention · `?` spoiled · `%` spoiled+reissued. **No `^`** (removed). Approval
   ballots accept only `0`/`1` (+ blank/marker = not approved).
@@ -116,6 +124,32 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
   ranked (`A>C>B`) or score ballots.
 - Quick checks can use system `python3` (engines are vendored); the user runs via
   their `.venv` / `uv`.
+- The engine errors *clearly* (no tracebacks) for the common mistakes: bad YAML,
+  no `ballots:` block / old nested schema (prints the key-components template),
+  wrong column counts, invalid chars / out-of-range scores, ranked ballots under a
+  score method, and method/seats mismatches. Missing `voting_method` / `num_winners`
+  is a non-fatal NOTE (defaults to STAR / 1). Generated `_tabulated.txt` files are
+  refused as input.
+
+## Tests
+- `STARVote_LH_tabulation_engine/tests/test_single_winner_positive.py` — every
+  single-winner STAR file with `expected_winners` (in `01_Single_winner/`,
+  `split_voting/`, `YAML_library/1_positive/`) is run through the CLI (which also
+  writes its `_tabulated` copy) and checked for exit 0 + correct winner.
+- `…/tests/test_harness_selfcheck.py` — meta-tests proving the winner check isn't
+  vacuous: deliberately-wrong answer keys (single- and multi-winner) in
+  `tests/harness_cases/` must NOT match the engine's real result.
+- `…/tests/test_json_to_yaml_conversion.py` — guards the BetterVoting-JSON →
+  YAML pipeline (`YAML_library/1_positive/01_convert_json_yaml.py`): converts a
+  real export in an isolated tmp dir and checks the produced YAML tabulates to the
+  embedded winners (catches engine-signature drift like the `parse_ballots_from_string`
+  arity bug).
+- `…/tests/test_negative_validation.py` — malformed fixtures (in `tests/negative_cases/`
+  **and** the migrated `YAML_library/2_negative/`) must exit 1 with the right
+  message and no traceback; covers single messages and multiple-errors-in-one-file.
+- Run: `pytest tests/test_single_winner_positive.py tests/test_negative_validation.py`
+  from the engine dir. A repo pre-commit hook (`scripts/git-hooks/`, wired via
+  `git config core.hooksPath scripts/git-hooks`) runs these on every commit.
 
 ## When unsure
 Consistency matters more than cleverness here. If a terminology or convention

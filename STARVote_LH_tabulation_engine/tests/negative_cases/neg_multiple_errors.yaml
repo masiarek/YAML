@@ -1,0 +1,12 @@
+# NEGATIVE: several bad rows in one file (wrong columns + bad char + out of range).
+# Expected: MULTIPLE offending-ballot lines reported together before exit.
+voting_method: STAR
+num_winners: 1
+ballots: |-
+  Ann,Bob,Cal
+  5,4,0
+  5,4
+  5,x,0
+  5,7,0
+
+# file: neg_multiple_errors.yaml

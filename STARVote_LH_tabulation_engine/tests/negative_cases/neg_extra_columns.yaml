@@ -1,0 +1,10 @@
+# NEGATIVE: a ballot row with too many columns (trailing/stray comma -> 4 cells).
+# Expected error: "has 4 value(s), expected 3"
+voting_method: STAR
+num_winners: 1
+ballots: |-
+  Ann,Bob,Cal
+  5,4,0
+  5,4,0,1
+
+# file: neg_extra_columns.yaml

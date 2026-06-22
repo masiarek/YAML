@@ -1,0 +1,7 @@
+# NEGATIVE: ranked ballots under voting_method STAR (score method).
+# Expected error: declares a score method but ballots are ranked (A>C>B).
+voting_method: STAR
+num_winners: 1
+ballots: |-
+  40:Ann>Cal>Bob
+  35:Bob>Cal>Ann

@@ -1,0 +1,17 @@
+# HARNESS SELF-TEST — not an engine negative.
+#
+# This is a VALID election that tabulates perfectly (Chocolate wins, 5 vs 3,
+# exit 0). What's deliberately wrong is the ANSWER KEY: expected_winners says
+# Vanilla. It exists so a meta-test can confirm the POSITIVE suite's winner
+# assertion really would catch a wrong expected_winners (i.e., the positive
+# tests aren't vacuously passing). See tests/test_harness_selfcheck.py.
+election_title: Deliberate expected-winner mismatch (harness self-test)
+voting_method: STAR
+num_winners: 1
+ballots: |-
+  Chocolate,Vanilla
+  5,3
+expected_winners:
+  - Vanilla   # WRONG ON PURPOSE — the real STAR winner is Chocolate.
+
+# file: expected_winner_mismatch.yaml

@@ -1,0 +1,23 @@
+# HARNESS SELF-TEST — not an engine negative, and NOT a positive example.
+#
+# A valid 2-seat Bloc STAR election that tabulates fine: the real winners are
+# {Vanilla, Almond}. The answer key here is deliberately WRONG as a SET — it names
+# Choco, who scores only 1 and never wins. This proves the positive suite's
+# winner-SET assertion (sorted(winners) == sorted(expected)) actually catches a
+# bad multi-winner key. (The single-winner counterpart is expected_winner_mismatch.yaml.)
+#
+# NB: we compare sets, not order — so a mere order difference like [Almond, Vanilla]
+# vs [Vanilla, Almond] is NOT a failure; the key must be wrong as a SET to bite.
+election_title: Deliberate multi-winner mismatch (harness self-test)
+voting_method: bloc
+num_winners: 2
+ballots: |-
+  Choco,Almond,Vanilla
+  1,2,5
+  0,5,5
+  0,0,5
+expected_winners:
+  - Choco     # WRONG ON PURPOSE — Choco loses; real winners are Vanilla + Almond
+  - Almond
+
+# file: wrong_winner_set_multiwinner.yaml

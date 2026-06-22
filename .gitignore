@@ -1,6 +1,9 @@
 .idea/
 .claude/
 
+# Converter staging output (regenerable from the JSON sources)
+**/_generated/
+
 # Python bytecode caches (regenerable)
 __pycache__/
 **/__pycache__/

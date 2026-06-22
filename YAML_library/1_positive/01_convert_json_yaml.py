@@ -244,7 +244,8 @@ def convert_election_data(input_json_path, engine_module):
                 tabulation_csv = csv_string.replace('-', '0')
 
                 # 1. Run silently for clean array of winners using exact number of seats
-                _, parsed_ballots = engine_module.parse_ballots_from_string(tabulation_csv)
+                # (parse_ballots_from_string returns (candidates, ballots, display_rows))
+                _, parsed_ballots, _ = engine_module.parse_ballots_from_string(tabulation_csv)
                 if parsed_ballots:
                     tb = engine_module.LotNumberTiebreaker(lot_numbers=[], silent=True)
                     winners_set = starvote.election(
@@ -292,12 +293,16 @@ def convert_election_data(input_json_path, engine_module):
     yaml_filename = f"{base_filename}.yaml"
     json_filename = f"{base_filename}.json"
 
-    output_yaml_path = Path(input_json_path).parent / yaml_filename
+    # Write generated YAML into a "_generated/" staging subfolder so it can never
+    # overwrite hand-refined test-case YAML living alongside the JSON sources.
+    out_dir = Path(input_json_path).parent / "_generated"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    output_yaml_path = out_dir / yaml_filename
 
     with open(output_yaml_path, 'w') as file:
         yaml.dump(minimal_data, file, default_flow_style=False, sort_keys=False)
 
-    print(f"Generated: {yaml_filename}")
+    print(f"Generated: _generated/{yaml_filename}")
 
     original_json_path = Path(input_json_path)
     new_json_path = original_json_path.parent / json_filename
