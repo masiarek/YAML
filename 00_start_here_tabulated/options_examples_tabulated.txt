@@ -2,7 +2,7 @@
 SOURCE FILE:     options_examples.yaml
 SOURCE MODIFIED: 2026-06-21 11:07:40
 TABULATED FILE:  options_examples_tabulated.txt
-TABULATED AT:    2026-06-21 12:39:23
+TABULATED AT:    2026-06-22 15:04:33
 ======================================================================
 
 # Single-race demo that controls its own output via `options:`.
@@ -83,9 +83,10 @@ Legend: For - Equal Support - Against
   Condorcet Winner: Don — matches the STAR winner
 
 [Divergence from STAR]
-  STAR     = Don
-  RCV-IRV  = Bob   (differs from STAR)
-  Approval = Ann   (differs from STAR)
+  STAR                   = Don
+  Choose-One (Plurality) = Bob   (differs from STAR)
+  RCV-IRV                = Bob   (differs from STAR)
+  Approval               = Ann   (differs from STAR)
   Note: 2 of 4 ballots (50%) had equal non-zero scores, so their ranks were
         decided by candidate priority order. The RCV-IRV result may be an
         artifact of score-to-rank tie-breaking rather than a deep
@@ -121,7 +122,7 @@ Count × Ann,Bob,Cal,Don
  The candidate preferred in the most head-to-head matchups wins.
    Don           -- 2 -- First place
    Bob           -- 1
-   Equal Support -- 1 (aka Equal Preference, No Preference)
+   Equal Support -- 1
  Don wins.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]

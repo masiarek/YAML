@@ -21,7 +21,7 @@ options:
   show_condorcet: false
   show_score_counts: false
   show_irv: false
-  brief: false
+  brief: true
   collapse_ballots: true
   count_separator: "×"
 

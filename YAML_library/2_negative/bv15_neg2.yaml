@@ -1,23 +1,16 @@
-# expected error message:
-# You deactivated abstentions (race_abstention_allowed: false)
-# - however your ballots have a special character "~" indicating abstentions.
-election_parameters:
-  election_id: "BV15"
-  election_title: "Basic - 2 candidates - Plurality"
-  race_abstention_allowed: false
-  number_of_races: 1
-  ballot_format_parameters:
-    ballot_file_type: "csv"
-    voter_left_candidate_blank: "-"
-    race_abstention_level_character: "~"
+# NEGATIVE — wrong character in an Approval ballot.
+# A cell contains the letter 'x' (not 0, 1, blank, or a marker).
+# Original intent (BV15_neg2): race_abstention_allowed: false with "~" in ballots.
+#   The current engine has no abstention on/off toggle (abstentions are always
+#   allowed), so that case is no longer an error — repurposed to a wrong-character
+#   negative, which the engine DOES catch.
+# Current engine error: "Approval ballots may only use scores {0, 1}" + "(invalid: Blake=x)".
+election_title: Basic — Approval with an invalid character
+voting_method: Approval
+num_winners: 1
+ballots: |-
+  Andre,Blake
+  0,1
+  0,x
 
-  races:
-    race_1:
-      voting_method: "Plurality"
-      single_or_multi_winner: "single-winner"
-      candidates: [ "Andre", "Blake" ]
-      ballots: |
-        0, 1
-        0, 1
-        ~, ~
-      expected_winner: "Blake"
+# file: bv15_neg2.yaml

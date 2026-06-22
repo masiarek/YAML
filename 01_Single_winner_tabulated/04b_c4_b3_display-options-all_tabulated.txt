@@ -2,7 +2,7 @@
 SOURCE FILE:     04b_c4_b3_display-options-all.yaml
 SOURCE MODIFIED: 2026-06-21 11:07:40
 TABULATED FILE:  04b_c4_b3_display-options-all_tabulated.txt
-TABULATED AT:    2026-06-21 13:34:23
+TABULATED AT:    2026-06-22 18:11:42
 ======================================================================
 
 # Single-race demo exercising EVERY supported field and `options:` flag.
@@ -112,7 +112,7 @@ Count × Choco,Almond,Vanilla,Strawberry
  The candidate preferred in the most head-to-head matchups wins.
    Strawberry    -- 2 -- First place
    Vanilla       -- 1
-   Equal Support -- 0 (aka Equal Preference, No Preference)
+   Equal Support -- 0
  Strawberry wins.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]

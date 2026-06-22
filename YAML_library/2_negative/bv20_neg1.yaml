@@ -1,26 +1,15 @@
-# Expected error:
-# Number of races does not match number of ballots sections
-# Number_of_races = 2
-# We should have two sections race_1 and race_2 (race_2 definition is missing)
-election_parameters:
-  election_id: "BV20"
-  election_title: "BV20 - Basic - 3 candidates - Approval - Abstention"
-  race_abstention_allowed: true
-  number_of_races: 2
-  ballot_format_parameters:
-    ballot_file_type: "csv"
-    voter_left_candidate_blank: "-"
-    race_abstention_level_character: "~"
+# NEGATIVE — wrong number of columns (3 candidates, a 2-value row).
+# Original intent (BV20_neg1): number_of_races: 2 but only race_1 defined.
+#   The current engine is single-race (flat schema), so multi-race can't be
+#   expressed — repurposed to a column-count negative on a 3-candidate Approval race.
+# Current engine error: "has 2 value(s), expected 3".
+election_title: BV20 — 3 candidates, a row with the wrong column count
+voting_method: Approval
+num_winners: 1
+ballots: |-
+  Andre,Blake,Carmen
+  0,0,1
+  0,1
+  ~,~,~
 
-  races:
-    race_1:
-      voting_method: "Approval"
-      single_or_multi_winner: "single-winner"
-      candidates: [ "Andre", "Blake", "Carmen" ]
-      ballots: |
-        0, 0, 1
-        0, 1, 1
-        ~, ~, ~
-        1, 0, 0
-        0, 1, 1
-      expected_winner: "Carmen"
+# file: bv20_neg1.yaml

@@ -2,7 +2,7 @@
 SOURCE FILE:     01_c4_b2_bloc-star-2-seats.yaml
 SOURCE MODIFIED: 2026-06-22 14:36:45
 TABULATED FILE:  01_c4_b2_bloc-star-2-seats_tabulated.txt
-TABULATED AT:    2026-06-22 14:37:18
+TABULATED AT:    2026-06-22 15:04:32
 ======================================================================
 
 election_title: "Bloc STAR Voting: 2-Seat Committee Election"
@@ -103,7 +103,7 @@ Ann,Bob,Cal,Don
  The candidate preferred in the most head-to-head matchups wins.
    Don           -- 2 -- First place
    Cal           -- 0
-   Equal Support -- 0 (aka Equal Preference, No Preference)
+   Equal Support -- 0
  Don wins.
 
 ──────────────────────────────────────────────────
@@ -118,7 +118,7 @@ Ann,Bob,Cal,Don
  The candidate preferred in the most head-to-head matchups advances.
    Ann           -- 1 -- Tied for second place
    Bob           -- 1 -- Tied for second place
-   Equal Support -- 0 (aka Equal Preference, No Preference)
+   Equal Support -- 0
  There's still a two-way tie for second.
 
 [Bloc STAR: Round 2: Scoring Round: Second tiebreaker]
@@ -139,7 +139,7 @@ Ann,Bob,Cal,Don
  The candidate preferred in the most head-to-head matchups wins.
    Cal           -- 2 -- First place
    Ann           -- 0
-   Equal Support -- 0 (aka Equal Preference, No Preference)
+   Equal Support -- 0
  Cal wins.
 
 [Bloc STAR: Winners — Bloc STAR Voting Method (2 winners)]

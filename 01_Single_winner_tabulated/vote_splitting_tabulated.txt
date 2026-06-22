@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     vote_splitting.yaml
-SOURCE MODIFIED: 2026-06-22 14:36:45
+SOURCE MODIFIED: 2026-06-22 15:13:10
 TABULATED FILE:  vote_splitting_tabulated.txt
-TABULATED AT:    2026-06-22 14:37:16
+TABULATED AT:    2026-06-22 18:11:42
 ======================================================================
 
 election_title: Vote splitting — two chocolates split the majority
@@ -51,7 +51,7 @@ options:
   show_matrix: true
   show_condorcet: false
   show_score_counts: false   # the per-flavor score distribution reads well on screen
-  brief: false   # collapse repetitive "[STAR Voting: ...]" headers
+  brief: true   # collapse repetitive "[STAR Voting: ...]" headers
   collapse_ballots: true   # group identical ballots as "count × scores"
   count_separator: "×"
   matrix_finalists_only: true   # true = finalists only; false = full N×N grid (needs show_matrix)
@@ -131,7 +131,7 @@ Count × DarkChoco,MilkChoco,Vanilla
  The candidate preferred in the most head-to-head matchups wins.
    DarkChoco     -- 26 -- First place
    MilkChoco     -- 10
-   Equal Support -- 0 (aka Equal Preference, No Preference)
+   Equal Support -- 0
  DarkChoco wins.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]

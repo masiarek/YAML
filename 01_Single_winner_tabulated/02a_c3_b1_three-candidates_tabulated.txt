@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     02a_c3_b1_three-candidates.yaml
-SOURCE MODIFIED: 2026-06-22 14:36:45
+SOURCE MODIFIED: 2026-06-22 15:13:10
 TABULATED FILE:  02a_c3_b1_three-candidates_tabulated.txt
-TABULATED AT:    2026-06-22 14:37:15
+TABULATED AT:    2026-06-22 18:11:41
 ======================================================================
 
 election_title: Three candidates, one ballot - single-winner STAR
@@ -36,7 +36,7 @@ options:
   show_condorcet: false   # show the [Condorcet Winner] line
   show_score_counts: false   # show the per-candidate [Score Distribution] table
   show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
-  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
   collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
   count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
@@ -104,7 +104,7 @@ Choco,Vanilla,Almond
  The candidate preferred in the most head-to-head matchups wins.
    Choco         -- 1 -- First place
    Vanilla       -- 0
-   Equal Support -- 0 (aka Equal Preference, No Preference)
+   Equal Support -- 0
  Choco wins.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]

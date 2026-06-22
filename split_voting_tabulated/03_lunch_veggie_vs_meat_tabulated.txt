@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     03_lunch_veggie_vs_meat.yaml
-SOURCE MODIFIED: 2026-06-22 14:36:45
+SOURCE MODIFIED: 2026-06-22 15:13:10
 TABULATED FILE:  03_lunch_veggie_vs_meat_tabulated.txt
-TABULATED AT:    2026-06-22 14:37:18
+TABULATED AT:    2026-06-22 18:11:44
 ======================================================================
 
 election_title: Spoiler — the veggie majority splits, the burger wins the lunch vote
@@ -30,7 +30,7 @@ options:
   show_condorcet: false   # show the [Condorcet Winner] line
   show_score_counts: false   # show the per-candidate [Score Distribution] table
   show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
-  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
   collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
   count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
@@ -121,7 +121,7 @@ Count × VeggieCurry,TofuStirFry,GardenSalad,BeefBurger
  The candidate preferred in the most head-to-head matchups wins.
    VeggieCurry   -- 42 -- First place
    TofuStirFry   -- 28
-   Equal Support -- 30 (aka Equal Preference, No Preference)
+   Equal Support -- 30
  VeggieCurry wins.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]

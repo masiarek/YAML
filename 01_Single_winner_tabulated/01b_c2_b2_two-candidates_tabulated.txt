@@ -1,11 +1,11 @@
 ======================================================================
 SOURCE FILE:     01b_c2_b2_two-candidates.yaml
-SOURCE MODIFIED: 2026-06-22 10:36:45
+SOURCE MODIFIED: 2026-06-22 15:34:19
 TABULATED FILE:  01b_c2_b2_two-candidates_tabulated.txt
-TABULATED AT:    2026-06-22 10:41:09
+TABULATED AT:    2026-06-22 18:11:41
 ======================================================================
 
-election_title: The simplest possible single-winner STAR example
+election_title: Again, very similar - this time second ballot is 5 and 0
 scenario_description: |-
   Same as before (Caroline vote is the first), 
   but this time with one more person (hence one more ballot 
@@ -31,12 +31,12 @@ video_script: |-
 
 options:
   show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
-  show_matrix: true   # show the Runoff (Preference) Matrix
-  matrix_finalists_only: true   # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_matrix: false   # show the Runoff (Preference) Matrix
+  matrix_finalists_only: false   # true = finalists only; false = full N×N grid (needs show_matrix)
   show_condorcet: false   # show the [Condorcet Winner] line
   show_score_counts: false   # show the per-candidate [Score Distribution] table
   show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
-  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
   collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
   count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
@@ -57,7 +57,7 @@ expected_winners:
 TABULATION RESULTS
 ======================================================================
 
-=== The simplest possible single-winner STAR example ===
+=== Again, very similar - this time second ballot is 5 and 0 ===
   Same as before (Caroline vote is the first), 
   but this time with one more person (hence one more ballot 
   - the second row) — from George:
@@ -102,7 +102,7 @@ Choco,Vanilla
  The candidate preferred in the most head-to-head matchups wins.
    Choco         -- 2 -- First place
    Vanilla       -- 0
-   Equal Support -- 0 (aka Equal Preference, No Preference)
+   Equal Support -- 0
  Choco wins.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]

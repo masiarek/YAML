@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     09_c4_b100_tennessee-capital.yaml
-SOURCE MODIFIED: 2026-06-22 14:36:45
+SOURCE MODIFIED: 2026-06-22 15:13:10
 TABULATED FILE:  09_c4_b100_tennessee-capital_tabulated.txt
-TABULATED AT:    2026-06-22 14:37:16
+TABULATED AT:    2026-06-22 18:11:42
 ======================================================================
 
 election_title: Tennessee Capital — classic STAR example
@@ -35,7 +35,7 @@ options:
   show_condorcet: false   # show the [Condorcet Winner] line
   show_score_counts: false   # show the per-candidate [Score Distribution] table
   show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
-  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
   collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
   count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
@@ -112,7 +112,7 @@ Count × Memphis,Nashville,Chattanooga,Knoxville
  The candidate preferred in the most head-to-head matchups wins.
    Nashville     -- 68 -- First place
    Chattanooga   -- 32
-   Equal Support -- 0 (aka Equal Preference, No Preference)
+   Equal Support -- 0
  Nashville wins.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]

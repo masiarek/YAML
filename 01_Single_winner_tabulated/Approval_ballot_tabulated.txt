@@ -2,7 +2,7 @@
 SOURCE FILE:     Approval_ballot.yaml
 SOURCE MODIFIED: 2026-06-20 04:16:52
 TABULATED FILE:  Approval_ballot_tabulated.txt
-TABULATED AT:    2026-06-21 11:13:06
+TABULATED AT:    2026-06-22 15:04:30
 ======================================================================
 
 voting_method: STAR
@@ -47,9 +47,10 @@ Legend: For - Equal Support - Against
   Condorcet Winner: D — matches the STAR winner
 
 [Divergence from STAR]
-  STAR     = D
-  RCV-IRV  = A   (differs from STAR)
-  Approval = A   (differs from STAR)
+  STAR                   = D
+  Choose-One (Plurality) = A   (differs from STAR)
+  RCV-IRV                = A   (differs from STAR)
+  Approval               = A   (differs from STAR)
   Note: 4 of 8 ballots (50%) had equal non-zero scores, so their ranks were
         decided by candidate priority order. The RCV-IRV result may be an
         artifact of score-to-rank tie-breaking rather than a deep
@@ -87,7 +88,7 @@ A,B,C,D
  The candidate preferred in the most head-to-head matchups wins.
    D             -- 1 -- First place
    A             -- 0
-   Equal Support -- 7 (aka Equal Preference, No Preference)
+   Equal Support -- 7
  D wins.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]

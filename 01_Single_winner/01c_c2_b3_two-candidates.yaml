@@ -1,4 +1,4 @@
-election_title: The simplest possible single-winner STAR example
+election_title: Equal support example ("I like both flavors")
 
 scenario_description: |-
   Now we add a third ballot, from Julia, who likes both flavors equally (both 5 stars).
@@ -21,12 +21,12 @@ video_script: |-
 
 options:
   show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
-  show_matrix: true   # show the Runoff (Preference) Matrix
-  matrix_finalists_only: true   # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_matrix: false   # show the Runoff (Preference) Matrix
+  matrix_finalists_only: false   # true = finalists only; false = full N×N grid (needs show_matrix)
   show_condorcet: false   # show the [Condorcet Winner] line
   show_score_counts: false   # show the per-candidate [Score Distribution] table
   show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
-  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
   collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
   count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 

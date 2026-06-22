@@ -47,7 +47,7 @@ options:
   show_matrix: true
   show_condorcet: false
   show_score_counts: false   # the per-flavor score distribution reads well on screen
-  brief: false   # collapse repetitive "[STAR Voting: ...]" headers
+  brief: true   # collapse repetitive "[STAR Voting: ...]" headers
   collapse_ballots: true   # group identical ballots as "count × scores"
   count_separator: "×"
   matrix_finalists_only: true   # true = finalists only; false = full N×N grid (needs show_matrix)

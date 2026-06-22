@@ -1,0 +1,120 @@
+======================================================================
+SOURCE FILE:     S_W1_N_BV001b_UnderstandingStarBallotLimitedSelectionsImplicitZeros_ch2hkq.yaml
+SOURCE MODIFIED: 2026-06-22 17:47:13
+TABULATED FILE:  S_W1_N_BV001b_UnderstandingStarBallotLimitedSelectionsImplicitZeros_ch2hkq_tabulated.txt
+TABULATED AT:    2026-06-22 17:47:29
+======================================================================
+
+election_title: BV001b — Understanding the STAR ballot (implicit zeros)
+scenario_description: |-
+  Two ballots that tabulate identically: Blake gets an *implicit* zero on the
+  first ballot (a "-" / left blank) and an *explicit* 0 on the second. Blank and
+  0 mean the same thing in STAR. (BetterVoting id ch2hkq.) Andre wins.
+voting_method: STAR
+num_winners: 1
+
+options:
+  show_description: false
+  show_matrix: false
+  matrix_finalists_only: false
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  brief: true
+  collapse_ballots: false   # show both rows so the blank-vs-0 contrast is visible
+  count_separator: "×"
+
+ballots: |-
+  Andre,Blake,Carmen,David,Erin
+  5,-,4,4,1   # Blake left blank -> implicit 0
+  5,0,4,4,1   # Blake an explicit 0
+
+expected_winners:
+  - Andre
+
+# file: S_W1_N_BV001b_UnderstandingStarBallotLimitedSelectionsImplicitZeros_ch2hkq.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== BV001b — Understanding the STAR ballot (implicit zeros) ===
+  Two ballots that tabulate identically: Blake gets an *implicit* zero on the
+  first ballot (a "-" / left blank) and an *explicit* 0 on the second. Blank and
+  0 mean the same thing in STAR. (BetterVoting id ch2hkq.) Andre wins.
+
+[Score Distribution] (number of ballots giving each score)
+         5   4   3   2   1   0  Abs  | Total   Avg
+Andre    2   0   0   0   0   0    0  |    10   5.0
+Blake    0   0   0   0   0   1    1  |     0   0.0
+Carmen   0   2   0   0   0   0    0  |     8   4.0
+David    0   2   0   0   0   0    0  |     8   4.0
+Erin     0   0   0   0   2   0    0  |     2   1.0
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |  * Andre   |   Blake   | * Carmen  |   David   |    Erin   |
+-----------------------------------------------------------------------------
+     * Andre > |    ---     |2 - 0 - 0  |2 - 0 - 0  |2 - 0 - 0  |2 - 0 - 0  |
+       Blake > | 0 - 0 - 2  |   ---     |0 - 0 - 2  |0 - 0 - 2  |0 - 0 - 2  |
+    * Carmen > | 0 - 0 - 2  |2 - 0 - 0  |   ---     |0 - 2 - 0  |2 - 0 - 0  |
+       David > | 0 - 0 - 2  |2 - 0 - 0  |0 - 2 - 0  |   ---     |2 - 0 - 0  |
+        Erin > | 0 - 0 - 2  |2 - 0 - 0  |0 - 0 - 2  |0 - 0 - 2  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Andre — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 2 ballots.
+Andre,Blake,Carmen,David,Erin
+    5,    -,     4,    4,   1   # partial — Blake left blank (counts as 0)
+    5,    0,     4,    4,   1
+
+[Legend] (these all count as score 0)
+  -  Blank — no score / voter left the candidate blank
+  Note: '-' = candidate left blank / skipped (e.g. BetterVoting export);
+        '0' = explicitly scored zero. Both tabulate as 0 stars — the
+        difference only preserves voter intent (skipped vs rated low).
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Andre         -- 10 -- First place
+   Carmen        -- 8 -- Tied for second place
+   David         -- 8 -- Tied for second place
+   Erin          -- 2
+   Blake         -- 0
+ Andre advances, but there's a two-way tie for second.
+
+[STAR Voting: Scoring Round: First tiebreaker]
+ The candidate preferred in the most head-to-head matchups advances.
+   Carmen        -- 0 -- Tied for second place
+   David         -- 0 -- Tied for second place
+   Equal Support -- 2
+ There's still a two-way tie for second.
+
+[STAR Voting: Scoring Round: Second tiebreaker]
+ The candidate with the most votes of score 5 advances.
+   Carmen        -- 0 -- Tied for second place
+   David         -- 0 -- Tied for second place
+ There's still a two-way tie for second.
+
+*** No official tie-breaking lot numbers were provided.
+    Ties are resolved using a fallback order: CSV column order.
+    Lot-number priority order: ['Andre', 'Blake', 'Carmen', 'David', 'Erin']
+
+[Tiebreaker: Lot Number Priority]
+  Tie among: ['Carmen', 'David']
+  Resolved: ['Carmen'] (selected by lot-number priority).
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Andre         -- 2 -- First place
+   Carmen        -- 0
+   Equal Support -- 0
+ Andre wins.
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Andre

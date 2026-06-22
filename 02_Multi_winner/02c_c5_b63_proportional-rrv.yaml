@@ -38,7 +38,7 @@ options:
   show_matrix: false
   show_condorcet: false
   show_score_counts: false
-  brief: false
+  brief: true
   collapse_ballots: true
   matrix_finalists_only: false   # true = finalists only; false = full N×N grid (needs show_matrix)
   show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison

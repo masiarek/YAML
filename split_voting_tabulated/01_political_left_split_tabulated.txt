@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     01_political_left_split.yaml
-SOURCE MODIFIED: 2026-06-22 14:36:45
+SOURCE MODIFIED: 2026-06-22 15:13:10
 TABULATED FILE:  01_political_left_split_tabulated.txt
-TABULATED AT:    2026-06-22 14:37:18
+TABULATED AT:    2026-06-22 18:11:43
 ======================================================================
 
 election_title: Spoiler — a split coalition hands the seat to the minority
@@ -30,7 +30,7 @@ options:
   show_condorcet: false   # show the [Condorcet Winner] line
   show_score_counts: false   # show the per-candidate [Score Distribution] table
   show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
-  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
   collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
   count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
@@ -121,7 +121,7 @@ Count × Green,Labour,SocialDem,Conservative
  The candidate preferred in the most head-to-head matchups wins.
    Labour        -- 42 -- First place
    Green         -- 24
-   Equal Support -- 34 (aka Equal Preference, No Preference)
+   Equal Support -- 34
  Labour wins.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]

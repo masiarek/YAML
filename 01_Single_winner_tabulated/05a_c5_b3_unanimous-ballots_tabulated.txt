@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     05a_c5_b3_unanimous-ballots.yaml
-SOURCE MODIFIED: 2026-06-22 14:36:45
+SOURCE MODIFIED: 2026-06-22 15:13:10
 TABULATED FILE:  05a_c5_b3_unanimous-ballots_tabulated.txt
-TABULATED AT:    2026-06-22 14:37:16
+TABULATED AT:    2026-06-22 18:11:42
 ======================================================================
 
 election_title: Unanimous ballots (five candidates)
@@ -28,7 +28,7 @@ options:
   show_condorcet: false
   show_score_counts: false
   show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
-  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
   collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
   count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
@@ -96,7 +96,7 @@ Count × Andre,Blake,Carmen,David,Ella
  The candidate preferred in the most head-to-head matchups wins.
    Andre         -- 3 -- First place
    Carmen        -- 0
-   Equal Support -- 0 (aka Equal Preference, No Preference)
+   Equal Support -- 0
  Andre wins.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]

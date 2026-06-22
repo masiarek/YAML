@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     02_icecream_chocolate_split.yaml
-SOURCE MODIFIED: 2026-06-22 14:36:45
+SOURCE MODIFIED: 2026-06-22 15:13:10
 TABULATED FILE:  02_icecream_chocolate_split_tabulated.txt
-TABULATED AT:    2026-06-22 14:37:18
+TABULATED AT:    2026-06-22 18:11:43
 ======================================================================
 
 election_title: Spoiler — chocolate's majority splits, vanilla steals the win
@@ -29,7 +29,7 @@ options:
   show_condorcet: false   # show the [Condorcet Winner] line
   show_score_counts: false   # show the per-candidate [Score Distribution] table
   show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
-  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
   collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
   count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
@@ -119,7 +119,7 @@ Count × DarkChoco,MilkChoco,ChocoChip,Vanilla
  The candidate preferred in the most head-to-head matchups wins.
    MilkChoco     -- 42 -- First place
    DarkChoco     -- 24
-   Equal Support -- 34 (aka Equal Preference, No Preference)
+   Equal Support -- 34
  MilkChoco wins.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]

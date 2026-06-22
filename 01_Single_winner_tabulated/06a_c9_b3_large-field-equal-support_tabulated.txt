@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     06a_c9_b3_large-field-equal-support.yaml
-SOURCE MODIFIED: 2026-06-22 14:36:45
+SOURCE MODIFIED: 2026-06-22 15:13:10
 TABULATED FILE:  06a_c9_b3_large-field-equal-support_tabulated.txt
-TABULATED AT:    2026-06-22 14:37:17
+TABULATED AT:    2026-06-22 18:11:42
 ======================================================================
 
 election_title: Large field (9 candidates) — STAR scales, and Equal Support decides
@@ -31,7 +31,7 @@ options:
   show_condorcet: false
   show_score_counts: false
   show_irv: false
-  brief: false
+  brief: true
   collapse_ballots: true
   count_separator: "×"
 
@@ -129,7 +129,7 @@ Andre,Blake,Carmen,David,Ella,Fernando,Gabe,Helena,Ira
  The candidate preferred in the most head-to-head matchups wins.
    Carmen        -- 1 -- First place
    David         -- 0
-   Equal Support -- 2 (aka Equal Preference, No Preference)
+   Equal Support -- 2
  Carmen wins.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]

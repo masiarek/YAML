@@ -1,43 +1,30 @@
-election_title: The simplest possible single-winner STAR example
+election_title: Same as before - but this time two ballots
 
-# This is an unusual scenario - used only for illustration purposes to show Two Rounds in STAR Voting.
-
-#scenario_description: |-
-#  Pick your favorite ice cream flavor.
-#  Only one ballot (Voter) and only two candidates (Flavors).
-#
-#  Caroline - she likes both flavors
-#  - she loves Choco flavor (5 stars)
-#  - she is OK with Vanilla flavor (3 stars)
+scenario_description: |-
 
 # Presenter notes (ignored by the engine; not shown to the audience).
 video_script: |-
-  SAY: "We just saw that STAR runs two rounds on one ballot. Let's watch those
-       two rounds turn on the smallest election possible: one voter, two flavors."
-  HOW: Slow and calm. This is the 'here are the gears' moment - no surprises.
-  WHY: Establish the mechanics (Scoring Round, then Automatic Runoff) before any
-       interesting behavior competes for attention.
-  POINT OUT: With only two candidates STAR lands on the same winner as ordinary
-       voting - that is expected, and it's exactly why we start here.
-  TRANSITION: "Choco wins - no surprise with one voter. Now let's add more
-       voters, and then a third flavor, and watch the winner start to move."
+  The goal here is two show how the results change when we add one more vote.
+  
+  5,      3       # Caroline - she likes both flavors
+  5,      3       # Bob - he likes both flavors too
 ballots: |-
   Chocolate,Vanilla
           5,      3       # Caroline - she likes both flavors
           5,      3       # Bob - he likes both flavors too
 
 options:
-  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
+  show_description: false
   show_matrix: false            # as little noise as possible
-  matrix_finalists_only: true   # as little noise as possible
+  matrix_finalists_only: false   # as little noise as possible
   show_score_counts: false
   show_condorcet: false   # show the [Condorcet Winner] line
   show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
-  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
   collapse_ballots: false   # true = group identical ballots as "count <sep> scores"
   count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
 expected_winners:
-  - Choco
+  - Chocolate
 
 # file: 01a_c2_b2_two-candidates.yaml

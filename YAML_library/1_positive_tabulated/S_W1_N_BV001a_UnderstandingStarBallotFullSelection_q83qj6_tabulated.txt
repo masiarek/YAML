@@ -1,0 +1,110 @@
+======================================================================
+SOURCE FILE:     S_W1_N_BV001a_UnderstandingStarBallotFullSelection_q83qj6.yaml
+SOURCE MODIFIED: 2026-06-22 17:47:05
+TABULATED FILE:  S_W1_N_BV001a_UnderstandingStarBallotFullSelection_q83qj6_tabulated.txt
+TABULATED AT:    2026-06-22 18:11:44
+======================================================================
+
+election_title: BV001a — Understanding the STAR ballot (full selection)
+scenario_description: |-
+  A fully-marked ballot: every candidate is scored 0–5, including an explicit 0
+  for Blake. (BetterVoting id q83qj6.) Andre (5) wins.
+voting_method: STAR
+num_winners: 1
+
+options:
+  show_description: false
+  show_matrix: false
+  matrix_finalists_only: false
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  brief: true
+  collapse_ballots: true
+  count_separator: "×"
+
+ballots: |-
+  Andre,Blake,Carmen,David,Erin
+  5,0,4,4,1
+
+expected_winners:
+  - Andre
+
+# file: S_W1_N_BV001a_UnderstandingStarBallotFullSelection_q83qj6.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== BV001a — Understanding the STAR ballot (full selection) ===
+  A fully-marked ballot: every candidate is scored 0–5, including an explicit 0
+  for Blake. (BetterVoting id q83qj6.) Andre (5) wins.
+
+[Score Distribution] (number of ballots giving each score)
+         5   4   3   2   1   0  | Total   Avg
+Andre    1   0   0   0   0   0  |     5   5.0
+Blake    0   0   0   0   0   1  |     0   0.0
+Carmen   0   1   0   0   0   0  |     4   4.0
+David    0   1   0   0   0   0  |     4   4.0
+Erin     0   0   0   0   1   0  |     1   1.0
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |  * Andre   |   Blake   | * Carmen  |   David   |    Erin   |
+-----------------------------------------------------------------------------
+     * Andre > |    ---     |1 - 0 - 0  |1 - 0 - 0  |1 - 0 - 0  |1 - 0 - 0  |
+       Blake > | 0 - 0 - 1  |   ---     |0 - 0 - 1  |0 - 0 - 1  |0 - 0 - 1  |
+    * Carmen > | 0 - 0 - 1  |1 - 0 - 0  |   ---     |0 - 1 - 0  |1 - 0 - 0  |
+       David > | 0 - 0 - 1  |1 - 0 - 0  |0 - 1 - 0  |   ---     |1 - 0 - 0  |
+        Erin > | 0 - 0 - 1  |1 - 0 - 0  |0 - 0 - 1  |0 - 0 - 1  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Andre — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 1 ballot.
+Andre,Blake,Carmen,David,Erin
+    5,    0,     4,    4,   1
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Andre         -- 5 -- First place
+   Carmen        -- 4 -- Tied for second place
+   David         -- 4 -- Tied for second place
+   Erin          -- 1
+   Blake         -- 0
+ Andre advances, but there's a two-way tie for second.
+
+[STAR Voting: Scoring Round: First tiebreaker]
+ The candidate preferred in the most head-to-head matchups advances.
+   Carmen        -- 0 -- Tied for second place
+   David         -- 0 -- Tied for second place
+   Equal Support -- 1
+ There's still a two-way tie for second.
+
+[STAR Voting: Scoring Round: Second tiebreaker]
+ The candidate with the most votes of score 5 advances.
+   Carmen        -- 0 -- Tied for second place
+   David         -- 0 -- Tied for second place
+ There's still a two-way tie for second.
+
+*** No official tie-breaking lot numbers were provided.
+    Ties are resolved using a fallback order: CSV column order.
+    Lot-number priority order: ['Andre', 'Blake', 'Carmen', 'David', 'Erin']
+
+[Tiebreaker: Lot Number Priority]
+  Tie among: ['Carmen', 'David']
+  Resolved: ['Carmen'] (selected by lot-number priority).
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Andre         -- 1 -- First place
+   Carmen        -- 0
+   Equal Support -- 0
+ Andre wins.
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Andre

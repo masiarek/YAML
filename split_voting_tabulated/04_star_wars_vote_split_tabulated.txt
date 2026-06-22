@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     04_star_wars_vote_split.yaml
-SOURCE MODIFIED: 2026-06-22 14:36:45
+SOURCE MODIFIED: 2026-06-22 15:13:10
 TABULATED FILE:  04_star_wars_vote_split_tabulated.txt
-TABULATED AT:    2026-06-22 14:37:18
+TABULATED AT:    2026-06-22 18:11:44
 ======================================================================
 
 election_title: The Voting Dilemma — Skywalker & Leia split the Rebel vote
@@ -47,7 +47,7 @@ options:
   show_condorcet: false   # show the [Condorcet Winner] line (Leia)
   show_score_counts: false   # show the per-candidate [Score Distribution] table
   show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
-  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
   collapse_ballots: true   # true = group identical ballots as "count × scores"
   count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
@@ -139,7 +139,7 @@ Count × Skywalker,Leia,Vader
  The candidate preferred in the most head-to-head matchups wins.
    Leia          -- 67 -- First place
    Skywalker     -- 33
-   Equal Support -- 0 (aka Equal Preference, No Preference)
+   Equal Support -- 0
  Leia wins.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]

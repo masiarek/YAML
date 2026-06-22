@@ -1,40 +1,14 @@
-# details https://docs.google.com/document/d/1Y067anGNJjpBCBMPvKif0gE6TbaAKA2-0jk5uNGwO4c/edit?tab=t.0
-# expected error message:
-# Mismatch between number of winners and voting method.
-# Voting method used (STAR) is used with a single winner
-# Incorrect Data:
-# - single_or_multi_winner: "multi"
-# - voting_method: "STAR"
-#
-# What to do:
-# 1) Option 1
-# Change Voting method to either
-# "Block STAR" or "STAR PR" (STAR Proportional)
-# and
-# keep single_or_multi_winner: "multi-winner"
-#
-# 2) Option 2
-# single_or_multi_winner: "single-winner"
-# and
-# voting_method: "STAR"
+# NEGATIVE — method / winner-count mismatch.
+# STAR is single-winner, but this race asks for multiple winners.
+# Original intent (BV10_neg2): STAR declared single_or_multi_winner: "multi".
+# Current engine error: "STAR Voting elects a single winner, but got seats=2"
+#   (fix: num_winners: 1, or use bloc / sss / rrv / allocated for multi-winner).
+election_title: Basic — STAR asked for 2 winners
+voting_method: STAR
+num_winners: 2
+ballots: |-
+  Andre,Blake
+  5,4
+  4,5
 
-election_parameters:
-  election_id: "BV10"
-  election_title: "Basic - 2 candidates - 2 voters - STAR"
-  race_abstention_allowed: true
-  number_of_races: 1
-  ballot_format_parameters:
-    ballot_file_type: "csv"
-    voter_left_candidate_blank: "-"
-    race_abstention_level_character: "~"
-
-  races:
-    race_1:
-      voting_method: "STAR"
-      single_or_multi_winner: "multi"
-      candidates: [ "Andre", "Blake" ]
-      ballots: |
-        5, 4
-        5, 5
-      expected_winner: "Andre"
-      # results: https://bettervoting.com/gkq44f/results
+# file: bv10_neg2.yaml

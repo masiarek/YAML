@@ -2,7 +2,7 @@
 SOURCE FILE:     monotonicity_star_after.yaml
 SOURCE MODIFIED: 2026-06-22 14:36:45
 TABULATED FILE:  monotonicity_star_after_tabulated.txt
-TABULATED AT:    2026-06-22 14:37:17
+TABULATED AT:    2026-06-22 15:04:30
 ======================================================================
 
 election_title: Monotonicity — STAR counterpart (AFTER — X still wins)
@@ -99,7 +99,7 @@ Count × X,Y,Z
  The candidate preferred in the most head-to-head matchups wins.
    X             -- 26 -- First place
    Y             -- 8
-   Equal Support -- 0 (aka Equal Preference, No Preference)
+   Equal Support -- 0
  X wins.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]

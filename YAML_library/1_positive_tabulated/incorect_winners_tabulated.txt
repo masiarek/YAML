@@ -1,35 +1,10 @@
 ======================================================================
-SOURCE FILE:     03a_c3_b3_style-bullet-vote.yaml
-SOURCE MODIFIED: 2026-06-22 15:13:10
-TABULATED FILE:  03a_c3_b3_style-bullet-vote_tabulated.txt
-TABULATED AT:    2026-06-22 18:11:41
+SOURCE FILE:     incorect_winners.yaml
+SOURCE MODIFIED: 2026-06-22 13:42:09
+TABULATED FILE:  incorect_winners_tabulated.txt
+TABULATED AT:    2026-06-22 13:42:09
 ======================================================================
 
-# Voting styles — what a valid STAR ballot may look like.
-# STAR lets you score each candidate 0–5 independently, so several styles are
-# all legal on the same ballot set.
-
-#election_title: Voting styles — bullet voting
-#scenario_description: |-
-#  Shows three legal STAR ballot styles on one ballot set: a full/expressive
-#  ballot, a ballot with equal scores, and a bullet vote (only one candidate
-#  scored). All are valid; bullet voting is allowed but not recommended -
-#  scoring only one candidate gives your ballot no say in the automatic runoff
-#  unless that candidate is a finalist, so you forfeit influence over the final
-#  head-to-head.
-
-# Presenter notes (ignored by the engine; not shown to the audience).
-video_script: |-
-  SAY: "There's no single 'right' way to fill out a STAR ballot. Here are three
-       legal styles on one ballot set: a full ballot using the whole range, a
-       ballot with equal scores, and a 'bullet vote' that scores only one."
-  HOW: Walk down the three ballots, naming each style.
-  WHY: Address the most common voter anxiety - 'am I doing this right?' - and
-       introduce 'bullet voting' so you can warn against it.
-  POINT OUT: Bullet voting is legal but weak: if your one pick doesn't reach the
-       runoff, your ballot has no say in the final head-to-head.
-  TRANSITION: "Bullet voting under-uses the ballot. Next: what about the opposite
-       worry - what if you dislike everyone?"
 
 options:
   show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
@@ -42,8 +17,8 @@ options:
   collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
   count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
-voting_method: STAR   # STAR Voting — single-winner
-num_winners: 1
+voting_method: bloc
+num_winners: 2
 
 ballots: |-
   Choco,Almond,Vanilla
@@ -52,9 +27,10 @@ ballots: |-
       0,     0,      5   # bullet voting
 
 expected_winners:
+  - Almond
   - Vanilla
 
-# file: 03a_c3_b3_style-bullet-vote.yaml
+# file: incorect_winners.yaml
 
 ======================================================================
 TABULATION RESULTS
@@ -79,27 +55,43 @@ Legend: For - Equal Support - Against
 [Condorcet Winner]
   Condorcet Winner: Vanilla — matches the STAR winner
 
---- STAR Voting Method (single winner) ---
-[STAR Voting]
+--- Bloc STAR Voting Method (2 winners) ---
+[Bloc STAR]
  Tabulating 3 ballots.
 Choco,Almond,Vanilla
     1,     2,      5
     0,     5,      5
     0,     0,      5
+ Want to fill 2 seats.
 
-[STAR Voting: Scoring Round]
+[Bloc STAR: Round 1: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    Vanilla       -- 15 -- First place
    Almond        -- 7 -- Second place
    Choco         -- 1
  Vanilla and Almond advance.
 
-[STAR Voting: Automatic Runoff Round]
+[Bloc STAR: Round 1: Automatic Runoff Round]
  The candidate preferred in the most head-to-head matchups wins.
    Vanilla       -- 2 -- First place
    Almond        -- 0
    Equal Support -- 1
  Vanilla wins.
 
-[STAR Voting: Winner — STAR Voting Method (single winner)]
+──────────────────────────────────────────────────
+[Bloc STAR: Round 2: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Almond        -- 7 -- First place
+   Choco         -- 1 -- Second place
+ Almond and Choco advance.
+
+[Bloc STAR: Round 2: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Almond        -- 2 -- First place
+   Choco         -- 0
+   Equal Support -- 1
+ Almond wins.
+
+[Bloc STAR: Winners — Bloc STAR Voting Method (2 winners)]
  Vanilla
+ Almond

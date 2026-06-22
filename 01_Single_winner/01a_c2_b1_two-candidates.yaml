@@ -6,14 +6,20 @@ scenario_description: |-
 # Presenter notes (ignored by the engine; not shown to the audience).
 video_script: |-
   This example is as minimal as it gets.
-  It is unusual — illustration-only — kept as small and simple as possible.
-  (Normally you'd want at least three candidates to properly show what STAR does.)
+  It is unusual — illustration-only — it is kept as small and simple as possible.
+  Normally you'd want at least three candidates to properly show what STAR does.
+  
   The point is to get familiar with the output layout: how ballots are
   represented, and how the two rounds are printed.
+ 
+  You can ignore the two top lines and the last line at the bottom.
+ 
+  So let's focus on Ballots:
+  Caroline prefers Chocolate (5) over Vanilla (3), so Chocolate wins.
 
-   Scoring Round: the two top-scoring flavors advance; with only two on the menu,
-   both do. Automatic Runoff: Caroline prefers Chocolate (5) over Vanilla (3), so
-   Chocolate wins.
+  Scoring Round: the two top-scoring flavors advance; with only two on the menu,
+  both do. Automatic Runoff: Caroline prefers Chocolate (5) over Vanilla (3), so
+  Chocolate wins.
 
   With only two candidates, STAR always agrees with ordinary plurality
   voting — which is exactly why we start here.
@@ -28,7 +34,7 @@ options:
   show_score_counts: false
   show_condorcet: false   # show the [Condorcet Winner] line
   show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
-  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
   collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
   count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
