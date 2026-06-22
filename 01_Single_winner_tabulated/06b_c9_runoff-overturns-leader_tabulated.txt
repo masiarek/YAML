@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     06b_c9_runoff-overturns-leader.yaml
-SOURCE MODIFIED: 2026-06-22 14:36:45
+SOURCE MODIFIED: 2026-06-22 10:36:45
 TABULATED FILE:  06b_c9_runoff-overturns-leader_tabulated.txt
-TABULATED AT:    2026-06-22 14:37:17
+TABULATED AT:    2026-06-22 10:54:47
 ======================================================================
 
 election_title: Large field (9 candidates) — the runoff OVERTURNS the score leader
