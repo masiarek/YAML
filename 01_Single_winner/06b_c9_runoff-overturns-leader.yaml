@@ -1,0 +1,40 @@
+election_title: Large field (9 candidates) — the runoff OVERTURNS the score leader
+scenario_description: |-
+  STAR's headline move, in a 9-candidate field. Andre has the highest score total
+  (an intense 40-voter base maxes him at 5, and the rest give him a mild 2), so he
+  leads the scoring round. But a 60-voter MAJORITY prefers Carmen head-to-head.
+
+  In the automatic runoff Carmen beats Andre 60–40. STAR elects the
+  majority-preferred Carmen, not the highest-scoring Andre — the runoff is the
+  majority check that keeps a high-ceiling/low-floor candidate from winning on
+  intensity alone. (Carmen is also the Condorcet winner.)
+
+  Discussion (Larry):
+   - "Andre got the most stars — why didn't he win?" (The runoff asks a different
+     question: which finalist do MORE voters prefer? That's Carmen, 60–40.)
+   - Contrast 06a_c9_b3_large-field-equal-support.yaml, where the runoff merely
+     CONFIRMS the scoring leader. Same method, two different jobs the runoff does.
+
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  brief: false
+  collapse_ballots: true
+  count_separator: "×"
+
+voting_method: STAR
+num_winners: 1
+
+ballots: |-
+  Count:Andre,Blake,Carmen,David,Ella,Fernando,Gabe,Helena,Ira
+  40:5,1,0,1,1,1,1,1,1   # intense Andre base (Andre 5, Carmen 0)
+  60:2,0,3,0,0,0,0,0,0   # broad majority: mild Andre, prefer Carmen
+
+expected_winners:
+  - Carmen
+
+# file: 06b_c9_runoff-overturns-leader.yaml

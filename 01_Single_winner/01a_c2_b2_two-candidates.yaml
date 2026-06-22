@@ -28,14 +28,14 @@ ballots: |-
 
 options:
   show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
-  show_matrix: false
-  matrix_finalists_only: false
+  show_matrix: false            # as little noise as possible
+  matrix_finalists_only: true   # as little noise as possible
   show_score_counts: false
-  show_condorcet: true        # show the [Condorcet Winner] line
-  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
-  brief: true                 # true = collapse repetitive "[STAR Voting: ...]" headers
-  collapse_ballots: true      # true = group identical ballots as "count <sep> scores"
-  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
+  show_condorcet: false   # show the [Condorcet Winner] line
+  show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
+  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: false   # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
 expected_winners:
   - Choco

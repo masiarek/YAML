@@ -35,14 +35,14 @@ blocs:
 
 options:
   show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
-  show_matrix: f             # show the Runoff (Preference) Matrix
-  matrix_finalists_only: false  # true = finalists only; false = full N×N grid (needs show_matrix)
-  show_condorcet: f          # show the [Condorcet Winner] line (Leia)
-  show_score_counts: f       # show the per-candidate [Score Distribution] table
-  show_irv: false               # show the [Divergence from STAR] RCV-IRV comparison
-  brief: false                  # true = collapse repetitive "[STAR Voting: ...]" headers
-  collapse_ballots: true        # true = group identical ballots as "count × scores"
-  count_separator: "×"          # collapsed-count separator: ×, :, or x/X
+  show_matrix: true   # show the Runoff (Preference) Matrix
+  matrix_finalists_only: true   # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_condorcet: false   # show the [Condorcet Winner] line (Leia)
+  show_score_counts: false   # show the per-candidate [Score Distribution] table
+  show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
+  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true   # true = group identical ballots as "count × scores"
+  count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
 voting_method: STAR
 num_winners: 1

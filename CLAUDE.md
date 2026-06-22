@@ -61,9 +61,34 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
 ## Repo conventions (so output stays consistent)
 - **YAML `options:` booleans → `true` / `false`** (parser also accepts t/f/y/n/etc.,
   but house style is the long form).
-- **`show_description`**: `false` = clean demo (description stays in the file and
-  the `_tabulated` copy, hidden on screen); `true` = study/reference. Files with a
-  `video_script` default to `false`; description-only files default to `true`.
+- **Echo-to-screen `options:` — house default is "less is more."** The on-screen
+  echo should be minimal; the saved `_tabulated` copy already renders **maximum
+  info automatically** (engine forces every analysis on, regardless of the file's
+  options — don't hand-set that). Single-winner default block:
+
+  ```
+  options:
+    show_description: false
+    show_matrix: true
+    matrix_finalists_only: true
+    show_condorcet: false
+    show_score_counts: false
+    show_irv: false
+    brief: false
+    collapse_ballots: true
+    count_separator: "×"
+  ```
+
+  **Multi-winner** uses the same block but with `show_matrix: false` and
+  `matrix_finalists_only: false` (a "Top 2 Finalist" matrix is a single-winner
+  concept and prints misleadingly for PR/Bloc). **Exceptions:** the options-demo
+  files (`04b_…display-options-all`, `options_examples`) keep their illustrative
+  all-on settings — they exist to showcase options. The `[Divergence from STAR]`
+  block prints whenever methods differ regardless of these flags, so comparative
+  demos keep their punch on screen even with the minimal block.
+- **`show_description`**: per the block above, default `false` (clean demo —
+  description stays in the file and the always-full `_tabulated` copy, hidden on
+  screen). Flip to `true` only for a deliberate study/reference render.
 - **Voter counts:** weighted `Count` values must be **≥ 6** (avoid collision with
   0–5 scores), or use individual ballots. Scaling all weights ×N preserves
   STAR/proportional winners and percentages. See `TIPS_choosing_voter_counts.md`.

@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     01_c4_b2_bloc-star-2-seats.yaml
-SOURCE MODIFIED: 2026-06-21 12:31:23
+SOURCE MODIFIED: 2026-06-22 14:36:45
 TABULATED FILE:  01_c4_b2_bloc-star-2-seats_tabulated.txt
-TABULATED AT:    2026-06-22 12:24:05
+TABULATED AT:    2026-06-22 14:37:18
 ======================================================================
 
 election_title: "Bloc STAR Voting: 2-Seat Committee Election"
@@ -27,14 +27,14 @@ video_script: |-
 
 options:
   show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
-  show_matrix: true
-  matrix_finalists_only: true
-  show_condorcet: true
+  show_matrix: false
+  matrix_finalists_only: false
+  show_condorcet: false
   show_score_counts: false
-  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
-  brief: false                # true = collapse repetitive "[STAR Voting: ...]" headers
-  collapse_ballots: true      # true = group identical ballots as "count <sep> scores"
-  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
+  show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
+  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
 num_winners: 2
 voting_method: bloc

@@ -265,7 +265,22 @@ def load_election(path, race_index=0):
     try:
         import yaml  # use PyYAML when present (most robust)
 
-        data = yaml.safe_load(text)
+        try:
+            data = yaml.safe_load(text)
+        except yaml.YAMLError as e:
+            mark = getattr(e, "problem_mark", None)
+            where = (f" near line {mark.line + 1}, column {mark.column + 1}"
+                     if mark is not None else "")
+            problem = (getattr(e, "problem", None) or "invalid YAML syntax").strip()
+            print(
+                f"Error: could not parse '{p.name}'{where} — {problem}.\n"
+                "       Most common cause: the ballots grid must sit under a literal\n"
+                "       block scalar — write `ballots: |-` and indent every row beneath\n"
+                "       it. Any `#` comment line inside that block must be indented too\n"
+                "       (inside a block, `#` is data, and a line at the left margin ends\n"
+                "       the block early). Move candidate-legend comments ABOVE `ballots:`."
+            )
+            sys.exit(1)
         race = _find_race(data, race_index)
         ballots_text = race["ballots"]
         seats = int(race["num_winners"]) if "num_winners" in race else None

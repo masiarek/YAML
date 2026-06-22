@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     equal_support_runoff_demo.yaml
-SOURCE MODIFIED: 2026-06-21 12:31:23
+SOURCE MODIFIED: 2026-06-22 14:36:45
 TABULATED FILE:  equal_support_runoff_demo_tabulated.txt
-TABULATED AT:    2026-06-21 13:34:24
+TABULATED AT:    2026-06-22 14:37:17
 ======================================================================
 
 election_title: Equal Support — counted in both rounds, neutral only in the tie-break
@@ -28,15 +28,15 @@ voting_method: STAR
 num_winners: 1
 
 options:
-  show_description: true   # show the scenario context on screen (study/reference)
+  show_description: false   # show the scenario context on screen (study/reference)
   show_matrix: true
-  show_condorcet: true
-  matrix_finalists_only: false  # true = finalists only; false = full N×N grid (needs show_matrix)
-  show_score_counts: true     # show the per-candidate [Score Distribution] table
-  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
-  brief: false                # true = collapse repetitive "[STAR Voting: ...]" headers
-  collapse_ballots: true      # true = group identical ballots as "count <sep> scores"
-  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
+  show_condorcet: false
+  matrix_finalists_only: true   # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_score_counts: false   # show the per-candidate [Score Distribution] table
+  show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
+  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
 ballots: |-
   Count:A,B,C

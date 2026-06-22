@@ -9,12 +9,12 @@ scenario_description: |-
   00_start_here/concepts/monotonicity.md.
 
 options:
-  show_description: true
+  show_description: false
   show_matrix: true
-  matrix_finalists_only: false
-  show_condorcet: true
-  show_score_counts: true
-  show_irv: true                # show the [Divergence from STAR] RCV-IRV comparison
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
   brief: false
   collapse_ballots: true
   count_separator: "×"

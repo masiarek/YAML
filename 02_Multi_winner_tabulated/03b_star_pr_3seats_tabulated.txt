@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     03b_star_pr_3seats.yaml
-SOURCE MODIFIED: 2026-06-22 12:21:45
+SOURCE MODIFIED: 2026-06-22 14:36:45
 TABULATED FILE:  03b_star_pr_3seats_tabulated.txt
-TABULATED AT:    2026-06-22 12:24:05
+TABULATED AT:    2026-06-22 14:37:19
 ======================================================================
 
 election_title: Proportional STAR — same 3-seat electorate as the STV demo
@@ -22,13 +22,13 @@ num_winners: 3
 voting_method: sss
 
 options:
-  show_description: true
+  show_description: false
   show_matrix: false
   matrix_finalists_only: false
   show_condorcet: false
-  show_score_counts: true
+  show_score_counts: false
   show_irv: false
-  brief: true
+  brief: false
   collapse_ballots: true
   count_separator: "×"
 

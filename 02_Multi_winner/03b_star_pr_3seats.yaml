@@ -15,13 +15,13 @@ num_winners: 3
 voting_method: sss
 
 options:
-  show_description: true
+  show_description: false
   show_matrix: false
   matrix_finalists_only: false
   show_condorcet: false
-  show_score_counts: true
+  show_score_counts: false
   show_irv: false
-  brief: true
+  brief: false
   collapse_ballots: true
   count_separator: "×"
 

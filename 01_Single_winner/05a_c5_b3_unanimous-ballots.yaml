@@ -18,12 +18,12 @@ options:
   show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
   show_matrix: true
   matrix_finalists_only: true
-  show_condorcet: true
+  show_condorcet: false
   show_score_counts: false
-  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
-  brief: false                # true = collapse repetitive "[STAR Voting: ...]" headers
-  collapse_ballots: true      # true = group identical ballots as "count <sep> scores"
-  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
+  show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
+  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
 num_winners: 1
 voting_method: STAR

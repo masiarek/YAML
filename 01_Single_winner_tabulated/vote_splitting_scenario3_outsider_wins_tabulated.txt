@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     vote_splitting_scenario3_outsider_wins.yaml
-SOURCE MODIFIED: 2026-06-21 12:31:23
+SOURCE MODIFIED: 2026-06-22 14:36:45
 TABULATED FILE:  vote_splitting_scenario3_outsider_wins_tabulated.txt
-TABULATED AT:    2026-06-21 13:34:24
+TABULATED AT:    2026-06-22 14:37:17
 ======================================================================
 
 election_title: Vote splitting — scenario 3 of 3 — no spoiler (the outsider truly wins)
@@ -24,15 +24,15 @@ blocs:
   Chocolate: [DarkChoco, MilkChoco]
 
 options:
-  show_description: true   # show the scenario context on screen (study/reference)
-  show_matrix: true           # show the Runoff (Preference) Matrix
-  matrix_finalists_only: false  # true = finalists only; false = full N×N grid (needs show_matrix)
-  show_condorcet: true        # show the [Condorcet Winner] line
-  show_score_counts: true     # show the per-candidate [Score Distribution] table
-  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
-  brief: false                # true = collapse repetitive "[STAR Voting: ...]" headers
-  collapse_ballots: true      # true = group identical ballots as "count <sep> scores"
-  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
+  show_description: false   # show the scenario context on screen (study/reference)
+  show_matrix: true   # show the Runoff (Preference) Matrix
+  matrix_finalists_only: true   # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_condorcet: false   # show the [Condorcet Winner] line
+  show_score_counts: false   # show the per-candidate [Score Distribution] table
+  show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
+  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
 voting_method: STAR
 num_winners: 1

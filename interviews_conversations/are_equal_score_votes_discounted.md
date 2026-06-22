@@ -45,7 +45,9 @@ high — "I'd be glad with either." Some scored *both* low — "I wanted neither
 these two." Either way it's no preference *between these two*, and either way it was
 counted in the scoring round that chose the finalists. On a results pie it's the
 thin slice that makes the two finalists' shares add up to a bit under 100% — present
-voters, not missing ones.
+voters, not missing ones. It's also exactly what the STAR ballot's own instruction
+means — *"equal scores indicate no preference"* is about the **runoff**, not the
+scoring round, where those ballots counted in full.
 
 > [SLIDE] Full Deck — "NO-PREFERENCE VOTES IN THE STAR RUNOFF."
 > [SLIDE] STAR-vs-RCV Template — the "Results" pie ("Supported both" ★ / "Supported

@@ -33,12 +33,12 @@ options:
   show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
   show_matrix: false
   show_condorcet: false
-  show_score_counts: true
-  brief: true
+  show_score_counts: false
+  brief: false
   collapse_ballots: true
-  matrix_finalists_only: false  # true = finalists only; false = full N×N grid (needs show_matrix)
-  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
-  count_separator: "×"        # collapsed-count separator: ×, :, or x/X
+  matrix_finalists_only: false   # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
+  count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
 ballots: |-
   Alice,Ben,Cara,Dan,Eve

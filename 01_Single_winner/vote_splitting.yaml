@@ -41,14 +41,14 @@ options:
   # Layer 1 (general audience): keep the render clean. The matrix and the
   # Condorcet line are the Layer 2 deep-dive — flip either to true to discuss
   # the head-to-head winner with a more advanced audience from this SAME file.
-  show_matrix: false
+  show_matrix: true
   show_condorcet: false
-  show_score_counts: true   # the per-flavor score distribution reads well on screen
-  brief: true               # collapse repetitive "[STAR Voting: ...]" headers
-  collapse_ballots: true    # group identical ballots as "count × scores"
+  show_score_counts: false   # the per-flavor score distribution reads well on screen
+  brief: false   # collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true   # group identical ballots as "count × scores"
   count_separator: "×"
-  matrix_finalists_only: false  # true = finalists only; false = full N×N grid (needs show_matrix)
-  show_irv: false             # show the [Divergence from STAR] RCV-IRV comparison
+  matrix_finalists_only: true   # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
 
 ballots: |-
   Count:DarkChoco,MilkChoco,Vanilla
