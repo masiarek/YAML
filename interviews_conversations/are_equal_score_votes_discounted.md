@@ -38,7 +38,18 @@ that exactly. A tie vote can't break a tie — but it wasn't ignored, it was
 exact label STAR's runoff gives it: "Equal Support," aka Equal Preference / No
 Preference.)
 
+**Larry:** And "Equal Support" is one bucket for everyone who tied the two finalists?
+
+**Adam:** One label, two honest opposites inside it. Some scored *both* finalists
+high — "I'd be glad with either." Some scored *both* low — "I wanted neither of
+these two." Either way it's no preference *between these two*, and either way it was
+counted in the scoring round that chose the finalists. On a results pie it's the
+thin slice that makes the two finalists' shares add up to a bit under 100% — present
+voters, not missing ones.
+
 > [SLIDE] Full Deck — "NO-PREFERENCE VOTES IN THE STAR RUNOFF."
+> [SLIDE] STAR-vs-RCV Template — the "Results" pie ("Supported both" ★ / "Supported
+> neither" ✗, both = Equal Support).
 
 ---
 
