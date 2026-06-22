@@ -10,6 +10,7 @@ are **load-bearing in debates** and worth a focused page with a worked example a
 | **Center squeeze** | a broadly-liked moderate eliminated early under IRV; STAR avoids it | [center_squeeze.md](./center_squeeze.md) |
 | **Monotonicity** | under IRV, *more* support can make a candidate lose; STAR is monotone | [monotonicity.md](./monotonicity.md) |
 | **Summability** | STAR tallies by adding precinct totals; IRV needs every ballot centrally | [summability.md](./summability.md) |
+| **Proportional: STV vs STAR-PR** | multi-seat — coalitions get proportional seats; STV ≈ STAR-PR, Bloc differs (301) | [proportional_stv_vs_star.md](./proportional_stv_vs_star.md) |
 
 Deeper conversation/debate scripts live in
 [`../../interviews_conversations/`](../../interviews_conversations/) (e.g.

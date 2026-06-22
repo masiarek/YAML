@@ -1,0 +1,38 @@
+election_title: Proportional STAR — same 3-seat electorate as the STV demo
+scenario_description: |-
+  The SAME constructed 100-voter electorate as 03a_stv_3seats.yaml, translated to
+  0–5 scores (rank 1→5, 2→4, 3→3, 4→2, 5→1, 6–7→0). 3 seats.
+
+  Progressive cluster (Housing, Schools, Parks, Transit) ≈ 58%; Business cluster
+  (SmallBiz, BigBiz, TaxCuts) ≈ 42%. A proportional method gives ~2 seats to the
+  larger cluster and ~1 to the smaller — like STV, and unlike Bloc STAR (which
+  would let the 58% majority sweep all 3). Switch voting_method between `sss`,
+  `allocated`, and `rrv` to compare; `bloc` shows the majoritarian contrast.
+  STV counterpart: 03a_stv_3seats.yaml. See concepts/proportional_stv_vs_star.md.
+
+# Weights are voters (percent of 100). Constructed example — see 03a header.
+num_winners: 3
+voting_method: sss
+
+options:
+  show_description: true
+  show_matrix: false
+  matrix_finalists_only: false
+  show_condorcet: false
+  show_score_counts: true
+  show_irv: false
+  brief: true
+  collapse_ballots: true
+  count_separator: "×"
+
+ballots: |-
+  Count:Housing,Schools,Parks,Transit,SmallBiz,BigBiz,TaxCuts
+  29:5,4,3,2,1,0,0   # Housing > Schools > Parks > Transit > (business)
+  15:4,5,3,2,1,0,0   # Schools-first progressives
+  13:3,4,5,2,1,0,0   # Parks-first progressives
+  1:3,4,2,5,1,0,0    # Transit-first progressive
+  22:2,1,0,0,5,4,3   # SmallBiz > BigBiz > TaxCuts > (progressive)
+  17:2,1,0,0,4,5,3   # BigBiz-first business
+  3:2,1,0,0,4,3,5    # TaxCuts-first business
+
+# file: 03b_star_pr_3seats.yaml

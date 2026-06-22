@@ -87,10 +87,12 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 > Audience: skeptics, academics, RCV advocates, deep self-study. Concede limits
 > honestly; that candor is the credibility.
 
-## 301.1 — Proportional STAR
+## 301.1 — Proportional STAR (and STV)
 - **Objective:** Give a cohesive minority the representation it earned.
-- **Key terms:** proportional representation, Allocated Score, Sequentially Spent Score (SSS), Reweighted Range Voting (RRV).
+- **Key terms:** proportional representation, Droop quota, Allocated Score, Sequentially Spent Score (SSS), Reweighted Range Voting (RRV), STV.
 - **Files:** `02_Multi_winner/02a–02c` (allocated / sss / rrv). Compare with Bloc STAR.
+- **STV comparison:** `02_Multi_winner/03a_stv_3seats.yaml` (STV) vs `03b_star_pr_3seats.yaml` (STAR-PR) — same electorate, same proportional slate; Bloc STAR differs. Page: `concepts/proportional_stv_vs_star.md`.
+- **Emphasize:** STV is the proportional multi-winner *cousin of IRV*, not IRV; proportional methods seat coalitions in proportion, Bloc STAR lets a majority sweep.
 
 ## 301.2 — Favorite betrayal: does *only* RCV avoid it?
 - **Key terms:** Favorite-Betrayal Criterion, Later-No-Harm, center squeeze, the incompatibility theorem.

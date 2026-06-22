@@ -34,7 +34,9 @@ isn't true.
 system threw it away. That's not what happened. The voter looked at the two
 finalists and said, explicitly, "these two are equal to me." The system recorded
 that exactly. A tie vote can't break a tie — but it wasn't ignored, it was
-*counted as what it was*: neutral between those two.
+*counted as what it was*: **Equal Support** — neutral between those two. (That's the
+exact label STAR's runoff gives it: "Equal Support," aka Equal Preference / No
+Preference.)
 
 > [SLIDE] Full Deck — "NO-PREFERENCE VOTES IN THE STAR RUNOFF."
 

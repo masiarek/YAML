@@ -110,6 +110,7 @@ _Last full review: 2026-06-21._
 | **Beyond RCV zine** | "Beyond Ranked Choice Voting" | https://equal.vote/beyond_rcv_zine |
 | **STAR Voting org** | Campaign / get involved | https://starvoting.org |
 | **BetterVoting** | Cast a STAR ballot / run a poll (audience CTA) | https://bettervoting.com |
+| **Better elections (video)** | Equal Vote intro; STV / proportional 3-seat example (basis for 03a/03b) | https://youtu.be/C_27pYcjsJs |
 
 ## Software / code
 

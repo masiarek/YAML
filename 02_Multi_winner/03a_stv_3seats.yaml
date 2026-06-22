@@ -1,0 +1,24 @@
+voting_method: STV   # Single Transferable Vote — proportional RCV (multi-winner)
+num_winners: 3
+
+# CONSTRUCTED 100-voter electorate (the figures in the "Better elections are
+# possible" video give first-choice % + STV outcomes, not ballots — STV needs full
+# rankings, so this is an illustrative reconstruction, not a transcription).
+#
+# 7 candidates in two clusters:
+#   Progressive: Housing, Schools, Parks, Transit   (58 first-choices)
+#   Business:    SmallBiz, BigBiz, TaxCuts           (42 first-choices)
+# 3 seats, Droop quota = 100/(3+1)+1 = 26. Proportional expectation: ~2 progressive
+# + 1 business seat. Watch a low-first-choice consensus progressive (Schools, 15)
+# take a seat over a higher-first-choice candidate (BigBiz, 17) via transfers.
+# STAR-PR counterpart: 03b_star_pr_3seats.yaml. See concepts/proportional_stv_vs_star.md.
+ballots: |-
+  29:Housing>Schools>Parks>Transit>SmallBiz>BigBiz>TaxCuts
+  15:Schools>Housing>Parks>Transit>SmallBiz>BigBiz>TaxCuts
+  13:Parks>Schools>Housing>Transit>SmallBiz>BigBiz>TaxCuts
+  1:Transit>Schools>Housing>Parks>SmallBiz>BigBiz>TaxCuts
+  22:SmallBiz>BigBiz>TaxCuts>Housing>Schools>Parks>Transit
+  17:BigBiz>SmallBiz>TaxCuts>Housing>Schools>Parks>Transit
+  3:TaxCuts>SmallBiz>BigBiz>Housing>Schools>Parks>Transit
+
+# file: 03a_stv_3seats.yaml

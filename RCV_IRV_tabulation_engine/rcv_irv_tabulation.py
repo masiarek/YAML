@@ -63,7 +63,12 @@ def load_ballots_block(path):
     race = find_ballots(data) or {}
     ballots_text = race.get("ballots", "")
     title = race.get("election_title") or race.get("title")
-    return title, ballots_text
+    num_winners = race.get("num_winners", race.get("seats", 1))
+    try:
+        num_winners = max(1, int(num_winners))
+    except (TypeError, ValueError):
+        num_winners = 1
+    return title, ballots_text, num_winners
 
 
 # --------------------------------------------------------------------------- #
@@ -184,7 +189,8 @@ def parse_ranked_ballots(ballot_string):
 # Main
 # --------------------------------------------------------------------------- #
 def run(path):
-    title, ballots_text = load_ballots_block(path)
+    title, ballots_text, num_winners = load_ballots_block(path)
+    seats = max(1, int(num_winners or 1))
 
     # Auto-detect: '>' means native ranked ballots; otherwise score ballots.
     ranked_mode = ">" in ballots_text
@@ -209,23 +215,41 @@ def run(path):
             pv_ballots.append(Ballot(ranked_candidates=ranked_objs))
         total += weight
 
-    print(f"\n--- RCV / Instant-Runoff Voting (single winner) ---")
+    if seats > 1:
+        label = f"STV / Single Transferable Vote (multi-winner — {seats} seats)"
+    else:
+        label = "RCV / Instant-Runoff Voting (single winner)"
+
+    print(f"\n--- {label} ---")
     if title:
         print(f"  {title}")
     source = ("ranked ballots" if ranked_mode
               else "converted from score ballots; 0 = unranked")
     print(f" Tabulating {total} ballots ({source}).")
+    if seats > 1:
+        # Droop quota = floor(valid_votes / (seats + 1)) + 1
+        droop = total // (seats + 1) + 1
+        print(f" {seats} seats; Droop quota = {droop} "
+              f"({droop / total * 100:.1f}% of {total}).")
     print()
 
-    result = pyrankvote.instant_runoff_voting(
-        list(cand_objs.values()), pv_ballots
-    )
+    if seats > 1:
+        result = pyrankvote.single_transferable_vote(
+            list(cand_objs.values()), pv_ballots, number_of_seats=seats
+        )
+    else:
+        result = pyrankvote.instant_runoff_voting(
+            list(cand_objs.values()), pv_ballots
+        )
     print(result)
 
     winners = result.get_winners()
-    name = winners[0].name if winners else "(no winner)"
-    print(f"\nWinner — RCV / Instant-Runoff Voting (single winner)")
-    print(f"  {name}")
+    print(f"\nWinner(s) — {label}")
+    if winners:
+        for w in winners:
+            print(f"  {w.name}")
+    else:
+        print("  (no winner)")
 
 
 if __name__ == "__main__":

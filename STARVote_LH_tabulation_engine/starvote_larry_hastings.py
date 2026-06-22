@@ -1975,7 +1975,8 @@ Memphis,Nashville,Chattanooga,Knoxville
 
         _mname = str(election.get("method_name") or "").strip().lower()
         _is_rcv = _mname in {"rcv", "irv", "rcv_irv", "rcv-irv", "rcv/irv",
-                             "ranked_choice", "instant_runoff"}
+                             "ranked_choice", "instant_runoff",
+                             "stv", "single_transferable_vote", "rcv_stv"}
         # Approval and its explicit single/multi-winner variants, tolerant of
         # typos like "Arroval". A name carrying "multi"/"single" must agree with
         # num_winners (checked below).

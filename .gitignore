@@ -1,4 +1,10 @@
 .idea/
+.claude/
+
+# Python bytecode caches (regenerable)
+__pycache__/
+**/__pycache__/
+*.py[cod]
 
 # Browser/auth session state — contains live credentials, never commit
 **/auth_state.json
