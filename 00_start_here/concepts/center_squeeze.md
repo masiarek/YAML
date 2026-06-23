@@ -3,7 +3,7 @@
 **One line:** a broadly-liked moderate is eliminated *early* because few voters
 rank/score them **first**, so a more polarizing candidate the majority actually
 opposed goes on to win. It's an **RCV-IRV** failure (the eliminate-and-transfer
-count); STAR avoids it.
+count); STAR avoids it. FOOBAR test.
 
 → Glossary: [`center squeeze`](../GLOSSARY.md) · deeper debate version:
 [`favorite_betrayal_voting_301.md`](../../interviews_conversations/favorite_betrayal_voting_301.md)
