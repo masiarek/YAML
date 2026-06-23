@@ -17,6 +17,7 @@ Scope: single-winner *score* methods only (voting_method STAR / default).
 Ranked (RCV/STV) and Approval files are skipped — they have their own paths.
 """
 
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -92,23 +93,32 @@ def test_at_least_one_case_discovered():
 
 
 @pytest.mark.parametrize("path", POSITIVE, ids=POSITIVE_IDS)
-def test_single_winner_tabulates_and_elects_expected(path):
+def test_single_winner_tabulates_and_elects_expected(path, tmp_path):
     expected = _load(path)["expected_winners"]
 
-    # 1-2. Full CLI run: must succeed (this also (re)writes the _tabulated copy).
-    proc = _run_cli(path)
+    # Run the CLI on a TEMP COPY so the engine writes its _tabulated artifact
+    # into tmp_path, never the tracked repo copy. (The engine derives the output
+    # path from the source file's location, so a copy under tmp redirects it.)
+    work_dir = tmp_path / "src"
+    work_dir.mkdir()
+    work = work_dir / path.name
+    shutil.copy(path, work)
+
+    # 1-2. Full CLI run: must succeed (this also writes the _tabulated copy).
+    proc = _run_cli(work)
     assert proc.returncode == 0, (
         f"{path.name} exited {proc.returncode}\n--- stdout ---\n{proc.stdout}\n"
         f"--- stderr ---\n{proc.stderr}"
     )
 
-    # 3. Winner matches expectation (structured, not text-parsed).
+    # 3. Winner matches expectation (structured, not text-parsed). Evaluated on
+    # the original file; scenario_winners does not write any artifact.
     winners, seats = scenario_winners(path)
     assert seats == 1, f"{path.name}: num_winners should be 1, got {seats}"
     assert sorted(winners) == sorted(str(w) for w in expected), (
         f"{path.name}: elected {winners}, expected {expected}"
     )
 
-    # 4. The _tabulated sibling was produced.
-    tab = _tabulated_sibling(path)
+    # 4. The _tabulated sibling was produced (in tmp, not the repo).
+    tab = _tabulated_sibling(work)
     assert tab.exists(), f"{path.name}: expected _tabulated file at {tab}"
