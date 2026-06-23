@@ -123,13 +123,32 @@ was the head-to-head winner, eliminated early for too few first-place votes.)
 
 ## 5. "But you admit STAR fails FBC too!" — yes, and here's the honest difference
 
-Concede it cleanly: **STAR is also not formally FBC-compliant.** Equal Vote's own
-pass/fail chart marks STAR ❌ on Favorite Betrayal — *but* at roughly **98%** (the
-chart is binary; "98% is still a fail" under a pass/fail lens).
+Concede it cleanly: **STAR is also not formally FBC-compliant.** Equal Vote's
+criteria chart marks STAR ❌ on Favorite Betrayal — it's a *binary* pass/fail, with
+**no percentage attached.** (You may have seen "~98%" quoted, including in earlier
+drafts of this repo. That figure has **no FBC source** — it was borrowed from STAR's
+*accuracy* score, Voter Satisfaction Efficiency ~91–98%, which measures something
+else entirely. Don't use it.)
 
-So why does STAR fail it at all, and why is that different from RCV-IRV?
+So instead of quoting a number we can't defend, we **measured** FBC directly — see
+`simulations/fbc_simulation.py`, which brute-forces every voter's best
+favorite-betrayal across thousands of random elections. Two honest results:
 
-**Where STAR's tiny FBC leak comes from — the runoff.**
+- **On raw frequency, neither method is FBC-proof — and STAR is *not* better than
+  RCV-IRV.** Under a realistic spatial model STAR is FBC-compliant in ~92–96% of
+  elections and RCV-IRV in ~95–97% — essentially a tie, IRV slightly ahead. (FBC is
+  an *existence* test, and STAR's score ballot simply offers far more betrayal
+  ballots in which to find one that helps.) So *"STAR fails FBC less often than IRV"*
+  is **not** a claim the numbers support — drop it.
+- **The real, measurable difference is whether betrayal ever pays.** Of the
+  favorite-betrayals that actually change who wins, only **~2% help the voter under
+  STAR** — the other ~98% backfire — versus **~7–12% under RCV-IRV.** Betrayal is
+  several times more likely to pay off in IRV, and STAR's rare wins need extreme
+  ballots plus near-perfect knowledge of everyone else's vote. *That* is the only
+  defensible "98%": not "FBC-compliant 98% of the time," but **"favorite betrayal
+  backfires ~98% of the time you'd try it."**
+
+**Where STAR's FBC leak comes from — the runoff.**
 - **Pure Score voting PASSES FBC.** You can always give your favorite a 5; since
   the winner is just the highest total, maxing your favorite can never hurt you.
 - But pure Score has a different weakness: **exaggeration** ("I'll give my favorite
@@ -140,20 +159,21 @@ So why does STAR fail it at all, and why is that different from RCV-IRV?
   rare, delicately balanced cases moving your favorite's score can change the
   finalist pairing in a way that helps you.
 
-So STAR's ~98% FBC is a **deliberate trade**: it gives up a sliver of FBC to buy a
+So STAR's FBC leak is a **deliberate trade**: it gives up a sliver of FBC to buy a
 genuine majority finish and immunity to score-exaggeration.
 
-**Why STAR's failure is in a different league than RCV-IRV's:**
-- STAR's FBC failures are **rare and fragile** — they need near-perfect knowledge
-  of how everyone else votes, and a wrong guess backfires. They essentially don't
-  show up in real elections.
-- RCV-IRV's FBC failure is **structural and common** — it's the *center squeeze*, and
-  it bites exactly in the competitive 3-viable-candidate races reform is meant to
-  fix (Alaska, Burlington). It's not a corner case; it's the main event.
+**Why the two failures aren't the same animal** (this, not frequency, is the point):
+- STAR's failures are **fragile and unactionable** — extreme ballots, perfect
+  information, and a betrayal that backfires ~98% of the time you'd try it. They
+  essentially don't occur in real elections.
+- RCV-IRV's failure is **systematic and predictable** — the *center squeeze* — and it
+  bites in exactly the competitive 3-viable-candidate races reform is meant to fix,
+  where a squeezed wing can often see it coming (Alaska, Burlington).
 
-> **One-liner:** *"Neither of us is favorite-betrayal-proof. You fail it in
-> realistic center-squeeze races; STAR fails it only in rare, hand-built
-> constructions you couldn't pull off in a real election."*
+> **One-liner:** *"Neither of us is favorite-betrayal-proof — on paper we fail about
+> equally often. The difference: in STAR the betrayal backfires almost every time
+> you'd try it; your center-squeeze failure is predictable enough that a whole wing
+> has a reason to betray."*
 
 ---
 
@@ -172,10 +192,13 @@ So *every* method must give up at least one:
 | **RCV / IRV** | **❌** (center squeeze) | ✅ |
 | Approval | ✅ | ❌ |
 | Score | ✅ | ❌ |
-| **STAR** | ~98% (rare fails) | ~ (rare fails) |
+| **STAR** | ❌ rare — and betrayal backfires ~98% of the time it's tried | ❌ rare |
 
-Read across the STAR row: it refuses to fully commit to either, and instead lands
-~98% on **both** — the "best of both worlds" compromise, by design.
+Read across the STAR row: it commits to neither criterion fully, accepting rare
+failures of *each* in exchange for a majority-backed, exaggeration-resistant result.
+The payoff isn't that STAR passes FBC more often than RCV-IRV (it doesn't — see
+`simulations/`) — it's that in STAR a favorite-betrayal almost never pays off, so
+honesty stays your safest ballot.
 
 **The reframe to leave them with:** Later-No-Harm sounds nice, but it's the very
 property that *forces* center squeeze — guaranteeing your later choices never help
@@ -210,14 +233,17 @@ That's a favorite-betrayal failure, in a real election.
 **Larry:** Okay, but doesn't STAR have this problem too? You're always honest with
 me about the limits.
 
-**Adam:** It does, technically — STAR isn't 100% favorite-betrayal-proof either,
-about 98%. But here's the difference that matters. There's a theorem: no method can
-promise both of those things at once, so everyone gives up one. Pure Score voting
-keeps favorites perfectly safe but invites exaggeration; STAR adds a runoff to kill
-the exaggeration, and that runoff is what costs it that last 2%. The failures are
-rare, fragile, and basically impossible to exploit in a real election. RCV-IRV's
-failure is the opposite: it's structural, it's the center squeeze, and it shows up
-in exactly the competitive races we're trying to fix.
+**Adam:** It does, technically — STAR isn't 100% favorite-betrayal-proof either. I
+used to say "98% safe," but I checked it with a simulation and that number doesn't
+hold up the way I was using it: on raw frequency, STAR and RCV-IRV fail about equally
+often. Here's what *does* hold up — when betraying your favorite in STAR could change
+the result, it backfires about 98% of the time; only ~2% of the time does it help,
+versus several times that in Ranked Choice. So in STAR honesty really is your safest
+bet. And there's a theorem: no method can promise both of those things at once, so
+everyone gives up one. Pure Score keeps favorites perfectly safe but invites
+exaggeration; STAR adds a runoff to kill the exaggeration, and that runoff is what
+costs it FBC. RCV-IRV's failure is the opposite kind: it's structural, it's the
+center squeeze, and it shows up in exactly the competitive races we're trying to fix.
 
 **Larry:** So the honest scorecard is…?
 
@@ -236,8 +262,9 @@ able to help them win."
   Slide 4 stands on its own.
 - **Lead by separating the two criteria** before you argue — half the disagreement
   evaporates once "first mark" vs "later marks" is on the table.
-- **Concede STAR's ~98% immediately.** Your candor is the credibility that makes
-  the center-squeeze point land.
+- **Concede STAR fails FBC too — immediately, and without a percentage.** Say
+  "betrayal almost always backfires in STAR," not "STAR is 98% compliant." Your
+  candor is the credibility that makes the center-squeeze point land.
 - **End on the value, not the math:** Later-No-Harm *causes* center squeeze; STAR
   trades it away so a consensus candidate can actually win.
 
@@ -248,8 +275,8 @@ able to help them win."
 - **Later-No-Harm** = *the back door.* Is it safe to let your backups in too? (RCV-IRV:
   yes. Score/Approval: no. STAR: almost always.)
 - You **cannot** lock both doors. RCV-IRV locks the back and leaves the front open
-  (center squeeze). STAR keeps both ~98% shut and refuses to fully sacrifice
-  either.
+  (center squeeze). STAR keeps both *mostly* shut and refuses to fully sacrifice
+  either — and the front-door failures it does have almost never reward the burglar.
 
 ---
 
@@ -260,3 +287,6 @@ able to help them win."
   Equal-Support sibling of this concede-then-reframe argument.
 - `LINKS.md` → **Full Deck 2025** ("RCV Common False Claims", "Alaska '22",
   "Burlington 2009", the pass/fail criteria slides); **Why STAR 2**.
+- `simulations/fbc_simulation.py` + `simulations/README.md` — the brute-force FBC
+  measurement behind Section 5 (FBC compliance frequency and the betrayal
+  works:backfires ratio, STAR vs RCV-IRV).
