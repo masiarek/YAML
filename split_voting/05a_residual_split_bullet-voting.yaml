@@ -1,0 +1,43 @@
+election_title: STAR's residual split — a coalition bullet-votes itself apart
+scenario_description: |-
+  The honest caveat to "STAR ends vote-splitting": it ends the FORCED kind. A
+  faction can still split ITSELF if it refuses to use the score ballot.
+
+  Ada and Ben are on the same side (60 voters); Cy is the opponent (40). Here the
+  Ada/Ben side bullet-votes tribally — Ada-fans give Ben a 0, Ben-fans give Ada a
+  0 — instead of scoring their ally honestly. Scores: Ada 175, Ben 125, Cy 200.
+  Cy grabs a finalist slot on a split field and wins the runoff, even though 60%
+  preferred that side. STAR did not rescue a split the voters inflicted on
+  themselves: the residual lives only in the top-two runoff.
+
+  The cure is in their hands — see 05b_residual_split_expressive-fix.yaml, where the
+  SAME factions score their ally even a 3 and STAR elects the majority side.
+  Deep dive: 00_start_here/concepts/residual_vote_splitting.md
+
+blocs:
+  Allies: [Ada, Ben]
+
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  brief: true
+  collapse_ballots: true
+  count_separator: "×"
+
+voting_method: STAR
+num_winners: 1
+
+ballots: |-
+  Count:Ada,Ben,Cy
+  35:5,0,0   # Ada-fans bullet-vote — refuse to score their ally Ben
+  25:0,5,0   # Ben-fans bullet-vote — refuse to score their ally Ada
+  40:0,0,5   # Cy bloc (the minority side)
+
+expected_winners:
+  - Cy
+
+# file: 05a_residual_split_bullet-voting.yaml
