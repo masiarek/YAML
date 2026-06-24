@@ -1,0 +1,44 @@
+election_title: Same winner, very different counts — STAR adds, IRV eliminates
+scenario_description: |-
+  45 voters, five candidates. Carmen is the broad consensus — most voters' strong
+  second choice — and she wins under BOTH methods. The point of this file isn't WHO
+  wins; it's how much work the COUNT takes.
+
+  STAR: add each candidate's scores (one column sum you can do on a napkin), take the
+  top two, hold one automatic runoff. Two transparent steps, summable from precinct
+  totals.
+
+  RCV-IRV (run this same file through RCV_IRV_tabulation_engine/): no first-round
+  majority, so it eliminates the lowest, transfers those ballots to their next choice,
+  rechecks, and repeats — round after round — until someone clears half. To follow it
+  you must track every transfer, and you need every ballot in one place. Same winner,
+  far more count.
+
+  Deep dive: 00_start_here/concepts/is_rcv_simple.md (the "simple — which half?" point).
+
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  brief: true
+  collapse_ballots: true
+  count_separator: "×"
+
+voting_method: STAR
+num_winners: 1
+
+ballots: |-
+  Count:Andre,Blake,Carmen,Dana,Evan
+  14:4,3,5,2,1   # Carmen base   (C > A > B > D > E)
+  10:5,3,4,2,1   # Andre first   (A > C > B > D > E)
+  9:3,5,4,2,1    # Blake first   (B > C > A > D > E)
+  7:3,2,4,5,1    # Dana first    (D > C > A > B > E)
+  5:3,2,4,1,5    # Evan first    (E > C > A > B > D)
+
+expected_winners:
+  - Carmen
+
+# file: count_simplicity_star_vs_irv.yaml

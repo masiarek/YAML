@@ -193,7 +193,11 @@ def run(path):
     seats = max(1, int(num_winners or 1))
 
     # Auto-detect: '>' means native ranked ballots; otherwise score ballots.
-    ranked_mode = ">" in ballots_text
+    # Strip per-line comments first, so a rank annotation in a score-ballot
+    # comment (e.g. "14:4,3,5,2,1  # Carmen base (C > A > B)") doesn't get
+    # misread as a real ranked ballot. (Mirrors the STAR engine.)
+    _detect = "\n".join(line.split("#")[0] for line in ballots_text.splitlines())
+    ranked_mode = ">" in _detect
     if ranked_mode:
         candidates_names, parsed = parse_ranked_ballots(ballots_text)
     else:

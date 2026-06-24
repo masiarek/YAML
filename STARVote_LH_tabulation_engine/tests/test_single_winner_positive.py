@@ -62,7 +62,13 @@ def _single_winner_positive_files():
                 continue
             if data.get("num_winners", 1) not in (1, None):
                 continue
-            if ">" in str(data.get("ballots", "")):   # ranked -> not STAR
+            # ranked ballots (A>B>C) -> not a score/STAR file. Strip per-line
+            # comments first, so a rank annotation in a comment (e.g.
+            # "14:4,3,5,2,1  # Carmen base (C > A > B)") doesn't exclude a
+            # genuine score file. (Mirrors the engines' own detection.)
+            _ballots = str(data.get("ballots", ""))
+            _ballots = "\n".join(ln.split("#")[0] for ln in _ballots.splitlines())
+            if ">" in _ballots:
                 continue
             ew = data.get("expected_winners")
             if not (isinstance(ew, list) and len(ew) == 1):
