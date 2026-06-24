@@ -2,17 +2,17 @@ election_title: The cure — score your ally, and STAR's split disappears
 scenario_description: |-
   Same three candidates and the same factions as 05a, with one change: the Ada/Ben
   side actually USES the score ballot. Ada-fans still favor Ada but give ally Ben a
-  3; Ben-fans favor Ben but give Ada a 3. They sincerely prefer either ally to Cy.
+  3; Ben-fans favor Ben but give Ada a 3. They sincerely prefer either ally to Cara.
 
-  Scores now: Ada 250, Ben 230, Cy 200. The two finalists are Ada and Ben — the
-  opponent Cy is shut out — and the runoff keeps the seat on the majority side.
+  Scores now: Ada 250, Ben 230, Cara 200. The two finalists are Ada and Ben — the
+  opponent Cara is shut out — and the runoff keeps the seat on the majority side.
   Nothing about the electorate's true preferences changed between 05a and 05b; only
   whether voters expressed support for their ally. That is the whole point: STAR
   removes FORCED vote-splitting, and hands voters the tool to avoid the self-
   inflicted kind.
 
-  Note the [Divergence from STAR] block: Choose-One (Plurality) still elects Cy on
-  first-choices (Ada 35, Ben 25, Cy 40) — STAR diverges and fixes the split.
+  Note the [Divergence from STAR] block: Choose-One (Plurality) still elects Cara on
+  first-choices (Ada 35, Ben 25, Cara 40) — STAR diverges and fixes the split.
   Deep dive: 00_start_here/concepts/residual_vote_splitting.md
 
 blocs:
@@ -33,10 +33,10 @@ voting_method: STAR
 num_winners: 1
 
 ballots: |-
-  Count:Ada,Ben,Cy
+  Count:Ada,Ben,Cara
   35:5,3,0   # Ada-fans — favorite Ada, but honestly score ally Ben a 3
   25:3,5,0   # Ben-fans — favorite Ben, but honestly score ally Ada a 3
-  40:0,0,5   # Cy bloc (the minority side)
+  40:0,0,5   # Cara bloc (the minority side)
 
 expected_winners:
   - Ada

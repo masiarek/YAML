@@ -42,20 +42,20 @@ you guess wrong**.
 ## Minimal test case — run the matched pair
 
 Same three candidates and the same true preferences; only the *expressiveness*
-changes (60 voters on the Ada/Ben side, 40 for opponent Cy):
+changes (60 voters on the Ada/Ben side, 40 for opponent Cara):
 
 → [`05a_residual_split_bullet-voting.yaml`](../../split_voting/05a_residual_split_bullet-voting.yaml)
  · [`05b_residual_split_expressive-fix.yaml`](../../split_voting/05b_residual_split_expressive-fix.yaml)
 
-| File | Ada/Ben behavior | Scores (Ada / Ben / Cy) | STAR winner |
+| File | Ada/Ben behavior | Scores (Ada / Ben / Cara) | STAR winner |
 |------|------------------|--------------------------|-------------|
-| 05a | bullet-vote (ally = 0) | 175 / 125 / **200** | **Cy** (minority) — split not rescued |
+| 05a | bullet-vote (ally = 0) | 175 / 125 / **200** | **Cara** (minority) — split not rescued |
 | 05b | score ally a 3 | **250** / 230 / 200 | **Ada** (majority side) — split fixed |
 
 In 05a the engine's `[Vote-splitting check]` is honest: it flags the majority
-coalition, then reports *"STAR elected Cy"* — STAR does **not** paper over a split
+coalition, then reports *"STAR elected Cara"* — STAR does **not** paper over a split
 the voters inflicted on themselves. In 05b, `[Divergence from STAR]` shows
-Choose-One still electing Cy while STAR diverges and keeps the seat on the majority
+Choose-One still electing Cara while STAR diverges and keeps the seat on the majority
 side.
 
 ## Why it's a narrow edge case, not the spoiler all over again

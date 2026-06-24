@@ -3,10 +3,10 @@ scenario_description: |-
   The honest caveat to "STAR ends vote-splitting": it ends the FORCED kind. A
   faction can still split ITSELF if it refuses to use the score ballot.
 
-  Ada and Ben are on the same side (60 voters); Cy is the opponent (40). Here the
+  Ada and Ben are on the same side (60 voters); Cara is the opponent (40). Here the
   Ada/Ben side bullet-votes tribally — Ada-fans give Ben a 0, Ben-fans give Ada a
-  0 — instead of scoring their ally honestly. Scores: Ada 175, Ben 125, Cy 200.
-  Cy grabs a finalist slot on a split field and wins the runoff, even though 60%
+  0 — instead of scoring their ally honestly. Scores: Ada 175, Ben 125, Cara 200.
+  Cara grabs a finalist slot on a split field and wins the runoff, even though 60%
   preferred that side. STAR did not rescue a split the voters inflicted on
   themselves: the residual lives only in the top-two runoff.
 
@@ -32,12 +32,12 @@ voting_method: STAR
 num_winners: 1
 
 ballots: |-
-  Count:Ada,Ben,Cy
+  Count:Ada,Ben,Cara
   35:5,0,0   # Ada-fans bullet-vote — refuse to score their ally Ben
   25:0,5,0   # Ben-fans bullet-vote — refuse to score their ally Ada
-  40:0,0,5   # Cy bloc (the minority side)
+  40:0,0,5   # Cara bloc (the minority side)
 
 expected_winners:
-  - Cy
+  - Cara
 
 # file: 05a_residual_split_bullet-voting.yaml
