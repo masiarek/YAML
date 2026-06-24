@@ -12,16 +12,16 @@ Cues: **[DEMO]** run a file live · **[SLIDE]** show a slide · **[REPO]** lesso
 
 ## Part 1 — What is a voting method?
 
-## Segment 1 — The two knobs
+## Segment 1 — The two parts
 
 **Larry:** Start at zero for me. What *is* a voting method?
 
 **Adam:** It's the rule that turns a stack of individual ballots into one collective
 decision. And the key thing — the single most useful idea in this whole topic — is
-that it's really **two** separate choices, not one. First, **the ballot:** what
-voters get to express — pick one, rank them, score them, or choose several. Second,
-**the count:** how you turn those marks into a winner — add them up, average them,
-simulate a runoff, or check who beats whom head-to-head.
+that it's really **two parts**, not one. First, **the ballot:** what voters get to
+express — pick one, rank them, score them, or choose several. Second, **the count:**
+how you turn those marks into a winner — add them up, average them, simulate a runoff,
+or check who beats whom head-to-head.
 
 **Larry:** And those two are independent?
 
@@ -110,7 +110,7 @@ never even checks.
 
 **Larry:** Give me the lines I can walk away with.
 
-**Adam:** Two of them. The first is the framing: *"A voting method is two choices, not
+**Adam:** Two of them. The first is the framing: *"A voting method has two parts, not
 one — what you put on the ballot, and how you count it. Keep those separate and the
 whole subject gets clear."* The second is the warning: *"'Most votes' isn't 'over
 half.' Choose-one plurality is the method that most easily crowns the candidate a
