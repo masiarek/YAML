@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     count_simplicity_star_vs_irv.yaml
-SOURCE MODIFIED: 2026-06-24 03:36:37
+SOURCE MODIFIED: 2026-06-23 23:36:37
 TABULATED FILE:  count_simplicity_star_vs_irv_tabulated.txt
-TABULATED AT:    2026-06-24 03:38:33
+TABULATED AT:    2026-06-23 23:42:40
 ======================================================================
 
 election_title: Same winner, very different counts — STAR adds, IRV eliminates

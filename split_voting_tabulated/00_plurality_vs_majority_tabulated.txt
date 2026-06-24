@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     00_plurality_vs_majority.yaml
-SOURCE MODIFIED: 2026-06-24 03:05:17
+SOURCE MODIFIED: 2026-06-23 23:05:17
 TABULATED FILE:  00_plurality_vs_majority_tabulated.txt
-TABULATED AT:    2026-06-24 03:05:17
+TABULATED AT:    2026-06-23 23:49:08
 ======================================================================
 
 election_title: Plurality vs Majority — most votes isn't more than half

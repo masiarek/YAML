@@ -60,9 +60,7 @@ complicated than a simple yes/no.
 
 **Adam:** Right. One honest, careful version of the claim: richer ballots — ranking
 or scoring — can capture *more information* than choose-one, and that added
-expressiveness matters more as the questions get harder. I'd stop there; that's a
-defensible point about expressiveness, not a grand claim that one method is "more
-legitimate" in some measured way — that would need its own definition and evidence.
+expressiveness matters more as the questions get harder. 
 
 > [SLIDE] Full Deck — "Rating vs Ranking" (more expressive ballots carry more info).
 
