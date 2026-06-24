@@ -125,6 +125,42 @@ be counted."** It is false, and the fuzziness of "exhausted" is what lets it pas
 The honest version is: *which* of your rankings get counted depends on the
 **order of elimination** — something you can't see or control.
 
+### A concrete example — *which* ranks IRV threw away
+
+27 voters, three candidates on a spectrum
+([`01_Single_winner/center_squeeze_star.yaml`](../01_Single_winner/center_squeeze_star.yaml)):
+
+| Voters | Their ballot (full ranking) | What IRV did with it | Rank IRV **never read** |
+|---|---|---|---|
+| 12 | Left > Center > Right | Left led every round and **won** | **Center (2nd)**, Right (3rd) |
+| 9  | Right > Center > Left | Right reached the final two, then **lost** | **Center (2nd)**, Left (3rd) |
+| 6  | Center > Left > Right | Center eliminated in round 1; ballot transferred to Left | Right (3rd) |
+
+IRV's rounds: first choices are Left 12, Right 9, **Center 6** — so Center is eliminated
+first; its 6 ballots move to Left, and **Left wins 18–9.** Now look at the last column:
+**21 of 27 voters ranked Center *second*, and IRV read none of those rankings.** Left's
+and Right's voters never transferred (their first choice survived round 1), so their
+Center-2nd preference was simply never consulted.
+
+What those ignored ranks would have said: **Center beats Left head-to-head 15–12** and
+**beats Right 18–9** — Center is the **Condorcet (pairwise) winner**, the candidate a
+majority prefers over *each* opponent. IRV eliminated Center anyway, for having the fewest
+*first* choices, without ever making those head-to-head comparisons.
+
+> **This is the misconception in one line.** The public pictures RCV as *pairwise* —
+> "my second choice gets compared head-to-head." That's a **Condorcet** count
+> (**Ranked Robin**), **not IRV.** IRV only ever looks at each ballot's *top surviving*
+> mark, so a second choice is read **only if** your current candidate is eliminated.
+> Here, that meant 21 voters' decisive Center ranking never counted at all.
+
+STAR (and Ranked Robin) read every ballot: STAR elects **Center**, and the engine prints
+`[Condorcet Winner] = Center`. Run both to see it:
+
+```
+python3 RCV_IRV_tabulation_engine/rcv_irv_tabulation.py    01_Single_winner/center_squeeze_star.yaml   # Left wins; Center out in round 1
+python3 STARVote_LH_tabulation_engine/starvote_larry_hastings.py 01_Single_winner/center_squeeze_star.yaml   # Center wins; Condorcet = Center
+```
+
 ---
 
 ## 4. The "manufactured majority" — majority of *remaining* ballots
