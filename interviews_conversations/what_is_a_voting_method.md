@@ -106,14 +106,15 @@ never even checks.
 
 ---
 
-## Segment 5 — The one-liner
+## Segment 5 — The two takeaways
 
-**Larry:** Give me the two sentences I can repeat.
+**Larry:** Give me the lines I can walk away with.
 
-**Adam:** "A voting method is two choices, not one: what you put on the ballot, and
-how you count it — keep them separate and everything else makes sense. And watch the
-words: 'most votes' isn't 'over half' — choose-one plurality is the method that most
-easily crowns a candidate the majority voted against."
+**Adam:** Two of them. The first is the framing: *"A voting method is two choices, not
+one — what you put on the ballot, and how you count it. Keep those separate and the
+whole subject gets clear."* The second is the warning: *"'Most votes' isn't 'over
+half.' Choose-one plurality is the method that most easily crowns the candidate a
+majority voted against."*
 
 ---
 
