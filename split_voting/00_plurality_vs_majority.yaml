@@ -1,0 +1,44 @@
+election_title: Plurality vs Majority — most votes isn't more than half
+scenario_description: |-
+  100 voters, three candidates. First choices: Andre 40, Blake 35, Carmen 25.
+
+  Under Choose-One Plurality, Andre wins with 40 — the MOST votes. But 60 of 100
+  voters preferred someone else, so Andre has no MAJORITY. Blake and Carmen appeal
+  to the same 60-voter coalition; Choose-One splits it across two names and hands
+  the seat to the candidate a majority actively voted against.
+
+  STAR scores all three 0–5, so coalition voters back both Blake and Carmen. The two
+  highest totals (Blake, Carmen) advance, and the automatic runoff produces a winner
+  who holds a majority between the finalists — Blake. Watch [Divergence from STAR]
+  show Choose-One (Plurality) = Andre disagreeing with STAR, and the [Vote-splitting
+  check] confirm the 60-vote coalition. ("Most votes" and "over half" are different
+  bars; the gap only appears with 3+ candidates — that gap is where vote splitting
+  lives.)
+
+blocs:
+  Coalition: [Blake, Carmen]
+
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  brief: true
+  collapse_ballots: true
+  count_separator: "×"
+
+voting_method: STAR
+num_winners: 1
+
+ballots: |-
+  Count:Andre,Blake,Carmen
+  40:5,0,0   # Andre bloc — most first choices, but a minority of the whole
+  35:0,5,4   # Blake base — also support coalition ally Carmen
+  25:0,4,5   # Carmen base — also support coalition ally Blake
+
+expected_winners:
+  - Blake
+
+# file: 00_plurality_vs_majority.yaml

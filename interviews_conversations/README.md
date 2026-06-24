@@ -27,6 +27,7 @@ demo or a memorable one-liner.
 
 | # | Episode (clip) | Core question | Repo demo | Source slides |
 |---|----------------|---------------|-----------|---------------|
+| 00 | What is a voting method? (the foundation) | ballot vs count; plurality vs majority | `split_voting/00_plurality_vs_majority` | "Rating vs Ranking", "Plurality vs Majority" |
 | 0 | Why do you love STAR? (cold open) | the personal "why" | — | Full Deck title + dilemma |
 | 1 | What's so good about STAR? | the whole pitch in one arc | flagship file's demos | Full Deck (all) |
 | 1.5 | Is our voting system broken? (Problem with Plurality) | is it broken — frequent? serious? worsening? | `split_voting/01*`, `04*` | "Problem: Vote-Splitting", "The Voting Dilemma" |
