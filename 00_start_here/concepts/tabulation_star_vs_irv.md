@@ -3,7 +3,7 @@
 **One line:** the *same* ballots, counted two ways. **STAR** scores then holds one
 runoff — **two steps.** **RCV-IRV** runs rounds of eliminate-and-transfer — here
 **three.** In this example both elect **Carmen**, so the page isolates the *process*
-(how each count works and what it costs), not the winner. 
+(how each count works and what it costs), not the winner.
 
 → Companion to [`is_rcv_simple.md`](./is_rcv_simple.md) (the "which half is simple?"
 argument) and [`summability.md`](./summability.md). When the two counts elect
