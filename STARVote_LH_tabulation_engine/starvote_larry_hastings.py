@@ -1187,15 +1187,16 @@ def print_marker_legend(used):
         print(f"  {m}  {MARKER_MEANINGS[m]}")
 
 
-def print_score_counts(candidates, ballots, max_score=5, display_rows=None):
-    """Per-candidate score distribution: how many ballots gave each score value,
-    plus an Abs (abstained / left blank) bucket so a blank is not conflated with
-    an explicit 0. Avg is over ballots that actually scored the candidate.
+def format_score_counts(candidates, ballots, max_score=5, display_rows=None):
+    """Return the per-candidate score-distribution block as a string (or "" if
+    there's nothing to show): how many ballots gave each score value, plus an Abs
+    (abstained / left blank) bucket so a blank is not conflated with an explicit 0.
+    Avg is over ballots that actually scored the candidate.
 
     Uses display_rows (which preserve the original markers) when available, so a
     blank/'~' counts in Abs rather than as a 0."""
     if not candidates or not ballots:
-        return
+        return ""
 
     counts = {c: defaultdict(int) for c in candidates}
     totals = {c: 0 for c in candidates}
@@ -1224,18 +1225,19 @@ def print_score_counts(candidates, ballots, max_score=5, display_rows=None):
     name_w = max((len(c) for c in candidates), default=4)
     show_abs = any(abstain[c] for c in candidates)
 
-    print("\n[Score Distribution] (number of ballots giving each score)")
+    lines = ["[Score Distribution] (number of ballots giving each score)"]
     header = f"{'':<{name_w}}  " + "  ".join(f"{s:>2}" for s in scores)
     if show_abs:
         header += "  Abs"
-    print(f"{header}  | Total   Avg")
+    lines.append(f"{header}  | Total   Avg")
     for c in candidates:
         cells = "  ".join(f"{counts[c][s]:>2}" for s in scores)
         if show_abs:
             cells += f"  {abstain[c]:>3}"
         scored = n - abstain[c]
         avg = totals[c] / scored if scored else 0.0
-        print(f"{c:<{name_w}}  {cells}  | {totals[c]:>5}  {avg:>4.1f}")
+        lines.append(f"{c:<{name_w}}  {cells}  | {totals[c]:>5}  {avg:>4.1f}")
+    return "\n".join(lines)
 
 
 def _star_comparison(cw, star_winner, finalists):
@@ -1644,10 +1646,9 @@ def run_election(
             winners_silent[0] if isinstance(winners_silent, list) else winners_silent
         )
 
-        # These analyses are independent toggles.
-        if show_score_counts:
-            print_score_counts(candidates, ballots, max_score=5,
-                                display_rows=display_rows)
+        # These analyses are independent toggles. (The [Score Distribution]
+        # block is rendered lower down, right after the "Tabulating N ballots."
+        # echo and before the Scoring Round — see the custom_print handler.)
         if show_matrix:
             print_matrix(
                 candidates,
@@ -1868,6 +1869,15 @@ def run_election(
                             "(skipped vs rated low)."
                         )
                 text = text + "\n" + "\n".join(csv_rows)
+
+                # 1c. Optional [Score Distribution] block, between the ballot
+                #     echo and the Scoring Round.
+                if show_score_counts:
+                    _sc = format_score_counts(
+                        candidates, ballots, max_score=5, display_rows=display_rows
+                    )
+                    if _sc:
+                        text = text + "\n\n" + _sc
 
             # 2. Relabel the no-preference bucket.
             relabeled = "No Preference" in text
