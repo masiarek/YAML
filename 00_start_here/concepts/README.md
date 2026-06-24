@@ -13,6 +13,7 @@ are **load-bearing in debates** and worth a focused page with a worked example a
 | **Proportional: STV vs STAR-PR** | multi-seat — coalitions get proportional seats; STV ≈ STAR-PR, Bloc differs (301) | [proportional_stv_vs_star.md](./proportional_stv_vs_star.md) |
 | **Residual vote-splitting** | STAR ends *forced* splitting; the narrow leftover is self-inflicted bullet-voting / the chicken dilemma | [residual_vote_splitting.md](./residual_vote_splitting.md) |
 | **Is RCV "simple"? (201)** | ranking is simple to *mark*; IRV's *count* isn't — STAR keeps both halves simple | [is_rcv_simple.md](./is_rcv_simple.md) |
+| **Tabulation, step by step (201)** | the same ballots counted both ways — STAR's 2 steps vs IRV's elimination rounds | [tabulation_star_vs_irv.md](./tabulation_star_vs_irv.md) |
 
 Deeper conversation/debate scripts live in
 [`../../interviews_conversations/`](../../interviews_conversations/) (e.g.

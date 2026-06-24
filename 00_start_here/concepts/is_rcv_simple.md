@@ -7,7 +7,8 @@ order.
 
 → Builds on [`what_is_a_voting_method.md`](../../interviews_conversations/what_is_a_voting_method.md)
 (a method = ballot **+** count) · related: [`summability.md`](./summability.md),
-[`monotonicity.md`](./monotonicity.md) · Level **201**.
+[`monotonicity.md`](./monotonicity.md) · step-by-step trace of both counts:
+[`tabulation_star_vs_irv.md`](./tabulation_star_vs_irv.md) · Level **201**.
 
 ---
 
