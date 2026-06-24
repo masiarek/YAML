@@ -48,6 +48,7 @@ _Last full review: 2026-06-21._
 | **Discounted votes (FairVote)** | Rebutting the "equal-score votes are discounted" claim | https://docs.google.com/document/d/1RmjWCKUDMrtzxTPqP-0XwaD-0BVxQDrLZvQNBv1iuRY/edit | 2026-06-21 |
 | **Equal Support / No Preference** | Definition & framing of the no-preference runoff vote | https://docs.google.com/document/d/1dkNDjIDVbvRVSGtz-UzP3D5D90jnDJSBuK_XIOMRHok/edit | 2026-06-21 |
 | **Exhausted Ballots (doc)** | RCV-IRV exhausted-ballot explainer (the contrast case) | https://docs.google.com/document/d/1ASC5BS10rCfAYZWGeCyS7dKdKc4p5wwI6DHs4F7ScGc/edit | 2026-06-21 |
+| **RCV false claims (doc)** | Source list of common RCV-IRV claims; basis for `rcv_irv_false_claims.md` index | https://docs.google.com/document/d/1KWs52o4xYgmG4s8udHjgaa_hHY6QrHgt_NO4cEHGhaA/edit | 2026-06-24 |
 | **Exhausted Ballots (deck)** | RCV-IRV exhausted-ballot slides | https://docs.google.com/presentation/d/1ipof9WSSy0GenVKWfKLu_jlYwUIT0TU0WVSAap0VZ5Q/edit | 2026-06-21 |
 
 ## RCV-IRV exhausted-ballot source notes (research)

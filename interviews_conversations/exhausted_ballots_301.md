@@ -17,6 +17,9 @@ nothing is ever "exhausted."**
 
 Cues: **[DEMO]** run a file · **[SLIDE]** show a slide · **[REPO]** lesson file.
 
+→ This is one entry in the broader [`rcv_irv_false_claims.md`](./rcv_irv_false_claims.md)
+index (which routes every common "RCV" claim to its rebuttal).
+
 ---
 
 ## 1. Precision first: exhaustion is an **IRV** thing, not a ranked-ballot thing
