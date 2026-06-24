@@ -68,7 +68,40 @@ Bucket B is the part that's *purely* an artifact of IRV's round-by-round
 elimination. A voter who ranked everyone, correctly and completely, can still have
 real preferences discarded. *(On the Exhausted Ballots deck these are the **yellow**
 box = ranking-limit truncation, **red** box = exhausted-untransferable, and **blue**
-box = nonexhausted-untransferred.)*
+box = nonexhausted-untransferred.)* The vetted taxonomy (note that
+nonexhausted-untransferred is *active-but-under-counted*, not literally "inactive"):
+
+```mermaid
+flowchart TD
+    R["'Exhausted' is too fuzzy —<br/>discarded / under-counted ballots & rankings"]
+    R --> A["Voter-side — LESS problematic<br/>(comparable to Choose-One; concede these)"]
+    R --> B["Count-artifact — PROBLEMATIC<br/>(ranked fully & correctly, yet discarded)"]
+
+    A --> A1["Overvote<br/>(two marks at one rank)"]
+    A --> A2["Undervote / skipped rank"]
+    A --> A3["Voluntary truncation<br/>(bullet voting, by choice)"]
+
+    B --> B1["Inactive / 'exhausted'<br/>(the ballot stops counting)"]
+    B --> B2["Active but under-counted<br/>(ballot still counts; lower ranks never read)"]
+
+    B1 --> Y["Involuntary truncation —<br/>ranking limit (cap of 3–5)"]
+    B1 --> RR["Exhausted-untransferable —<br/>all ranked candidates eliminated"]
+    B2 --> BL["Non-exhausted-untransferred —<br/>favorite makes the final two & loses"]
+
+    F["FALSE CLAIM: 'If your 1st choice is eliminated,<br/>your next choice will be counted.'<br/>Fails across this whole branch."]
+    Y -.-> F
+    RR -.-> F
+    BL -.-> F
+
+    classDef yellow fill:#fde68a,stroke:#b45309,color:#111;
+    classDef red fill:#fecaca,stroke:#b91c1c,color:#111;
+    classDef blue fill:#bfdbfe,stroke:#1d4ed8,color:#111;
+    classDef claim fill:#ffffff,stroke:#b91c1c,stroke-width:2px,color:#b91c1c;
+    class Y yellow;
+    class RR red;
+    class BL blue;
+    class F claim;
+```
 
 > [SLIDE] **Exhausted Ballots** (deck) — the red-box / blue-box flow chart (see
 > `interviews_conversations/LINKS.md`).
