@@ -100,6 +100,18 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
   (e.g., percentages or proportional seats). When you *do* weight, `Count` values
   must be **≥ 6** (avoid collision with 0–5 scores); scaling all weights ×N
   preserves STAR/proportional winners. See `TIPS_choosing_voter_counts.md`.
+- **Candidate names — a fresh, easy cast per scenario; the same cast within one.**
+  Prefer a *new* set of names for each scenario (memorable beats uniform — "the
+  Ada/Ben/Cara split," "the Tennessee cities") over one fixed roster. Four rules:
+  (1) **common and easy to say** — no obscure or confusable names (the "Cy" problem);
+  (2) **distinct initials, in order** — A, B, C, D… so names line up with the ballot
+  columns and reading order; (3) **phonetically distinct within a scenario** — avoid
+  rhyming/blurring pairs (Dana/Hana, Ben/Glen) that don't carry when spoken aloud in a
+  recording; (4) **use a theme when one fits** (Star Wars, cities, flavors) — that's
+  the best kind of variety. **Variety _between_ scenarios, consistency _within_:** a
+  matched pair or family (e.g. `05a`/`05b`) keeps the *same* cast — it's the same
+  election with one thing changed, so new names would imply a different election. Use
+  bare `A/B/C/D` only for purely abstract/academic illustrations where names are noise.
 - **Markers (all tabulate as 0):** `-` blank · `~` race abstention · `&` candidate
   abstention · `?` spoiled · `%` spoiled+reissued. **No `^`** (removed). Approval
   ballots accept only `0`/`1` (+ blank/marker = not approved).
