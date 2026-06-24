@@ -25,11 +25,20 @@ or check who beats whom head-to-head.
 
 **Larry:** And those two are independent?
 
-**Adam:** Completely. The same ballot can be counted different ways, and the same
-count can read different ballots. They're two separate knobs. Almost every muddle in
-voting reform comes from collapsing them into one word — "Choose-One," "STAR" — when
-each name is really *a ballot plus a count* bundled together. Pull them apart and the
-whole subject gets clearer.
+**Adam:** The format is — the same ballot can be counted several different ways, and
+they can crown *different* winners. A ranked ballot can be run as instant-runoff, or
+as a Condorcet "who-beats-everyone" count, or proportionally. But here's the catch,
+and it's the whole reason to name both parts: a method is a ballot **and** a count
+working *together*, and you can't judge one without the other. The ballot is the easy,
+likeable half — the part you're shown. The count is where the winner actually comes
+from — and it's the half people get talked into ignoring.
+
+**Larry:** So "ranked-choice" only tells me the ballot.
+
+**Adam:** Exactly. Someone says "ranked-choice is great" and they've described the
+*ballot* — they haven't told you how it's counted, which is the part that decides the
+election. The trick isn't to admire the two parts apart; it's to never let them be
+split — when someone praises a ballot, ask, "fine, now how do you count it?"
 
 > [REPO] `CLAUDE.md` terminology policy and `00_start_here/GLOSSARY.md` —
 > "Ballot," "Tabulation," "Voting method."
@@ -110,9 +119,10 @@ never even checks.
 
 **Larry:** Give me the lines I can walk away with.
 
-**Adam:** Two of them. The first is the framing: *"A voting method has two parts, not
-one — what you put on the ballot, and how you count it. Keep those separate and the
-whole subject gets clear."* The second is the warning: *"'Most votes' isn't 'over
+**Adam:** Two of them. The first is the framing: *"A voting method is a ballot **and**
+a count — and you have to judge them together. The ballot is the part you're shown;
+the count is where the winner actually comes from. So when someone praises the ballot,
+ask how it's counted."* The second is the warning: *"'Most votes' isn't 'over
 half.' Choose-one plurality is the method that most easily crowns the candidate a
 majority voted against."*
 
