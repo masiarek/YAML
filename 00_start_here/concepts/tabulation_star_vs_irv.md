@@ -89,6 +89,15 @@ time. That bookkeeping is why an IRV count is **not summable** — a precinct ca
 report a partial result that adds up, because who gets eliminated depends on the whole
 electorate. Every ballot has to be in one place.
 
+> **Exhausted (inactive) ballots.** This example is tidy because every voter ranked all
+> five candidates, so no ballot ever runs out of choices. In real RCV-IRV elections a
+> ballot whose remaining ranks are all eliminated **stops counting** ("exhausted" /
+> "inactive"), which is why an IRV winner's final-round majority is a majority of
+> *continuing* ballots, not of everyone who voted. A faithful display should show the
+> exhausted pile each round. STAR has no equivalent: every ballot's full score is read
+> in the scoring round, and every ballot counts in the runoff. (See
+> [`../../interviews_conversations/exhausted_ballots_301.md`](../../interviews_conversations/exhausted_ballots_301.md).)
+
 ---
 
 ## Side by side
@@ -107,12 +116,20 @@ other needs the full ballot set and software to walk the rounds.
 
 ## When the rounds change the *winner*
 
-Here the methods agree. They don't always: in a **center squeeze**, the consensus
-candidate is almost everyone's second choice, so IRV eliminates her early (too few
-*firsts*) while STAR's scoring round keeps her in and she wins. Same ballots,
-different count, **different winner** — traced in
-[`center_squeeze.md`](./center_squeeze.md) (demos `center_squeeze_irv.yaml` /
-`center_squeeze_star.yaml`).
+Here the methods agree, and Carmen even led the first round — but **the first-round
+leader is not always the winner.** In a **center squeeze**, the consensus candidate is
+almost everyone's second choice, so IRV eliminates her early (too few *firsts*) while
+STAR's scoring round keeps her in and she wins. Same ballots, different count,
+**different winner** — traced in [`center_squeeze.md`](./center_squeeze.md) (demos
+`center_squeeze_irv.yaml` / `center_squeeze_star.yaml`). This is exactly why RCV-IRV
+results have to be read to the *final* round, never reported from first choices alone.
+
+> **On displaying RCV-IRV results.** The round-by-round table above follows the
+> standard best practice (FairVote; Center for Civic Design): show every round with a
+> written explanation, name the majority threshold, and treat the final round — not the
+> first-choice lead — as the result. We deliberately show *all* the rounds rather than
+> de-emphasizing the eliminations, because the whole point here is to see how the count
+> works. See `interviews_conversations/LINKS.md` → "FairVote: displaying RCV results."
 
 ## Run it yourself
 

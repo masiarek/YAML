@@ -112,6 +112,8 @@ _Last full review: 2026-06-21._
 | **STAR Voting org** | Campaign / get involved | https://starvoting.org |
 | **BetterVoting** | Cast a STAR ballot / run a poll (audience CTA) | https://bettervoting.com |
 | **Better elections (video)** | Equal Vote intro; STV / proportional 3-seat example (basis for 03a/03b) | https://youtu.be/C_27pYcjsJs |
+| **FairVote: displaying RCV results** | Best practices for showing RCV-IRV results (round-by-round table / bar series); basis for the display notes in `concepts/tabulation_star_vs_irv.md` | https://fairvote.org/how-to-display-rcv-election-results/ |
+| **Center for Civic Design — RCV** | Researched best practices for RCV results display & ballot design | https://civicdesign.org/topics/rcv/ |
 
 ## Software / code
 
@@ -119,6 +121,8 @@ _Last full review: 2026-06-21._
 |------------|---------|-----|
 | **starvote (upstream)** | Larry Hastings' original STAR tabulation library | https://github.com/larryhastings/starvote |
 | **YAML fork (Adam)** | This repo — CSV parsing + extra reporting/options | https://github.com/masiarek/YAML |
+| **RCVis** | RCV-IRV results *visualizer* (Sankey / bar / table). Note: a visualizer, not a tabulator, and **strong-copyleft (AGPL-style)** — use the hosted site, don't vendor the code | https://rcvis.com |
+| **maxhully/rcv** | BSD-3 Python RCV tabulation library (safe to borrow from, if ever needed) | https://github.com/maxhully/rcv |
 
 ---
 
