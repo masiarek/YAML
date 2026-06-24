@@ -103,6 +103,8 @@ flowchart TD
     class F claim;
 ```
 
+*Static version for slides:* [`../00_start_here/concepts/inactive_ballot_taxonomy.svg`](../00_start_here/concepts/inactive_ballot_taxonomy.svg)
+
 > [SLIDE] **Exhausted Ballots** (deck) — the red-box / blue-box flow chart (see
 > `interviews_conversations/LINKS.md`).
 > [REPO] full source notes: **Exhausted Ballots (doc)** in `LINKS.md`.

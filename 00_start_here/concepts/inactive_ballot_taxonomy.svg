@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1070 615" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Taxonomy of inactive / under-counted RCV-IRV ballots</title>
+  <desc id="d">"Exhausted" splits into voter-side cases (overvote, undervote, voluntary truncation) and count-artifact cases: inactive/exhausted (ranking-limit truncation; exhausted-untransferable) and active-but-under-counted (non-exhausted-untransferred). The three count-artifact leaves are why the claim "if your first choice is eliminated your next choice will be counted" is false.</desc>
+
+  <rect x="0" y="0" width="1070" height="615" fill="#ffffff"/>
+
+  <!-- connectors (drawn first, behind boxes) -->
+  <g stroke="#94a3b8" stroke-width="1.5" fill="none">
+    <line x1="535" y1="86" x2="265" y2="140"/>
+    <line x1="535" y1="86" x2="800" y2="140"/>
+    <!-- voter-side -->
+    <line x1="265" y1="200" x2="120" y2="252"/>
+    <line x1="265" y1="200" x2="285" y2="252"/>
+    <line x1="265" y1="200" x2="450" y2="252"/>
+    <!-- count-artifact split -->
+    <line x1="800" y1="200" x2="655" y2="252"/>
+    <line x1="800" y1="200" x2="885" y2="252"/>
+    <!-- inactive -> two leaves -->
+    <line x1="655" y1="316" x2="600" y2="362"/>
+    <line x1="655" y1="316" x2="765" y2="362"/>
+    <!-- active -> blue -->
+    <line x1="885" y1="316" x2="935" y2="362"/>
+  </g>
+  <!-- dashed links to FALSE CLAIM -->
+  <g stroke="#b91c1c" stroke-width="1.5" stroke-dasharray="5 4" fill="none">
+    <line x1="600" y1="446" x2="600" y2="474"/>
+    <line x1="765" y1="446" x2="765" y2="474"/>
+    <line x1="935" y1="446" x2="935" y2="474"/>
+  </g>
+
+  <!-- ROOT -->
+  <rect x="365" y="26" width="340" height="60" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
+  <text x="535" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">&#8220;Exhausted&#8221; is too fuzzy &#8212; split it</text>
+  <text x="535" y="70" text-anchor="middle" font-size="12.5" fill="#334155">discarded / under-counted ballots &amp; rankings</text>
+
+  <!-- LEVEL 2 -->
+  <rect x="75" y="140" width="380" height="60" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+  <text x="265" y="165" text-anchor="middle" font-size="13.5" font-weight="700" fill="#0f172a">Voter-side &#8212; LESS problematic</text>
+  <text x="265" y="185" text-anchor="middle" font-size="12" fill="#475569">comparable to Choose-One &#183; concede these</text>
+
+  <rect x="610" y="140" width="380" height="60" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+  <text x="800" y="165" text-anchor="middle" font-size="13.5" font-weight="700" fill="#0f172a">Count-artifact &#8212; PROBLEMATIC</text>
+  <text x="800" y="185" text-anchor="middle" font-size="12" fill="#475569">ranked fully &amp; correctly, yet discarded</text>
+
+  <!-- voter-side leaves -->
+  <g font-size="12" fill="#0f172a">
+    <rect x="45" y="252" width="150" height="64" rx="7" fill="#ffffff" stroke="#94a3b8" stroke-width="1.3"/>
+    <text x="120" y="288" text-anchor="middle">Overvote</text>
+
+    <rect x="210" y="252" width="150" height="64" rx="7" fill="#ffffff" stroke="#94a3b8" stroke-width="1.3"/>
+    <text x="285" y="281" text-anchor="middle">Undervote /</text>
+    <text x="285" y="297" text-anchor="middle">skipped rank</text>
+
+    <rect x="375" y="252" width="150" height="64" rx="7" fill="#ffffff" stroke="#94a3b8" stroke-width="1.3"/>
+    <text x="450" y="281" text-anchor="middle">Voluntary truncation</text>
+    <text x="450" y="297" text-anchor="middle">(bullet voting)</text>
+  </g>
+
+  <!-- count-artifact mid nodes -->
+  <rect x="560" y="252" width="185" height="64" rx="7" fill="#ffffff" stroke="#475569" stroke-width="1.4"/>
+  <text x="652" y="281" text-anchor="middle" font-size="12.5" font-weight="600" fill="#0f172a">Inactive / &#8220;exhausted&#8221;</text>
+  <text x="652" y="298" text-anchor="middle" font-size="11.5" fill="#475569">the ballot stops counting</text>
+
+  <rect x="760" y="252" width="232" height="64" rx="7" fill="#ffffff" stroke="#475569" stroke-width="1.4"/>
+  <text x="876" y="281" text-anchor="middle" font-size="12.5" font-weight="600" fill="#0f172a">Active but under-counted</text>
+  <text x="876" y="298" text-anchor="middle" font-size="11.5" fill="#475569">ballot counts; lower ranks never read</text>
+
+  <!-- colored leaves -->
+  <rect x="525" y="362" width="150" height="84" rx="7" fill="#fde68a" stroke="#b45309" stroke-width="1.6"/>
+  <text x="600" y="392" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111">Involuntary</text>
+  <text x="600" y="408" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111">truncation</text>
+  <text x="600" y="426" text-anchor="middle" font-size="10.5" fill="#7c2d12">ranking limit (3&#8211;5)</text>
+
+  <rect x="690" y="362" width="150" height="84" rx="7" fill="#fecaca" stroke="#b91c1c" stroke-width="1.6"/>
+  <text x="765" y="392" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111">Exhausted-</text>
+  <text x="765" y="408" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111">untransferable</text>
+  <text x="765" y="426" text-anchor="middle" font-size="10.5" fill="#7f1d1d">all ranked cands. out</text>
+
+  <rect x="855" y="362" width="160" height="84" rx="7" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="1.6"/>
+  <text x="935" y="388" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111">Non-exhausted-</text>
+  <text x="935" y="404" text-anchor="middle" font-size="11.5" font-weight="600" fill="#111">untransferred</text>
+  <text x="935" y="423" text-anchor="middle" font-size="10.5" fill="#1e3a8a">favorite makes final</text>
+  <text x="935" y="437" text-anchor="middle" font-size="10.5" fill="#1e3a8a">two &amp; loses</text>
+
+  <!-- FALSE CLAIM -->
+  <rect x="520" y="474" width="495" height="66" rx="8" fill="#ffffff" stroke="#b91c1c" stroke-width="2"/>
+  <text x="767" y="497" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c">FALSE CLAIM</text>
+  <text x="767" y="515" text-anchor="middle" font-size="11.5" fill="#0f172a">&#8220;If your 1st choice is eliminated, your next choice will be counted.&#8221;</text>
+  <text x="767" y="531" text-anchor="middle" font-size="11.5" font-style="italic" fill="#b91c1c">Fails across this whole branch.</text>
+
+  <!-- legend -->
+  <g font-size="11.5" fill="#334155">
+    <rect x="60" y="566" width="16" height="16" rx="3" fill="#fde68a" stroke="#b45309"/>
+    <text x="83" y="578">ranking-limit truncation</text>
+    <rect x="300" y="566" width="16" height="16" rx="3" fill="#fecaca" stroke="#b91c1c"/>
+    <text x="323" y="578">exhausted-untransferable</text>
+    <rect x="560" y="566" width="16" height="16" rx="3" fill="#bfdbfe" stroke="#1d4ed8"/>
+    <text x="583" y="578">non-exhausted-untransferred</text>
+    <text x="60" y="600" font-size="11" font-style="italic" fill="#64748b">Count-artifact cases hit voters who ranked fully and correctly &#8212; the asymmetry the word &#8220;exhausted&#8221; hides.</text>
+  </g>
+</svg>
