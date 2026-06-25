@@ -1,17 +1,15 @@
 [project]
 name = "yaml"
 version = "0.1.0"
-description = "Schema enforcement for parsing and validating test cases for methods like STAR Voting, RCV-RR, Approval, and RCV-IRV."
-readme = "README.md"
+description = "STAR Voting education & test-case library: a vendored STAR / RCV-IRV tabulation engine, example elections, a BetterVoting JSON->YAML converter, and a pytest suite."
+readme = "readme.md"
 requires-python = ">=3.14"
 dependencies = [
     "faker>=40.19.1",
     "mypy>=2.0.0",
     "playwright>=1.60.0",
-    "pydantic>=2.13.4",
     "pyyaml>=6.0.3",
     "starvote",
-    "strictyaml>=1.7.3",
 ]
 
 [dependency-groups]
@@ -21,10 +19,6 @@ dev = [
 
 [tool.mypy]
 strict = true
-
-[[tool.mypy.overrides]]
-module = "strictyaml.*"
-ignore_missing_imports = true
 
 [tool.uv.workspace]
 members = [

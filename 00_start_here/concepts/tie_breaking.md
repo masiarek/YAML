@@ -68,6 +68,13 @@ importantly, **the lot order is never reached**; deterministic tests settle
 everything.
 
 ```
+Ballots:
+Chocolate,Chocolate Chip,Fudge Brownie,Vanilla,Strawberry,Mango
+        4,             5,            4,      1,         2,    -
+        1,             0,            0,      4,         5,    4
+
+Tabulation:
+        
 [Scoring Round]  The two highest-scoring candidates advance.
    Strawberry     -- 7 -- First place
    Chocolate      -- 5 -- Tied for second place
@@ -107,9 +114,7 @@ five-star settled the first, total score settled the second. The file's
 consulted**. That is the normal case.
 
 The lot only decides when pairwise **and** score **and** five-star are *all*
-tied — e.g. a perfect symmetric election like the two-candidate fixtures in
-[`test_lot_number_tiebreak.py`](../../STARVote_LH_tabulation_engine/tests/test_lot_number_tiebreak.py),
-which are constructed precisely so the lot is the only thing left.
+tied — e.g. a perfect symmetric election.
 
 ---
 
