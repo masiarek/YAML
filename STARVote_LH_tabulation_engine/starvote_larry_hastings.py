@@ -358,9 +358,20 @@ def load_election(path, race_index=0):
             if isinstance(_src, dict) and isinstance(_src.get("blocs"), dict):
                 blocs = _src.get("blocs")
                 break
+
+        # Optional official tie-breaking lot order — a list of candidate IDs in
+        # priority order (index 0 = highest priority, wins ties). Sourced from the
+        # election provider (e.g. BetterVoting's `perm` / `tieBreakOrder`) and
+        # written into the YAML by the JSON->YAML converter so re-tabulation
+        # reproduces the provider's exact tiebreak instead of a fallback order.
+        lot_numbers = None
+        for _src in (race, el, top):
+            if isinstance(_src, dict) and isinstance(_src.get("lot_numbers"), list):
+                lot_numbers = [str(x).strip() for x in _src.get("lot_numbers")]
+                break
     except ImportError:
         ballots_text, seats, method_name, options = _yaml_lite(text)
-        eligible_voters = quorum = blocs = None
+        eligible_voters = quorum = blocs = lot_numbers = None
 
     method = (
         METHOD_BY_NAME.get(str(method_name).strip().lower()) if method_name else None
@@ -376,6 +387,7 @@ def load_election(path, race_index=0):
         "eligible_voters": eligible_voters,
         "quorum": quorum,
         "blocs": blocs,
+        "lot_numbers": lot_numbers,
     }
 
 
@@ -2155,6 +2167,12 @@ Memphis,Nashville,Chattanooga,Knoxville
             COLLAPSE_BALLOTS = _as_bool(opts["collapse_ballots"])
         if "count_separator" in opts:
             COUNT_SEPARATOR = str(opts["count_separator"])
+
+        # Honor an official tie-breaking lot order declared in the file (e.g.
+        # carried over from BetterVoting's `perm`). Falls back to the empty
+        # default — CSV column order — when the file doesn't supply one.
+        if election.get("lot_numbers"):
+            LOT_NUMBERS = election["lot_numbers"]
 
     run_kwargs = dict(
         show_matrix=SHOW_MATRIX,

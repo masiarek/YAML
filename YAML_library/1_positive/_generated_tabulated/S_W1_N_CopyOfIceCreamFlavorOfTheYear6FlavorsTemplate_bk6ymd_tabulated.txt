@@ -1,0 +1,193 @@
+======================================================================
+SOURCE FILE:     S_W1_N_CopyOfIceCreamFlavorOfTheYear6FlavorsTemplate_bk6ymd.yaml
+SOURCE MODIFIED: 2026-06-25 19:42:40
+TABULATED FILE:  S_W1_N_CopyOfIceCreamFlavorOfTheYear6FlavorsTemplate_bk6ymd_tabulated.txt
+TABULATED AT:    2026-06-25 19:42:40
+======================================================================
+
+election:
+  election_title: Copy of Ice Cream - Flavor of the Year - 6 flavors - template
+  election_description: |-
+    BV id - bk6ymd
+  races:
+  - race_id: '0'
+    race_title: Ice Cream - Flavor of the Year - 6 flavors
+    race_description: ""
+    num_winners: 1
+    voting_method: STAR
+    candidates:
+    - {cand_id: Chocolate, candidate_name: Chocolate}
+    - {cand_id: Chocolate Chip, candidate_name: Chocolate Chip}
+    - {cand_id: Fudge Brownie, candidate_name: Fudge Brownie}
+    - {cand_id: Vanilla, candidate_name: Vanilla}
+    - {cand_id: Strawberry, candidate_name: Strawberry}
+    - {cand_id: Mango, candidate_name: Mango}
+    ballots: |-
+      Chocolate, Chocolate Chip, Fudge Brownie, Vanilla, Strawberry, Mango
+              4,              5,             4,       1,          2,     -
+              1,              0,             0,       4,          5,     4
+    lot_numbers: [Strawberry, Fudge Brownie, Mango, Chocolate Chip, Vanilla, Chocolate]
+    expected_results:
+      winners:
+      - Strawberry
+      report: |-
+        --- Runoff (Preference) Matrix ---
+        Head-to-head / pairwise comparison
+        Legend: For - Equal Support - Against
+                * indicates Top 2 Finalist
+                               |      Chocolate     | * Chocolate Chip  |   Fudge Brownie   |      Vanilla      |   * Strawberry    |       Mango       |
+        -------------------------------------------------------------------------------------------------------------------------------------------------
+                   Chocolate > |        ---         |    1 - 0 - 1      |    1 - 1 - 0      |    1 - 0 - 1      |    1 - 0 - 1      |    1 - 0 - 1      |
+            * Chocolate Chip > |     1 - 0 - 1      |       ---         |    1 - 1 - 0      |    1 - 0 - 1      |    1 - 0 - 1      |    1 - 0 - 1      |
+               Fudge Brownie > |     0 - 1 - 1      |    0 - 1 - 1      |       ---         |    1 - 0 - 1      |    1 - 0 - 1      |    1 - 0 - 1      |
+                     Vanilla > |     1 - 0 - 1      |    1 - 0 - 1      |    1 - 0 - 1      |       ---         |    0 - 0 - 2      |    1 - 1 - 0      |
+                * Strawberry > |     1 - 0 - 1      |    1 - 0 - 1      |    1 - 0 - 1      |    2 - 0 - 0      |       ---         |    2 - 0 - 0      |
+                       Mango > |     1 - 0 - 1      |    1 - 0 - 1      |    1 - 0 - 1      |    0 - 1 - 1      |    0 - 0 - 2      |       ---         |
+
+        [Condorcet Winner]
+          No strict Condorcet winner; unbeaten candidates: Chocolate, Chocolate Chip, Strawberry (pairwise ties)
+
+        --- STAR Voting Method (single winner) ---
+        [STAR Voting]
+         Tabulating 2 ballots.
+        Chocolate,Chocolate Chip,Fudge Brownie,Vanilla,Strawberry,Mango
+                4,             5,            4,      1,         2,    0
+                1,             0,            0,      4,         5,    4
+
+        [Score Distribution] (number of ballots giving each score)
+                         5   4   3   2   1   0  | Total   Avg
+        Chocolate        0   1   0   0   1   0  |     5   2.5
+        Chocolate Chip   1   0   0   0   0   1  |     5   2.5
+        Fudge Brownie    0   1   0   0   0   1  |     4   2.0
+        Vanilla          0   1   0   0   1   0  |     5   2.5
+        Strawberry       1   0   0   1   0   0  |     7   3.5
+        Mango            0   1   0   0   0   1  |     4   2.0
+
+        [STAR Voting: Scoring Round]
+         The two highest-scoring candidates advance to the next round.
+           Strawberry     -- 7 -- First place
+           Chocolate      -- 5 -- Tied for second place
+           Chocolate Chip -- 5 -- Tied for second place
+           Vanilla        -- 5 -- Tied for second place
+           Fudge Brownie  -- 4
+           Mango          -- 4
+         Strawberry advances, but there's a three-way tie for second.
+
+        [STAR Voting: Scoring Round: First tiebreaker]
+         The candidate preferred in the most head-to-head matchups advances.
+           Chocolate      -- 2 -- Tied for second place
+           Chocolate Chip -- 2 -- Tied for second place
+           Vanilla        -- 2 -- Tied for second place
+           Equal Support  -- 0
+         There's still a three-way tie for second.
+
+        [STAR Voting: Scoring Round: Second tiebreaker]
+         The candidate with the most votes of score 5 advances.
+           Chocolate Chip -- 1 -- Second place
+           Chocolate      -- 0
+           Vanilla        -- 0
+         Strawberry and Chocolate Chip advance.
+
+        [STAR Voting: Automatic Runoff Round]
+         The candidate preferred in the most head-to-head matchups wins.
+           Chocolate Chip -- 1 -- Tied for first place
+           Strawberry     -- 1 -- Tied for first place
+           Equal Support  -- 0
+         There's a two-way tie for first.
+
+        [STAR Voting: Automatic Runoff Round: First tiebreaker]
+         The highest-scoring candidate wins.
+           Strawberry     -- 7 -- First place
+           Chocolate Chip -- 5
+         Strawberry wins.
+
+        [STAR Voting: Winner — STAR Voting Method (single winner)]
+         Strawberry
+
+# file: S_W1_N_CopyOfIceCreamFlavorOfTheYear6FlavorsTemplate_bk6ymd.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Copy of Ice Cream - Flavor of the Year - 6 flavors - template ===
+  BV id - bk6ymd
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+                       |      Chocolate     | * Chocolate Chip  |   Fudge Brownie   |      Vanilla      |   * Strawberry    |       Mango       |
+-------------------------------------------------------------------------------------------------------------------------------------------------
+           Chocolate > |        ---         |    1 - 0 - 1      |    1 - 1 - 0      |    1 - 0 - 1      |    1 - 0 - 1      |    1 - 0 - 1      |
+    * Chocolate Chip > |     1 - 0 - 1      |       ---         |    1 - 1 - 0      |    1 - 0 - 1      |    1 - 0 - 1      |    1 - 0 - 1      |
+       Fudge Brownie > |     0 - 1 - 1      |    0 - 1 - 1      |       ---         |    1 - 0 - 1      |    1 - 0 - 1      |    1 - 0 - 1      |
+             Vanilla > |     1 - 0 - 1      |    1 - 0 - 1      |    1 - 0 - 1      |       ---         |    0 - 0 - 2      |    1 - 1 - 0      |
+        * Strawberry > |     1 - 0 - 1      |    1 - 0 - 1      |    1 - 0 - 1      |    2 - 0 - 0      |       ---         |    2 - 0 - 0      |
+               Mango > |     1 - 0 - 1      |    1 - 0 - 1      |    1 - 0 - 1      |    0 - 1 - 1      |    0 - 0 - 2      |       ---         |
+
+[Condorcet Winner]
+  No strict Condorcet winner; unbeaten candidates: Chocolate, Chocolate Chip, Strawberry (pairwise ties)
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 2 ballots.
+Chocolate,Chocolate Chip,Fudge Brownie,Vanilla,Strawberry,Mango
+        4,             5,            4,      1,         2,    -   # partial — Mango left blank (counts as 0)
+        1,             0,            0,      4,         5,    4
+
+[Legend] (these all count as score 0)
+  -  Blank — no score / voter left the candidate blank
+  Note: '-' = candidate left blank / skipped (e.g. BetterVoting export);
+        '0' = explicitly scored zero. Both tabulate as 0 stars — the
+        difference only preserves voter intent (skipped vs rated low).
+
+[Score Distribution] (number of ballots giving each score)
+                 5   4   3   2   1   0  Abs  | Total   Avg
+Chocolate        0   1   0   0   1   0    0  |     5   2.5
+Chocolate Chip   1   0   0   0   0   1    0  |     5   2.5
+Fudge Brownie    0   1   0   0   0   1    0  |     4   2.0
+Vanilla          0   1   0   0   1   0    0  |     5   2.5
+Strawberry       1   0   0   1   0   0    0  |     7   3.5
+Mango            0   1   0   0   0   0    1  |     4   4.0
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Strawberry     -- 7 -- First place
+   Chocolate      -- 5 -- Tied for second place
+   Chocolate Chip -- 5 -- Tied for second place
+   Vanilla        -- 5 -- Tied for second place
+   Fudge Brownie  -- 4
+   Mango          -- 4
+ Strawberry advances, but there's a three-way tie for second.
+
+[STAR Voting: Scoring Round: First tiebreaker]
+ The candidate preferred in the most head-to-head matchups advances.
+   Chocolate      -- 2 -- Tied for second place
+   Chocolate Chip -- 2 -- Tied for second place
+   Vanilla        -- 2 -- Tied for second place
+   Equal Support  -- 0
+ There's still a three-way tie for second.
+
+[STAR Voting: Scoring Round: Second tiebreaker]
+ The candidate with the most votes of score 5 advances.
+   Chocolate Chip -- 1 -- Second place
+   Chocolate      -- 0
+   Vanilla        -- 0
+ Strawberry and Chocolate Chip advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Chocolate Chip -- 1 -- Tied for first place
+   Strawberry     -- 1 -- Tied for first place
+   Equal Support  -- 0
+ There's a two-way tie for first.
+
+[STAR Voting: Automatic Runoff Round: First tiebreaker]
+ The highest-scoring candidate wins.
+   Strawberry     -- 7 -- First place
+   Chocolate Chip -- 5
+ Strawberry wins.
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Strawberry

@@ -1,0 +1,552 @@
+{
+  "Election": {
+    "election_id": "bk6ymd",
+    "title": "Copy of Ice Cream - Flavor of the Year - 6 flavors - template",
+    "description": null,
+    "frontend_url": "",
+    "start_time": null,
+    "end_time": null,
+    "owner_id": "ea09e7c7-b00d-427a-bef8-32ade437d49d",
+    "audit_ids": null,
+    "admin_ids": null,
+    "credential_ids": null,
+    "state": "draft",
+    "races": [
+      {
+        "title": "Ice Cream - Flavor of the Year - 6 flavors",
+        "race_id": "0",
+        "num_winners": 1,
+        "voting_method": "STAR",
+        "candidates": [
+          {
+            "candidate_id": "c-rp3",
+            "candidate_name": "Chocolate"
+          },
+          {
+            "candidate_id": "c-ymx",
+            "candidate_name": "Chocolate Chip"
+          },
+          {
+            "candidate_id": "c-p4q",
+            "candidate_name": "Fudge Brownie"
+          },
+          {
+            "candidate_id": "c-34j",
+            "candidate_name": "Vanilla"
+          },
+          {
+            "candidate_id": "c-dym",
+            "candidate_name": "Strawberry"
+          },
+          {
+            "candidate_id": "c-gt7",
+            "candidate_name": "Mango"
+          }
+        ]
+      }
+    ],
+    "settings": {
+      "voter_access": "open",
+      "voter_authentication": {},
+      "ballot_updates": false,
+      "public_results": true,
+      "random_candidate_order": true,
+      "require_instruction_confirmation": true,
+      "draggable_ballot": false,
+      "term_type": "election",
+      "contact_email": ""
+    },
+    "auth_key": null,
+    "claim_key_hash": "ebde651e61796cb9f3dd8f57544fa9389ba97e2e18d11c3ab8a967d98afe6e39",
+    "is_public": false,
+    "create_date": "2026-06-25T19:08:01.860Z",
+    "update_date": "1782414481860",
+    "head": true,
+    "ballot_source": "live_election",
+    "public_archive_id": null
+  },
+  "Ballots": [
+    {
+      "ballot_id": "b-xqv872x6",
+      "election_id": "bk6ymd",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-rp3",
+              "score": 4
+            },
+            {
+              "candidate_id": "c-ymx",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-p4q",
+              "score": 4
+            },
+            {
+              "candidate_id": "c-34j",
+              "score": 1
+            },
+            {
+              "candidate_id": "c-dym",
+              "score": 2
+            },
+            {
+              "candidate_id": "c-gt7",
+              "score": "-"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-fw2v4bk7",
+      "election_id": "bk6ymd",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-rp3",
+              "score": 1
+            },
+            {
+              "candidate_id": "c-ymx",
+              "score": 0
+            },
+            {
+              "candidate_id": "c-p4q",
+              "score": 0
+            },
+            {
+              "candidate_id": "c-34j",
+              "score": 4
+            },
+            {
+              "candidate_id": "c-dym",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-gt7",
+              "score": 4
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Results": [
+    {
+      "votingMethod": "STAR",
+      "elected": [
+        {
+          "id": "c-dym",
+          "name": "Strawberry",
+          "tieBreakOrder": 0,
+          "votesPreferredOver": {
+            "c-dym": 0,
+            "c-p4q": 1,
+            "c-gt7": 2,
+            "c-ymx": 1,
+            "c-34j": 2,
+            "c-rp3": 1
+          },
+          "winsAgainst": {
+            "c-dym": false,
+            "c-p4q": false,
+            "c-gt7": true,
+            "c-ymx": false,
+            "c-34j": true,
+            "c-rp3": false
+          },
+          "score": 7,
+          "fiveStarCount": 1
+        }
+      ],
+      "tied": [],
+      "other": [
+        {
+          "id": "c-ymx",
+          "name": "Chocolate Chip",
+          "tieBreakOrder": 3,
+          "votesPreferredOver": {
+            "c-dym": 1,
+            "c-p4q": 1,
+            "c-gt7": 1,
+            "c-ymx": 0,
+            "c-34j": 1,
+            "c-rp3": 1
+          },
+          "winsAgainst": {
+            "c-dym": false,
+            "c-p4q": true,
+            "c-gt7": false,
+            "c-ymx": false,
+            "c-34j": false,
+            "c-rp3": false
+          },
+          "score": 5,
+          "fiveStarCount": 1
+        },
+        {
+          "id": "c-34j",
+          "name": "Vanilla",
+          "tieBreakOrder": 4,
+          "votesPreferredOver": {
+            "c-dym": 0,
+            "c-p4q": 1,
+            "c-gt7": 1,
+            "c-ymx": 1,
+            "c-34j": 0,
+            "c-rp3": 1
+          },
+          "winsAgainst": {
+            "c-dym": false,
+            "c-p4q": false,
+            "c-gt7": true,
+            "c-ymx": false,
+            "c-34j": false,
+            "c-rp3": false
+          },
+          "score": 5,
+          "fiveStarCount": 0
+        },
+        {
+          "id": "c-rp3",
+          "name": "Chocolate",
+          "tieBreakOrder": 5,
+          "votesPreferredOver": {
+            "c-dym": 1,
+            "c-p4q": 1,
+            "c-gt7": 1,
+            "c-ymx": 1,
+            "c-34j": 1,
+            "c-rp3": 0
+          },
+          "winsAgainst": {
+            "c-dym": false,
+            "c-p4q": true,
+            "c-gt7": false,
+            "c-ymx": false,
+            "c-34j": false,
+            "c-rp3": false
+          },
+          "score": 5,
+          "fiveStarCount": 0
+        },
+        {
+          "id": "c-p4q",
+          "name": "Fudge Brownie",
+          "tieBreakOrder": 1,
+          "votesPreferredOver": {
+            "c-dym": 1,
+            "c-p4q": 0,
+            "c-gt7": 1,
+            "c-ymx": 0,
+            "c-34j": 1,
+            "c-rp3": 0
+          },
+          "winsAgainst": {
+            "c-dym": false,
+            "c-p4q": false,
+            "c-gt7": false,
+            "c-ymx": false,
+            "c-34j": false,
+            "c-rp3": false
+          },
+          "score": 4,
+          "fiveStarCount": 0
+        },
+        {
+          "id": "c-gt7",
+          "name": "Mango",
+          "tieBreakOrder": 2,
+          "votesPreferredOver": {
+            "c-dym": 0,
+            "c-p4q": 1,
+            "c-gt7": 0,
+            "c-ymx": 1,
+            "c-34j": 0,
+            "c-rp3": 1
+          },
+          "winsAgainst": {
+            "c-dym": false,
+            "c-p4q": false,
+            "c-gt7": false,
+            "c-ymx": false,
+            "c-34j": false,
+            "c-rp3": false
+          },
+          "score": 4,
+          "fiveStarCount": 0
+        }
+      ],
+      "roundResults": [
+        {
+          "winners": [
+            {
+              "id": "c-dym",
+              "name": "Strawberry",
+              "tieBreakOrder": 0,
+              "votesPreferredOver": {
+                "c-dym": 0,
+                "c-p4q": 1,
+                "c-gt7": 2,
+                "c-ymx": 1,
+                "c-34j": 2,
+                "c-rp3": 1
+              },
+              "winsAgainst": {
+                "c-dym": false,
+                "c-p4q": false,
+                "c-gt7": true,
+                "c-ymx": false,
+                "c-34j": true,
+                "c-rp3": false
+              },
+              "score": 7,
+              "fiveStarCount": 1
+            }
+          ],
+          "runner_up": [
+            {
+              "id": "c-ymx",
+              "name": "Chocolate Chip",
+              "tieBreakOrder": 3,
+              "votesPreferredOver": {
+                "c-dym": 1,
+                "c-p4q": 1,
+                "c-gt7": 1,
+                "c-ymx": 0,
+                "c-34j": 1,
+                "c-rp3": 1
+              },
+              "winsAgainst": {
+                "c-dym": false,
+                "c-p4q": true,
+                "c-gt7": false,
+                "c-ymx": false,
+                "c-34j": false,
+                "c-rp3": false
+              },
+              "score": 5,
+              "fiveStarCount": 1
+            }
+          ],
+          "tied": [],
+          "tieBreakType": "five_star",
+          "logs": [
+            {
+              "key": "tabulation_logs.star.score_advance_to_runoff",
+              "name": "Strawberry",
+              "score": 7
+            },
+            {
+              "key": "tabulation_logs.star.score_tied",
+              "names": [
+                "Chocolate Chip",
+                "Vanilla",
+                "Chocolate"
+              ],
+              "score": 5
+            },
+            {
+              "key": "tabulation_logs.star.pairwise_too_many_candidates"
+            },
+            {
+              "key": "tabulation_logs.star.five_star_second",
+              "name": "Chocolate Chip",
+              "votes": 1
+            },
+            {
+              "key": "tabulation_logs.star.advance_to_runoff_tiebreak",
+              "names": [
+                "Strawberry",
+                "Chocolate Chip"
+              ]
+            },
+            {
+              "key": "tabulation_logs.star.runoff_tied",
+              "names": [
+                "Strawberry",
+                "Chocolate Chip"
+              ],
+              "votes": 1,
+              "equal_votes": 0
+            },
+            {
+              "key": "tabulation_logs.star.runoff_score_tiebreak",
+              "winner": "Strawberry",
+              "runner_up": "Chocolate Chip",
+              "winner_stars": 7,
+              "runner_up_stars": 5
+            },
+            {
+              "key": "tabulation_logs.star.runoff_tiebreak",
+              "winner": "Strawberry",
+              "runner_up": "Chocolate Chip"
+            }
+          ]
+        }
+      ],
+      "summaryData": {
+        "candidates": [
+          {
+            "id": "c-dym",
+            "name": "Strawberry",
+            "tieBreakOrder": 0,
+            "votesPreferredOver": {
+              "c-dym": 0,
+              "c-p4q": 1,
+              "c-gt7": 2,
+              "c-ymx": 1,
+              "c-34j": 2,
+              "c-rp3": 1
+            },
+            "winsAgainst": {
+              "c-dym": false,
+              "c-p4q": false,
+              "c-gt7": true,
+              "c-ymx": false,
+              "c-34j": true,
+              "c-rp3": false
+            },
+            "score": 7,
+            "fiveStarCount": 1
+          },
+          {
+            "id": "c-ymx",
+            "name": "Chocolate Chip",
+            "tieBreakOrder": 3,
+            "votesPreferredOver": {
+              "c-dym": 1,
+              "c-p4q": 1,
+              "c-gt7": 1,
+              "c-ymx": 0,
+              "c-34j": 1,
+              "c-rp3": 1
+            },
+            "winsAgainst": {
+              "c-dym": false,
+              "c-p4q": true,
+              "c-gt7": false,
+              "c-ymx": false,
+              "c-34j": false,
+              "c-rp3": false
+            },
+            "score": 5,
+            "fiveStarCount": 1
+          },
+          {
+            "id": "c-34j",
+            "name": "Vanilla",
+            "tieBreakOrder": 4,
+            "votesPreferredOver": {
+              "c-dym": 0,
+              "c-p4q": 1,
+              "c-gt7": 1,
+              "c-ymx": 1,
+              "c-34j": 0,
+              "c-rp3": 1
+            },
+            "winsAgainst": {
+              "c-dym": false,
+              "c-p4q": false,
+              "c-gt7": true,
+              "c-ymx": false,
+              "c-34j": false,
+              "c-rp3": false
+            },
+            "score": 5,
+            "fiveStarCount": 0
+          },
+          {
+            "id": "c-rp3",
+            "name": "Chocolate",
+            "tieBreakOrder": 5,
+            "votesPreferredOver": {
+              "c-dym": 1,
+              "c-p4q": 1,
+              "c-gt7": 1,
+              "c-ymx": 1,
+              "c-34j": 1,
+              "c-rp3": 0
+            },
+            "winsAgainst": {
+              "c-dym": false,
+              "c-p4q": true,
+              "c-gt7": false,
+              "c-ymx": false,
+              "c-34j": false,
+              "c-rp3": false
+            },
+            "score": 5,
+            "fiveStarCount": 0
+          },
+          {
+            "id": "c-p4q",
+            "name": "Fudge Brownie",
+            "tieBreakOrder": 1,
+            "votesPreferredOver": {
+              "c-dym": 1,
+              "c-p4q": 0,
+              "c-gt7": 1,
+              "c-ymx": 0,
+              "c-34j": 1,
+              "c-rp3": 0
+            },
+            "winsAgainst": {
+              "c-dym": false,
+              "c-p4q": false,
+              "c-gt7": false,
+              "c-ymx": false,
+              "c-34j": false,
+              "c-rp3": false
+            },
+            "score": 4,
+            "fiveStarCount": 0
+          },
+          {
+            "id": "c-gt7",
+            "name": "Mango",
+            "tieBreakOrder": 2,
+            "votesPreferredOver": {
+              "c-dym": 0,
+              "c-p4q": 1,
+              "c-gt7": 0,
+              "c-ymx": 1,
+              "c-34j": 0,
+              "c-rp3": 1
+            },
+            "winsAgainst": {
+              "c-dym": false,
+              "c-p4q": false,
+              "c-gt7": false,
+              "c-ymx": false,
+              "c-34j": false,
+              "c-rp3": false
+            },
+            "score": 4,
+            "fiveStarCount": 0
+          }
+        ],
+        "nOutOfBoundsVotes": 0,
+        "nAbstentions": 0,
+        "nTallyVotes": 2
+      },
+      "tieBreakType": "five_star",
+      "perm": [
+        "c-dym",
+        "c-p4q",
+        "c-gt7",
+        "c-ymx",
+        "c-34j",
+        "c-rp3"
+      ]
+    }
+  ]
+}
