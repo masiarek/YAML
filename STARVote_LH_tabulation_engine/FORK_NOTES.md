@@ -50,7 +50,8 @@ As of this note, the only engine change is in `starvote/__init__.py`
   and config key `print averages = <bool>`. Suppresses the averages line unless asked.
 - **`print_maximum_score`** option (default `False`) + CLI flag `-M` / `--print-maximum-score`
   and config key `print maximum score = <bool>`. Suppresses the "Maximum score is …" line unless asked.
-- Relabeled the score bucket **`No Preference` → `Equal Preference`**.
+- Relabeled the score bucket **`No Preference` → `Equal Support`** (aka Equal
+  Preference / No Preference — the aka lives in `GLOSSARY.md`).
 - Both options are forwarded to method functions only when they differ from the
   default, so older/reference method implementations don't break.
 
