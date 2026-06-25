@@ -6,7 +6,9 @@
 elections never reach the lot.
 
 → Builds on the **Automatic Runoff** and **Head-to-head / pairwise** glossary
-entries · related: [`tabulation_star_vs_irv.md`](./tabulation_star_vs_irv.md) ·
+entries · JSON-side companion: [`tie_breaking_JSON.md`](./tie_breaking_JSON.md)
+(format & mapping) · related:
+[`tabulation_star_vs_irv.md`](./tabulation_star_vs_irv.md) ·
 operational companions: the JSON→YAML converter
 ([`YAML_library/1_positive/01_convert_json_yaml.py`](../../YAML_library/1_positive/01_convert_json_yaml.py))
 and its tests
@@ -132,39 +134,22 @@ the count and get the same winner.
 
 ---
 
-## What a BetterVoting JSON export provides
+## Where the order comes from (imported elections)
 
-BetterVoting pre-draws that random order and ships it in the results. The
-converter reads it so our re-tabulation reproduces BetterVoting's official
-winner. It looks for, in order of preference:
-
-1. **`Results[].perm`** — the full candidate order as a list of candidate UUIDs,
-   highest priority first. This *is* the lot order.
-2. **`Results[].summaryData.candidates[].tieBreakOrder`** — a per-candidate
-   integer; **ascending = higher priority**. Equivalent to `perm` (perm is just
-   the candidates sorted by `tieBreakOrder`). Used as a fallback when `perm` is
-   absent (older exports).
-3. **Neither present** — the export carries no official order. The converter then
-   **omits** `lot_numbers` rather than inventing one (see the fallback below).
-
-`Results[].elected` is the winner BetterVoting computed; the converter and tests
-check our tabulation against it.
-
-The converter translates those UUIDs into our `cand_id`s (now the real candidate
-names) and writes the result as an inline `lot_numbers:` list on the race. So a
-typical generated file carries:
+For elections imported from BetterVoting, the lot order isn't ours to draw —
+BetterVoting pre-draws it and ships it in the export, and the converter carries
+it into the YAML's `lot_numbers:` so our re-tabulation reproduces their official
+winner. The export records it as `Results[].perm` (or per-candidate
+`tieBreakOrder`), the converter translates those UUIDs to our `cand_id`s, and a
+generated file ends up with a line like:
 
 ```yaml
-candidates:
-- {cand_id: Strawberry,     candidate_name: Strawberry}
-- {cand_id: Chocolate Chip, candidate_name: Chocolate Chip}
-  # …
-ballots: |-
-  Chocolate, Chocolate Chip, Fudge Brownie, Vanilla, Strawberry, Mango
-          4,              5,             4,       1,          2,     -
-          1,              0,             0,       4,          5,     4
 lot_numbers: [Strawberry, Fudge Brownie, Mango, Chocolate Chip, Vanilla, Chocolate]
 ```
+
+The exact JSON fields, the field-by-field mapping, the fallbacks, and the worked
+Ice Cream mapping are in the companion page:
+**[`tie_breaking_JSON.md`](./tie_breaking_JSON.md)**.
 
 ---
 
