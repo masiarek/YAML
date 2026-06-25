@@ -22,14 +22,16 @@ def scenario_winners(path):
     """Return (winners, seats) for an election file.
 
     winners is a list[str] in the order the engine elected them. Ties are
-    resolved deterministically with the same fallback the wrapper uses
-    (LotNumberTiebreaker over CSV column order), so results are reproducible.
+    resolved with the file's official `lot_numbers:` order when present (the
+    same order the wrapper uses), falling back to CSV column order otherwise, so
+    results are reproducible and match a real CLI run.
     """
     el = wrapper.load_election(str(path))
     candidates, ballots, _ = wrapper.parse_ballots_from_string(el["ballots"])
     method = el["method"] or starvote.star
     seats = el["seats"] or 1
-    tiebreaker = wrapper.LotNumberTiebreaker(lot_numbers=[], silent=True)
+    lot_numbers = el.get("lot_numbers") or []
+    tiebreaker = wrapper.LotNumberTiebreaker(lot_numbers=lot_numbers, silent=True)
     # NOTE: run at verbosity=1 to MIRROR the wrapper exactly. The engine's SSS
     # method can return different winners at verbosity=0 vs 1 (an upstream bug);
     # the wrapper runs verbose, so the tests must too, to match what users see.

@@ -31,7 +31,7 @@ the test-case YAML (demo) and/or the interview episode that show the term in act
 
 - **Equal scores allowed** — you may give two candidates the same score; you're never forced to invent a preference. → demo [`03a_c3_b3_style-bullet-vote.yaml`](../01_Single_winner/03a_c3_b3_style-bullet-vote.yaml)
 - **Exhausted ballot** — (an **RCV-IRV** term; IRV-specific, *not* all ranked methods — Ranked Robin / Condorcet counts read every rank) a ballot set aside mid-count because all its ranked candidates were eliminated. FairVote's single word covers several very different cases (voter-side vs method-caused); STAR's runoff never eliminates anyone, so it doesn't discard ballots this way. → episode [`exhausted_ballots_301.md`](../interviews_conversations/exhausted_ballots_301.md)
-- **Tiebreaker** — a rule that resolves ties (for the finalists or the runoff); here, candidate priority / lot order.
+- **Tiebreaker** — a rule that resolves ties (for the finalists or the runoff); here, candidate priority / lot order. The full ladder (pairwise → five-star → lot, in both rounds), plus what BetterVoting JSON carries and what you may set in a hand-written YAML, is in [`concepts/tie_breaking.md`](./concepts/tie_breaking.md).
 - **Undervote / abstention** — a ballot that scores no one (blank or `~`); counts as turnout but supports no candidate.
 
 ## Properties & criteria
