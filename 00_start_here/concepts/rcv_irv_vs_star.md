@@ -28,7 +28,9 @@ Read that table both ways. The rows where STAR wins (summability, monotonicity, 
 
 **STAR's honest advantages.** It's **monotonic**, **precinct-summable**, doesn't **exhaust** ballots, lets voters express **strength** and **equal support**, and **resists center squeeze**. Its ballot is the familiar five-star format.
 
-**Each one's price.** IRV's elimination mechanism produces [center squeeze](./center_squeeze.md), [non-monotonicity](./monotonicity.md), [exhausted ballots](./exhausted_ballots.md), and [no precinct summability](./summability.md). STAR's price is failing Later-No-Harm and the majority criterion, plus an incentive toward **strategic min/max scoring**.
+**Each one's price.** IRV's elimination mechanism produces [center squeeze](./center_squeeze.md), [non-monotonicity](./monotonicity.md), [exhausted ballots](./exhausted_ballots.md), and [no precinct summability](./summability.md). STAR's price is failing **Later-No-Harm**, the **majority criterion**, and the **Participation criterion** (a no-show paradox — adding sincere ballots favoring a candidate can, in rare constructed cases, hurt them; this is the runoff's cost, and is *not* the same as monotonicity, which STAR does satisfy), plus an incentive toward **strategic min/max scoring**.
+
+> **Note on Participation:** the no-show paradox is a real but *rare* failure, and IRV fails Participation too — so it isn't a STAR-vs-IRV differentiator, just an honest caveat that STAR isn't flawless. The runoff that causes it is the same step that guarantees STAR rejects a Condorcet loser. No method escapes Gibbard–Satterthwaite.
 
 ## The detailed facet pages
 
