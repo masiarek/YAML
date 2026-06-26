@@ -24,7 +24,7 @@ A rank answers *"which do you prefer?"* A score answers *"how much do you like e
 | Familiar from | A race: 1st, 2nd, 3rd | Amazon / movie **five-star** reviews |
 | Methods | RCV-IRV, STV, Condorcet (Ranked Robin), Borda | STAR, Score, Approval (0/1) |
 
-Because differences are meaningful only for scores, you can **average** scores (a column sum) but it makes no sense to "average" ranks. This is exactly why STAR is summable and IRV is not. (See [`summability.md`](STAR_Voting/summability.md) and [`tabulation_star_vs_irv.md`](./tabulation_star_vs_irv.md).)
+Because differences are meaningful only for scores, you can **average** scores (a column sum) but it makes no sense to "average" ranks. This is exactly why STAR is summable and IRV is not. (See [`summability.md`](STAR_Voting/STAR_summability.md) and [`tabulation_star_vs_irv.md`](./tabulation_star_vs_irv.md).)
 
 ## Why "ranked" is about the *data*, not just the ballot
 

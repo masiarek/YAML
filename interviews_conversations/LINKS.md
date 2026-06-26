@@ -67,7 +67,7 @@ _Last full review: 2026-06-21._
 
 ## RCV-IRV monotonicity source notes (research)
 
-> **RCV-IRV-specific** — the research behind `concepts/monotonicity.md`. Not STAR material.
+> **RCV-IRV-specific** — the research behind `concepts/RCV_IRV/RCV_IRV_non_monotonicity.md`. Not STAR material.
 
 | Short name | Purpose | URL | Last reviewed |
 |------------|---------|-----|---------------|

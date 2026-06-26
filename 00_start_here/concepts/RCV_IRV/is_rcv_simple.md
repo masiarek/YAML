@@ -6,8 +6,8 @@ STAR keeps *both* halves simple — and its ballot carries strength of support o
 order.
 
 → Builds on [`what_is_a_voting_method.md`](../../../interviews_conversations/what_is_a_voting_method.md)
-(a method = ballot **+** count) · related: [`summability.md`](../STAR_Voting/summability.md),
-[`monotonicity.md`](./monotonicity.md) · step-by-step trace of both counts:
+(a method = ballot **+** count) · related: [`summability.md`](./RCV_IRV_lack_of_summability.md),
+[`monotonicity.md`](./RCV_IRV_non_monotonicity.md) · step-by-step trace of both counts:
 [`tabulation_star_vs_irv.md`](../tabulation_star_vs_irv.md) · Level **201**.
 
 ---
@@ -43,12 +43,12 @@ all working against "simple":
 
 - **Not summable.** A precinct's IRV result doesn't compose with another's — you can't
   add subtotals, because who's eliminated depends on the *whole* electorate. So every
-  ballot has to travel to **one central count.** (See [`summability.md`](../STAR_Voting/summability.md).)
+  ballot has to travel to **one central count.** (See [`summability.md`](./RCV_IRV_lack_of_summability.md).)
 - **Software-dependent and hard to hand-audit.** Rounds of transfers are not something
   poll workers reconcile on a precinct table; a recount means re-running the algorithm
   on all ballots at once.
 - **Counterintuitive even when correct.** More support can *hurt* a candidate
-  ([monotonicity](./monotonicity.md)) — so the count can behave in ways that are hard to
+  ([monotonicity](./RCV_IRV_non_monotonicity.md)) — so the count can behave in ways that are hard to
   explain to the voter whose ballot "did the opposite."
 
 So the honest picture: *the ballot is simple; the count needs a computer and a central
@@ -111,7 +111,7 @@ unfair.
 ## Cross-references
 - [`what_is_a_voting_method.md`](../../../interviews_conversations/what_is_a_voting_method.md)
   — the 101 ballot-vs-count distinction this stands on.
-- [`summability.md`](../STAR_Voting/summability.md) — why the IRV count can't be done locally.
-- [`monotonicity.md`](./monotonicity.md) — why the IRV count can also be counterintuitive.
+- [`summability.md`](./RCV_IRV_lack_of_summability.md) — why the IRV count can't be done locally.
+- [`monotonicity.md`](./RCV_IRV_non_monotonicity.md) — why the IRV count can also be counterintuitive.
 - Roadmap: pairs with **Episode 6** (Benefits — *Simple*) and **Episode 8** (Counting &
   trust). Glossary: "Summability," "Tabulation," "Equal Support."

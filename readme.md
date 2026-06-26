@@ -139,7 +139,7 @@ priority first) used only when STAR's deterministic tiebreakers can't separate
 the candidates. Imported BetterVoting files carry it automatically; hand-written
 files usually omit it (the engine then assumes CSV column order). The full
 ladder — and what JSON provides vs. what you may set by hand — is documented in
-[`00_start_here/concepts/tie_breaking.md`](./00_start_here/concepts/tie_breaking.md).
+[`00_start_here/concepts/tie_breaking.md`](00_start_here/concepts/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md).
 
 ---
 

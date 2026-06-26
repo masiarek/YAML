@@ -6,8 +6,8 @@ support. What survives is a **narrow, self-inflicted** residual in the top-two
 runoff: a faction can still split itself if it refuses to use the score ballot, or
 tries to game which ally claims the second finalist slot.
 
-→ Glossary: [`spoiler effect`](../GLOSSARY.md) · related: [`center_squeeze.md`](RCV_IRV/center_squeeze.md)
-· debate version: [`favorite_betrayal_voting_301.md`](../../interviews_conversations/favorite_betrayal_voting_301.md)
+→ Glossary: [`spoiler effect`](../../GLOSSARY.md) · related: [`center_squeeze.md`](../RCV_IRV/center_squeeze.md)
+· debate version: [`favorite_betrayal_voting_301.md`](../../../interviews_conversations/favorite_betrayal_voting_301.md)
 
 ---
 
@@ -44,8 +44,8 @@ you guess wrong**.
 Same three candidates and the same true preferences; only the *expressiveness*
 changes (60 voters on the Ada/Ben side, 40 for opponent Cara):
 
-→ [`05a_residual_split_bullet-voting.yaml`](../../split_voting/05a_residual_split_bullet-voting.yaml)
- · [`05b_residual_split_expressive-fix.yaml`](../../split_voting/05b_residual_split_expressive-fix.yaml)
+→ [`05a_residual_split_bullet-voting.yaml`](../../../split_voting/05a_residual_split_bullet-voting.yaml)
+ · [`05b_residual_split_expressive-fix.yaml`](../../../split_voting/05b_residual_split_expressive-fix.yaml)
 
 | File | Ada/Ben behavior | Scores (Ada / Ben / Cara) | STAR winner |
 |------|------------------|--------------------------|-------------|
@@ -64,13 +64,13 @@ side.
   whenever similar candidates run. Splitting is the *default*.
 - **STAR's residual is the exception** — it needs a near-tie for the second runoff
   slot, accurate prediction, coordinated mis-scoring, and it **backfires if you're
-  wrong**. The brute-force simulation in [`../../simulations/`](../../simulations/)
+  wrong**. The brute-force simulation in [`../../simulations/`](../../../simulations)
   finds that a favorite-betrayal-style play in STAR helps only ~2% of the time it
   changes the result — it backfires ~98% of the time. So honest, expressive scoring
   stays your safest ballot.
 
-Same root cause as STAR's [favorite-betrayal](../../interviews_conversations/favorite_betrayal_voting_301.md)
-and [center-squeeze](RCV_IRV/center_squeeze.md) edge cases: all three come from "only the
+Same root cause as STAR's [favorite-betrayal](../../../interviews_conversations/favorite_betrayal_voting_301.md)
+and [center-squeeze](../RCV_IRV/center_squeeze.md) edge cases: all three come from "only the
 top two advance."
 
 ## How to say it honestly

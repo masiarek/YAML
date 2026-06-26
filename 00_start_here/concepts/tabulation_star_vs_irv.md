@@ -6,7 +6,7 @@ runoff — **two steps.** **RCV-IRV** runs rounds of eliminate-and-transfer — 
 (how each count works and what it costs), not the winner.
 
 → Companion to [`is_rcv_simple.md`](RCV_IRV/is_rcv_simple.md) (the "which half is simple?"
-argument) and [`summability.md`](STAR_Voting/summability.md). When the two counts elect
+argument) and [`summability.md`](STAR_Voting/STAR_summability.md). When the two counts elect
 *different* people, see [`center_squeeze.md`](RCV_IRV/center_squeeze.md). Level **201**.
 
 Worked on one shared file:
@@ -142,7 +142,7 @@ python3 RCV_IRV_tabulation_engine/rcv_irv_tabulation.py    01_Single_winner/coun
 
 ## Cross-references
 - [`is_rcv_simple.md`](RCV_IRV/is_rcv_simple.md) — the simplicity argument this trace backs up.
-- [`summability.md`](STAR_Voting/summability.md) — why STAR's count adds up locally and IRV's doesn't.
+- [`summability.md`](STAR_Voting/STAR_summability.md) — why STAR's count adds up locally and IRV's doesn't.
 - [`center_squeeze.md`](RCV_IRV/center_squeeze.md) — when the two counts elect different people.
 - [`../../interviews_conversations/what_is_a_voting_method.md`](../../interviews_conversations/what_is_a_voting_method.md)
   — ballot vs count, the 101 foundation.

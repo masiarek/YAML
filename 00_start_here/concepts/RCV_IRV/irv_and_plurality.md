@@ -17,7 +17,7 @@ IRV does lean on plurality logic in a specific, defensible sense:
 This shared DNA has real consequences. Because elimination ignores lower preferences, IRV is **not pairwise** (it never asks "does A beat B head-to-head?"), which is why it can:
 
 - **center-squeeze** a broadly-liked moderate who has few *first* choices ([center_squeeze.md](./center_squeeze.md)),
-- behave **non-monotonically** ([monotonicity.md](./monotonicity.md)), and
+- behave **non-monotonically** ([monotonicity.md](./RCV_IRV_non_monotonicity.md)), and
 - discard ballot information through **[exhaustion](RCV_IRV_exhausted_ballots.md)**.
 
 So the honest, defensible sentence is: **"IRV inherits plurality's round-by-round blindness to lower preferences — that's why it isn't pairwise and can eliminate a Condorcet-strong moderate."**
@@ -48,7 +48,7 @@ Methods that avoid round-by-round elimination pay their own price. **STAR and Sc
 
 - [Strict vs. weak ranks](../strict_vs_weak_ranks.md) — IRV is strict and not pairwise; other ranked methods differ
 - [Center squeeze](./center_squeeze.md) — the failure this critique points at
-- [Monotonicity](./monotonicity.md) — more support can hurt a candidate under IRV
+- [Monotonicity](./RCV_IRV_non_monotonicity.md) — more support can hurt a candidate under IRV
 - [RCV vs. IRV vs. RCV-IRV — terminology](RCV-IRV-confusing-name.md)
 
 ## Learn more — in this library

@@ -30,7 +30,7 @@ the argument — follow the links for the worked examples and numbers.
 | "RCV is **non-polarizing** / elects the consensus candidate." | **Oversold** | IRV **center-squeezes** the broad-consensus candidate (eliminated early for too few *firsts*) — Burlington, Alaska. A Condorcet count or STAR elects the consensus; IRV needn't. | [`../00_start_here/concepts/center_squeeze.md`](../00_start_here/concepts/RCV_IRV/center_squeeze.md) |
 | "RCV **ends the spoiler effect** / eliminates vote-splitting." | **Oversold** | It tames the ordinary first-round spoiler, but reintroduces a spoiler-shaped failure via center squeeze: a third candidate's presence can flip the winner (Burlington 2009). | [`../00_start_here/concepts/center_squeeze.md`](../00_start_here/concepts/RCV_IRV/center_squeeze.md) · [`whats_so_good_about_STAR_Voting.md`](./whats_so_good_about_STAR_Voting.md) |
 | "**Everyone gets to vote again** each round — still one-person-one-vote." | **Misleading** | Only ballots whose current candidate is eliminated move; a fully-ranked ballot whose favorite survives never has its lower preferences acted on. "Counts again" ≠ "your full ranking is used." | [`exhausted_ballots_301.md`](./exhausted_ballots_301.md) §3 |
-| "RCV is **easy to count / audit** (precinct-summable)." | **False** | IRV is **not summable** — who's eliminated depends on the whole electorate, so ballots must be counted centrally and a recount re-runs the rounds. | [`../00_start_here/concepts/summability.md`](../00_start_here/concepts/STAR_Voting/summability.md) |
+| "RCV is **easy to count / audit** (precinct-summable)." | **False** | IRV is **not summable** — who's eliminated depends on the whole electorate, so ballots must be counted centrally and a recount re-runs the rounds. | [`RCV_IRV_lack_of_summability.md`](../00_start_here/concepts/RCV_IRV/RCV_IRV_lack_of_summability.md) |
 | "RCV **breaks two-party domination**." | **Disputed / unproven** | Where IRV has been used longest (Australia's House, a century) two-party dominance persists; center squeeze actively disadvantages the third/center candidate. Treat as an empirical claim, not a given. | [`../00_start_here/concepts/center_squeeze.md`](../00_start_here/concepts/RCV_IRV/center_squeeze.md) (polarization notes) |
 
 ## The umbrella term (so the exhausted-ballot claims stay precise)
@@ -61,7 +61,7 @@ them as your own label.)*
   · [`../00_start_here/concepts/tabulation_star_vs_irv.md`](../00_start_here/concepts/tabulation_star_vs_irv.md)
   — "easy as 1-2-3."
 - [`../00_start_here/concepts/center_squeeze.md`](../00_start_here/concepts/RCV_IRV/center_squeeze.md)
-  · [`../00_start_here/concepts/summability.md`](../00_start_here/concepts/STAR_Voting/summability.md)
+  · [`RCV_IRV_lack_of_summability.md`](../00_start_here/concepts/RCV_IRV/RCV_IRV_lack_of_summability.md)
   — "non-polarizing," "ends the spoiler," "easy to count."
 - `LINKS.md` → Full Deck **"RCV Common False Claims"** slide; the RCV-IRV source-note tables.
 
