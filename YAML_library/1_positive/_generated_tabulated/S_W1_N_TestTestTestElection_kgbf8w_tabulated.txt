@@ -1,0 +1,96 @@
+======================================================================
+SOURCE FILE:     S_W1_N_TestTestTestElection_kgbf8w.yaml
+SOURCE MODIFIED: 2026-06-26 04:47:36
+TABULATED FILE:  S_W1_N_TestTestTestElection_kgbf8w_tabulated.txt
+TABULATED AT:    2026-06-26 04:47:37
+======================================================================
+
+election:
+  election_title: test test test election
+  election_description: |-
+    BV id - kgbf8w
+  races:
+  - race_id: '0'
+    race_title: Ice Cream - Flavor of the Year
+    race_description: ""
+    num_winners: 1
+    voting_method: STAR
+    candidates:
+    - {cand_id: Plain Choco (CPn), candidate_name: Plain Choco (CPn)}
+    - {cand_id: Almond Choco (CAm), candidate_name: Almond Choco (CAm)}
+    - {cand_id: Hazelnut Choco (CHz), candidate_name: Hazelnut Choco (CHz)}
+    - {cand_id: Classic Vanilla (VCs), candidate_name: Classic Vanilla (VCs)}
+    - {cand_id: French Vanilla (VFr), candidate_name: French Vanilla (VFr)}
+    - {cand_id: Mango (Mgo), candidate_name: Mango (Mgo)}
+    - {cand_id: Peach (Pch), candidate_name: Peach (Pch)}
+    ballots: |-
+      Plain Choco (CPn), Almond Choco (CAm), Hazelnut Choco (CHz), Classic Vanilla (VCs), French Vanilla (VFr), Mango (Mgo), Peach (Pch)
+                      3,                  5,                    4,                     2,                    2,           0,           1
+    lot_numbers: [Almond Choco (CAm), Hazelnut Choco (CHz), Plain Choco (CPn), Peach
+        (Pch), French Vanilla (VFr), Classic Vanilla (VCs), Mango (Mgo)]
+    expected_results:
+      winners: []
+      report: ""
+
+# file: S_W1_N_TestTestTestElection_kgbf8w.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== test test test election ===
+  BV id - kgbf8w
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+                              |      Plain Choco (CPn)    |  * Almond Choco (CAm)    | * Hazelnut Choco (CHz)   |   Classic Vanilla (VCs)  |   French Vanilla (VFr)   |        Mango (Mgo)       |        Peach (Pch)       |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          Plain Choco (CPn) > |            ---            |        0 - 0 - 1         |        0 - 0 - 1         |        1 - 0 - 0         |        1 - 0 - 0         |        1 - 0 - 0         |        1 - 0 - 0         |
+       * Almond Choco (CAm) > |         1 - 0 - 0         |           ---            |        1 - 0 - 0         |        1 - 0 - 0         |        1 - 0 - 0         |        1 - 0 - 0         |        1 - 0 - 0         |
+     * Hazelnut Choco (CHz) > |         1 - 0 - 0         |        0 - 0 - 1         |           ---            |        1 - 0 - 0         |        1 - 0 - 0         |        1 - 0 - 0         |        1 - 0 - 0         |
+      Classic Vanilla (VCs) > |         0 - 0 - 1         |        0 - 0 - 1         |        0 - 0 - 1         |           ---            |        0 - 1 - 0         |        1 - 0 - 0         |        1 - 0 - 0         |
+       French Vanilla (VFr) > |         0 - 0 - 1         |        0 - 0 - 1         |        0 - 0 - 1         |        0 - 1 - 0         |           ---            |        1 - 0 - 0         |        1 - 0 - 0         |
+                Mango (Mgo) > |         0 - 0 - 1         |        0 - 0 - 1         |        0 - 0 - 1         |        0 - 0 - 1         |        0 - 0 - 1         |           ---            |        0 - 0 - 1         |
+                Peach (Pch) > |         0 - 0 - 1         |        0 - 0 - 1         |        0 - 0 - 1         |        0 - 0 - 1         |        0 - 0 - 1         |        1 - 0 - 0         |           ---            |
+
+[Condorcet Winner]
+  Condorcet Winner: Almond Choco (CAm) — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 1 ballot.
+Plain Choco (CPn),Almond Choco (CAm),Hazelnut Choco (CHz),Classic Vanilla (VCs),French Vanilla (VFr),Mango (Mgo),Peach (Pch)
+                3,                 5,                   4,                    2,                   2,          0,          1
+
+[Score Distribution] (number of ballots giving each score)
+                        5   4   3   2   1   0  | Total   Avg
+Plain Choco (CPn)       0   0   1   0   0   0  |     3   3.0
+Almond Choco (CAm)      1   0   0   0   0   0  |     5   5.0
+Hazelnut Choco (CHz)    0   1   0   0   0   0  |     4   4.0
+Classic Vanilla (VCs)   0   0   0   1   0   0  |     2   2.0
+French Vanilla (VFr)    0   0   0   1   0   0  |     2   2.0
+Mango (Mgo)             0   0   0   0   0   1  |     0   0.0
+Peach (Pch)             0   0   0   0   1   0  |     1   1.0
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Almond Choco (CAm)    -- 5 -- First place
+   Hazelnut Choco (CHz)  -- 4 -- Second place
+   Plain Choco (CPn)     -- 3
+   Classic Vanilla (VCs) -- 2
+   French Vanilla (VFr)  -- 2
+   Peach (Pch)           -- 1
+   Mango (Mgo)           -- 0
+ Almond Choco (CAm) and Hazelnut Choco (CHz) advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Almond Choco (CAm)    -- 1 -- First place
+   Hazelnut Choco (CHz)  -- 0
+   Equal Support         -- 0
+ Almond Choco (CAm) wins.
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Almond Choco (CAm)

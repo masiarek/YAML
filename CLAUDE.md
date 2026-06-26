@@ -12,6 +12,16 @@ Audience: voters, presenters, and debaters learning/teaching STAR.
 
 ---
 
+## File access (standing permission from Adam)
+
+Adam grants Claude permission to **read, edit, and delete** files anywhere under
+`/Volumes/T7/Voting/Larry Hastings/YAML` (this repo). No need to ask before
+modifying or removing files here as part of a requested task. (Note: file
+*deletion* is also gated by the app's permission layer, so a new session may
+still prompt once to enable it — approve and proceed.)
+
+---
+
 ## Terminology policy (important — keep it consistent & correct)
 
 **Background:** "RCV" is widely used loosely to mean IRV (FairVote-era usage that

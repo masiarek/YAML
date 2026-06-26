@@ -160,6 +160,10 @@ exercises all three shapes against a perfect symmetric tie (where the lot is the
 
 ## See also
 
+- **BetterVoting's official tie-breaking protocol** — the source of the order
+  carried in the export (their "Random Tie-breakers" section describes the
+  candidate shuffle that becomes `perm`):
+  <https://docs.bettervoting.com/help/ties.html>
 - [`tie_breaking.md`](./tie_breaking.md) — the tiebreak ladder (both rounds) and
   what you may set in a **hand-written** YAML.
 - [`../../readme.md`](../../readme.md) — the converter in the overall pipeline.

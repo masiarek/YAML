@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     temp_trash.yaml
-SOURCE MODIFIED: 2026-06-25 07:54:57
+SOURCE MODIFIED: 2026-06-26 05:16:50
 TABULATED FILE:  temp_trash_tabulated.txt
-TABULATED AT:    2026-06-25 07:54:57
+TABULATED AT:    2026-06-26 05:17:01
 ======================================================================
 
 voting_method: STAR   # STAR Voting - Single-winner
@@ -10,10 +10,13 @@ voting_method: STAR   # STAR Voting - Single-winner
 num_winners: 1
 
 ballots: |-
-  Count × Avery,Blake,Casey
-    3 ×     5,    3,    0
-    2 ×     0,    3,    5
-    2 ×     0,    5,    0
+  Plain Choco (CPn), Almond Choco (CAm), Hazelnut Choco (CHz), Classic Vanilla (VCs), French Vanilla (VFr), Mango (Mgo), Peach (Pch)
+                        -,                  2,                    -,                     5,                    -,           -,           -
+                        3,                  5,                    4,                     2,                    2,           0,           1
+
+# Official BetterVoting tie-break lot order (highest priority first), matching
+# the BV export for this election.
+lot_numbers: [French Vanilla (VFr), Hazelnut Choco (CHz), Mango (Mgo), Almond Choco (CAm), Classic Vanilla (VCs), Plain Choco (CPn), Peach (Pch)]
 
 # file: temp_trash.yaml
 
@@ -25,46 +28,82 @@ TABULATION RESULTS
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
         * indicates Top 2 Finalist
-                      |  * Count × Avery  |     * Blake      |       Casey      |
----------------------------------------------------------------------------------
-    * Count × Avery > |        ---        |    3 - 0 - 4     |    3 - 2 - 2     |
-            * Blake > |     4 - 0 - 3     |       ---        |    5 - 0 - 2     |
-              Casey > |     2 - 2 - 3     |    2 - 0 - 5     |       ---        |
+                              |      Plain Choco (CPn)    |  * Almond Choco (CAm)    |   Hazelnut Choco (CHz)   | * Classic Vanilla (VCs)  |   French Vanilla (VFr)   |        Mango (Mgo)       |        Peach (Pch)       |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          Plain Choco (CPn) > |            ---            |        0 - 0 - 2         |        0 - 1 - 1         |        1 - 0 - 1         |        1 - 1 - 0         |        1 - 1 - 0         |        1 - 1 - 0         |
+       * Almond Choco (CAm) > |         2 - 0 - 0         |           ---            |        2 - 0 - 0         |        1 - 0 - 1         |        2 - 0 - 0         |        2 - 0 - 0         |        2 - 0 - 0         |
+       Hazelnut Choco (CHz) > |         1 - 1 - 0         |        0 - 0 - 2         |           ---            |        1 - 0 - 1         |        1 - 1 - 0         |        1 - 1 - 0         |        1 - 1 - 0         |
+    * Classic Vanilla (VCs) > |         1 - 0 - 1         |        1 - 0 - 1         |        1 - 0 - 1         |           ---            |        1 - 1 - 0         |        2 - 0 - 0         |        2 - 0 - 0         |
+       French Vanilla (VFr) > |         0 - 1 - 1         |        0 - 0 - 2         |        0 - 1 - 1         |        0 - 1 - 1         |           ---            |        1 - 1 - 0         |        1 - 1 - 0         |
+                Mango (Mgo) > |         0 - 1 - 1         |        0 - 0 - 2         |        0 - 1 - 1         |        0 - 0 - 2         |        0 - 1 - 1         |           ---            |        0 - 1 - 1         |
+                Peach (Pch) > |         0 - 1 - 1         |        0 - 0 - 2         |        0 - 1 - 1         |        0 - 0 - 2         |        0 - 1 - 1         |        1 - 1 - 0         |           ---            |
 
 [Condorcet Winner]
-  Condorcet Winner: Blake — matches the STAR winner
+  No strict Condorcet winner; unbeaten candidates: Almond Choco (CAm), Classic Vanilla (VCs) (pairwise ties)
 
 [Divergence from STAR]
-  STAR                   = Blake
-  Choose-One (Plurality) = Count × Avery   (differs from STAR)
+  STAR     = Almond Choco (CAm)
+  Approval = Hazelnut Choco (CHz)   (differs from STAR)
 
 --- STAR Voting Method (single winner) ---
 [STAR Voting]
- Tabulating 7 ballots.
-Count × Count × Avery,Blake,Casey
-    3 ×             5,    3,    0
-    2 ×             0,    3,    5
-    2 ×             0,    5,    0
+ Tabulating 2 ballots.
+Plain Choco (CPn),Almond Choco (CAm),Hazelnut Choco (CHz),Classic Vanilla (VCs),French Vanilla (VFr),Mango (Mgo),Peach (Pch)
+                -,                 2,                   -,                    5,                   -,          -,          -   # partial — Plain Choco (CPn), Hazelnut Choco (CHz), French Vanilla (VFr), Mango (Mgo), Peach (Pch) left blank (counts as 0)
+                3,                 5,                   4,                    2,                   2,          0,          1
+
+[Legend] (these all count as score 0)
+  -  Blank — no score / voter left the candidate blank
+  Note: '-' = candidate left blank / skipped (e.g. BetterVoting export);
+        '0' = explicitly scored zero. Both tabulate as 0 stars — the
+        difference only preserves voter intent (skipped vs rated low).
 
 [Score Distribution] (number of ballots giving each score)
-                5   4   3   2   1   0  | Total   Avg
-Count × Avery   3   0   0   0   0   4  |    15   2.1
-Blake           2   0   5   0   0   0  |    25   3.6
-Casey           2   0   0   0   0   5  |    10   1.4
+                        5   4   3   2   1   0  Abs  | Total   Avg
+Plain Choco (CPn)       0   0   1   0   0   0    1  |     3   3.0
+Almond Choco (CAm)      1   0   0   1   0   0    0  |     7   3.5
+Hazelnut Choco (CHz)    0   1   0   0   0   0    1  |     4   4.0
+Classic Vanilla (VCs)   1   0   0   1   0   0    0  |     7   3.5
+French Vanilla (VFr)    0   0   0   1   0   0    1  |     2   2.0
+Mango (Mgo)             0   0   0   0   0   1    1  |     0   0.0
+Peach (Pch)             0   0   0   0   1   0    1  |     1   1.0
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
-   Blake         -- 25 -- First place
-   Count × Avery -- 15 -- Second place
-   Casey         -- 10
- Blake and Count × Avery advance.
+   Almond Choco (CAm)    -- 7 -- First place
+   Classic Vanilla (VCs) -- 7 -- Second place
+   Hazelnut Choco (CHz)  -- 4
+   Plain Choco (CPn)     -- 3
+   French Vanilla (VFr)  -- 2
+   Peach (Pch)           -- 1
+   Mango (Mgo)           -- 0
+ Almond Choco (CAm) and Classic Vanilla (VCs) advance.
 
 [STAR Voting: Automatic Runoff Round]
  The candidate preferred in the most head-to-head matchups wins.
-   Blake         -- 4 -- First place
-   Count × Avery -- 3
-   Equal Support -- 0
- Blake wins.
+   Almond Choco (CAm)    -- 1 -- Tied for first place
+   Classic Vanilla (VCs) -- 1 -- Tied for first place
+   Equal Support         -- 0
+ There's a two-way tie for first.
+
+[STAR Voting: Automatic Runoff Round: First tiebreaker]
+ The highest-scoring candidate wins.
+   Almond Choco (CAm)    -- 7 -- Tied for first place
+   Classic Vanilla (VCs) -- 7 -- Tied for first place
+ There's still a two-way tie for first.
+
+[STAR Voting: Automatic Runoff Round: Second tiebreaker]
+ The candidate with the most votes of score 5 wins.
+   Almond Choco (CAm)    -- 1 -- Tied for first place
+   Classic Vanilla (VCs) -- 1 -- Tied for first place
+ There's still a two-way tie for first.
+
+*(Ties are resolved by choosing the tied candidate with the highest-priority official lot number.)*
+    Lot-number priority order: ['French Vanilla (VFr)', 'Hazelnut Choco (CHz)', 'Mango (Mgo)', 'Almond Choco (CAm)', 'Classic Vanilla (VCs)', 'Plain Choco (CPn)', 'Peach (Pch)']
+
+[Tiebreaker: Lot Number Priority]
+  Tie among: ['Almond Choco (CAm)', 'Classic Vanilla (VCs)']
+  Resolved: ['Almond Choco (CAm)'] (selected by lot-number priority).
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
- Blake
+ Almond Choco (CAm)

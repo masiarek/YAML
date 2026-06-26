@@ -3,9 +3,12 @@ voting_method: STAR   # STAR Voting - Single-winner
 num_winners: 1
 
 ballots: |-
-  Count × Avery,Blake,Casey
-    3 ×     5,    3,    0
-    2 ×     0,    3,    5
-    2 ×     0,    5,    0
+  Plain Choco (CPn), Almond Choco (CAm), Hazelnut Choco (CHz), Classic Vanilla (VCs), French Vanilla (VFr), Mango (Mgo), Peach (Pch)
+                        -,                  2,                    -,                     5,                    -,           -,           -
+                        3,                  5,                    4,                     2,                    2,           0,           1
+
+# Official BetterVoting tie-break lot order (highest priority first), matching
+# the BV export for this election.
+lot_numbers: [French Vanilla (VFr), Hazelnut Choco (CHz), Mango (Mgo), Almond Choco (CAm), Classic Vanilla (VCs), Plain Choco (CPn), Peach (Pch)]
 
 # file: temp_trash.yaml

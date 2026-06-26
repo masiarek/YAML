@@ -205,6 +205,9 @@ column-order fallback is exactly what you want.
 
 ## See also
 
+- **BetterVoting's official tie-breaking protocol** (the authoritative source for
+  the ladder above, and the "shuffle the candidates" random order our
+  `lot_numbers` carries): <https://docs.bettervoting.com/help/ties.html>
 - Glossary: **Tiebreaker**, **Head-to-head / pairwise**, **Automatic runoff**,
   **Equal Support** — [`GLOSSARY.md`](../GLOSSARY.md)
 - Equal-score handling in the runoff:

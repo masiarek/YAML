@@ -1,0 +1,13 @@
+# _demo_dropbox holds ad-hoc throwaway demos — keep the tooling, ignore the data.
+*.json
+*.yaml
+*.yml
+_generated/
+_generated_tabulated/
+processed/
+
+# but always track the tooling + docs
+!Run BV Demo Watcher.command
+!watch_bv.py
+!README.md
+!.gitignore
