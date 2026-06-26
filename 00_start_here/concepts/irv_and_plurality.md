@@ -18,7 +18,7 @@ This shared DNA has real consequences. Because elimination ignores lower prefere
 
 - **center-squeeze** a broadly-liked moderate who has few *first* choices ([center_squeeze.md](./center_squeeze.md)),
 - behave **non-monotonically** ([monotonicity.md](./monotonicity.md)), and
-- discard ballot information through **exhaustion**.
+- discard ballot information through **[exhaustion](./exhausted_ballots.md)**.
 
 So the honest, defensible sentence is: **"IRV inherits plurality's round-by-round blindness to lower preferences — that's why it isn't pairwise and can eliminate a Condorcet-strong moderate."**
 
