@@ -117,8 +117,13 @@ def process(json_path, converter, engine_module):
     before = {p.name for p in GEN.glob("*.yaml")} if GEN.exists() else set()
     try:
         # embed_report=False → MINIMAL demo yaml (winner kept, full report dropped).
-        # The noisy full report still lands in the sibling _tabulated.txt.
-        converter.convert_election_data(str(json_path), engine_module, embed_report=False)
+        # include_candidates=False → drop the redundant candidates: block (the
+        # ballots header already lists them). The full report still lands in the
+        # sibling _tabulated.txt.
+        converter.convert_election_data(
+            str(json_path), engine_module,
+            embed_report=False, include_candidates=False,
+        )
     except Exception as e:  # noqa: BLE001
         print(f"  ✗ conversion failed: {e}")
         ERRORS.mkdir(parents=True, exist_ok=True)

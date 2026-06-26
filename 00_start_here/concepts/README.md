@@ -23,7 +23,7 @@ are **load-bearing in debates** and worth a focused page with a worked example a
 | **Scoring methods aren't RCV** | scoring methods (Approval, STAR) rate candidates and sit *outside* the ranked-voting family | [scoring-methods-vs-ranked-voting.md](./scoring-methods-vs-ranked-voting.md) |
 | **Strict vs. weak ranks** | many ranked methods allow equal ranks & compare pairwise — RCV-IRV does neither | [strict_vs_weak_ranks.md](./strict_vs_weak_ranks.md) |
 | **Is IRV "just plurality"?** | the defensible kernel (round-by-round first-choice elimination) vs. the overclaim | [irv_and_plurality.md](./irv_and_plurality.md) |
-| **Exhausted ballots** | a validly-cast ranked ballot can stop counting; IRV's "majority" is of active ballots | [exhausted_ballots.md](./exhausted_ballots.md) |
+| **Exhausted ballots** | a validly-cast ranked ballot can stop counting; IRV's "majority" is of active ballots | [RCV_IRV_exhausted_ballots.md](./RCV_IRV/RCV_IRV_exhausted_ballots.md) |
 | **RCV-IRV vs. STAR (side-by-side)** | balanced comparison hub — real strengths on both sides — routing to the facet pages | [rcv_irv_vs_star.md](./rcv_irv_vs_star.md) |
 | **Ranked Robin (Consensus Voting)** | a Condorcet method: ranks + equal ranks, every pair compared head-to-head | [ranked_robin.md](./ranked_robin.md) |
 | **RCV is a confusing name** | "RCV" is an umbrella for many ranked methods; in the US it usually means RCV-IRV (Hare) | [RCV-IRV-confusing-name.md](./RCV-IRV-confusing-name.md) |

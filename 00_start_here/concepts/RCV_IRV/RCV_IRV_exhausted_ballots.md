@@ -26,7 +26,7 @@ The second case is why the popular slogan is misleading even for voters whose ba
 - **All ranked candidates eliminated**, even on an otherwise full ballot.
 - **Marking issues, under some rules.** Depending on jurisdiction, an **overvote** (two candidates at one rank), a **skipped rank**, or a **repeated rank** may either be skipped over or may exhaust the ballot — the rules vary and are themselves a source of confusion.
 
-(See the taxonomy diagram in this folder: [`inactive_ballot_taxonomy.svg`](./inactive_ballot_taxonomy.svg).)
+(See the taxonomy diagram in this folder: [`inactive_ballot_taxonomy.svg`](../inactive_ballot_taxonomy.svg).)
 
 ## Why it matters
 
@@ -56,17 +56,17 @@ A fair page has to give the other side, because some of this is a **design choic
 - **FPTP wastes more.** Under plain Choose-One, *every* vote for a losing candidate is effectively discarded immediately. RCV generally captures **more** voter intent than the status quo, even though it doesn't capture all of it. Implying the current system is better *in this specific respect* would be unfair.
 - **Some truncation is the voter's own choice.** Voluntary bullet-voting isn't something done *to* a voter, and removing **ranking-limit caps** mitigates the involuntary kind.
 
-Scored methods sidestep exhaustion by design — a blank on a STAR/Score ballot is read as **0**, so a ballot never drops out of the count — which is why a STAR "no-preference" between the two finalists is still *counted* and can still help advance the more-preferred candidate. But that's a different trade-off, not a free lunch: a 0 is itself a meaningful (lowest) score, not a neutral abstention. (See [scores_vs_ranks.md](./scores_vs_ranks.md).)
+Scored methods sidestep exhaustion by design — a blank on a STAR/Score ballot is read as **0**, so a ballot never drops out of the count — which is why a STAR "no-preference" between the two finalists is still *counted* and can still help advance the more-preferred candidate. But that's a different trade-off, not a free lunch: a 0 is itself a meaningful (lowest) score, not a neutral abstention. (See [scores_vs_ranks.md](../scores_vs_ranks.md).)
 
 ---
 
 ## Related concept pages
 
-- [Is IRV "just plurality"?](./irv_and_plurality.md) — round-by-round elimination is what creates exhaustion
-- [Strict vs. weak ranks](./strict_vs_weak_ranks.md) — ranking limits and forbidden equal ranks feed exhaustion
-- [Center squeeze](./center_squeeze.md) — the related way IRV discards a broadly-liked candidate
-- [Monotonicity](./monotonicity.md) — why "your lower choices can't hurt you" isn't an absolute guarantee
-- [Tabulation, step by step](./tabulation_star_vs_irv.md)
+- [Is IRV "just plurality"?](../irv_and_plurality.md) — round-by-round elimination is what creates exhaustion
+- [Strict vs. weak ranks](../strict_vs_weak_ranks.md) — ranking limits and forbidden equal ranks feed exhaustion
+- [Center squeeze](../center_squeeze.md) — the related way IRV discards a broadly-liked candidate
+- [Monotonicity](../monotonicity.md) — why "your lower choices can't hurt you" isn't an absolute guarantee
+- [Tabulation, step by step](../tabulation_star_vs_irv.md)
 
 ## Learn more — in this library
 

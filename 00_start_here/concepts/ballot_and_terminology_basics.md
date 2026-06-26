@@ -31,4 +31,4 @@ Even among ranked methods, the rules differ. Many allow **equal ranks** and comp
 
 ## Where to go next
 
-These four are the *vocabulary*. For what the choices actually do to outcomes, see the mechanism pages: [center squeeze](./center_squeeze.md), [monotonicity](./monotonicity.md), [summability](./summability.md), [exhausted ballots](./exhausted_ballots.md), [residual vote-splitting](./residual_vote_splitting.md), and [tabulation step by step](./tabulation_star_vs_irv.md). For the two methods compared head-to-head, see [RCV-IRV vs. STAR](./rcv_irv_vs_star.md). Full index: [`README.md`](./README.md).
+These four are the *vocabulary*. For what the choices actually do to outcomes, see the mechanism pages: [center squeeze](./center_squeeze.md), [monotonicity](./monotonicity.md), [summability](./summability.md), [exhausted ballots](./RCV_IRV/RCV_IRV_exhausted_ballots.md), [residual vote-splitting](./residual_vote_splitting.md), and [tabulation step by step](./tabulation_star_vs_irv.md). For the two methods compared head-to-head, see [RCV-IRV vs. STAR](./rcv_irv_vs_star.md). Full index: [`README.md`](./README.md).

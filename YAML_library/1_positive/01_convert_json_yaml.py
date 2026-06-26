@@ -127,7 +127,8 @@ def extract_lot_order(result, uuid_to_cid):
     return lot
 
 
-def convert_election_data(input_json_path, engine_module, embed_report=True):
+def convert_election_data(input_json_path, engine_module, embed_report=True,
+                          include_candidates=True):
     with open(input_json_path, 'r') as file:
         data = json.load(file)
 
@@ -316,12 +317,15 @@ def convert_election_data(input_json_path, engine_module, embed_report=True):
         if race_cats:
             minimal_race["categories"] = race_cats
 
-        minimal_race.update({
-            "num_winners": num_winners,
-            "voting_method": voting_method,
-            "candidates": formatted_candidates,
-            "ballots": formatted_ballots
-        })
+        minimal_race["num_winners"] = num_winners
+        minimal_race["voting_method"] = voting_method
+        # The candidates: block is redundant once names aren't remapped — the
+        # ballots header already lists every candidate, and the engine reads them
+        # from there. Omit it when include_candidates=False (e.g. the demo dropbox
+        # wants the leanest possible yaml).
+        if include_candidates:
+            minimal_race["candidates"] = formatted_candidates
+        minimal_race["ballots"] = formatted_ballots
 
         # Persist the official lot order (inline list) so re-tabulation by the
         # engine reproduces the provider's exact tiebreak. Omitted when absent.
