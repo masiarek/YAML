@@ -14,6 +14,9 @@ are **load-bearing in debates** and worth a focused page with a worked example a
 | **Residual vote-splitting** | STAR ends *forced* splitting; the narrow leftover is self-inflicted bullet-voting / the chicken dilemma | [residual_vote_splitting.md](./residual_vote_splitting.md) |
 | **Is RCV "simple"? (201)** | ranking is simple to *mark*; IRV's *count* isn't — STAR keeps both halves simple | [is_rcv_simple.md](./is_rcv_simple.md) |
 | **Tabulation, step by step (201)** | the same ballots counted both ways — STAR's 2 steps vs IRV's elimination rounds | [tabulation_star_vs_irv.md](./tabulation_star_vs_irv.md) |
+| **Scores vs. ranks (don't confuse them!)** | order-only (ranks) vs. order+strength (scores) — relative vs. absolute preference | [scores_vs_ranks.md](./scores_vs_ranks.md) |
+| **Scoring methods aren't RCV** | scoring methods (Approval, STAR) rate candidates and sit *outside* the ranked-voting family | [scoring-methods-vs-ranked-voting.md](./scoring-methods-vs-ranked-voting.md) |
+| **RCV is a confusing name** | "RCV" is an umbrella for many ranked methods; in the US it usually means RCV-IRV (Hare) | [RCV-IRV-confusing-name.md](./RCV-IRV-confusing-name.md) |
 
 Deeper conversation/debate scripts live in
 [`../../interviews_conversations/`](../../interviews_conversations/) (e.g.
