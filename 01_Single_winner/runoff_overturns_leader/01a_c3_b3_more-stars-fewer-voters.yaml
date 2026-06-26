@@ -1,0 +1,31 @@
+election_title: More stars, fewer voters — the runoff overturns the score leader
+scenario_description: |-
+  The whole lesson in three voters. Almond is the star-magnet: one fan rates it 5,
+  so Almond tops the scoring round with 13 stars. But STAR doesn't crown the biggest
+  star pile — it asks the finalists' question: of the top two, Almond and Brownie,
+  which one do MORE voters prefer? Two of the three rank Brownie above Almond, so
+  Brownie wins the automatic runoff 2-1.
+
+  More stars from fewer people loses to fewer stars from more people. (Cocoa is only
+  here so the runoff is picking finalists out of a real field, not a forced pair.)
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  brief: true
+  collapse_ballots: true
+  count_separator: "×"
+voting_method: STAR
+num_winners: 1
+ballots: |-
+  Almond, Brownie, Cocoa
+       5,       1,     2
+       4,       5,     0
+       4,       5,     0
+expected_winners:
+  - Brownie
+
+# file: 01a_c3_b3_more-stars-fewer-voters.yaml

@@ -18,6 +18,7 @@ are **load-bearing in debates** and worth a focused page with a worked example a
 | **Residual vote-splitting** | STAR ends *forced* splitting; the narrow leftover is self-inflicted bullet-voting / the chicken dilemma | [residual_vote_splitting.md](./residual_vote_splitting.md) |
 | **Is RCV "simple"? (201)** | ranking is simple to *mark*; IRV's *count* isn't — STAR keeps both halves simple | [is_rcv_simple.md](./is_rcv_simple.md) |
 | **Tabulation, step by step (201)** | the same ballots counted both ways — STAR's 2 steps vs IRV's elimination rounds | [tabulation_star_vs_irv.md](./tabulation_star_vs_irv.md) |
+| **Top scorer ≠ winner (the runoff)** | the score round picks two finalists; the automatic runoff lets the *majority-preferred* finalist win — even when it had fewer total stars | [runoff_overturns_leader/](../../01_Single_winner/runoff_overturns_leader/README.md) |
 | **Scores vs. ranks (don't confuse them!)** | order-only (ranks) vs. order+strength (scores) — relative vs. absolute preference | [scores_vs_ranks.md](./scores_vs_ranks.md) |
 | **Scoring methods aren't RCV** | scoring methods (Approval, STAR) rate candidates and sit *outside* the ranked-voting family | [scoring-methods-vs-ranked-voting.md](./scoring-methods-vs-ranked-voting.md) |
 | **Strict vs. weak ranks** | many ranked methods allow equal ranks & compare pairwise — RCV-IRV does neither | [strict_vs_weak_ranks.md](./strict_vs_weak_ranks.md) |

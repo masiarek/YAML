@@ -36,7 +36,7 @@ the test-case YAML (demo) and/or the interview episode that show the term in act
 
 ## Properties & criteria
 
-- **Majority finish** — STAR's runoff guarantees the winner beats the runner-up among voters who expressed a preference between them. → demo [`06b_c9_runoff-overturns-leader.yaml`](../01_Single_winner/06b_c9_runoff-overturns-leader.yaml) (runoff overturns the score leader)
+- **Majority finish** — STAR's runoff guarantees the winner beats the runner-up among voters who expressed a preference between them. → demo [`06b_c9_runoff-overturns-leader.yaml`](../01_Single_winner/06b_c9_runoff-overturns-leader.yaml) (runoff overturns the score leader); full walkthrough [`runoff_overturns_leader/`](../01_Single_winner/runoff_overturns_leader/README.md) (why the top-scoring candidate isn't always the winner, as a 3→9-candidate progression)
 - **Condorcet winner** — the candidate who beats every other head-to-head; STAR usually (not always) elects them. → demo [`equal_support_runoff_demo.yaml`](../01_Single_winner/equal_support_runoff_demo.yaml) (`show_condorcet`)
 - **Condorcet efficiency** — how often a method elects the Condorcet winner (STAR's is very high).
 - **Condorcet loser** — the candidate who loses every head-to-head.

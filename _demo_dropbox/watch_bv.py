@@ -22,6 +22,7 @@ Dependency-free: plain polling loop, no `watchdog` needed.
 """
 
 import importlib.util
+import json
 import shutil
 import subprocess
 import sys
@@ -42,7 +43,7 @@ GEN_TAB = DROP / "_generated_tabulated"         # staging for produced _tabulate
 PROCESSED = DROP / "processed"                  # archive of finished demos
 ERRORS = PROCESSED / "_errors"                  # JSON that failed to convert
 
-POLL_SECONDS = 2                                # how often to scan the folder
+POLL_SECONDS = 1                                # how often to scan the folder
 
 # Keep the full BetterVoting export as-is (default). The BV `lot_numbers` are the
 # OFFICIAL tie-break sequence and must be preserved for a faithful tabulation —
@@ -99,6 +100,15 @@ def _demoize(yaml_path, converter):
 # ----- one file, full pipeline ------------------------------------------------
 def process(json_path, converter, engine_module):
     stamp = datetime.now()
+    # The name exactly as dropped, captured BEFORE the converter renames the JSON
+    # to the generated base name — otherwise the original drop name is lost.
+    orig_name = json_path.name
+    # BV election id (e.g. "4c7kp9"); used as the short archive base name.
+    try:
+        bv_id = ((json.loads(json_path.read_text()).get("Election") or {})
+                 .get("election_id") or "").strip()
+    except Exception:  # noqa: BLE001 - best-effort, demo tool
+        bv_id = ""
     print("\n" + "=" * 64)
     print(f"  {stamp:%H:%M:%S}  new file: {json_path.name}")
     print("=" * 64)
@@ -106,7 +116,9 @@ def process(json_path, converter, engine_module):
     # 1) convert -------------------------------------------------------------
     before = {p.name for p in GEN.glob("*.yaml")} if GEN.exists() else set()
     try:
-        converter.convert_election_data(str(json_path), engine_module)
+        # embed_report=False → MINIMAL demo yaml (winner kept, full report dropped).
+        # The noisy full report still lands in the sibling _tabulated.txt.
+        converter.convert_election_data(str(json_path), engine_module, embed_report=False)
     except Exception as e:  # noqa: BLE001
         print(f"  ✗ conversion failed: {e}")
         ERRORS.mkdir(parents=True, exist_ok=True)
@@ -124,6 +136,24 @@ def process(json_path, converter, engine_module):
         print("  ✗ no YAML was produced — skipping.")
         return
     base = new_yaml.stem
+    gen_base = base  # repo-standard generated name (S_W1_N_…_<id>) — kept for provenance
+
+    # Name all demo artifacts by the BV election id plus a timestamp
+    # (e.g. "4c7kp9_20260626_181840"), instead of the long dropped filename or
+    # the generated pascal name. Falls back to the dropped stem if the JSON had
+    # no election_id. Demo path only — the tested pipeline in
+    # YAML_library/1_positive/ keeps the generated naming convention.
+    ts = f"{stamp:%Y%m%d_%H%M%S}"
+    new_base = f"{bv_id}_{ts}" if bv_id else f"{Path(orig_name).stem}_{ts}"
+    if new_base != base:
+        renamed_yaml = new_yaml.with_name(f"{new_base}.yaml")
+        new_yaml.replace(renamed_yaml)
+        new_yaml = renamed_yaml
+        src_json = DROP / f"{base}.json"
+        if src_json.exists():
+            src_json.replace(DROP / f"{new_base}.json")
+        base = new_base
+
     print()  # spacer after converter's own prints
 
     # 1b) demoize -> clean "ver1" format (no title header, column-order ties) -
@@ -145,8 +175,9 @@ def process(json_path, converter, engine_module):
         # leave artifacts in place for inspection; don't archive a failure
         return
 
-    # 3) archive everything into processed/<timestamp>__<base>/ --------------
-    out_dir = PROCESSED / f"{stamp:%Y%m%d_%H%M%S}__{base}"
+    # 3) archive everything into processed/<base>/  (base already carries the
+    #    timestamp, e.g. processed/4c7kp9_20260626_181840/) ------------------
+    out_dir = PROCESSED / base
     out_dir.mkdir(parents=True, exist_ok=True)
     moved = []
     candidates = [
@@ -158,7 +189,17 @@ def process(json_path, converter, engine_module):
         if src.exists():
             shutil.move(str(src), str(out_dir / src.name))
             moved.append(src.name)
+
+    # Preserve the original dropped filename (the converter renames the JSON to
+    # the generated base name, so without this the drop name would be lost).
+    (out_dir / "_source.txt").write_text(
+        f"original_dropped_filename: {orig_name}\n"
+        f"artifact_base:             {base}\n"
+        f"generated_base:            {gen_base}\n"
+        f"processed_at:              {stamp:%Y-%m-%d %H:%M:%S}\n"
+    )
     print(f"\n  ✓ archived {len(moved)} file(s) → processed/{out_dir.name}/")
+    print(f"    (original drop name '{orig_name}' recorded in _source.txt)")
 
 
 # ----- watch loop -------------------------------------------------------------

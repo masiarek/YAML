@@ -37,6 +37,7 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 - **Objective:** Remove the fear of "voting wrong."
 - **Key terms:** bullet vote, equal scores, partial ballot, blank vs explicit 0.
 - **Files:** `01_Single_winner/03*`; large field (9 candidates) `06a` (STAR scales; Equal Support decides the runoff) and `06b` (the runoff overturns the score leader).
+- **The headline lesson — top scorer ≠ winner:** the dedicated walkthrough [`01_Single_winner/runoff_overturns_leader/`](../01_Single_winner/runoff_overturns_leader/README.md) collects this as an approachable 3→9-candidate progression (with a confirm-case control), answering BetterVoting's *"why is the top-scoring candidate different from the winner?"*
 - **Ballot note:** the ballot's own line *"equal scores indicate no preference"* means no preference *in the runoff* — those ballots still count in the scoring round. (That's the Equal Support point; see `interviews_conversations/are_equal_score_votes_discounted.md`.)
 
 ## 101.4 — The payoff: the spoiler, in numbers

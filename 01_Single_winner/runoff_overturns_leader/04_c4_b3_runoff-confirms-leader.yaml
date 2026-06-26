@@ -1,0 +1,30 @@
+election_title: The control case — here the runoff CONFIRMS the score leader
+scenario_description: |-
+  Same machinery, opposite result — and that's the point. Blue is both the biggest
+  star pile (14) AND the majority's preferred finalist, so the automatic runoff
+  simply confirms the scoring leader: Blue wins either way.
+
+  This is why STAR's runoff isn't "rigged against front-runners." It only overturns
+  the leader when the star total and the head-to-head majority disagree (01a-03);
+  when the leader really is the most-preferred candidate, the leader wins.
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  brief: true
+  collapse_ballots: true
+  count_separator: "×"
+voting_method: STAR
+num_winners: 1
+ballots: |-
+  Amber, Blue, Coral, Dune
+      2,    5,     1,    0
+      2,    5,     0,    1
+      5,    4,     0,    0
+expected_winners:
+  - Blue
+
+# file: 04_c4_b3_runoff-confirms-leader.yaml

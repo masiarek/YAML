@@ -127,7 +127,7 @@ def extract_lot_order(result, uuid_to_cid):
     return lot
 
 
-def convert_election_data(input_json_path, engine_module):
+def convert_election_data(input_json_path, engine_module, embed_report=True):
     with open(input_json_path, 'r') as file:
         data = json.load(file)
 
@@ -352,26 +352,33 @@ def convert_election_data(input_json_path, engine_module):
                     )
                     expected_winners = list(winners_set) if winners_set else []
 
-                # 2. Capture rich matrices & analysis output by redirecting stdout
-                log_capture = io.StringIO()
-                with redirect_stdout(log_capture):
-                    engine_module.run_election(
-                        csv_input=tabulation_csv,
-                        lot_numbers=lot_list,
-                        show_matrix=True
-                    )
-                # Filter out potential ANSI color codes for clean YAML
-                raw_log = log_capture.getvalue()
-                ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
-                analysis_log = ansi_escape.sub('', raw_log).strip()
+                # 2. Capture rich matrices & analysis output by redirecting stdout.
+                #    Skipped when embed_report=False (e.g. the demo dropbox wants a
+                #    MINIMAL yaml — the full report still lives in _tabulated.txt).
+                if embed_report:
+                    log_capture = io.StringIO()
+                    with redirect_stdout(log_capture):
+                        engine_module.run_election(
+                            csv_input=tabulation_csv,
+                            lot_numbers=lot_list,
+                            show_matrix=True
+                        )
+                    # Filter out potential ANSI color codes for clean YAML
+                    raw_log = log_capture.getvalue()
+                    ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+                    analysis_log = ansi_escape.sub('', raw_log).strip()
 
             except Exception as e:
                 analysis_log = f"Error generating expected results: {e}"
 
-        minimal_race["expected_results"] = {
-            "winners": expected_winners,
-            "report": format_description(analysis_log)  # Changed from analysis_log to report
-        }
+        if embed_report:
+            minimal_race["expected_results"] = {
+                "winners": expected_winners,
+                "report": format_description(analysis_log)  # full engine log
+            }
+        else:
+            # MINIMAL yaml: keep the expected winner, drop the bulky report.
+            minimal_race["expected_results"] = {"winners": expected_winners}
         # ----------------------------------------------------
 
         minimal_data["election"]["races"].append(minimal_race)

@@ -1,0 +1,30 @@
+election_title: Five candidates — the score leader is overturned in the runoff
+scenario_description: |-
+  Five candidates, five voters. Austin is the high-ceiling favorite — its two fans
+  rate it 5 and the rest still give a respectful 4 — so Austin leads the scoring
+  round with 22 stars. But Boston is the broad compromise and the real majority pick:
+  three of the five prefer Boston to Austin, so Boston takes the automatic runoff 3-2.
+  Chicago, Denver and Erie are genuine options that simply don't reach the final two.
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  brief: true
+  collapse_ballots: true
+  count_separator: "×"
+voting_method: STAR
+num_winners: 1
+ballots: |-
+  Austin, Boston, Chicago, Denver, Erie
+       5,      0,       1,      0,    2
+       5,      0,       0,      1,    0
+       4,      5,       1,      0,    0
+       4,      5,       0,      2,    0
+       4,      5,       0,      0,    1
+expected_winners:
+  - Boston
+
+# file: 02_c5_b5_leader-overturned.yaml
