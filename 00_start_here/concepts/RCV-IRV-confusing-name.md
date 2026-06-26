@@ -38,6 +38,12 @@ When in doubt in conversation, the safest opener is: *"Which form of ranked voti
 
 ---
 
+## Related concept pages
+
+- [Strict vs. weak ranks](./strict_vs_weak_ranks.md) — RCV-IRV forbids equal ranks and isn't pairwise; other ranked methods differ
+- [Scores vs. ranks — don't confuse ranks and ratings](./scores_vs_ranks.md)
+- [Scoring methods vs. ranked voting](./scoring-methods-vs-ranked-voting.md)
+
 ## Learn more — in this library
 
 - [Index — voting topic pages / FAQ](https://docs.google.com/document/d/1ChP00lDS4c8v30KxqZ8dC5EnqHVmQnjrbISQZBWWPVs/edit)

@@ -44,6 +44,7 @@ A common point of confusion: **Ranked Robin allows equal rankings, so why isn't 
 
 ## Related concepts in this library
 
+- [Strict vs. weak ranks](./strict_vs_weak_ranks.md) — equal ranks & pairwise comparison: which ranked methods allow them (IRV doesn't)
 - [Scoring methods vs. ranked voting](./scoring-methods-vs-ranked-voting.md) — why Approval & STAR sit *outside* the RCV family
 - [Is RCV "simple"? (201)](./is_rcv_simple.md) — the five-star mental model vs. ordering strangers
 - [Tabulation, step by step](./tabulation_star_vs_irv.md) — the same ballots counted as scores vs. ranks
