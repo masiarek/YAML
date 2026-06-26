@@ -40,7 +40,7 @@ The headline: **allowing equal ranks and using pairwise comparisons are features
 
 ## Why equal ranks (weak ranking) matter
 
-Forcing a **strict** order makes voters invent distinctions they don't feel — "is she my 4th or my 5th?" — which adds noise and raises spoilage. Allowing **equal ranks** lets a voter honestly express indifference, and it adds real expressive power: on a strict ballot a second choice "could be as good as your favorite or almost as bad as your last choice," and the ballot can't tell the difference. In simulations, **good weak-ranked Condorcet methods perform on par with good score methods** — while strict-rank IRV does not — which is why this single ballot rule is doing a lot of quiet work.
+Forcing a **strict** order makes voters invent distinctions they don't feel — "is she my 4th or my 5th?" — and **studies suggest** this adds noise and may raise ballot-spoilage rates (the evidence is real but contested). Allowing **equal ranks** lets a voter honestly express indifference, and it adds real expressive power: on a strict ballot a second choice "could be as good as your favorite or almost as bad as your last choice," and the ballot can't tell the difference. In reform-advocate **simulations (e.g., voter-satisfaction-efficiency work)**, good weak-ranked Condorcet methods tend to perform on par with good score methods, while strict-rank IRV lags — a finding worth citing as such, not as settled fact.
 
 (Scores go one step further: they carry order *and* strength. See [`scores_vs_ranks.md`](./scores_vs_ranks.md).)
 
@@ -51,6 +51,7 @@ Forcing a **strict** order makes voters invent distinctions they don't feel — 
 - [Scores vs. ranks — don't confuse ranks and ratings](./scores_vs_ranks.md)
 - [Scoring methods vs. ranked voting](./scoring-methods-vs-ranked-voting.md)
 - [RCV vs. IRV vs. RCV-IRV — terminology](./RCV-IRV-confusing-name.md)
+- [Is IRV "just plurality"?](./irv_and_plurality.md) — why elimination is a first-choice plurality test (and where that claim overreaches)
 - [Center squeeze](./center_squeeze.md) — what strict-rank IRV does to a strong compromise candidate
 - [Is RCV "simple"? (201)](./is_rcv_simple.md)
 

@@ -23,6 +23,10 @@ Voters simply mark every candidate they approve of — no ranking, no scoring be
 
 Voters score each candidate 0–5. The two highest-scoring candidates advance to an automatic runoff, where each ballot counts for whichever finalist it scored higher. This combines the expressiveness of scoring with a final majoritarian check.
 
+## Where scoring methods are weak (for balance)
+
+Scoring isn't free of trade-offs, and an honest case names them. **STAR and Score fail Later-No-Harm and the Majority criterion** — a candidate a majority scores highest can still lose — which is a legitimate objection ranked-method advocates raise. Score ballots also reward **strategic min/max exaggeration** (rate everyone 0 or 5), and **Approval's** single threshold is comparatively blunt. The "equal vote / Test of Balance" argument made for STAR is **contested**, not a neutral fact, and **no method escapes Gibbard–Satterthwaite** — every system has some scenario where honesty is punished. The fair claim is about *specific* trade-offs, not overall superiority.
+
 ---
 
 ## Related concepts in this library

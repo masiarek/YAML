@@ -21,6 +21,7 @@ are **load-bearing in debates** and worth a focused page with a worked example a
 | **Scores vs. ranks (don't confuse them!)** | order-only (ranks) vs. order+strength (scores) — relative vs. absolute preference | [scores_vs_ranks.md](./scores_vs_ranks.md) |
 | **Scoring methods aren't RCV** | scoring methods (Approval, STAR) rate candidates and sit *outside* the ranked-voting family | [scoring-methods-vs-ranked-voting.md](./scoring-methods-vs-ranked-voting.md) |
 | **Strict vs. weak ranks** | many ranked methods allow equal ranks & compare pairwise — RCV-IRV does neither | [strict_vs_weak_ranks.md](./strict_vs_weak_ranks.md) |
+| **Is IRV "just plurality"?** | the defensible kernel (round-by-round first-choice elimination) vs. the overclaim | [irv_and_plurality.md](./irv_and_plurality.md) |
 | **RCV is a confusing name** | "RCV" is an umbrella for many ranked methods; in the US it usually means RCV-IRV (Hare) | [RCV-IRV-confusing-name.md](./RCV-IRV-confusing-name.md) |
 
 Deeper conversation/debate scripts live in
