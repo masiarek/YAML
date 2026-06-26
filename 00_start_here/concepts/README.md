@@ -26,6 +26,7 @@ are **load-bearing in debates** and worth a focused page with a worked example a
 | **RCV-IRV vs. STAR (side-by-side)** | balanced comparison hub — real strengths on both sides — routing to the facet pages | [rcv_irv_vs_star.md](./rcv_irv_vs_star.md) |
 | **Ranked Robin (Consensus Voting)** | a Condorcet method: ranks + equal ranks, every pair compared head-to-head | [ranked_robin.md](./ranked_robin.md) |
 | **RCV is a confusing name** | "RCV" is an umbrella for many ranked methods; in the US it usually means RCV-IRV (Hare) | [RCV-IRV-confusing-name.md](./RCV-IRV-confusing-name.md) |
+| **"Preference" (a slippery word)** | everyday opinion vs. technical "ranking"; why "Preferential Voting" is a misnomer | [preference.md](./preference.md) |
 
 Deeper conversation/debate scripts live in
 [`../../interviews_conversations/`](../../interviews_conversations/) (e.g.
