@@ -8,7 +8,7 @@ Most confusion about "RCV" comes from four mix-ups: a slippery name, mistaking s
 
 ## The reading path
 
-**1. [RCV vs. IRV vs. RCV-IRV — a note on terminology](./RCV-IRV-confusing-name.md)**
+**1. [RCV vs. IRV vs. RCV-IRV — a note on terminology](./RCV_IRV/RCV-IRV-confusing-name.md)**
 "Ranked Choice Voting" is an umbrella term, not one method. In the US it almost always means **RCV-IRV (Hare)**. Start here so the words mean the same thing for everyone.
 
 **2. [Scores vs. ranks — don't confuse ranks and ratings](./scores_vs_ranks.md)**
@@ -24,11 +24,11 @@ Even among ranked methods, the rules differ. Many allow **equal ranks** and comp
 
 | Idea | The myth | The reality | Page |
 |---|---|---|---|
-| Terminology | "RCV = one method" | RCV is a family; US "RCV" = RCV-IRV (Hare) | [1](./RCV-IRV-confusing-name.md) |
+| Terminology | "RCV = one method" | RCV is a family; US "RCV" = RCV-IRV (Hare) | [1](./RCV_IRV/RCV-IRV-confusing-name.md) |
 | Scores vs. ranks | "Rating ≈ ranking" | Rank = order only; score = order **+ strength** | [2](./scores_vs_ranks.md) |
 | What's even ranked | "STAR/Approval are RCV" | They're scoring methods, not ranked | [3](./scoring-methods-vs-ranked-voting.md) |
 | Strict vs. weak | "All ranked ballots act alike" | IRV forbids equal ranks & isn't pairwise; others allow/are | [4](./strict_vs_weak_ranks.md) |
 
 ## Where to go next
 
-These four are the *vocabulary*. For what the choices actually do to outcomes, see the mechanism pages: [center squeeze](./center_squeeze.md), [monotonicity](./monotonicity.md), [summability](./summability.md), [exhausted ballots](./RCV_IRV/RCV_IRV_exhausted_ballots.md), [residual vote-splitting](./residual_vote_splitting.md), and [tabulation step by step](./tabulation_star_vs_irv.md). For the two methods compared head-to-head, see [RCV-IRV vs. STAR](./rcv_irv_vs_star.md). Full index: [`README.md`](./README.md).
+These four are the *vocabulary*. For what the choices actually do to outcomes, see the mechanism pages: [center squeeze](RCV_IRV/center_squeeze.md), [monotonicity](RCV_IRV/monotonicity.md), [summability](STAR_Voting/summability.md), [exhausted ballots](./RCV_IRV/RCV_IRV_exhausted_ballots.md), [residual vote-splitting](./residual_vote_splitting.md), and [tabulation step by step](./tabulation_star_vs_irv.md). For the two methods compared head-to-head, see [RCV-IRV vs. STAR](./rcv_irv_vs_star.md). Full index: [`README.md`](./README.md).

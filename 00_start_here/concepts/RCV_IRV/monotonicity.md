@@ -4,7 +4,7 @@
 never cause them to lose** (and lower can never cause them to win). **RCV-IRV
 violates this**; STAR (and any additive, summable method) does not.
 
-→ Glossary: [`monotonicity`](../GLOSSARY.md) · related: [`center_squeeze.md`](./center_squeeze.md)
+→ Glossary: [`monotonicity`](../../GLOSSARY.md) · related: [`center_squeeze.md`](./center_squeeze.md)
 
 ---
 
@@ -19,8 +19,8 @@ can end up **losing**. Extra support hurt them.
 
 The classic 3-candidate case, as two elections that differ by **one change**:
 
-→ [`monotonicity_irv_before.yaml`](../../01_Single_winner/monotonicity_irv_before.yaml)
- · [`monotonicity_irv_after.yaml`](../../01_Single_winner/monotonicity_irv_after.yaml)
+→ [`monotonicity_irv_before.yaml`](../../../01_Single_winner/monotonicity_irv_before.yaml)
+ · [`monotonicity_irv_after.yaml`](../../../01_Single_winner/monotonicity_irv_after.yaml)
 
 ```
 BEFORE                          AFTER  (4 voters raise X: Y>Z → X>Y)
@@ -38,8 +38,8 @@ nothing else changed. (Verified on the RCV-IRV engine.)
 
 Translate those ballots to 0–5 scores (1st → 5, 2nd → 3, unranked → 0) and run STAR:
 
-→ [`monotonicity_star_before.yaml`](../../01_Single_winner/monotonicity_star_before.yaml)
- · [`monotonicity_star_after.yaml`](../../01_Single_winner/monotonicity_star_after.yaml)
+→ [`monotonicity_star_before.yaml`](../../../01_Single_winner/monotonicity_star_before.yaml)
+ · [`monotonicity_star_after.yaml`](../../../01_Single_winner/monotonicity_star_after.yaml)
 
 STAR elects **X before *and* after** the 4 voters raise X — raising the winner can't
 hurt them. The _after file's `[Divergence from STAR]` block makes the contrast
@@ -74,7 +74,7 @@ A common mix-up: monotonicity (does *raising* a candidate ever hurt them?) is a
 different criterion from Later-No-Harm (does adding a *lower* preference ever hurt
 your *top* choice?). IRV passes LNH but **fails** monotonicity; STAR is the reverse
 shape. (LNH vs FBC is worked out in
-[`favorite_betrayal_voting_301.md`](../../interviews_conversations/favorite_betrayal_voting_301.md).)
+[`favorite_betrayal_voting_301.md`](../../../interviews_conversations/favorite_betrayal_voting_301.md).)
 
 ## Real election
 
@@ -90,7 +90,7 @@ standing — there's no elimination order to perturb, so the backwards paradox c
 arise.
 
 → More source notes: **RCV-IRV monotonicity** group in
-[`LINKS.md`](../../interviews_conversations/LINKS.md).
+[`LINKS.md`](../../../interviews_conversations/LINKS.md).
 
 Sources: [Ornstein & Norman 2014 (Public Choice)](https://link.springer.com/article/10.1007/s11127-013-0118-2),
 [Graham-Squire & McCune, RCV in the US 2004–2022 (arXiv)](https://arxiv.org/pdf/2301.12075.pdf),

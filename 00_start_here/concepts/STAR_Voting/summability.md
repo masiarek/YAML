@@ -4,7 +4,7 @@
 precinct totals**. STAR is summable; **RCV-IRV is not** — it needs every ballot in
 one place to know the elimination order.
 
-→ Glossary: [`summability`](../GLOSSARY.md)
+→ Glossary: [`summability`](../../GLOSSARY.md)
 
 ---
 
@@ -21,7 +21,7 @@ That makes STAR **precinct-auditable** and gives meaningful early/partial result
 
 ## Test case (run it)
 
-→ [`01_Single_winner/04b_c4_b3_display-options-all.yaml`](../../01_Single_winner/04b_c4_b3_display-options-all.yaml)
+→ [`01_Single_winner/04b_c4_b3_display-options-all.yaml`](../../../01_Single_winner/04b_c4_b3_display-options-all.yaml)
 with `show_matrix: true`.
 
 The printed **Runoff (Preference) Matrix** *is* the summable artifact — the
@@ -37,11 +37,11 @@ the full ballot set centrally to run the rounds. Consequences:
 
 (This is one row on the method scorecard: *Summable / local tally? — STAR: yes,
 RCV-IRV: no.* See the flagship Segment 6 in
-[`whats_so_good_about_STAR_Voting.md`](../../interviews_conversations/whats_so_good_about_STAR_Voting.md).)
+[`whats_so_good_about_STAR_Voting.md`](../../../interviews_conversations/whats_so_good_about_STAR_Voting.md).)
 
 ## The nuance
 
 Summability is about the **tabulation**, not the ballot. A *ranked* ballot counted
 by a **Condorcet** method (Ranked Robin) is also summable via the same pairwise
 matrix — so "ranked = not summable" is wrong; it's **IRV's elimination count**
-specifically that isn't. (See [`TIPS_terminology.md`](../TIPS_terminology.md).)
+specifically that isn't. (See [`TIPS_terminology.md`](../../TIPS_terminology.md).)

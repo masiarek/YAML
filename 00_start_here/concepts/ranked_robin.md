@@ -23,11 +23,11 @@ Because it's computed entirely from the **pairwise matrix** (for each pair, how 
 | Precinct-summable? | ❌ No | ✅ Yes (add pairwise matrices) |
 | Exhausted ballots? | Possible | No — all rankings are read |
 
-The headline: the two things people *assume* "RCV" does — let you mark ties and compare candidates head-to-head — are exactly what **Ranked Robin** does and what **IRV does not**. (See [strict_vs_weak_ranks.md](./strict_vs_weak_ranks.md) and [irv_and_plurality.md](./irv_and_plurality.md).)
+The headline: the two things people *assume* "RCV" does — let you mark ties and compare candidates head-to-head — are exactly what **Ranked Robin** does and what **IRV does not**. (See [strict_vs_weak_ranks.md](./strict_vs_weak_ranks.md) and [irv_and_plurality.md](RCV_IRV/irv_and_plurality.md).)
 
 ## Why it matters
 
-Because it reads every ranking against every opponent, Ranked Robin elects the candidate **most voters prefer in head-to-head comparison** — the "consensus" / Condorcet winner — which is precisely the broadly-liked moderate that IRV can [center-squeeze](./center_squeeze.md) out. It's also **monotonic** and **summable** by adding precinct pairwise matrices, so it avoids two of IRV's biggest mechanical problems while keeping a familiar ranked ballot.
+Because it reads every ranking against every opponent, Ranked Robin elects the candidate **most voters prefer in head-to-head comparison** — the "consensus" / Condorcet winner — which is precisely the broadly-liked moderate that IRV can [center-squeeze](RCV_IRV/center_squeeze.md) out. It's also **monotonic** and **summable** by adding precinct pairwise matrices, so it avoids two of IRV's biggest mechanical problems while keeping a familiar ranked ballot.
 
 ## For balance — its limits
 
@@ -38,11 +38,11 @@ Ranked Robin isn't a cure-all. Like all ranked methods it captures **order only,
 ## Related concept pages
 
 - [Strict vs. weak ranks](./strict_vs_weak_ranks.md) — Ranked Robin allows equal ranks; IRV doesn't
-- [Center squeeze](./center_squeeze.md) — the failure RR avoids and IRV doesn't
-- [Is IRV "just plurality"?](./irv_and_plurality.md) — why IRV isn't pairwise
+- [Center squeeze](RCV_IRV/center_squeeze.md) — the failure RR avoids and IRV doesn't
+- [Is IRV "just plurality"?](RCV_IRV/irv_and_plurality.md) — why IRV isn't pairwise
 - [Scores vs. ranks](./scores_vs_ranks.md) — RR is still order-only, unlike STAR
 - [RCV-IRV vs. STAR (side-by-side)](./rcv_irv_vs_star.md)
-- [RCV vs. IRV vs. RCV-IRV — terminology](./RCV-IRV-confusing-name.md)
+- [RCV vs. IRV vs. RCV-IRV — terminology](./RCV_IRV/RCV-IRV-confusing-name.md)
 
 ## Learn more — external
 

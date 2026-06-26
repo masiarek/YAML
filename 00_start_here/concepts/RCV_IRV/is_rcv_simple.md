@@ -5,10 +5,10 @@ quietly borrowed for the whole method, when **IRV's count is the opposite of sim
 STAR keeps *both* halves simple — and its ballot carries strength of support on top of
 order.
 
-→ Builds on [`what_is_a_voting_method.md`](../../interviews_conversations/what_is_a_voting_method.md)
-(a method = ballot **+** count) · related: [`summability.md`](./summability.md),
+→ Builds on [`what_is_a_voting_method.md`](../../../interviews_conversations/what_is_a_voting_method.md)
+(a method = ballot **+** count) · related: [`summability.md`](../STAR_Voting/summability.md),
 [`monotonicity.md`](./monotonicity.md) · step-by-step trace of both counts:
-[`tabulation_star_vs_irv.md`](./tabulation_star_vs_irv.md) · Level **201**.
+[`tabulation_star_vs_irv.md`](../tabulation_star_vs_irv.md) · Level **201**.
 
 ---
 
@@ -43,7 +43,7 @@ all working against "simple":
 
 - **Not summable.** A precinct's IRV result doesn't compose with another's — you can't
   add subtotals, because who's eliminated depends on the *whole* electorate. So every
-  ballot has to travel to **one central count.** (See [`summability.md`](./summability.md).)
+  ballot has to travel to **one central count.** (See [`summability.md`](../STAR_Voting/summability.md).)
 - **Software-dependent and hard to hand-audit.** Rounds of transfers are not something
   poll workers reconcile on a precinct table; a recount means re-running the algorithm
   on all ballots at once.
@@ -58,7 +58,7 @@ tally.* That's the half "look how simple it is" leaves out.
 
 **The ballot — at least as easy to mark:**
 - 0–5 is the familiar **five-star** mental model (every rating app you already use).
-  (Why a score ballot differs from a rank ballot: [`scores_vs_ranks.md`](./scores_vs_ranks.md).)
+  (Why a score ballot differs from a rank ballot: [`scores_vs_ranks.md`](../scores_vs_ranks.md).)
 - You **rate each candidate on their own** — no forcing a complete strict order among a
   field of strangers ("is she my 4th or my 5th?").
 - **Equal scores are allowed** — you can say "I like these two the same" (the repo's
@@ -76,7 +76,7 @@ Two transparent steps you can do on a napkin and audit on a precinct table.
 
 ## See it — same winner, very different counts
 
-→ [`01_Single_winner/count_simplicity_star_vs_irv.yaml`](../../01_Single_winner/count_simplicity_star_vs_irv.yaml)
+→ [`01_Single_winner/count_simplicity_star_vs_irv.yaml`](../../../01_Single_winner/count_simplicity_star_vs_irv.yaml)
 (45 voters, 5 candidates). Carmen, the broad consensus, wins under **both** methods — so
 this isn't about who *should* win. It's about the *work the count takes.*
 
@@ -109,9 +109,9 @@ unfair.
 ---
 
 ## Cross-references
-- [`what_is_a_voting_method.md`](../../interviews_conversations/what_is_a_voting_method.md)
+- [`what_is_a_voting_method.md`](../../../interviews_conversations/what_is_a_voting_method.md)
   — the 101 ballot-vs-count distinction this stands on.
-- [`summability.md`](./summability.md) — why the IRV count can't be done locally.
+- [`summability.md`](../STAR_Voting/summability.md) — why the IRV count can't be done locally.
 - [`monotonicity.md`](./monotonicity.md) — why the IRV count can also be counterintuitive.
 - Roadmap: pairs with **Episode 6** (Benefits — *Simple*) and **Episode 8** (Counting &
   trust). Glossary: "Summability," "Tabulation," "Equal Support."

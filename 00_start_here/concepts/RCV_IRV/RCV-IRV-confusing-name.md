@@ -8,7 +8,7 @@
 
 > **Not even ranked:** Scoring methods like Approval Voting and STAR Voting are often lumped in with "RCV" too, but they don't use ranked ballots at all — voters score or approve candidates rather than ordering them — so they sit outside the ranked-voting family entirely.
 >
-> → See: [Scoring Methods vs. Ranked Voting (Approval & STAR)](./scoring-methods-vs-ranked-voting.md)
+> → See: [Scoring Methods vs. Ranked Voting (Approval & STAR)](../scoring-methods-vs-ranked-voting.md)
 
 The confusion is largely a **naming problem**. The same method goes by different labels across countries:
 
@@ -16,7 +16,7 @@ The confusion is largely a **naming problem**. The same method goes by different
 - **Alternative Vote (AV)** in the UK
 - **Preferential Voting** in Australia
 
-> **"Preferential Voting" is itself a misnomer.** *Every* voting method lets voters express preferences — approval, score, and STAR included — so the name claims a broad, general word for one specific method. Worse, in the everyday sense a "preference" includes *strength of feeling*, which a **score** captures but a strict **rank** discards — so the label attaches the wider concept to the narrower mechanism. See [`preference.md`](./preference.md).
+> **"Preferential Voting" is itself a misnomer.** *Every* voting method lets voters express preferences — approval, score, and STAR included — so the name claims a broad, general word for one specific method. Worse, in the everyday sense a "preference" includes *strength of feeling*, which a **score** captures but a strict **rank** discards — so the label attaches the wider concept to the narrower mechanism. See [`preference.md`](../preference.md).
 
 In the US specifically, the advocacy group FairVote popularized "Ranked Choice Voting" as an accessible brand for IRV starting in the early 2000s, and the label stuck — in journalism, legislation, and everyday speech, "RCV" now almost always means IRV. That's a misnomer, since IRV is just one of many ranked methods.
 
@@ -42,9 +42,9 @@ When in doubt in conversation, the safest opener is: *"Which form of ranked voti
 
 ## Related concept pages
 
-- [Strict vs. weak ranks](./strict_vs_weak_ranks.md) — RCV-IRV forbids equal ranks and isn't pairwise; other ranked methods differ
-- [Scores vs. ranks — don't confuse ranks and ratings](./scores_vs_ranks.md)
-- [Scoring methods vs. ranked voting](./scoring-methods-vs-ranked-voting.md)
+- [Strict vs. weak ranks](../strict_vs_weak_ranks.md) — RCV-IRV forbids equal ranks and isn't pairwise; other ranked methods differ
+- [Scores vs. ranks — don't confuse ranks and ratings](../scores_vs_ranks.md)
+- [Scoring methods vs. ranked voting](../scoring-methods-vs-ranked-voting.md)
 
 ## Learn more — in this library
 

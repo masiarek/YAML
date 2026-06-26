@@ -26,7 +26,7 @@ The second case is why the popular slogan is misleading even for voters whose ba
 - **All ranked candidates eliminated**, even on an otherwise full ballot.
 - **Marking issues, under some rules.** Depending on jurisdiction, an **overvote** (two candidates at one rank), a **skipped rank**, or a **repeated rank** may either be skipped over or may exhaust the ballot — the rules vary and are themselves a source of confusion.
 
-(See the taxonomy diagram in this folder: [`inactive_ballot_taxonomy.svg`](../inactive_ballot_taxonomy.svg).)
+(See the taxonomy diagram in this folder: [`inactive_ballot_taxonomy.svg`](./inactive_ballot_taxonomy.svg).)
 
 ## Why it matters
 
@@ -62,10 +62,10 @@ Scored methods sidestep exhaustion by design — a blank on a STAR/Score ballot 
 
 ## Related concept pages
 
-- [Is IRV "just plurality"?](../irv_and_plurality.md) — round-by-round elimination is what creates exhaustion
+- [Is IRV "just plurality"?](irv_and_plurality.md) — round-by-round elimination is what creates exhaustion
 - [Strict vs. weak ranks](../strict_vs_weak_ranks.md) — ranking limits and forbidden equal ranks feed exhaustion
-- [Center squeeze](../center_squeeze.md) — the related way IRV discards a broadly-liked candidate
-- [Monotonicity](../monotonicity.md) — why "your lower choices can't hurt you" isn't an absolute guarantee
+- [Center squeeze](center_squeeze.md) — the related way IRV discards a broadly-liked candidate
+- [Monotonicity](monotonicity.md) — why "your lower choices can't hurt you" isn't an absolute guarantee
 - [Tabulation, step by step](../tabulation_star_vs_irv.md)
 
 ## Learn more — in this library

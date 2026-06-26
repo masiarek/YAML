@@ -18,7 +18,7 @@ This shared DNA has real consequences. Because elimination ignores lower prefere
 
 - **center-squeeze** a broadly-liked moderate who has few *first* choices ([center_squeeze.md](./center_squeeze.md)),
 - behave **non-monotonically** ([monotonicity.md](./monotonicity.md)), and
-- discard ballot information through **[exhaustion](./RCV_IRV/RCV_IRV_exhausted_ballots.md)**.
+- discard ballot information through **[exhaustion](RCV_IRV_exhausted_ballots.md)**.
 
 So the honest, defensible sentence is: **"IRV inherits plurality's round-by-round blindness to lower preferences — that's why it isn't pairwise and can eliminate a Condorcet-strong moderate."**
 
@@ -40,16 +40,16 @@ Debora is the broadly-liked compromise candidate, yet she has the **fewest first
 
 ## And to keep it balanced
 
-Methods that avoid round-by-round elimination pay their own price. **STAR and Score fail Later-No-Harm and the Majority criterion** — a candidate a majority scores highest can still lose — and they invite **strategic min/max exaggeration**. No method escapes Gibbard–Satterthwaite. The fair claim isn't "IRV bad, STAR perfect"; it's that IRV's *elimination* mechanism has specific, well-documented failure modes that pairwise and scored methods handle differently. (See [scores_vs_ranks.md](./scores_vs_ranks.md) and [strict_vs_weak_ranks.md](./strict_vs_weak_ranks.md).)
+Methods that avoid round-by-round elimination pay their own price. **STAR and Score fail Later-No-Harm and the Majority criterion** — a candidate a majority scores highest can still lose — and they invite **strategic min/max exaggeration**. No method escapes Gibbard–Satterthwaite. The fair claim isn't "IRV bad, STAR perfect"; it's that IRV's *elimination* mechanism has specific, well-documented failure modes that pairwise and scored methods handle differently. (See [scores_vs_ranks.md](../scores_vs_ranks.md) and [strict_vs_weak_ranks.md](../strict_vs_weak_ranks.md).)
 
 ---
 
 ## Related concept pages
 
-- [Strict vs. weak ranks](./strict_vs_weak_ranks.md) — IRV is strict and not pairwise; other ranked methods differ
+- [Strict vs. weak ranks](../strict_vs_weak_ranks.md) — IRV is strict and not pairwise; other ranked methods differ
 - [Center squeeze](./center_squeeze.md) — the failure this critique points at
 - [Monotonicity](./monotonicity.md) — more support can hurt a candidate under IRV
-- [RCV vs. IRV vs. RCV-IRV — terminology](./RCV-IRV-confusing-name.md)
+- [RCV vs. IRV vs. RCV-IRV — terminology](RCV-IRV-confusing-name.md)
 
 ## Learn more — in this library
 

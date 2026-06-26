@@ -24,7 +24,7 @@ A rank answers *"which do you prefer?"* A score answers *"how much do you like e
 | Familiar from | A race: 1st, 2nd, 3rd | Amazon / movie **five-star** reviews |
 | Methods | RCV-IRV, STV, Condorcet (Ranked Robin), Borda | STAR, Score, Approval (0/1) |
 
-Because differences are meaningful only for scores, you can **average** scores (a column sum) but it makes no sense to "average" ranks. This is exactly why STAR is summable and IRV is not. (See [`summability.md`](./summability.md) and [`tabulation_star_vs_irv.md`](./tabulation_star_vs_irv.md).)
+Because differences are meaningful only for scores, you can **average** scores (a column sum) but it makes no sense to "average" ranks. This is exactly why STAR is summable and IRV is not. (See [`summability.md`](STAR_Voting/summability.md) and [`tabulation_star_vs_irv.md`](./tabulation_star_vs_irv.md).)
 
 ## Why "ranked" is about the *data*, not just the ballot
 
@@ -34,7 +34,7 @@ A common point of confusion: **Ranked Robin allows equal rankings, so why isn't 
 
 **Different winners from identical voters.** A candidate who wins under a ranked method can lose under a scored method on the very same electorate, because the two are measuring different things. Treating "ranked = scored" hides that.
 
-**Expressiveness.** A rank carries order only; a score carries order *and* how strongly you feel. A broadly-liked compromise candidate can look weak on first-choice ranks yet clearly strong on scores — which is part of why IRV suffers [center squeeze](./center_squeeze.md) and STAR doesn't.
+**Expressiveness.** A rank carries order only; a score carries order *and* how strongly you feel. A broadly-liked compromise candidate can look weak on first-choice ranks yet clearly strong on scores — which is part of why IRV suffers [center squeeze](RCV_IRV/center_squeeze.md) and STAR doesn't.
 
 **You can go one way but not the other.** Scores → ranks is easy (just read off the order). Ranks → scores is **impossible** without inventing information, because the strength was never collected.
 
@@ -46,10 +46,10 @@ A common point of confusion: **Ranked Robin allows equal rankings, so why isn't 
 
 - [Strict vs. weak ranks](./strict_vs_weak_ranks.md) — equal ranks & pairwise comparison: which ranked methods allow them (IRV doesn't)
 - [Scoring methods vs. ranked voting](./scoring-methods-vs-ranked-voting.md) — why Approval & STAR sit *outside* the RCV family
-- [Is RCV "simple"? (201)](./is_rcv_simple.md) — the five-star mental model vs. ordering strangers
+- [Is RCV "simple"? (201)](RCV_IRV/is_rcv_simple.md) — the five-star mental model vs. ordering strangers
 - [Tabulation, step by step](./tabulation_star_vs_irv.md) — the same ballots counted as scores vs. ranks
-- [Center squeeze](./center_squeeze.md) — how order-only ballots can bury a strong compromise candidate
-- [RCV vs. IRV vs. RCV-IRV — terminology](./RCV-IRV-confusing-name.md)
+- [Center squeeze](RCV_IRV/center_squeeze.md) — how order-only ballots can bury a strong compromise candidate
+- [RCV vs. IRV vs. RCV-IRV — terminology](./RCV_IRV/RCV-IRV-confusing-name.md)
 
 ## Learn more
 
