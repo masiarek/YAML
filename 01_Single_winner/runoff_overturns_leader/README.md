@@ -95,6 +95,18 @@ A related point: because your runoff vote is decided by the scores you already g
 you never have to lowball a candidate to "protect" your favorite. Scoring honestly is
 also the smart strategy.
 
+## How often does it happen? (301)
+
+Often enough to matter — but the exact rate depends entirely on your modelling
+assumptions, which is a lesson in itself. A brute-force simulation
+([`simulations/runoff_reversal_simulation.py`](../../simulations/runoff_reversal_simulation.py))
+measures it: under a realistic *spatial* electorate of ~100 voters, a clean Runoff
+Reversal happens in roughly **1 election in 11**; under white-noise *Impartial
+Culture* it's higher, and at tiny electorates the figure is dominated by ties. The
+takeaway for a debate: never quote a bare percentage without naming the model, the
+electorate size, and how ties were counted. Full writeup:
+[`simulations/README.md`](../../simulations/README.md#runoff-reversal-frequency-simulation).
+
 ## Run them yourself
 
 From the engine directory:

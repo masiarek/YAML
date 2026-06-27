@@ -1,4 +1,15 @@
-# Favorite-Betrayal simulation
+# Simulations — measure it, don't guess it
+
+This folder holds brute-force simulations that **measure** a claim instead of citing a
+number we can't defend. Two rules — each a 301-level lesson in its own right: **always
+report the model and parameters with any number**, and **never let an arbitrary
+tiebreaker silently inflate a result**.
+
+- **Favorite-Betrayal (FBC)** — `fbc_simulation.py` (below).
+- **Runoff Reversal frequency** — `runoff_reversal_simulation.py`
+  ([jump to section](#runoff-reversal-frequency-simulation)).
+
+## Favorite-Betrayal (FBC) simulation
 
 `fbc_simulation.py` measures, by brute force over many random elections, how often
 **STAR** and **RCV-IRV** actually satisfy the **Favorite Betrayal Criterion (FBC)** —
@@ -93,3 +104,73 @@ favorite betrayal; ratio = help : hurt over all betrayal ballots.)
 - The works:backfires denominator includes every possible betrayal, so it understates how
   often a *well-chosen* strategy pays (and is not Quinn's VSE pipeline).
 - Results are model-dependent. **Always report the model and parameters with the number.**
+
+---
+
+## Runoff Reversal frequency simulation
+
+`runoff_reversal_simulation.py` measures how often a **Runoff Reversal** happens — the
+Scoring-Round leader losing the Automatic Runoff (the phenomenon taught in
+[`runoff_overturns_leader/`](../01_Single_winner/runoff_overturns_leader/README.md)).
+
+### Why this exists
+
+A simulation once reported *"16.9% divergence"* under Impartial Culture with 5
+candidates and **10 ballots**. That number is reproducible — and, on its own,
+misleading. This script makes three hidden assumptions visible:
+
+1. **The model is white noise.** Impartial Culture makes every score independent and
+   uniform, so `5,5,5,5,5` is as likely as a realistic ballot. Real electorates are
+   *correlated*, and correlation makes the score leader and the majority winner agree
+   far more often — so the realistic reversal rate is much lower.
+2. **10 ballots is mostly ties.** At that size ~24% of elections have a tie for the
+   top-two-by-score and ~14% have a tied runoff — nearly **40% are tie-ambiguous**.
+3. **An arbitrary tiebreaker inflated the count.** The original picked the "score
+   winner" by alphabetical order but broke STAR ties by *reverse* alphabetical order;
+   when those two arbitrary rules disagreed it was logged as a "divergence." The
+   genuine clean-reversal rate at that size is ~9–10%, not 17%.
+
+### What it measures
+
+Each election lands in exactly one of four buckets, so ties are **counted, not
+hidden**: `reversal` (clean), `runoff_tie`, `finalist_score_tie`, `no_reversal`. Two
+electorate models run by default — **impartial** (white-noise stress test) and
+**spatial** (realistic, correlated). Everything is seeded; `--selftest` checks the
+classifier on hand-built reversal / no-reversal / tie cases.
+
+### Running it
+
+```bash
+python3 runoff_reversal_simulation.py --selftest
+python3 runoff_reversal_simulation.py --elections 300000 --voters 21 --candidates 5
+```
+
+### Representative results (5 candidates, seed 42)
+
+| model | voters | clean reversal | runoff tie | finalist score tie | no reversal |
+|-------|:---:|:---:|:---:|:---:|:---:|
+| impartial | 10  | 9.5%  | 14.3% | 23.6% | 52.6% |
+| spatial   | 10  | 6.2%  | 12.2% | 14.0% | 67.6% |
+| impartial | 21  | 13.2% | 11.0% | 16.8% | 59.0% |
+| spatial   | 21  | 8.7%  | 6.2%  | 7.2%  | 77.9% |
+| impartial | 101 | 18.6% | 5.7%  | 8.1%  | 67.5% |
+| spatial   | 101 | 9.0%  | 1.8%  | 1.6%  | 87.7% |
+
+### What this means
+
+1. **There is no single "reversal rate."** It depends on the model (impartial ≈ 2×
+   spatial) and on electorate size (it *rises* as ties vanish with more voters).
+2. **Report the model.** Under the realistic spatial model with a real electorate
+   (101 voters), clean Runoff Reversals are ~9% — not the ~17% the 10-ballot toy
+   setup implied.
+3. **It's still common enough to matter.** Even on the conservative spatial model it's
+   ~1 election in 11 — which is exactly *why* Runoff Reversal is worth teaching. The
+   runoff isn't catching a rare freak case; it's a regular, deliberate correction.
+
+### Caveats (read before quoting)
+
+- Sincere ballots only — no strategy.
+- Spatial model is 2-D uniform; real issue spaces are lumpier (clusters, polarization).
+- "Reversal" here is score-leader-vs-runoff only; it says nothing about the Condorcet
+  winner (see [Three notions of "winner"](../00_start_here/concepts/STAR_Voting/STAR_three_winner_notions.md)).
+- **Always report the model, the size, and the tie split with the number.**
