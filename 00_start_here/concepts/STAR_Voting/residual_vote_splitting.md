@@ -6,7 +6,7 @@ support. What survives is a **narrow, self-inflicted** residual in the top-two
 runoff: a faction can still split itself if it refuses to use the score ballot, or
 tries to game which ally claims the second finalist slot.
 
-→ Glossary: [`spoiler effect`](../../GLOSSARY.md) · related: [`center_squeeze.md`](../RCV_IRV/center_squeeze.md)
+→ Glossary: [`spoiler effect`](../../GLOSSARY.md) · related: [`RCV_IRV_center_squeeze.md`](../RCV_IRV/RCV_IRV_center_squeeze.md)
 · debate version: [`favorite_betrayal_voting_301.md`](../../../interviews_conversations/favorite_betrayal_voting_301.md)
 
 ---
@@ -70,7 +70,7 @@ side.
   stays your safest ballot.
 
 Same root cause as STAR's [favorite-betrayal](../../../interviews_conversations/favorite_betrayal_voting_301.md)
-and [center-squeeze](../RCV_IRV/center_squeeze.md) edge cases: all three come from "only the
+and [center-squeeze](../RCV_IRV/RCV_IRV_center_squeeze.md) edge cases: all three come from "only the
 top two advance."
 
 ## How to say it honestly

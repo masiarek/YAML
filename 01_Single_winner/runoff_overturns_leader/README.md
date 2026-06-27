@@ -3,12 +3,17 @@
 This is STAR's single most important lesson — the one BetterVoting itself asks about
 when it pops up *"Why is the top-scoring candidate different from the winner?"*
 
-The short answer is in the name. **STAR = Score Then Automatic Runoff.** The count has
-just two steps:
+**The name for it:** we call this a **Runoff Reversal** — the Scoring-Round leader
+*loses* the Automatic Runoff to the finalist more voters prefer. (In technical or
+debate writing, the precise phrasing is "the runoff overturns the score leader," to
+avoid colliding with *reversal symmetry* in social-choice theory.)
 
-1. **Score round.** Add every candidate's stars. The two highest-scoring candidates
-   become the **finalists**.
-2. **Automatic runoff.** Now look only at those two. Each ballot's *full* vote goes to
+The short answer is in the name of the method. **STAR = Score Then Automatic Runoff.**
+The count has just two steps:
+
+1. **Scoring Round.** Add every candidate's stars. The two highest-scoring candidates
+   become the **Finalists**.
+2. **Automatic Runoff.** Now look only at those two. Each ballot's *full* vote goes to
    whichever finalist it scored higher. The finalist more voters prefer wins.
 
 That second step is the whole point. The candidate with the biggest pile of stars is

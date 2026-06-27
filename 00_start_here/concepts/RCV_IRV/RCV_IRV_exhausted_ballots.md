@@ -62,9 +62,9 @@ Scored methods sidestep exhaustion by design — a blank on a STAR/Score ballot 
 
 ## Related concept pages
 
-- [Is IRV "just plurality"?](irv_and_plurality.md) — round-by-round elimination is what creates exhaustion
+- [Is IRV "just plurality"?](RCV_IRV_and_plurality.md) — round-by-round elimination is what creates exhaustion
 - [Strict vs. weak ranks](../strict_vs_weak_ranks.md) — ranking limits and forbidden equal ranks feed exhaustion
-- [Center squeeze](center_squeeze.md) — the related way IRV discards a broadly-liked candidate
+- [Center squeeze](RCV_IRV_center_squeeze.md) — the related way IRV discards a broadly-liked candidate
 - [Monotonicity](./RCV_IRV_non_monotonicity.md) — why "your lower choices can't hurt you" isn't an absolute guarantee
 - [Tabulation, step by step](../tabulation_star_vs_irv.md)
 

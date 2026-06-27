@@ -78,7 +78,7 @@ _Last full review: 2026-06-21._
 
 ## RCV-IRV center-squeeze & polarization source notes (research)
 
-> **RCV-IRV-specific / context** — research behind `concepts/center_squeeze.md`.
+> **RCV-IRV-specific / context** — research behind `concepts/RCV_IRV_center_squeeze.md`.
 
 | Short name | Purpose | URL | Last reviewed |
 |------------|---------|-----|---------------|

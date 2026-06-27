@@ -32,9 +32,9 @@ properties live in [`STAR_Voting/`](./STAR_Voting/).
 | Concept | One line | Page |
 |---------|----------|------|
 | **RCV is a confusing name** | "RCV" is an umbrella for many ranked methods; in the US it usually means RCV-IRV (Hare) | [RCV-IRV-confusing-name.md](./RCV_IRV/RCV-IRV-confusing-name.md) |
-| **Is IRV "just plurality"?** | the defensible kernel (round-by-round first-choice elimination) vs. the overclaim | [irv_and_plurality.md](./RCV_IRV/irv_and_plurality.md) |
-| **Is RCV "simple"? (201)** | ranking is simple to *mark*; IRV's *count* isn't | [is_rcv_simple.md](./RCV_IRV/is_rcv_simple.md) |
-| **Center squeeze** | a broadly-liked moderate eliminated early under IRV; STAR avoids it | [center_squeeze.md](./RCV_IRV/center_squeeze.md) |
+| **Is IRV "just plurality"?** | the defensible kernel (round-by-round first-choice elimination) vs. the overclaim | [RCV_IRV_and_plurality.md](./RCV_IRV/RCV_IRV_and_plurality.md) |
+| **Is RCV "simple"? (201)** | ranking is simple to *mark*; IRV's *count* isn't | [RCV_IRV_is_simple.md](./RCV_IRV/RCV_IRV_is_simple.md) |
+| **Center squeeze** | a broadly-liked moderate eliminated early under IRV; STAR avoids it | [RCV_IRV_center_squeeze.md](./RCV_IRV/RCV_IRV_center_squeeze.md) |
 | **IRV non-monotonicity** | under IRV, *more* first-choice support can make the winner **lose** | [RCV_IRV_non_monotonicity.md](./RCV_IRV/RCV_IRV_non_monotonicity.md) |
 | **Exhausted ballots** | a validly-cast ranked ballot can stop counting; IRV's "majority" is of active ballots | [RCV_IRV_exhausted_ballots.md](./RCV_IRV/RCV_IRV_exhausted_ballots.md) |
 | **IRV isn't summable** | the winner depends on elimination order, so every ballot must be counted centrally | [RCV_IRV_lack_of_summability.md](./RCV_IRV/RCV_IRV_lack_of_summability.md) |
@@ -43,7 +43,9 @@ properties live in [`STAR_Voting/`](./STAR_Voting/).
 
 | Concept | One line | Page |
 |---------|----------|------|
-| **Top scorer ≠ winner (the runoff)** | the score round picks two finalists; the automatic runoff lets the *majority-preferred* finalist win — even with fewer total stars | [runoff_overturns_leader/](../../01_Single_winner/runoff_overturns_leader/README.md) |
+| **STAR's hybrid nature** | expressive scoring to find the finalists + a majority runoff to pick the winner — the design the rest of these pages build on | [STAR_hybrid_nature.md](./STAR_Voting/STAR_hybrid_nature.md) |
+| **Runoff Reversal — top scorer ≠ winner** | the Scoring Round picks two finalists; the Automatic Runoff lets the *majority-preferred* finalist win — even with fewer total stars | [runoff_overturns_leader/](../../01_Single_winner/runoff_overturns_leader/README.md) |
+| **Three notions of "winner"** | Condorcet vs Score vs Runoff can name three different candidates in one election | [STAR_three_winner_notions.md](./STAR_Voting/STAR_three_winner_notions.md) |
 | **STAR is monotone** | raising a candidate's score can never make them lose — the failure IRV has, STAR doesn't | [STAR_monotonicity.md](./STAR_Voting/STAR_monotonicity.md) |
 | **STAR is summable** | tally by adding independent precinct totals; precinct-auditable, meaningful partials | [STAR_summability.md](./STAR_Voting/STAR_summability.md) |
 | **Residual vote-splitting** | STAR ends *forced* splitting; the narrow leftover is self-inflicted bullet-voting / the chicken dilemma | [residual_vote_splitting.md](./STAR_Voting/residual_vote_splitting.md) |

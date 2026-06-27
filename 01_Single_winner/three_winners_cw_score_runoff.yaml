@@ -1,0 +1,40 @@
+election_title: Three notions of "winner" disagree — Condorcet, Score, and Runoff
+scenario_description: |-
+  One tiny election, three different "winners" depending on what you mean by the word.
+  Five voters, three candidates (Ann, Bob, Carl):
+
+   - Condorcet winner = ANN — she beats both Bob and Carl one-on-one (3 of 5 prefer
+     her each time). The "beats everyone head-to-head" winner.
+   - Score winner = CARL — he has the most total stars (19). The "highest intensity /
+     utility favorite" winner.
+   - STAR winner = BOB — the Scoring Round sends the top two (Carl 19, Bob 18) to the
+     Automatic Runoff, and a 3-2 majority prefers Bob there. The "broad compromise the
+     majority actually picks between the finalists" winner.
+
+  No method is malfunctioning — they optimize for different things. STAR deliberately
+  lands on Bob: it uses scores to FIND the finalists, then a majority runoff to CHOOSE
+  between them. (Ann is shut out only because she's edged for second place in the
+  scoring round — a reminder STAR is not a Condorcet method, by design.)
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: true
+  show_score_counts: false
+  show_irv: false
+  brief: true
+  collapse_ballots: true
+  count_separator: "×"
+voting_method: STAR
+num_winners: 1
+ballots: |-
+  Ann, Bob, Carl
+    5,   4,    3
+    5,   4,    3
+    5,   4,    3
+    0,   3,    5
+    0,   3,    5
+expected_winners:
+  - Bob
+
+# file: three_winners_cw_score_runoff.yaml
