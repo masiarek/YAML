@@ -67,6 +67,7 @@ the control case where the leader **wins** (so you can see the runoff isn't rigg
 | [`02_c5_b5_leader-overturned`](./02_c5_b5_leader-overturned.yaml) | 5 cand, 5 voters | Austin leads 22 stars, **Boston** (the broad compromise) wins the runoff 3–2 |
 | [`03_c7_b3_ice-cream-live`](./03_c7_b3_ice-cream-live.yaml) | 7 cand, 3 voters | The real race: ChocoDrk leads 9, **ChocoAlm** wins 2–1 |
 | [`04_c4_b3_runoff-confirms-leader`](./04_c4_b3_runoff-confirms-leader.yaml) | 4 cand, 3 voters | **Control:** Blue leads *and* wins — the runoff confirms the leader |
+| [`05_c3_b5_low-scores-bv1265`](./05_c3_b5_low-scores-bv1265.yaml) | 3 cand, 5 voters | A *real* BetterVoting election with all-low scores: C leads (7), **A** wins the runoff 3–2 |
 
 Two more, in the main folder, push the field even wider:
 
@@ -96,6 +97,18 @@ candidates — and in that case majority preference is exactly what you want to 
 A related point: because your runoff vote is decided by the scores you already gave,
 you never have to lowball a candidate to "protect" your favorite. Scoring honestly is
 also the smart strategy.
+
+## Going deeper — read the full count (201)
+
+Everything above is the *minimal* view: scores → finalists → runoff → winner, which is
+all a first-time voter needs. But every example here also writes a complete **audit
+report** to its `_tabulated.txt` sibling (in `runoff_overturns_leader_tabulated/`) — the
+pairwise **preference matrix**, the **score distribution**, and the engine's
+plain-English **Majority Preference** block stating exactly which candidate led on score
+and which won the runoff. Learning to read that report is **Voting 201**: see
+[CURRICULUM 201.1 — Reading the results](../../00_start_here/CURRICULUM.md) and the
+step-by-step [STAR vs RCV-IRV count](../../00_start_here/concepts/tabulation_star_vs_irv.md).
+Don't put the full report in front of a 101 beginner — point them here when they're ready.
 
 ## How often does it happen? (301)
 

@@ -61,6 +61,12 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 - **Key terms:** preference matrix, For/Equal/Against, Condorcet winner, summability, score distribution.
 - **Files:** `01_Single_winner/04*` with `options: { show_matrix, show_condorcet }`.
 - **Emphasize:** the pairwise matrix is the auditable, precinct-summable heart.
+- **The full audit report:** the generated `_tabulated.txt` siblings carry the complete
+  engine report (matrix + score distribution + the plain-English *Majority Preference*
+  block). The Runoff Reversal lesson (101.3) shows the *minimal* on-screen view; reading
+  the **full** report of those same elections (e.g.
+  `01_Single_winner/runoff_overturns_leader_tabulated/`) is the 201 skill — and *why* the
+  on-screen echo is minimal by default (don't overwhelm a beginner).
 
 ## 201.2 — Edge cases & trust
 - **Key terms:** unanimous ballots, ties / tiebreaker, abstention, equal-max ballot.
@@ -112,6 +118,17 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 ## 301.5 — The vote-splitting formula (blocs)
 - **Objective:** Confirm a spoiler in numbers for a declared bloc.
 - **Material:** the `blocs:` field + `[Vote-splitting check]` (see the engine); `split_voting/`.
+
+## 301.6 — When Condorcet, Score, and Runoff disagree (and how often)
+- **Objective:** "Winner" isn't one thing — three reasonable definitions can name three
+  different candidates; STAR targets the runoff winner *by design* (it is not a Condorcet method).
+- **Material:** `concepts/STAR_Voting/STAR_three_winner_notions.md` (CW = Ann, Score = Carl,
+  Runoff = Bob); builds on the 101 Runoff Reversal lesson `01_Single_winner/runoff_overturns_leader/`.
+- **Frequency:** `simulations/runoff_reversal_simulation.py` measures how often score and
+  runoff diverge — and shows the rate swings with the model (impartial vs spatial), the
+  electorate size, and the tie rule. **Lesson: never quote a rate without the model + size + tie split.**
+- **Emphasize:** the methodological habit (measure it, report the assumptions) is as much
+  the point as the numbers.
 
 ## 301.6 — "Exhausted ballots": what FairVote's word hides
 - **Objective:** Untangle the overloaded RCV-IRV term — separate the fair, voter-side

@@ -1,13 +1,22 @@
 ======================================================================
-SOURCE FILE:     temp_trash.yaml
-SOURCE MODIFIED: 2026-06-26 20:52:59
-TABULATED FILE:  temp_trash_tabulated.txt
-TABULATED AT:    2026-06-26 20:52:59
+SOURCE FILE:     05_c3_b5_low-scores-bv1265.yaml
+SOURCE MODIFIED: 2026-06-27 00:50:29
+TABULATED FILE:  05_c3_b5_low-scores-bv1265_tabulated.txt
+TABULATED AT:    2026-06-27 00:50:29
 ======================================================================
 
-voting_method: STAR   # STAR Voting - Single-winner
-num_winners: 1
+election_title: Low scores, switched winner — the popover example (BetterVoting BV1265)
+scenario_description: |-
+  A real BetterVoting election (the one whose result pops up the "Why is the top
+  scoring candidate different from the winner?" note). It's a Runoff Reversal where
+  every score is LOW — proof the effect isn't about big enthusiasm gaps.
 
+  Five voters, three candidates. C tops the Scoring Round with just 7 stars (A 6,
+  B 4). The Finalists are C and A. In the Automatic Runoff, 3 of 5 voters prefer A
+  to C, so A wins 60% to 40% — the score leader C is overturned.
+
+  See the plain-language explainer (and the fix for BetterVoting's popover wording)
+  in explaining_to_voters.md.
 options:
   show_description: false
   show_matrix: true
@@ -16,21 +25,37 @@ options:
   show_score_counts: false
   show_irv: false
   brief: true
-  collapse_ballots: false
+  collapse_ballots: true
   count_separator: "×"
+voting_method: STAR
+num_winners: 1
 ballots: |-
-  A,B,C
-  0,0,4
-  2,0,0
-  0,2,3
-  2,0,0
-  2,2,0
+  A, B, C
+  0, 0, 4
+  2, 0, 0
+  0, 2, 3
+  2, 0, 0
+  2, 2, 0
+expected_winners:
+  - A
 
-# file: temp_trash.yaml
+# file: 05_c3_b5_low-scores-bv1265.yaml
 
 ======================================================================
 TABULATION RESULTS
 ======================================================================
+
+=== Low scores, switched winner — the popover example (BetterVoting BV1265) ===
+  A real BetterVoting election (the one whose result pops up the "Why is the top
+  scoring candidate different from the winner?" note). It's a Runoff Reversal where
+  every score is LOW — proof the effect isn't about big enthusiasm gaps.
+
+  Five voters, three candidates. C tops the Scoring Round with just 7 stars (A 6,
+  B 4). The Finalists are C and A. In the Automatic Runoff, 3 of 5 voters prefer A
+  to C, so A wins 60% to 40% — the score leader C is overturned.
+
+  See the plain-language explainer (and the fix for BetterVoting's popover wording)
+  in explaining_to_voters.md.
 
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison

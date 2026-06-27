@@ -8,6 +8,9 @@ opposite meaning in STAR. This page is the clean version to use instead.
 
 → The full lesson with worked examples: [`README.md`](./README.md).
 Glossary: [`Runoff Reversal`](../../00_start_here/GLOSSARY.md).
+The exact election behind this popover is reproduced in
+[`05_c3_b5_low-scores-bv1265.yaml`](./05_c3_b5_low-scores-bv1265.yaml) (a *low-score*
+reversal: C leads the Scoring Round with just 7 stars, but A wins the runoff 3–2).
 
 ---
 
