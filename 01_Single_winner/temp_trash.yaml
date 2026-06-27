@@ -12,11 +12,9 @@ options:
   collapse_ballots: false
   count_separator: "×"
 ballots: |-
-  A,B,C
-  0,0,4
-  2,0,0
-  0,2,3
-  2,0,0
-  2,2,0
+            Apple  Berry  Cherry
+  voter1    5      4      0
+  voter2    5      0      2
+  voter3    1      5      3
 
 # file: temp_trash.yaml

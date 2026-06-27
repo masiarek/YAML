@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     temp_trash.yaml
-SOURCE MODIFIED: 2026-06-26 20:52:59
+SOURCE MODIFIED: 2026-06-27 19:18:10
 TABULATED FILE:  temp_trash_tabulated.txt
-TABULATED AT:    2026-06-26 20:52:59
+TABULATED AT:    2026-06-27 19:19:00
 ======================================================================
 
 voting_method: STAR   # STAR Voting - Single-winner
@@ -19,12 +19,10 @@ options:
   collapse_ballots: false
   count_separator: "×"
 ballots: |-
-  A,B,C
-  0,0,4
-  2,0,0
-  0,2,3
-  2,0,0
-  2,2,0
+  Apple, Banana, Cherry
+  5, 4, 0
+  5, 0, 2
+  1, 5, 3
 
 # file: temp_trash.yaml
 
@@ -36,54 +34,42 @@ TABULATION RESULTS
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
         * indicates Top 2 Finalist
-               |    * A     |     B     |   * C     |
+               |  * Apple   | * Banana  |   Cherry  |
 -----------------------------------------------------
-         * A > |    ---     |2 - 2 - 1  |3 - 0 - 2  |
-           B > | 1 - 2 - 2  |   ---     |1 - 2 - 2  |
-         * C > | 2 - 0 - 3  |2 - 2 - 1  |   ---     |
+     * Apple > |    ---     |2 - 0 - 1  |2 - 0 - 1  |
+    * Banana > | 1 - 0 - 2  |   ---     |2 - 0 - 1  |
+      Cherry > | 1 - 0 - 2  |1 - 0 - 2  |   ---     |
 
 [Condorcet Winner]
-  Condorcet Winner: A — matches the STAR winner
-
-[Divergence from STAR]
-  STAR     = A
-  Approval = C   (differs from STAR)
-
-Majority Preference Enforcement Principle:
- - Score Round Winner(s) = (C)
-  - Runoff Round Winner = (A)
-  Candidate C earned the highest total score,
-  but Candidate A won the automatic runoff by being the head-to-head majority favorite.
-
+  Condorcet Winner: Apple — matches the STAR winner
 
 --- STAR Voting Method (single winner) ---
 [STAR Voting]
- Tabulating 5 ballots.
-Count × A,B,C
-    2 × 2,0,0
-    1 × 0,0,4
-    1 × 0,2,3
-    1 × 2,2,0
+ Tabulating 3 ballots.
+Apple,Banana,Cherry
+    5,     4,     0
+    5,     0,     2
+    1,     5,     3
 
 [Score Distribution] (number of ballots giving each score)
-    5   4   3   2   1   0  | Total   Avg
-A   0   0   0   3   0   2  |     6   1.2
-B   0   0   0   2   0   3  |     4   0.8
-C   0   1   1   0   0   3  |     7   1.4
+         5   4   3   2   1   0  | Total   Avg
+Apple    2   0   0   0   1   0  |    11   3.7
+Banana   1   1   0   0   0   1  |     9   3.0
+Cherry   0   0   1   1   0   1  |     5   1.7
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
-   C             -- 7 -- First place
-   A             -- 6 -- Second place
-   B             -- 4
- C and A advance.
+   Apple         -- 11 -- First place
+   Banana        -- 9 -- Second place
+   Cherry        -- 5
+ Apple and Banana advance.
 
 [STAR Voting: Automatic Runoff Round]
  The candidate preferred in the most head-to-head matchups wins.
-   A             -- 3 -- First place
-   C             -- 2
+   Apple         -- 2 -- First place
+   Banana        -- 1
    Equal Support -- 0
- A wins.
+ Apple wins.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
- A
+ Apple

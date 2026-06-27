@@ -237,7 +237,7 @@ def _yaml_lite(text):
 
 
 KEY_COMPONENTS_HELP = """\
-A STAR election file needs three things:
+An election file (in YAML format) needs three things:
   - voting_method : STAR (default) | Approval | bloc | sss | rrv | allocated | RCV_IRV
   - num_winners   : how many seats to fill (1 = single-winner)
   - ballots       : a 0-5 score grid -- a header row of candidate names, then one
@@ -290,7 +290,11 @@ def load_election(path, race_index=0):
             where = (f" near line {mark.line + 1}, column {mark.column + 1}"
                      if mark is not None else "")
             problem = (getattr(e, "problem", None) or "invalid YAML syntax").strip()
+            # Reference template first, then the specific error LAST — a terminal
+            # shows the final lines closest to the prompt, so the file-specific
+            # message is the most visible thing after the scroll.
             print(
+                KEY_COMPONENTS_HELP + "\n"
                 f"Error: could not parse '{p.name}'{where} — {problem}.\n"
                 "       Most common cause: the ballots grid must sit under a literal\n"
                 "       block scalar — write `ballots: |-` and indent every row beneath\n"
@@ -377,7 +381,7 @@ def load_election(path, race_index=0):
         METHOD_BY_NAME.get(str(method_name).strip().lower()) if method_name else None
     )
     return {
-        "ballots": ballots_text,
+        "ballots": _normalize_ballot_separators(ballots_text),
         "seats": seats,
         "method": method,
         "method_name": method_name,
@@ -474,6 +478,43 @@ def write_tabulated_copy(src_path, output_text):
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(strip_ansi(output_text), encoding="utf-8")
     return out_path
+
+
+def _normalize_ballot_separators(text):
+    """Forgive the one common copy-paste mistake: a ballots grid separated by
+    *spaces* instead of commas/tabs (e.g. an aligned slide table). When the block
+    is unambiguous, rewrite it to comma-separated so the normal parser accepts it;
+    otherwise leave it untouched so the parser reports the error.
+
+    Acts only when (a) no content line already has a comma or tab, and (b) the
+    header and every data row split into the SAME number of whitespace tokens —
+    so a multi-word candidate name can never be silently split apart.
+
+    (Deliberately NOT a general delimiter-sniffer: comma is the one canonical
+    format, space-alignment is the one mistake worth auto-fixing, and everything
+    else gets a clear error rather than clever guessing.)
+    """
+    if not text:
+        return text
+    raw = text.split("\n")
+    content = []  # (line_index, comment-stripped content) for non-blank lines
+    for i, ln in enumerate(raw):
+        body = ln if ln.strip().startswith("#,") else ln.split("#", 1)[0]
+        s = body.strip()
+        if s:
+            content.append((i, s))
+    if len(content) < 2:
+        return text
+    if any(("," in s or "\t" in s) for _, s in content):
+        return text  # already delimited — don't touch it
+    token_lists = [(i, s.split()) for i, s in content]
+    counts = {len(toks) for _, toks in token_lists}
+    if len(counts) != 1 or counts == {1}:
+        return text  # ragged columns (e.g. multi-word names) — let parser error
+    out = list(raw)
+    for i, toks in token_lists:
+        out[i] = ", ".join(toks)
+    return "\n".join(out)
 
 
 def parse_ballots_from_string(ballot_string):
@@ -874,8 +915,8 @@ def tabulate_approval(ballots_text, seats=1, priority=None):
 
     candidates, ballots, _ = parse_ballots_from_string(ballots_text)
     if not ballots:
-        print("Error: No valid ballots found in input.")
-        return
+        print("Error: No valid ballots found in input.\n       Separate columns with commas (recommended), tabs, or consistent spaces —\n       e.g. a header 'A, B, C' then rows like '5, 4, 0'. Other delimiters (like\n       '|' or ';') aren't supported, and every row needs the same number of\n       values as the header.")
+        sys.exit(1)
 
     counts = {c: sum(1 for b in ballots if b.get(c, 0) > 0) for c in candidates}
     order = [c for c in (priority or candidates) if c in candidates]
@@ -1559,6 +1600,10 @@ def run_election(
             print(f"    ballot {_i}: {_line}   ({_reason})")
         print(f"  Accepted marks: 0..5, blank, or a marker "
               f"({', '.join(MARKER_MEANINGS)}).")
+        if any("value(s), expected" in _r for _, _, _r in _star_problems):
+            print("  Tip: use the SAME separator for the header and every row — commas\n"
+                  "       (or tabs), e.g. 'A, B, C' then '5, 4, 0'. Mixing commas and\n"
+                  "       spaces is the usual cause of a wrong value count.")
         sys.exit(1)
 
     # Parse once, return both headers and parsed ballots
@@ -1577,8 +1622,8 @@ def run_election(
                 "<this_file>.yaml"
             )
         else:
-            print("Error: No valid ballots found in input.")
-        return
+            print("Error: No valid ballots found in input.\n       Separate columns with commas (recommended), tabs, or consistent spaces —\n       e.g. a header 'A, B, C' then rows like '5, 4, 0'. Other delimiters (like\n       '|' or ';') aren't supported, and every row needs the same number of\n       values as the header.")
+        sys.exit(1)
 
     # Validate declared blocs against the ballot candidates, so a typo or a
     # candidate not on the ballot errors instead of being silently dropped.
