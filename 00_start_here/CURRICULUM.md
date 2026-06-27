@@ -67,6 +67,9 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
   the **full** report of those same elections (e.g.
   `01_Single_winner/runoff_overturns_leader_tabulated/`) is the 201 skill — and *why* the
   on-screen echo is minimal by default (don't overwhelm a beginner).
+- **Worked walkthrough:** [`concepts/STAR_Voting/reading_a_star_report.md`](./concepts/STAR_Voting/reading_a_star_report.md)
+  — a full LH report (BV1265) annotated section by section, with a "show which parts to
+  101 / 201 / 301" table.
 
 ## 201.2 — Edge cases & trust
 - **Key terms:** unanimous ballots, ties / tiebreaker, abstention, equal-max ballot.

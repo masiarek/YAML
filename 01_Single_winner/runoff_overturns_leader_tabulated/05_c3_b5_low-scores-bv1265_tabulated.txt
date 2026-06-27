@@ -2,7 +2,7 @@
 SOURCE FILE:     05_c3_b5_low-scores-bv1265.yaml
 SOURCE MODIFIED: 2026-06-27 00:50:29
 TABULATED FILE:  05_c3_b5_low-scores-bv1265_tabulated.txt
-TABULATED AT:    2026-06-27 00:50:29
+TABULATED AT:    2026-06-27 01:09:35
 ======================================================================
 
 election_title: Low scores, switched winner — the popover example (BetterVoting BV1265)

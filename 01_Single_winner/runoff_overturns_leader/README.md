@@ -105,7 +105,9 @@ all a first-time voter needs. But every example here also writes a complete **au
 report** to its `_tabulated.txt` sibling (in `runoff_overturns_leader_tabulated/`) — the
 pairwise **preference matrix**, the **score distribution**, and the engine's
 plain-English **Majority Preference** block stating exactly which candidate led on score
-and which won the runoff. Learning to read that report is **Voting 201**: see
+and which won the runoff. Learning to read that report is **Voting 201**: see the annotated walkthrough
+[How to read a STAR report](../../00_start_here/concepts/STAR_Voting/reading_a_star_report.md)
+(it uses this folder's BV1265 example), plus
 [CURRICULUM 201.1 — Reading the results](../../00_start_here/CURRICULUM.md) and the
 step-by-step [STAR vs RCV-IRV count](../../00_start_here/concepts/tabulation_star_vs_irv.md).
 Don't put the full report in front of a 101 beginner — point them here when they're ready.
