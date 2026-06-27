@@ -70,6 +70,10 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 - **Worked walkthrough:** [`concepts/STAR_Voting/reading_a_star_report.md`](./concepts/STAR_Voting/reading_a_star_report.md)
   — a full LH report (BV1265) annotated section by section, with a "show which parts to
   101 / 201 / 301" table.
+- **Reading the runoff percentages:** [`concepts/STAR_Voting/runoff_percentages.md`](./concepts/STAR_Voting/runoff_percentages.md)
+  — the BetterVoting runoff shown two ways: % of *all* voters vs % of those *with a
+  preference* (the two denominators), and why the majority bar is half of the decided
+  voters, not half of everyone. Pairs with 301.3 (Equal Support).
 
 ## 201.2 — Edge cases & trust
 - **Key terms:** unanimous ballots, ties / tiebreaker, abstention, equal-max ballot.
@@ -113,6 +117,10 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 ## 301.3 — "Are equal-score votes discounted?"
 - **Key terms:** Equal Support / No Preference, exhausted vs no-preference.
 - **Episode:** `are_equal_score_votes_discounted.md`; demo `01_Single_winner/equal_support_runoff_demo.yaml`.
+- **In the result display:** [`concepts/STAR_Voting/runoff_percentages.md`](./concepts/STAR_Voting/runoff_percentages.md)
+  shows exactly where Equal Support lands in BetterVoting's runoff — counted in full in
+  the score round, then set aside to form the "voters with a preference" denominator (so
+  the winner's majority is of the decided voters, not of everyone).
 
 ## 301.4 — The honest limits & theory
 - **Key terms:** Gibbard / Gibbard–Satterthwaite, strategy resistance vs proofness, Condorcet efficiency, Test of Balance.
