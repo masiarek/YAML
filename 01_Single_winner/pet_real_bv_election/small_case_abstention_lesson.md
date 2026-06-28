@@ -91,7 +91,8 @@ BetterVoting's own result, from the export:
    Apple         -- 1
    Equal Support -- 4
  Banana wins.
-   Voters with a preference: 4 of 8 (4 Equal Support). Banana 3 (75%) vs Apple 1 (25%); majority = 3.
+   Voters with a preference: 4 of 8 (4 Equal Support).
+   Banana 3 (75%) vs Apple 1 (25%); majority = 3.
 ```
 
 and in the saved `_tabulated` copy, the same as a funnel that adds up:
@@ -109,6 +110,55 @@ Cherry's low scores still **counted** (they're inside the 7) — they just didn'
 the top two. The 4 Equal Support ballots counted in the score round and are set aside
 only from the runoff percentage; 4 voters had a preference, and Banana takes 3 of
 them (75%), clearing the majority of 3.
+
+## The LH report (echo)
+
+This is a small election, so here is the **on-screen echo** in full (the saved
+[`flat_scores_abstention_c3_b8_tabulated.txt`](../pet_real_bv_election_tabulated/flat_scores_abstention_c3_b8_tabulated.txt)
+mirror additionally forces the full N×N matrix, the Condorcet line, and the
+"Runoff math" funnel):
+
+```
+--- Runoff (Preference) Matrix ---
+Legend: For - Equal Support - Against        * indicates Top 2 Finalist
+               |  * Apple   | * Banana  |
+     * Apple > |    ---     |1 - 4 - 3  |
+    * Banana > | 3 - 4 - 1  |   ---     |
+
+ Tabulating 8 ballots. Note: 1 of 8 ballots is marked as an abstention.
+Apple,Banana,Cherry
+    0,     5,     1
+    -,     -,     -
+    5,     4,     1
+    4,     5,     2
+    0,     0,     0
+    3,     3,     3
+    3,     5,     0
+    5,     5,     0
+  ('-' = left blank / abstained; '0' = scored zero — both count as 0 stars.)
+
+[Score Distribution] (number of ballots giving each score)
+        5  4  3  2  1  0  Abs  | Total   Avg
+Apple   2  1  2  0  0  2    1  |    20   2.9
+Banana  4  1  1  0  0  1    1  |    27   3.9
+Cherry  0  0  1  1  2  3    1  |     7   1.0
+
+Scoring Round
+ The two highest-scoring candidates advance to the next round.
+   Banana        -- 27 -- First place
+   Apple         -- 20 -- Second place
+   Cherry        --  7
+ Banana and Apple advance.
+
+Automatic Runoff Round
+ The candidate preferred in the most head-to-head matchups wins.
+   Banana        -- 3 -- First place
+   Apple         -- 1
+   Equal Support -- 4
+ Banana wins.
+   Voters with a preference: 4 of 8 (4 Equal Support).
+   Banana 3 (75%) vs Apple 1 (25%); majority = 3.
+```
 
 ## Why it matters
 

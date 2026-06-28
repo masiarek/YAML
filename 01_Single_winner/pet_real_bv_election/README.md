@@ -45,7 +45,8 @@ it scored higher:
    Cat           -- 173
    Equal Support --  98
  Dog wins.
-   Voters with a preference: 363 of 461 (98 Equal Support). Dog 190 (52%) vs Cat 173 (48%); majority = 182.
+   Voters with a preference: 363 of 461 (98 Equal Support).
+   Dog 190 (52%) vs Cat 173 (48%); majority = 182.
 ```
 
 **Dog wins.** The line self-reconciles: of **461** cast ballots, **363 had a preference**

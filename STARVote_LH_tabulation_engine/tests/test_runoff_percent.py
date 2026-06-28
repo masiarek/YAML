@@ -30,8 +30,8 @@ Fixture election (scores 0-5):
 
   Scores: A=19, B=16, C=5  -> finalists A,B.
   Runoff A-vs-B: A=3, B=1, Equal Support=1  -> decided=4 (NOT 5), total=5.
-  Expected line:  "Voters with a preference: 4 of 5 (1 Equal Support). "
-                  "A 3 (75%) vs B 1 (25%); majority = 3."
+  Expected (two lines):  "Voters with a preference: 4 of 5 (1 Equal Support)."
+                         "A 3 (75%) vs B 1 (25%); majority = 3."
 """
 
 import subprocess
@@ -41,10 +41,10 @@ from pathlib import Path
 ENGINE_DIR = Path(__file__).resolve().parent.parent
 WRAPPER = ENGINE_DIR / "starvote_larry_hastings.py"
 
-# On-screen one-liner (self-reconciling: "4 of 5 (1 Equal Support)").
+# On-screen summary — now two lines (self-reconciling: "4 of 5 (1 Equal Support)").
 EXPECTED = (
-    "Voters with a preference: 4 of 5 (1 Equal Support). "
-    "A 3 (75%) vs B 1 (25%); majority = 3."
+    "Voters with a preference: 4 of 5 (1 Equal Support).\n"
+    "   A 3 (75%) vs B 1 (25%); majority = 3."
 )
 
 # Distinctive fragments of the `_tabulated` "Runoff math" funnel.

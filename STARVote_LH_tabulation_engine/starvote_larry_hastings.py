@@ -1790,10 +1790,11 @@ def run_election(
         majority = decided // 2 + 1  # votes needed for a strict majority
         es = f"{equal} Equal Support" if equal else "no Equal Support"
         if not full:
-            # On-screen: one self-reconciling line.
+            # On-screen: two short lines — the denominator, then the head-to-head
+            # split — so the summary never overflows a narrow terminal.
             return (
-                f"   Voters with a preference: {decided} of {total} ({es}). "
-                f"{w_lbl} {w_val} ({w_pct}%) vs {l_lbl} {l_val} ({l_pct}%); "
+                f"   Voters with a preference: {decided} of {total} ({es}).\n"
+                f"   {w_lbl} {w_val} ({w_pct}%) vs {l_lbl} {l_val} ({l_pct}%); "
                 f"majority = {majority}."
             )
         # `_tabulated`: a funnel that visibly adds up (total − Equal Support =

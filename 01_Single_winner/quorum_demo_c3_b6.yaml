@@ -1,0 +1,45 @@
+election_title: Quorum — an abstention still counts toward turnout
+scenario_description: |-
+  A 10-member board (eligible_voters: 10). Six members submit a ballot — five
+  score the candidates, and one turns in a BLANK ballot (an abstention). No
+  explicit quorum is set, so the engine's default applies: a majority (>50%) of
+  eligible voters must participate — i.e. at least 6 of 10.
+
+  The teaching point (ties quorum to abstention): the blank ballot is the SIXTH
+  participant. A cast abstention is still participation, so it counts toward
+  quorum — and here it is exactly what carries turnout from 5 (not enough) to 6
+  (quorum met). Drop the abstention and quorum would FAIL. The abstainer changed
+  no candidate's score, but their presence made the election valid.
+
+  → Concept: 00_start_here/concepts/quorum.md
+
+voting_method: STAR
+num_winners: 1
+eligible_voters: 10   # the electorate (aliases: electorate / registered_voters)
+# quorum omitted -> default = majority (>50%) of eligible voters = at least 6.
+
+options:
+  show_description: false
+  show_matrix: false   # the story here is quorum + the runoff line, not the matrix
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  show_runoff_percent: true
+  brief: true
+  collapse_ballots: false   # one row per voter — the blank ballot is the point
+  count_separator: "×"
+
+ballots: |-
+  Anna, Ben, Cara
+  5, 0, 0
+  5, 1, 0
+  4, 0, 1
+  0, 5, 0
+  1, 4, 0
+  -, -, -    # blank ballot: an abstention — counts toward quorum, scores no one
+
+expected_winners:
+  - Anna
+
+# file: quorum_demo_c3_b6.yaml

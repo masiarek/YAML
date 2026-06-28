@@ -2,7 +2,7 @@
 SOURCE FILE:     small_abstention_c2_b5.yaml
 SOURCE MODIFIED: 2026-06-28 17:06:21
 TABULATED FILE:  small_abstention_c2_b5_tabulated.txt
-TABULATED AT:    2026-06-28 17:06:36
+TABULATED AT:    2026-06-28 17:19:12
 ======================================================================
 
 election:

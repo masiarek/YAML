@@ -28,6 +28,7 @@ properties live in [`STAR_Voting/`](./STAR_Voting/).
 | **RCV-IRV vs. STAR (side-by-side)** | balanced comparison hub — real strengths on both sides — routing to the facet pages | [rcv_irv_vs_star.md](./rcv_irv_vs_star.md) |
 | **Tabulation engines — BV, LH, RCV-IRV** | why an election has two reports (BetterVoting's visual display + the LH engine's text report), how they map, and the convert→validate→test pipeline; hub for the per-engine folders | [tabulation_engines/](./tabulation_engines/bettervoting_and_the_engine.md) |
 | **STAR Reporting — reading & comparing results** | how a result is reported: scores, runoff, percentages, Equal Support/abstentions; LH vs BetterVoting and where they differ; the Score Distribution and Preference Matrix up close | [STAR_reporting/](./STAR_reporting/README.md) |
+| **Quorum — did enough show up?** | a turnout threshold separate from who wins; abstentions count toward it; an unmet quorum means no winner — won the count but not elected | [quorum.md](./quorum.md) |
 
 ### RCV-IRV — problems specific to instant-runoff
 

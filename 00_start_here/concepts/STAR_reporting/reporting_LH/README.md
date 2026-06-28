@@ -20,10 +20,11 @@ copy of it. This page is the reporting-lens summary; the section-by-section walk
   **For – Equal Support – Against**, and the Condorcet check.
 - **Automatic Runoff Round** — each finalist's vote count plus **Equal Support** (the
   ballots that scored the two finalists equally).
-- **The runoff percentage line** — on screen, one **self-reconciling** line:
+- **The runoff percentage line** — on screen, a **self-reconciling** two-line summary:
 
   ```
-  Voters with a preference: 363 of 461 (98 Equal Support). Dog 190 (52%) vs Cat 173 (48%); majority = 182.
+  Voters with a preference: 363 of 461 (98 Equal Support).
+  Dog 190 (52%) vs Cat 173 (48%); majority = 182.
   ```
 
   It names the decided count *against the total* with the Equal Support gap inline,

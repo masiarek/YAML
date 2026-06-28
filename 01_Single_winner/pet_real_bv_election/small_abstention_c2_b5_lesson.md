@@ -71,7 +71,8 @@ two ideas are different.
    B             -- 1
    Equal Support -- 2
  A wins.
-   Voters with a preference: 3 of 5 (2 Equal Support). A 2 (67%) vs B 1 (33%); majority = 2.
+   Voters with a preference: 3 of 5 (2 Equal Support).
+   A 2 (67%) vs B 1 (33%); majority = 2.
 ```
 
 and in the saved `_tabulated` copy, the same as a funnel that adds up:

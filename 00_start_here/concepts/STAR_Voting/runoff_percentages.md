@@ -84,7 +84,7 @@ ranks — a method-caused loss, not a voter's choice. See
 
 ## The same number in the LH engine
 
-The `starvote` engine prints this decisive percentage as one line — with the
+The `starvote` engine prints this decisive percentage on two lines — with the
 denominator **named**, so there's no second column to misread. Turn it on with
 `options: { show_runoff_percent: true }` (it's off by default, but the always-full
 `_tabulated` copy carries it automatically):
@@ -95,11 +95,12 @@ Automatic Runoff Round
    Cat           -- 173
    Equal Support -- 98
  Dog wins.
-   Voters with a preference: 363 of 461 (98 Equal Support). Dog 190 (52%) vs Cat 173 (48%); majority = 182.
+   Voters with a preference: 363 of 461 (98 Equal Support).
+   Dog 190 (52%) vs Cat 173 (48%); majority = 182.
 ```
 
-That last line is the **% Between Finalists** column, spelled out — and it now
-*self-reconciles*: **363 of 461** voters had a preference, the other **98 are Equal
+Those two lines are the **% Between Finalists** column, spelled out — and they now
+*self-reconcile*: **363 of 461** voters had a preference, the other **98 are Equal
 Support**, Dog's 190 is 52% of the 363, and a strict majority needs 182, which Dog clears.
 (In the saved `_tabulated` copy this expands into a "Runoff math" funnel that shows
 `461 − 98 = 363` explicitly.)

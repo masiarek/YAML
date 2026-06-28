@@ -86,11 +86,16 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
     show_condorcet: false
     show_score_counts: false
     show_irv: false
-    show_runoff_percent: false
+    show_runoff_percent: true
     brief: true
     collapse_ballots: true
     count_separator: "×"
   ```
+
+  (`show_runoff_percent: true` is in the *minimal* block on purpose — the
+  self-reconciling runoff line is a compact, broadly-useful two-line summary, worth showing on
+  almost any single-winner result. The *engine* default remains `false`; this is the
+  house recommendation for YAML files.)
 
   **Multi-winner** uses the same block but with `show_matrix: false` and
   `matrix_finalists_only: false` (a "Top 2 Finalist" matrix is a single-winner
@@ -101,20 +106,38 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
   is trivial (it just echoes the runoff). The `[Divergence from STAR]`
   block prints whenever methods differ regardless of these flags, so comparative
   demos keep their punch on screen even with the minimal block.
+- **Echo options = the minimal block + only the section(s) the doc teaches.** When a
+  file backs a teaching/reporting `.md` whose embedded echo should show a specific
+  section, flip ON *just that flag* (keep everything else minimal; the `_tabulated`
+  mirror still forces full detail). `show_runoff_percent` is already on in the minimal
+  block, so the per-doc triggers are the heavier sections:
+  - score-distribution shape → `show_score_counts: true`
+  - full pairwise grid / Condorcet → `matrix_finalists_only: false` and/or `show_condorcet: true`
+  - RCV-IRV divergence → `show_irv: true`
+  - a plain result with no section to feature → leave the minimal block as-is
+    (which already shows the runoff line).
+
+  Ballot display: **`collapse_ballots: false`** when each ballot is a distinct teaching
+  case (small, one row per voter — e.g. the abstention cases); **`true`** otherwise.
+  Example: `flat_scores_abstention_c3_b8` teaches abstentions + score distribution +
+  the runoff denominator, so it sets `show_score_counts: true` and
+  `show_runoff_percent: true` but leaves `show_condorcet: false` /
+  `matrix_finalists_only: true` (the full matrix/Condorcet is the matrix page's job and
+  lives in the mirror).
 - **`show_description`**: per the block above, default `false` (clean demo —
   description stays in the file and the always-full `_tabulated` copy, hidden on
   screen). Flip to `true` only for a deliberate study/reference render.
-- **`show_runoff_percent`**: default `false`. When `true`, prints a one-line,
-  **self-reconciling** runoff summary under the Automatic Runoff winner — e.g.
+- **`show_runoff_percent`**: *engine* default `false`, but **on in the house minimal
+  block** — it's a compact, broadly-useful two-line summary, worth showing on almost any
+  single-winner result. When `true`, prints a two-line, **self-reconciling** runoff
+  summary under the Automatic Runoff winner — e.g.
   `Voters with a preference: 363 of 461 (98 Equal Support). Dog 190 (52%) vs Cat 173
   (48%); majority = 182` — using the **decided-voters** denominator (Equal Support
   excluded) but stating it against the total ballots with the Equal Support gap named
   inline, so the denominator never has to be inferred. The always-full `_tabulated`
   copy forces it on AND expands it into a "Runoff math" funnel (`461 − 98 = 363`,
-  majority) — don't hand-set that. Flip to `true` on screen only for a lesson that's
-  specifically *about* the runoff percentages (e.g. the BetterVoting two-denominator
-  walkthrough, `concepts/STAR_Voting/runoff_percentages.md`). The wording/funnel are
-  locked by `tests/test_runoff_percent.py`; change them together.
+  majority) — don't hand-set that. The wording/funnel are locked by
+  `tests/test_runoff_percent.py`; change them together.
 - **Voter counts — keep examples SMALL.** Default to the *fewest ballots* that
   make the point; prefer **individual ballots** (one row per voter, a handful of
   them) over large weighted blocs. A 3-voter example that shows the effect beats a
@@ -145,6 +168,17 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
   Markdown. No `.md` per YAML. See `ORGANIZATION.md`.
 - **`_tabulated`** files are generated siblings in `*_tabulated/`; regenerate by
   re-running the YAMLs after engine changes. They always show full context.
+- **Embed LH output as text in Markdown (Adam's preference), sized to the election.**
+  When a teaching/reporting `.md` discusses a result, paste the actual LH output inline
+  as a fenced code block (strip ANSI) rather than only linking the `_tabulated` file —
+  the reader should see the output on the page. **Match the depth to the election:**
+  - **Small / simple** examples → embed the **short echo** (the on-screen render with
+    the file's minimal options), not a full dump.
+  - **Large or complex** elections (many ballots/candidates), or docs whose point *is*
+    the matrix / Condorcet / score-distribution detail → embed the fuller
+    **`_tabulated`** report, or just the specific section being discussed.
+
+  Either way, keep a link to the full `_tabulated` mirror too.
 - **Cross-reference slides by title** via `interviews_conversations/LINKS.md`
   short names — never page numbers or `#slide=id…` deep links.
 
