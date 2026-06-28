@@ -134,11 +134,14 @@ abstentions, but correctly kept `5,5,0` (tied on the two finalists but not flat)
 the rule drops a fully-marked ballot while a real "no preference between the finalists"
 ballot is counted — the two ideas are different, and only the flat one is mislabeled.
 
-Frozen exports + both reports, side by side:
-[`small_case_abstention_lesson.md`](https://github.com/masiarek/YAML/blob/master/01_Single_winner/pet_real_bv_election/small_case_abstention_lesson.md)
-(3-candidate) ·
-[`small_abstention_c2_b5.yaml`](https://github.com/masiarek/YAML/blob/master/01_Single_winner/pet_real_bv_election/small_abstention_c2_b5.yaml)
-(2-candidate).
+Worked write-up + the engine's **full report** for each (the `_tabulated.txt` shows
+the ballots, the runoff, the "1 abstention" note, and the "Runoff math" funnel — i.e.
+exactly the counts to compare against BetterVoting):
+
+- **3 candidates** — lesson: [`small_case_abstention_lesson.md`](https://github.com/masiarek/YAML/blob/master/01_Single_winner/pet_real_bv_election/small_case_abstention_lesson.md)
+  · engine report: [`flat_scores_abstention_c3_b8_tabulated.txt`](https://github.com/masiarek/YAML/blob/master/01_Single_winner/pet_real_bv_election_tabulated/flat_scores_abstention_c3_b8_tabulated.txt)
+- **2 candidates** — engine report: [`small_abstention_c2_b5_tabulated.txt`](https://github.com/masiarek/YAML/blob/master/01_Single_winner/pet_real_bv_election_tabulated/small_abstention_c2_b5_tabulated.txt)
+  · ballots: [`small_abstention_c2_b5.yaml`](https://github.com/masiarek/YAML/blob/master/01_Single_winner/pet_real_bv_election/small_abstention_c2_b5.yaml)
 
 ## The ask
 
