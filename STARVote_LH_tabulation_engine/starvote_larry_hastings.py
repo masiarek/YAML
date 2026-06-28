@@ -316,9 +316,16 @@ def load_election(path, race_index=0):
             sys.exit(1)
         seats = int(race["num_winners"]) if "num_winners" in race else None
         method_name = race.get("voting_method")
+        # Collect options from every level, most-specific last so it wins:
+        # top-level  <  `election:` wrapper  <  the race itself. (BetterVoting-style
+        # nested files put the block under `election.options`, so it must be read
+        # here too — otherwise the whole options block is silently ignored.)
         options = {}
         if isinstance(data, dict) and isinstance(data.get("options"), dict):
             options.update(data["options"])
+        _el_wrap = data.get("election") if isinstance(data, dict) else None
+        if isinstance(_el_wrap, dict) and isinstance(_el_wrap.get("options"), dict):
+            options.update(_el_wrap["options"])
         if isinstance(race.get("options"), dict):
             options.update(race["options"])
 
@@ -1278,18 +1285,25 @@ def format_score_counts(candidates, ballots, max_score=5, display_rows=None):
     name_w = max((len(c) for c in candidates), default=4)
     show_abs = any(abstain[c] for c in candidates)
 
+    # Size every column to its widest value so the headers line up with the data —
+    # a count can be 3 digits (e.g. 114), which a fixed width-2 column misaligns.
+    cell_w = max([len(str(s)) for s in scores]
+                 + [len(str(counts[c][s])) for c in candidates for s in scores])
+    abs_w = max([len("Abs")] + [len(str(abstain[c])) for c in candidates])
+    total_w = max([len("Total")] + [len(str(totals[c])) for c in candidates])
+
     lines = ["[Score Distribution] (number of ballots giving each score)"]
-    header = f"{'':<{name_w}}  " + "  ".join(f"{s:>2}" for s in scores)
+    header = f"{'':<{name_w}}  " + "  ".join(f"{s:>{cell_w}}" for s in scores)
     if show_abs:
-        header += "  Abs"
-    lines.append(f"{header}  | Total   Avg")
+        header += f"  {'Abs':>{abs_w}}"
+    lines.append(f"{header}  | {'Total':>{total_w}}  {'Avg':>4}")
     for c in candidates:
-        cells = "  ".join(f"{counts[c][s]:>2}" for s in scores)
+        cells = "  ".join(f"{counts[c][s]:>{cell_w}}" for s in scores)
         if show_abs:
-            cells += f"  {abstain[c]:>3}"
+            cells += f"  {abstain[c]:>{abs_w}}"
         scored = n - abstain[c]
         avg = totals[c] / scored if scored else 0.0
-        lines.append(f"{c:<{name_w}}  {cells}  | {totals[c]:>5}  {avg:>4.1f}")
+        lines.append(f"{c:<{name_w}}  {cells}  | {totals[c]:>{total_w}}  {avg:>4.1f}")
     return "\n".join(lines)
 
 
@@ -1746,7 +1760,8 @@ def run_election(
     # Round grouping: draw a faint rule before each new round's Scoring Round
     # header (but not the first), so multi-round methods like Bloc STAR read as
     # distinct blocks without spending another header color.
-    round_state = {"scoring_seen": False, "in_runoff": False, "runoff_rows": []}
+    round_state = {"scoring_seen": False, "in_runoff": False, "runoff_rows": [],
+                   "score_w": None}
     ROUND_RULE = f"{COLOR_DIM}{'─' * 50}{COLOR_RESET}"
 
     def format_runoff_percent(rows):
@@ -1815,6 +1830,7 @@ def run_election(
                 # Only the *main* runoff header enables coloring; tiebreaker
                 # sub-headers (which list raw scores) reset it.
                 round_state["in_runoff"] = inner_h.endswith("Automatic Runoff Round")
+                round_state["score_w"] = None  # re-measure value width per section
                 if round_state["in_runoff"]:
                     round_state["runoff_rows"] = []  # fresh tally per runoff round
                 if inner_h.endswith("Scoring Round"):
@@ -1914,7 +1930,7 @@ def run_election(
                             (f"{str(counts[r]).rjust(count_w)}{sep}{body}",
                              classify_ballot(r, candidates))
                         )
-                    csv_rows += _append_ballot_flags(body_rows)
+                    csv_rows += [t for t, _ in body_rows]
                 else:
                     grid = [r.split(",") for r in display_rows]
                     header = list(candidates)
@@ -1928,29 +1944,15 @@ def run_election(
                          classify_ballot(display_rows[j], candidates))
                         for j, row in enumerate(grid)
                     ]
-                    csv_rows += _append_ballot_flags(body_rows)
-                if used_markers:
-                    csv_rows.append("")
-                    csv_rows.append("[Legend] (these all count as score 0)")
-                    csv_rows += [
-                        f"  {mk}  {MARKER_MEANINGS[mk]}" for mk in used_markers
-                    ]
-                    # Clarify the blank-vs-explicit-zero distinction only when a
-                    # blank actually appears (common with BetterVoting exports /
-                    # hand-punched paper ballots).
-                    if "-" in used_markers:
-                        csv_rows.append(
-                            "  Note: '-' = candidate left blank / skipped "
-                            "(e.g. BetterVoting export);"
-                        )
-                        csv_rows.append(
-                            "        '0' = explicitly scored zero. Both tabulate "
-                            "as 0 stars — the"
-                        )
-                        csv_rows.append(
-                            "        difference only preserves voter intent "
-                            "(skipped vs rated low)."
-                        )
+                    csv_rows += [t for t, _ in body_rows]
+                # One-line clarification of the blank-vs-explicit-zero distinction
+                # (only when a blank actually appears): a blank ballot is an
+                # abstention; an all-zeros ballot is cast but supports no one.
+                if "-" in used_markers:
+                    csv_rows.append(
+                        "  ('-' = left blank / abstained; '0' = scored zero — "
+                        "both count as 0 stars.)"
+                    )
                 text = text + "\n" + "\n".join(csv_rows)
 
                 # 1c. Optional [Score Distribution] block, between the ballot
@@ -1971,18 +1973,24 @@ def run_election(
             m = row_re.match(text)
             if m and not text.lstrip().startswith("["):
                 indent, label, rest = m.groups()
-                # House term is just "Equal Support" (the aka lives in GLOSSARY.md,
-                # not repeated on every runoff line).
-                if round_state["in_runoff"]:
-                    # Capture the raw count (before colorizing) for the optional
-                    # percentage summary: leading integer of the value column.
-                    _vm = re.match(r"\s*(-?\d+)", rest)
-                    if _vm:
+                # Right-justify the leading score so values line up within a round.
+                # The first row is "First place" (the largest), so its width sizes
+                # the column. (House term is just "Equal Support".)
+                _pad = ""
+                _vm = re.match(r"(-?\d+)(.*)$", rest, re.S)
+                if _vm:
+                    _num = _vm.group(1)
+                    if round_state["score_w"] is None:
+                        round_state["score_w"] = len(_num)
+                    _pad = " " * max(0, round_state["score_w"] - len(_num))
+                    if round_state["in_runoff"]:
+                        # leading integer captured for the percentage summary
                         round_state["runoff_rows"].append(
-                            (label.strip(), int(_vm.group(1)), "First place" in rest)
+                            (label.strip(), int(_num), "First place" in rest)
                         )
+                if round_state["in_runoff"]:
                     rest = colorize_runoff_value(label.strip(), rest)
-                text = f"{indent}{label:<{label_width}} -- {rest}"
+                text = f"{indent}{label:<{label_width}} -- {_pad}{rest}"
 
             # Optional runoff percentage summary, appended right after the
             # round's "<winner> wins." line (decided-voters denominator). Always

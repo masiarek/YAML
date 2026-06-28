@@ -58,8 +58,35 @@ def _tabulated_text(yaml_path):
     return hits[0].read_text()
 
 
+def _write_nested(tmp_path):
+    # BetterVoting-style nested schema: options live under `election.options`,
+    # which the loader previously ignored entirely (regression guard).
+    d = tmp_path / "n"
+    d.mkdir()
+    p = d / "case.yaml"
+    p.write_text(
+        "election:\n"
+        "  options:\n"
+        "    show_runoff_percent: true\n"
+        "  races:\n"
+        "  - num_winners: 1\n"
+        "    voting_method: STAR\n"
+        "    ballots: |-\n"
+        + "".join("      " + ln + "\n" for ln in BALLOTS.strip("\n").split("\n"))
+    )
+    return p
+
+
 def test_line_on_screen_when_option_set(tmp_path):
     proc = _run_cli(_write(tmp_path, with_option=True))
+    assert proc.returncode == 0, proc.stdout + proc.stderr
+    assert EXPECTED in proc.stdout, proc.stdout
+
+
+def test_nested_election_options_are_honored(tmp_path):
+    # `election.options.show_runoff_percent: true` must reach the render — the bug
+    # was that the whole nested options block was dropped, so nothing applied.
+    proc = _run_cli(_write_nested(tmp_path))
     assert proc.returncode == 0, proc.stdout + proc.stderr
     assert EXPECTED in proc.stdout, proc.stdout
 
