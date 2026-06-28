@@ -140,8 +140,8 @@ exactly the counts to compare against BetterVoting):
 
 - **3 candidates** — lesson: [`small_case_abstention_lesson.md`](https://github.com/masiarek/YAML/blob/master/01_Single_winner/pet_real_bv_election/small_case_abstention_lesson.md)
   · engine report: [`flat_scores_abstention_c3_b8_tabulated.txt`](https://github.com/masiarek/YAML/blob/master/01_Single_winner/pet_real_bv_election_tabulated/flat_scores_abstention_c3_b8_tabulated.txt)
-- **2 candidates** — engine report: [`small_abstention_c2_b5_tabulated.txt`](https://github.com/masiarek/YAML/blob/master/01_Single_winner/pet_real_bv_election_tabulated/small_abstention_c2_b5_tabulated.txt)
-  · ballots: [`small_abstention_c2_b5.yaml`](https://github.com/masiarek/YAML/blob/master/01_Single_winner/pet_real_bv_election/small_abstention_c2_b5.yaml)
+- **2 candidates** — lesson: [`small_abstention_c2_b5_lesson.md`](https://github.com/masiarek/YAML/blob/master/01_Single_winner/pet_real_bv_election/small_abstention_c2_b5_lesson.md)
+  · engine report: [`small_abstention_c2_b5_tabulated.txt`](https://github.com/masiarek/YAML/blob/master/01_Single_winner/pet_real_bv_election_tabulated/small_abstention_c2_b5_tabulated.txt)
 
 ## The ask
 
