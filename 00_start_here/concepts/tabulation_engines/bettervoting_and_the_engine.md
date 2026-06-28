@@ -7,8 +7,8 @@ implementations of the *same* STAR method, so they **agree** on the winner, the 
 and the runoff. Two reports, one count.
 
 → The engine report section by section: [reading a STAR report](./LH_starvote/reading_a_star_report.md).
-The runoff percentages in both: [runoff percentages](../runoff_percentages.md).
-Glossary: [`BetterVoting`](../../../GLOSSARY.md).
+The runoff percentages in both: [runoff percentages](../STAR_Voting/runoff_percentages.md).
+Glossary: [`BetterVoting`](../../GLOSSARY.md).
 
 ---
 

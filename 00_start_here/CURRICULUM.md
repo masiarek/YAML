@@ -63,14 +63,14 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 - **Emphasize:** the pairwise matrix is the auditable, precinct-summable heart.
 - **Two reports, one count:** an election appears both as BetterVoting's visual display and
   the LH engine's text report; why there are two, how they map, and the convert→validate→test
-  pipeline are in [`concepts/STAR_Voting/tabulation_engines/bettervoting_and_the_engine.md`](./concepts/STAR_Voting/tabulation_engines/bettervoting_and_the_engine.md).
+  pipeline are in [`concepts/tabulation_engines/bettervoting_and_the_engine.md`](./concepts/tabulation_engines/bettervoting_and_the_engine.md).
 - **The full audit report:** the generated `_tabulated.txt` siblings carry the complete
   engine report (matrix + score distribution + the plain-English *Majority Preference*
   block). The Runoff Reversal lesson (101.3) shows the *minimal* on-screen view; reading
   the **full** report of those same elections (e.g.
   `01_Single_winner/runoff_overturns_leader_tabulated/`) is the 201 skill — and *why* the
   on-screen echo is minimal by default (don't overwhelm a beginner).
-- **Worked walkthrough:** [`concepts/STAR_Voting/tabulation_engines/LH_starvote/reading_a_star_report.md`](./concepts/STAR_Voting/tabulation_engines/LH_starvote/reading_a_star_report.md)
+- **Worked walkthrough:** [`concepts/tabulation_engines/LH_starvote/reading_a_star_report.md`](./concepts/tabulation_engines/LH_starvote/reading_a_star_report.md)
   — a full LH report (BV1265) annotated section by section, with a "show which parts to
   101 / 201 / 301" table.
 - **Reading the runoff percentages:** [`concepts/STAR_Voting/runoff_percentages.md`](./concepts/STAR_Voting/runoff_percentages.md)
