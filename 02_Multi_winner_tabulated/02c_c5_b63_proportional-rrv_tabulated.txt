@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     02c_c5_b63_proportional-rrv.yaml
-SOURCE MODIFIED: 2026-06-22 14:36:45
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  02c_c5_b63_proportional-rrv_tabulated.txt
-TABULATED AT:    2026-06-22 14:37:18
+TABULATED AT:    2026-06-28 01:02:13
 ======================================================================
 
 # Proportional multi-winner example: Reweighted Range Voting (RRV).
@@ -45,7 +45,7 @@ options:
   show_matrix: false
   show_condorcet: false
   show_score_counts: false
-  brief: false
+  brief: true
   collapse_ballots: true
   matrix_finalists_only: false   # true = finalists only; false = full N×N grid (needs show_matrix)
   show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
@@ -74,14 +74,6 @@ TABULATION RESULTS
   Same majority/minority ballots as the other proportional examples, tabulated
   with Reweighted Range Voting (RRV). Older and not part of STAR's score-then-
   runoff family, but it also seats the minority bloc — included for comparison.
-
-[Score Distribution] (number of ballots giving each score)
-        5   4   3   2   1   0  | Total   Avg
-Alice  18  12   9   0   0  24  |   165   2.6
-Ben    12  27   0   0   0  24  |   168   2.7
-Cara    9   0  30   0   0  24  |   135   2.1
-Dan    15   9   0   0   0  39  |   111   1.8
-Eve     9  15   0   0   0  39  |   105   1.7
 
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
@@ -112,6 +104,14 @@ Count × Alice,Ben,Cara,Dan,Eve
    12 ×     4,  5,   3,  0,  0
     9 ×     3,  4,   5,  0,  0
     9 ×     0,  0,   0,  4,  5
+
+[Score Distribution] (number of ballots giving each score)
+        5   4   3   2   1   0  | Total   Avg
+Alice  18  12   9   0   0  24  |   165   2.6
+Ben    12  27   0   0   0  24  |   168   2.7
+Cara    9   0  30   0   0  24  |   135   2.1
+Dan    15   9   0   0   0  39  |   111   1.8
+Eve     9  15   0   0   0  39  |   105   1.7
  Want to fill 3 seats.
 
 [Reweighted Range Voting: Round 1: Score round]

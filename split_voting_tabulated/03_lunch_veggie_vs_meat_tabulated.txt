@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     03_lunch_veggie_vs_meat.yaml
-SOURCE MODIFIED: 2026-06-22 15:13:10
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  03_lunch_veggie_vs_meat_tabulated.txt
-TABULATED AT:    2026-06-22 18:11:44
+TABULATED AT:    2026-06-28 01:02:15
 ======================================================================
 
 election_title: Spoiler — the veggie majority splits, the burger wins the lunch vote
@@ -67,13 +67,6 @@ TABULATION RESULTS
   isn't split. The runoff elects VeggieCurry — the dish the most veggie voters
   can agree on — instead of the spoiler BeefBurger.
 
-[Score Distribution] (number of ballots giving each score)
-              5   4   3   2   1   0  | Total   Avg
-VeggieCurry  26  44   0   0   0  30  |   306   3.1
-TofuStirFry  28  26   0  16   0  30  |   276   2.8
-GardenSalad  16  26   0  28   0  30  |   240   2.4
-BeefBurger   30   0   0   0   0  70  |   150   1.5
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -109,6 +102,13 @@ Count × VeggieCurry,TofuStirFry,GardenSalad,BeefBurger
    26 ×           5,          4,          4,         0
    16 ×           4,          2,          5,         0
 
+[Score Distribution] (number of ballots giving each score)
+              5   4   3   2   1   0  | Total   Avg
+VeggieCurry  26  44   0   0   0  30  |   306   3.1
+TofuStirFry  28  26   0  16   0  30  |   276   2.8
+GardenSalad  16  26   0  28   0  30  |   240   2.4
+BeefBurger   30   0   0   0   0  70  |   150   1.5
+
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    VeggieCurry   -- 306 -- First place
@@ -123,6 +123,7 @@ Count × VeggieCurry,TofuStirFry,GardenSalad,BeefBurger
    TofuStirFry   -- 28
    Equal Support -- 30
  VeggieCurry wins.
+   Voters with a preference: 70. VeggieCurry 42 (60%) vs TofuStirFry 28 (40%); majority = 36.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  VeggieCurry

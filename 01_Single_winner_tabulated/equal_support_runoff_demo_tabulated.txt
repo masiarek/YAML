@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     equal_support_runoff_demo.yaml
-SOURCE MODIFIED: 2026-06-22 14:36:45
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  equal_support_runoff_demo_tabulated.txt
-TABULATED AT:    2026-06-22 15:04:32
+TABULATED AT:    2026-06-28 01:02:11
 ======================================================================
 
 election_title: Equal Support — counted in both rounds, neutral only in the tie-break
@@ -34,7 +34,7 @@ options:
   matrix_finalists_only: true   # true = finalists only; false = full N×N grid (needs show_matrix)
   show_score_counts: false   # show the per-candidate [Score Distribution] table
   show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
-  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
   collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
   count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
@@ -71,12 +71,6 @@ TABULATION RESULTS
   finalists, not a voter who lost their voice. It counted in the scoring round
   and is simply neutral in a tie-break it has no preference in.
 
-[Score Distribution] (number of ballots giving each score)
-    5   4   3   2   1   0  | Total   Avg
-A  75   0   0   0   0  25  |   375   3.8
-B  40   0  35   0   0  25  |   305   3.0
-C  25   0   0   0   0  75  |   125   1.2
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -98,6 +92,12 @@ Count × A,B,C
    35 × 5,3,0
    25 × 0,0,5
 
+[Score Distribution] (number of ballots giving each score)
+    5   4   3   2   1   0  | Total   Avg
+A  75   0   0   0   0  25  |   375   3.8
+B  40   0  35   0   0  25  |   305   3.0
+C  25   0   0   0   0  75  |   125   1.2
+
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    A             -- 375 -- First place
@@ -111,6 +111,7 @@ Count × A,B,C
    B             -- 0
    Equal Support -- 65
  A wins.
+   Voters with a preference: 35. A 35 (100%) vs B 0 (0%); majority = 18.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  A

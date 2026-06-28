@@ -2,7 +2,7 @@
 SOURCE FILE:     04_c4_b3_runoff-confirms-leader.yaml
 SOURCE MODIFIED: 2026-06-26 22:43:07
 TABULATED FILE:  04_c4_b3_runoff-confirms-leader_tabulated.txt
-TABULATED AT:    2026-06-26 22:43:17
+TABULATED AT:    2026-06-28 01:02:12
 ======================================================================
 
 election_title: The control case — here the runoff CONFIRMS the score leader
@@ -92,6 +92,7 @@ Dune    0   0   0   0   1   2  |     1   0.3
    Amber         -- 1
    Equal Support -- 0
  Blue wins.
+   Voters with a preference: 3. Blue 2 (67%) vs Amber 1 (33%); majority = 2.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Blue

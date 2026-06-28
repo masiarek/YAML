@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     03b_star_pr_3seats.yaml
-SOURCE MODIFIED: 2026-06-22 14:36:45
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  03b_star_pr_3seats_tabulated.txt
-TABULATED AT:    2026-06-22 14:37:19
+TABULATED AT:    2026-06-28 01:02:14
 ======================================================================
 
 election_title: Proportional STAR — same 3-seat electorate as the STV demo
@@ -28,7 +28,7 @@ options:
   show_condorcet: false
   show_score_counts: false
   show_irv: false
-  brief: false
+  brief: true
   collapse_ballots: true
   count_separator: "×"
 
@@ -59,16 +59,6 @@ TABULATION RESULTS
   `allocated`, and `rrv` to compare; `bloc` shows the majoritarian contrast.
   STV counterpart: 03a_stv_3seats.yaml. See concepts/proportional_stv_vs_star.md.
 
-[Score Distribution] (number of ballots giving each score)
-           5   4   3   2   1   0  | Total   Avg
-Housing   29  15  14  42   0   0  |   331   3.3
-Schools   15  43   0   0  42   0  |   289   2.9
-Parks     13   0  44   1   0  42  |   199   2.0
-Transit    1   0   0  57   0  42  |   119   1.2
-SmallBiz  22  20   0   0  58   0  |   248   2.5
-BigBiz    17  22   3   0   0  58  |   182   1.8
-TaxCuts    3   0  39   0   0  58  |   132   1.3
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -97,6 +87,16 @@ Count × Housing,Schools,Parks,Transit,SmallBiz,BigBiz,TaxCuts
    13 ×       3,      4,    5,      2,       1,     0,      0
     3 ×       2,      1,    0,      0,       4,     3,      5
     1 ×       3,      4,    2,      5,       1,     0,      0
+
+[Score Distribution] (number of ballots giving each score)
+           5   4   3   2   1   0  | Total   Avg
+Housing   29  15  14  42   0   0  |   331   3.3
+Schools   15  43   0   0  42   0  |   289   2.9
+Parks     13   0  44   1   0  42  |   199   2.0
+Transit    1   0   0  57   0  42  |   119   1.2
+SmallBiz  22  20   0   0  58   0  |   248   2.5
+BigBiz    17  22   3   0   0  58  |   182   1.8
+TaxCuts    3   0  39   0   0  58  |   132   1.3
  Want to fill 3 seats.
  Hare score quota is 166+2/3.
 

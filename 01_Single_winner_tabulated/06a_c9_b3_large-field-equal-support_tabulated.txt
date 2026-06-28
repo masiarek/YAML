@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     06a_c9_b3_large-field-equal-support.yaml
-SOURCE MODIFIED: 2026-06-22 15:13:10
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  06a_c9_b3_large-field-equal-support_tabulated.txt
-TABULATED AT:    2026-06-22 18:11:42
+TABULATED AT:    2026-06-28 01:02:10
 ======================================================================
 
 election_title: Large field (9 candidates) — STAR scales, and Equal Support decides
@@ -73,18 +73,6 @@ TABULATION RESULTS
    - Did the runoff change the result or confirm it? (Confirms here; see
      06b_c9_runoff-overturns-leader.yaml for a case where it OVERTURNS the leader.)
 
-[Score Distribution] (number of ballots giving each score)
-           5   4   3   2   1   0  | Total   Avg
-Andre      0   2   0   0   1   0  |     9   3.0
-Blake      0   0   1   0   0   2  |     3   1.0
-Carmen     3   0   0   0   0   0  |    15   5.0
-David      2   1   0   0   0   0  |    14   4.7
-Ella       0   0   0   0   3   0  |     3   1.0
-Fernando   0   0   3   0   0   0  |     9   3.0
-Gabe       2   0   0   0   1   0  |    11   3.7
-Helena     0   3   0   0   0   0  |    12   4.0
-Ira        0   0   0   0   1   2  |     1   0.3
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -112,6 +100,18 @@ Andre,Blake,Carmen,David,Ella,Fernando,Gabe,Helena,Ira
     4,    3,     5,    5,   1,       3,   5,     4,  1
     1,    0,     5,    4,   1,       3,   1,     4,  0
 
+[Score Distribution] (number of ballots giving each score)
+           5   4   3   2   1   0  | Total   Avg
+Andre      0   2   0   0   1   0  |     9   3.0
+Blake      0   0   1   0   0   2  |     3   1.0
+Carmen     3   0   0   0   0   0  |    15   5.0
+David      2   1   0   0   0   0  |    14   4.7
+Ella       0   0   0   0   3   0  |     3   1.0
+Fernando   0   0   3   0   0   0  |     9   3.0
+Gabe       2   0   0   0   1   0  |    11   3.7
+Helena     0   3   0   0   0   0  |    12   4.0
+Ira        0   0   0   0   1   2  |     1   0.3
+
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    Carmen        -- 15 -- First place
@@ -131,6 +131,7 @@ Andre,Blake,Carmen,David,Ella,Fernando,Gabe,Helena,Ira
    David         -- 0
    Equal Support -- 2
  Carmen wins.
+   Voters with a preference: 1. Carmen 1 (100%) vs David 0 (0%); majority = 1.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Carmen

@@ -1,13 +1,13 @@
 ======================================================================
 SOURCE FILE:     count_simplicity_star_vs_irv.yaml
-SOURCE MODIFIED: 2026-06-23 23:36:37
+SOURCE MODIFIED: 2026-06-26 23:07:04
 TABULATED FILE:  count_simplicity_star_vs_irv_tabulated.txt
-TABULATED AT:    2026-06-23 23:42:40
+TABULATED AT:    2026-06-28 01:02:11
 ======================================================================
 
 election_title: Same winner, very different counts — STAR adds, IRV eliminates
 scenario_description: |-
-  45 voters, five candidates. Carmen is the broad consensus — most voters' strong
+  40 voters, five candidates. Carmen is the broad consensus — most voters' strong
   second choice — and she wins under BOTH methods. The point of this file isn't WHO
   wins; it's how much work the COUNT takes.
 
@@ -28,7 +28,7 @@ options:
   show_matrix: true
   matrix_finalists_only: true
   show_condorcet: false
-  show_score_counts: false
+  show_score_counts: true
   show_irv: false
   brief: true
   collapse_ballots: true
@@ -39,11 +39,11 @@ num_winners: 1
 
 ballots: |-
   Count:Andre,Blake,Carmen,Dana,Evan
-  14:4,3,5,2,1   # Carmen base   (C > A > B > D > E)
-  10:5,3,4,2,1   # Andre first   (A > C > B > D > E)
-  9:3,5,4,2,1    # Blake first   (B > C > A > D > E)
+  10:4,3,5,2,1   # Carmen base   (C > A > B > D > E)
+  9:5,3,4,2,1    # Andre first   (A > C > B > D > E)
+  8:3,5,4,2,1    # Blake first   (B > C > A > D > E)
   7:3,2,4,5,1    # Dana first    (D > C > A > B > E)
-  5:3,2,4,1,5    # Evan first    (E > C > A > B > D)
+  6:3,2,4,1,5    # Evan first    (E > C > A > B > D)
 
 expected_winners:
   - Carmen
@@ -55,7 +55,7 @@ TABULATION RESULTS
 ======================================================================
 
 === Same winner, very different counts — STAR adds, IRV eliminates ===
-  45 voters, five candidates. Carmen is the broad consensus — most voters' strong
+  40 voters, five candidates. Carmen is the broad consensus — most voters' strong
   second choice — and she wins under BOTH methods. The point of this file isn't WHO
   wins; it's how much work the COUNT takes.
 
@@ -71,25 +71,17 @@ TABULATION RESULTS
 
   Deep dive: 00_start_here/concepts/is_rcv_simple.md (the "simple — which half?" point).
 
-[Score Distribution] (number of ballots giving each score)
-         5   4   3   2   1   0  | Total   Avg
-Andre   10  14  21   0   0   0  |   169   3.8
-Blake    9   0  24  12   0   0  |   141   3.1
-Carmen  14  31   0   0   0   0  |   194   4.3
-Dana     7   0   0  33   5   0  |   106   2.4
-Evan     5   0   0   0  40   0  |    65   1.4
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
         * indicates Top 2 Finalist
                  |   * Andre    |    Blake    |  * Carmen   |     Dana    |     Evan    |
 -----------------------------------------------------------------------------------------
-       * Andre > |     ---      |36 -  0 -  9 |10 -  0 - 35 |38 -  0 -  7 |40 -  0 -  5 |
-         Blake > |  9 -  0 - 36 |    ---      | 9 -  0 - 36 |38 -  0 -  7 |40 -  0 -  5 |
-      * Carmen > | 35 -  0 - 10 |36 -  0 -  9 |    ---      |38 -  0 -  7 |40 -  0 -  5 |
-          Dana > |  7 -  0 - 38 | 7 -  0 - 38 | 7 -  0 - 38 |    ---      |40 -  0 -  5 |
-          Evan > |  5 -  0 - 40 | 5 -  0 - 40 | 5 -  0 - 40 | 5 -  0 - 40 |    ---      |
+       * Andre > |     ---      |32 -  0 -  8 | 9 -  0 - 31 |33 -  0 -  7 |34 -  0 -  6 |
+         Blake > |  8 -  0 - 32 |    ---      | 8 -  0 - 32 |33 -  0 -  7 |34 -  0 -  6 |
+      * Carmen > | 31 -  0 -  9 |32 -  0 -  8 |    ---      |33 -  0 -  7 |34 -  0 -  6 |
+          Dana > |  7 -  0 - 33 | 7 -  0 - 33 | 7 -  0 - 33 |    ---      |34 -  0 -  6 |
+          Evan > |  6 -  0 - 34 | 6 -  0 - 34 | 6 -  0 - 34 | 6 -  0 - 34 |    ---      |
 
 [Condorcet Winner]
   Condorcet Winner: Carmen — matches the STAR winner
@@ -100,29 +92,38 @@ Legend: For - Equal Support - Against
 
 --- STAR Voting Method (single winner) ---
 [STAR Voting]
- Tabulating 45 ballots.
+ Tabulating 40 ballots.
 Count × Andre,Blake,Carmen,Dana,Evan
-   14 ×     4,    3,     5,   2,   1
-   10 ×     5,    3,     4,   2,   1
-    9 ×     3,    5,     4,   2,   1
+   10 ×     4,    3,     5,   2,   1
+    9 ×     5,    3,     4,   2,   1
+    8 ×     3,    5,     4,   2,   1
     7 ×     3,    2,     4,   5,   1
-    5 ×     3,    2,     4,   1,   5
+    6 ×     3,    2,     4,   1,   5
+
+[Score Distribution] (number of ballots giving each score)
+         5   4   3   2   1   0  | Total   Avg
+Andre    9  10  21   0   0   0  |   148   3.7
+Blake    8   0  19  13   0   0  |   123   3.1
+Carmen  10  30   0   0   0   0  |   170   4.2
+Dana     7   0   0  27   6   0  |    95   2.4
+Evan     6   0   0   0  34   0  |    64   1.6
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
-   Carmen        -- 194 -- First place
-   Andre         -- 169 -- Second place
-   Blake         -- 141
-   Dana          -- 106
-   Evan          -- 65
+   Carmen        -- 170 -- First place
+   Andre         -- 148 -- Second place
+   Blake         -- 123
+   Dana          -- 95
+   Evan          -- 64
  Carmen and Andre advance.
 
 [STAR Voting: Automatic Runoff Round]
  The candidate preferred in the most head-to-head matchups wins.
-   Carmen        -- 35 -- First place
-   Andre         -- 10
+   Carmen        -- 31 -- First place
+   Andre         -- 9
    Equal Support -- 0
  Carmen wins.
+   Voters with a preference: 40. Carmen 31 (78%) vs Andre 9 (22%); majority = 21.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Carmen

@@ -2,7 +2,7 @@
 SOURCE FILE:     three_winners_cw_score_runoff.yaml
 SOURCE MODIFIED: 2026-06-27 00:07:51
 TABULATED FILE:  three_winners_cw_score_runoff_tabulated.txt
-TABULATED AT:    2026-06-27 00:07:51
+TABULATED AT:    2026-06-28 01:02:12
 ======================================================================
 
 election_title: Three notions of "winner" disagree — Condorcet, Score, and Runoff
@@ -121,6 +121,7 @@ Carl   2   0   3   0   0   0  |    19   3.8
    Carl          -- 2
    Equal Support -- 0
  Bob wins.
+   Voters with a preference: 5. Bob 3 (60%) vs Carl 2 (40%); majority = 3.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Bob

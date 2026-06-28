@@ -6,7 +6,9 @@ lines; this page walks through the *whole* thing, section by section, so you can
 (and trust) any STAR result.
 
 → The phenomenon this example shows: [Runoff Reversal](../../../01_Single_winner/runoff_overturns_leader/README.md).
-Curriculum: [201.1 — Reading the results](../../CURRICULUM.md).
+Curriculum: [201.1 — Reading the results](../../CURRICULUM.md). This text report is the
+engine's half of a pair — the other is BetterVoting's visual display of the same race:
+[BetterVoting and the LH engine](../bettervoting_and_the_engine.md).
 
 ---
 
@@ -93,6 +95,10 @@ lines a first-time voter needs.)
 full vote for whichever of C/A it scored higher: **A 3, C 2**, and **Equal Support 0**
 (no ballot scored A and C the same). **A wins.** Note the engine uses *Equal Support* —
 the house term for a genuine no-preference ballot, **not** "equal" in the loose sense.
+With `options: { show_runoff_percent: true }` (always on in the `_tabulated` copy), the
+engine also prints the winner's share of the **decided** voters — the percentage that
+actually settles the runoff. What that number means, and why its denominator excludes
+Equal Support, is the [runoff percentages](./runoff_percentages.md) page.
 
 **6. Winner.** **A** — the finalist more voters preferred, even though C led on score.
 

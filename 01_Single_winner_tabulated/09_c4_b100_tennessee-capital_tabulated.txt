@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     09_c4_b100_tennessee-capital.yaml
-SOURCE MODIFIED: 2026-06-22 15:13:10
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  09_c4_b100_tennessee-capital_tabulated.txt
-TABULATED AT:    2026-06-22 18:11:42
+TABULATED AT:    2026-06-28 01:02:10
 ======================================================================
 
 election_title: Tennessee Capital — classic STAR example
@@ -63,13 +63,6 @@ TABULATION RESULTS
   score round and the runoff. Shows why STAR rewards broad support over a large
   but isolated faction.
 
-[Score Distribution] (number of ballots giving each score)
-              5   4   3   2   1   0  | Total   Avg
-Memphis      42   0   0  58   0   0  |   326   3.3
-Nashville    26  42  32   0   0   0  |   394   3.9
-Chattanooga  15  43  42   0   0   0  |   373   3.7
-Knoxville    17  15  26  42   0   0  |   307   3.1
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -100,6 +93,13 @@ Count × Memphis,Nashville,Chattanooga,Knoxville
    17 ×       2,        3,          4,        5
    15 ×       2,        3,          5,        4
 
+[Score Distribution] (number of ballots giving each score)
+              5   4   3   2   1   0  | Total   Avg
+Memphis      42   0   0  58   0   0  |   326   3.3
+Nashville    26  42  32   0   0   0  |   394   3.9
+Chattanooga  15  43  42   0   0   0  |   373   3.7
+Knoxville    17  15  26  42   0   0  |   307   3.1
+
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    Nashville     -- 394 -- First place
@@ -114,6 +114,7 @@ Count × Memphis,Nashville,Chattanooga,Knoxville
    Chattanooga   -- 32
    Equal Support -- 0
  Nashville wins.
+   Voters with a preference: 100. Nashville 68 (68%) vs Chattanooga 32 (32%); majority = 51.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Nashville

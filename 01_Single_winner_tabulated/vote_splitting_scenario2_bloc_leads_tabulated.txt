@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     vote_splitting_scenario2_bloc_leads.yaml
-SOURCE MODIFIED: 2026-06-22 15:13:10
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  vote_splitting_scenario2_bloc_leads_tabulated.txt
-TABULATED AT:    2026-06-22 18:11:43
+TABULATED AT:    2026-06-28 01:02:13
 ======================================================================
 
 election_title: Vote splitting — scenario 2 of 3 — no spoiler (bloc leader wins anyway)
@@ -62,12 +62,6 @@ TABULATION RESULTS
   The [Vote-splitting check] reports: the bloc's own front-runner also wins
   Choose-One overall, so no spoiler occurred.
 
-[Score Distribution] (number of ballots giving each score)
-            5   4   3   2   1   0  | Total   Avg
-DarkChoco  14  10   0  12   0   0  |   134   3.7
-MilkChoco  10  14   0   0  12   0  |   118   3.3
-Vanilla    12   0   0   0   0  24  |    60   1.7
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -96,6 +90,12 @@ Count × DarkChoco,MilkChoco,Vanilla
    12 ×         2,        1,      5
    10 ×         4,        5,      0
 
+[Score Distribution] (number of ballots giving each score)
+            5   4   3   2   1   0  | Total   Avg
+DarkChoco  14  10   0  12   0   0  |   134   3.7
+MilkChoco  10  14   0   0  12   0  |   118   3.3
+Vanilla    12   0   0   0   0  24  |    60   1.7
+
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    DarkChoco     -- 134 -- First place
@@ -109,6 +109,7 @@ Count × DarkChoco,MilkChoco,Vanilla
    MilkChoco     -- 10
    Equal Support -- 0
  DarkChoco wins.
+   Voters with a preference: 36. DarkChoco 26 (72%) vs MilkChoco 10 (28%); majority = 19.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  DarkChoco

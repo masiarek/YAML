@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     02a_c5_b63_proportional-allocated-score.yaml
-SOURCE MODIFIED: 2026-06-22 14:36:45
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  02a_c5_b63_proportional-allocated-score_tabulated.txt
-TABULATED AT:    2026-06-22 14:37:18
+TABULATED AT:    2026-06-28 01:02:13
 ======================================================================
 
 # Proportional multi-winner example: Allocated Score Voting (Proportional STAR).
@@ -55,7 +55,7 @@ options:
   show_matrix: false
   show_condorcet: false
   show_score_counts: false
-  brief: false
+  brief: true
   collapse_ballots: true
   matrix_finalists_only: false   # true = finalists only; false = full N×N grid (needs show_matrix)
   show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
@@ -86,14 +86,6 @@ TABULATION RESULTS
   Bloc STAR would sweep all three to the majority. Switch voting_method to bloc
   to see the contrast.
 
-[Score Distribution] (number of ballots giving each score)
-        5   4   3   2   1   0  | Total   Avg
-Alice  18  12   9   0   0  24  |   165   2.6
-Ben    12  27   0   0   0  24  |   168   2.7
-Cara    9   0  30   0   0  24  |   135   2.1
-Dan    15   9   0   0   0  39  |   111   1.8
-Eve     9  15   0   0   0  39  |   105   1.7
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -123,6 +115,14 @@ Count × Alice,Ben,Cara,Dan,Eve
    12 ×     4,  5,   3,  0,  0
     9 ×     3,  4,   5,  0,  0
     9 ×     0,  0,   0,  4,  5
+
+[Score Distribution] (number of ballots giving each score)
+        5   4   3   2   1   0  | Total   Avg
+Alice  18  12   9   0   0  24  |   165   2.6
+Ben    12  27   0   0   0  24  |   168   2.7
+Cara    9   0  30   0   0  24  |   135   2.1
+Dan    15   9   0   0   0  39  |   111   1.8
+Eve     9  15   0   0   0  39  |   105   1.7
  Want to fill 3 seats.
  Hare quota is 21.
 
@@ -157,6 +157,14 @@ Count × Alice,Ben,Cara,Dan,Eve
    12 ×     4,  5,   3,  0,  0
     9 ×     3,  4,   5,  0,  0
     9 ×     0,  0,   0,  4,  5
+
+[Score Distribution] (number of ballots giving each score)
+        5   4   3   2   1   0  | Total   Avg
+Alice  18  12   9   0   0  24  |   165   2.6
+Ben    12  27   0   0   0  24  |   168   2.7
+Cara    9   0  30   0   0  24  |   135   2.1
+Dan    15   9   0   0   0  39  |   111   1.8
+Eve     9  15   0   0   0  39  |   105   1.7
  The highest-scoring candidate wins a seat.
    Dan           -- 111 -- First place
    Eve           -- 105
@@ -186,6 +194,14 @@ Count × Alice,Ben,Cara,Dan,Eve
    12 ×     4,  5,   3,  0,  0
     9 ×     3,  4,   5,  0,  0
     9 ×     0,  0,   0,  4,  5
+
+[Score Distribution] (number of ballots giving each score)
+        5   4   3   2   1   0  | Total   Avg
+Alice  18  12   9   0   0  24  |   165   2.6
+Ben    12  27   0   0   0  24  |   168   2.7
+Cara    9   0  30   0   0  24  |   135   2.1
+Dan    15   9   0   0   0  39  |   111   1.8
+Eve     9  15   0   0   0  39  |   105   1.7
  The highest-scoring candidate wins a seat.
    Alice         -- 78 -- First place
    Cara          -- 66

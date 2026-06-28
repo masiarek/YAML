@@ -2,7 +2,7 @@
 SOURCE FILE:     options_examples.yaml
 SOURCE MODIFIED: 2026-06-19 01:40:00
 TABULATED FILE:  options_examples_tabulated.txt
-TABULATED AT:    2026-06-22 15:04:33
+TABULATED AT:    2026-06-28 01:02:14
 ======================================================================
 
 voting_method: STAR        # STAR (single-winner) or Bloc STAR (num_winners >= 2)
@@ -48,13 +48,6 @@ ballots: |-
 TABULATION RESULTS
 ======================================================================
 
-[Score Distribution] (number of ballots giving each score)
-              5   4   3   2   1   0  | Total   Avg
-Memphis      42   0   0  58   0   0  |   326   3.3
-Nashville    26  42  32   0   0   0  |   394   3.9
-Chattanooga  15  43  42   0   0   0  |   373   3.7
-Knoxville    17  15  26  42   0   0  |   307   3.1
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -85,6 +78,13 @@ Count × Memphis,Nashville,Chattanooga,Knoxville
    17 ×       2,        3,          4,        5
    15 ×       2,        3,          5,        4
 
+[Score Distribution] (number of ballots giving each score)
+              5   4   3   2   1   0  | Total   Avg
+Memphis      42   0   0  58   0   0  |   326   3.3
+Nashville    26  42  32   0   0   0  |   394   3.9
+Chattanooga  15  43  42   0   0   0  |   373   3.7
+Knoxville    17  15  26  42   0   0  |   307   3.1
+
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    Nashville     -- 394 -- First place
@@ -99,6 +99,7 @@ Count × Memphis,Nashville,Chattanooga,Knoxville
    Chattanooga   -- 32
    Equal Support -- 0
  Nashville wins.
+   Voters with a preference: 100. Nashville 68 (68%) vs Chattanooga 32 (32%); majority = 51.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Nashville

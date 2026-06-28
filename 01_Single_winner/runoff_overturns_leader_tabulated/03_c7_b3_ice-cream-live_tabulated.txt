@@ -2,7 +2,7 @@
 SOURCE FILE:     03_c7_b3_ice-cream-live.yaml
 SOURCE MODIFIED: 2026-06-26 22:49:12
 TABULATED FILE:  03_c7_b3_ice-cream-live_tabulated.txt
-TABULATED AT:    2026-06-26 22:49:23
+TABULATED AT:    2026-06-28 01:02:12
 ======================================================================
 
 election_title: Ice Cream — Flavor of the Year (the real recorded race)
@@ -114,6 +114,7 @@ Peach          0   0   0   0   0   3  |     0   0.0
    ChocoDrk      -- 1
    Equal Support -- 0
  ChocoAlm wins.
+   Voters with a preference: 3. ChocoAlm 2 (67%) vs ChocoDrk 1 (33%); majority = 2.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  ChocoAlm

@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     vote_splitting.yaml
-SOURCE MODIFIED: 2026-06-22 15:13:10
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  vote_splitting_tabulated.txt
-TABULATED AT:    2026-06-22 18:11:42
+TABULATED AT:    2026-06-28 01:02:12
 ======================================================================
 
 election_title: Vote splitting — two chocolates split the majority
@@ -89,12 +89,6 @@ TABULATION RESULTS
   instead of choosing between them. The two highest totals advance to an
   automatic runoff, and the winner has majority support head-to-head.
 
-[Score Distribution] (number of ballots giving each score)
-            5   4   3   2   1   0  | Total   Avg
-DarkChoco  12  10   0  14   0   0  |   128   3.6
-MilkChoco  10  12   0   0  14   0  |   112   3.1
-Vanilla    14   0   0   0   0  22  |    70   1.9
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -120,6 +114,12 @@ Count × DarkChoco,MilkChoco,Vanilla
    12 ×         5,        4,      0
    10 ×         4,        5,      0
 
+[Score Distribution] (number of ballots giving each score)
+            5   4   3   2   1   0  | Total   Avg
+DarkChoco  12  10   0  14   0   0  |   128   3.6
+MilkChoco  10  12   0   0  14   0  |   112   3.1
+Vanilla    14   0   0   0   0  22  |    70   1.9
+
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    DarkChoco     -- 128 -- First place
@@ -133,6 +133,7 @@ Count × DarkChoco,MilkChoco,Vanilla
    MilkChoco     -- 10
    Equal Support -- 0
  DarkChoco wins.
+   Voters with a preference: 36. DarkChoco 26 (72%) vs MilkChoco 10 (28%); majority = 19.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  DarkChoco

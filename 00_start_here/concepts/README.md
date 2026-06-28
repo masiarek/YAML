@@ -26,6 +26,7 @@ properties live in [`STAR_Voting/`](./STAR_Voting/).
 | **Proportional: STV vs STAR-PR** | multi-seat — coalitions get proportional seats; STV ≈ STAR-PR, Bloc differs (301) | [proportional_stv_vs_star.md](./proportional_stv_vs_star.md) |
 | **Tabulation, step by step (201)** | the same ballots counted both ways — STAR's 2 steps vs IRV's elimination rounds | [tabulation_star_vs_irv.md](./tabulation_star_vs_irv.md) |
 | **RCV-IRV vs. STAR (side-by-side)** | balanced comparison hub — real strengths on both sides — routing to the facet pages | [rcv_irv_vs_star.md](./rcv_irv_vs_star.md) |
+| **BetterVoting and the LH engine** | why an election has two reports (BetterVoting's visual display + the engine's text report), how they map, the convert→validate→test pipeline, and the repo's two engines | [bettervoting_and_the_engine.md](./bettervoting_and_the_engine.md) |
 
 ### RCV-IRV — problems specific to instant-runoff
 

@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     01_political_left_split.yaml
-SOURCE MODIFIED: 2026-06-22 15:13:10
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  01_political_left_split_tabulated.txt
-TABULATED AT:    2026-06-22 18:11:43
+TABULATED AT:    2026-06-28 01:02:14
 ======================================================================
 
 election_title: Spoiler — a split coalition hands the seat to the minority
@@ -67,13 +67,6 @@ TABULATION RESULTS
   runoff elects Labour — the coalition's broad consensus pick — not the minority
   Conservative. Watch the [Vote-splitting check] confirm it.
 
-[Score Distribution] (number of ballots giving each score)
-               5   4   3   2   1   0  | Total   Avg
-Green         24  22   0  20   0  34  |   248   2.5
-Labour        22  44   0   0   0  34  |   286   2.9
-SocialDem     20  22   0  24   0  34  |   236   2.4
-Conservative  34   0   0   0   0  66  |   170   1.7
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -109,6 +102,13 @@ Count × Green,Labour,SocialDem,Conservative
    22 ×     4,     5,        4,           0
    20 ×     2,     4,        5,           0
 
+[Score Distribution] (number of ballots giving each score)
+               5   4   3   2   1   0  | Total   Avg
+Green         24  22   0  20   0  34  |   248   2.5
+Labour        22  44   0   0   0  34  |   286   2.9
+SocialDem     20  22   0  24   0  34  |   236   2.4
+Conservative  34   0   0   0   0  66  |   170   1.7
+
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    Labour        -- 286 -- First place
@@ -123,6 +123,7 @@ Count × Green,Labour,SocialDem,Conservative
    Green         -- 24
    Equal Support -- 34
  Labour wins.
+   Voters with a preference: 66. Labour 42 (64%) vs Green 24 (36%); majority = 34.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Labour

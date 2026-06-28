@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     01_c4_b2_bloc-star-2-seats.yaml
-SOURCE MODIFIED: 2026-06-22 14:36:45
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  01_c4_b2_bloc-star-2-seats_tabulated.txt
-TABULATED AT:    2026-06-22 15:04:32
+TABULATED AT:    2026-06-28 01:02:13
 ======================================================================
 
 election_title: "Bloc STAR Voting: 2-Seat Committee Election"
@@ -32,7 +32,7 @@ options:
   show_condorcet: false
   show_score_counts: false
   show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
-  brief: false   # true = collapse repetitive "[STAR Voting: ...]" headers
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
   collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
   count_separator: "×"   # collapsed-count separator: ×, :, or x/X
 
@@ -58,13 +58,6 @@ TABULATION RESULTS
   Bloc STAR fills each seat sequentially through a dedicated scoring round and
   automatic runoff.
 
-[Score Distribution] (number of ballots giving each score)
-      5   4   3   2   1   0  | Total   Avg
-Ann   0   0   0   0   2   0  |     2   1.0
-Bob   0   0   0   1   0   1  |     2   1.0
-Cal   0   2   0   0   0   0  |     8   4.0
-Don   2   0   0   0   0   0  |    10   5.0
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -89,6 +82,13 @@ Legend: For - Equal Support - Against
 Ann,Bob,Cal,Don
   1,  0,  4,  5
   1,  2,  4,  5
+
+[Score Distribution] (number of ballots giving each score)
+      5   4   3   2   1   0  | Total   Avg
+Ann   0   0   0   0   2   0  |     2   1.0
+Bob   0   0   0   1   0   1  |     2   1.0
+Cal   0   2   0   0   0   0  |     8   4.0
+Don   2   0   0   0   0   0  |    10   5.0
  Want to fill 2 seats.
 
 [Bloc STAR: Round 1: Scoring Round]
@@ -105,6 +105,7 @@ Ann,Bob,Cal,Don
    Cal           -- 0
    Equal Support -- 0
  Don wins.
+   Voters with a preference: 2. Don 2 (100%) vs Cal 0 (0%); majority = 2.
 
 ──────────────────────────────────────────────────
 [Bloc STAR: Round 2: Scoring Round]
@@ -141,6 +142,7 @@ Ann,Bob,Cal,Don
    Ann           -- 0
    Equal Support -- 0
  Cal wins.
+   Voters with a preference: 2. Cal 2 (100%) vs Ann 0 (0%); majority = 2.
 
 [Bloc STAR: Winners — Bloc STAR Voting Method (2 winners)]
  Don

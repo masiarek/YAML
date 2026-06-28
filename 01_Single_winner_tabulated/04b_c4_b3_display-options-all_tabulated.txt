@@ -2,7 +2,7 @@
 SOURCE FILE:     04b_c4_b3_display-options-all.yaml
 SOURCE MODIFIED: 2026-06-21 11:07:40
 TABULATED FILE:  04b_c4_b3_display-options-all_tabulated.txt
-TABULATED AT:    2026-06-22 18:11:42
+TABULATED AT:    2026-06-28 01:02:10
 ======================================================================
 
 # Single-race demo exercising EVERY supported field and `options:` flag.
@@ -68,13 +68,6 @@ TABULATION RESULTS
   can see exactly what each one does. Single-winner STAR over four candidates;
   the finalists-only matrix, Condorcet line, and score distribution are all on.
 
-[Score Distribution] (number of ballots giving each score)
-             5   4   3   2   1   0  | Total   Avg
-Choco        0   0   0   0   0   3  |     0   0.0
-Almond       0   0   0   3   0   0  |     6   2.0
-Vanilla      1   0   2   0   0   0  |    11   3.7
-Strawberry   2   0   1   0   0   0  |    13   4.3
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -100,6 +93,13 @@ Count × Choco,Almond,Vanilla,Strawberry
     2 ×     0,     2,      3,         5
     1 ×     0,     2,      5,         3
 
+[Score Distribution] (number of ballots giving each score)
+             5   4   3   2   1   0  | Total   Avg
+Choco        0   0   0   0   0   3  |     0   0.0
+Almond       0   0   0   3   0   0  |     6   2.0
+Vanilla      1   0   2   0   0   0  |    11   3.7
+Strawberry   2   0   1   0   0   0  |    13   4.3
+
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    Strawberry    -- 13 -- First place
@@ -114,6 +114,7 @@ Count × Choco,Almond,Vanilla,Strawberry
    Vanilla       -- 1
    Equal Support -- 0
  Strawberry wins.
+   Voters with a preference: 3. Strawberry 2 (67%) vs Vanilla 1 (33%); majority = 2.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Strawberry

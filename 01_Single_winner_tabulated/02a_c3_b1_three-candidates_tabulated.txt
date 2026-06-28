@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     02a_c3_b1_three-candidates.yaml
-SOURCE MODIFIED: 2026-06-22 15:13:10
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  02a_c3_b1_three-candidates_tabulated.txt
-TABULATED AT:    2026-06-22 18:11:41
+TABULATED AT:    2026-06-28 01:02:09
 ======================================================================
 
 election_title: Three candidates, one ballot - single-winner STAR
@@ -68,12 +68,6 @@ TABULATION RESULTS
   the automatic runoff can't change that. This is our baseline before we add
   more voters in the next example.
 
-[Score Distribution] (number of ballots giving each score)
-          5   4   3   2   1   0  | Total   Avg
-Choco     1   0   0   0   0   0  |     5   5.0
-Vanilla   0   0   1   0   0   0  |     3   3.0
-Almond    0   0   0   0   0   1  |     0   0.0
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -93,6 +87,12 @@ Legend: For - Equal Support - Against
 Choco,Vanilla,Almond
     5,      3,     0
 
+[Score Distribution] (number of ballots giving each score)
+          5   4   3   2   1   0  | Total   Avg
+Choco     1   0   0   0   0   0  |     5   5.0
+Vanilla   0   0   1   0   0   0  |     3   3.0
+Almond    0   0   0   0   0   1  |     0   0.0
+
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    Choco         -- 5 -- First place
@@ -106,6 +106,7 @@ Choco,Vanilla,Almond
    Vanilla       -- 0
    Equal Support -- 0
  Choco wins.
+   Voters with a preference: 1. Choco 1 (100%) vs Vanilla 0 (0%); majority = 1.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Choco

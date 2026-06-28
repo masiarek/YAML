@@ -61,6 +61,9 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 - **Key terms:** preference matrix, For/Equal/Against, Condorcet winner, summability, score distribution.
 - **Files:** `01_Single_winner/04*` with `options: { show_matrix, show_condorcet }`.
 - **Emphasize:** the pairwise matrix is the auditable, precinct-summable heart.
+- **Two reports, one count:** an election appears both as BetterVoting's visual display and
+  the LH engine's text report; why there are two, how they map, and the convert→validate→test
+  pipeline are in [`concepts/bettervoting_and_the_engine.md`](./concepts/bettervoting_and_the_engine.md).
 - **The full audit report:** the generated `_tabulated.txt` siblings carry the complete
   engine report (matrix + score distribution + the plain-English *Majority Preference*
   block). The Runoff Reversal lesson (101.3) shows the *minimal* on-screen view; reading
@@ -73,7 +76,9 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 - **Reading the runoff percentages:** [`concepts/STAR_Voting/runoff_percentages.md`](./concepts/STAR_Voting/runoff_percentages.md)
   — the BetterVoting runoff shown two ways: % of *all* voters vs % of those *with a
   preference* (the two denominators), and why the majority bar is half of the decided
-  voters, not half of everyone. Pairs with 301.3 (Equal Support).
+  voters, not half of everyone. The LH engine prints this same decided-voters share as
+  a one-line summary — enable with `options: { show_runoff_percent: true }` (forced on
+  in the `_tabulated` copy). Pairs with 301.3 (Equal Support).
 
 ## 201.2 — Edge cases & trust
 - **Key terms:** unanimous ballots, ties / tiebreaker, abstention, equal-max ballot.

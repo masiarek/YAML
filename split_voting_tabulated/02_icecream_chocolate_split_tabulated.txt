@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     02_icecream_chocolate_split.yaml
-SOURCE MODIFIED: 2026-06-22 15:13:10
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  02_icecream_chocolate_split_tabulated.txt
-TABULATED AT:    2026-06-22 18:11:43
+TABULATED AT:    2026-06-28 01:02:15
 ======================================================================
 
 election_title: Spoiler — chocolate's majority splits, vanilla steals the win
@@ -65,13 +65,6 @@ TABULATION RESULTS
   majority isn't split. The runoff elects MilkChoco — the chocolate everyone in
   the bloc can live with — over the spoiler Vanilla.
 
-[Score Distribution] (number of ballots giving each score)
-            5   4   3   2   1   0  | Total   Avg
-DarkChoco  24  22   0  20   0  34  |   248   2.5
-MilkChoco  22  44   0   0   0  34  |   286   2.9
-ChocoChip  20  22   0  24   0  34  |   236   2.4
-Vanilla    34   0   0   0   0  66  |   170   1.7
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -107,6 +100,13 @@ Count × DarkChoco,MilkChoco,ChocoChip,Vanilla
    22 ×         4,        5,        4,      0
    20 ×         2,        4,        5,      0
 
+[Score Distribution] (number of ballots giving each score)
+            5   4   3   2   1   0  | Total   Avg
+DarkChoco  24  22   0  20   0  34  |   248   2.5
+MilkChoco  22  44   0   0   0  34  |   286   2.9
+ChocoChip  20  22   0  24   0  34  |   236   2.4
+Vanilla    34   0   0   0   0  66  |   170   1.7
+
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    MilkChoco     -- 286 -- First place
@@ -121,6 +121,7 @@ Count × DarkChoco,MilkChoco,ChocoChip,Vanilla
    DarkChoco     -- 24
    Equal Support -- 34
  MilkChoco wins.
+   Voters with a preference: 66. MilkChoco 42 (64%) vs DarkChoco 24 (36%); majority = 34.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  MilkChoco

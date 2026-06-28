@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     center_squeeze_star.yaml
-SOURCE MODIFIED: 2026-06-22 15:13:10
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  center_squeeze_star_tabulated.txt
-TABULATED AT:    2026-06-24 11:54:20
+TABULATED AT:    2026-06-28 01:02:11
 ======================================================================
 
 election_title: Center squeeze — STAR elects the consensus (Center)
@@ -107,6 +107,7 @@ Right    9   0  18   0   0   0  |    99   3.7
    Left          -- 12
    Equal Support -- 0
  Center wins.
+   Voters with a preference: 27. Center 15 (56%) vs Left 12 (44%); majority = 14.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Center

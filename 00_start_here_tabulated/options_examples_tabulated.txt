@@ -2,7 +2,7 @@
 SOURCE FILE:     options_examples.yaml
 SOURCE MODIFIED: 2026-06-21 11:07:40
 TABULATED FILE:  options_examples_tabulated.txt
-TABULATED AT:    2026-06-22 15:04:33
+TABULATED AT:    2026-06-28 01:02:09
 ======================================================================
 
 # Single-race demo that controls its own output via `options:`.
@@ -61,13 +61,6 @@ TABULATION RESULTS
   the Condorcet line while hiding the score-distribution table — to show how the
   `options:` block controls what gets printed.
 
-[Score Distribution] (number of ballots giving each score)
-      5   4   3   2   1   0  | Total   Avg
-Ann   0   0   4   0   0   0  |    12   3.0
-Bob   1   3   0   0   0   0  |    17   4.2
-Cal   0   0   0   4   0   0  |     8   2.0
-Don   2   1   1   0   0   0  |    17   4.2
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -110,6 +103,13 @@ Count × Ann,Bob,Cal,Don
     1 ×   3,  4,  2,  4
     1 ×   3,  5,  2,  3
 
+[Score Distribution] (number of ballots giving each score)
+      5   4   3   2   1   0  | Total   Avg
+Ann   0   0   4   0   0   0  |    12   3.0
+Bob   1   3   0   0   0   0  |    17   4.2
+Cal   0   0   0   4   0   0  |     8   2.0
+Don   2   1   1   0   0   0  |    17   4.2
+
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    Bob           -- 17 -- First place
@@ -124,6 +124,7 @@ Count × Ann,Bob,Cal,Don
    Bob           -- 1
    Equal Support -- 1
  Don wins.
+   Voters with a preference: 3. Don 2 (67%) vs Bob 1 (33%); majority = 2.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Don

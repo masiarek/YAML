@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     03b_c3_b3_2_expand_style-protest-vote.yaml
-SOURCE MODIFIED: 2026-06-22 15:13:10
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  03b_c3_b3_2_expand_style-protest-vote_tabulated.txt
-TABULATED AT:    2026-06-22 18:11:42
+TABULATED AT:    2026-06-28 01:02:10
 ======================================================================
 
 # Continuation of the previous lesson (03b low-score ballots).
@@ -78,12 +78,6 @@ TABULATION RESULTS
   instead of a 1 adds more weight in the score round relative to other voters'
   ballots.)
 
-[Score Distribution] (number of ballots giving each score)
-          5   4   3   2   1   0  | Total   Avg
-Choco     0   0   0   0   0   3  |     0   0.0
-Almond    0   0   0   2   0   1  |     4   1.3
-Vanilla   0   0   0   1   0   2  |     2   0.7
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -108,6 +102,12 @@ Count × Choco,Almond,Vanilla
     2 ×     0,     2,      0
     1 ×     0,     0,      2
 
+[Score Distribution] (number of ballots giving each score)
+          5   4   3   2   1   0  | Total   Avg
+Choco     0   0   0   0   0   3  |     0   0.0
+Almond    0   0   0   2   0   1  |     4   1.3
+Vanilla   0   0   0   1   0   2  |     2   0.7
+
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    Almond        -- 4 -- First place
@@ -121,6 +121,7 @@ Count × Choco,Almond,Vanilla
    Vanilla       -- 1
    Equal Support -- 0
  Almond wins.
+   Voters with a preference: 3. Almond 2 (67%) vs Vanilla 1 (33%); majority = 2.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Almond

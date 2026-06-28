@@ -2,7 +2,7 @@
 SOURCE FILE:     monotonicity_star_before.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  monotonicity_star_before_tabulated.txt
-TABULATED AT:    2026-06-26 23:24:36
+TABULATED AT:    2026-06-28 01:02:11
 ======================================================================
 
 election_title: Monotonicity — STAR counterpart (BEFORE — X wins)
@@ -104,6 +104,7 @@ Z  10   0  12   0   0  12  |    86   2.5
    Y             -- 12
    Equal Support -- 0
  X wins.
+   Voters with a preference: 34. X 22 (65%) vs Y 12 (35%); majority = 18.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  X

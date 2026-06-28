@@ -2,6 +2,10 @@
 
 *A short reading path through the four ideas people most often get wrong about voting methods. Read in order, or jump to whichever myth you're trying to clear up.*
 
+![A real STAR ballot: five candidates (Andre, Blake, Carmen, David, Ella) each rated 0–5 stars, with the instructions — give your favorite(s) five stars, your last choice(s) zero; equal scores mean no preference; blanks count as zero; the two highest-scoring candidates are finalists and your full vote goes to the finalist you prefer](./img/star_ballot_example.png)
+
+*That's a **score** ballot — you rate each candidate 0–5 (order **and** strength), equal scores are allowed, and a blank counts as 0. It is **not** a ranked ballot. Keeping those straight is exactly what myths 2 and 3 below are about.*
+
 ---
 
 Most confusion about "RCV" comes from four mix-ups: a slippery name, mistaking scores for ranks, lumping in methods that aren't ranked at all, and assuming every ranked ballot works like the next. These four pages, read together, fix that.

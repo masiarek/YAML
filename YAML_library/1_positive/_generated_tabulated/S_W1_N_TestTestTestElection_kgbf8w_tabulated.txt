@@ -2,7 +2,7 @@
 SOURCE FILE:     S_W1_N_TestTestTestElection_kgbf8w.yaml
 SOURCE MODIFIED: 2026-06-26 04:47:36
 TABULATED FILE:  S_W1_N_TestTestTestElection_kgbf8w_tabulated.txt
-TABULATED AT:    2026-06-26 04:47:37
+TABULATED AT:    2026-06-28 01:02:14
 ======================================================================
 
 election:
@@ -91,6 +91,7 @@ Peach (Pch)             0   0   0   0   1   0  |     1   1.0
    Hazelnut Choco (CHz)  -- 0
    Equal Support         -- 0
  Almond Choco (CAm) wins.
+   Voters with a preference: 1. Almond Choco (CAm) 1 (100%) vs Hazelnut Choco (CHz) 0 (0%); majority = 1.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Almond Choco (CAm)

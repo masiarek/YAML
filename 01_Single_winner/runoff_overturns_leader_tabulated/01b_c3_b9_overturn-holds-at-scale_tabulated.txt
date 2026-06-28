@@ -2,7 +2,7 @@
 SOURCE FILE:     01b_c3_b9_overturn-holds-at-scale.yaml
 SOURCE MODIFIED: 2026-06-26 22:42:52
 TABULATED FILE:  01b_c3_b9_overturn-holds-at-scale_tabulated.txt
-TABULATED AT:    2026-06-26 22:43:17
+TABULATED AT:    2026-06-28 01:02:11
 ======================================================================
 
 election_title: The same overturn at scale — 67% to 33%
@@ -99,6 +99,7 @@ Cocoa     0   0   0   0   0   9  |     0   0.0
    Almond        -- 3
    Equal Support -- 0
  Brownie wins.
+   Voters with a preference: 9. Brownie 6 (67%) vs Almond 3 (33%); majority = 5.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Brownie

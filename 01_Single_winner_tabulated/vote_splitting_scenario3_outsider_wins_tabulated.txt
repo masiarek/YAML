@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     vote_splitting_scenario3_outsider_wins.yaml
-SOURCE MODIFIED: 2026-06-22 15:13:10
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  vote_splitting_scenario3_outsider_wins_tabulated.txt
-TABULATED AT:    2026-06-22 18:11:43
+TABULATED AT:    2026-06-28 01:02:13
 ======================================================================
 
 election_title: Vote splitting — scenario 3 of 3 — no spoiler (the outsider truly wins)
@@ -66,12 +66,6 @@ TABULATION RESULTS
   The [Vote-splitting check] reports: even combined, the bloc does not out-poll
   the winner, so no spoiler occurred.
 
-[Score Distribution] (number of ballots giving each score)
-            5   4   3   2   1   0  | Total   Avg
-DarkChoco  12  10   0   0  40   0  |   140   2.3
-MilkChoco  10  12   0   0   0  40  |    98   1.6
-Vanilla    40   0   0   0   0  22  |   200   3.2
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -100,6 +94,12 @@ Count × DarkChoco,MilkChoco,Vanilla
    12 ×         5,        4,      0
    10 ×         4,        5,      0
 
+[Score Distribution] (number of ballots giving each score)
+            5   4   3   2   1   0  | Total   Avg
+DarkChoco  12  10   0   0  40   0  |   140   2.3
+MilkChoco  10  12   0   0   0  40  |    98   1.6
+Vanilla    40   0   0   0   0  22  |   200   3.2
+
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    Vanilla       -- 200 -- First place
@@ -113,6 +113,7 @@ Count × DarkChoco,MilkChoco,Vanilla
    DarkChoco     -- 22
    Equal Support -- 0
  Vanilla wins.
+   Voters with a preference: 62. Vanilla 40 (65%) vs DarkChoco 22 (35%); majority = 32.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Vanilla

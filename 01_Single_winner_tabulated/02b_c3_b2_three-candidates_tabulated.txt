@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     02b_c3_b2_three-candidates.yaml
-SOURCE MODIFIED: 2026-06-22 15:13:10
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  02b_c3_b2_three-candidates_tabulated.txt
-TABULATED AT:    2026-06-22 18:11:41
+TABULATED AT:    2026-06-28 01:02:09
 ======================================================================
 
 election_title: Three candidates, two ballots - single-winner STAR
@@ -76,12 +76,6 @@ TABULATION RESULTS
   Vanilla has broad support (Caroline 3, David 5) - so Vanilla now wins. 
   STAR rewards the broadly-liked compromise over a candidate that half the voters reject.
 
-[Score Distribution] (number of ballots giving each score)
-          5   4   3   2   1   0  | Total   Avg
-Choco     1   0   0   0   0   1  |     5   2.5
-Vanilla   1   0   1   0   0   0  |     8   4.0
-Almond    0   1   0   0   0   1  |     4   2.0
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -105,6 +99,12 @@ Legend: For - Equal Support - Against
 Choco,Vanilla,Almond
     5,      3,     0
     0,      5,     4
+
+[Score Distribution] (number of ballots giving each score)
+          5   4   3   2   1   0  | Total   Avg
+Choco     1   0   0   0   0   1  |     5   2.5
+Vanilla   1   0   1   0   0   0  |     8   4.0
+Almond    0   1   0   0   0   1  |     4   2.0
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.

@@ -1550,6 +1550,7 @@ def run_election(
     quorum=None,
     blocs=None,
     show_description=True,
+    show_runoff_percent=False,
 ):
     if method is None:
         method = starvote.star
@@ -1745,8 +1746,31 @@ def run_election(
     # Round grouping: draw a faint rule before each new round's Scoring Round
     # header (but not the first), so multi-round methods like Bloc STAR read as
     # distinct blocks without spending another header color.
-    round_state = {"scoring_seen": False, "in_runoff": False}
+    round_state = {"scoring_seen": False, "in_runoff": False, "runoff_rows": []}
     ROUND_RULE = f"{COLOR_DIM}{'─' * 50}{COLOR_RESET}"
+
+    def format_runoff_percent(rows):
+        """One-line runoff summary using the *decided-voters* denominator —
+        the voters who expressed a preference between the two finalists (Equal
+        Support is excluded). Names that denominator explicitly, which is the
+        one thing BetterVoting's two percent columns leave the reader to infer.
+        Returns "" for anything that isn't a clean two-finalist runoff (e.g. an
+        exact tie, which the tiebreaker chain explains instead)."""
+        finalists = [(lbl, val) for lbl, val, _f in rows if lbl != EQUAL_LABEL]
+        if len(finalists) != 2:
+            return ""
+        (w_lbl, w_val), (l_lbl, l_val) = sorted(finalists, key=lambda x: -x[1])
+        decided = w_val + l_val
+        if decided <= 0 or w_val == l_val:
+            return ""
+        w_pct = round(w_val / decided * 100)
+        l_pct = round(l_val / decided * 100)
+        majority = decided // 2 + 1  # votes needed for a strict majority
+        return (
+            f"   Voters with a preference: {decided}. "
+            f"{w_lbl} {w_val} ({w_pct}%) vs {l_lbl} {l_val} ({l_pct}%); "
+            f"majority = {majority}."
+        )
 
     def colorize_runoff_value(label, rest):
         """In an Automatic Runoff Round, color the leading count to match the
@@ -1791,6 +1815,8 @@ def run_election(
                 # Only the *main* runoff header enables coloring; tiebreaker
                 # sub-headers (which list raw scores) reset it.
                 round_state["in_runoff"] = inner_h.endswith("Automatic Runoff Round")
+                if round_state["in_runoff"]:
+                    round_state["runoff_rows"] = []  # fresh tally per runoff round
                 if inner_h.endswith("Scoring Round"):
                     if round_state["scoring_seen"]:
                         print(ROUND_RULE)
@@ -1948,8 +1974,24 @@ def run_election(
                 # House term is just "Equal Support" (the aka lives in GLOSSARY.md,
                 # not repeated on every runoff line).
                 if round_state["in_runoff"]:
+                    # Capture the raw count (before colorizing) for the optional
+                    # percentage summary: leading integer of the value column.
+                    _vm = re.match(r"\s*(-?\d+)", rest)
+                    if _vm:
+                        round_state["runoff_rows"].append(
+                            (label.strip(), int(_vm.group(1)), "First place" in rest)
+                        )
                     rest = colorize_runoff_value(label.strip(), rest)
                 text = f"{indent}{label:<{label_width}} -- {rest}"
+
+            # Optional runoff percentage summary, appended right after the
+            # round's "<winner> wins." line (decided-voters denominator). Always
+            # in the full _tabulated copy; on screen only when the option is set.
+            elif (show_runoff_percent and round_state["in_runoff"]
+                  and re.match(r"^\s*\S.*\swins\.\s*$", text)):
+                extra = format_runoff_percent(round_state["runoff_rows"])
+                if extra:
+                    text = f"{text}\n{extra}"
 
             args = (text + trailing,) + args[1:]
         print(*args, **kwargs)
@@ -1997,6 +2039,13 @@ if __name__ == "__main__":
 
     # FLAG: Set to False to hide the per-candidate [Score Distribution] table.
     SHOW_SCORE_COUNTS = False
+
+    # FLAG: Set to True to print a one-line runoff percentage summary after the
+    # Automatic Runoff winner — "Voters with a preference: N. <winner> a (x%) vs
+    # <other> b (y%); majority = m" — using the decided-voters denominator
+    # (Equal Support excluded). Off on screen by default (house "less is more");
+    # the always-full _tabulated copy forces it on.
+    SHOW_RUNOFF_PERCENT = False
 
     # FLAG: Set to True for shorter output (collapses repetitive [STAR Voting: ...]
     # section headers into plain sub-headings and drops the bare "[STAR Voting]").
@@ -2206,6 +2255,8 @@ Memphis,Nashville,Chattanooga,Knoxville
             SHOW_DESCRIPTION = _as_bool(opts["show_description"])
         if "show_score_counts" in opts:
             SHOW_SCORE_COUNTS = _as_bool(opts["show_score_counts"])
+        if "show_runoff_percent" in opts:
+            SHOW_RUNOFF_PERCENT = _as_bool(opts["show_runoff_percent"])
         if "brief" in opts:
             BRIEF = _as_bool(opts["brief"])
         if "collapse_ballots" in opts:
@@ -2227,6 +2278,7 @@ Memphis,Nashville,Chattanooga,Knoxville
         method=METHOD,
         show_condorcet=SHOW_CONDORCET,
         show_score_counts=SHOW_SCORE_COUNTS,
+        show_runoff_percent=SHOW_RUNOFF_PERCENT,
         collapse_ballots=COLLAPSE_BALLOTS,
         count_separator=COUNT_SEPARATOR,
         show_irv=SHOW_IRV,
@@ -2274,6 +2326,7 @@ Memphis,Nashville,Chattanooga,Knoxville
             matrix_finalists_only=False,
             show_condorcet=True,
             show_score_counts=True,
+            show_runoff_percent=True,
             brief=False,
             collapse_ballots=True,  # collapsed counts are clearer than a raw dump
             show_irv=True,

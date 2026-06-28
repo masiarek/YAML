@@ -2,7 +2,7 @@
 SOURCE FILE:     Approval_ballot.yaml
 SOURCE MODIFIED: 2026-06-20 04:16:52
 TABULATED FILE:  Approval_ballot_tabulated.txt
-TABULATED AT:    2026-06-22 15:04:30
+TABULATED AT:    2026-06-28 01:02:10
 ======================================================================
 
 voting_method: STAR
@@ -24,13 +24,6 @@ ballots: |-
 ======================================================================
 TABULATION RESULTS
 ======================================================================
-
-[Score Distribution] (number of ballots giving each score)
-    5   4   3   2   1   0  Abs  | Total   Avg
-A   1   0   0   0   2   1    4  |     7   1.8
-B   1   0   0   0   1   2    4  |     6   1.5
-C   1   0   0   0   1   4    2  |     6   1.0
-D   1   0   0   0   3   2    2  |     8   1.3
 
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
@@ -76,6 +69,13 @@ A,B,C,D
         '0' = explicitly scored zero. Both tabulate as 0 stars — the
         difference only preserves voter intent (skipped vs rated low).
 
+[Score Distribution] (number of ballots giving each score)
+    5   4   3   2   1   0  Abs  | Total   Avg
+A   1   0   0   0   2   1    4  |     7   1.8
+B   1   0   0   0   1   2    4  |     6   1.5
+C   1   0   0   0   1   4    2  |     6   1.0
+D   1   0   0   0   3   2    2  |     8   1.3
+
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    D             -- 8 -- First place
@@ -90,6 +90,7 @@ A,B,C,D
    A             -- 0
    Equal Support -- 7
  D wins.
+   Voters with a preference: 1. D 1 (100%) vs A 0 (0%); majority = 1.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  D

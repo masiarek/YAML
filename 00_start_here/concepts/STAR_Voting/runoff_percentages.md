@@ -1,10 +1,5 @@
 # Reading the Runoff Percentages — Two Denominators, One Winner
 
-![img.png](img.png)
-
-![img_1.png](img_1.png)
-
-![img_2.png](img_2.png)
 **One line:** in the Automatic Runoff, the *same* vote count is shown as **two
 different percentages** — out of **all** voters, and out of only the voters who
 **expressed a preference** between the two finalists. The winner needs a majority of
@@ -85,6 +80,31 @@ Nothing was thrown away; the voters chose to sit out one specific comparison. (C
 this with an IRV *exhausted* ballot, which stops counting because the method ran out of
 ranks — a method-caused loss, not a voter's choice. See
 [exhausted ballots](../RCV_IRV/RCV_IRV_exhausted_ballots.md).)
+
+## The same number in the LH engine
+
+The `starvote` engine prints this decisive percentage as one line — with the
+denominator **named**, so there's no second column to misread. Turn it on with
+`options: { show_runoff_percent: true }` (it's off by default, but the always-full
+`_tabulated` copy carries it automatically):
+
+```
+Automatic Runoff Round
+   Dog           -- 190 -- First place
+   Cat           -- 173
+   Equal Support -- 92
+ Dog wins.
+   Voters with a preference: 363. Dog 190 (52%) vs Cat 173 (48%); majority = 182.
+```
+
+That last line is the **% Between Finalists** column, spelled out: the denominator is
+the 363 voters with a preference, Dog's 190 is 52% of them, and a strict majority needs
+182 — which Dog clears. (See [reading a STAR report](./reading_a_star_report.md) for the
+rest of the engine output, and `CLAUDE.md` for the option's house default.)
+
+The BetterVoting screenshots above and this engine line are **two reports of the same
+election** — why there are two, and how every piece maps between them, is
+[BetterVoting and the LH engine](../bettervoting_and_the_engine.md).
 
 ## The one-sentence version
 

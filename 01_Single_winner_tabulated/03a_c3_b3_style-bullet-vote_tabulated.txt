@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     03a_c3_b3_style-bullet-vote.yaml
-SOURCE MODIFIED: 2026-06-22 15:13:10
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  03a_c3_b3_style-bullet-vote_tabulated.txt
-TABULATED AT:    2026-06-22 18:11:41
+TABULATED AT:    2026-06-28 01:02:09
 ======================================================================
 
 # Voting styles — what a valid STAR ballot may look like.
@@ -60,12 +60,6 @@ expected_winners:
 TABULATION RESULTS
 ======================================================================
 
-[Score Distribution] (number of ballots giving each score)
-          5   4   3   2   1   0  | Total   Avg
-Choco     0   0   0   0   1   2  |     1   0.3
-Almond    1   0   0   1   0   1  |     7   2.3
-Vanilla   3   0   0   0   0   0  |    15   5.0
-
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
@@ -87,6 +81,12 @@ Choco,Almond,Vanilla
     0,     5,      5
     0,     0,      5
 
+[Score Distribution] (number of ballots giving each score)
+          5   4   3   2   1   0  | Total   Avg
+Choco     0   0   0   0   1   2  |     1   0.3
+Almond    1   0   0   1   0   1  |     7   2.3
+Vanilla   3   0   0   0   0   0  |    15   5.0
+
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    Vanilla       -- 15 -- First place
@@ -100,6 +100,7 @@ Choco,Almond,Vanilla
    Almond        -- 0
    Equal Support -- 1
  Vanilla wins.
+   Voters with a preference: 2. Vanilla 2 (100%) vs Almond 0 (0%); majority = 2.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Vanilla

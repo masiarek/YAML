@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     02b_c5_b63_proportional-sss.yaml
-SOURCE MODIFIED: 2026-06-22 14:36:45
+SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  02b_c5_b63_proportional-sss_tabulated.txt
-TABULATED AT:    2026-06-22 14:37:19
+TABULATED AT:    2026-06-28 01:02:13
 ======================================================================
 
 # Proportional multi-winner example: Sequentially Spent Score (SSS).
@@ -41,7 +41,7 @@ options:
   show_matrix: false
   show_condorcet: false
   show_score_counts: false
-  brief: false
+  brief: true
   collapse_ballots: true
   matrix_finalists_only: false   # true = finalists only; false = full N×N grid (needs show_matrix)
   show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
@@ -70,14 +70,6 @@ TABULATION RESULTS
   Same majority/minority ballots as the Allocated Score example, tabulated with
   Sequentially Spent Score (SSS), a modern proportional-score method. The
   minority bloc again earns a seat that Bloc STAR would deny.
-
-[Score Distribution] (number of ballots giving each score)
-        5   4   3   2   1   0  | Total   Avg
-Alice  18  12   9   0   0  24  |   165   2.6
-Ben    12  27   0   0   0  24  |   168   2.7
-Cara    9   0  30   0   0  24  |   135   2.1
-Dan    15   9   0   0   0  39  |   111   1.8
-Eve     9  15   0   0   0  39  |   105   1.7
 
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison
@@ -108,6 +100,14 @@ Count × Alice,Ben,Cara,Dan,Eve
    12 ×     4,  5,   3,  0,  0
     9 ×     3,  4,   5,  0,  0
     9 ×     0,  0,   0,  4,  5
+
+[Score Distribution] (number of ballots giving each score)
+        5   4   3   2   1   0  | Total   Avg
+Alice  18  12   9   0   0  24  |   165   2.6
+Ben    12  27   0   0   0  24  |   168   2.7
+Cara    9   0  30   0   0  24  |   135   2.1
+Dan    15   9   0   0   0  39  |   111   1.8
+Eve     9  15   0   0   0  39  |   105   1.7
  Want to fill 3 seats.
  Hare score quota is 105.
 

@@ -86,6 +86,7 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
     show_condorcet: false
     show_score_counts: false
     show_irv: false
+    show_runoff_percent: false
     brief: true
     collapse_ballots: true
     count_separator: "×"
@@ -103,6 +104,14 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
 - **`show_description`**: per the block above, default `false` (clean demo —
   description stays in the file and the always-full `_tabulated` copy, hidden on
   screen). Flip to `true` only for a deliberate study/reference render.
+- **`show_runoff_percent`**: default `false`. When `true`, prints a one-line runoff
+  summary under the Automatic Runoff winner — e.g. `Voters with a preference: 363.
+  Dog 190 (52%) vs Cat 173 (48%); majority = 182` — using the **decided-voters**
+  denominator (Equal Support excluded), the share that actually decides the runoff.
+  Like the other analyses, the `_tabulated` copy forces it on regardless of the
+  flag (don't hand-set that). Flip to `true` on screen only for a lesson that's
+  specifically *about* the runoff percentages (e.g. the BetterVoting two-denominator
+  walkthrough, `concepts/STAR_Voting/runoff_percentages.md`).
 - **Voter counts — keep examples SMALL.** Default to the *fewest ballots* that
   make the point; prefer **individual ballots** (one row per voter, a handful of
   them) over large weighted blocs. A 3-voter example that shows the effect beats a
@@ -139,9 +148,10 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
 ## Engines
 - `STARVote_LH_tabulation_engine/starvote_larry_hastings.py` — STAR + Bloc/
   proportional; reporting options; `blocs:` vote-splitting check; quorum;
-  `[Divergence from STAR]` comparison. Auto-dispatches to RCV-IRV / Approval by
-  `voting_method`, or to RCV-IRV when ballots contain ranked `>` (comments with
-  `->` are ignored).
+  `[Divergence from STAR]` comparison; optional `show_runoff_percent` runoff
+  summary line (decided-voters denominator; forced on in `_tabulated`).
+  Auto-dispatches to RCV-IRV / Approval by `voting_method`, or to RCV-IRV when
+  ballots contain ranked `>` (comments with `->` are ignored).
 - `RCV_IRV_tabulation_engine/rcv_irv_tabulation.py` — vendored pyrankvote; reads
   ranked (`A>C>B`) or score ballots.
 - Quick checks can use system `python3` (engines are vendored); the user runs via

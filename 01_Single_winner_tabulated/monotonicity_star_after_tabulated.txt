@@ -2,7 +2,7 @@
 SOURCE FILE:     monotonicity_star_after.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  monotonicity_star_after_tabulated.txt
-TABULATED AT:    2026-06-26 23:24:36
+TABULATED AT:    2026-06-28 01:02:11
 ======================================================================
 
 election_title: Monotonicity — STAR counterpart (AFTER — X still wins)
@@ -101,6 +101,7 @@ Z  10   0   8   0   0  16  |    74   2.2
    Y             -- 8
    Equal Support -- 0
  X wins.
+   Voters with a preference: 34. X 26 (76%) vs Y 8 (24%); majority = 18.
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  X
