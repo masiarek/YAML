@@ -23,7 +23,7 @@ Because it's computed entirely from the **pairwise matrix** (for each pair, how 
 | Precinct-summable? | ❌ No | ✅ Yes (add pairwise matrices) |
 | Exhausted ballots? | Possible | No — all rankings are read |
 
-The headline: the two things people *assume* "RCV" does — let you mark ties and compare candidates head-to-head — are exactly what **Ranked Robin** does and what **IRV does not**. (See [strict_vs_weak_ranks.md](../strict_vs_weak_ranks.md) and [RCV_IRV_and_plurality.md](../RCV_IRV/RCV_IRV_and_plurality.md).)
+The headline: the two things people *assume* "RCV" does — let you mark ties and compare candidates head-to-head — are exactly what **RCV-RR (Ranked Robin)** does and what **RCV-IRV (Instant-Runoff Voting)** does not. (See [strict_vs_weak_ranks.md](../strict_vs_weak_ranks.md) and [RCV_IRV_and_plurality.md](../RCV_IRV/RCV_IRV_and_plurality.md).)
 
 ## Why it matters
 
