@@ -65,17 +65,8 @@ re-converts a real export and confirms the engine reproduces the stated winner. 
 independent implementations cross-checking each other is a *feature* — it's how you trust
 a count.
 
-## "Two engines" under the hood
+---
 
-"Two tabulation engines" also describes the repo itself. Score ballots and ranked ballots
-are counted in fundamentally different ways, so each has its own engine:
-
-- **`STARVote_LH_tabulation_engine`** (Larry Hastings' `starvote`) — the **score** methods:
-  STAR, Bloc / Proportional STAR, Approval.
-- **`RCV_IRV_tabulation_engine`** (vendored **pyrankvote**) — **ranked** ballots, for the
-  RCV-IRV comparisons.
-
-The main engine auto-dispatches: a file with ranked `A>B>C` ballots (or `voting_method:
-RCV_IRV`) is handed to the RCV-IRV engine; score grids stay with `starvote`. Why the two
-*counts* differ so much — even on identical preferences — is
-[STAR vs RCV-IRV, step by step](../../tabulation_star_vs_irv.md).
+*This page is about STAR's two reports (BetterVoting + the LH `starvote` engine).
+**Ranked** ballots are a different family with a different count — see
+[RCV-IRV](./RCV_IRV/README.md).*
