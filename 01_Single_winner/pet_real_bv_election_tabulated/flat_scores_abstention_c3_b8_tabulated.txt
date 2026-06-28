@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     flat_scores_abstention_c3_b8.yaml
-SOURCE MODIFIED: 2026-06-28 10:27:28
+SOURCE MODIFIED: 2026-06-28 12:15:51
 TABULATED FILE:  flat_scores_abstention_c3_b8_tabulated.txt
-TABULATED AT:    2026-06-28 11:52:03
+TABULATED AT:    2026-06-28 12:15:51
 ======================================================================
 
 election:
@@ -35,7 +35,7 @@ election:
     show_matrix: true
     matrix_finalists_only: true
     show_condorcet: false
-    show_score_counts: false
+    show_score_counts: true
     show_irv: false
     show_runoff_percent: true   # this file is specifically about the runoff denominator
     brief: true

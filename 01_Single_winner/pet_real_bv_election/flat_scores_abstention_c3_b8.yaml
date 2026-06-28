@@ -28,7 +28,7 @@ election:
     show_matrix: true
     matrix_finalists_only: true
     show_condorcet: false
-    show_score_counts: false
+    show_score_counts: true
     show_irv: false
     show_runoff_percent: true   # this file is specifically about the runoff denominator
     brief: true
