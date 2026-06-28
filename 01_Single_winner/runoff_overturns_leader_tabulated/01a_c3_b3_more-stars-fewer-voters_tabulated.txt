@@ -2,7 +2,7 @@
 SOURCE FILE:     01a_c3_b3_more-stars-fewer-voters.yaml
 SOURCE MODIFIED: 2026-06-26 22:42:52
 TABULATED FILE:  01a_c3_b3_more-stars-fewer-voters_tabulated.txt
-TABULATED AT:    2026-06-28 12:09:21
+TABULATED AT:    2026-06-28 17:40:05
 ======================================================================
 
 election_title: More stars, fewer voters — the runoff overturns the score leader

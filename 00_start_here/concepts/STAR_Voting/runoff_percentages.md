@@ -6,8 +6,9 @@ different percentages** — out of **all** voters, and out of only the voters wh
 the second group, not the first. The gap between the two numbers is the **Equal
 Support** voters, who scored both finalists the same.
 
-→ The no-preference bucket is [`Equal Support`](../../GLOSSARY.md); why those ballots
-still count is [Are equal-score votes discounted?](../../../interviews_conversations/are_equal_score_votes_discounted.md).
+→ Part of [The Automatic Runoff Round](./STAR_Automatic_Runoff.md) (the round this
+percentage summarizes). The no-preference bucket is [`Equal Support`](../../GLOSSARY.md);
+why those ballots still count is [Are equal-score votes discounted?](../../../interviews_conversations/are_equal_score_votes_discounted.md).
 Reading the whole report: [How to read a STAR report](../tabulation_engines/LH_starvote/reading_a_star_report.md).
 
 ---

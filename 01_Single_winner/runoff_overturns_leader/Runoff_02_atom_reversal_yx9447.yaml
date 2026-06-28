@@ -1,0 +1,36 @@
+election:
+  election_title: Runoff 02 — the atom (smallest runoff reversal)
+  election_description: |-
+    A REAL BetterVoting election (BV id yx9447), captured 2026-06-28. The smallest
+    possible Runoff Reversal: the Scoring-Round leader (Austin) LOSES the Automatic
+    Runoff to Boston, the candidate more voters prefer head-to-head. All three voters
+    like Austin (5, 4, 4), but two of them prefer Boston (Boston 5 over Austin 4), so
+    Boston wins the runoff 2-1. Winner = the Condorcet winner (not a startling case).
+    Level 101. Full two-view lesson: Runoff_02_atom_reversal_yx9447.md
+  options:
+    show_description: false
+    show_matrix: true
+    matrix_finalists_only: true
+    show_condorcet: true
+    show_score_counts: false
+    show_irv: false
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: false
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "https://bettervoting.com/yx9447/results"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      Austin, Boston, Cairo
+      5, 1, 2
+      4, 5, 0
+      4, 5, 0
+    lot_numbers: [Austin, Boston, Cairo]
+    expected_results:
+      winners:
+      - Boston
+
+# file: Runoff_02_atom_reversal_yx9447.yaml

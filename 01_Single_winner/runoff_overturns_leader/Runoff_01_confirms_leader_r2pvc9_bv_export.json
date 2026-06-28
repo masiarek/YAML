@@ -1,0 +1,320 @@
+{
+  "Election": {
+    "election_id": "r2pvc9",
+    "title": "Runoff confirms the leader (control) ",
+    "description": null,
+    "frontend_url": "",
+    "start_time": null,
+    "end_time": null,
+    "owner_id": "ea09e7c7-b00d-427a-bef8-32ade437d49d",
+    "audit_ids": null,
+    "admin_ids": null,
+    "credential_ids": null,
+    "state": "draft",
+    "races": [
+      {
+        "title": "Runoff confirms the leader (control) ",
+        "race_id": "0",
+        "num_winners": 1,
+        "voting_method": "STAR",
+        "candidates": [
+          {
+            "candidate_id": "c-b9h",
+            "candidate_name": "Aspen"
+          },
+          {
+            "candidate_id": "c-d26",
+            "candidate_name": "Birch"
+          },
+          {
+            "candidate_id": "c-wbr",
+            "candidate_name": "Cedar"
+          }
+        ]
+      }
+    ],
+    "settings": {
+      "voter_access": "open",
+      "voter_authentication": {},
+      "ballot_updates": false,
+      "public_results": true,
+      "random_candidate_order": true,
+      "require_instruction_confirmation": true,
+      "draggable_ballot": false,
+      "term_type": "election",
+      "contact_email": ""
+    },
+    "auth_key": null,
+    "claim_key_hash": "4a7060989b4050979727b81009772847a1ac0f3d689ed749aaa0c3ccbd2440cc",
+    "is_public": false,
+    "create_date": "2026-06-28T17:58:35.143Z",
+    "update_date": "1782669515143",
+    "head": true,
+    "ballot_source": "live_election",
+    "public_archive_id": null
+  },
+  "Ballots": [
+    {
+      "ballot_id": "b-j2y3jxkh",
+      "election_id": "r2pvc9",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-b9h",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-d26",
+              "score": 2
+            },
+            {
+              "candidate_id": "c-wbr",
+              "score": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-m97wftyb",
+      "election_id": "r2pvc9",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-b9h",
+              "score": 2
+            },
+            {
+              "candidate_id": "c-d26",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-wbr",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-yhmx9pxp",
+      "election_id": "r2pvc9",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-b9h",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-d26",
+              "score": 3
+            },
+            {
+              "candidate_id": "c-wbr",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Results": [
+    {
+      "votingMethod": "STAR",
+      "elected": [
+        {
+          "id": "c-b9h",
+          "name": "Aspen",
+          "tieBreakOrder": 0,
+          "votesPreferredOver": {
+            "c-b9h": 0,
+            "c-d26": 2,
+            "c-wbr": 3
+          },
+          "winsAgainst": {
+            "c-b9h": false,
+            "c-d26": true,
+            "c-wbr": true
+          },
+          "score": 12,
+          "fiveStarCount": 2
+        }
+      ],
+      "tied": [],
+      "other": [
+        {
+          "id": "c-d26",
+          "name": "Birch",
+          "tieBreakOrder": 1,
+          "votesPreferredOver": {
+            "c-b9h": 1,
+            "c-d26": 0,
+            "c-wbr": 3
+          },
+          "winsAgainst": {
+            "c-b9h": false,
+            "c-d26": false,
+            "c-wbr": true
+          },
+          "score": 10,
+          "fiveStarCount": 1
+        },
+        {
+          "id": "c-wbr",
+          "name": "Cedar",
+          "tieBreakOrder": 2,
+          "votesPreferredOver": {
+            "c-b9h": 0,
+            "c-d26": 0,
+            "c-wbr": 0
+          },
+          "winsAgainst": {
+            "c-b9h": false,
+            "c-d26": false,
+            "c-wbr": false
+          },
+          "score": 1,
+          "fiveStarCount": 0
+        }
+      ],
+      "roundResults": [
+        {
+          "winners": [
+            {
+              "id": "c-b9h",
+              "name": "Aspen",
+              "tieBreakOrder": 0,
+              "votesPreferredOver": {
+                "c-b9h": 0,
+                "c-d26": 2,
+                "c-wbr": 3
+              },
+              "winsAgainst": {
+                "c-b9h": false,
+                "c-d26": true,
+                "c-wbr": true
+              },
+              "score": 12,
+              "fiveStarCount": 2
+            }
+          ],
+          "runner_up": [
+            {
+              "id": "c-d26",
+              "name": "Birch",
+              "tieBreakOrder": 1,
+              "votesPreferredOver": {
+                "c-b9h": 1,
+                "c-d26": 0,
+                "c-wbr": 3
+              },
+              "winsAgainst": {
+                "c-b9h": false,
+                "c-d26": false,
+                "c-wbr": true
+              },
+              "score": 10,
+              "fiveStarCount": 1
+            }
+          ],
+          "tied": [],
+          "tieBreakType": "none",
+          "logs": [
+            {
+              "key": "tabulation_logs.star.advance_to_runoff_basic",
+              "names": [
+                "Aspen",
+                "Birch"
+              ],
+              "stars": [
+                "12",
+                "10"
+              ]
+            },
+            {
+              "key": "tabulation_logs.star.runoff_win",
+              "winner": "Aspen",
+              "runner_up": "Birch",
+              "winner_votes": 2,
+              "runner_up_votes": 1,
+              "equal_votes": 0
+            }
+          ]
+        }
+      ],
+      "summaryData": {
+        "candidates": [
+          {
+            "id": "c-b9h",
+            "name": "Aspen",
+            "tieBreakOrder": 0,
+            "votesPreferredOver": {
+              "c-b9h": 0,
+              "c-d26": 2,
+              "c-wbr": 3
+            },
+            "winsAgainst": {
+              "c-b9h": false,
+              "c-d26": true,
+              "c-wbr": true
+            },
+            "score": 12,
+            "fiveStarCount": 2
+          },
+          {
+            "id": "c-d26",
+            "name": "Birch",
+            "tieBreakOrder": 1,
+            "votesPreferredOver": {
+              "c-b9h": 1,
+              "c-d26": 0,
+              "c-wbr": 3
+            },
+            "winsAgainst": {
+              "c-b9h": false,
+              "c-d26": false,
+              "c-wbr": true
+            },
+            "score": 10,
+            "fiveStarCount": 1
+          },
+          {
+            "id": "c-wbr",
+            "name": "Cedar",
+            "tieBreakOrder": 2,
+            "votesPreferredOver": {
+              "c-b9h": 0,
+              "c-d26": 0,
+              "c-wbr": 0
+            },
+            "winsAgainst": {
+              "c-b9h": false,
+              "c-d26": false,
+              "c-wbr": false
+            },
+            "score": 1,
+            "fiveStarCount": 0
+          }
+        ],
+        "nOutOfBoundsVotes": 0,
+        "nAbstentions": 0,
+        "nTallyVotes": 3
+      },
+      "tieBreakType": "none",
+      "perm": [
+        "c-b9h",
+        "c-d26",
+        "c-wbr"
+      ]
+    }
+  ]
+}

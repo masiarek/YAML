@@ -5,6 +5,10 @@ when it pops up *"Why is the top-scoring candidate different from the winner?"*
 (Presenting with BetterVoting? [`explaining_to_voters.md`](./explaining_to_voters.md)
 has a corrected, plain-language version of that popover.)
 
+**Teaching this?** The step-by-step presenter's guide — the order to teach it in,
+why it's a *good* thing, and the devil's-advocate questions with answers — is
+[`teaching_runoff_reversal.md`](./teaching_runoff_reversal.md).
+
 **The name for it:** we call this a **Runoff Reversal** — the Scoring-Round leader
 *loses* the Automatic Runoff to the finalist more voters prefer. (In technical or
 debate writing, the precise phrasing is "the runoff overturns the score leader," to

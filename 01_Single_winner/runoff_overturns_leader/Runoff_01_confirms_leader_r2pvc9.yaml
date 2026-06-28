@@ -1,0 +1,35 @@
+election:
+  election_title: Runoff 01 — Runoff confirms the leader (control)
+  election_description: |-
+    A REAL BetterVoting election (BV id r2pvc9), captured 2026-06-28. The control
+    case for the Runoff Reversal set: the Scoring-Round leader (Aspen) is ALSO the
+    candidate more voters prefer head-to-head, so the runoff CONFIRMS the leader —
+    proof the runoff isn't rigged against whoever has the most stars. Winner = the
+    Condorcet winner. Level 101. Full two-view lesson: Runoff_01_confirms_leader_r2pvc9.md
+  options:
+    show_description: false
+    show_matrix: true
+    matrix_finalists_only: true
+    show_condorcet: true
+    show_score_counts: false
+    show_irv: false
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: false
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "https://bettervoting.com/r2pvc9/results"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      Aspen, Birch, Cedar
+      5, 2, 1
+      2, 5, 0
+      5, 3, 0
+    lot_numbers: [Aspen, Birch, Cedar]
+    expected_results:
+      winners:
+      - Aspen
+
+# file: Runoff_01_confirms_leader_r2pvc9.yaml

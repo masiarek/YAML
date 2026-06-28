@@ -179,6 +179,20 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
     **`_tabulated`** report, or just the specific section being discussed.
 
   Either way, keep a link to the full `_tabulated` mirror too.
+- **BV screenshots: prefix the filename with the BetterVoting election ID** —
+  `<bv_id>_<what>.png` (e.g. `r2pvc9_result_bars.png`, `r2pvc9_runoff_pct.png`,
+  `r2pvc9_runoff_pie.png`, `r2pvc9_race_details.png`). The id prefix keeps images
+  traceable to their election and prevents collisions across scenarios. (PyCharm
+  pastes generic `img_N.png`; rename to this convention when incorporating the case,
+  and give each `![alt](…)` a descriptive caption.)
+- **BV-backed teaching cases (e.g. the Runoff Reversal set) → `Runoff_NN_<descriptor>_<bvid>`.**
+  Zero-padded sequence (`Runoff_01`, `Runoff_02`, …) for sort order + the teaching
+  progression, a short descriptor, and the BetterVoting election id as the final suffix
+  for traceability. Each case is a trio: the **two-view lesson** `…_<bvid>.md` (View 1 =
+  BetterVoting screenshots, View 2 = the LH text report, plus the ballots), the
+  tabulatable `…_<bvid>.yaml`, and the frozen `…_<bvid>_bv_export.json`. Filenames carry
+  the order/meaning; the BV id lives on the images, in the filename suffix, and in the
+  YAML (`election_description` + the results URL).
 - **Cross-reference slides by title** via `interviews_conversations/LINKS.md`
   short names — never page numbers or `#slide=id…` deep links.
 

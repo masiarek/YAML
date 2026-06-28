@@ -46,6 +46,34 @@ The cleanest proof is the 3-candidate case shown both ways:
      Save as: img/dq2dmm_bv_abstentions.png
 ![BetterVoting result for dq2dmm: 3 abstentions / 5 tallied, Banana wins](./img/dq2dmm_bv_abstentions.png) -->
 
+## Same numbers, different words
+
+The two reports never disagree on the runoff numbers — they just **name and format**
+them differently, because one is a visual table and the other is a text audit report.
+
+| BetterVoting (Race Details column) | LH engine (the runoff line) | What it is |
+|---|---|---|
+| **Runoff Votes** | the finalist counts — `Boston 2`, `Austin 1` (also the Automatic Runoff block) | each finalist's head-to-head vote total |
+| **% Between Finalists** | the `(67%)` / `(33%)` in the line | share of the **decided** voters (Equal Support excluded) — the number that decides the race |
+| **% Runoff Votes** | not a separate line; the `_tabulated` "Runoff math" funnel carries the all-ballots total | share of **all** ballots (Equal Support left in the denominator) |
+| *(denominator: a column header)* | **`Voters with a preference: N of TOTAL (E Equal Support)`** | LH states the denominator **inline** instead of in a header |
+
+**Why the words differ.** BetterVoting is a **visual, voter-facing** display: it can
+afford several columns and let you read whichever percentage you want, with the
+denominator implied by the header. The LH engine is a **text audit report**: it can't
+assume you've read a column header, so it folds the decisive count and percentage into
+one **self-reconciling line** and *names* the denominator (`Voters with a preference`)
+— the one thing BetterVoting's two percent columns leave you to infer.
+
+**Why there are two percentages at all.** When some voters rate the two finalists
+equally (**Equal Support**), "what fraction did the winner get?" has two honest answers
+— out of *everyone*, or out of only the voters who *picked* between the two finalists.
+BetterVoting prints both; the LH line prints the **decisive** one (decided voters) and
+names it, then expands the full funnel in `_tabulated`. With no Equal Support the two
+percentages are identical; with Equal Support they diverge (e.g. the flat-scores
+`4 of 8` case). So: `LH "Boston 2 (67%)"` = `BV Runoff Votes (2)` + `BV % Between
+Finalists (67%)`, in one line that says what it's dividing by.
+
 ## Evidence & the filed issue
 
 - Frozen BetterVoting result + raw export: [`BV_result_snapshot.md`](../../../01_Single_winner/pet_real_bv_election/BV_result_snapshot.md)

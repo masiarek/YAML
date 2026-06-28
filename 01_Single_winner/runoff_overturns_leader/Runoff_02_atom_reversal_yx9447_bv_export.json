@@ -1,0 +1,320 @@
+{
+  "Election": {
+    "election_id": "yx9447",
+    "title": "Runoff_02 The atom — smallest runoff reversal",
+    "description": null,
+    "frontend_url": "",
+    "start_time": null,
+    "end_time": null,
+    "owner_id": "ea09e7c7-b00d-427a-bef8-32ade437d49d",
+    "audit_ids": null,
+    "admin_ids": null,
+    "credential_ids": null,
+    "state": "draft",
+    "races": [
+      {
+        "title": "Runoff_02 The atom — smallest runoff reversal",
+        "race_id": "0",
+        "num_winners": 1,
+        "voting_method": "STAR",
+        "candidates": [
+          {
+            "candidate_id": "c-vy6",
+            "candidate_name": "Austin"
+          },
+          {
+            "candidate_id": "c-ctr",
+            "candidate_name": "Boston"
+          },
+          {
+            "candidate_id": "c-66j",
+            "candidate_name": "Cairo"
+          }
+        ]
+      }
+    ],
+    "settings": {
+      "voter_access": "open",
+      "voter_authentication": {},
+      "ballot_updates": false,
+      "public_results": true,
+      "random_candidate_order": true,
+      "require_instruction_confirmation": true,
+      "draggable_ballot": false,
+      "term_type": "election",
+      "contact_email": ""
+    },
+    "auth_key": null,
+    "claim_key_hash": "7068510988212c4cc62dd9b2a5f29b425361618eb4c1f7b46d803e44691fb2a5",
+    "is_public": false,
+    "create_date": "2026-06-28T20:02:00.848Z",
+    "update_date": "1782676920848",
+    "head": true,
+    "ballot_source": "live_election",
+    "public_archive_id": null
+  },
+  "Ballots": [
+    {
+      "ballot_id": "b-3t4f74hf",
+      "election_id": "yx9447",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-vy6",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-ctr",
+              "score": 1
+            },
+            {
+              "candidate_id": "c-66j",
+              "score": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-w9v6tcwh",
+      "election_id": "yx9447",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-vy6",
+              "score": 4
+            },
+            {
+              "candidate_id": "c-ctr",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-66j",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-d7fkmfhd",
+      "election_id": "yx9447",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-vy6",
+              "score": 4
+            },
+            {
+              "candidate_id": "c-ctr",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-66j",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Results": [
+    {
+      "votingMethod": "STAR",
+      "elected": [
+        {
+          "id": "c-ctr",
+          "name": "Boston",
+          "tieBreakOrder": 1,
+          "votesPreferredOver": {
+            "c-vy6": 2,
+            "c-ctr": 0,
+            "c-66j": 2
+          },
+          "winsAgainst": {
+            "c-vy6": true,
+            "c-ctr": false,
+            "c-66j": true
+          },
+          "score": 11,
+          "fiveStarCount": 2
+        }
+      ],
+      "tied": [],
+      "other": [
+        {
+          "id": "c-vy6",
+          "name": "Austin",
+          "tieBreakOrder": 0,
+          "votesPreferredOver": {
+            "c-vy6": 0,
+            "c-ctr": 1,
+            "c-66j": 3
+          },
+          "winsAgainst": {
+            "c-vy6": false,
+            "c-ctr": false,
+            "c-66j": true
+          },
+          "score": 13,
+          "fiveStarCount": 1
+        },
+        {
+          "id": "c-66j",
+          "name": "Cairo",
+          "tieBreakOrder": 2,
+          "votesPreferredOver": {
+            "c-vy6": 0,
+            "c-ctr": 1,
+            "c-66j": 0
+          },
+          "winsAgainst": {
+            "c-vy6": false,
+            "c-ctr": false,
+            "c-66j": false
+          },
+          "score": 2,
+          "fiveStarCount": 0
+        }
+      ],
+      "roundResults": [
+        {
+          "winners": [
+            {
+              "id": "c-ctr",
+              "name": "Boston",
+              "tieBreakOrder": 1,
+              "votesPreferredOver": {
+                "c-vy6": 2,
+                "c-ctr": 0,
+                "c-66j": 2
+              },
+              "winsAgainst": {
+                "c-vy6": true,
+                "c-ctr": false,
+                "c-66j": true
+              },
+              "score": 11,
+              "fiveStarCount": 2
+            }
+          ],
+          "runner_up": [
+            {
+              "id": "c-vy6",
+              "name": "Austin",
+              "tieBreakOrder": 0,
+              "votesPreferredOver": {
+                "c-vy6": 0,
+                "c-ctr": 1,
+                "c-66j": 3
+              },
+              "winsAgainst": {
+                "c-vy6": false,
+                "c-ctr": false,
+                "c-66j": true
+              },
+              "score": 13,
+              "fiveStarCount": 1
+            }
+          ],
+          "tied": [],
+          "tieBreakType": "none",
+          "logs": [
+            {
+              "key": "tabulation_logs.star.advance_to_runoff_basic",
+              "names": [
+                "Austin",
+                "Boston"
+              ],
+              "stars": [
+                "13",
+                "11"
+              ]
+            },
+            {
+              "key": "tabulation_logs.star.runoff_win",
+              "winner": "Boston",
+              "runner_up": "Austin",
+              "winner_votes": 2,
+              "runner_up_votes": 1,
+              "equal_votes": 0
+            }
+          ]
+        }
+      ],
+      "summaryData": {
+        "candidates": [
+          {
+            "id": "c-ctr",
+            "name": "Boston",
+            "tieBreakOrder": 1,
+            "votesPreferredOver": {
+              "c-vy6": 2,
+              "c-ctr": 0,
+              "c-66j": 2
+            },
+            "winsAgainst": {
+              "c-vy6": true,
+              "c-ctr": false,
+              "c-66j": true
+            },
+            "score": 11,
+            "fiveStarCount": 2
+          },
+          {
+            "id": "c-vy6",
+            "name": "Austin",
+            "tieBreakOrder": 0,
+            "votesPreferredOver": {
+              "c-vy6": 0,
+              "c-ctr": 1,
+              "c-66j": 3
+            },
+            "winsAgainst": {
+              "c-vy6": false,
+              "c-ctr": false,
+              "c-66j": true
+            },
+            "score": 13,
+            "fiveStarCount": 1
+          },
+          {
+            "id": "c-66j",
+            "name": "Cairo",
+            "tieBreakOrder": 2,
+            "votesPreferredOver": {
+              "c-vy6": 0,
+              "c-ctr": 1,
+              "c-66j": 0
+            },
+            "winsAgainst": {
+              "c-vy6": false,
+              "c-ctr": false,
+              "c-66j": false
+            },
+            "score": 2,
+            "fiveStarCount": 0
+          }
+        ],
+        "nOutOfBoundsVotes": 0,
+        "nAbstentions": 0,
+        "nTallyVotes": 3
+      },
+      "tieBreakType": "none",
+      "perm": [
+        "c-vy6",
+        "c-ctr",
+        "c-66j"
+      ]
+    }
+  ]
+}
