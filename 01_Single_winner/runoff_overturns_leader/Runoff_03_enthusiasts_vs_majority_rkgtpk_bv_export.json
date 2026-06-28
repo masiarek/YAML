@@ -1,0 +1,535 @@
+{
+  "Election": {
+    "election_id": "rkgtpk",
+    "title": "Runoff_03 — the 201-level reversal in a bigger field (\"two enthusiasts vs the majority\")",
+    "description": null,
+    "frontend_url": "",
+    "start_time": null,
+    "end_time": null,
+    "owner_id": "ea09e7c7-b00d-427a-bef8-32ade437d49d",
+    "audit_ids": null,
+    "admin_ids": null,
+    "credential_ids": null,
+    "state": "draft",
+    "races": [
+      {
+        "title": "Runoff_03 — the 201-level reversal in a bigger field (\"two enthusiasts vs the majority\")",
+        "race_id": "0",
+        "num_winners": 1,
+        "voting_method": "STAR",
+        "candidates": [
+          {
+            "candidate_id": "c-fdc",
+            "candidate_name": "Dakota"
+          },
+          {
+            "candidate_id": "c-dch",
+            "candidate_name": "Eden"
+          },
+          {
+            "candidate_id": "c-33c",
+            "candidate_name": "Flynn"
+          },
+          {
+            "candidate_id": "c-hrg",
+            "candidate_name": "Gale"
+          },
+          {
+            "candidate_id": "c-j6y",
+            "candidate_name": "Hazel"
+          }
+        ],
+        "description": "STAR · Level: 201 · 5 voters, 5 candidates"
+      }
+    ],
+    "settings": {
+      "voter_access": "open",
+      "voter_authentication": {},
+      "ballot_updates": false,
+      "public_results": true,
+      "random_candidate_order": true,
+      "require_instruction_confirmation": true,
+      "draggable_ballot": false,
+      "term_type": "election",
+      "contact_email": ""
+    },
+    "auth_key": null,
+    "claim_key_hash": "39eebb38cbbbe4206630c6d761bf1f3d2d1e17ac2305934c3e90bee7dcf55318",
+    "is_public": false,
+    "create_date": "2026-06-28T22:53:40.715Z",
+    "update_date": "1782687220715",
+    "head": true,
+    "ballot_source": "live_election",
+    "public_archive_id": null
+  },
+  "Ballots": [
+    {
+      "ballot_id": "b-3r3xpgkd",
+      "election_id": "rkgtpk",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-fdc",
+              "score": 4
+            },
+            {
+              "candidate_id": "c-dch",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-33c",
+              "score": 1
+            },
+            {
+              "candidate_id": "c-hrg",
+              "score": 0
+            },
+            {
+              "candidate_id": "c-j6y",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-p9644b7v",
+      "election_id": "rkgtpk",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-fdc",
+              "score": 4
+            },
+            {
+              "candidate_id": "c-dch",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-33c",
+              "score": 0
+            },
+            {
+              "candidate_id": "c-hrg",
+              "score": 0
+            },
+            {
+              "candidate_id": "c-j6y",
+              "score": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-3gvdj2cc",
+      "election_id": "rkgtpk",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-fdc",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-dch",
+              "score": 0
+            },
+            {
+              "candidate_id": "c-33c",
+              "score": 1
+            },
+            {
+              "candidate_id": "c-hrg",
+              "score": 0
+            },
+            {
+              "candidate_id": "c-j6y",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-gqg4rkd9",
+      "election_id": "rkgtpk",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-fdc",
+              "score": 4
+            },
+            {
+              "candidate_id": "c-dch",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-33c",
+              "score": 0
+            },
+            {
+              "candidate_id": "c-hrg",
+              "score": 1
+            },
+            {
+              "candidate_id": "c-j6y",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-gtjq8cry",
+      "election_id": "rkgtpk",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-fdc",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-dch",
+              "score": 0
+            },
+            {
+              "candidate_id": "c-33c",
+              "score": 0
+            },
+            {
+              "candidate_id": "c-hrg",
+              "score": 1
+            },
+            {
+              "candidate_id": "c-j6y",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Results": [
+    {
+      "votingMethod": "STAR",
+      "elected": [
+        {
+          "id": "c-dch",
+          "name": "Eden",
+          "tieBreakOrder": 1,
+          "votesPreferredOver": {
+            "c-j6y": 3,
+            "c-dch": 0,
+            "c-fdc": 3,
+            "c-hrg": 3,
+            "c-33c": 3
+          },
+          "winsAgainst": {
+            "c-j6y": true,
+            "c-dch": false,
+            "c-fdc": true,
+            "c-hrg": true,
+            "c-33c": true
+          },
+          "score": 15,
+          "fiveStarCount": 3
+        }
+      ],
+      "tied": [],
+      "other": [
+        {
+          "id": "c-fdc",
+          "name": "Dakota",
+          "tieBreakOrder": 2,
+          "votesPreferredOver": {
+            "c-j6y": 5,
+            "c-dch": 2,
+            "c-fdc": 0,
+            "c-hrg": 5,
+            "c-33c": 5
+          },
+          "winsAgainst": {
+            "c-j6y": true,
+            "c-dch": false,
+            "c-fdc": false,
+            "c-hrg": true,
+            "c-33c": true
+          },
+          "score": 22,
+          "fiveStarCount": 2
+        },
+        {
+          "id": "c-hrg",
+          "name": "Gale",
+          "tieBreakOrder": 3,
+          "votesPreferredOver": {
+            "c-j6y": 2,
+            "c-dch": 1,
+            "c-fdc": 0,
+            "c-hrg": 0,
+            "c-33c": 2
+          },
+          "winsAgainst": {
+            "c-j6y": true,
+            "c-dch": false,
+            "c-fdc": false,
+            "c-hrg": false,
+            "c-33c": false
+          },
+          "score": 2,
+          "fiveStarCount": 0
+        },
+        {
+          "id": "c-33c",
+          "name": "Flynn",
+          "tieBreakOrder": 4,
+          "votesPreferredOver": {
+            "c-j6y": 2,
+            "c-dch": 1,
+            "c-fdc": 0,
+            "c-hrg": 2,
+            "c-33c": 0
+          },
+          "winsAgainst": {
+            "c-j6y": true,
+            "c-dch": false,
+            "c-fdc": false,
+            "c-hrg": false,
+            "c-33c": false
+          },
+          "score": 2,
+          "fiveStarCount": 0
+        },
+        {
+          "id": "c-j6y",
+          "name": "Hazel",
+          "tieBreakOrder": 0,
+          "votesPreferredOver": {
+            "c-j6y": 0,
+            "c-dch": 0,
+            "c-fdc": 0,
+            "c-hrg": 1,
+            "c-33c": 1
+          },
+          "winsAgainst": {
+            "c-j6y": false,
+            "c-dch": false,
+            "c-fdc": false,
+            "c-hrg": false,
+            "c-33c": false
+          },
+          "score": 1,
+          "fiveStarCount": 0
+        }
+      ],
+      "roundResults": [
+        {
+          "winners": [
+            {
+              "id": "c-dch",
+              "name": "Eden",
+              "tieBreakOrder": 1,
+              "votesPreferredOver": {
+                "c-j6y": 3,
+                "c-dch": 0,
+                "c-fdc": 3,
+                "c-hrg": 3,
+                "c-33c": 3
+              },
+              "winsAgainst": {
+                "c-j6y": true,
+                "c-dch": false,
+                "c-fdc": true,
+                "c-hrg": true,
+                "c-33c": true
+              },
+              "score": 15,
+              "fiveStarCount": 3
+            }
+          ],
+          "runner_up": [
+            {
+              "id": "c-fdc",
+              "name": "Dakota",
+              "tieBreakOrder": 2,
+              "votesPreferredOver": {
+                "c-j6y": 5,
+                "c-dch": 2,
+                "c-fdc": 0,
+                "c-hrg": 5,
+                "c-33c": 5
+              },
+              "winsAgainst": {
+                "c-j6y": true,
+                "c-dch": false,
+                "c-fdc": false,
+                "c-hrg": true,
+                "c-33c": true
+              },
+              "score": 22,
+              "fiveStarCount": 2
+            }
+          ],
+          "tied": [],
+          "tieBreakType": "none",
+          "logs": [
+            {
+              "key": "tabulation_logs.star.advance_to_runoff_basic",
+              "names": [
+                "Dakota",
+                "Eden"
+              ],
+              "stars": [
+                "22",
+                "15"
+              ]
+            },
+            {
+              "key": "tabulation_logs.star.runoff_win",
+              "winner": "Eden",
+              "runner_up": "Dakota",
+              "winner_votes": 3,
+              "runner_up_votes": 2,
+              "equal_votes": 0
+            }
+          ]
+        }
+      ],
+      "summaryData": {
+        "candidates": [
+          {
+            "id": "c-dch",
+            "name": "Eden",
+            "tieBreakOrder": 1,
+            "votesPreferredOver": {
+              "c-j6y": 3,
+              "c-dch": 0,
+              "c-fdc": 3,
+              "c-hrg": 3,
+              "c-33c": 3
+            },
+            "winsAgainst": {
+              "c-j6y": true,
+              "c-dch": false,
+              "c-fdc": true,
+              "c-hrg": true,
+              "c-33c": true
+            },
+            "score": 15,
+            "fiveStarCount": 3
+          },
+          {
+            "id": "c-fdc",
+            "name": "Dakota",
+            "tieBreakOrder": 2,
+            "votesPreferredOver": {
+              "c-j6y": 5,
+              "c-dch": 2,
+              "c-fdc": 0,
+              "c-hrg": 5,
+              "c-33c": 5
+            },
+            "winsAgainst": {
+              "c-j6y": true,
+              "c-dch": false,
+              "c-fdc": false,
+              "c-hrg": true,
+              "c-33c": true
+            },
+            "score": 22,
+            "fiveStarCount": 2
+          },
+          {
+            "id": "c-hrg",
+            "name": "Gale",
+            "tieBreakOrder": 3,
+            "votesPreferredOver": {
+              "c-j6y": 2,
+              "c-dch": 1,
+              "c-fdc": 0,
+              "c-hrg": 0,
+              "c-33c": 2
+            },
+            "winsAgainst": {
+              "c-j6y": true,
+              "c-dch": false,
+              "c-fdc": false,
+              "c-hrg": false,
+              "c-33c": false
+            },
+            "score": 2,
+            "fiveStarCount": 0
+          },
+          {
+            "id": "c-33c",
+            "name": "Flynn",
+            "tieBreakOrder": 4,
+            "votesPreferredOver": {
+              "c-j6y": 2,
+              "c-dch": 1,
+              "c-fdc": 0,
+              "c-hrg": 2,
+              "c-33c": 0
+            },
+            "winsAgainst": {
+              "c-j6y": true,
+              "c-dch": false,
+              "c-fdc": false,
+              "c-hrg": false,
+              "c-33c": false
+            },
+            "score": 2,
+            "fiveStarCount": 0
+          },
+          {
+            "id": "c-j6y",
+            "name": "Hazel",
+            "tieBreakOrder": 0,
+            "votesPreferredOver": {
+              "c-j6y": 0,
+              "c-dch": 0,
+              "c-fdc": 0,
+              "c-hrg": 1,
+              "c-33c": 1
+            },
+            "winsAgainst": {
+              "c-j6y": false,
+              "c-dch": false,
+              "c-fdc": false,
+              "c-hrg": false,
+              "c-33c": false
+            },
+            "score": 1,
+            "fiveStarCount": 0
+          }
+        ],
+        "nOutOfBoundsVotes": 0,
+        "nAbstentions": 0,
+        "nTallyVotes": 5
+      },
+      "tieBreakType": "none",
+      "perm": [
+        "c-j6y",
+        "c-dch",
+        "c-fdc",
+        "c-hrg",
+        "c-33c"
+      ]
+    }
+  ]
+}

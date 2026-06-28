@@ -1,0 +1,39 @@
+election:
+  election_title: Runoff 03 — two enthusiasts vs the majority
+  election_description: |-
+    A REAL BetterVoting election (BV id rkgtpk), captured 2026-06-28. A reversal in a
+    five-candidate field, the "narrow-but-deep" pattern: two voters are Dakota
+    enthusiasts (Dakota 5), and their intensity pushes Dakota to the top of the
+    Scoring Round (22). But the other three voters score Eden 5 over Dakota 4 — they
+    like Dakota, prefer Eden — so 3 of 5 pick Eden in the runoff. Dakota leads on HOW
+    MUCH (intensity); Eden wins on HOW MANY (majority). Winner = the Condorcet winner
+    (calm case). Level 201. Full two-view lesson: Runoff_03_enthusiasts_vs_majority_rkgtpk.md
+  options:
+    show_description: false
+    show_matrix: true
+    matrix_finalists_only: true
+    show_condorcet: true
+    show_score_counts: false
+    show_irv: false
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: false
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "https://bettervoting.com/rkgtpk/results"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      Dakota, Eden, Flynn, Gale, Hazel
+      5, 0, 1, 0, 0
+      5, 0, 0, 1, 0
+      4, 5, 0, 0, 1
+      4, 5, 1, 0, 0
+      4, 5, 0, 1, 0
+    lot_numbers: [Hazel, Eden, Dakota, Gale, Flynn]
+    expected_results:
+      winners:
+      - Eden
+
+# file: Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml
