@@ -53,7 +53,7 @@ see exactly where BetterVoting's rule sits:
 - **BetterVoting** flags a ballot as an *abstention* when it is **flat** (every
   candidate equal) → it counts **3** (the blank, `0,0,0`, **and** `3,3,3`) and
   tallies 5.
-- **STAR / the LH engine** only calls the **blank** an abstention (**1**); the
+- **STAR / the [LH engine](../../00_start_here/concepts/tabulation_engines/bettervoting_and_the_engine.md)** only calls the **blank** an abstention (**1**); the
   runoff sets aside the **4** ballots with no preference *between the two finalists*
   as **Equal Support** — which includes `5,5,0` but counts all of them in the score
   round.
@@ -131,7 +131,7 @@ scored **all seven** candidates **5** and another **all 4**. Frozen evidence:
 
 ## Variants & reproduction
 
-- **Even simpler (2 candidates):** [`small_abstention_c2_b5.yaml`](./small_abstention_c2_b5.yaml)
+- **Even simpler (2 candidates):** [`small_abstention_c2_b5_lesson.md`](./small_abstention_c2_b5_lesson.md)
   — with only two candidates a `5,5` *is* flat, so BetterVoting flags it directly
   (2 abstentions / 3 tallied). Good for the tightest one-ballot statement of the bug;
   this 3-candidate case is better for showing *why* flat ≠ no-preference.

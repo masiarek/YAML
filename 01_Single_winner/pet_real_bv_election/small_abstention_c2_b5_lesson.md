@@ -2,8 +2,10 @@
 
 **One line:** the tightest possible demonstration. Two candidates, five ballots. One
 voter scores **both** candidates **5** — maximum support for everyone — and
-BetterVoting files that ballot as an **abstention**. An independent STAR engine
-counts it as **Equal Support** and still elects the same winner.
+BetterVoting files that ballot as an **abstention**. An
+[independent STAR engine](../../00_start_here/concepts/tabulation_engines/bettervoting_and_the_engine.md)
+(the [LH `starvote`](../../00_start_here/GLOSSARY.md) tabulator) counts it as
+**Equal Support** and still elects the same winner.
 
 > Filed with BetterVoting: **[Equal-Vote/bettervoting#1407](https://github.com/Equal-Vote/bettervoting/issues/1407)**.
 
