@@ -9,6 +9,8 @@ and the runoff. Two reports, one count.
 → The engine report section by section: [reading a STAR report](./LH_starvote/reading_a_star_report.md).
 The runoff percentages in both: [runoff percentages](../STAR_Voting/runoff_percentages.md).
 Glossary: [`BetterVoting`](../../GLOSSARY.md).
+The LH engine upstream: [`larryhastings/starvote` on GitHub](https://github.com/larryhastings/starvote)
+· [`starvote` on PyPI](https://pypi.org/project/starvote/).
 
 ---
 

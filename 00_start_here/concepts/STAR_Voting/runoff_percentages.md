@@ -17,7 +17,8 @@ Reading the whole report: [How to read a STAR report](../tabulation_engines/LH_s
 Seven candidates, Dog wins. The Scoring Round adds every star and takes the top two —
 **Dog (1798)** and **Cat (1741)** — as Finalists. The Automatic Runoff then compares
 *only those two*, giving each ballot's full vote to whichever of Dog/Cat it scored
-higher:
+higher. (Live, interactive version of the screenshots below:
+[bettervoting.com/pet/results](https://bettervoting.com/pet/results).)
 
 ![BetterVoting result for the pets race: the Scoring Round bar chart (Dog 1798, Cat 1741, Bird 969, Rabbit 954, Fish 854, Rat 580, Python 440) beside the Automatic Runoff bar chart (Dog 190, Cat 173, Equal Support 92) with a dashed majority-threshold line that only Dog's bar crosses](./img/pets_rounds_bars.png)
 

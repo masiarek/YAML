@@ -81,7 +81,7 @@ the test-case YAML (demo) and/or the interview episode that show the term in act
 
 - **[Equal Vote Coalition](https://equal.vote)** — the organization that developed and advocates STAR Voting.
 - **[BetterVoting.com](https://bettervoting.com)** — site to try a STAR ballot and run your own elections. The visual result it shows is one of two reports of an election in this repo — the other is the LH engine's text report; how they relate is [BetterVoting and the LH engine](concepts/tabulation_engines/bettervoting_and_the_engine.md).
-- **LH engine (`starvote`)** — Larry Hastings' STAR tabulator (this repo's fork), which prints the full text audit report and the generated `_tabulated.txt` copies; handles the score methods (STAR, Bloc / Proportional STAR, Approval). Ranked ballots go to a separate vendored **RCV-IRV** engine (pyrankvote). See [BetterVoting and the LH engine](concepts/tabulation_engines/bettervoting_and_the_engine.md).
+- **LH engine (`starvote`)** — Larry Hastings' STAR tabulator (this repo's fork), which prints the full text audit report and the generated `_tabulated.txt` copies; handles the score methods (STAR, Bloc / Proportional STAR, Approval). Ranked ballots go to a separate vendored **RCV-IRV** engine (pyrankvote). Upstream: [GitHub](https://github.com/larryhastings/starvote) · [PyPI](https://pypi.org/project/starvote/). See [BetterVoting and the LH engine](concepts/tabulation_engines/bettervoting_and_the_engine.md).
 
 ---
 

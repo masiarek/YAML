@@ -8,7 +8,9 @@ lines; this page walks through the *whole* thing, section by section, so you can
 → The phenomenon this example shows: [Runoff Reversal](../../../../01_Single_winner/runoff_overturns_leader/README.md).
 Curriculum: [201.1 — Reading the results](../../../CURRICULUM.md). This text report is the
 engine's half of a pair — the other is BetterVoting's visual display of the same race:
-[BetterVoting and the LH engine](../bettervoting_and_the_engine.md).
+[BetterVoting and the LH engine](../bettervoting_and_the_engine.md). The engine upstream:
+[`larryhastings/starvote` on GitHub](https://github.com/larryhastings/starvote) ·
+[`starvote` on PyPI](https://pypi.org/project/starvote/).
 
 ---
 
