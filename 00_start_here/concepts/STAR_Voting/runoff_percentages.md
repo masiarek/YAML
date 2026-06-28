@@ -93,14 +93,26 @@ denominator **named**, so there's no second column to misread. Turn it on with
 Automatic Runoff Round
    Dog           -- 190 -- First place
    Cat           -- 173
-   Equal Support -- 92
+   Equal Support -- 98
  Dog wins.
-   Voters with a preference: 363. Dog 190 (52%) vs Cat 173 (48%); majority = 182.
+   Voters with a preference: 363 of 461 (98 Equal Support). Dog 190 (52%) vs Cat 173 (48%); majority = 182.
 ```
 
-That last line is the **% Between Finalists** column, spelled out: the denominator is
-the 363 voters with a preference, Dog's 190 is 52% of them, and a strict majority needs
-182 — which Dog clears. (See [reading a STAR report](../tabulation_engines/LH_starvote/reading_a_star_report.md) for the
+That last line is the **% Between Finalists** column, spelled out — and it now
+*self-reconciles*: **363 of 461** voters had a preference, the other **98 are Equal
+Support**, Dog's 190 is 52% of the 363, and a strict majority needs 182, which Dog clears.
+(In the saved `_tabulated` copy this expands into a "Runoff math" funnel that shows
+`461 − 98 = 363` explicitly.)
+
+**Why 98 here but 92 in the BetterVoting table above (and 461 vs 455)?** Same ballots,
+one classification difference: BetterVoting files 6 *flat* "no-preference" ballots —
+including a voter who scored every candidate **5** — under *abstention* and tallies 455;
+the LH engine counts all 461 cast ballots, so those 6 stay in Equal Support (`92 + 6 = 98`)
+and only the 1 truly-blank ballot is an abstention. The **363 decided voters and the
+winner are identical** either way. Full reconciliation:
+[BetterVoting and the LH engine](../tabulation_engines/bettervoting_and_the_engine.md#when-the-two-reports-differ--abstentions-vs-equal-support)
+and the frozen evidence in
+[`BV_result_snapshot.md`](../../../01_Single_winner/pet_real_bv_election/BV_result_snapshot.md). (See [reading a STAR report](../tabulation_engines/LH_starvote/reading_a_star_report.md) for the
 rest of the engine output, and `CLAUDE.md` for the option's house default.)
 
 The BetterVoting screenshots above and this engine line are **two reports of the same

@@ -104,14 +104,17 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
 - **`show_description`**: per the block above, default `false` (clean demo —
   description stays in the file and the always-full `_tabulated` copy, hidden on
   screen). Flip to `true` only for a deliberate study/reference render.
-- **`show_runoff_percent`**: default `false`. When `true`, prints a one-line runoff
-  summary under the Automatic Runoff winner — e.g. `Voters with a preference: 363.
-  Dog 190 (52%) vs Cat 173 (48%); majority = 182` — using the **decided-voters**
-  denominator (Equal Support excluded), the share that actually decides the runoff.
-  Like the other analyses, the `_tabulated` copy forces it on regardless of the
-  flag (don't hand-set that). Flip to `true` on screen only for a lesson that's
+- **`show_runoff_percent`**: default `false`. When `true`, prints a one-line,
+  **self-reconciling** runoff summary under the Automatic Runoff winner — e.g.
+  `Voters with a preference: 363 of 461 (98 Equal Support). Dog 190 (52%) vs Cat 173
+  (48%); majority = 182` — using the **decided-voters** denominator (Equal Support
+  excluded) but stating it against the total ballots with the Equal Support gap named
+  inline, so the denominator never has to be inferred. The always-full `_tabulated`
+  copy forces it on AND expands it into a "Runoff math" funnel (`461 − 98 = 363`,
+  majority) — don't hand-set that. Flip to `true` on screen only for a lesson that's
   specifically *about* the runoff percentages (e.g. the BetterVoting two-denominator
-  walkthrough, `concepts/STAR_Voting/runoff_percentages.md`).
+  walkthrough, `concepts/STAR_Voting/runoff_percentages.md`). The wording/funnel are
+  locked by `tests/test_runoff_percent.py`; change them together.
 - **Voter counts — keep examples SMALL.** Default to the *fewest ballots* that
   make the point; prefer **individual ballots** (one row per voter, a handful of
   them) over large weighted blocs. A 3-voter example that shows the effect beats a

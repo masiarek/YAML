@@ -45,15 +45,18 @@ it scored higher:
    Cat           -- 173
    Equal Support --  98
  Dog wins.
-   Voters with a preference: 363. Dog 190 (52%) vs Cat 173 (48%); majority = 182.
+   Voters with a preference: 363 of 461 (98 Equal Support). Dog 190 (52%) vs Cat 173 (48%); majority = 182.
 ```
 
-**Dog wins.** Note the two ways the same 190 reads: 190 of **all 455-decided** isn't the
-point — 190 of the **363 voters with a preference** is **52%**, clearing the 182-vote
-majority. The 98 **Equal Support** voters scored Dog and Cat the same, so they sit out
-*this* head-to-head (but counted fully in the scoring round). That two-denominator idea
-is the whole [runoff percentages lesson](../../00_start_here/concepts/STAR_Voting/runoff_percentages.md);
-the engine prints the decisive line because the file sets `show_runoff_percent: true`.
+**Dog wins.** The line self-reconciles: of **461** cast ballots, **363 had a preference**
+between the finalists and **98 are Equal Support** (`461 − 98 = 363`). The same 190 reads
+two ways — 190 of all 461 isn't the point; 190 of the **363 with a preference** is **52%**,
+clearing the 182-vote majority. The 98 Equal Support voters scored Dog and Cat the same, so
+they sit out *this* head-to-head (but counted fully in the scoring round). That
+two-denominator idea is the whole
+[runoff percentages lesson](../../00_start_here/concepts/STAR_Voting/runoff_percentages.md);
+the engine prints the decisive line because the file sets `show_runoff_percent: true`. (The
+saved `_tabulated` copy expands it into a "Runoff math" funnel.)
 
 ## 3. Did STAR pick the "right" pet? (the Condorcet check)
 
@@ -85,6 +88,23 @@ no score for anyone. That is **not** the same as the handful of all-zeros ballot
 0 stars, but a blank is "I didn't weigh in" while an explicit 0 is "I rate you zero" —
 the engine counts only the blank ballot as an abstention. (The score distribution's
 **Abs** column tracks per-candidate blanks the same way.)
+
+### Where BetterVoting and the engine disagree (and why it doesn't change the winner)
+
+BetterVoting reports this race as **6 abstentions, 455 ballots tallied**; the engine counts
+all **461** and calls only the 1 blank an abstention. BetterVoting's 6 are all *flat*
+ballots (every candidate scored equally) — and two of them are real votes: one voter scored
+**all seven candidates 5**, another **all 4**. Those are **Equal Support**, not
+abstentions; treating them as abstentions is what makes BetterVoting's score totals run 9
+lower per candidate (`5 + 4 = 9`) and its Equal Support 92 instead of 98 (`92 + 6 = 98`).
+The winner, finalists, and runoff margin are identical. This is documented as a
+reconciliation/correctness issue:
+
+- Frozen BetterVoting result + raw export: [`BV_result_snapshot.md`](./BV_result_snapshot.md)
+- Write-up & GitHub issue draft: [`LH_BV_reconciliation_issue.md`](./LH_BV_reconciliation_issue.md)
+- Minimal illustration (2 candidates, one `5,5`): [`abstention_reconciliation_min_c2_b6.yaml`](./abstention_reconciliation_min_c2_b6.yaml)
+- Reproduce it on BetterVoting yourself: [`SMALL_CASE_reproduce_on_BV.md`](./SMALL_CASE_reproduce_on_BV.md)
+- Concept: [BetterVoting and the LH engine — when the reports differ](../../00_start_here/concepts/tabulation_engines/bettervoting_and_the_engine.md#when-the-two-reports-differ--abstentions-vs-equal-support)
 
 ## Run it yourself
 

@@ -1,0 +1,149 @@
+======================================================================
+SOURCE FILE:     abstention_reconciliation_min_c2_b6.yaml
+SOURCE MODIFIED: 2026-06-28 12:16:50
+TABULATED FILE:  abstention_reconciliation_min_c2_b6_tabulated.txt
+TABULATED AT:    2026-06-28 12:16:55
+======================================================================
+
+election_title: Abstention vs Equal Support — the minimal reconciliation case
+scenario_description: |-
+  The smallest election that reproduces the LH-engine ↔ BetterVoting count
+  reconciliation (the full version is the 461-ballot pet race in this folder).
+  Two candidates, six ballots, one of each "no-preference" kind so every
+  denominator is visible at a glance:
+
+    Dog,Cat
+    5,0   Dog  — a clear preference (decides the runoff)
+    4,0   Dog  — a clear preference (decides the runoff)
+    0,5   Cat  — a clear preference (decides the runoff)
+    5,5   Equal Support — a CAST ballot that rates both finalists the same
+    0,0   all-zero — a CAST ballot that supports neither (an explicit zero)
+    -,-   blank — a true ABSTENTION: no score recorded for anyone
+
+  How the LH engine counts it:
+    • Ballots cast: 6 (all six are counted).
+    • Abstention note: 1 — only the blank "-,-" ballot. The all-zero "0,0" is
+      a cast ballot ("I rate you both zero"), NOT an abstention.
+    • Automatic Runoff: Dog 2, Cat 1, Equal Support 3. The three no-preference
+      ballots (5,5 + 0,0 + blank) all score Dog == Cat, so all three land in
+      Equal Support and are set aside from the runoff PERCENTAGE.
+    • Voters with a preference (the runoff denominator): 3 → Dog 2 (67%) wins.
+
+  The teaching point: "no preference" is one runoff bucket (Equal Support), but
+  it is reached three different ways — an explicit equal score (5,5), an explicit
+  all-zero (0,0), and a blank/abstention (-,-). Only the last is an *abstention*.
+  Tabulators differ in how they file these (see the README and the GitHub
+  reconciliation note), which is the entire 461-vs-455 gap in the pet race.
+
+voting_method: STAR
+num_winners: 1
+
+options:
+  show_description: false
+  show_matrix: false   # only two candidates: the finalists matrix just echoes the runoff
+  matrix_finalists_only: false
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  show_runoff_percent: true   # this file is specifically about the runoff denominator
+  brief: true
+  collapse_ballots: false   # one row per voter — each ballot is a distinct teaching case
+  count_separator: "×"
+
+ballots: |-
+  Dog,Cat
+  5,0   # clear preference: Dog
+  4,0   # clear preference: Dog
+  0,5   # clear preference: Cat
+  5,5   # Equal Support: cast ballot, rates both finalists the same
+  0,0   # all-zero: cast ballot, supports neither (NOT an abstention)
+  -,-   # blank: a true abstention (no score for anyone)
+
+expected_winners:
+  - Dog
+
+# file: abstention_reconciliation_min_c2_b6.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Abstention vs Equal Support — the minimal reconciliation case ===
+  The smallest election that reproduces the LH-engine ↔ BetterVoting count
+  reconciliation (the full version is the 461-ballot pet race in this folder).
+  Two candidates, six ballots, one of each "no-preference" kind so every
+  denominator is visible at a glance:
+
+    Dog,Cat
+    5,0   Dog  — a clear preference (decides the runoff)
+    4,0   Dog  — a clear preference (decides the runoff)
+    0,5   Cat  — a clear preference (decides the runoff)
+    5,5   Equal Support — a CAST ballot that rates both finalists the same
+    0,0   all-zero — a CAST ballot that supports neither (an explicit zero)
+    -,-   blank — a true ABSTENTION: no score recorded for anyone
+
+  How the LH engine counts it:
+    • Ballots cast: 6 (all six are counted).
+    • Abstention note: 1 — only the blank "-,-" ballot. The all-zero "0,0" is
+      a cast ballot ("I rate you both zero"), NOT an abstention.
+    • Automatic Runoff: Dog 2, Cat 1, Equal Support 3. The three no-preference
+      ballots (5,5 + 0,0 + blank) all score Dog == Cat, so all three land in
+      Equal Support and are set aside from the runoff PERCENTAGE.
+    • Voters with a preference (the runoff denominator): 3 → Dog 2 (67%) wins.
+
+  The teaching point: "no preference" is one runoff bucket (Equal Support), but
+  it is reached three different ways — an explicit equal score (5,5), an explicit
+  all-zero (0,0), and a blank/abstention (-,-). Only the last is an *abstention*.
+  Tabulators differ in how they file these (see the README and the GitHub
+  reconciliation note), which is the entire 461-vs-455 gap in the pet race.
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |   * Dog    |  * Cat    |
+-----------------------------------------
+       * Dog > |    ---     |2 - 3 - 1  |
+       * Cat > | 1 - 3 - 2  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Dog — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 6 ballots. Note: 1 of 6 ballots is marked as an abstention.
+Dog,Cat
+  5,  0
+  4,  0
+  0,  5
+  5,  5
+  0,  0
+  -,  -
+  ('-' = left blank / abstained; '0' = scored zero — both count as 0 stars.)
+
+[Score Distribution] (number of ballots giving each score)
+     5  4  3  2  1  0  Abs  | Total   Avg
+Dog  2  1  0  0  0  2    1  |    14   2.8
+Cat  2  0  0  0  0  3    1  |    10   2.0
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Dog           -- 14 -- First place
+   Cat           -- 10 -- Second place
+ Dog and Cat advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Dog           -- 2 -- First place
+   Cat           -- 1
+   Equal Support -- 3
+ Dog wins.
+   Runoff math:
+     6  ballots cast
+   − 3  Equal Support (no preference between the two finalists)
+     ─
+     3  voters with a preference  (majority = 2)
+           Dog 2 (67%)  ·  Cat 1 (33%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Dog
