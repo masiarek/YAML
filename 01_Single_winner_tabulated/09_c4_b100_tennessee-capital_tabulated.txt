@@ -2,7 +2,7 @@
 SOURCE FILE:     09_c4_b100_tennessee-capital.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  09_c4_b100_tennessee-capital_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:10
+TABULATED AT:    2026-06-28 12:09:22
 ======================================================================
 
 election_title: Tennessee Capital — classic STAR example
@@ -112,9 +112,14 @@ Knoxville    17  15  26  42   0   0  |   307   3.1
  The candidate preferred in the most head-to-head matchups wins.
    Nashville     -- 68 -- First place
    Chattanooga   -- 32
-   Equal Support -- 0
+   Equal Support --  0
  Nashville wins.
-   Voters with a preference: 100. Nashville 68 (68%) vs Chattanooga 32 (32%); majority = 51.
+   Runoff math:
+     100  ballots cast
+   −   0  Equal Support (no preference between the two finalists)
+     ───
+     100  voters with a preference  (majority = 51)
+           Nashville 68 (68%)  ·  Chattanooga 32 (32%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Nashville

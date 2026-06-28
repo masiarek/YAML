@@ -2,7 +2,7 @@
 SOURCE FILE:     01c_c2_b3_two-candidates.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  01c_c2_b3_two-candidates_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:09
+TABULATED AT:    2026-06-28 12:09:21
 ======================================================================
 
 election_title: Equal support example ("I like both flavors")
@@ -78,17 +78,17 @@ Legend: For - Equal Support - Against
 Choco,Vanilla
     5,      3
     5,      0
-    5,      5   # cast, equal support (no preference)
+    5,      5
 
 [Score Distribution] (number of ballots giving each score)
-          5   4   3   2   1   0  | Total   Avg
-Choco     3   0   0   0   0   0  |    15   5.0
-Vanilla   1   0   1   0   0   1  |     8   2.7
+         5  4  3  2  1  0  | Total   Avg
+Choco    3  0  0  0  0  0  |    15   5.0
+Vanilla  1  0  1  0  0  1  |     8   2.7
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    Choco         -- 15 -- First place
-   Vanilla       -- 8 -- Second place
+   Vanilla       --  8 -- Second place
  Choco and Vanilla advance.
 
 [STAR Voting: Automatic Runoff Round]
@@ -97,7 +97,12 @@ Vanilla   1   0   1   0   0   1  |     8   2.7
    Vanilla       -- 0
    Equal Support -- 1
  Choco wins.
-   Voters with a preference: 2. Choco 2 (100%) vs Vanilla 0 (0%); majority = 2.
+   Runoff math:
+     3  ballots cast
+   − 1  Equal Support (no preference between the two finalists)
+     ─
+     2  voters with a preference  (majority = 2)
+           Choco 2 (100%)  ·  Vanilla 0 (0%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Choco

@@ -2,7 +2,7 @@
 SOURCE FILE:     05a_residual_split_bullet-voting.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  05a_residual_split_bullet-voting_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:15
+TABULATED AT:    2026-06-28 12:09:20
 ======================================================================
 
 election_title: STAR's residual split — a coalition bullet-votes itself apart
@@ -116,7 +116,12 @@ Cara  40   0   0   0   0  60  |   200   2.0
    Ada           -- 35
    Equal Support -- 25
  Cara wins.
-   Voters with a preference: 75. Cara 40 (53%) vs Ada 35 (47%); majority = 38.
+   Runoff math:
+     100  ballots cast
+   −  25  Equal Support (no preference between the two finalists)
+     ───
+      75  voters with a preference  (majority = 38)
+           Cara 40 (53%)  ·  Ada 35 (47%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Cara

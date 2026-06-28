@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     temp_trash.yaml
-SOURCE MODIFIED: 2026-06-27 22:01:31
+SOURCE MODIFIED: 2026-06-28 02:01:31
 TABULATED FILE:  temp_trash_tabulated.txt
-TABULATED AT:    2026-06-27 22:01:31
+TABULATED AT:    2026-06-28 12:09:23
 ======================================================================
 
 voting_method: STAR   # STAR Voting - Single-winner
@@ -53,16 +53,16 @@ Apple,Berry,Cherry
     1,    5,     3
 
 [Score Distribution] (number of ballots giving each score)
-         5   4   3   2   1   0  | Total   Avg
-Apple    2   0   0   0   1   0  |    11   3.7
-Berry    1   1   0   0   0   1  |     9   3.0
-Cherry   0   0   1   1   0   1  |     5   1.7
+        5  4  3  2  1  0  | Total   Avg
+Apple   2  0  0  0  1  0  |    11   3.7
+Berry   1  1  0  0  0  1  |     9   3.0
+Cherry  0  0  1  1  0  1  |     5   1.7
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    Apple         -- 11 -- First place
-   Berry         -- 9 -- Second place
-   Cherry        -- 5
+   Berry         --  9 -- Second place
+   Cherry        --  5
  Apple and Berry advance.
 
 [STAR Voting: Automatic Runoff Round]
@@ -71,7 +71,12 @@ Cherry   0   0   1   1   0   1  |     5   1.7
    Berry         -- 1
    Equal Support -- 0
  Apple wins.
-   Voters with a preference: 3. Apple 2 (67%) vs Berry 1 (33%); majority = 2.
+   Runoff math:
+     3  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     3  voters with a preference  (majority = 2)
+           Apple 2 (67%)  ·  Berry 1 (33%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Apple

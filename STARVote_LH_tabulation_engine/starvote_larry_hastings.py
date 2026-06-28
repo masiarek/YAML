@@ -1565,6 +1565,7 @@ def run_election(
     blocs=None,
     show_description=True,
     show_runoff_percent=False,
+    full_report=False,
 ):
     if method is None:
         method = starvote.star
@@ -1764,11 +1765,15 @@ def run_election(
                    "score_w": None}
     ROUND_RULE = f"{COLOR_DIM}{'─' * 50}{COLOR_RESET}"
 
-    def format_runoff_percent(rows):
-        """One-line runoff summary using the *decided-voters* denominator —
-        the voters who expressed a preference between the two finalists (Equal
-        Support is excluded). Names that denominator explicitly, which is the
-        one thing BetterVoting's two percent columns leave the reader to infer.
+    def format_runoff_percent(rows, full=False):
+        """Runoff summary using the *decided-voters* denominator — the voters
+        who expressed a preference between the two finalists (Equal Support is
+        excluded). The line now *self-reconciles*: it states the decided count
+        against the total ballots and names the Equal Support gap inline, so the
+        reader never has to subtract two far-apart numbers to see where the
+        denominator came from (BetterVoting's two percent columns leave that to
+        infer). On screen it's one line; in the full `_tabulated` copy (full=True)
+        a small "Runoff math" funnel makes the arithmetic explicit instead.
         Returns "" for anything that isn't a clean two-finalist runoff (e.g. an
         exact tie, which the tiebreaker chain explains instead)."""
         finalists = [(lbl, val) for lbl, val, _f in rows if lbl != EQUAL_LABEL]
@@ -1778,13 +1783,29 @@ def run_election(
         decided = w_val + l_val
         if decided <= 0 or w_val == l_val:
             return ""
+        equal = sum(val for lbl, val, _f in rows if lbl == EQUAL_LABEL)
+        total = decided + equal
         w_pct = round(w_val / decided * 100)
         l_pct = round(l_val / decided * 100)
         majority = decided // 2 + 1  # votes needed for a strict majority
+        es = f"{equal} Equal Support" if equal else "no Equal Support"
+        if not full:
+            # On-screen: one self-reconciling line.
+            return (
+                f"   Voters with a preference: {decided} of {total} ({es}). "
+                f"{w_lbl} {w_val} ({w_pct}%) vs {l_lbl} {l_val} ({l_pct}%); "
+                f"majority = {majority}."
+            )
+        # `_tabulated`: a funnel that visibly adds up (total − Equal Support =
+        # decided), then the two finalists' shares of the decided voters.
+        wd = len(str(total))
         return (
-            f"   Voters with a preference: {decided}. "
-            f"{w_lbl} {w_val} ({w_pct}%) vs {l_lbl} {l_val} ({l_pct}%); "
-            f"majority = {majority}."
+            "   Runoff math:\n"
+            f"     {total:>{wd}}  ballots cast\n"
+            f"   − {equal:>{wd}}  Equal Support (no preference between the two finalists)\n"
+            f"     {'─' * wd}\n"
+            f"     {decided:>{wd}}  voters with a preference  (majority = {majority})\n"
+            f"           {w_lbl} {w_val} ({w_pct}%)  ·  {l_lbl} {l_val} ({l_pct}%)"
         )
 
     def colorize_runoff_value(label, rest):
@@ -1997,7 +2018,7 @@ def run_election(
             # in the full _tabulated copy; on screen only when the option is set.
             elif (show_runoff_percent and round_state["in_runoff"]
                   and re.match(r"^\s*\S.*\swins\.\s*$", text)):
-                extra = format_runoff_percent(round_state["runoff_rows"])
+                extra = format_runoff_percent(round_state["runoff_rows"], full_report)
                 if extra:
                     text = f"{text}\n{extra}"
 
@@ -2339,6 +2360,7 @@ Memphis,Nashville,Chattanooga,Knoxville
             collapse_ballots=True,  # collapsed counts are clearer than a raw dump
             show_irv=True,
             show_description=True,  # the saved file always keeps the full context
+            full_report=True,  # expand the runoff line into the "Runoff math" funnel
         )
         _, file_out = _capture(full_kwargs)
 

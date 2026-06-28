@@ -2,7 +2,7 @@
 SOURCE FILE:     S_W1_N_TestTestTestElection_kgbf8w.yaml
 SOURCE MODIFIED: 2026-06-26 04:47:36
 TABULATED FILE:  S_W1_N_TestTestTestElection_kgbf8w_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:14
+TABULATED AT:    2026-06-28 12:09:23
 ======================================================================
 
 election:
@@ -65,14 +65,14 @@ Plain Choco (CPn),Almond Choco (CAm),Hazelnut Choco (CHz),Classic Vanilla (VCs),
                 3,                 5,                   4,                    2,                   2,          0,          1
 
 [Score Distribution] (number of ballots giving each score)
-                        5   4   3   2   1   0  | Total   Avg
-Plain Choco (CPn)       0   0   1   0   0   0  |     3   3.0
-Almond Choco (CAm)      1   0   0   0   0   0  |     5   5.0
-Hazelnut Choco (CHz)    0   1   0   0   0   0  |     4   4.0
-Classic Vanilla (VCs)   0   0   0   1   0   0  |     2   2.0
-French Vanilla (VFr)    0   0   0   1   0   0  |     2   2.0
-Mango (Mgo)             0   0   0   0   0   1  |     0   0.0
-Peach (Pch)             0   0   0   0   1   0  |     1   1.0
+                       5  4  3  2  1  0  | Total   Avg
+Plain Choco (CPn)      0  0  1  0  0  0  |     3   3.0
+Almond Choco (CAm)     1  0  0  0  0  0  |     5   5.0
+Hazelnut Choco (CHz)   0  1  0  0  0  0  |     4   4.0
+Classic Vanilla (VCs)  0  0  0  1  0  0  |     2   2.0
+French Vanilla (VFr)   0  0  0  1  0  0  |     2   2.0
+Mango (Mgo)            0  0  0  0  0  1  |     0   0.0
+Peach (Pch)            0  0  0  0  1  0  |     1   1.0
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
@@ -91,7 +91,12 @@ Peach (Pch)             0   0   0   0   1   0  |     1   1.0
    Hazelnut Choco (CHz)  -- 0
    Equal Support         -- 0
  Almond Choco (CAm) wins.
-   Voters with a preference: 1. Almond Choco (CAm) 1 (100%) vs Hazelnut Choco (CHz) 0 (0%); majority = 1.
+   Runoff math:
+     1  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     1  voters with a preference  (majority = 1)
+           Almond Choco (CAm) 1 (100%)  ·  Hazelnut Choco (CHz) 0 (0%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Almond Choco (CAm)

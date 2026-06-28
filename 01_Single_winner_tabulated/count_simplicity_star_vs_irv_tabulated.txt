@@ -2,7 +2,7 @@
 SOURCE FILE:     count_simplicity_star_vs_irv.yaml
 SOURCE MODIFIED: 2026-06-26 23:07:04
 TABULATED FILE:  count_simplicity_star_vs_irv_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:11
+TABULATED AT:    2026-06-28 12:09:18
 ======================================================================
 
 election_title: Same winner, very different counts — STAR adds, IRV eliminates
@@ -113,17 +113,22 @@ Evan     6   0   0   0  34   0  |    64   1.6
    Carmen        -- 170 -- First place
    Andre         -- 148 -- Second place
    Blake         -- 123
-   Dana          -- 95
-   Evan          -- 64
+   Dana          --  95
+   Evan          --  64
  Carmen and Andre advance.
 
 [STAR Voting: Automatic Runoff Round]
  The candidate preferred in the most head-to-head matchups wins.
    Carmen        -- 31 -- First place
-   Andre         -- 9
-   Equal Support -- 0
+   Andre         --  9
+   Equal Support --  0
  Carmen wins.
-   Voters with a preference: 40. Carmen 31 (78%) vs Andre 9 (22%); majority = 21.
+   Runoff math:
+     40  ballots cast
+   −  0  Equal Support (no preference between the two finalists)
+     ──
+     40  voters with a preference  (majority = 21)
+           Carmen 31 (78%)  ·  Andre 9 (22%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Carmen

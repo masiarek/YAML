@@ -2,7 +2,7 @@
 SOURCE FILE:     05a_c5_b3_unanimous-ballots.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  05a_c5_b3_unanimous-ballots_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:10
+TABULATED AT:    2026-06-28 12:09:21
 ======================================================================
 
 election_title: Unanimous ballots (five candidates)
@@ -76,20 +76,20 @@ Count × Andre,Blake,Carmen,David,Ella
     3 ×     5,    1,     4,    3,   0
 
 [Score Distribution] (number of ballots giving each score)
-         5   4   3   2   1   0  | Total   Avg
-Andre    3   0   0   0   0   0  |    15   5.0
-Blake    0   0   0   0   3   0  |     3   1.0
-Carmen   0   3   0   0   0   0  |    12   4.0
-David    0   0   3   0   0   0  |     9   3.0
-Ella     0   0   0   0   0   3  |     0   0.0
+        5  4  3  2  1  0  | Total   Avg
+Andre   3  0  0  0  0  0  |    15   5.0
+Blake   0  0  0  0  3  0  |     3   1.0
+Carmen  0  3  0  0  0  0  |    12   4.0
+David   0  0  3  0  0  0  |     9   3.0
+Ella    0  0  0  0  0  3  |     0   0.0
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    Andre         -- 15 -- First place
    Carmen        -- 12 -- Second place
-   David         -- 9
-   Blake         -- 3
-   Ella          -- 0
+   David         --  9
+   Blake         --  3
+   Ella          --  0
  Andre and Carmen advance.
 
 [STAR Voting: Automatic Runoff Round]
@@ -98,7 +98,12 @@ Ella     0   0   0   0   0   3  |     0   0.0
    Carmen        -- 0
    Equal Support -- 0
  Andre wins.
-   Voters with a preference: 3. Andre 3 (100%) vs Carmen 0 (0%); majority = 2.
+   Runoff math:
+     3  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     3  voters with a preference  (majority = 2)
+           Andre 3 (100%)  ·  Carmen 0 (0%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Andre

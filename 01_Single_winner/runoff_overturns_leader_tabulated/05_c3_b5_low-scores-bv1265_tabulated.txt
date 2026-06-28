@@ -2,7 +2,7 @@
 SOURCE FILE:     05_c3_b5_low-scores-bv1265.yaml
 SOURCE MODIFIED: 2026-06-27 00:50:29
 TABULATED FILE:  05_c3_b5_low-scores-bv1265_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:12
+TABULATED AT:    2026-06-28 12:09:19
 ======================================================================
 
 election_title: Low scores, switched winner — the popover example (BetterVoting BV1265)
@@ -91,10 +91,10 @@ Count × A,B,C
     1 × 2,2,0
 
 [Score Distribution] (number of ballots giving each score)
-    5   4   3   2   1   0  | Total   Avg
-A   0   0   0   3   0   2  |     6   1.2
-B   0   0   0   2   0   3  |     4   0.8
-C   0   1   1   0   0   3  |     7   1.4
+   5  4  3  2  1  0  | Total   Avg
+A  0  0  0  3  0  2  |     6   1.2
+B  0  0  0  2  0  3  |     4   0.8
+C  0  1  1  0  0  3  |     7   1.4
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
@@ -109,7 +109,12 @@ C   0   1   1   0   0   3  |     7   1.4
    C             -- 2
    Equal Support -- 0
  A wins.
-   Voters with a preference: 5. A 3 (60%) vs C 2 (40%); majority = 3.
+   Runoff math:
+     5  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     5  voters with a preference  (majority = 3)
+           A 3 (60%)  ·  C 2 (40%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  A

@@ -2,7 +2,7 @@
 SOURCE FILE:     01_political_left_split.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  01_political_left_split_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:14
+TABULATED AT:    2026-06-28 12:09:21
 ======================================================================
 
 election_title: Spoiler — a split coalition hands the seat to the minority
@@ -123,7 +123,12 @@ Conservative  34   0   0   0   0  66  |   170   1.7
    Green         -- 24
    Equal Support -- 34
  Labour wins.
-   Voters with a preference: 66. Labour 42 (64%) vs Green 24 (36%); majority = 34.
+   Runoff math:
+     100  ballots cast
+   −  34  Equal Support (no preference between the two finalists)
+     ───
+      66  voters with a preference  (majority = 34)
+           Labour 42 (64%)  ·  Green 24 (36%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Labour

@@ -2,7 +2,7 @@
 SOURCE FILE:     vote_splitting_scenario1_spoiler.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  vote_splitting_scenario1_spoiler_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:12
+TABULATED AT:    2026-06-28 12:09:22
 ======================================================================
 
 election_title: Vote splitting — scenario 1 of 3 — the spoiler strikes
@@ -112,9 +112,14 @@ Vanilla    35   0   0   0   0  55  |   175   1.9
  The candidate preferred in the most head-to-head matchups wins.
    DarkChoco     -- 65 -- First place
    MilkChoco     -- 25
-   Equal Support -- 0
+   Equal Support --  0
  DarkChoco wins.
-   Voters with a preference: 90. DarkChoco 65 (72%) vs MilkChoco 25 (28%); majority = 46.
+   Runoff math:
+     90  ballots cast
+   −  0  Equal Support (no preference between the two finalists)
+     ──
+     90  voters with a preference  (majority = 46)
+           DarkChoco 65 (72%)  ·  MilkChoco 25 (28%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  DarkChoco

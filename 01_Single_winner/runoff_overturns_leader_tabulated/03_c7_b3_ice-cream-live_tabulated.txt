@@ -2,7 +2,7 @@
 SOURCE FILE:     03_c7_b3_ice-cream-live.yaml
 SOURCE MODIFIED: 2026-06-26 22:49:12
 TABULATED FILE:  03_c7_b3_ice-cream-live_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:12
+TABULATED AT:    2026-06-28 12:09:20
 ======================================================================
 
 election_title: Ice Cream — Flavor of the Year (the real recorded race)
@@ -88,14 +88,14 @@ ChocoDrk,ChocoAlm,ChocoHzn,VanillaClssc,VanillaFrnch,Mango,Peach
        5,       0,       0,           0,           0,    0,    0
 
 [Score Distribution] (number of ballots giving each score)
-               5   4   3   2   1   0  | Total   Avg
-ChocoDrk       1   1   0   0   0   1  |     9   3.0
-ChocoAlm       1   0   1   0   0   1  |     8   2.7
-ChocoHzn       0   0   1   0   0   2  |     3   1.0
-VanillaClssc   0   0   0   0   0   3  |     0   0.0
-VanillaFrnch   0   0   0   0   1   2  |     1   0.3
-Mango          0   0   0   1   0   2  |     2   0.7
-Peach          0   0   0   0   0   3  |     0   0.0
+              5  4  3  2  1  0  | Total   Avg
+ChocoDrk      1  1  0  0  0  1  |     9   3.0
+ChocoAlm      1  0  1  0  0  1  |     8   2.7
+ChocoHzn      0  0  1  0  0  2  |     3   1.0
+VanillaClssc  0  0  0  0  0  3  |     0   0.0
+VanillaFrnch  0  0  0  0  1  2  |     1   0.3
+Mango         0  0  0  1  0  2  |     2   0.7
+Peach         0  0  0  0  0  3  |     0   0.0
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
@@ -114,7 +114,12 @@ Peach          0   0   0   0   0   3  |     0   0.0
    ChocoDrk      -- 1
    Equal Support -- 0
  ChocoAlm wins.
-   Voters with a preference: 3. ChocoAlm 2 (67%) vs ChocoDrk 1 (33%); majority = 2.
+   Runoff math:
+     3  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     3  voters with a preference  (majority = 2)
+           ChocoAlm 2 (67%)  ·  ChocoDrk 1 (33%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  ChocoAlm

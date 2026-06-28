@@ -2,7 +2,7 @@
 SOURCE FILE:     01_c4_b2_bloc-star-2-seats.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  01_c4_b2_bloc-star-2-seats_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:13
+TABULATED AT:    2026-06-28 12:09:21
 ======================================================================
 
 election_title: "Bloc STAR Voting: 2-Seat Committee Election"
@@ -84,19 +84,19 @@ Ann,Bob,Cal,Don
   1,  2,  4,  5
 
 [Score Distribution] (number of ballots giving each score)
-      5   4   3   2   1   0  | Total   Avg
-Ann   0   0   0   0   2   0  |     2   1.0
-Bob   0   0   0   1   0   1  |     2   1.0
-Cal   0   2   0   0   0   0  |     8   4.0
-Don   2   0   0   0   0   0  |    10   5.0
+     5  4  3  2  1  0  | Total   Avg
+Ann  0  0  0  0  2  0  |     2   1.0
+Bob  0  0  0  1  0  1  |     2   1.0
+Cal  0  2  0  0  0  0  |     8   4.0
+Don  2  0  0  0  0  0  |    10   5.0
  Want to fill 2 seats.
 
 [Bloc STAR: Round 1: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    Don           -- 10 -- First place
-   Cal           -- 8 -- Second place
-   Ann           -- 2
-   Bob           -- 2
+   Cal           --  8 -- Second place
+   Ann           --  2
+   Bob           --  2
  Don and Cal advance.
 
 [Bloc STAR: Round 1: Automatic Runoff Round]
@@ -105,7 +105,12 @@ Don   2   0   0   0   0   0  |    10   5.0
    Cal           -- 0
    Equal Support -- 0
  Don wins.
-   Voters with a preference: 2. Don 2 (100%) vs Cal 0 (0%); majority = 2.
+   Runoff math:
+     2  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     2  voters with a preference  (majority = 2)
+           Don 2 (100%)  ·  Cal 0 (0%)
 
 ──────────────────────────────────────────────────
 [Bloc STAR: Round 2: Scoring Round]
@@ -142,7 +147,12 @@ Don   2   0   0   0   0   0  |    10   5.0
    Ann           -- 0
    Equal Support -- 0
  Cal wins.
-   Voters with a preference: 2. Cal 2 (100%) vs Ann 0 (0%); majority = 2.
+   Runoff math:
+     2  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     2  voters with a preference  (majority = 2)
+           Cal 2 (100%)  ·  Ann 0 (0%)
 
 [Bloc STAR: Winners — Bloc STAR Voting Method (2 winners)]
  Don

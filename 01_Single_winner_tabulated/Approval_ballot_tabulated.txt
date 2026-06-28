@@ -2,7 +2,7 @@
 SOURCE FILE:     Approval_ballot.yaml
 SOURCE MODIFIED: 2026-06-20 04:16:52
 TABULATED FILE:  Approval_ballot_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:10
+TABULATED AT:    2026-06-28 12:09:22
 ======================================================================
 
 voting_method: STAR
@@ -53,28 +53,22 @@ Legend: For - Equal Support - Against
 [STAR Voting]
  Tabulating 8 ballots. Note: 2 of 8 ballots are marked as abstentions.
 A,B,C,D
--,-,1,1   # partial — A, B left blank (counts as 0)
--,-,0,0   # cast, no support — A, B left blank
+-,-,1,1
+-,-,0,0
 1,0,0,1
 1,1,0,1
-~,~,~,~   # abstention — whole race
-0,0,0,0   # cast, no support
-5,5,5,5   # cast, equal support (no preference)
--,-,-,-   # abstention — left blank
-
-[Legend] (these all count as score 0)
-  -  Blank — no score / voter left the candidate blank
-  ~  Race-level abstention — voter abstained from the entire race
-  Note: '-' = candidate left blank / skipped (e.g. BetterVoting export);
-        '0' = explicitly scored zero. Both tabulate as 0 stars — the
-        difference only preserves voter intent (skipped vs rated low).
+~,~,~,~
+0,0,0,0
+5,5,5,5
+-,-,-,-
+  ('-' = left blank / abstained; '0' = scored zero — both count as 0 stars.)
 
 [Score Distribution] (number of ballots giving each score)
-    5   4   3   2   1   0  Abs  | Total   Avg
-A   1   0   0   0   2   1    4  |     7   1.8
-B   1   0   0   0   1   2    4  |     6   1.5
-C   1   0   0   0   1   4    2  |     6   1.0
-D   1   0   0   0   3   2    2  |     8   1.3
+   5  4  3  2  1  0  Abs  | Total   Avg
+A  1  0  0  0  2  1    4  |     7   1.8
+B  1  0  0  0  1  2    4  |     6   1.5
+C  1  0  0  0  1  4    2  |     6   1.0
+D  1  0  0  0  3  2    2  |     8   1.3
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
@@ -90,7 +84,12 @@ D   1   0   0   0   3   2    2  |     8   1.3
    A             -- 0
    Equal Support -- 7
  D wins.
-   Voters with a preference: 1. D 1 (100%) vs A 0 (0%); majority = 1.
+   Runoff math:
+     8  ballots cast
+   − 7  Equal Support (no preference between the two finalists)
+     ─
+     1  voters with a preference  (majority = 1)
+           D 1 (100%)  ·  A 0 (0%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  D

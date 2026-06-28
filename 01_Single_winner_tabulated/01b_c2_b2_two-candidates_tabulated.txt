@@ -2,7 +2,7 @@
 SOURCE FILE:     01b_c2_b2_two-candidates.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  01b_c2_b2_two-candidates_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:09
+TABULATED AT:    2026-06-28 12:09:21
 ======================================================================
 
 election_title: Again, very similar - this time second ballot is 5 and 0
@@ -88,14 +88,14 @@ Choco,Vanilla
     5,      0
 
 [Score Distribution] (number of ballots giving each score)
-          5   4   3   2   1   0  | Total   Avg
-Choco     2   0   0   0   0   0  |    10   5.0
-Vanilla   0   0   1   0   0   1  |     3   1.5
+         5  4  3  2  1  0  | Total   Avg
+Choco    2  0  0  0  0  0  |    10   5.0
+Vanilla  0  0  1  0  0  1  |     3   1.5
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    Choco         -- 10 -- First place
-   Vanilla       -- 3 -- Second place
+   Vanilla       --  3 -- Second place
  Choco and Vanilla advance.
 
 [STAR Voting: Automatic Runoff Round]
@@ -104,7 +104,12 @@ Vanilla   0   0   1   0   0   1  |     3   1.5
    Vanilla       -- 0
    Equal Support -- 0
  Choco wins.
-   Voters with a preference: 2. Choco 2 (100%) vs Vanilla 0 (0%); majority = 2.
+   Runoff math:
+     2  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     2  voters with a preference  (majority = 2)
+           Choco 2 (100%)  ·  Vanilla 0 (0%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Choco

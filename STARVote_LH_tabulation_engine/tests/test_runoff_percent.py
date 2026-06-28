@@ -1,13 +1,23 @@
 """
 test_runoff_percent.py
 ======================
-Locks the optional runoff percentage summary line:
+Locks the optional runoff percentage summary, in BOTH of its two forms:
 
-  * the line uses the DECIDED-VOTERS denominator — voters who expressed a
-    preference between the two finalists — so Equal Support is EXCLUDED;
-  * it is OFF on screen by default (house "less is more");
+  * ON SCREEN — one *self-reconciling* line. It uses the DECIDED-VOTERS
+    denominator (voters who expressed a preference between the two finalists,
+    so Equal Support is EXCLUDED) AND states that count against the total
+    ballots with the Equal Support gap named inline — "N of TOTAL (E Equal
+    Support)" — so the denominator never has to be inferred by subtraction.
+  * IN THE `_tabulated` COPY — a "Runoff math" funnel that makes the same
+    arithmetic explicit (TOTAL − Equal Support = decided), then the finalists'
+    shares of the decided voters.
+
+Behaviour locked here:
+  * the on-screen line is OFF by default (house "less is more");
   * it is ON when `options: { show_runoff_percent: true }`;
-  * the always-full `_tabulated` copy carries it regardless of the file option.
+  * the always-full `_tabulated` copy carries the funnel regardless of the
+    file option;
+  * the funnel does NOT appear on screen (echo stays a single line).
 
 Fixture election (scores 0-5):
 
@@ -19,8 +29,9 @@ Fixture election (scores 0-5):
     4,0,5      A>B
 
   Scores: A=19, B=16, C=5  -> finalists A,B.
-  Runoff A-vs-B: A=3, B=1, Equal Support=1  -> decided=4 (NOT 5).
-  Expected line: "Voters with a preference: 4. A 3 (75%) vs B 1 (25%); majority = 3."
+  Runoff A-vs-B: A=3, B=1, Equal Support=1  -> decided=4 (NOT 5), total=5.
+  Expected line:  "Voters with a preference: 4 of 5 (1 Equal Support). "
+                  "A 3 (75%) vs B 1 (25%); majority = 3."
 """
 
 import subprocess
@@ -30,7 +41,18 @@ from pathlib import Path
 ENGINE_DIR = Path(__file__).resolve().parent.parent
 WRAPPER = ENGINE_DIR / "starvote_larry_hastings.py"
 
-EXPECTED = "Voters with a preference: 4. A 3 (75%) vs B 1 (25%); majority = 3."
+# On-screen one-liner (self-reconciling: "4 of 5 (1 Equal Support)").
+EXPECTED = (
+    "Voters with a preference: 4 of 5 (1 Equal Support). "
+    "A 3 (75%) vs B 1 (25%); majority = 3."
+)
+
+# Distinctive fragments of the `_tabulated` "Runoff math" funnel.
+FUNNEL_HEADER = "Runoff math:"
+FUNNEL_TOTAL = "5  ballots cast"
+FUNNEL_EQUAL = "Equal Support (no preference between the two finalists)"
+FUNNEL_DECIDED = "4  voters with a preference  (majority = 3)"
+FUNNEL_SHARES = "A 3 (75%)  ·  B 1 (25%)"
 
 BALLOTS = "  A,B,C\n  5,4,0\n  5,4,0\n  2,5,0\n  3,3,0\n  4,0,5\n"
 
@@ -77,6 +99,8 @@ def _write_nested(tmp_path):
     return p
 
 
+# --- positive: the on-screen line ------------------------------------------
+
 def test_line_on_screen_when_option_set(tmp_path):
     proc = _run_cli(_write(tmp_path, with_option=True))
     assert proc.returncode == 0, proc.stdout + proc.stderr
@@ -91,22 +115,57 @@ def test_nested_election_options_are_honored(tmp_path):
     assert EXPECTED in proc.stdout, proc.stdout
 
 
+def test_line_self_reconciles(tmp_path):
+    # The whole point of the new wording: decided, total, and the Equal Support
+    # gap all appear so the reader can see 5 − 1 = 4 without hunting.
+    proc = _run_cli(_write(tmp_path, with_option=True))
+    assert "4 of 5 (1 Equal Support)" in proc.stdout, proc.stdout
+
+
+def test_equal_support_excluded_from_denominator(tmp_path):
+    # The percentage denominator is 4 (decided), not 5 (all ballots): the Equal
+    # Support ballot is named in the reconciliation but kept OUT of the share.
+    proc = _run_cli(_write(tmp_path, with_option=True))
+    assert "preference: 4 of 5" in proc.stdout, proc.stdout
+    assert "75%" in proc.stdout and "25%" in proc.stdout, proc.stdout
+    # 3/5 would be 60%, not 75% — guards against an all-ballots denominator.
+    assert "60%" not in proc.stdout, proc.stdout
+
+
+# --- positive: the _tabulated funnel ---------------------------------------
+
+def test_tabulated_copy_has_funnel(tmp_path):
+    # Even with the option OFF on screen, the full _tabulated copy forces the
+    # funnel on, and it visibly adds up (5 − 1 = 4).
+    yaml_path = _write(tmp_path, with_option=False)
+    proc = _run_cli(yaml_path)
+    assert proc.returncode == 0, proc.stdout + proc.stderr
+    txt = _tabulated_text(yaml_path)
+    for frag in (FUNNEL_HEADER, FUNNEL_TOTAL, FUNNEL_EQUAL, FUNNEL_DECIDED, FUNNEL_SHARES):
+        assert frag in txt, f"missing {frag!r} in:\n{txt}"
+
+
+# --- negative: each form stays out of the other render ----------------------
+
 def test_line_absent_on_screen_by_default(tmp_path):
     proc = _run_cli(_write(tmp_path, with_option=False))
     assert proc.returncode == 0, proc.stdout + proc.stderr
     assert "Voters with a preference" not in proc.stdout, proc.stdout
+    assert FUNNEL_HEADER not in proc.stdout, proc.stdout
 
 
-def test_tabulated_copy_always_has_line(tmp_path):
-    # Even with the option OFF on screen, the full _tabulated copy forces it on.
-    yaml_path = _write(tmp_path, with_option=False)
-    proc = _run_cli(yaml_path)
-    assert proc.returncode == 0, proc.stdout + proc.stderr
-    assert EXPECTED in _tabulated_text(yaml_path)
-
-
-def test_equal_support_excluded_from_denominator(tmp_path):
-    # The denominator is 4 (decided), not 5 (all ballots): the Equal Support
-    # ballot must not be counted in the runoff percentage.
+def test_funnel_does_not_appear_on_screen(tmp_path):
+    # On screen it is ALWAYS the one-liner, never the multi-line funnel — even
+    # when the option is on.
     proc = _run_cli(_write(tmp_path, with_option=True))
-    assert "preference: 4." in proc.stdout and "preference: 5." not in proc.stdout, proc.stdout
+    assert EXPECTED in proc.stdout, proc.stdout
+    assert FUNNEL_HEADER not in proc.stdout, proc.stdout
+
+
+def test_one_liner_not_in_tabulated(tmp_path):
+    # And the reverse: the _tabulated copy uses the funnel INSTEAD of the
+    # one-liner, so the compact "N of TOTAL (...)" phrasing is not duplicated there.
+    yaml_path = _write(tmp_path, with_option=True)
+    _run_cli(yaml_path)
+    txt = _tabulated_text(yaml_path)
+    assert "Voters with a preference:" not in txt, txt

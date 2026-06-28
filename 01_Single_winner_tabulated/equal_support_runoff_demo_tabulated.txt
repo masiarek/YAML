@@ -2,7 +2,7 @@
 SOURCE FILE:     equal_support_runoff_demo.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  equal_support_runoff_demo_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:11
+TABULATED AT:    2026-06-28 12:09:22
 ======================================================================
 
 election_title: Equal Support — counted in both rounds, neutral only in the tie-break
@@ -108,10 +108,15 @@ C  25   0   0   0   0  75  |   125   1.2
 [STAR Voting: Automatic Runoff Round]
  The candidate preferred in the most head-to-head matchups wins.
    A             -- 35 -- First place
-   B             -- 0
+   B             --  0
    Equal Support -- 65
  A wins.
-   Voters with a preference: 35. A 35 (100%) vs B 0 (0%); majority = 18.
+   Runoff math:
+     100  ballots cast
+   −  65  Equal Support (no preference between the two finalists)
+     ───
+      35  voters with a preference  (majority = 18)
+           A 35 (100%)  ·  B 0 (0%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  A

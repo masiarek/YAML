@@ -2,7 +2,7 @@
 SOURCE FILE:     monotonicity_star_before.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  monotonicity_star_before_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:11
+TABULATED AT:    2026-06-28 12:09:18
 ======================================================================
 
 election_title: Monotonicity — STAR counterpart (BEFORE — X wins)
@@ -102,9 +102,14 @@ Z  10   0  12   0   0  12  |    86   2.5
  The candidate preferred in the most head-to-head matchups wins.
    X             -- 22 -- First place
    Y             -- 12
-   Equal Support -- 0
+   Equal Support --  0
  X wins.
-   Voters with a preference: 34. X 22 (65%) vs Y 12 (35%); majority = 18.
+   Runoff math:
+     34  ballots cast
+   −  0  Equal Support (no preference between the two finalists)
+     ──
+     34  voters with a preference  (majority = 18)
+           X 22 (65%)  ·  Y 12 (35%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  X

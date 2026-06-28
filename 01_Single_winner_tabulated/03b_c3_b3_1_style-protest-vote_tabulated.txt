@@ -2,7 +2,7 @@
 SOURCE FILE:     03b_c3_b3_1_style-protest-vote.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  03b_c3_b3_1_style-protest-vote_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:09
+TABULATED AT:    2026-06-28 12:09:20
 ======================================================================
 
 election_title: Voting styles — low-score ballots
@@ -87,10 +87,10 @@ Count × Choco,Almond,Vanilla
     1 ×     0,     0,      1
 
 [Score Distribution] (number of ballots giving each score)
-          5   4   3   2   1   0  | Total   Avg
-Choco     0   0   0   0   0   3  |     0   0.0
-Almond    0   0   0   0   2   1  |     2   0.7
-Vanilla   0   0   0   0   1   2  |     1   0.3
+         5  4  3  2  1  0  | Total   Avg
+Choco    0  0  0  0  0  3  |     0   0.0
+Almond   0  0  0  0  2  1  |     2   0.7
+Vanilla  0  0  0  0  1  2  |     1   0.3
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
@@ -105,7 +105,12 @@ Vanilla   0   0   0   0   1   2  |     1   0.3
    Vanilla       -- 1
    Equal Support -- 0
  Almond wins.
-   Voters with a preference: 3. Almond 2 (67%) vs Vanilla 1 (33%); majority = 2.
+   Runoff math:
+     3  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     3  voters with a preference  (majority = 2)
+           Almond 2 (67%)  ·  Vanilla 1 (33%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Almond

@@ -2,7 +2,7 @@
 SOURCE FILE:     three_winners_cw_score_runoff.yaml
 SOURCE MODIFIED: 2026-06-27 00:07:51
 TABULATED FILE:  three_winners_cw_score_runoff_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:12
+TABULATED AT:    2026-06-28 12:09:23
 ======================================================================
 
 election_title: Three notions of "winner" disagree — Condorcet, Score, and Runoff
@@ -103,10 +103,10 @@ Count × Ann,Bob,Carl
     2 ×   0,  3,   5
 
 [Score Distribution] (number of ballots giving each score)
-       5   4   3   2   1   0  | Total   Avg
-Ann    3   0   0   0   0   2  |    15   3.0
-Bob    0   3   2   0   0   0  |    18   3.6
-Carl   2   0   3   0   0   0  |    19   3.8
+      5  4  3  2  1  0  | Total   Avg
+Ann   3  0  0  0  0  2  |    15   3.0
+Bob   0  3  2  0  0  0  |    18   3.6
+Carl  2  0  3  0  0  0  |    19   3.8
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
@@ -121,7 +121,12 @@ Carl   2   0   3   0   0   0  |    19   3.8
    Carl          -- 2
    Equal Support -- 0
  Bob wins.
-   Voters with a preference: 5. Bob 3 (60%) vs Carl 2 (40%); majority = 3.
+   Runoff math:
+     5  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     5  voters with a preference  (majority = 3)
+           Bob 3 (60%)  ·  Carl 2 (40%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Bob

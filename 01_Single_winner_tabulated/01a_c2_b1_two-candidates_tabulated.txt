@@ -2,7 +2,7 @@
 SOURCE FILE:     01a_c2_b1_two-candidates.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  01a_c2_b1_two-candidates_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:09
+TABULATED AT:    2026-06-28 12:09:22
 ======================================================================
 
 election_title: The simplest possible STAR Voting example
@@ -76,9 +76,9 @@ Chocolate,Vanilla
         5,      3
 
 [Score Distribution] (number of ballots giving each score)
-            5   4   3   2   1   0  | Total   Avg
-Chocolate   1   0   0   0   0   0  |     5   5.0
-Vanilla     0   0   1   0   0   0  |     3   3.0
+           5  4  3  2  1  0  | Total   Avg
+Chocolate  1  0  0  0  0  0  |     5   5.0
+Vanilla    0  0  1  0  0  0  |     3   3.0
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
@@ -92,7 +92,12 @@ Vanilla     0   0   1   0   0   0  |     3   3.0
    Vanilla       -- 0
    Equal Support -- 0
  Chocolate wins.
-   Voters with a preference: 1. Chocolate 1 (100%) vs Vanilla 0 (0%); majority = 1.
+   Runoff math:
+     1  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     1  voters with a preference  (majority = 1)
+           Chocolate 1 (100%)  ·  Vanilla 0 (0%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Chocolate

@@ -2,7 +2,7 @@
 SOURCE FILE:     02_icecream_chocolate_split.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  02_icecream_chocolate_split_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:15
+TABULATED AT:    2026-06-28 12:09:19
 ======================================================================
 
 election_title: Spoiler — chocolate's majority splits, vanilla steals the win
@@ -121,7 +121,12 @@ Vanilla    34   0   0   0   0  66  |   170   1.7
    DarkChoco     -- 24
    Equal Support -- 34
  MilkChoco wins.
-   Voters with a preference: 66. MilkChoco 42 (64%) vs DarkChoco 24 (36%); majority = 34.
+   Runoff math:
+     100  ballots cast
+   −  34  Equal Support (no preference between the two finalists)
+     ───
+      66  voters with a preference  (majority = 34)
+           MilkChoco 42 (64%)  ·  DarkChoco 24 (36%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  MilkChoco

@@ -2,7 +2,7 @@
 SOURCE FILE:     best_pet_c7_b461.yaml
 SOURCE MODIFIED: 2026-06-28 02:22:37
 TABULATED FILE:  best_pet_c7_b461_tabulated.txt
-TABULATED AT:    2026-06-28 02:22:36
+TABULATED AT:    2026-06-28 12:07:36
 ======================================================================
 
 election:
@@ -991,7 +991,12 @@ Rat      17   31   57   58   93  162   43  |   589   1.4
    Cat           -- 173
    Equal Support --  98
  Dog wins.
-   Voters with a preference: 363. Dog 190 (52%) vs Cat 173 (48%); majority = 182.
+   Runoff math:
+     461  ballots cast
+   −  98  Equal Support (no preference between the two finalists)
+     ───
+     363  voters with a preference  (majority = 182)
+           Dog 190 (52%)  ·  Cat 173 (48%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Dog

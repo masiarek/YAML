@@ -2,7 +2,7 @@
 SOURCE FILE:     01b_c3_b9_overturn-holds-at-scale.yaml
 SOURCE MODIFIED: 2026-06-26 22:42:52
 TABULATED FILE:  01b_c3_b9_overturn-holds-at-scale_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:11
+TABULATED AT:    2026-06-28 12:09:18
 ======================================================================
 
 election_title: The same overturn at scale — 67% to 33%
@@ -81,16 +81,16 @@ Count × Almond,Brownie,Cocoa
     3 ×      5,      1,    0
 
 [Score Distribution] (number of ballots giving each score)
-          5   4   3   2   1   0  | Total   Avg
-Almond    3   6   0   0   0   0  |    39   4.3
-Brownie   6   0   0   0   3   0  |    33   3.7
-Cocoa     0   0   0   0   0   9  |     0   0.0
+         5  4  3  2  1  0  | Total   Avg
+Almond   3  6  0  0  0  0  |    39   4.3
+Brownie  6  0  0  0  3  0  |    33   3.7
+Cocoa    0  0  0  0  0  9  |     0   0.0
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    Almond        -- 39 -- First place
    Brownie       -- 33 -- Second place
-   Cocoa         -- 0
+   Cocoa         --  0
  Almond and Brownie advance.
 
 [STAR Voting: Automatic Runoff Round]
@@ -99,7 +99,12 @@ Cocoa     0   0   0   0   0   9  |     0   0.0
    Almond        -- 3
    Equal Support -- 0
  Brownie wins.
-   Voters with a preference: 9. Brownie 6 (67%) vs Almond 3 (33%); majority = 5.
+   Runoff math:
+     9  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     9  voters with a preference  (majority = 5)
+           Brownie 6 (67%)  ·  Almond 3 (33%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Brownie

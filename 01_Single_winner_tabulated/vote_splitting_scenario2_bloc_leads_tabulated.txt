@@ -2,7 +2,7 @@
 SOURCE FILE:     vote_splitting_scenario2_bloc_leads.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  vote_splitting_scenario2_bloc_leads_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:13
+TABULATED AT:    2026-06-28 12:09:22
 ======================================================================
 
 election_title: Vote splitting — scenario 2 of 3 — no spoiler (bloc leader wins anyway)
@@ -100,16 +100,21 @@ Vanilla    12   0   0   0   0  24  |    60   1.7
  The two highest-scoring candidates advance to the next round.
    DarkChoco     -- 134 -- First place
    MilkChoco     -- 118 -- Second place
-   Vanilla       -- 60
+   Vanilla       --  60
  DarkChoco and MilkChoco advance.
 
 [STAR Voting: Automatic Runoff Round]
  The candidate preferred in the most head-to-head matchups wins.
    DarkChoco     -- 26 -- First place
    MilkChoco     -- 10
-   Equal Support -- 0
+   Equal Support --  0
  DarkChoco wins.
-   Voters with a preference: 36. DarkChoco 26 (72%) vs MilkChoco 10 (28%); majority = 19.
+   Runoff math:
+     36  ballots cast
+   −  0  Equal Support (no preference between the two finalists)
+     ──
+     36  voters with a preference  (majority = 19)
+           DarkChoco 26 (72%)  ·  MilkChoco 10 (28%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  DarkChoco

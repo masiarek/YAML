@@ -2,7 +2,7 @@
 SOURCE FILE:     01a_c3_b3_more-stars-fewer-voters.yaml
 SOURCE MODIFIED: 2026-06-26 22:42:52
 TABULATED FILE:  01a_c3_b3_more-stars-fewer-voters_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:11
+TABULATED AT:    2026-06-28 12:09:21
 ======================================================================
 
 election_title: More stars, fewer voters — the runoff overturns the score leader
@@ -83,16 +83,16 @@ Count × Almond,Brownie,Cocoa
     1 ×      5,      1,    2
 
 [Score Distribution] (number of ballots giving each score)
-          5   4   3   2   1   0  | Total   Avg
-Almond    1   2   0   0   0   0  |    13   4.3
-Brownie   2   0   0   0   1   0  |    11   3.7
-Cocoa     0   0   0   1   0   2  |     2   0.7
+         5  4  3  2  1  0  | Total   Avg
+Almond   1  2  0  0  0  0  |    13   4.3
+Brownie  2  0  0  0  1  0  |    11   3.7
+Cocoa    0  0  0  1  0  2  |     2   0.7
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    Almond        -- 13 -- First place
    Brownie       -- 11 -- Second place
-   Cocoa         -- 2
+   Cocoa         --  2
  Almond and Brownie advance.
 
 [STAR Voting: Automatic Runoff Round]
@@ -101,7 +101,12 @@ Cocoa     0   0   0   1   0   2  |     2   0.7
    Almond        -- 1
    Equal Support -- 0
  Brownie wins.
-   Voters with a preference: 3. Brownie 2 (67%) vs Almond 1 (33%); majority = 2.
+   Runoff math:
+     3  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     3  voters with a preference  (majority = 2)
+           Brownie 2 (67%)  ·  Almond 1 (33%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Brownie

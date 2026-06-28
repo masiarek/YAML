@@ -2,7 +2,7 @@
 SOURCE FILE:     04_star_wars_vote_split.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  04_star_wars_vote_split_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:15
+TABULATED AT:    2026-06-28 12:09:18
 ======================================================================
 
 election_title: The Voting Dilemma — Skywalker & Leia split the Rebel vote
@@ -139,9 +139,14 @@ Vader      40   0   0   0   0  60  |   200   2.0
  The candidate preferred in the most head-to-head matchups wins.
    Leia          -- 67 -- First place
    Skywalker     -- 33
-   Equal Support -- 0
+   Equal Support --  0
  Leia wins.
-   Voters with a preference: 100. Leia 67 (67%) vs Skywalker 33 (33%); majority = 51.
+   Runoff math:
+     100  ballots cast
+   −   0  Equal Support (no preference between the two finalists)
+     ───
+     100  voters with a preference  (majority = 51)
+           Leia 67 (67%)  ·  Skywalker 33 (33%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  Leia

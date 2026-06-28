@@ -2,7 +2,7 @@
 SOURCE FILE:     monotonicity_star_after.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  monotonicity_star_after_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:11
+TABULATED AT:    2026-06-28 12:09:18
 ======================================================================
 
 election_title: Monotonicity — STAR counterpart (AFTER — X still wins)
@@ -91,17 +91,22 @@ Z  10   0   8   0   0  16  |    74   2.2
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
    X             -- 110 -- First place
-   Y             -- 88 -- Second place
-   Z             -- 74
+   Y             --  88 -- Second place
+   Z             --  74
  X and Y advance.
 
 [STAR Voting: Automatic Runoff Round]
  The candidate preferred in the most head-to-head matchups wins.
    X             -- 26 -- First place
-   Y             -- 8
-   Equal Support -- 0
+   Y             --  8
+   Equal Support --  0
  X wins.
-   Voters with a preference: 34. X 26 (76%) vs Y 8 (24%); majority = 18.
+   Runoff math:
+     34  ballots cast
+   −  0  Equal Support (no preference between the two finalists)
+     ──
+     34  voters with a preference  (majority = 18)
+           X 26 (76%)  ·  Y 8 (24%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  X

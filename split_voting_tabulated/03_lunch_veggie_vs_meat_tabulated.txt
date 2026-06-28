@@ -2,7 +2,7 @@
 SOURCE FILE:     03_lunch_veggie_vs_meat.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  03_lunch_veggie_vs_meat_tabulated.txt
-TABULATED AT:    2026-06-28 01:02:15
+TABULATED AT:    2026-06-28 12:09:23
 ======================================================================
 
 election_title: Spoiler — the veggie majority splits, the burger wins the lunch vote
@@ -123,7 +123,12 @@ BeefBurger   30   0   0   0   0  70  |   150   1.5
    TofuStirFry   -- 28
    Equal Support -- 30
  VeggieCurry wins.
-   Voters with a preference: 70. VeggieCurry 42 (60%) vs TofuStirFry 28 (40%); majority = 36.
+   Runoff math:
+     100  ballots cast
+   −  30  Equal Support (no preference between the two finalists)
+     ───
+      70  voters with a preference  (majority = 36)
+           VeggieCurry 42 (60%)  ·  TofuStirFry 28 (40%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
  VeggieCurry
