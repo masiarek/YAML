@@ -26,7 +26,6 @@ properties live in [`STAR_Voting/`](./STAR_Voting/).
 | **Proportional: STV vs STAR-PR** | multi-seat — coalitions get proportional seats; STV ≈ STAR-PR, Bloc differs (301) | [proportional_stv_vs_star.md](./proportional_stv_vs_star.md) |
 | **Tabulation, step by step (201)** | the same ballots counted both ways — STAR's 2 steps vs IRV's elimination rounds | [tabulation_star_vs_irv.md](./tabulation_star_vs_irv.md) |
 | **RCV-IRV vs. STAR (side-by-side)** | balanced comparison hub — real strengths on both sides — routing to the facet pages | [rcv_irv_vs_star.md](./rcv_irv_vs_star.md) |
-| **BetterVoting and the LH engine** | why an election has two reports (BetterVoting's visual display + the engine's text report), how they map, the convert→validate→test pipeline, and the repo's two engines | [bettervoting_and_the_engine.md](./bettervoting_and_the_engine.md) |
 
 ### RCV-IRV — problems specific to instant-runoff
 
@@ -46,8 +45,9 @@ properties live in [`STAR_Voting/`](./STAR_Voting/).
 |---------|----------|------|
 | **STAR's hybrid nature** | expressive scoring to find the finalists + a majority runoff to pick the winner — the design the rest of these pages build on | [STAR_hybrid_nature.md](./STAR_Voting/STAR_hybrid_nature.md) |
 | **Runoff Reversal — top scorer ≠ winner** | the Scoring Round picks two finalists; the Automatic Runoff lets the *majority-preferred* finalist win — even with fewer total stars | [runoff_overturns_leader/](../../01_Single_winner/runoff_overturns_leader/README.md) |
-| **Reading a STAR report (201)** | the full engine report, section by section — matrix, divergence, both rounds, winner — and which parts to show 101 vs 201 vs 301 | [reading_a_star_report.md](./STAR_Voting/reading_a_star_report.md) |
+| **Reading a STAR report (201)** | the full engine report, section by section — matrix, divergence, both rounds, winner — and which parts to show 101 vs 201 vs 301 | [reading_a_star_report.md](./STAR_Voting/tabulation_engines/LH_starvote/reading_a_star_report.md) |
 | **Reading the runoff percentages** | the same runoff vote shown two ways — % of all voters vs % of the voters *with a preference*; why the winner needs a majority of the decided voters, and where Equal Support goes | [runoff_percentages.md](./STAR_Voting/runoff_percentages.md) |
+| **BetterVoting and the LH engine** | why an election has two reports (BetterVoting's visual display + the engine's text report), how they map, the convert→validate→test pipeline, and the repo's two engines | [tabulation_engines/bettervoting_and_the_engine.md](./STAR_Voting/tabulation_engines/bettervoting_and_the_engine.md) |
 | **Three notions of "winner"** | Condorcet vs Score vs Runoff can name three different candidates in one election | [STAR_three_winner_notions.md](./STAR_Voting/STAR_three_winner_notions.md) |
 | **STAR is monotone** | raising a candidate's score can never make them lose — the failure IRV has, STAR doesn't | [STAR_monotonicity.md](./STAR_Voting/STAR_monotonicity.md) |
 | **STAR is summable** | tally by adding independent precinct totals; precinct-auditable, meaningful partials | [STAR_summability.md](./STAR_Voting/STAR_summability.md) |

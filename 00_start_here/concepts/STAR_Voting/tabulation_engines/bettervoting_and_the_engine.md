@@ -6,9 +6,9 @@ reports — BetterVoting's **live visual display** (what voters see) and the LH 
 implementations of the *same* STAR method, so they **agree** on the winner, the scores,
 and the runoff. Two reports, one count.
 
-→ The engine report section by section: [reading a STAR report](./STAR_Voting/reading_a_star_report.md).
-The runoff percentages in both: [runoff percentages](./STAR_Voting/runoff_percentages.md).
-Glossary: [`BetterVoting`](../GLOSSARY.md).
+→ The engine report section by section: [reading a STAR report](./LH_starvote/reading_a_star_report.md).
+The runoff percentages in both: [runoff percentages](../runoff_percentages.md).
+Glossary: [`BetterVoting`](../../../GLOSSARY.md).
 
 ---
 
@@ -78,4 +78,4 @@ are counted in fundamentally different ways, so each has its own engine:
 The main engine auto-dispatches: a file with ranked `A>B>C` ballots (or `voting_method:
 RCV_IRV`) is handed to the RCV-IRV engine; score grids stay with `starvote`. Why the two
 *counts* differ so much — even on identical preferences — is
-[STAR vs RCV-IRV, step by step](./tabulation_star_vs_irv.md).
+[STAR vs RCV-IRV, step by step](../../tabulation_star_vs_irv.md).
