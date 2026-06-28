@@ -37,6 +37,10 @@ How the pieces line up (same Dog/Cat race):
 | **% Between Finalists** (52 / 48) | the `show_runoff_percent` line — *Voters with a preference: 363…* |
 | **Race Details** tables | the **Preference Matrix** (For–Equal–Against) + runoff block |
 
+See both sides for this exact race, end to end — the export YAML and the full engine
+report — in the worked lesson
+[A real BetterVoting election, end to end](../../../01_Single_winner/pet_real_bv_election/README.md).
+
 ## How a real election becomes a trusted example
 
 The two reports are tied together by a pipeline. A real ballot file — a BetterVoting JSON

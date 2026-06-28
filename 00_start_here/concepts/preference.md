@@ -40,7 +40,7 @@ The same word trips people elsewhere too: a **"preference ballot"** is ambiguous
 - [RCV vs. IRV vs. RCV-IRV — terminology](./RCV_IRV/RCV-IRV-confusing-name.md) — the parallel naming mess
 - [Scores vs. ranks](./scores_vs_ranks.md) — why "preference" includes strength, which ranks drop
 - [Strict vs. weak ranks](./strict_vs_weak_ranks.md) — equal ranks, and what a ranking can/can't say
-- [Ranked Robin (Consensus Voting)](./ranked_robin.md)
+- [Ranked Robin (Consensus Voting)](./RCV_Ranked_Robin/ranked_robin.md)
 
 ## Learn more — in this library
 

@@ -79,6 +79,11 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
   voters, not half of everyone. The LH engine prints this same decided-voters share as
   a one-line summary — enable with `options: { show_runoff_percent: true }` (forced on
   in the `_tabulated` copy). Pairs with 301.3 (Equal Support).
+- **A real election, end to end:** [`01_Single_winner/pet_real_bv_election/`](../01_Single_winner/pet_real_bv_election/README.md)
+  — a real BetterVoting STAR election ("What Makes the Best Pet?", 7 pets, 461 ballots),
+  the actual export YAML plus its full engine report, read section by section (scoring →
+  runoff → runoff % → Condorcet check), including the real-ballot distinction between an
+  abstention (blank) and an explicit-zero ballot.
 
 ## 201.2 — Edge cases & trust
 - **Key terms:** unanimous ballots, ties / tiebreaker, abstention, equal-max ballot.

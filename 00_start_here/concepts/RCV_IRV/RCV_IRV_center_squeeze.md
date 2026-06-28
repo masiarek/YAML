@@ -17,7 +17,7 @@ almost everyone's strong **second** choice — but few people's first — has th
 fewest first-place votes, so IRV eliminates them before their broad support is ever
 counted. The two wings survive; the consensus candidate doesn't.
 
-This is **not** a property of ranked ballots in general. **[Ranked Robin](../ranked_robin.md)** (a
+This is **not** a property of ranked ballots in general. **[Ranked Robin](../RCV_Ranked_Robin/ranked_robin.md)** (a
 Condorcet count of the *same* ballot) reads every ranking and elects the head-to-head
 winner, so it has **no** center squeeze. Saying "RCV has center squeeze" is
 imprecise — it's **IRV**. (See [`TIPS_terminology.md`](../../TIPS_terminology.md).)

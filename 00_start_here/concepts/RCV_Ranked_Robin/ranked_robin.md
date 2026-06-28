@@ -23,26 +23,26 @@ Because it's computed entirely from the **pairwise matrix** (for each pair, how 
 | Precinct-summable? | ❌ No | ✅ Yes (add pairwise matrices) |
 | Exhausted ballots? | Possible | No — all rankings are read |
 
-The headline: the two things people *assume* "RCV" does — let you mark ties and compare candidates head-to-head — are exactly what **Ranked Robin** does and what **IRV does not**. (See [strict_vs_weak_ranks.md](./strict_vs_weak_ranks.md) and [RCV_IRV_and_plurality.md](RCV_IRV/RCV_IRV_and_plurality.md).)
+The headline: the two things people *assume* "RCV" does — let you mark ties and compare candidates head-to-head — are exactly what **Ranked Robin** does and what **IRV does not**. (See [strict_vs_weak_ranks.md](../strict_vs_weak_ranks.md) and [RCV_IRV_and_plurality.md](../RCV_IRV/RCV_IRV_and_plurality.md).)
 
 ## Why it matters
 
-Because it reads every ranking against every opponent, Ranked Robin elects the candidate **most voters prefer in head-to-head comparison** — the "consensus" / Condorcet winner — which is precisely the broadly-liked moderate that IRV can [center-squeeze](RCV_IRV/RCV_IRV_center_squeeze.md) out. It's also **monotonic** and **summable** by adding precinct pairwise matrices, so it avoids two of IRV's biggest mechanical problems while keeping a familiar ranked ballot.
+Because it reads every ranking against every opponent, Ranked Robin elects the candidate **most voters prefer in head-to-head comparison** — the "consensus" / Condorcet winner — which is precisely the broadly-liked moderate that IRV can [center-squeeze](../RCV_IRV/RCV_IRV_center_squeeze.md) out. It's also **monotonic** and **summable** by adding precinct pairwise matrices, so it avoids two of IRV's biggest mechanical problems while keeping a familiar ranked ballot.
 
 ## For balance — its limits
 
-Ranked Robin isn't a cure-all. Like all ranked methods it captures **order only, not strength** — it can't tell a near-tie from a landslide ([scores_vs_ranks.md](./scores_vs_ranks.md)) — so it carries less information than a scored method like STAR. When there's a **Condorcet cycle** (A beats B, B beats C, C beats A, with no candidate beating all others), there is no Condorcet winner and the method falls back on a tiebreak rule (sum of margins), which reasonable people can debate. And no method escapes Gibbard–Satterthwaite. Its real-world **adoption is limited** so far compared with IRV.
+Ranked Robin isn't a cure-all. Like all ranked methods it captures **order only, not strength** — it can't tell a near-tie from a landslide ([scores_vs_ranks.md](../scores_vs_ranks.md)) — so it carries less information than a scored method like STAR. When there's a **Condorcet cycle** (A beats B, B beats C, C beats A, with no candidate beating all others), there is no Condorcet winner and the method falls back on a tiebreak rule (sum of margins), which reasonable people can debate. And no method escapes Gibbard–Satterthwaite. Its real-world **adoption is limited** so far compared with IRV.
 
 ---
 
 ## Related concept pages
 
-- [Strict vs. weak ranks](./strict_vs_weak_ranks.md) — Ranked Robin allows equal ranks; IRV doesn't
-- [Center squeeze](RCV_IRV/RCV_IRV_center_squeeze.md) — the failure RR avoids and IRV doesn't
-- [Is IRV "just plurality"?](RCV_IRV/RCV_IRV_and_plurality.md) — why IRV isn't pairwise
-- [Scores vs. ranks](./scores_vs_ranks.md) — RR is still order-only, unlike STAR
-- [RCV-IRV vs. STAR (side-by-side)](./rcv_irv_vs_star.md)
-- [RCV vs. IRV vs. RCV-IRV — terminology](./RCV_IRV/RCV-IRV-confusing-name.md)
+- [Strict vs. weak ranks](../strict_vs_weak_ranks.md) — Ranked Robin allows equal ranks; IRV doesn't
+- [Center squeeze](../RCV_IRV/RCV_IRV_center_squeeze.md) — the failure RR avoids and IRV doesn't
+- [Is IRV "just plurality"?](../RCV_IRV/RCV_IRV_and_plurality.md) — why IRV isn't pairwise
+- [Scores vs. ranks](../scores_vs_ranks.md) — RR is still order-only, unlike STAR
+- [RCV-IRV vs. STAR (side-by-side)](../rcv_irv_vs_star.md)
+- [RCV vs. IRV vs. RCV-IRV — terminology](../RCV_IRV/RCV-IRV-confusing-name.md)
 
 ## Learn more — external
 
