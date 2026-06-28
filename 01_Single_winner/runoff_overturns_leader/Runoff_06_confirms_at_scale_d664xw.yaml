@@ -1,0 +1,39 @@
+election:
+  election_title: Runoff 06 — the runoff confirms the leader at scale (control)
+  election_description: |-
+    A REAL BetterVoting election (BV id d664xw), captured 2026-06-28. The closing
+    control: the Scoring-Round leader (Wren) is ALSO the candidate most voters prefer
+    head-to-head, so the Automatic Runoff confirms the leader, 4-1. After four
+    reversals, this is the reassurance — *how much* and *how many* point at the same
+    candidate, so the runoff just agrees with the score round. Winner = the Condorcet
+    winner. The bookend to Runoff_01. Level 101. Full two-view lesson:
+    Runoff_06_confirms_at_scale_d664xw.md
+  options:
+    show_description: false
+    show_matrix: true
+    matrix_finalists_only: true
+    show_condorcet: true
+    show_score_counts: false
+    show_irv: false
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: false
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "https://bettervoting.com/d664xw/results"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      Wren, Yarrow, Zinnia
+      5, 2, 0
+      5, 3, 1
+      5, 2, 0
+      4, 5, 0
+      2, 1, 5
+    lot_numbers: [Zinnia, Yarrow, Wren]
+    expected_results:
+      winners:
+      - Wren
+
+# file: Runoff_06_confirms_at_scale_d664xw.yaml
