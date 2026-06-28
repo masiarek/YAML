@@ -42,7 +42,20 @@ export, or data in ABIF / CSV / BLT / ranked form — is converted to a **YAML e
 validated, and tabulated, then **cross-checked against BetterVoting's own result** before
 it's saved as a trusted test case:
 
-![Workflow: if a file isn't already YAML, convert it from the source format (ABIF, Larry Hastings format, CSV/TXT, BLT, ranks) to YAML; validate the YAML (consistency, formatting, plausibility, required sections); if checks fail, correct and re-validate; load into BetterVoting for regression / unit testing; if the results, reports and statistics are correct, mark expected results approved in the YAML and save to the test library; if not, file a GitHub bug report with the YAML attached](./img/workflow_convert_validate_test.png)
+```mermaid
+flowchart TD
+    start([start]) --> isyaml{Is it a YAML<br/>format file?}
+    isyaml -- "No" --> convert["Convert from source<br/>(ABIF, Larry Hastings format,<br/>CSV/TXT, BLT, ranks, etc.)<br/>to a target YAML file"]
+    isyaml -- "Yes — it is YAML" --> validate
+    convert -- "YAML" --> validate["Validate the YAML file:<br/>internal consistency, formatting,<br/>and plausibility checks.<br/>Are the required sections/elements present?"]
+    validate --> ok{Consistency &<br/>plausibility checks<br/>successful?}
+    ok -- "No" --> fix[Correct errors and mistakes]
+    fix --> validate
+    ok -- "Yes" --> load["Load into BetterVoting<br/>— regression / unit testing"]
+    load --> correct{Are the results, reports<br/>and statistics correct?}
+    correct -- "Yes" --> save["Mark expected results<br/>Correct / Approved / Reviewed in the YAML,<br/>and save to the test library"]
+    correct -- "No" --> bug["File a GitHub bug report<br/>and attach the YAML file used"]
+```
 
 That loop is why the examples here can be trusted: every saved election has been tabulated
 *and* cross-checked, and the engine's answer key is only marked "approved" once it matches.
