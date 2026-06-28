@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     flat_scores_abstention_c3_b8.yaml
-SOURCE MODIFIED: 2026-06-28 14:27:28
+SOURCE MODIFIED: 2026-06-28 10:27:28
 TABULATED FILE:  flat_scores_abstention_c3_b8_tabulated.txt
-TABULATED AT:    2026-06-28 14:27:33
+TABULATED AT:    2026-06-28 11:52:03
 ======================================================================
 
 election:

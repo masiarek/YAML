@@ -118,18 +118,27 @@ Automatic Runoff:  A 2,  B 1,  Equal Support 3
 Voters with a preference: 3 of 6 (3 Equal Support). A 2 (67%) vs B 1 (33%).
 ```
 
-**Confirmed on a controlled BetterVoting election** (id `3w6v4b`, 5 ballots: `0,5`
-`4,0` `5,5` `5,0` and a blank). BetterVoting reported:
+**Confirmed on two controlled BetterVoting elections.** Both pick the same winner as
+an independent STAR tabulator; both show BetterVoting filing flat ballots as abstentions.
 
-```json
-{ "nAbstentions": 2, "nTallyVotes": 3 }
-```
+**(a) Two candidates** — the tightest statement (id `3w6v4b`, 5 ballots: `0,5` `4,0`
+`5,5` `5,0`, blank). BetterVoting reported `nAbstentions: 2, nTallyVotes: 3` — it
+counted the **`5,5`** *and* the blank as abstentions. With two candidates a `5,5` *is*
+flat, so it gets flagged directly.
 
-— it counted the **`5,5` ballot** *and* the blank as abstentions, tallying only 3. On
-the same ballots the LH engine counts all 5, marks only the blank an abstention, puts
-the `5,5` in Equal Support, and elects A 2–1. The single ballot of disagreement is the
-`5,5`. Frozen export + both reports:
-[`small_case_abstention_lesson.md`](https://github.com/masiarek/YAML/blob/master/01_Single_winner/pet_real_bv_election/small_case_abstention_lesson.md).
+**(b) Three candidates** — shows it's a systematic *flat-ballot* rule, not just a
+`5,5` quirk (id `dq2dmm`, 8 ballots incl. `0,0,0`, `3,3,3`, `5,5,0`, blank).
+BetterVoting reported `nAbstentions: 3, nTallyVotes: 5` — it counted the blank,
+`0,0,0`, **and an engaged `3,3,3`** (a voter who scored *every* candidate 3) as
+abstentions, but correctly kept `5,5,0` (tied on the two finalists but not flat). So
+the rule drops a fully-marked ballot while a real "no preference between the finalists"
+ballot is counted — the two ideas are different, and only the flat one is mislabeled.
+
+Frozen exports + both reports, side by side:
+[`small_case_abstention_lesson.md`](https://github.com/masiarek/YAML/blob/master/01_Single_winner/pet_real_bv_election/small_case_abstention_lesson.md)
+(3-candidate) ·
+[`small_abstention_c2_b5.yaml`](https://github.com/masiarek/YAML/blob/master/01_Single_winner/pet_real_bv_election/small_abstention_c2_b5.yaml)
+(2-candidate).
 
 ## The ask
 
