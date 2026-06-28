@@ -20,12 +20,13 @@ Reading the whole report: [How to read a STAR report](./reading_a_star_report.md
 ## The example (the Dog/Cat race, 455 voters)
 
 Seven candidates, Dog wins. The Scoring Round adds every star and takes the top two —
-**Dog (1798)** and **Cat (1741)** — as Finalists.
+**Dog (1798)** and **Cat (1741)** — as Finalists. The Automatic Runoff then compares
+*only those two*, giving each ballot's full vote to whichever of Dog/Cat it scored
+higher:
 
-![Scoring Round: Dog 1798, Cat 1741, Bird 969, Rabbit 954, Fish 854, Rat 580, Python 440](./img/pets_scores.svg)
+![BetterVoting result for the pets race: the Scoring Round bar chart (Dog 1798, Cat 1741, Bird 969, Rabbit 954, Fish 854, Rat 580, Python 440) beside the Automatic Runoff bar chart (Dog 190, Cat 173, Equal Support 92) with a dashed majority-threshold line that only Dog's bar crosses](./img/pets_rounds_bars.png)
 
-The Automatic Runoff then compares *only those two finalists*, giving each ballot's
-full vote to whichever of Dog/Cat it scored higher:
+The runoff result is the same numbers no matter how you slice it:
 
 | In the runoff | Votes | of **all 455** | of the **363 with a preference** |
 |---------------|------:|---------------:|---------------------------------:|
@@ -34,20 +35,18 @@ full vote to whichever of Dog/Cat it scored higher:
 | **Equal Support** | 92 | 20% | — |
 | Total | 455 | 100% | 100% |
 
-Those are the two percent columns BetterVoting shows ("% Runoff Votes" and "% Between
-Finalists"), and the two chart views — same runoff, two ways of slicing it:
+That table is exactly BetterVoting's **Race Details** — the two percent columns are
+"% Runoff Votes" (out of all 455) and "% Between Finalists" (out of the 363 with a
+preference):
 
-![Runoff bar chart: Dog 190 (42%), Cat 173 (38%), Equal Support 92 (20%), with a dashed majority-threshold line at 181.5 that Dog crosses](./img/pets_runoff_bars.svg)
+![BetterVoting Race Details: a Scores Table (Dog 1798 … Python 440) and a Runoff Table showing Dog 190 / 42% / 52%, Cat 173 / 38% / 48%, Equal Support 92 / 20%, Total 455 / 100% / 100%](./img/pets_race_details_tables.png)
 
-The **bar chart** uses the all-voters numbers (42 / 38 / 20) and draws the dashed
-*majority threshold* at half of the voters with a preference — Dog's bar is the only
-one past it.
+And the result card has two **chart views** (the toggle in its corner) — same runoff,
+two ways of slicing it. The **bar view** above uses the all-voters numbers
+(42 / 38 / 20) with the dashed *majority threshold*; the **pie view** drops Equal
+Support and shows just the two finalists (52 / 48), footnoting the no-preference share:
 
-![Runoff pie chart: Dog 52% vs Cat 48%; footnote: 20.2% of voters expressed no preference between the two finalists](./img/pets_runoff_pie.svg)
-
-The **pie chart** drops Equal Support entirely and shows just the two finalists
-(52 / 48), footnoting *"20.2% of voters expressed no preference between the two
-finalists."*
+![BetterVoting pie view of the runoff: Dog 52% vs Cat 48%, with the footnote "20.2% of voters expressed no preference between the two finalists"](./img/pets_rounds_pie.png)
 
 ## The two denominators
 
