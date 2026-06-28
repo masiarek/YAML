@@ -65,7 +65,7 @@ engine: X elected with 22 before, Z elected with 18 after.)
 
 ## Two real-world flavors (both have happened)
 
-Per a study of US RCV elections 2004–2022 (Graham-Squire & McCune, arXiv 2301.12075):
+Per a study of US RCV-IRV elections 2004–2022 (Graham-Squire & McCune, arXiv 2301.12075):
 
 - **Upward paradox — Alaska 2022 (US House special).** Had ~6,000 Palin-only voters
   instead ranked the *winner* Peltola first, Peltola would have **lost** — those

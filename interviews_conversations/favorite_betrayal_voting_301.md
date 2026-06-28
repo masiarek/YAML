@@ -189,7 +189,7 @@ So *every* method must give up at least one:
 | Method | Favorite Betrayal (safe to top your favorite?) | Later-No-Harm (safe to mark backups?) |
 |--------|:---:|:---:|
 | Choose-One Plurality | ❌ | n/a (only one mark) |
-| **RCV / IRV** | **❌** (center squeeze) | ✅ |
+| **RCV-IRV** | **❌** (center squeeze) | ✅ |
 | Approval | ✅ | ❌ |
 | Score | ✅ | ❌ |
 | **STAR** | ❌ rare — and betrayal backfires ~98% of the time it's tried | ❌ rare |

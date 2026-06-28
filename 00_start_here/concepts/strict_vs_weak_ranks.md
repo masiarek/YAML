@@ -15,7 +15,7 @@ The standard data taxonomy (PrefLib) names the four combinations: **SOC/SOI** (s
 
 > **RCV-IRV uses *strict* ranks and is *not* pairwise.** You **cannot** give two candidates the same rank. And IRV never does head-to-head comparisons — each round it looks only at every ballot's *current top choice*, eliminates the candidate with the fewest first-place votes, and ignores all the down-ballot detail until a ballot's higher choice is eliminated. That's a plurality-style elimination rule, not a comparison of candidates against each other.
 
-This matters because two of the things people most often *assume* RCV does — let me mark ties, and compare everyone head-to-head — are exactly what IRV does **not** do. Those belong to *other* ranked methods.
+This matters because two of the things people most often *assume* RCV does — let me mark ties, and compare everyone head-to-head — are exactly what RCV-IRV does **not** do. Those belong to *other* ranked methods.
 
 ## Which ranked methods allow equal ranks? Which are pairwise?
 

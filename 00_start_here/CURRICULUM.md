@@ -119,10 +119,10 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 - **STV comparison:** `02_Multi_winner/03a_stv_3seats.yaml` (STV) vs `03b_star_pr_3seats.yaml` (STAR-PR) — same electorate, same proportional slate; Bloc STAR differs. Page: `concepts/proportional_stv_vs_star.md`.
 - **Emphasize:** STV is the proportional multi-winner *cousin of IRV*, not IRV; proportional methods seat coalitions in proportion, Bloc STAR lets a majority sweep.
 
-## 301.2 — Favorite betrayal: does *only* RCV avoid it?
+## 301.2 — Favorite betrayal: does *only* "RCV" avoid it?
 - **Key terms:** Favorite-Betrayal Criterion, Later-No-Harm, center squeeze, the incompatibility theorem.
 - **Episode:** `favorite_betrayal_voting_301.md`; `Why_STAR_Voting.md` Part 2 #12.
-- **Emphasize:** neither STAR nor IRV is FBC-proof; RCV fails it structurally (Alaska '22), STAR only in lab cases.
+- **Emphasize:** neither STAR nor RCV-IRV is FBC-proof; RCV-IRV fails it structurally (Alaska '22), STAR only in lab cases.
 
 ## 301.3 — "Are equal-score votes discounted?"
 - **Key terms:** Equal Support / No Preference, exhausted vs no-preference.
