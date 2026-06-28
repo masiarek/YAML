@@ -58,7 +58,8 @@ gap. The winner and runoff margin are identical.
 ## See also
 
 - The correctness/reconciliation write-up & GitHub issue draft: [`LH_BV_reconciliation_issue.md`](./LH_BV_reconciliation_issue.md)
+- **Minimal real BetterVoting reproduction (captured): [`small_case_abstention_lesson.md`](./small_case_abstention_lesson.md)** — BV id `3w6v4b`, 5 ballots, where BV calls a `5,5` an abstention (2 abstentions / 3 tallied)
 - Minimal synthetic illustration (LH-correct behavior): [`abstention_reconciliation_min_c2_b6.yaml`](./abstention_reconciliation_min_c2_b6.yaml)
-- Planned minimal **BetterVoting** reproduction (to be captured): [`SMALL_CASE_reproduce_on_BV.md`](./SMALL_CASE_reproduce_on_BV.md)
+- How that small case was reproduced on BetterVoting: [`SMALL_CASE_reproduce_on_BV.md`](./SMALL_CASE_reproduce_on_BV.md)
 - Worked lesson: [`README.md`](./README.md)
 - Concept: [BetterVoting and the LH engine](../../00_start_here/concepts/tabulation_engines/bettervoting_and_the_engine.md) · [Runoff percentages](../../00_start_here/concepts/STAR_Voting/runoff_percentages.md)

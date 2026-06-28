@@ -1,0 +1,297 @@
+{
+  "Election": {
+    "election_id": "3w6v4b",
+    "title": "Equal Support vs Abstention — minimal STAR test (A/B, 6 ballots)",
+    "description": null,
+    "frontend_url": "",
+    "start_time": null,
+    "end_time": null,
+    "owner_id": "ea09e7c7-b00d-427a-bef8-32ade437d49d",
+    "audit_ids": null,
+    "admin_ids": null,
+    "credential_ids": null,
+    "state": "draft",
+    "races": [
+      {
+        "title": "Equal Support vs Abstention — minimal STAR test (A/B, 6 ballots)",
+        "race_id": "0",
+        "num_winners": 1,
+        "voting_method": "STAR",
+        "candidates": [
+          {
+            "candidate_id": "c-kc7",
+            "candidate_name": "A"
+          },
+          {
+            "candidate_id": "c-m7p",
+            "candidate_name": "B"
+          }
+        ]
+      }
+    ],
+    "settings": {
+      "voter_access": "open",
+      "voter_authentication": {},
+      "ballot_updates": false,
+      "public_results": true,
+      "random_candidate_order": true,
+      "require_instruction_confirmation": true,
+      "draggable_ballot": false,
+      "term_type": "election",
+      "contact_email": ""
+    },
+    "auth_key": null,
+    "claim_key_hash": "046f207e5bfcd723fcf5592d0264c7360c0875120feff78ed557ca90f62cb54e",
+    "is_public": false,
+    "create_date": "2026-06-28T12:48:13.596Z",
+    "update_date": "1782650893596",
+    "head": true,
+    "ballot_source": "live_election",
+    "public_archive_id": null
+  },
+  "Ballots": [
+    {
+      "ballot_id": "b-h2gyb2wy",
+      "election_id": "3w6v4b",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-kc7",
+              "score": 0
+            },
+            {
+              "candidate_id": "c-m7p",
+              "score": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-dm4472jg",
+      "election_id": "3w6v4b",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-kc7",
+              "score": 4
+            },
+            {
+              "candidate_id": "c-m7p",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-v8jjd4w3",
+      "election_id": "3w6v4b",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-kc7",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-m7p",
+              "score": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-tt3m2qw9",
+      "election_id": "3w6v4b",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-kc7",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-m7p",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-jc4d6cx3",
+      "election_id": "3w6v4b",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-kc7",
+              "score": null
+            },
+            {
+              "candidate_id": "c-m7p",
+              "score": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Results": [
+    {
+      "votingMethod": "STAR",
+      "elected": [
+        {
+          "id": "c-kc7",
+          "name": "A",
+          "tieBreakOrder": 0,
+          "votesPreferredOver": {
+            "c-kc7": 0,
+            "c-m7p": 2
+          },
+          "winsAgainst": {
+            "c-kc7": false,
+            "c-m7p": true
+          },
+          "score": 9,
+          "fiveStarCount": 1
+        }
+      ],
+      "tied": [],
+      "other": [
+        {
+          "id": "c-m7p",
+          "name": "B",
+          "tieBreakOrder": 1,
+          "votesPreferredOver": {
+            "c-kc7": 1,
+            "c-m7p": 0
+          },
+          "winsAgainst": {
+            "c-kc7": false,
+            "c-m7p": false
+          },
+          "score": 5,
+          "fiveStarCount": 1
+        }
+      ],
+      "roundResults": [
+        {
+          "winners": [
+            {
+              "id": "c-kc7",
+              "name": "A",
+              "tieBreakOrder": 0,
+              "votesPreferredOver": {
+                "c-kc7": 0,
+                "c-m7p": 2
+              },
+              "winsAgainst": {
+                "c-kc7": false,
+                "c-m7p": true
+              },
+              "score": 9,
+              "fiveStarCount": 1
+            }
+          ],
+          "runner_up": [
+            {
+              "id": "c-m7p",
+              "name": "B",
+              "tieBreakOrder": 1,
+              "votesPreferredOver": {
+                "c-kc7": 1,
+                "c-m7p": 0
+              },
+              "winsAgainst": {
+                "c-kc7": false,
+                "c-m7p": false
+              },
+              "score": 5,
+              "fiveStarCount": 1
+            }
+          ],
+          "tied": [],
+          "tieBreakType": "none",
+          "logs": [
+            {
+              "key": "tabulation_logs.star.advance_to_runoff_basic",
+              "names": [
+                "A",
+                "B"
+              ],
+              "stars": [
+                "9",
+                "5"
+              ]
+            },
+            {
+              "key": "tabulation_logs.star.runoff_win",
+              "winner": "A",
+              "runner_up": "B",
+              "winner_votes": 2,
+              "runner_up_votes": 1,
+              "equal_votes": 0
+            }
+          ]
+        }
+      ],
+      "summaryData": {
+        "candidates": [
+          {
+            "id": "c-kc7",
+            "name": "A",
+            "tieBreakOrder": 0,
+            "votesPreferredOver": {
+              "c-kc7": 0,
+              "c-m7p": 2
+            },
+            "winsAgainst": {
+              "c-kc7": false,
+              "c-m7p": true
+            },
+            "score": 9,
+            "fiveStarCount": 1
+          },
+          {
+            "id": "c-m7p",
+            "name": "B",
+            "tieBreakOrder": 1,
+            "votesPreferredOver": {
+              "c-kc7": 1,
+              "c-m7p": 0
+            },
+            "winsAgainst": {
+              "c-kc7": false,
+              "c-m7p": false
+            },
+            "score": 5,
+            "fiveStarCount": 1
+          }
+        ],
+        "nOutOfBoundsVotes": 0,
+        "nAbstentions": 2,
+        "nTallyVotes": 3
+      },
+      "tieBreakType": "none",
+      "perm": [
+        "c-kc7",
+        "c-m7p"
+      ]
+    }
+  ]
+}

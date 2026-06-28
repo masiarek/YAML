@@ -1,0 +1,53 @@
+election:
+  election_title: Equal Support vs Abstention — minimal STAR test (A/B, 5 ballots)
+  election_description: |-
+    A REAL BetterVoting election (BV id 3w6v4b), captured 2026-06-28, run as the
+    smallest case that proves how BetterVoting and the LH engine differ on a
+    "no-preference" ballot. Frozen raw export:
+    small_abstention_c2_b5_bv_export.json. Full write-up:
+    small_case_abstention_lesson.md.
+
+    Five ballots, two candidates:
+
+      A,B
+      0,5   prefers B
+      4,0   prefers A
+      5,5   Equal Support — loves BOTH equally (a cast vote, NOT an abstention)
+      5,0   prefers A
+      -,-   blank — the one true abstention
+
+    BetterVoting reports: nAbstentions = 2, nTallyVotes = 3 — i.e. it files the
+    5,5 ballot AND the blank under "abstention." The LH engine counts all 5 cast
+    ballots, treats only the blank as an abstention, and puts the 5,5 in Equal
+    Support (counted in the score round, neutral in the runoff). Same winner (A);
+    the single-ballot difference is the 5,5.
+
+  options:
+    show_description: false
+    show_matrix: false   # only two candidates: the finalists matrix just echoes the runoff
+    matrix_finalists_only: false
+    show_condorcet: false
+    show_score_counts: false
+    show_irv: false
+    show_runoff_percent: true   # this file is specifically about the runoff denominator
+    brief: true
+    collapse_ballots: false   # one row per voter — each ballot is a distinct teaching case
+    count_separator: "×"
+
+  races:
+  - race_id: '0'
+    race_description: ""
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      A, B
+      0, 5
+      4, 0
+      5, 5
+      5, 0
+      -, -
+    expected_results:
+      winners:
+      - A
+
+# file: small_abstention_c2_b5.yaml

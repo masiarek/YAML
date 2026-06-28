@@ -1,10 +1,18 @@
-# Small case — reproduce the abstention mislabel on BetterVoting (TODO: Adam)
+# Small case — reproduce the abstention mislabel on BetterVoting
+
+> **✅ DONE (2026-06-28).** Captured as BV id `3w6v4b`. Result: BetterVoting reported
+> **2 abstentions / 3 tallied** — it filed the `5,5` Equal Support ballot *and* the
+> blank under "abstention." Frozen export + converted election + full lesson:
+> [`small_case_abstention_lesson.md`](./small_case_abstention_lesson.md) ·
+> [`small_abstention_c2_b5.yaml`](./small_abstention_c2_b5.yaml) ·
+> [`small_abstention_c2_b5_bv_export.json`](./small_abstention_c2_b5_bv_export.json).
+> The steps below are kept as the repeatable recipe.
 
 **Goal:** capture a *real* BetterVoting result for the smallest election that shows
 the bug, so we have a frozen BV artifact (not just the synthetic LH file). Pairs
 with the 461-ballot pet race as the "small + large" evidence set.
 
-The synthetic LH version already exists and shows the **correct** behavior:
+The synthetic LH version also exists and shows the **correct** behavior:
 [`abstention_reconciliation_min_c2_b6.yaml`](./abstention_reconciliation_min_c2_b6.yaml).
 This file is the recipe to get BetterVoting's (incorrect) version next to it.
 

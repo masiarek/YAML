@@ -1,4 +1,5 @@
 election_title: Abstention vs Equal Support — the minimal reconciliation case
+
 scenario_description: |-
   The smallest election that reproduces the LH-engine ↔ BetterVoting count
   reconciliation (the full version is the 461-ballot pet race in this folder).

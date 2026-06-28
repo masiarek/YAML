@@ -121,8 +121,18 @@ Automatic Runoff:  A 2,  B 1,  Equal Support 3
 Voters with a preference: 3 of 6 (3 Equal Support). A 2 (67%) vs B 1 (33%).
 ```
 
-I expect BetterVoting to instead report the `5,5` (and likely the `0,0`) as
-abstentions, and to drop the `5,5` voter's 5+5 stars from the score totals.
+**Confirmed on a controlled BetterVoting election** (id `3w6v4b`, 5 ballots: `0,5`
+`4,0` `5,5` `5,0` and a blank). BetterVoting reported:
+
+```json
+{ "nAbstentions": 2, "nTallyVotes": 3 }
+```
+
+— it counted the **`5,5` ballot** *and* the blank as abstentions, tallying only 3. On
+the same ballots the LH engine counts all 5, marks only the blank an abstention, puts
+the `5,5` in Equal Support, and elects A 2–1. The single ballot of disagreement is the
+`5,5`. Frozen export + both reports:
+[`small_case_abstention_lesson.md`](https://github.com/masiarek/YAML/blob/master/01_Single_winner/pet_real_bv_election/small_case_abstention_lesson.md).
 
 ## The ask
 

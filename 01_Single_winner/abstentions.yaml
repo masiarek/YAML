@@ -1,0 +1,23 @@
+voting_method: STAR
+options:
+  show_description: false
+  show_matrix: false
+  matrix_finalists_only: false
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  brief: true
+  collapse_ballots: false
+  show_runoff_percent: true
+  count_separator: "×"
+num_winners: 1
+ballots: |-
+  Dog,Cat
+  5,0 # Dog  — a clear preference (decides the runoff)
+  4,0 # Dog  — a clear preference (decides the runoff)
+  0,5 # Cat  — a clear preference (decides the runoff)
+  5,5 # Equal Support — a CAST ballot that rates both finalists the same
+  0,0 # all-zero — a CAST ballot that supports neither (an explicit zero)
+  -,- # blank — a true ABSTENTION: no score recorded for anyone
+
+# file: abstentions.yaml
