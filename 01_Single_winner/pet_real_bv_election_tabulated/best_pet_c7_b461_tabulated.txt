@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     best_pet_c7_b461.yaml
-SOURCE MODIFIED: 2026-06-28 02:22:37
+SOURCE MODIFIED: 2026-06-28 17:06:13
 TABULATED FILE:  best_pet_c7_b461_tabulated.txt
-TABULATED AT:    2026-06-28 12:07:36
+TABULATED AT:    2026-06-28 17:06:36
 ======================================================================
 
 election:
@@ -10,6 +10,7 @@ election:
   election_description: |-
     A real BetterVoting STAR election (BV id: pet) — 7 pets, 461 ballots.
     Converted from the BetterVoting JSON export; winner: Dog.
+    How to read this report (LH): 00_start_here/concepts/STAR_reporting/reporting_LH/
   options:
     show_description: false
     show_matrix: true
@@ -511,6 +512,7 @@ TABULATION RESULTS
 === What Makes the Best Pet? ===
   A real BetterVoting STAR election (BV id: pet) — 7 pets, 461 ballots.
   Converted from the BetterVoting JSON export; winner: Dog.
+  How to read this report (LH): 00_start_here/concepts/STAR_reporting/reporting_LH/
 
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison

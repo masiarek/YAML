@@ -5,7 +5,7 @@ one pair at a time — how many voters **prefer** each, and how many rated them
 **equal**. It's how you check whether STAR's winner is also the **Condorcet winner**
 (the candidate who beats everyone head-to-head).
 
-→ Hub: [STAR Reporting](./README.md) · the full report: [How the LH engine reports](./reporting_LH.md) · the no-preference bucket: [Runoff percentages](../STAR_Voting/runoff_percentages.md) · [`GLOSSARY`](../../GLOSSARY.md).
+→ Hub: [STAR Reporting](../README.md) · the full report: [How the LH engine reports](./README.md) · the no-preference bucket: [Runoff percentages](../../STAR_Voting/runoff_percentages.md) · [`GLOSSARY`](../../../GLOSSARY.md).
 
 ---
 
@@ -30,7 +30,7 @@ With only two candidates the matrix just **restates the runoff**, so house style
 
 `A > B | 2 - 2 - 1`: 2 prefer A, 2 Equal Support, 1 prefers B — the same 2 vs 1 that
 decides the runoff (`Voters with a preference: 3 of 5 (2 Equal Support)`). Nothing new,
-hence hidden by default. (→ [Runoff percentages](../STAR_Voting/runoff_percentages.md).)
+hence hidden by default. (→ [Runoff percentages](../../STAR_Voting/runoff_percentages.md).)
 
 ## Full N×N — every pair, and the Condorcet check
 
@@ -66,4 +66,4 @@ disagrees.
   echo lean). The `_tabulated.txt` copy always includes it.
 
 When the Condorcet winner and the STAR winner **differ**, that's the interesting case —
-see [three notions of "winner"](../STAR_Voting/STAR_three_winner_notions.md).
+see [three notions of "winner"](../../STAR_Voting/STAR_three_winner_notions.md).

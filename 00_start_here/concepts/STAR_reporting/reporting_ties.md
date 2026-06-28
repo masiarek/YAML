@@ -6,7 +6,7 @@ in the reports**; the mechanics of *breaking* one (the full ladder, lot order,
 imported `tieBreakType`) are the canonical
 [STAR Tie-Breaking](../STAR_Voting/Tie_Breaking_STAR/tie_breaking.md) deep-dive.
 
-→ Hub: [STAR Reporting](./README.md) · [How the LH engine reports](./reporting_LH.md) · [How BetterVoting reports](./reporting_BV.md) · imported tie data: [tie-break JSON](../STAR_Voting/Tie_Breaking_STAR/tie_breaking_JSON.md).
+→ Hub: [STAR Reporting](./README.md) · [How the LH engine reports](./reporting_LH/README.md) · [How BetterVoting reports](./reporting_BV/README.md) · imported tie data: [tie-break JSON](../STAR_Voting/Tie_Breaking_STAR/tie_breaking_JSON.md).
 
 ---
 

@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     flat_scores_abstention_c3_b8.yaml
-SOURCE MODIFIED: 2026-06-28 12:15:51
+SOURCE MODIFIED: 2026-06-28 16:36:17
 TABULATED FILE:  flat_scores_abstention_c3_b8_tabulated.txt
-TABULATED AT:    2026-06-28 12:15:51
+TABULATED AT:    2026-06-28 17:06:36
 ======================================================================
 
 election:
@@ -29,6 +29,8 @@ election:
     small_case_abstention_lesson.md.
 
     BetterVoting issue: https://github.com/Equal-Vote/bettervoting/issues/1407
+    How to read this report (LH): 00_start_here/concepts/STAR_reporting/reporting_LH/
+    The reporting options used below: STAR_reporting/reporting_LH/options.md
 
   options:
     show_description: false
