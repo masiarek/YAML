@@ -1,0 +1,43 @@
+election:
+  election_title: Runoff 04 — the reversal holds at scale (67/33)
+  election_description: |-
+    A REAL BetterVoting election (BV id bfjqmg), captured 2026-06-28. The atom
+    (Runoff_02) blown up to a real crowd: three voters love Maple (5s) and push
+    Maple's total to the top of the Scoring Round (39), but six voters prefer Olive,
+    so Olive wins the Automatic Runoff 6-3 — a clean 2-to-1 majority (67/33). Proof
+    a reversal isn't a small-numbers fluke. Maple leads on HOW MUCH; Olive wins on
+    HOW MANY. Winner = the Condorcet winner. Level 101. Full two-view lesson:
+    Runoff_04_reversal_at_scale_bfjqmg.md
+  options:
+    show_description: false
+    show_matrix: true
+    matrix_finalists_only: true
+    show_condorcet: true
+    show_score_counts: false
+    show_irv: false
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: true
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "https://bettervoting.com/bfjqmg/results"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      Maple, Olive, Pine
+      4, 5, 0
+      4, 5, 0
+      4, 5, 0
+      5, 1, 2
+      5, 1, 2
+      4, 5, 0
+      5, 1, 2
+      4, 5, 0
+      4, 5, 0
+    lot_numbers: [Olive, Maple, Pine]
+    expected_results:
+      winners:
+      - Olive
+
+# file: Runoff_04_reversal_at_scale_bfjqmg.yaml
