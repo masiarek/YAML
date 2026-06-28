@@ -57,8 +57,9 @@ gap. The winner and runoff margin are identical.
 
 ## See also
 
-- The correctness/reconciliation write-up & GitHub issue draft: [`LH_BV_reconciliation_issue.md`](./LH_BV_reconciliation_issue.md)
-- **Minimal real BetterVoting reproduction (captured): [`small_case_abstention_lesson.md`](./small_case_abstention_lesson.md)** — BV id `3w6v4b`, 5 ballots, where BV calls a `5,5` an abstention (2 abstentions / 3 tallied)
+- The correctness/reconciliation write-up: [`LH_BV_reconciliation_issue.md`](./LH_BV_reconciliation_issue.md) → filed as [Equal-Vote/bettervoting#1407](https://github.com/Equal-Vote/bettervoting/issues/1407)
+- **Canonical small case (a lesson in itself): [`small_case_abstention_lesson.md`](./small_case_abstention_lesson.md)** — real BV election `dq2dmm`, 3 candidates / 8 ballots, where BV files 3 flat ballots (incl. an engaged `3,3,3`) as abstentions
+- Even-simpler 2-candidate capture (BV calls a `5,5` an abstention): [`small_abstention_c2_b5.yaml`](./small_abstention_c2_b5.yaml)
 - Minimal synthetic illustration (LH-correct behavior): [`abstention_reconciliation_min_c2_b6.yaml`](./abstention_reconciliation_min_c2_b6.yaml)
 - How that small case was reproduced on BetterVoting: [`SMALL_CASE_reproduce_on_BV.md`](./SMALL_CASE_reproduce_on_BV.md)
 - Worked lesson: [`README.md`](./README.md)

@@ -1,0 +1,441 @@
+{
+  "Election": {
+    "election_id": "dq2dmm",
+    "title": "BV Abstentions and flat scores",
+    "description": null,
+    "frontend_url": "",
+    "start_time": null,
+    "end_time": null,
+    "owner_id": "ea09e7c7-b00d-427a-bef8-32ade437d49d",
+    "audit_ids": null,
+    "admin_ids": null,
+    "credential_ids": null,
+    "state": "draft",
+    "races": [
+      {
+        "title": "BV Abstentions and flat scores",
+        "race_id": "0",
+        "num_winners": 1,
+        "voting_method": "STAR",
+        "candidates": [
+          {
+            "candidate_id": "c-gpv",
+            "candidate_name": "Apple"
+          },
+          {
+            "candidate_id": "c-xbp",
+            "candidate_name": "Banana"
+          },
+          {
+            "candidate_id": "c-qg7",
+            "candidate_name": "Cherry"
+          }
+        ],
+        "description": "https://github.com/Equal-Vote/bettervoting/issues/1407"
+      }
+    ],
+    "settings": {
+      "voter_access": "open",
+      "voter_authentication": {},
+      "ballot_updates": false,
+      "public_results": true,
+      "random_candidate_order": true,
+      "require_instruction_confirmation": true,
+      "draggable_ballot": false,
+      "term_type": "election",
+      "contact_email": ""
+    },
+    "auth_key": null,
+    "claim_key_hash": "71e8e5f0aa0d2c13b8f9aca3f5b1b36c14932e9fa8438e53fdeeaadeeab1b15a",
+    "is_public": false,
+    "create_date": "2026-06-28T14:16:23.411Z",
+    "update_date": "1782656183410",
+    "head": true,
+    "ballot_source": "live_election",
+    "public_archive_id": null
+  },
+  "Ballots": [
+    {
+      "ballot_id": "b-gqvcqmtk",
+      "election_id": "dq2dmm",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-gpv",
+              "score": 0
+            },
+            {
+              "candidate_id": "c-xbp",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-qg7",
+              "score": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-p2bjty82",
+      "election_id": "dq2dmm",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-gpv",
+              "score": null
+            },
+            {
+              "candidate_id": "c-xbp",
+              "score": null
+            },
+            {
+              "candidate_id": "c-qg7",
+              "score": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-k27ypb4v",
+      "election_id": "dq2dmm",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-gpv",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-xbp",
+              "score": 4
+            },
+            {
+              "candidate_id": "c-qg7",
+              "score": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-3b7x4x3t",
+      "election_id": "dq2dmm",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-gpv",
+              "score": 4
+            },
+            {
+              "candidate_id": "c-xbp",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-qg7",
+              "score": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-hbyh3grt",
+      "election_id": "dq2dmm",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-gpv",
+              "score": 0
+            },
+            {
+              "candidate_id": "c-xbp",
+              "score": 0
+            },
+            {
+              "candidate_id": "c-qg7",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-4gwq8kyd",
+      "election_id": "dq2dmm",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-gpv",
+              "score": 3
+            },
+            {
+              "candidate_id": "c-xbp",
+              "score": 3
+            },
+            {
+              "candidate_id": "c-qg7",
+              "score": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-ttxg4fyr",
+      "election_id": "dq2dmm",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-gpv",
+              "score": 3
+            },
+            {
+              "candidate_id": "c-xbp",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-qg7",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-q9w2bfy4",
+      "election_id": "dq2dmm",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-gpv",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-xbp",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-qg7",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Results": [
+    {
+      "votingMethod": "STAR",
+      "elected": [
+        {
+          "id": "c-xbp",
+          "name": "Banana",
+          "tieBreakOrder": 1,
+          "votesPreferredOver": {
+            "c-qg7": 5,
+            "c-xbp": 0,
+            "c-gpv": 3
+          },
+          "winsAgainst": {
+            "c-qg7": true,
+            "c-xbp": false,
+            "c-gpv": true
+          },
+          "score": 24,
+          "fiveStarCount": 4
+        }
+      ],
+      "tied": [],
+      "other": [
+        {
+          "id": "c-gpv",
+          "name": "Apple",
+          "tieBreakOrder": 2,
+          "votesPreferredOver": {
+            "c-qg7": 4,
+            "c-xbp": 1,
+            "c-gpv": 0
+          },
+          "winsAgainst": {
+            "c-qg7": true,
+            "c-xbp": false,
+            "c-gpv": false
+          },
+          "score": 17,
+          "fiveStarCount": 2
+        },
+        {
+          "id": "c-qg7",
+          "name": "Cherry",
+          "tieBreakOrder": 0,
+          "votesPreferredOver": {
+            "c-qg7": 0,
+            "c-xbp": 0,
+            "c-gpv": 1
+          },
+          "winsAgainst": {
+            "c-qg7": false,
+            "c-xbp": false,
+            "c-gpv": false
+          },
+          "score": 4,
+          "fiveStarCount": 0
+        }
+      ],
+      "roundResults": [
+        {
+          "winners": [
+            {
+              "id": "c-xbp",
+              "name": "Banana",
+              "tieBreakOrder": 1,
+              "votesPreferredOver": {
+                "c-qg7": 5,
+                "c-xbp": 0,
+                "c-gpv": 3
+              },
+              "winsAgainst": {
+                "c-qg7": true,
+                "c-xbp": false,
+                "c-gpv": true
+              },
+              "score": 24,
+              "fiveStarCount": 4
+            }
+          ],
+          "runner_up": [
+            {
+              "id": "c-gpv",
+              "name": "Apple",
+              "tieBreakOrder": 2,
+              "votesPreferredOver": {
+                "c-qg7": 4,
+                "c-xbp": 1,
+                "c-gpv": 0
+              },
+              "winsAgainst": {
+                "c-qg7": true,
+                "c-xbp": false,
+                "c-gpv": false
+              },
+              "score": 17,
+              "fiveStarCount": 2
+            }
+          ],
+          "tied": [],
+          "tieBreakType": "none",
+          "logs": [
+            {
+              "key": "tabulation_logs.star.advance_to_runoff_basic",
+              "names": [
+                "Banana",
+                "Apple"
+              ],
+              "stars": [
+                "24",
+                "17"
+              ]
+            },
+            {
+              "key": "tabulation_logs.star.runoff_win",
+              "winner": "Banana",
+              "runner_up": "Apple",
+              "winner_votes": 3,
+              "runner_up_votes": 1,
+              "equal_votes": 1
+            }
+          ]
+        }
+      ],
+      "summaryData": {
+        "candidates": [
+          {
+            "id": "c-xbp",
+            "name": "Banana",
+            "tieBreakOrder": 1,
+            "votesPreferredOver": {
+              "c-qg7": 5,
+              "c-xbp": 0,
+              "c-gpv": 3
+            },
+            "winsAgainst": {
+              "c-qg7": true,
+              "c-xbp": false,
+              "c-gpv": true
+            },
+            "score": 24,
+            "fiveStarCount": 4
+          },
+          {
+            "id": "c-gpv",
+            "name": "Apple",
+            "tieBreakOrder": 2,
+            "votesPreferredOver": {
+              "c-qg7": 4,
+              "c-xbp": 1,
+              "c-gpv": 0
+            },
+            "winsAgainst": {
+              "c-qg7": true,
+              "c-xbp": false,
+              "c-gpv": false
+            },
+            "score": 17,
+            "fiveStarCount": 2
+          },
+          {
+            "id": "c-qg7",
+            "name": "Cherry",
+            "tieBreakOrder": 0,
+            "votesPreferredOver": {
+              "c-qg7": 0,
+              "c-xbp": 0,
+              "c-gpv": 1
+            },
+            "winsAgainst": {
+              "c-qg7": false,
+              "c-xbp": false,
+              "c-gpv": false
+            },
+            "score": 4,
+            "fiveStarCount": 0
+          }
+        ],
+        "nOutOfBoundsVotes": 0,
+        "nAbstentions": 3,
+        "nTallyVotes": 5
+      },
+      "tieBreakType": "none",
+      "perm": [
+        "c-qg7",
+        "c-xbp",
+        "c-gpv"
+      ]
+    }
+  ]
+}

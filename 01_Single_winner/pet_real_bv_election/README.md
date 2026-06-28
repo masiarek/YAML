@@ -100,10 +100,10 @@ lower per candidate (`5 + 4 = 9`) and its Equal Support 92 instead of 98 (`92 + 
 The winner, finalists, and runoff margin are identical. This is documented as a
 reconciliation/correctness issue:
 
-- **Minimal real BetterVoting case (a lesson in itself): [`small_case_abstention_lesson.md`](./small_case_abstention_lesson.md)** — 5 ballots where BV files a `5,5` under "abstention"
+- **Canonical small case (a lesson in itself): [`small_case_abstention_lesson.md`](./small_case_abstention_lesson.md)** — real BV election `dq2dmm`, 3 candidates / 8 ballots, where BV files 3 flat ballots (incl. an engaged `3,3,3`) under "abstention"
 - Frozen BetterVoting result + raw export (this 461-ballot race): [`BV_result_snapshot.md`](./BV_result_snapshot.md)
-- Write-up & GitHub issue draft: [`LH_BV_reconciliation_issue.md`](./LH_BV_reconciliation_issue.md)
-- Synthetic illustration (2 candidates, one `5,5`): [`abstention_reconciliation_min_c2_b6.yaml`](./abstention_reconciliation_min_c2_b6.yaml)
+- Write-up & GitHub issue → [Equal-Vote/bettervoting#1407](https://github.com/Equal-Vote/bettervoting/issues/1407): [`LH_BV_reconciliation_issue.md`](./LH_BV_reconciliation_issue.md)
+- Even-simpler 2-candidate capture + synthetic illustration: [`small_abstention_c2_b5.yaml`](./small_abstention_c2_b5.yaml) · [`abstention_reconciliation_min_c2_b6.yaml`](./abstention_reconciliation_min_c2_b6.yaml)
 - Reproduce it on BetterVoting yourself: [`SMALL_CASE_reproduce_on_BV.md`](./SMALL_CASE_reproduce_on_BV.md)
 - Concept: [BetterVoting and the LH engine — when the reports differ](../../00_start_here/concepts/tabulation_engines/bettervoting_and_the_engine.md#when-the-two-reports-differ--abstentions-vs-equal-support)
 

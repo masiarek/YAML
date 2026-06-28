@@ -1,0 +1,59 @@
+election:
+  election_title: BV Abstentions and flat scores (Apple/Banana/Cherry, 8 ballots)
+  election_description: |-
+    A REAL BetterVoting election (BV id dq2dmm), captured 2026-06-28. The canonical
+    small case for how BetterVoting and the LH engine differ on "no preference"
+    ballots — richer than two candidates because a third candidate (Cherry)
+    separates three distinct ideas a single election usually blurs:
+
+      • a TRUE abstention (a blank ballot — no score for anyone): 1
+      • a FLAT ballot (every candidate scored the same) — what BetterVoting files
+        as an "abstention": 3   (the blank, 0,0,0, AND 3,3,3)
+      • EQUAL SUPPORT in the runoff (the two finalists tied): 4
+        (those 3 flat ballots PLUS 5,5,0, which is tied on Apple/Banana but is NOT
+        flat, so BetterVoting counts it normally)
+
+    The point: BetterVoting's "flat = abstention" rule and STAR's "Equal Support"
+    are different sets. 3,3,3 is a fully engaged vote (Cherry got 3 too) that BV
+    drops; 5,5,0 is Equal Support that BV keeps. BetterVoting reports
+    nAbstentions = 3, nTallyVotes = 5; the LH engine counts all 8 and marks only
+    the blank an abstention. Same winner (Banana). Frozen export:
+    flat_scores_abstention_c3_b8_bv_export.json. Full write-up:
+    small_case_abstention_lesson.md.
+
+    BetterVoting issue: https://github.com/Equal-Vote/bettervoting/issues/1407
+
+  options:
+    show_description: false
+    show_matrix: true
+    matrix_finalists_only: true
+    show_condorcet: false
+    show_score_counts: false
+    show_irv: false
+    show_runoff_percent: true   # this file is specifically about the runoff denominator
+    brief: true
+    collapse_ballots: false   # one row per voter — each ballot is a distinct teaching case
+    count_separator: "×"
+
+  races:
+  - race_id: '0'
+    race_description: |-
+      https://github.com/Equal-Vote/bettervoting/issues/1407
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      Apple, Banana, Cherry
+          0,      5,      1
+          -,      -,      -
+          5,      4,      1
+          4,      5,      2
+          0,      0,      0
+          3,      3,      3
+          3,      5,      0
+          5,      5,      0
+    lot_numbers: [Cherry, Banana, Apple]
+    expected_results:
+      winners:
+      - Banana
+
+# file: flat_scores_abstention_c3_b8.yaml

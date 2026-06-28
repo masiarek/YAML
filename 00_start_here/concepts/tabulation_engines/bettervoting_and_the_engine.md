@@ -72,9 +72,9 @@ Equal Support and are excluded *only* from the runoff percentage denominator.
 This is the "results don't reconcile" branch of the pipeline below. It's tracked as a
 documentation/correctness issue for BetterVoting:
 
-- Minimal **real** BetterVoting reproduction (5 ballots, where BV calls a `5,5` an abstention): [`small_case_abstention_lesson.md`](../../../01_Single_winner/pet_real_bv_election/small_case_abstention_lesson.md)
+- Minimal **real** BetterVoting reproduction (3 candidates / 8 ballots, where BV files a flat `3,3,3` as an abstention): [`small_case_abstention_lesson.md`](../../../01_Single_winner/pet_real_bv_election/small_case_abstention_lesson.md)
 - Frozen evidence + raw export (the 461-ballot race): [`BV_result_snapshot.md`](../../../01_Single_winner/pet_real_bv_election/BV_result_snapshot.md)
-- Write-up & GitHub issue draft: [`LH_BV_reconciliation_issue.md`](../../../01_Single_winner/pet_real_bv_election/LH_BV_reconciliation_issue.md)
+- Write-up & GitHub issue [Equal-Vote/bettervoting#1407](https://github.com/Equal-Vote/bettervoting/issues/1407): [`LH_BV_reconciliation_issue.md`](../../../01_Single_winner/pet_real_bv_election/LH_BV_reconciliation_issue.md)
 - Synthetic minimal illustration: [`abstention_reconciliation_min_c2_b6.yaml`](../../../01_Single_winner/pet_real_bv_election/abstention_reconciliation_min_c2_b6.yaml)
 
 The terminology — why a flat ballot is *Equal Support*, not a discarded or abstaining vote

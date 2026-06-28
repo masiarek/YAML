@@ -1,15 +1,12 @@
 <!--
-  DRAFT GitHub issue, ready to paste.
-  Target repo: the BetterVoting / Equal Vote "star-server" repo (please confirm
-  the exact repo before filing).
+  GitHub issue text. Filed as Equal-Vote/bettervoting#1407:
+  https://github.com/Equal-Vote/bettervoting/issues/1407
   Framing: a reconciliation + correctness issue — the WINNER is identical, but
   BetterVoting labels "Equal Support" (no-preference) ballots as ABSTENTIONS and
   drops their stars, which is confusing and arguably wrong.
-  After filing, paste the issue URL back into:
-    • this file (bottom)
-    • best_pet_c7_b461.yaml README
-    • 00_start_here/concepts/tabulation_engines/bettervoting_and_the_engine.md
 -->
+
+> **Filed as [Equal-Vote/bettervoting#1407](https://github.com/Equal-Vote/bettervoting/issues/1407).**
 
 # Equal Support ballots (incl. an all-5s vote) are being counted as "abstentions" and dropped from the score totals
 
@@ -157,4 +154,4 @@ small real-BV reproduction recipe `SMALL_CASE_reproduce_on_BV.md` ·
 full race `best_pet_c7_b461.yaml` + `README.md` ·
 concept lessons `00_start_here/concepts/tabulation_engines/bettervoting_and_the_engine.md`
 and `00_start_here/concepts/STAR_Voting/runoff_percentages.md`.
-*This issue:* `#____` (fill in after filing, then back-link from the docs above).
+*This issue:* [Equal-Vote/bettervoting#1407](https://github.com/Equal-Vote/bettervoting/issues/1407).
