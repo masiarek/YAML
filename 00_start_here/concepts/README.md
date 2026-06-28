@@ -23,7 +23,7 @@ properties live in [`STAR_Voting/`](./STAR_Voting/).
 | **Strict vs. weak ranks** | many ranked methods allow equal ranks & compare pairwise — RCV-IRV does neither | [strict_vs_weak_ranks.md](./strict_vs_weak_ranks.md) |
 | **"Preference" (a slippery word)** | everyday opinion vs. technical "ranking"; why "Preferential Voting" is a misnomer | [preference.md](./preference.md) |
 | **Ranked Robin (Consensus Voting)** | a Condorcet method: ranks + equal ranks, every pair compared head-to-head | [RCV_Ranked_Robin/ranked_robin.md](./RCV_Ranked_Robin/ranked_robin.md) |
-| **Proportional: STV vs STAR-PR** | multi-seat — coalitions get proportional seats; STV ≈ STAR-PR, Bloc differs (301) | [proportional_stv_vs_star.md](./proportional_stv_vs_star.md) |
+| **Proportional Representation** | multi-seat — coalitions get proportional seats; STV ≈ STAR-PR, Bloc differs (301) | [proportional_representation/](./proportional_representation/README.md) ([STV vs STAR-PR](./proportional_representation/stv/proportional_stv_vs_star.md) · [STAR-PR methods](./proportional_representation/STAR_PR/README.md)) |
 | **Tabulation, step by step (201)** | the same ballots counted both ways — STAR's 2 steps vs IRV's elimination rounds | [tabulation_star_vs_irv.md](./tabulation_star_vs_irv.md) |
 | **RCV-IRV vs. STAR (side-by-side)** | balanced comparison hub — real strengths on both sides — routing to the facet pages | [rcv_irv_vs_star.md](./rcv_irv_vs_star.md) |
 | **Tabulation engines — BV, LH, RCV-IRV** | why an election has two reports (BetterVoting's visual display + the LH engine's text report), how they map, and the convert→validate→test pipeline; hub for the per-engine folders | [tabulation_engines/](./tabulation_engines/bettervoting_and_the_engine.md) |

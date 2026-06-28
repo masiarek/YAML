@@ -5,7 +5,8 @@ in proportion to its size — not all the seats to whoever leads first-choices. 
 does this with ranked ballots + vote transfers; **STAR-PR** does it with scored
 ballots + ballot reweighting. They're different machinery, same goal.
 
-→ Glossary: [`STV`](../GLOSSARY.md), [`Proportional STAR`](../GLOSSARY.md) · Curriculum: [`301.1`](../CURRICULUM.md) · Level: **Voting 301**
+→ Glossary: [`STV`](../../../GLOSSARY.md), [`Proportional STAR`](../../../GLOSSARY.md) · Curriculum: [`301.1`](../../../CURRICULUM.md) · Level: **Voting 301**
+· STAR-PR methods explained: [STAR_PR](../STAR_PR/README.md)
 
 ---
 
@@ -27,8 +28,8 @@ Proportionally, 58% / 42% over 3 seats ≈ **2 progressive + 1 business**. (The
 "Better elections are possible" video gives only first-choice % and STV outcomes,
 not ballots — so this is an illustrative reconstruction, not a transcription.)
 
-→ Run them: [`03a_stv_3seats.yaml`](../../02_Multi_winner/03a_stv_3seats.yaml) (ranked, STV)
- · [`03b_star_pr_3seats.yaml`](../../02_Multi_winner/03b_star_pr_3seats.yaml) (scored, STAR-PR)
+→ Run them: [`03a_stv_3seats.yaml`](../../../../02_Multi_winner/03a_stv_3seats.yaml) (ranked, STV)
+ · [`03b_star_pr_3seats.yaml`](../../../../02_Multi_winner/03b_star_pr_3seats.yaml) (scored, STAR-PR)
 
 ## Results — proportional methods agree; majoritarian doesn't
 
@@ -58,7 +59,7 @@ count once seats are shared.
 
 **STV = the proportional, multi-winner cousin of IRV.** Same ranked ballot and
 transfer idea, but it fills several seats against a quota instead of one. Reserve
-"IRV" for the single-winner case. (See [`TIPS_terminology.md`](../TIPS_terminology.md).)
+"IRV" for the single-winner case. (See [`TIPS_terminology.md`](../../../TIPS_terminology.md).)
 
 ## Engine notes
 
@@ -66,6 +67,7 @@ transfer idea, but it fills several seats against a quota instead of one. Reserv
   RCV-IRV wrapper now dispatches to it whenever `num_winners > 1`. No new library was
   needed — set `voting_method: STV` and `num_winners: k`.
 - **STAR-PR** runs on the STAR engine: `voting_method: sss | allocated | rrv`
-  (proportional) or `bloc` (majoritarian contrast), with `num_winners: k`.
+  (proportional) or `bloc` (majoritarian contrast), with `num_winners: k`. Each method
+  is explained in [STAR_PR](../STAR_PR/README.md).
 
 Source: [Equal Vote — "Better elections are possible. Here's how." (video)](https://youtu.be/C_27pYcjsJs?t=127).

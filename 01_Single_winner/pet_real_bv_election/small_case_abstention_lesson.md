@@ -6,7 +6,8 @@ they gave maximum support to everyone. This is the smallest possible demonstrati
 of the [abstention reconciliation](./BV_result_snapshot.md) seen in the 461-ballot
 [pet race](./README.md); same effect, five ballots you can check by hand.
 
-→ Concept: [BetterVoting and the LH engine — when the reports differ](../../00_start_here/concepts/tabulation_engines/bettervoting_and_the_engine.md#when-the-two-reports-differ--abstentions-vs-equal-support)
+→ Reading results: [How to read a STAR report](../../00_start_here/concepts/tabulation_engines/LH_starvote/reading_a_star_report.md) (LH engine)
+· [BetterVoting and the LH engine — when the reports differ](../../00_start_here/concepts/tabulation_engines/bettervoting_and_the_engine.md#when-the-two-reports-differ--abstentions-vs-equal-support) (both)
 · [Runoff percentages](../../00_start_here/concepts/STAR_Voting/runoff_percentages.md)
 · What an "Equal Support" ballot is: [`GLOSSARY`](../../00_start_here/GLOSSARY.md).
 
