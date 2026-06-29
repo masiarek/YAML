@@ -1,5 +1,5 @@
 """
-pref_voting_crosscheck.py — independent referee for the LH engine.
+pref_voting_tabulation.py — independent referee for the LH engine.
 
 Cross-checks the LH `starvote_larry_hastings` engine against Eric Pacuit's
 `pref_voting` library (https://github.com/voting-tools/pref_voting) on the
@@ -13,11 +13,11 @@ here — that's what the STAR positive tests are for. This validates the surroun
 ranked machinery.)
 
 Usage (CLI):
-    python tools_adam/pref_voting_crosscheck.py FILE.yaml [FILE2.yaml ...]
-    python tools_adam/pref_voting_crosscheck.py --all      # every cross-checkable file
+    python pref_voting_tabulation_engine/pref_voting_tabulation.py FILE.yaml [...]
+    python pref_voting_tabulation_engine/pref_voting_tabulation.py --all   # whole repo
 
 Programmatic:
-    from pref_voting_crosscheck import crosscheck
+    from pref_voting_tabulation import crosscheck
     result = crosscheck("path/to/election.yaml")   # dict: method -> (lh, pv, status)
 
 Requires: pip install pref_voting  (optional dependency; importers should guard).
@@ -27,7 +27,11 @@ import re
 import sys
 import glob
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# This engine lives at <repo>/pref_voting_tabulation_engine/. The LH engine it
+# cross-checks against is the sibling <repo>/STARVote_LH_tabulation_engine/.
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_REPO = os.path.dirname(_HERE)
+sys.path.insert(0, os.path.join(_REPO, "STARVote_LH_tabulation_engine"))
 import yaml  # noqa: E402
 import starvote_larry_hastings as LH  # noqa: E402
 
@@ -238,7 +242,7 @@ if __name__ == "__main__":
     if not PREF_VOTING_AVAILABLE:
         sys.exit("pref_voting not installed:  pip install pref_voting")
     args = sys.argv[1:]
-    REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    REPO = _REPO
     if args == ["--all"]:
         dirs = [os.path.join(REPO, "01_Single_winner"),
                 os.path.join(REPO, "01_Single_winner", "runoff_overturns_leader"),

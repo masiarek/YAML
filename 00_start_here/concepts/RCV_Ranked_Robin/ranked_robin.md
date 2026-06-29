@@ -33,6 +33,39 @@ Because it reads every ranking against every opponent, Ranked Robin elects the c
 
 Ranked Robin isn't a cure-all. Like all ranked methods it captures **order only, not strength** — it can't tell a near-tie from a landslide ([scores_vs_ranks.md](../scores_vs_ranks.md)) — so it carries less information than a scored method like STAR. When there's a **Condorcet cycle** (A beats B, B beats C, C beats A, with no candidate beating all others), there is no Condorcet winner and the method falls back on a tiebreak rule (sum of margins), which reasonable people can debate. And no method escapes Gibbard–Satterthwaite. Its real-world **adoption is limited** so far compared with IRV.
 
+## Now you can tabulate it — the `pref_voting` engine
+
+The repo's new [`pref_voting_tabulation_engine/`](../../../pref_voting_tabulation_engine/README.md)
+computes this method on any example election, under its **academic name, Copeland**.
+
+**Copeland = Ranked Robin = Consensus Voting = RCV-RR** — *the same core method wearing
+different brand names from different proponent groups:*
+
+| Name | Who calls it that |
+|------|-------------------|
+| **Copeland's method** | academic social-choice literature (order candidates by pairwise **wins − losses**) |
+| **Ranked Robin** | the **Equal Vote Coalition** |
+| **Consensus Voting / Consensus Choice** | **Better Choices for Democracy** |
+| **RCV-RR** | this repo's house compound (ranked ballot + Ranked-Robin count) |
+
+They're the **same idea**: elect whoever wins the most head-to-head matchups (the
+Condorcet/Copeland winner). They agree on the winner whenever a Condorcet winner exists —
+i.e. almost always — and differ *only* in the **cycle/tie-break rule** (Ranked Robin: sum
+of margins; Consensus Choice: "Most Wins, Smallest Loss"; textbook Copeland: by score). So
+treat them as one method with several brands, not byte-identical algorithms.
+
+```bash
+# run Copeland (= Ranked Robin) on any election, beside the other methods:
+cd pref_voting_tabulation_engine
+python pref_voting_tabulation.py example_tennessee.yaml
+#   Copeland   pref_voting=Nashville   (= the Ranked Robin / Consensus winner)
+```
+
+Since BetterVoting ships a Ranked Robin tabulator too, this gives you an **independent
+Python reference** to reconcile BV's RCV-RR results against — the same cross-checking we do
+for STAR and RCV-IRV. Details:
+[`cross_checking_with_pref_voting.md`](../tabulation_engines/cross_checking_with_pref_voting.md).
+
 ---
 
 ## Related concept pages

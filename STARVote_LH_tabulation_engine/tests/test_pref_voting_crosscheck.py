@@ -28,9 +28,9 @@ pytest.importorskip("pref_voting",
 
 ENGINE_DIR = Path(__file__).resolve().parent.parent
 REPO_ROOT = ENGINE_DIR.parent
-sys.path.insert(0, str(ENGINE_DIR / "tools_adam"))
+sys.path.insert(0, str(REPO_ROOT / "pref_voting_tabulation_engine"))
 
-from pref_voting_crosscheck import crosscheck, discover  # noqa: E402
+from pref_voting_tabulation import crosscheck, discover  # noqa: E402
 
 CROSS_DIRS = [
     str(REPO_ROOT / "01_Single_winner"),

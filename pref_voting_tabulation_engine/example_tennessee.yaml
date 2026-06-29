@@ -1,0 +1,15 @@
+voting_method: STAR   # cross-check demo — the classic Tennessee capital scenario
+num_winners: 1
+ballots: |-
+  Memphis, Nashville, Chattanooga, Knoxville
+  42 × 5, 2, 1, 0      # Memphis voters (far west)
+  26 × 1, 5, 3, 2      # Nashville voters (central)
+  15 × 0, 3, 5, 4      # Chattanooga voters (southeast)
+  17 × 0, 3, 4, 5      # Knoxville voters (east)
+lot_numbers: [Memphis, Nashville, Chattanooga, Knoxville]
+
+# file: example_tennessee.yaml
+# Run:  python pref_voting_tabulation.py example_tennessee.yaml
+# Same ballots, three winners: Plurality=Memphis, RCV-IRV=Knoxville,
+# Condorcet/STAR=Nashville. The cross-check confirms LH and pref_voting agree on
+# Condorcet/IRV/Plurality. (Full lesson: ../01_Single_winner/paradoxes_and_whoops/.)
