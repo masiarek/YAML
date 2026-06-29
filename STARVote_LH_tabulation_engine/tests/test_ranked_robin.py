@@ -36,15 +36,37 @@ def test_canonical_ranked_robin_file():
     assert "Round-Robin — every pair" in out          # the pairwise table
     assert "Ballots:" in out                            # ballots are shown
     assert "Winner — Ranked Robin (RCV-RR): Ben" in out
-    # House rule: the full N×N pairwise matrix is in the _tabulated mirror, not
-    # the compact on-screen echo.
-    assert "Pairwise (Round-Robin) Matrix" not in out
+    # This file sets options: { show_matrix: true }, so the echo opts INTO the
+    # full pairwise matrix. The _tabulated mirror always has it regardless.
+    assert "Pairwise (Round-Robin) Matrix" in out
     tab = (REPO_ROOT / "01_Single_winner_tabulated"
            / "ranked_robin_consensus_center_tabulated.txt")
     assert tab.exists()
     mirror = tab.read_text()
     assert "Pairwise (Round-Robin) Matrix" in mirror
     assert "Legend: For - Equal Support - Against" in mirror
+
+
+def test_echo_matrix_is_opt_in(tmp_path):
+    """Default echo is compact (no matrix); show_matrix opts it in. The mirror
+    always has the matrix either way."""
+    base = ("voting_method: RankedRobin\nnum_winners: 1\nballots: |-\n"
+            "  3:Ada>Ben>Cara\n  2:Ben>Cara>Ada\n  2:Cara>Ben>Ada\n")
+    # default (no options) → compact echo, no matrix
+    f1 = tmp_path / "compact.yaml"
+    f1.write_text(base)
+    r1 = _run(f1)
+    assert r1.returncode == 0, r1.stderr
+    assert "Pairwise (Round-Robin) Matrix" not in r1.stdout
+    hits = list(tmp_path.parent.rglob("compact_tabulated.txt"))
+    assert hits, "no _tabulated mirror was written"
+    assert "Pairwise (Round-Robin) Matrix" in hits[0].read_text()
+    # options: { show_matrix: true } → echo includes the matrix
+    f2 = tmp_path / "full.yaml"
+    f2.write_text(base + "options:\n  show_matrix: true\n")
+    r2 = _run(f2)
+    assert r2.returncode == 0, r2.stderr
+    assert "Pairwise (Round-Robin) Matrix" in r2.stdout
 
 
 def test_ranked_robin_aliases_and_cycle(tmp_path):
