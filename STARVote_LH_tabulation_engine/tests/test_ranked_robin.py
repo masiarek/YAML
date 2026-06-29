@@ -36,9 +36,15 @@ def test_canonical_ranked_robin_file():
     assert "Round-Robin — every pair" in out          # the pairwise table
     assert "Ballots:" in out                            # ballots are shown
     assert "Winner — Ranked Robin (RCV-RR): Ben" in out
+    # House rule: the full N×N pairwise matrix is in the _tabulated mirror, not
+    # the compact on-screen echo.
+    assert "Pairwise (Round-Robin) Matrix" not in out
     tab = (REPO_ROOT / "01_Single_winner_tabulated"
            / "ranked_robin_consensus_center_tabulated.txt")
     assert tab.exists()
+    mirror = tab.read_text()
+    assert "Pairwise (Round-Robin) Matrix" in mirror
+    assert "Legend: For - Equal Support - Against" in mirror
 
 
 def test_ranked_robin_aliases_and_cycle(tmp_path):

@@ -15,6 +15,16 @@ Round-Robin — every pair, head-to-head (votes For – Against):
    Ben beats Dan   9 – 4
    Cara beats Dan   9 – 4
 
+--- Pairwise (Round-Robin) Matrix ---
+Head-to-head / pairwise comparison — the Ranked Robin tally
+Legend: For - Equal Support - Against   (row vs column)
+         |    Ada    |   Ben    |  Cara    |   Dan    |
+-------------------------------------------------------
+   Ada > |    ---    |4 - 0 - 9 |4 - 0 - 9 |7 - 0 - 6 |
+   Ben > | 9 - 0 - 4 |   ---    |7 - 0 - 6 |9 - 0 - 4 |
+  Cara > | 9 - 0 - 4 |6 - 0 - 7 |   ---    |9 - 0 - 4 |
+   Dan > | 6 - 0 - 7 |4 - 0 - 9 |4 - 0 - 9 |   ---    |
+
 Win–loss record (most head-to-head wins wins; ties broken by total margin, then lot order):
    Ben          3–0     margin +11   (beats: Ada, Cara, Dan)
    Cara         2–1     margin +9   (beats: Ada, Dan)

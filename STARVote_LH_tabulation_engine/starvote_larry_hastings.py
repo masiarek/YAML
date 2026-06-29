@@ -977,7 +977,7 @@ def tabulate_approval(ballots_text, seats=1, priority=None):
     print(f"  {', '.join(winners)}")
 
 
-def run_ranked_robin(ballots_text, file_path=None, lot_numbers=None):
+def run_ranked_robin(ballots_text, file_path=None, lot_numbers=None, options=None):
     """Tabulate and report a Ranked Robin (RCV-RR / Copeland) election.
 
     Ranked Robin reads the *whole* ballot: it compares every pair of candidates
@@ -1047,41 +1047,82 @@ def run_ranked_robin(ballots_text, file_path=None, lot_numbers=None):
     leaders = [c for c in candidates if len(wins[c]) == top]
     winner = order[0]
 
-    L = ["--- Ranked Robin (RCV-RR / Copeland) Method (single winner) ---",
-         f" Tabulating {n} ballots "
-         f"({'ranked' if '>' in clean else 'score'} ballots).", ""]
-    L.append("Ballots:")
-    cnt, seenr = _Counter(display_rows), []
-    for r in display_rows:
-        if r not in seenr:
-            seenr.append(r)
-    for r in seenr:
-        L.append(f"   {cnt[r]:>3} × {r}")
-    L.append("")
-    L.append("Round-Robin — every pair, head-to-head (votes For – Against):")
-    L += pair_lines
-    L.append("")
-    L.append("Win–loss record (most head-to-head wins wins; "
-             "ties broken by total margin, then lot order):")
-    for c in order:
-        w, l, t = len(wins[c]), len(losses[c]), len(ties[c])
-        rec = f"{w}–{l}" + (f"–{t}t" if t else "")
-        beat = f"   (beats: {', '.join(wins[c])})" if wins[c] else ""
-        L.append(f"   {c:<12} {rec:<7} margin {margin[c]:+d}{beat}")
-    L.append("")
-    if len(leaders) == 1:
-        why = ("beats every opponent head-to-head — the Condorcet winner."
-               if not losses[winner] else f"the most head-to-head wins ({top}).")
-        L.append(f"Winner — Ranked Robin (RCV-RR): {winner}")
-        L.append(f"   {why}")
-    else:
-        L.append(f"Winner — Ranked Robin (RCV-RR): {winner}")
-        L.append(f"   *** {len(leaders)} candidates tie on wins "
-                 f"({', '.join(leaders)}) — a Condorcet cycle. Resolved by total "
-                 "margin, then lot order. (This is where Minimax / Ranked Pairs / "
-                 "Schulze differ — see concepts/RCV_Ranked_Robin/cycle_resolution.md.)")
-    plain = "\n".join(L)
+    # Full N×N pairwise matrix — the Ranked Robin tally itself (the summable
+    # heart of the count). Each cell reads For - Equal Support - Against for the
+    # ROW candidate vs the COLUMN candidate. Compact for the on-screen echo,
+    # always shown in the _tabulated mirror (house rule: minimal echo, full mirror).
+    def _matrix_lines():
+        cells = [str(v) for a in candidates for b in candidates if a != b
+                 for v in matrix[a][b]]
+        vw = max((len(x) for x in cells), default=1)
+        data = vw * 3 + 6                       # "F - E - A"
+        colw = max(max((len(c) for c in candidates), default=4) + 2, data, 9)
+        rlw = max((len(c) for c in candidates), default=4) + 2
+        out = ["--- Pairwise (Round-Robin) Matrix ---",
+               "Head-to-head / pairwise comparison — the Ranked Robin tally",
+               "Legend: For - Equal Support - Against   (row vs column)"]
+        head = " " * (rlw + 2) + " | "
+        for c in candidates:
+            head += f"{c:^{colw}} |"
+        out.append(head)
+        out.append("-" * len(head))
+        for a in candidates:
+            row = f"{a:>{rlw}} > | "
+            for b in candidates:
+                if a == b:
+                    row += f"{'---':^{colw}} |"
+                else:
+                    fa, ag, nop = matrix[a][b]
+                    cell = f"{fa:>{vw}} - {nop:>{vw}} - {ag:>{vw}}"
+                    row += f"{cell:^{colw}} |"
+            out.append(row)
+        return out
 
+    def _build(full):
+        L = ["--- Ranked Robin (RCV-RR / Copeland) Method (single winner) ---",
+             f" Tabulating {n} ballots "
+             f"({'ranked' if '>' in clean else 'score'} ballots).", ""]
+        L.append("Ballots:")
+        cnt, seenr = _Counter(display_rows), []
+        for r in display_rows:
+            if r not in seenr:
+                seenr.append(r)
+        for r in seenr:
+            L.append(f"   {cnt[r]:>3} × {r}")
+        L.append("")
+        L.append("Round-Robin — every pair, head-to-head (votes For – Against):")
+        L += pair_lines
+        L.append("")
+        if full:                                # full N×N grid → _tabulated mirror
+            L += _matrix_lines()
+            L.append("")
+        L.append("Win–loss record (most head-to-head wins wins; "
+                 "ties broken by total margin, then lot order):")
+        for c in order:
+            w, l, t = len(wins[c]), len(losses[c]), len(ties[c])
+            rec = f"{w}–{l}" + (f"–{t}t" if t else "")
+            beat = f"   (beats: {', '.join(wins[c])})" if wins[c] else ""
+            L.append(f"   {c:<12} {rec:<7} margin {margin[c]:+d}{beat}")
+        L.append("")
+        if len(leaders) == 1:
+            why = ("beats every opponent head-to-head — the Condorcet winner."
+                   if not losses[winner] else f"the most head-to-head wins ({top}).")
+            L.append(f"Winner — Ranked Robin (RCV-RR): {winner}")
+            L.append(f"   {why}")
+        else:
+            L.append(f"Winner — Ranked Robin (RCV-RR): {winner}")
+            L.append(f"   *** {len(leaders)} candidates tie on wins "
+                     f"({', '.join(leaders)}) — a Condorcet cycle. Resolved by total "
+                     "margin, then lot order. (This is where Minimax / Ranked Pairs / "
+                     "Schulze differ — see concepts/RCV_Ranked_Robin/cycle_resolution.md.)")
+        return "\n".join(L)
+
+    # On-screen echo is compact by default (house rule), but the file can opt
+    # the echo into the full matrix with `options: { show_matrix: true }`. The
+    # _tabulated mirror is ALWAYS full regardless.
+    _opts = options or {}
+    _echo_full = bool(_opts.get("show_matrix"))
+    plain = _build(full=_echo_full)             # echo (compact unless show_matrix)
     hdr = "--- Ranked Robin (RCV-RR / Copeland) Method (single winner) ---"
     win = f"Winner — Ranked Robin (RCV-RR): {winner}"
     colored = plain.replace(hdr, f"{COLOR_HEADER}{hdr}{COLOR_RESET}") \
@@ -1089,7 +1130,7 @@ def run_ranked_robin(ballots_text, file_path=None, lot_numbers=None):
     print(colored)
     if file_path:
         try:
-            write_tabulated_copy(file_path, plain)
+            write_tabulated_copy(file_path, _build(full=True))   # full mirror
         except Exception:
             pass
     return winner
@@ -2340,7 +2381,8 @@ Memphis,Nashville,Chattanooga,Knoxville
         # Ranked Robin has ranked ballots too, but must be counted round-robin.
         if _is_rr:
             run_ranked_robin(csv_input, BALLOTS_FILE,
-                             lot_numbers=election.get("lot_numbers"))
+                             lot_numbers=election.get("lot_numbers"),
+                             options=election.get("options"))
             sys.exit(0)
 
         if _is_rcv or _ranked_ballots:

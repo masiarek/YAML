@@ -5,6 +5,9 @@ election_description: >-
   first-choices. Tabulate with pref_voting_tabulation_engine/ranked_robin_report.py.
 voting_method: RankedRobin   # = RCV-RR / Copeland — round-robin on a ranked ballot
 num_winners: 1
+options:
+  show_matrix: true          # opt the on-screen echo into the full pairwise matrix
+                             # (the _tabulated mirror always shows it regardless)
 # Ranked Robin / Copeland worked example. 13 ranked ballots, 4 candidates
 # (Ada=left, Ben=center-left, Cara=center-right, Dan=right).
 # Pairwise: Ben beats Ada 9-4, Cara 7-6, Dan 9-4 -> 3-0 round-robin.
