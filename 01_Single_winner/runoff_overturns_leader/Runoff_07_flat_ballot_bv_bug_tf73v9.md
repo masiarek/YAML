@@ -51,29 +51,31 @@ is unaffected here, but the counts and percentages no longer match a hand count 
 four ballots. (Confirmed in the export: `nAbstentions: 1, nTallyVotes: 3`.)
 
 ## View 1 — BetterVoting
-![img.png](img.png)
-
-![img_1.png](img_1.png)
-
-![img_2.png](img_2.png)
-
-![img_3.png](img_3.png)
-
-![img_4.png](img_4.png)
 
 Alex leads the Scoring Round but **loses** the runoff to Blair — and BetterVoting marks
 the `3,3,3` as an abstention. Source: <https://bettervoting.com/tf73v9/results>.
 
-**Result — Scoring Round + Automatic Runoff:**
+**Result — Scoring Round + Automatic Runoff (the bug, in one image):**
 
-> 📷 _Paste the BetterVoting result screenshot here (PyCharm: click this line, then ⌘V)._
+![BetterVoting result for tf73v9: Blair wins; the header reads "3 voters" (not 4); Scoring Round bars Blair 11, Alex 13, Cleo 2 — each 3 lower than LH because the flat 3,3,3 ballot was dropped; Automatic Runoff Blair 67% vs Alex 33%; with BetterVoting's "why is the top scoring candidate different from the winner?" popover](img/tf73v9_result_popover.png)
+
+Read the header: BetterVoting says **"3 voters"**, and every score total is **3 lower**
+than LH's (Blair 11, Alex 13 vs LH's 14, 16) — the dropped `3,3,3` ballot.
+
+**The same runoff, other views (raw votes, and pie):**
+
+![Automatic Runoff bar view (raw votes): Blair 2 vs Alex 1](img/tf73v9_runoff_counts.png)
+
+![Automatic Runoff pie (percentages): Blair 67% vs Alex 33%; footnote "0.0% of voters expressed no preference" — BetterVoting shows 0% because it moved the flat ballot to "abstention" instead of Equal Support](img/tf73v9_runoff_pie_pct.png)
+
+![Automatic Runoff pie (raw votes): Blair 2 vs Alex 1](img/tf73v9_runoff_pie_counts.png)
 
 **Race Details — Scores Table + Runoff Table:**
 
-> 📷 _Paste the BetterVoting Race Details screenshot here (⌘V)._
+![Race Details: Scores Table (Blair 11, Alex 13, Cleo 2) and Runoff Table (Blair 2 / 67% / 67%, Alex 1 / 33% / 33%, Equal Support 0, Total 3) — Total is 3 not 4, and Equal Support is 0, because the flat ballot became an abstention](img/tf73v9_race_details.png)
 
-(Watch BetterVoting's totals: they'll read **3 lower** than LH's — Alex 13, Blair 11 —
-and the tally will say **3**, not 4, with **1 abstention**.)
+The Runoff Table seals it: **Total 3** (not 4) and **Equal Support 0** — the `3,3,3`
+became an abstention instead of the Equal-Support vote it is.
 
 ## View 2 — the LH engine
 
