@@ -1,0 +1,16 @@
+--- RCV / Instant-Runoff Voting (single winner) ---
+  Three notions of "winner" disagree — Condorcet, Score, and Runoff
+ Tabulating 5 ballots (converted from score ballots; 0 = unranked, equal scores broken by candidate priority).
+
+FINAL RESULT
+Candidate      Votes  Status
+-----------  -------  --------
+Ann                3  Elected
+Carl               2  Rejected
+Bob                0  Rejected
+
+
+Winner(s) — RCV / Instant-Runoff Voting (single winner)
+  Ann
+
+NOTE: a generated cross-method view of the STAR ballots, for comparison only — not the official STAR result.

@@ -2,7 +2,7 @@
 SOURCE FILE:     center_squeeze_star.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  center_squeeze_star_tabulated.txt
-TABULATED AT:    2026-06-28 12:09:18
+TABULATED AT:    2026-06-29 15:26:32
 ======================================================================
 
 election_title: Center squeeze — STAR elects the consensus (Center)
@@ -79,6 +79,11 @@ Legend: For - Equal Support - Against
   Approval               = Left   (differs from STAR)
   Note: no ballots had tied scores, so RCV-IRV vs STAR here is a genuine
         method difference, not a tie-breaking artifact.
+  Note: Ranked Robin (RCV-RR) agrees with STAR, so RCV-IRV is the lone
+        outlier — the classic center-squeeze signature.
+  Full round-by-round reports (generated for review):
+  RCV-IRV rounds: 01_Single_winner_tabulated/center_squeeze_star_RCV-IRV_tabulated.txt
+     file:///sessions/amazing-brave-lovelace/mnt/YAML/01_Single_winner_tabulated/center_squeeze_star_RCV-IRV_tabulated.txt
 
 --- STAR Voting Method (single winner) ---
 [STAR Voting]

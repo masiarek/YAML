@@ -26,6 +26,19 @@ if [ -f "$ROOT/scripts/check_repo_hygiene.py" ]; then
   "$PY" "$ROOT/scripts/check_repo_hygiene.py" || true
 fi
 
+# Refresh the cross-method divergence ledger (generated; never blocks the commit).
+# Re-tabulates the curated single-winner STAR library under RCV-IRV / RCV-RR /
+# Approval and rewrites divergence_review/ (INDEX.md, divergence.csv, and the
+# per-case teaching cases/*.md), then stages the whole folder so the review
+# surface always matches the committed elections.
+if [ -f "$ROOT/scripts/build_divergence_index.py" ]; then
+  if "$PY" "$ROOT/scripts/build_divergence_index.py" >/dev/null 2>&1; then
+    git add "$ROOT/divergence_review" 2>/dev/null || true
+  else
+    echo "pre-commit: divergence ledger refresh failed — skipping (commit not blocked)."
+  fi
+fi
+
 # If pytest isn't installed, don't block the commit — just say how to get it.
 if ! "$PY" -c "import pytest" >/dev/null 2>&1; then
   echo "pre-commit: pytest not installed for $PY — skipping tests."

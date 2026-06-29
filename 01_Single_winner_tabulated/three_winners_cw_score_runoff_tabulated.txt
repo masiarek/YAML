@@ -2,7 +2,7 @@
 SOURCE FILE:     three_winners_cw_score_runoff.yaml
 SOURCE MODIFIED: 2026-06-27 00:07:51
 TABULATED FILE:  three_winners_cw_score_runoff_tabulated.txt
-TABULATED AT:    2026-06-29 00:20:09
+TABULATED AT:    2026-06-29 15:25:24
 ======================================================================
 
 election_title: Three notions of "winner" disagree — Condorcet, Score, and Runoff
@@ -84,9 +84,16 @@ Legend: For - Equal Support - Against
   STAR                   = Bob
   Choose-One (Plurality) = Ann   (differs from STAR)
   RCV-IRV                = Ann   (differs from STAR)
-  Condorcet              = Ann   (differs from STAR)
+  RCV-RR (Condorcet)     = Ann   (differs from STAR)
   Note: no ballots had tied scores, so RCV-IRV vs STAR here is a genuine
         method difference, not a tie-breaking artifact.
+  Note: Ranked Robin (RCV-RR) sides with RCV-IRV, so STAR is the outlier
+        here — STAR need not elect the Condorcet candidate.
+  Full round-by-round reports (generated for review):
+  RCV-IRV rounds: 01_Single_winner_tabulated/three_winners_cw_score_runoff_RCV-IRV_tabulated.txt
+     file:///sessions/amazing-brave-lovelace/mnt/YAML/01_Single_winner_tabulated/three_winners_cw_score_runoff_RCV-IRV_tabulated.txt
+  RCV-RR round-robin: 01_Single_winner_tabulated/three_winners_cw_score_runoff_RCV-RR_tabulated.txt
+     file:///sessions/amazing-brave-lovelace/mnt/YAML/01_Single_winner_tabulated/three_winners_cw_score_runoff_RCV-RR_tabulated.txt
 
 Majority Preference Enforcement Principle:
  - Score Round Winner(s) = (Carl)

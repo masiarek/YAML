@@ -487,6 +487,73 @@ def write_tabulated_copy(src_path, output_text):
     return out_path
 
 
+def aux_tabulated_path(src_path, method_tag):
+    """Path for an AUXILIARY method mirror (e.g. the round-by-round RCV-IRV or
+    Ranked Robin report generated alongside a STAR run). Same '<folder>_tabulated'
+    mirror folder as the STAR copy, but the filename carries a method tag so it
+    never collides with the primary '<stem>_tabulated.txt':
+        .../split_voting/04_star_wars_vote_split.yaml
+        -> .../split_voting_tabulated/04_star_wars_vote_split_RCV-IRV_tabulated.txt
+    """
+    p = Path(src_path).resolve()
+    out_dir = p.parent.parent / (p.parent.name + "_tabulated")
+    return out_dir / f"{p.stem}_{method_tag}_tabulated.txt"
+
+
+def method_mirror_links(out_path, src_path):
+    """Two display lines for a generated mirror: a short repo-relative-ish path
+    (clickable in most IDE terminals) and an absolute file:// URL (paste to open).
+    The short path is relative to the source file's grandparent, i.e.
+    '<folder>_tabulated/<name>'."""
+    out_path = Path(out_path).resolve()
+    try:
+        short = out_path.relative_to(Path(src_path).resolve().parent.parent)
+    except ValueError:
+        short = out_path
+    return str(short), out_path.as_uri()
+
+
+def build_irv_report(candidates, ballots, priority, title=None):
+    """Round-by-round RCV-IRV report text (ANSI-free) for the SAME ballots a STAR
+    run tabulated, rendered exactly like the standalone RCV-IRV engine: a header
+    plus pyrankvote's per-round elimination table. Scores are converted to ranks
+    (higher score = higher preference, 0 = unranked; equal non-zero scores broken
+    by `priority`). Returns None if the IRV engine isn't importable."""
+    if not _IRV_AVAILABLE or not candidates or not ballots:
+        return None
+    order = [c for c in (priority or candidates) if c in candidates]
+    for c in candidates:
+        if c not in order:
+            order.append(c)
+    cand_objs = {c: _IRVCandidate(c) for c in candidates}
+    pv_ballots = [
+        _IRVBallot(ranked_candidates=[cand_objs[n] for n in _score_to_rank(b, order)])
+        for b in ballots
+    ]
+    try:
+        result = _pyrankvote.instant_runoff_voting(
+            list(cand_objs.values()), pv_ballots)
+    except Exception:
+        return None
+    label = "RCV / Instant-Runoff Voting (single winner)"
+    L = [f"--- {label} ---"]
+    if title:
+        L.append(f"  {title}")
+    L.append(f" Tabulating {len(ballots)} ballots "
+             "(converted from score ballots; 0 = unranked, equal scores broken "
+             "by candidate priority).")
+    L.append("")
+    L.append(str(result))
+    L.append("")
+    L.append(f"Winner(s) — {label}")
+    winners = result.get_winners()
+    L += [f"  {wn.name}" for wn in winners] or ["  (no winner)"]
+    L.append("")
+    L.append("NOTE: a generated cross-method view of the STAR ballots, for "
+             "comparison only — not the official STAR result.")
+    return "\n".join(L)
+
+
 def _normalize_ballot_separators(text):
     """Forgive the one common copy-paste mistake: a ballots grid separated by
     *spaces* instead of commas/tabs (e.g. an aligned slide table). When the block
@@ -977,7 +1044,8 @@ def tabulate_approval(ballots_text, seats=1, priority=None):
     print(f"  {', '.join(winners)}")
 
 
-def run_ranked_robin(ballots_text, file_path=None, lot_numbers=None, options=None):
+def run_ranked_robin(ballots_text, file_path=None, lot_numbers=None, options=None,
+                     silent=False, out_path=None):
     """Tabulate and report a Ranked Robin (RCV-RR / Copeland) election.
 
     Ranked Robin reads the *whole* ballot: it compares every pair of candidates
@@ -985,6 +1053,11 @@ def run_ranked_robin(ballots_text, file_path=None, lot_numbers=None, options=Non
     margin, then by lot order). Prints the ballots, the round-robin (pairwise)
     table, and each candidate's win-loss record. Accepts ranked ballots
     ("A>B>C") or score ballots; both reduce to the same pairwise comparison.
+
+    `silent=True` suppresses the on-screen echo (used when generating the report
+    as an auxiliary mirror during a STAR run). `out_path` overrides the mirror
+    location (default: the standard '<stem>_tabulated.txt'); pass the method-tagged
+    aux path so the RR report doesn't clobber the STAR copy.
     """
     import re as _re
     from collections import Counter as _Counter
@@ -1166,8 +1239,16 @@ def run_ranked_robin(ballots_text, file_path=None, lot_numbers=None, options=Non
     win = f"Winner — Ranked Robin (RCV-RR): {winner}"
     colored = plain.replace(hdr, f"{COLOR_HEADER}{hdr}{COLOR_RESET}") \
                    .replace(win, f"{COLOR_WINNER}{win}{COLOR_RESET}")
-    print(colored)
-    if file_path:
+    if not silent:
+        print(colored)
+    if out_path is not None:
+        try:
+            Path(out_path).parent.mkdir(parents=True, exist_ok=True)
+            Path(out_path).write_text(strip_ansi(_build(full=True)),
+                                      encoding="utf-8")
+        except Exception:
+            pass
+    elif file_path:
         try:
             write_tabulated_copy(file_path, _build(full=True))   # full mirror
         except Exception:
@@ -1195,7 +1276,39 @@ def condorcet_winner(candidates, ballots):
     return None
 
 
-def print_method_comparison(candidates, ballots, star_winner, priority):
+def copeland_winner(candidates, ballots, priority):
+    """
+    Ranked Robin (RCV-RR / Copeland) winner from score ballots: the candidate
+    who wins the most head-to-head matchups, ties broken by total pairwise margin,
+    then by `priority` order. Mirrors run_ranked_robin's tally exactly. Unlike a
+    Condorcet winner it ALWAYS returns a name (a cycle is resolved by margin /
+    priority), or None if unavailable.
+    """
+    if not candidates or not ballots:
+        return None
+    order = [c for c in (priority or candidates) if c in candidates]
+    for c in candidates:
+        if c not in order:
+            order.append(c)
+    matrix = calculate_preference_matrix(candidates, ballots)
+    if not matrix:
+        return None
+    wins = {c: 0 for c in candidates}
+    margin = {c: 0 for c in candidates}
+    for i, a in enumerate(candidates):
+        for b in candidates[i + 1:]:
+            fa, ag, _ = matrix[a][b]
+            margin[a] += fa - ag
+            margin[b] += ag - fa
+            if fa > ag:
+                wins[a] += 1
+            elif ag > fa:
+                wins[b] += 1
+    return min(candidates, key=lambda c: (-wins[c], -margin[c], order.index(c)))
+
+
+def print_method_comparison(candidates, ballots, star_winner, priority,
+                            src_path=None, ballots_text=None, title=None):
     """
     Use STAR as the baseline and only surface the comparison when it is
     interesting: if Choose-One (Plurality), RCV-IRV, Approval, or Condorcet elects
@@ -1207,11 +1320,18 @@ def print_method_comparison(candidates, ballots, star_winner, priority):
         vote goes to its top-scored candidate)
       * RCV-IRV  : its winner != the STAR winner
       * Approval : its (single) winner != the STAR winner
+      * RCV-RR   : the Ranked Robin (Copeland) winner != the STAR winner
+        (always defined; a cycle is resolved by margin / priority)
       * Condorcet: a Condorcet winner exists and != the STAR winner
         (no Condorcet winner / a cycle is not treated as a disagreement)
+
+    RCV-RR and Condorcet usually name the same candidate (Copeland elects the
+    Condorcet winner whenever one exists); they only part on a cycle. When both
+    differ from STAR and agree with each other, they print as one combined line.
     """
     irv, tie_ballots, total = compute_irv_winner(candidates, ballots, priority)
     approval = approval_winner(candidates, ballots, priority)
+    rr = copeland_winner(candidates, ballots, priority)
     condorcet = condorcet_winner(candidates, ballots)
 
     # Choose-One Plurality: each ballot's single vote goes to its top-scored
@@ -1229,9 +1349,11 @@ def print_method_comparison(candidates, ballots, star_winner, priority):
     plurality_diff = plurality is not None and plurality != star_winner
     irv_diff = irv is not None and irv != star_winner
     approval_diff = approval is not None and approval != star_winner
+    rr_diff = rr is not None and rr != star_winner
     condorcet_diff = condorcet is not None and condorcet != star_winner
 
-    if not (plurality_diff or irv_diff or approval_diff or condorcet_diff):
+    if not (plurality_diff or irv_diff or approval_diff or rr_diff
+            or condorcet_diff):
         return  # every method agrees with STAR — nothing to learn here
 
     # Show STAR (the baseline) plus ONLY the methods that disagree with it;
@@ -1243,8 +1365,15 @@ def print_method_comparison(candidates, ballots, star_winner, priority):
         shown.append(("RCV-IRV", irv))
     if approval_diff:
         shown.append(("Approval", approval))
-    if condorcet_diff:
-        shown.append(("Condorcet", condorcet))
+    # RCV-RR (Ranked Robin / Copeland) and Condorcet coincide off-cycle; when
+    # both differ from STAR and name the same candidate, collapse to one line.
+    if rr_diff and condorcet_diff and rr == condorcet:
+        shown.append(("RCV-RR (Condorcet)", rr))
+    else:
+        if rr_diff:
+            shown.append(("RCV-RR", rr))
+        if condorcet_diff:
+            shown.append(("Condorcet", condorcet))
     width = max(len(label) for label, _ in shown)
 
     print("\n[Divergence from STAR]")
@@ -1273,6 +1402,56 @@ def print_method_comparison(candidates, ballots, star_winner, priority):
                 f"Note: no ballots had tied scores, so RCV-IRV vs STAR here is a "
                 f"genuine method difference, not a tie-breaking artifact."
             )
+        # Where does Ranked Robin land? That's the tell for who's the outlier.
+        if not rr_diff:
+            _note(
+                "Note: Ranked Robin (RCV-RR) agrees with STAR, so RCV-IRV is the "
+                "lone outlier — the classic center-squeeze signature."
+            )
+        elif rr == irv:
+            _note(
+                "Note: Ranked Robin (RCV-RR) sides with RCV-IRV, so STAR is the "
+                "outlier here — STAR need not elect the Condorcet candidate."
+            )
+
+    # Generate a round-by-round report for each diverging method and print a
+    # link to it, so the rounds can be reviewed/pasted without re-running the
+    # other engine. Only the methods that actually differ get a file (house
+    # decision: links appear exactly where they're teachable).
+    if src_path:
+        link_lines = []
+
+        def _emit(method_tag, label, text):
+            if not text:
+                return
+            try:
+                out = aux_tabulated_path(src_path, method_tag)
+                out.parent.mkdir(parents=True, exist_ok=True)
+                out.write_text(strip_ansi(text), encoding="utf-8")
+            except Exception:
+                return
+            short, uri = method_mirror_links(out, src_path)
+            link_lines.append(f"  {label}: {short}")
+            link_lines.append(f"     {uri}")
+
+        if irv_diff:
+            _emit("RCV-IRV", "RCV-IRV rounds",
+                  build_irv_report(candidates, ballots, priority, title))
+        if rr_diff and ballots_text is not None:
+            try:
+                rr_out = aux_tabulated_path(src_path, "RCV-RR")
+                run_ranked_robin(ballots_text, file_path=src_path,
+                                 lot_numbers=priority, silent=True, out_path=rr_out)
+                short, uri = method_mirror_links(rr_out, src_path)
+                link_lines.append(f"  RCV-RR round-robin: {short}")
+                link_lines.append(f"     {uri}")
+            except Exception:
+                pass
+
+        if link_lines:
+            print("  Full round-by-round reports (generated for review):")
+            for ln in link_lines:
+                print(ln)
 
 
 def first_choice_counts(candidates, ballots, priority):
@@ -1764,6 +1943,7 @@ def run_election(
     show_description=True,
     show_runoff_percent=False,
     full_report=False,
+    src_path=None,
 ):
     if method is None:
         method = starvote.star
@@ -1934,7 +2114,9 @@ def run_election(
         # Always show the RCV-IRV / STAR / Approval comparison (Condorcet line
         # appears only when it differs from all three). priority == STAR's
         # tiebreak order, used for the score->rank conversion.
-        print_method_comparison(candidates, ballots, star_winner, priority)
+        print_method_comparison(candidates, ballots, star_winner, priority,
+                                src_path=src_path, ballots_text=csv_input,
+                                title=title)
 
         # Vote-splitting / spoiler check for any declared candidate blocs.
         print_vote_splitting(candidates, ballots, blocs, star_winner, priority)
@@ -2551,7 +2733,8 @@ Memphis,Nashville,Chattanooga,Knoxville
             b = io.StringIO()
             try:
                 with contextlib.redirect_stdout(b):
-                    w = run_election(csv_input, LOT_NUMBERS, **kwargs)
+                    w = run_election(csv_input, LOT_NUMBERS,
+                                     src_path=BALLOTS_FILE, **kwargs)
             except SystemExit:
                 # run_election bailed out (e.g. a method/seats mismatch error).
                 # Flush what it printed so the message isn't swallowed, then
@@ -2621,4 +2804,4 @@ Memphis,Nashville,Chattanooga,Knoxville
             save_results_to_file(BALLOTS_FILE, [str(w) for w in names], out)
             print(f"\n{COLOR_HEADER}[saved results to {BALLOTS_FILE}]{COLOR_RESET}")
     else:
-        run_election(csv_input, LOT_NUMBERS, **run_kwargs)
+        run_election(csv_input, LOT_NUMBERS, src_path=BALLOTS_FILE, **run_kwargs)
