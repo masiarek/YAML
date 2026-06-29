@@ -59,8 +59,8 @@ Candidate      Votes  Status
 -----------  -------  --------
 Eden               3  Elected
 Dakota             2  Rejected
-Gale               0  Rejected
 Flynn              0  Rejected
+Gale               0  Rejected
 Hazel              0  Rejected
 
 

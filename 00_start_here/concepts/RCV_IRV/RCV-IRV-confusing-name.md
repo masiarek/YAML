@@ -26,6 +26,29 @@ This sequential, plurality-style elimination is also IRV's weak point: it can sq
 
 ---
 
+## Why "Hare," and what the alternatives would do
+
+The method FairVote promotes for a single seat is **Instant-Runoff Voting under the Hare elimination rule**. The count is a series of automatic runoffs: tally first choices; if someone holds more than half, they win; otherwise **eliminate the candidate with the fewest first choices**, transfer each of those ballots to its next still-standing choice, and repeat until a candidate has a majority of the remaining active ballots (or only two remain).
+
+The word **"Hare"** (after Thomas Hare) is not decoration — it names *which* candidate is dropped each round, and that single choice is exactly where the ranked methods part ways on the very same ballots:
+
+| Elimination / counting rule | What it does each round | Same ballots, different winner? |
+|---|---|---|
+| **Hare (IRV)** — what US "RCV" means | drops the candidate with the **fewest first-place** votes | — |
+| **Coombs** | drops the candidate with the **most last-place** votes | yes |
+| **Borda** | eliminates no one — each rank scores points (e.g. 2-1-0), highest total wins | yes |
+| **Bucklin** | eliminates no one — adds 2nd, then 3rd choices until someone crosses a majority | yes |
+
+All four read an identical ranked ballot and can crown different winners. So **RCV-IRV** fixes the *family* (ranked ballots counted by sequential runoff), but only **RCV-IRV (Hare)** fixes the *exact* elimination rule — which is why statutes, election specs, and academic papers reach for the longer name. (Borda and Bucklin are ranked but **not** Condorcet, and none of these is the pairwise **RCV-RR**.)
+
+> **There's more than one "IRV," too.** Beyond Hare, the instant-runoff *shape* also covers batch elimination, the contingent / supplementary vote, Condorcet-safe variants (BTR, Baldwin, Nanson), plus implementation knobs (how many candidates you may rank, how "majority" is counted) that change the winner on the same ballots. For the full catalog and when the precision matters, see [Which RCV-IRV? — Hare and the other variants](RCV_IRV_variants.md).
+
+## Multi-winner: the same Hare family, renamed STV
+
+FairVote's multi-winner reform is the **Single Transferable Vote (STV)** — the proportional relative in the same Hare lineage, used to fill several seats at once (e.g. a city council elected at large). STV keeps the ranked ballot and the transfer idea but swaps "win a majority" for "reach a **quota**" — the Droop quota, `⌊total ÷ (seats + 1)⌋ + 1`. A candidate who meets the quota is elected, and the **surplus** above it transfers to next choices; candidates in last place are eliminated and their ballots transfer; this repeats until every seat is filled. Run STV with a single seat and it collapses back to IRV-Hare — which is why the two are siblings rather than separate inventions, and why "RCV" in the US covers *both*: **RCV-IRV (Hare)** for one winner, **STV** for many.
+
+---
+
 ## TL;DR — which term to use
 
 | If you mean… | Say… |
@@ -42,6 +65,7 @@ When in doubt in conversation, the safest opener is: *"Which form of ranked voti
 
 ## Related concept pages
 
+- [Which RCV-IRV? — Hare and the other variants](RCV_IRV_variants.md) — batch / contingent / BTR / Coombs / Baldwin / Nanson, STV, and the ballot-rule knobs
 - [Strict vs. weak ranks](../strict_vs_weak_ranks.md) — RCV-IRV forbids equal ranks and isn't pairwise; other ranked methods differ
 - [Scores vs. ranks — don't confuse ranks and ratings](../scores_vs_ranks.md)
 - [Scoring methods vs. ranked voting](../scoring-methods-vs-ranked-voting.md)
