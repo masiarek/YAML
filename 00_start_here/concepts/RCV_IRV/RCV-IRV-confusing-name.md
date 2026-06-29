@@ -31,8 +31,8 @@ This sequential, plurality-style elimination is also IRV's weak point: it can sq
 | If you mean… | Say… |
 |---|---|
 | Any ranked-ballot method (the whole family) | **Ranked voting** |
-| The specific method FairVote promotes in the US | **RCV-IRV** |
-| …and you need the exact elimination rule (papers, specs) | **RCV-IRV (Hare)** |
+| The method FairVote promotes in the US (single-winner) | **RCV-IRV** |
+| …its exact elimination rule, for papers & specs | **RCV-IRV (Hare)** — eliminate fewest-first-choices, transfer, repeat |
 | The Condorcet round-robin alternative | **RCV-RR** (Ranked Robin) |
 | Score/approve methods (not ranked at all) | **STAR**, **Approval** |
 
