@@ -19,9 +19,30 @@ read with care — they keep us **honest**.
 | 01 | [Tennessee — 3 methods, 3 winners](./Whoops_01_tennessee_three_winners.md) | one ballot set → Plurality=Memphis, IRV=Knoxville, Condorcet/STAR=Nashville | **Plurality & IRV** |
 | 02 | [STAR misses the Condorcet winner](./Whoops_02_star_misses_condorcet.md) | the head-to-head winner is too low-scored to reach the runoff | **STAR** |
 | 03 | [a Condorcet cycle (rock-paper-scissors)](./Whoops_03_condorcet_cycle_rps.md) | majority rule is intransitive — *no* Condorcet winner exists | **Condorcet / Ranked Robin** |
+| 04 | [IRV buries the centrist (Ossipoff)](./Whoops_04_ossipoff_centrist_irv.md) | the plurality *and* Condorcet winner is eliminated; IRV elects D | **IRV** |
+| 05 | [many IRV pathologies in one (Brams)](./Whoops_05_brams_many_pathologies_irv.md) | Condorcet failure + no-show + truncation + non-monotonicity | **IRV** |
 
-Each lesson is **engine-verified** (LH `starvote`) and carries a **fairness box** stating
-how common the failure is, whether it needs strategy, and what that method does *well*.
+Cases 01–03 are STAR/score files (engine-verified, in the test library); 04–05 are
+**ranked-ballot** RCV-IRV cases (IRV rounds engine-verified, Condorcet winners checked by
+pairwise tally). Each carries a **fairness box**.
+
+## Balance ledger
+
+The even-handedness pledge isn't a vibe — it's a count. Keep this honest, and when it
+tilts, the **next** case should hit the over-represented direction's *opposite*.
+
+| Method | Times it's the punchline | Cases |
+|--------|:---:|-------|
+| Plurality | 1 | 01 |
+| **RCV-IRV** | **3** | 01, 04, 05 |
+| STAR / score | 1 | 02 |
+| Condorcet / Ranked Robin | 1 | 03 |
+| Approval | 0 | — |
+
+**Balance owed (as of cases 01–05): the folder leans IRV (3).** The next additions should
+embarrass the *score family* — **Approval** (0 so far) and **STAR** — not IRV. Candidate
+follow-ups: an Approval "bland-winner" / chicken-dilemma case, or a STAR
+non-monotonicity construction. *Don't add another IRV whoops until this evens out.*
 
 ## How to read these (the short version)
 

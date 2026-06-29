@@ -1,0 +1,23 @@
+election:
+  election_title: Whoops 05 — many IRV pathologies in one election (Brams)
+  election_description: |-
+    Steven Brams' example (Notices of the AMS, 1982; via rangevoting.org). IRV elects B,
+    but G is the Condorcet winner (beats B 14-7, beats everyone). The same election shows
+    a no-show paradox, a truncation incentive, favorite-betrayal, and non-monotonicity —
+    several IRV pathologies at once. Sincere, academically sourced, ranked ballots.
+    Approval/STAR/Condorcet/Ranked Robin would elect G. Level 301.
+    Source: https://www.rangevoting.org/rangeVirv.html (section 12); Brams 1982.
+    Lesson: Whoops_05_brams_many_pathologies_irv.md
+  options: {show_irv: true, collapse_ballots: true, count_separator: "×"}
+  races:
+  - race_id: '0'
+    race_description: "Brams AMS-1982; IRV elects B, Condorcet winner is G"
+    num_winners: 1
+    voting_method: RCV_IRV
+    ballots: |-
+      7:B>G>N>F
+      6:G>B>N>F
+      5:N>G>B>F
+      3:F>N>G>B
+
+# file: Whoops_05_brams_many_pathologies_irv.yaml

@@ -1,0 +1,24 @@
+election:
+  election_title: Whoops 04 — IRV buries the centrist (Ossipoff 303-voter)
+  election_description: |-
+    Mike Ossipoff's 1-D example (via rangevoting.org). Candidate C is the centrist:
+    C is the PLURALITY winner (100 first-choices, most of any) AND the Condorcet winner
+    (beats every rival ~2:1). Yet RCV-IRV ELIMINATES C in round 3 and elects D. Sincere
+    ballots; a realistic 'one-dimensional politics' taper. Ranked-ballot case (no scores
+    invented). Approval/STAR/Condorcet/Ranked Robin would all elect C. Level 301.
+    Source: https://www.rangevoting.org/rangeVirv.html (section 12).
+    Lesson: Whoops_04_ossipoff_centrist_irv.md
+  options: {show_irv: true, collapse_ballots: true, count_separator: "×"}
+  races:
+  - race_id: '0'
+    race_description: "Ossipoff 1-D centrist; IRV elects D, Condorcet winner is C"
+    num_winners: 1
+    voting_method: RCV_IRV
+    ballots: |-
+      50:A>B>C>D>E
+      51:B>A>C>D>E
+      100:C>D>B>E>A
+      53:D>E>C>B>A
+      49:E>D>C>B>A
+
+# file: Whoops_04_ossipoff_centrist_irv.yaml
