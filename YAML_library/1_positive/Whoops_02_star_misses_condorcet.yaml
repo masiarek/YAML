@@ -1,0 +1,15 @@
+# Test-library copy of 01_Single_winner/paradoxes_and_whoops/Whoops_02_star_misses_condorcet.yaml (flattened for the positive harness).
+# STAR=Ada but Condorcet winner=Cleo (STAR's whoops).
+voting_method: STAR
+num_winners: 1
+options: {show_condorcet: true, show_irv: true}
+ballots: |-
+  Ada, Bruno, Cleo
+  40 × 5, 1, 2
+  35 × 1, 5, 2
+  25 × 3, 3, 5
+lot_numbers: [Ada, Bruno, Cleo]
+expected_winners:
+  - Ada
+
+# file: Whoops_02_star_misses_condorcet.yaml

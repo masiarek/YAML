@@ -1,0 +1,105 @@
+======================================================================
+SOURCE FILE:     Whoops_02_star_misses_condorcet.yaml
+SOURCE MODIFIED: 2026-06-29 03:04:47
+TABULATED FILE:  Whoops_02_star_misses_condorcet_tabulated.txt
+TABULATED AT:    2026-06-29 03:04:48
+======================================================================
+
+election:
+  election_title: Whoops 02 — STAR misses the Condorcet winner (STAR's own whoops)
+  election_description: |-
+    STAR is not perfect, and this is its signature failure. Cleo is the CONDORCET WINNER
+    (beats Ada 60-40 and Bruno 65-35 head-to-head) but is a low-scored compromise: the two
+    wings score Cleo only a 2, so Cleo finishes THIRD on score and never reaches the runoff.
+    STAR elects ADA. Sincere ballots, no strategy. This is the score-method cousin of IRV's
+    center squeeze: the broadly-acceptable middle is excluded before the final comparison.
+    Rare (STAR is ~98% Condorcet-efficient in spatial models) but structural. Level 301.
+    Cross-ref: STAR_three_winner_notions. Lesson: Whoops_02_star_misses_condorcet.md
+  options:
+    show_description: false
+    show_matrix: true
+    matrix_finalists_only: true
+    show_condorcet: true
+    show_score_counts: false
+    show_irv: true
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: true
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "STAR elects Ada; Cleo is the Condorcet winner"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      Ada, Bruno, Cleo
+      40 × 5, 1, 2      # Ada > Cleo > Bruno
+      35 × 1, 5, 2      # Bruno > Cleo > Ada
+      25 × 3, 3, 5      # Cleo > (Ada = Bruno)
+    lot_numbers: [Ada, Bruno, Cleo]
+    expected_results:
+      winners:
+      - Ada
+
+# file: Whoops_02_star_misses_condorcet.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Whoops 02 — STAR misses the Condorcet winner (STAR's own whoops) ===
+  STAR elects Ada; Cleo is the Condorcet winner
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+                 |    * Ada     |  * Bruno    |     Cleo    |
+-------------------------------------------------------------
+         * Ada > |     ---      |40 - 25 - 35 |40 -  0 - 60 |
+       * Bruno > | 35 - 25 - 40 |    ---      |35 -  0 - 65 |
+          Cleo > | 60 -  0 - 40 |65 -  0 - 35 |    ---      |
+
+[Condorcet Winner]
+  Condorcet Winner: Cleo — STAR elected Ada instead (Cleo was eliminated in the scoring round)
+
+[Divergence from STAR]
+  STAR      = Ada
+  Condorcet = Cleo   (differs from STAR)
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 100 ballots.
+Count × Ada,Bruno,Cleo
+   40 ×   5,    1,   2
+   35 ×   1,    5,   2
+   25 ×   3,    3,   5
+
+[Score Distribution] (number of ballots giving each score)
+        5   4   3   2   1   0  | Total   Avg
+Ada    40   0  25   0  35   0  |   310   3.1
+Bruno  35   0  25   0  40   0  |   290   2.9
+Cleo   25   0   0  75   0   0  |   275   2.8
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Ada           -- 310 -- First place
+   Bruno         -- 290 -- Second place
+   Cleo          -- 275
+ Ada and Bruno advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Ada           -- 40 -- First place
+   Bruno         -- 35
+   Equal Support -- 25
+ Ada wins.
+   Runoff math:
+     100  ballots cast
+   −  25  Equal Support (no preference between the two finalists)
+     ───
+      75  voters with a preference  (majority = 38)
+           Ada 40 (53%)  ·  Bruno 35 (47%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Ada

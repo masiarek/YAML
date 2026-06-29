@@ -1,0 +1,37 @@
+election:
+  election_title: Whoops 01 — same ballots, three methods, three winners (Tennessee)
+  election_description: |-
+    The classic Tennessee state-capital example. One set of ballots; Plurality picks
+    MEMPHIS, RCV-IRV picks KNOXVILLE, and Condorcet + STAR pick NASHVILLE (the central
+    compromise that beats everyone head-to-head). Nobody is being strategic — these are
+    sincere ballots. The whoops belongs to Plurality and IRV here. Scores are a simple
+    geographic-distance spatial model. Level 201. Fairness note in the lesson.
+    Lesson: Whoops_01_tennessee_three_winners.md
+  options:
+    show_description: false
+    show_matrix: true
+    matrix_finalists_only: true
+    show_condorcet: true
+    show_score_counts: false
+    show_irv: true
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: true
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "Tennessee capital — geographic spatial model"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      Memphis, Nashville, Chattanooga, Knoxville
+      42 × 5, 2, 1, 0      # Memphis voters (far west)
+      26 × 1, 5, 3, 2      # Nashville voters (central)
+      15 × 0, 3, 5, 4      # Chattanooga voters (southeast)
+      17 × 0, 3, 4, 5      # Knoxville voters (east)
+    lot_numbers: [Memphis, Nashville, Chattanooga, Knoxville]
+    expected_results:
+      winners:
+      - Nashville
+
+# file: Whoops_01_tennessee_three_winners.yaml
