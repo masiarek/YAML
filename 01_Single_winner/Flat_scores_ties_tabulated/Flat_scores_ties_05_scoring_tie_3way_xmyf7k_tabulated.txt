@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     Flat_scores_ties_05_scoring_tie_3way_xmyf7k.yaml
-SOURCE MODIFIED: 2026-06-29 01:54:08
+SOURCE MODIFIED: 2026-06-29 02:13:54
 TABULATED FILE:  Flat_scores_ties_05_scoring_tie_3way_xmyf7k_tabulated.txt
-TABULATED AT:    2026-06-29 01:54:08
+TABULATED AT:    2026-06-29 02:14:05
 ======================================================================
 
 election:
@@ -12,7 +12,7 @@ election:
     tied; the lot-number fallback picks A, B as finalists and A wins. BetterVoting
     (xmyf7k) instead picks C and A and declares C the winner, and exports NO
     tie-break explanation. Same ballots, different winner -> a real divergence.
-    Tracked: BV555 #1379 (wrong finalists + missing explanation), #1371 (JSON
+    Tracked: BV555 #1379 (wrong finalists + missing explanation), #1371 closed (JSON
     sequence), #1063 (lot-number tie-break). Level 201/301. WORK IN PROGRESS until
     BV is fixed. Lesson: Flat_scores_ties_05_scoring_tie_3way_xmyf7k.md
     BV: https://bettervoting.com/xmyf7k/results

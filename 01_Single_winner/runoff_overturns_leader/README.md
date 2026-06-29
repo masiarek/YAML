@@ -13,6 +13,12 @@ why it's a *good* thing, and the devil's-advocate questions with answers — is
 **two-view lesson** (BetterVoting screenshots beside the LH report) on the *how much vs
 how many* arc. Read them in order:
 
+> **When to use two views (house principle).** Show BetterVoting beside the LH report only
+> where the two **diverge** (the discrepancy is the lesson, e.g. `Runoff_07`) or where
+> reading **BV's own UI** is the point (this set — the screenshots teach how a STAR result
+> *looks*). When BV and LH simply agree and there's no UI to teach, LH-only is enough (see
+> the [vote-splitting set](../../split_voting/README.md)).
+
 | # | Lesson | Level | What it shows |
 |---|--------|:---:|---------------|
 | 01 | [confirms the leader](./Runoff_01_confirms_leader_r2pvc9.md) | 101 | control — leader leads **and** wins (baseline) |

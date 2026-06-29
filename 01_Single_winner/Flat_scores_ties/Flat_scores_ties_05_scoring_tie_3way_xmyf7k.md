@@ -13,7 +13,7 @@ work?" — and the reference answer is A.
 
 → the cascade: [STAR Tie-Breaking](../../00_start_here/concepts/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
 · why a published lot order matters: [#1063](https://github.com/Equal-Vote/bettervoting/issues/1063)
-· export of the tie-break sequence — **recently added** by BV: [#1371](https://github.com/Equal-Vote/bettervoting/issues/1371)
+· export of the tie-break sequence — **added by BV, now closed**: [#1371](https://github.com/Equal-Vote/bettervoting/issues/1371)
 · [reporting true ties](../../00_start_here/concepts/STAR_reporting/reporting_ties.md) · [`README`](./README.md).
 
 ---
@@ -42,8 +42,8 @@ Source: [`Flat_scores_ties_05_scoring_tie_3way_xmyf7k.yaml`](./Flat_scores_ties_
 Both engines see the same three-way tie. LH applies the published lot order (A, B, C, …),
 advances **A** and **B**, breaks the resulting runoff tie by lot again, and elects **A** —
 printing each step. The screenshot in #1379 showed BV advancing **C** and **A** and
-electing **C**. BV has **recently added the tie-break priority sequence to its JSON export**
-([#1371](https://github.com/Equal-Vote/bettervoting/issues/1371)), so the result is now
+electing **C**. BV has **added the tie-break priority sequence to its JSON export**
+([#1371](https://github.com/Equal-Vote/bettervoting/issues/1371), now **closed**), so the result is now
 **reproducible** — a second engine can import BV's exported order and replay it (the LH
 engine already accepts an imported lot order for exactly this). What's still open is the
 substance of #1379: BV using a *different* order than the reference and not showing the

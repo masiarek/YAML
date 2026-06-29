@@ -3,7 +3,7 @@ election:
   election_description: |-
     Ava, Ben, Cara, Dan tie at 10; ties persist through every score-based tiebreaker, the
     lot picks two finalists, and the runoff also ties -> lot again -> Ava. BV bugs: 'no
-    ballots cast' under multi-step ties (BV126 #1052); wrong finalists #1379; JSON #1371.
+    ballots cast' under multi-step ties (BV126 #1052); wrong finalists #1379; tie-break export #1371 (closed).
     Level 301. Lesson: Flat_scores_ties_06_scoring_tie_4way.md  (BV id pending).
   options:
     show_description: false

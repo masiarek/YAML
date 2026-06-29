@@ -3,7 +3,7 @@ election:
   election_description: |-
     Two ice-cream flavors, both scored 5 by everyone: both advance, the runoff is 0-0
     Equal Support, and the cascade (highest score -> most 5s -> lot) picks Almond. BV bugs:
-    NaN/equal-ties #1035; lot rule #1063; JSON sequence #1371. Level 101.
+    NaN/equal-ties #1035; lot rule #1063; tie-break export #1371 (closed). Level 101.
     Lesson: Flat_scores_ties_02_runoff_tie_2cand.md  (BV id pending).
   options:
     show_description: false

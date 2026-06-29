@@ -5,9 +5,17 @@ ties with a deterministic cascade; BetterVoting (BV) currently mishandles or
 under-reports several of these cases. Each lesson is a **two-view** case — BV's display
 beside the LH engine's text report — built to expose exactly one tie behavior.
 
-These cases use bare **A, B, C, …** on purpose: tie-breaking is an abstract, audit-style
-topic, the upstream bug reports use the same letters, and the letters *are* the
-lot-number priority order (A is highest priority), so the cascade is easy to follow.
+Each scenario has its own friendly themed cast (fruits, flavors, capitals, …) in
+**lot-priority order**, so the first-named (A-initial) candidate is the one the lot
+favors and the cascade stays easy to follow. **Case 05 keeps bare `A–E`** — it matches the
+exact ballots in #1379 and the already-built BV election `xmyf7k`.
+
+> **When to use two views (house principle).** Show BetterVoting *beside* the LH report
+> only where the two **diverge** (the discrepancy is the lesson) or where reading **BV's
+> own UI** is the point. When they *agree*, LH-only is enough — don't paste screenshots
+> that just duplicate the LH numbers. This tie/abstention set is two-view *because* BV
+> mishandles these cases; the [vote-splitting set](../../split_voting/README.md) is
+> LH-only *because* BV and LH agree there.
 
 > **Workflow / status.** The LH side is complete and verified. The BV side is being
 > reproduced: for each case you build the BV election, drop the export + screenshots, and
@@ -95,6 +103,36 @@ fine *until* they produce an exact tie.
 
 Design docs: [tie-breaking lot numbers / scenarios](https://docs.google.com/document/d/15NvrJoZ0f_Zhr3vh5uE2LVw-D8EZhBI2PFnTowYgoZM/edit?tab=t.0)
 · [tie scenarios (2)](https://docs.google.com/document/d/1KqWriu7rTduQf1esebH5iMvcgueCdkLvBB02NS9MZ5Y/edit?tab=t.0).
+
+## 💡 Proposal (idea — not yet adopted): color-coded coalition casts
+
+> **Status: discussion only.** This is a proposed convention for tie-breaking /
+> coalition examples, recorded here so it isn't lost. It is **not** a house rule yet —
+> don't apply it to existing cases until it's decided. (Today's casts follow the standard
+> rule: a fresh, friendly, distinct-initial set per scenario.)
+
+**The idea.** For examples that turn on *coalitions* or *vote-splitting*, encode the
+coalition structure into the candidate names/colors so the structure is visible at a
+glance:
+
+- **Hue = coalition / faction** — greens together, reds together.
+- **Shade = candidate within the coalition** — *dark green* vs *light green* are two
+  center candidates competing for the **same** voters.
+- **Vote-splitting then looks like what it is:** one big coalition's support sliced into
+  two thinner same-hue bars under Plurality (a spoiler), versus holding together under
+  STAR's runoff. Same colors, opposite outcome.
+
+**Why it could help tie-breaking examples specifically.** A tie is often *because* two
+near-identical candidates draw equal support; same-hue/different-shade names make "these
+two are basically the same coalition" obvious, which is exactly the intuition behind why
+they tied and how the lot order separates them. Pairs nicely with the engine's existing
+`blocs:` vote-splitting check (see CLAUDE.md → Engines).
+
+**Open questions for the vote:** (1) does color/shade naming fight the "distinct initials,
+phonetically distinct" rule? (2) accessibility — names must still work in plain text and
+for color-blind readers (so the *word* "green-dark" carries it, not the color alone);
+(3) scope — coalition/vote-splitting demos only, or any multi-candidate tie? Decide, then
+promote to CLAUDE.md / AGENTS.md if adopted.
 
 ## Run them yourself
 

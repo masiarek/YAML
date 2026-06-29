@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     Flat_scores_ties_02_runoff_tie_2cand.yaml
-SOURCE MODIFIED: 2026-06-29 02:06:01
+SOURCE MODIFIED: 2026-06-29 02:13:54
 TABULATED FILE:  Flat_scores_ties_02_runoff_tie_2cand_tabulated.txt
-TABULATED AT:    2026-06-29 02:06:01
+TABULATED AT:    2026-06-29 02:14:05
 ======================================================================
 
 election:
@@ -10,7 +10,7 @@ election:
   election_description: |-
     Two ice-cream flavors, both scored 5 by everyone: both advance, the runoff is 0-0
     Equal Support, and the cascade (highest score -> most 5s -> lot) picks Almond. BV bugs:
-    NaN/equal-ties #1035; lot rule #1063; JSON sequence #1371. Level 101.
+    NaN/equal-ties #1035; lot rule #1063; tie-break export #1371 (closed). Level 101.
     Lesson: Flat_scores_ties_02_runoff_tie_2cand.md  (BV id pending).
   options:
     show_description: false

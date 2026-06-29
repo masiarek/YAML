@@ -7,6 +7,14 @@ winner** because a majority bloc splits its vote across similar candidates — a
 Each file declares a `blocs:` group, so the engine's `[Vote-splitting check]`
 confirms the spoiler automatically. Run any of them through the STAR engine:
 
+> **Why these are LH-only (house principle).** The teaching contrast here is **Plurality
+> vs STAR**, not **BV vs LH** — BetterVoting and the LH engine *agree* on these results, so
+> a BV screenshot would just duplicate the LH numbers. Two-view (BV beside LH) is reserved
+> for cases where the two **diverge** (the bug *is* the lesson — see
+> [`Flat_scores_ties`](../01_Single_winner/Flat_scores_ties/README.md),
+> [`Runoff_07`](../01_Single_winner/runoff_overturns_leader/Runoff_07_flat_ballot_bv_bug_tf73v9.md))
+> or where reading BV's own UI is the point.
+
 ```
 python STARVote_LH_tabulation_engine/starvote_larry_hastings.py \
        split_voting/01_political_left_split.yaml
