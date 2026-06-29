@@ -35,7 +35,7 @@ Equal Support**. Source: <https://bettervoting.com/xgkw3w/results>.
 
 **Result — Scoring Round + Automatic Runoff (with BetterVoting's popover):**
 
-![BetterVoting result for xgkw3w: Sage wins; Scoring Round bars (Rosa 21, Sage 19, Tulip 3); Automatic Runoff percentage view (Sage 40%, Rosa 20%, Equal Support 40% — out of all five voters); with BetterVoting's "why is the top scoring candidate different from the winner?" popover](xgkw3w_result_popover.png)
+![BetterVoting result for xgkw3w: Sage wins; Scoring Round bars (Rosa 21, Sage 19, Tulip 3); Automatic Runoff percentage view (Sage 40%, Rosa 20%, Equal Support 40% — out of all five voters); with BetterVoting's "why is the top scoring candidate different from the winner?" popover](img/xgkw3w_result_popover.png)
 
 **Why the denominator isn't five.** Two voters scored Rosa and Sage the **same** (3-3
 and 5-5): they like both finalists equally, so they have *no preference* in this
@@ -48,15 +48,15 @@ Tulip, they're cast votes, not abstentions — so BetterVoting and LH agree.)
 
 **The same runoff, other views (raw votes, and pie):**
 
-![Automatic Runoff bar view (raw votes): Sage 2, Rosa 1, Equal Support 2](xgkw3w_runoff_counts.png)
+![Automatic Runoff bar view (raw votes): Sage 2, Rosa 1, Equal Support 2](img/xgkw3w_runoff_counts.png)
 
-![Automatic Runoff pie, % between finalists: Sage 67% vs Rosa 33%; footnote "40.0% expressed no preference between the two finalists"](xgkw3w_runoff_pie_pct.png)
+![Automatic Runoff pie, % between finalists: Sage 67% vs Rosa 33%; footnote "40.0% expressed no preference between the two finalists"](img/xgkw3w_runoff_pie_pct.png)
 
-![Automatic Runoff pie, raw votes: Sage 2 vs Rosa 1; 40% expressed no preference](xgkw3w_runoff_pie_counts.png)
+![Automatic Runoff pie, raw votes: Sage 2 vs Rosa 1; 40% expressed no preference](img/xgkw3w_runoff_pie_counts.png)
 
 **Race Details — Scores Table + Runoff Table:**
 
-![Race Details: Scores Table (Rosa 21, Sage 19, Tulip 3) and Runoff Table with both denominators — Sage 2 / 40% Runoff Votes / 67% Between Finalists, Rosa 1 / 20% / 33%, Equal Support 2 / 40%, Total 5](xgkw3w_race_details.png)
+![Race Details: Scores Table (Rosa 21, Sage 19, Tulip 3) and Runoff Table with both denominators — Sage 2 / 40% Runoff Votes / 67% Between Finalists, Rosa 1 / 20% / 33%, Equal Support 2 / 40%, Total 5](img/xgkw3w_race_details.png)
 
 Watch the Runoff Table here: **% Between Finalists** is out of 3 (67% / 33%), but **%
 Runoff Votes** is out of all 5 — the two denominators side by side. ([Runoff

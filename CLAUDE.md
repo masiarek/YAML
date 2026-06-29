@@ -179,12 +179,13 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
     **`_tabulated`** report, or just the specific section being discussed.
 
   Either way, keep a link to the full `_tabulated` mirror too.
-- **BV screenshots: prefix the filename with the BetterVoting election ID** —
-  `<bv_id>_<what>.png` (e.g. `r2pvc9_result_bars.png`, `r2pvc9_runoff_pct.png`,
-  `r2pvc9_runoff_pie.png`, `r2pvc9_race_details.png`). The id prefix keeps images
-  traceable to their election and prevents collisions across scenarios. (PyCharm
-  pastes generic `img_N.png`; rename to this convention when incorporating the case,
-  and give each `![alt](…)` a descriptive caption.)
+- **BV screenshots live in the case folder's `img/` subfolder, prefixed with the
+  BetterVoting election ID** — `img/<bv_id>_<what>.png` (e.g.
+  `img/r2pvc9_result_bars.png`, `img/r2pvc9_runoff_pct.png`, `img/r2pvc9_runoff_pie.png`,
+  `img/r2pvc9_race_details.png`). The id prefix keeps images traceable and collision-free;
+  the `img/` subfolder keeps the lesson folder uncluttered. (PyCharm pastes generic
+  `img_N.png` into the folder root; **move into `img/` and rename** to this convention
+  when incorporating the case, and give each `![alt](…)` a descriptive caption.)
 - **BV-backed teaching cases (e.g. the Runoff Reversal set) → `Runoff_NN_<descriptor>_<bvid>`.**
   Zero-padded sequence (`Runoff_01`, `Runoff_02`, …) for sort order + the teaching
   progression, a short descriptor, and the BetterVoting election id as the final suffix

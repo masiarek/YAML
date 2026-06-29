@@ -34,17 +34,17 @@ Source: <https://bettervoting.com/r2pvc9/results>.
 
 **Result — Scoring Round + Automatic Runoff (raw votes):**
 
-![Aspen wins: Scoring Round bars (Aspen 12, Birch 10, Cedar 1); Automatic Runoff bars (Aspen 2, Birch 1, Equal Support 0) with the majority-threshold line, which Aspen clears](r2pvc9_result_bars.png)
+![Aspen wins: Scoring Round bars (Aspen 12, Birch 10, Cedar 1); Automatic Runoff bars (Aspen 2, Birch 1, Equal Support 0) with the majority-threshold line, which Aspen clears](img/r2pvc9_result_bars.png)
 
 **The same runoff, two other views (percentage bars, and pie):**
 
-![Automatic Runoff as percentage bars: Aspen 67% vs Birch 33%](r2pvc9_runoff_pct.png)
+![Automatic Runoff as percentage bars: Aspen 67% vs Birch 33%](img/r2pvc9_runoff_pct.png)
 
-![Automatic Runoff pie view: Aspen 67% vs Birch 33%; footnote "0.0% of voters expressed no preference between the two finalists"](r2pvc9_runoff_pie.png)
+![Automatic Runoff pie view: Aspen 67% vs Birch 33%; footnote "0.0% of voters expressed no preference between the two finalists"](img/r2pvc9_runoff_pie.png)
 
 **Race Details — Scores Table + Runoff Table:**
 
-![Race Details: Scores Table (Aspen 12, Birch 10, Cedar 1) and Runoff Table (Aspen 2 / 67% / 67%, Birch 1 / 33% / 33%, Equal Support 0, Total 3 / 100% / 100%)](r2pvc9_race_details.png)
+![Race Details: Scores Table (Aspen 12, Birch 10, Cedar 1) and Runoff Table (Aspen 2 / 67% / 67%, Birch 1 / 33% / 33%, Equal Support 0, Total 3 / 100% / 100%)](img/r2pvc9_race_details.png)
 ## View 2 — the LH engine
 
 Same ballots, the full text report (the saved

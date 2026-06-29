@@ -2,7 +2,7 @@
 SOURCE FILE:     Runoff_07_flat_ballot_bv_bug_tf73v9.yaml
 SOURCE MODIFIED: 2026-06-29 00:06:03
 TABULATED FILE:  Runoff_07_flat_ballot_bv_bug_tf73v9_tabulated.txt
-TABULATED AT:    2026-06-29 00:06:16
+TABULATED AT:    2026-06-29 00:20:08
 ======================================================================
 
 election:
@@ -72,7 +72,7 @@ Legend: For - Equal Support - Against
 
 Majority Preference Enforcement Principle:
  - Score Round Winner(s) = (Alex)
-  - Runoff Round Winner = (Blair)
+ - Runoff Round Winner   = (Blair)
   Candidate Alex earned the highest total score,
   but Candidate Blair won the automatic runoff by being the head-to-head majority favorite.
 

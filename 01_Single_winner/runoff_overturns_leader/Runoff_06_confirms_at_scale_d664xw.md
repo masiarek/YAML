@@ -36,7 +36,7 @@ Source: <https://bettervoting.com/d664xw/results>.
 
 **Result — Scoring Round + Automatic Runoff:**
 
-![BetterVoting result for d664xw: Wren wins; Scoring Round bars (Wren 21, Yarrow 13, Zinnia 6); Automatic Runoff Wren 80% vs Yarrow 20% — the leader confirmed](d664xw_result_bars.png)
+![BetterVoting result for d664xw: Wren wins; Scoring Round bars (Wren 21, Yarrow 13, Zinnia 6); Automatic Runoff Wren 80% vs Yarrow 20% — the leader confirmed](img/d664xw_result_bars.png)
 
 **Why there's no reversal.** Wren has the most stars (21) *and* is the head-to-head
 favorite: four of the five voters score Wren above Yarrow. So *how much* and *how many*
@@ -46,11 +46,11 @@ point at **different** candidates; here they don't.
 
 **The same runoff, other views (raw votes, and pie):**
 
-![Automatic Runoff bar view (raw votes): Wren 4 vs Yarrow 1](d664xw_runoff_counts.png)
+![Automatic Runoff bar view (raw votes): Wren 4 vs Yarrow 1](img/d664xw_runoff_counts.png)
 
-![Automatic Runoff pie (percentages): Wren 80% vs Yarrow 20%](d664xw_runoff_pie.png)
+![Automatic Runoff pie (percentages): Wren 80% vs Yarrow 20%](img/d664xw_runoff_pie.png)
 
-![Automatic Runoff pie (raw votes): Wren 4 vs Yarrow 1](d664xw_runoff_pie_counts.png)
+![Automatic Runoff pie (raw votes): Wren 4 vs Yarrow 1](img/d664xw_runoff_pie_counts.png)
 
 **Race Details — Scores Table + Runoff Table:**
 

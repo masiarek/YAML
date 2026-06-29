@@ -48,7 +48,7 @@ Legend: For - Equal Support - Against
 
 Majority Preference Enforcement Principle:
  - Score Round Winner(s) = (C)
-  - Runoff Round Winner = (A)
+ - Runoff Round Winner   = (A)
   Candidate C earned the highest total score,
   but Candidate A won the automatic runoff by being the head-to-head majority favorite.
 

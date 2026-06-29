@@ -51,6 +51,15 @@ is unaffected here, but the counts and percentages no longer match a hand count 
 four ballots. (Confirmed in the export: `nAbstentions: 1, nTallyVotes: 3`.)
 
 ## View 1 — BetterVoting
+![img.png](img.png)
+
+![img_1.png](img_1.png)
+
+![img_2.png](img_2.png)
+
+![img_3.png](img_3.png)
+
+![img_4.png](img_4.png)
 
 Alex leads the Scoring Round but **loses** the runoff to Blair — and BetterVoting marks
 the `3,3,3` as an abstention. Source: <https://bettervoting.com/tf73v9/results>.

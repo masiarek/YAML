@@ -2,7 +2,7 @@
 SOURCE FILE:     02_c5_b5_leader-overturned.yaml
 SOURCE MODIFIED: 2026-06-26 22:42:52
 TABULATED FILE:  02_c5_b5_leader-overturned_tabulated.txt
-TABULATED AT:    2026-06-28 12:09:19
+TABULATED AT:    2026-06-29 00:20:08
 ======================================================================
 
 election_title: Five candidates — the score leader is overturned in the runoff
@@ -68,7 +68,7 @@ Legend: For - Equal Support - Against
 
 Majority Preference Enforcement Principle:
  - Score Round Winner(s) = (Austin)
-  - Runoff Round Winner = (Boston)
+ - Runoff Round Winner   = (Boston)
   Candidate Austin earned the highest total score,
   but Candidate Boston won the automatic runoff by being the head-to-head majority favorite.
 

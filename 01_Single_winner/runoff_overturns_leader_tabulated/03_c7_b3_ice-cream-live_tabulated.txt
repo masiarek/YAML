@@ -2,7 +2,7 @@
 SOURCE FILE:     03_c7_b3_ice-cream-live.yaml
 SOURCE MODIFIED: 2026-06-26 22:49:12
 TABULATED FILE:  03_c7_b3_ice-cream-live_tabulated.txt
-TABULATED AT:    2026-06-28 12:09:20
+TABULATED AT:    2026-06-29 00:20:08
 ======================================================================
 
 election_title: Ice Cream — Flavor of the Year (the real recorded race)
@@ -74,7 +74,7 @@ Legend: For - Equal Support - Against
 
 Majority Preference Enforcement Principle:
  - Score Round Winner(s) = (ChocoDrk)
-  - Runoff Round Winner = (ChocoAlm)
+ - Runoff Round Winner   = (ChocoAlm)
   Candidate ChocoDrk earned the highest total score,
   but Candidate ChocoAlm won the automatic runoff by being the head-to-head majority favorite.
 

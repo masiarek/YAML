@@ -2,7 +2,7 @@
 SOURCE FILE:     Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml
 SOURCE MODIFIED: 2026-06-28 22:58:15
 TABULATED FILE:  Runoff_03_enthusiasts_vs_majority_rkgtpk_tabulated.txt
-TABULATED AT:    2026-06-28 22:58:24
+TABULATED AT:    2026-06-29 00:20:08
 ======================================================================
 
 election:
@@ -73,7 +73,7 @@ Legend: For - Equal Support - Against
 
 Majority Preference Enforcement Principle:
  - Score Round Winner(s) = (Dakota)
-  - Runoff Round Winner = (Eden)
+ - Runoff Round Winner   = (Eden)
   Candidate Dakota earned the highest total score,
   but Candidate Eden won the automatic runoff by being the head-to-head majority favorite.
 

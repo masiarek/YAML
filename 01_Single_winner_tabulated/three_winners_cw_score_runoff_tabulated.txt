@@ -2,7 +2,7 @@
 SOURCE FILE:     three_winners_cw_score_runoff.yaml
 SOURCE MODIFIED: 2026-06-27 00:07:51
 TABULATED FILE:  three_winners_cw_score_runoff_tabulated.txt
-TABULATED AT:    2026-06-28 12:09:23
+TABULATED AT:    2026-06-29 00:20:09
 ======================================================================
 
 election_title: Three notions of "winner" disagree — Condorcet, Score, and Runoff
@@ -90,7 +90,7 @@ Legend: For - Equal Support - Against
 
 Majority Preference Enforcement Principle:
  - Score Round Winner(s) = (Carl)
-  - Runoff Round Winner = (Bob)
+ - Runoff Round Winner   = (Bob)
   Candidate Carl earned the highest total score,
   but Candidate Bob won the automatic runoff by being the head-to-head majority favorite.
 

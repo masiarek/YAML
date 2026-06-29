@@ -1417,7 +1417,7 @@ def print_extended_analysis(ballots, winners):
         print(
             "\nMajority Preference Enforcement Principle:\n"
             f" - Score Round Winner(s) = ({score_winners_str})\n"
-            f"  - Runoff Round Winner = ({runoff_winner_name})"
+            f" - Runoff Round Winner   = ({runoff_winner_name})"
         )
         print(
             f"  Candidate {score_winners_str} earned the highest total score,\n"

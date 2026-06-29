@@ -30,7 +30,7 @@ Source: <https://bettervoting.com/bfjqmg/results>.
 
 **Result — Scoring Round + Automatic Runoff (with BetterVoting's popover):**
 
-![BetterVoting result for bfjqmg: Olive wins; Scoring Round bars (Maple 39, Olive 33, Pine 6); Automatic Runoff Olive 67% vs Maple 33%; with BetterVoting's "why is the top scoring candidate different from the winner?" popover](bfjqmg_result_popover.png)
+![BetterVoting result for bfjqmg: Olive wins; Scoring Round bars (Maple 39, Olive 33, Pine 6); Automatic Runoff Olive 67% vs Maple 33%; with BetterVoting's "why is the top scoring candidate different from the winner?" popover](img/bfjqmg_result_popover.png)
 
 **Why it scales.** With three voters the reversal was a 2–1 nudge; with nine it's a
 **6–3 landslide** — the same *how much vs how many* split, just louder. The three Maple
@@ -40,15 +40,15 @@ rescue the score leader — it makes the majority's verdict clearer.
 
 **The same runoff, other views (percentage bars, and pie):**
 
-![Automatic Runoff as percentage bars: Olive 67% vs Maple 33%](bfjqmg_runoff_pct.png)
+![Automatic Runoff as percentage bars: Olive 67% vs Maple 33%](img/bfjqmg_runoff_pct.png)
 
-![Automatic Runoff pie (percentages): Olive 67% vs Maple 33%; 0% expressed no preference](bfjqmg_runoff_pie.png)
+![Automatic Runoff pie (percentages): Olive 67% vs Maple 33%; 0% expressed no preference](img/bfjqmg_runoff_pie.png)
 
-![Automatic Runoff pie (raw votes): Olive 6 vs Maple 3](bfjqmg_runoff_pie_counts.png)
+![Automatic Runoff pie (raw votes): Olive 6 vs Maple 3](img/bfjqmg_runoff_pie_counts.png)
 
 **Race Details — Scores Table + Runoff Table:**
 
-![Race Details: Scores Table (Maple 39, Olive 33, Pine 6) and Runoff Table (Olive 6 / 67% / 67%, Maple 3 / 33% / 33%, Equal Support 0, Total 9)](bfjqmg_race_details.png)
+![Race Details: Scores Table (Maple 39, Olive 33, Pine 6) and Runoff Table (Olive 6 / 67% / 67%, Maple 3 / 33% / 33%, Equal Support 0, Total 9)](img/bfjqmg_race_details.png)
 
 ## View 2 — the LH engine
 

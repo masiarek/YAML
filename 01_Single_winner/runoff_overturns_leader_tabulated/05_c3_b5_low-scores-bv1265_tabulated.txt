@@ -2,7 +2,7 @@
 SOURCE FILE:     05_c3_b5_low-scores-bv1265.yaml
 SOURCE MODIFIED: 2026-06-27 00:50:29
 TABULATED FILE:  05_c3_b5_low-scores-bv1265_tabulated.txt
-TABULATED AT:    2026-06-28 12:09:19
+TABULATED AT:    2026-06-29 00:20:08
 ======================================================================
 
 election_title: Low scores, switched winner — the popover example (BetterVoting BV1265)
@@ -76,7 +76,7 @@ Legend: For - Equal Support - Against
 
 Majority Preference Enforcement Principle:
  - Score Round Winner(s) = (C)
-  - Runoff Round Winner = (A)
+ - Runoff Round Winner   = (A)
   Candidate C earned the highest total score,
   but Candidate A won the automatic runoff by being the head-to-head majority favorite.
 

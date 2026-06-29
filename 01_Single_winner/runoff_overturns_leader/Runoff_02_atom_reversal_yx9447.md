@@ -35,7 +35,7 @@ flags this with its "why is the top scorer different from the winner?" note.
 Source: <https://bettervoting.com/yx9447/results>.
 
 **Result — Scoring Round + Automatic Runoff:**
-![BetterVoting result for yx9447: Boston wins; Scoring Round bars (Boston 11, Austin 13, Cairo 2); Automatic Runoff Boston 67% vs Austin 33%; with BetterVoting's "why is the top scoring candidate different from the winner?" popover](yx9447_result_popover.png)
+![BetterVoting result for yx9447: Boston wins; Scoring Round bars (Boston 11, Austin 13, Cairo 2); Automatic Runoff Boston 67% vs Austin 33%; with BetterVoting's "why is the top scoring candidate different from the winner?" popover](img/yx9447_result_popover.png)
 
 **A clearer answer for this result.** BetterVoting's popover (in the screenshot above)
 is vague. Here's the concrete reason Austin lost, from these three ballots: everyone
@@ -48,10 +48,10 @@ pick Boston**, so Boston wins the head-to-head 2-1. Stars measure *how much* you
 each candidate; the runoff measures *who you actually prefer.*
 
 **Automatic Runoff — raw votes:**
-![Automatic Runoff bar view (raw votes): Boston 2 vs Austin 1, with the majority-threshold line Boston clears](yx9447_runoff_counts.png)
+![Automatic Runoff bar view (raw votes): Boston 2 vs Austin 1, with the majority-threshold line Boston clears](img/yx9447_runoff_counts.png)
 
 **Race Details — Scores Table + Runoff Table:**
-![Race Details: Scores Table (Boston 11, Austin 13, Cairo 2) and Runoff Table (Boston 2 / 67% / 67%, Austin 1 / 33% / 33%, Equal Support 0, Total 3)](yx9447_race_details.png)
+![Race Details: Scores Table (Boston 11, Austin 13, Cairo 2) and Runoff Table (Boston 2 / 67% / 67%, Austin 1 / 33% / 33%, Equal Support 0, Total 3)](img/yx9447_race_details.png)
 
 
 ## View 2 — the LH engine

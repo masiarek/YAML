@@ -2,7 +2,7 @@
 SOURCE FILE:     06b_c9_runoff-overturns-leader.yaml
 SOURCE MODIFIED: 2026-06-24 11:58:37
 TABULATED FILE:  06b_c9_runoff-overturns-leader_tabulated.txt
-TABULATED AT:    2026-06-28 12:09:21
+TABULATED AT:    2026-06-29 00:20:08
 ======================================================================
 
 election_title: Large field (9 candidates) — the runoff OVERTURNS the score leader
@@ -86,7 +86,7 @@ Legend: For - Equal Support - Against
 
 Majority Preference Enforcement Principle:
  - Score Round Winner(s) = (Andre)
-  - Runoff Round Winner = (Carmen)
+ - Runoff Round Winner   = (Carmen)
   Candidate Andre earned the highest total score,
   but Candidate Carmen won the automatic runoff by being the head-to-head majority favorite.
 

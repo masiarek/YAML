@@ -2,7 +2,7 @@
 SOURCE FILE:     Runoff_02_atom_reversal_yx9447.yaml
 SOURCE MODIFIED: 2026-06-28 20:05:01
 TABULATED FILE:  Runoff_02_atom_reversal_yx9447_tabulated.txt
-TABULATED AT:    2026-06-28 20:05:09
+TABULATED AT:    2026-06-29 00:20:09
 ======================================================================
 
 election:
@@ -68,7 +68,7 @@ Legend: For - Equal Support - Against
 
 Majority Preference Enforcement Principle:
  - Score Round Winner(s) = (Austin)
-  - Runoff Round Winner = (Boston)
+ - Runoff Round Winner   = (Boston)
   Candidate Austin earned the highest total score,
   but Candidate Boston won the automatic runoff by being the head-to-head majority favorite.
 

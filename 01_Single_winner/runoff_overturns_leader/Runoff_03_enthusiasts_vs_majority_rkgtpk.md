@@ -34,7 +34,7 @@ Dakota leads the Scoring Round (22) but **loses** the Automatic Runoff 2–3.
 Source: <https://bettervoting.com/rkgtpk/results>.
 **Result — Scoring Round + Automatic Runoff (with BetterVoting's popover):**
 
-![BetterVoting result for rkgtpk: Eden wins; Scoring Round bars (Dakota 22, Eden 15, Gale 2, Flynn 2, Hazel 1); Automatic Runoff Eden 3 vs Dakota 2; with BetterVoting's "why is the top scoring candidate different from the winner?" popover](rkgtpk_result_popover.png)
+![BetterVoting result for rkgtpk: Eden wins; Scoring Round bars (Dakota 22, Eden 15, Gale 2, Flynn 2, Hazel 1); Automatic Runoff Eden 3 vs Dakota 2; with BetterVoting's "why is the top scoring candidate different from the winner?" popover](img/rkgtpk_result_popover.png)
 
 **Why Dakota loses, from these ballots.** Two voters **love** Dakota (a 5 each), and
 that intensity is most of Dakota's 22 stars — but it's only **two** people. The other
@@ -45,15 +45,15 @@ can top the score chart, but it can't outvote the majority in the runoff.
 
 **The same runoff, other views (percentage bars, and pie):**
 
-![Automatic Runoff as percentage bars: Eden 60% vs Dakota 40%](rkgtpk_runoff_pct.png)
+![Automatic Runoff as percentage bars: Eden 60% vs Dakota 40%](img/rkgtpk_runoff_pct.png)
 
-![Automatic Runoff pie (percentages): Eden 60% vs Dakota 40%; 0% expressed no preference](rkgtpk_runoff_pie.png)
+![Automatic Runoff pie (percentages): Eden 60% vs Dakota 40%; 0% expressed no preference](img/rkgtpk_runoff_pie.png)
 
-![Automatic Runoff pie (raw votes): Eden 3 vs Dakota 2](rkgtpk_runoff_pie_counts.png)
+![Automatic Runoff pie (raw votes): Eden 3 vs Dakota 2](img/rkgtpk_runoff_pie_counts.png)
 
 **Race Details — Scores Table + Runoff Table:**
 
-![Race Details: Scores Table (Dakota 22, Eden 15, Gale 2, Flynn 2, Hazel 1) and Runoff Table (Eden 3 / 60% / 60%, Dakota 2 / 40% / 40%, Equal Support 0, Total 5)](rkgtpk_race_details.png)
+![Race Details: Scores Table (Dakota 22, Eden 15, Gale 2, Flynn 2, Hazel 1) and Runoff Table (Eden 3 / 60% / 60%, Dakota 2 / 40% / 40%, Equal Support 0, Total 5)](img/rkgtpk_race_details.png)
 
 ## View 2 — the LH engine
 
