@@ -69,6 +69,26 @@ def test_echo_matrix_is_opt_in(tmp_path):
     assert "Pairwise (Round-Robin) Matrix" in r2.stdout
 
 
+def test_collapse_and_separator_options(tmp_path):
+    """collapse_ballots and count_separator are honored by the RR echo."""
+    base = ("voting_method: RankedRobin\nnum_winners: 1\nballots: |-\n"
+            "  3:Ada>Ben>Cara\n  2:Ben>Cara>Ada\n  2:Cara>Ben>Ada\n")
+    # custom separator
+    fs = tmp_path / "sep.yaml"
+    fs.write_text(base + 'options:\n  count_separator: ":"\n')
+    rs = _run(fs)
+    assert rs.returncode == 0, rs.stderr
+    assert "3 : Ada > Ben > Cara" in rs.stdout
+    assert "×" not in rs.stdout
+    # collapse off → one row per voter (7 ballot rows, no count prefix)
+    fc = tmp_path / "nocollapse.yaml"
+    fc.write_text(base + "options:\n  collapse_ballots: false\n")
+    rc = _run(fc)
+    assert rc.returncode == 0, rc.stderr
+    assert rc.stdout.count("Ada > Ben > Cara") == 3
+    assert "3 ×" not in rc.stdout
+
+
 def test_ranked_robin_aliases_and_cycle(tmp_path):
     """rcv_rr alias works, and a Condorcet cycle is flagged (not hidden)."""
     f = tmp_path / "rps.yaml"

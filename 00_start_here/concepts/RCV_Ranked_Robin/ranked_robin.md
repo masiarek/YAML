@@ -94,6 +94,80 @@ computes this method on any example election, under its **academic name, Copelan
 > [`ranked_robin_report.py`](../../../pref_voting_tabulation_engine/ranked_robin_report.py)
 > (in the `pref_voting` engine) computes the same result a second way.
 
+### Options for an RCV-RR YAML file — and what shows where
+
+The Ranked Robin path follows the same **minimal echo / always-full `_tabulated`**
+discipline as STAR ([reading a STAR report](../tabulation_engines/LH_starvote/reading_a_star_report.md)).
+It honors **three** `options:` (the rest of the STAR option block is silently ignored —
+it doesn't error, it just does nothing for RR):
+
+| Option | Default | Effect on RCV-RR |
+|--------|:-------:|------------------|
+| `show_matrix` | `false` | When `true`, the **on-screen echo** also prints the full N×N pairwise matrix. The `_tabulated` mirror **always** includes it regardless. |
+| `collapse_ballots` | `true` | `true` → identical ballots shown as `N × ballot`; `false` → one row per voter. |
+| `count_separator` | `×` | The glyph between the count and the ballot (`×`, `:`, or `x`/`X`). |
+
+Everything else — `matrix_finalists_only`, `show_condorcet`, `show_score_counts`,
+`show_runoff_percent`, `brief`, `show_description` — is **STAR-specific** and has no
+effect here (RR has no finalists, no score round, and no automatic runoff).
+
+**What you'll see.** Take this 7-ballot, 3-candidate file:
+
+```yaml
+voting_method: RankedRobin
+num_winners: 1
+ballots: |-
+  3:Ada>Ben>Cara
+  2:Ben>Cara>Ada
+  2:Cara>Ben>Ada
+```
+
+The **on-screen echo** (compact — no `show_matrix`) shows the ballots, the head-to-head
+list, the win-loss record, and the winner:
+
+```text
+--- Ranked Robin (RCV-RR / Copeland) Method (single winner) ---
+ Tabulating 7 ballots (ranked ballots).
+
+Ballots:
+     3 × Ada > Ben > Cara
+     2 × Ben > Cara > Ada
+     2 × Cara > Ben > Ada
+
+Round-Robin — every pair, head-to-head (votes For – Against):
+   Ben beats Ada   4 – 3
+   Cara beats Ada   4 – 3
+   Ben beats Cara   5 – 2
+
+Win–loss record (most head-to-head wins wins; ties broken by total margin, then lot order):
+   Ben          2–0     margin +4   (beats: Ada, Cara)
+   Cara         1–1     margin -2   (beats: Ada)
+   Ada          0–2     margin -2
+
+Winner — Ranked Robin (RCV-RR): Ben
+   beats every opponent head-to-head — the Condorcet winner.
+```
+
+The **`_tabulated` mirror** is identical *plus* the full N×N pairwise matrix — the
+Ranked Robin tally itself — inserted before the win-loss record (each cell reads
+`For - Equal Support - Against`, row vs column; the middle column is `0` here because
+these are strict ranks with no equal support):
+
+```text
+--- Pairwise (Round-Robin) Matrix ---
+Head-to-head / pairwise comparison — the Ranked Robin tally
+Legend: For - Equal Support - Against   (row vs column)
+         |    Ada    |   Ben    |  Cara    |
+--------------------------------------------
+   Ada > |    ---    |3 - 0 - 4 |3 - 0 - 4 |
+   Ben > | 4 - 0 - 3 |   ---    |5 - 0 - 2 |
+  Cara > | 4 - 0 - 3 |2 - 0 - 5 |   ---    |
+```
+
+Add `options: { show_matrix: true }` to pull that matrix onto the screen too — which
+is what [`ranked_robin_consensus_center.yaml`](../../../01_Single_winner/ranked_robin_consensus_center.yaml)
+does, since the matrix is the point of that worked example.
+
 **Copeland = Ranked Robin = Consensus Voting = RCV-RR** — *the same core method wearing
 different brand names from different proponent groups:*
 

@@ -1078,17 +1078,33 @@ def run_ranked_robin(ballots_text, file_path=None, lot_numbers=None, options=Non
             out.append(row)
         return out
 
+    # --- Echo options (shared by STAR; the RR path honors these three) ---
+    _opts = options or {}
+    def _truthy(v, default=True):
+        if isinstance(v, str):
+            return v.strip().lower() not in {"false", "f", "no", "n", "0", "off"}
+        return default if v is None else bool(v)
+    _echo_full = _truthy(_opts.get("show_matrix"), default=False)  # full matrix on screen?
+    # collapse_ballots: default ON — show "N × ballot"; OFF — one row per voter.
+    _collapse = _truthy(_opts.get("collapse_ballots"))
+    # count_separator: the glyph between count and ballot (× : x X); default ×.
+    _sep = str(_opts.get("count_separator", "×")) or "×"
+
     def _build(full):
         L = ["--- Ranked Robin (RCV-RR / Copeland) Method (single winner) ---",
              f" Tabulating {n} ballots "
              f"({'ranked' if '>' in clean else 'score'} ballots).", ""]
         L.append("Ballots:")
-        cnt, seenr = _Counter(display_rows), []
-        for r in display_rows:
-            if r not in seenr:
-                seenr.append(r)
-        for r in seenr:
-            L.append(f"   {cnt[r]:>3} × {r}")
+        if _collapse:
+            cnt, seenr = _Counter(display_rows), []
+            for r in display_rows:
+                if r not in seenr:
+                    seenr.append(r)
+            for r in seenr:
+                L.append(f"   {cnt[r]:>3} {_sep} {r}")
+        else:
+            for r in display_rows:               # one row per voter
+                L.append(f"   {r}")
         L.append("")
         L.append("Round-Robin — every pair, head-to-head (votes For – Against):")
         L += pair_lines
@@ -1120,8 +1136,6 @@ def run_ranked_robin(ballots_text, file_path=None, lot_numbers=None, options=Non
     # On-screen echo is compact by default (house rule), but the file can opt
     # the echo into the full matrix with `options: { show_matrix: true }`. The
     # _tabulated mirror is ALWAYS full regardless.
-    _opts = options or {}
-    _echo_full = bool(_opts.get("show_matrix"))
     plain = _build(full=_echo_full)             # echo (compact unless show_matrix)
     hdr = "--- Ranked Robin (RCV-RR / Copeland) Method (single winner) ---"
     win = f"Winner — Ranked Robin (RCV-RR): {winner}"
