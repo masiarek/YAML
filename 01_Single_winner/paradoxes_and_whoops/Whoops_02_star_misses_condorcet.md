@@ -10,6 +10,7 @@ excluded *before* the decisive comparison.
 · STAR's limits: [AR hub](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md#what-the-runoff-buys-you--and-its-limits)
 · the ranked cousin: [center squeeze](../../00_start_here/concepts/RCV_IRV/RCV_IRV_center_squeeze.md)
 · fairness test: [`reading_these_fairly.md`](./reading_these_fairly.md).
+↔ BV QA tracker: **BV149** (STAR fails to elect the Condorcet winner).
 
 ---
 

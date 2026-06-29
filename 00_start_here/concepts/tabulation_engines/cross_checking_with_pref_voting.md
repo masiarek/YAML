@@ -63,6 +63,17 @@ The pytest **skips cleanly** if `pref_voting` isn't installed, so it never block
 suite. Declared as the `crosscheck` optional-dependency extra in the engine's
 `pyproject.toml` (`pip install -e .[crosscheck]`).
 
+## Other independent calculators (quick hand-checks)
+
+For a fast manual second opinion on a *ranked* example, Rob LeGrand's
+[**ranked-ballot voting calculator**](https://www.cs.angelo.edu/~rlegrand/rbvote/calc.html)
+computes the winners under many ranked methods (Condorcet variants, Borda, Hare/IRV,
+Coombs, Bucklin…). Handily, it takes the **same `count:A>B>C` ballot syntax** our RCV-IRV
+YAMLs use — so you can paste a file's ballots straight in. It also ships ready-made
+teaching inputs (the Tennessee example, a "Hare jumps to extremes" center squeeze, and a
+Hitler/Washington/Stalin case). Use it as a sanity check, not an automated guard — the
+`pref_voting` cross-check above is the gate.
+
 ## Mining `pref_voting` for new teaching scenarios (balance-aware)
 
 `pref_voting` ships profile **generators** (`generate_profiles`, spatial models) and axiom

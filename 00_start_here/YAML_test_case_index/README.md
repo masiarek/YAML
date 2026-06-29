@@ -4,12 +4,12 @@
 
 Election YAMLs live in many folders (the test harnesses glob specific ones, so they're indexed *in place*, not moved). Each file declares a `voting_method` and `num_winners`; this catalog groups them so you can browse by method. Excludes `_tabulated` mirrors, raw `_demo_dropbox` drops, generated copies, and deliberately-malformed negative fixtures.
 
-**108 election files** (102 single-winner, 6 multi-winner) across 7 method(s).
+**109 election files** (103 single-winner, 6 multi-winner) across 7 method(s).
 
 | Method | Files |
 |--------|------:|
 | STAR | 92 |
-| RCV-IRV (Hare) | 10 |
+| RCV-IRV (Hare) | 11 |
 | STV (proportional RCV) | 1 |
 | Bloc STAR | 1 |
 | STAR-PR (Sequential Selection) | 2 |
@@ -113,7 +113,7 @@ Election YAMLs live in many folders (the test harnesses glob specific ones, so t
 | [`05a_residual_split_bullet-voting.yaml`](../../split_voting/05a_residual_split_bullet-voting.yaml) | `split_voting/` | 1 | STAR's residual split — a coalition bullet-votes itself apart → _Cara_ |
 | [`05b_residual_split_expressive-fix.yaml`](../../split_voting/05b_residual_split_expressive-fix.yaml) | `split_voting/` | 1 | The cure — score your ally, and STAR's split disappears → _Ada_ |
 
-## RCV-IRV (Hare)  (10)
+## RCV-IRV (Hare)  (11)
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
@@ -121,6 +121,7 @@ Election YAMLs live in many folders (the test harnesses glob specific ones, so t
 | [`center_squeeze_irv.yaml`](../../01_Single_winner/center_squeeze_irv.yaml) | `01_Single_winner/` | 1 |  |
 | [`monotonicity_irv_after.yaml`](../../01_Single_winner/monotonicity_irv_after.yaml) | `01_Single_winner/` | 1 |  |
 | [`monotonicity_irv_before.yaml`](../../01_Single_winner/monotonicity_irv_before.yaml) | `01_Single_winner/` | 1 |  |
+| [`ranked_robin_consensus_center.yaml`](../../01_Single_winner/ranked_robin_consensus_center.yaml) | `01_Single_winner/` | 1 |  |
 | [`Whoops_04_ossipoff_centrist_irv.yaml`](../../01_Single_winner/paradoxes_and_whoops/Whoops_04_ossipoff_centrist_irv.yaml) | `01_Single_winner/paradoxes_and_whoops/` | 1 | Whoops 04 — IRV buries the centrist (Ossipoff 303-voter) |
 | [`Whoops_05_brams_many_pathologies_irv.yaml`](../../01_Single_winner/paradoxes_and_whoops/Whoops_05_brams_many_pathologies_irv.yaml) | `01_Single_winner/paradoxes_and_whoops/` | 1 | Whoops 05 — many IRV pathologies in one election (Brams) |
 | [`irv_combined.yaml`](../../01_Single_winner/summability_demo/irv_combined.yaml) | `01_Single_winner/summability_demo/` | 1 |  |

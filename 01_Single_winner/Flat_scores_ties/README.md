@@ -10,6 +10,11 @@ Each scenario has its own friendly themed cast (fruits, flavors, capitals, …) 
 favors and the cascade stays easy to follow. **Case 05 keeps bare `A–E`** — it matches the
 exact ballots in #1379 and the already-built BV election `xmyf7k`.
 
+↔ **BV QA tracker:** this set covers **BV100** (worst-case STAR tiebreakers), **BV126**
+(ties at every step — [8fvd2x](https://bettervoting.com/8fvd2x/), #1052), **BV195**
+(unrealistic edge case — [3xr648](https://bettervoting.com/3xr648/)) and **BV200** (equal
+ties & equal preferences — [tk476h](https://bettervoting.com/tk476h/), #1035).
+
 > **When to use two views (house principle).** Show BetterVoting *beside* the LH report
 > only where the two **diverge** (the discrepancy is the lesson) or where reading **BV's
 > own UI** is the point. When they *agree*, LH-only is enough — don't paste screenshots

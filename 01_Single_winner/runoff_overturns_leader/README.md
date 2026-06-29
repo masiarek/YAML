@@ -29,6 +29,9 @@ how many* arc. Read them in order:
 | 06 | [confirms at scale](./Runoff_06_confirms_at_scale_d664xw.md) | 101 | control bookend — leader confirmed 4–1 |
 | 07 ⚠️ | [flat ballot / BV bug **(WIP)**](./Runoff_07_flat_ballot_bv_bug_tf73v9.md) | 201/301 | the one case where the reports *disagree* — a flat ballot BV mis-files as an abstention ([#1407](https://github.com/Equal-Vote/bettervoting/issues/1407)) |
 
+↔ **BV QA tracker:** this set is the runnable home for **BV90** (scoring/runoff divergence)
+and **BV205** (top-scoring candidate ≠ winner) — the "Runoff Reversal" scenarios.
+
 Concept hub for all of it: [The Automatic Runoff Round](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md).
 
 **The name for it:** we call this a **Runoff Reversal** — the Scoring-Round leader

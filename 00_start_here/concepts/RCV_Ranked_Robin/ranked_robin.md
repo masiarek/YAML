@@ -35,6 +35,44 @@ The headline: the two things people *assume* "RCV" does — let you mark ties an
 
 Because it reads every ranking against every opponent, Ranked Robin elects the candidate **most voters prefer in head-to-head comparison** — the "consensus" / Condorcet winner — which is precisely the broadly-liked moderate that IRV can [center-squeeze](../RCV_IRV/RCV_IRV_center_squeeze.md) out. It's also **monotonic** and **summable** by adding precinct pairwise matrices, so it avoids two of IRV's biggest mechanical problems while keeping a familiar ranked ballot.
 
+## A worked example — the consensus center wins the round-robin
+
+Thirteen voters, four candidates on a left→right line (Ada, Ben, Cara, Dan). Run it:
+[`ranked_robin_consensus_center.yaml`](../../../01_Single_winner/ranked_robin_consensus_center.yaml)
+(or paste the `count:A>B>C` block into [LeGrand's calculator](https://www.cs.angelo.edu/~rlegrand/rbvote/calc.html)).
+
+```
+4 : Ada > Ben > Cara > Dan
+4 : Dan > Cara > Ben > Ada
+3 : Ben > Cara > Ada > Dan
+2 : Cara > Ben > Dan > Ada
+```
+
+**Step 1 — every head-to-head.** Compare each pair across all 13 ballots:
+
+| Matchup | Winner | | Matchup | Winner |
+|---|---|---|---|---|
+| Ben vs Ada | **Ben** 9–4 | | Cara vs Dan | **Cara** 9–4 |
+| Ben vs Cara | **Ben** 7–6 | | Ada vs Dan | **Ada** 7–6 |
+| Ben vs Dan | **Ben** 9–4 | | Cara vs Ada | **Cara** 9–4 |
+
+**Step 2 — the win–loss record (Copeland score).** Count each candidate's wins minus losses:
+
+| Candidate | Wins | Losses | Score |
+|---|:--:|:--:|:--:|
+| **Ben** | 3 | 0 | **+3** ← winner |
+| Cara | 2 | 1 | +1 |
+| Ada | 1 | 2 | −1 |
+| Dan | 0 | 3 | −3 |
+
+**Ben wins Ranked Robin** by beating everyone head-to-head (he's the Condorcet winner).
+The kicker: **Ada and Dan each had *more* first-choice votes (4 apiece) than Ben (3)** — under
+Plurality or a first-past-the-post lens, Ben looks like an also-ran. Ranked Robin reads the
+*whole* ballot, so the candidate the majority prefers in every matchup wins, not the one
+with the biggest first-choice pile. (Verified on the engine; the
+[`pref_voting` cross-check](../tabulation_engines/cross_checking_with_pref_voting.md)
+confirms Copeland = Ben, and IRV happens to agree here too.)
+
 ## For balance — its limits
 
 Ranked Robin isn't a cure-all. Like all ranked methods it captures **order only, not strength** — it can't tell a near-tie from a landslide ([scores_vs_ranks.md](../scores_vs_ranks.md)) — so it carries less information than a scored method like STAR. When there's a **Condorcet cycle** (A beats B, B beats C, C beats A, with no candidate beating all others), there is no Condorcet winner and the method falls back on a tiebreak rule (sum of margins), which reasonable people can debate. And no method escapes Gibbard–Satterthwaite. Its real-world **adoption is limited** so far compared with IRV.
@@ -49,7 +87,7 @@ different brand names from different proponent groups:*
 
 | Name | Who calls it that |
 |------|-------------------|
-| **Copeland's method** | academic social-choice literature (order candidates by pairwise **wins − losses**) |
+| **[Copeland's method](https://en.wikipedia.org/wiki/Copeland%27s_method)** | academic social-choice literature (order candidates by pairwise **wins − losses**) |
 | **Ranked Robin** | the **Equal Vote Coalition** |
 | **Consensus Voting / Consensus Choice** | **Better Choices for Democracy** |
 | **RCV-RR** | this repo's house compound (ranked ballot + Ranked-Robin count) |
@@ -95,3 +133,6 @@ for STAR and RCV-IRV. Details:
 
 - [Equal Vote Coalition — Ranked Robin](https://www.equal.vote/ranked_robin) *(pro-Ranked-Robin advocacy)*
 - [Better Choices for Democracy — Consensus Choice FAQs](https://www.betterchoices.vote/faqs) *(advocacy; the same Condorcet idea, "Top 4" + Consensus Choice branding)*
+- [Rob LeGrand — Ranked-ballot voting calculator](https://www.cs.angelo.edu/~rlegrand/rbvote/calc.html) *(paste `count:A>B>C` ballots; computes Condorcet methods, Borda, Hare/IRV, Coombs, Bucklin — a quick independent hand-check)*
+- [Copeland's method (Wikipedia)](https://en.wikipedia.org/wiki/Copeland%27s_method) *(the academic name for Ranked Robin's win-loss-record count)*
+- [Copeland's method (electowiki)](https://electowiki.org/wiki/Copeland%27s_method) *(the election-methods community wiki — more depth on the count and its tie-break variants)*

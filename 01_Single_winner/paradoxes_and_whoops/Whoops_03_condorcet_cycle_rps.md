@@ -8,6 +8,7 @@ without an extra cycle-breaking rule. This is *their* whoops.
 
 → fairness test: [`reading_these_fairly.md`](./reading_these_fairly.md)
 · [`GLOSSARY` (Condorcet cycle)](../../00_start_here/GLOSSARY.md) · the set: [`README`](./README.md).
+↔ BV QA tracker: **BV147 / BV188** (Condorcet cycle / paradox — BV: [w7y3wv](https://bettervoting.com/w7y3wv/results), [6mbvhg](https://bettervoting.com/6mbvhg/results)).
 
 ---
 
