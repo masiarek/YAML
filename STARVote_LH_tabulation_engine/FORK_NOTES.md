@@ -43,19 +43,31 @@ git diff --stat starvote-upstream-2.1.6 -- STARVote_LH_tabulation_engine/starvot
 
 ## Current divergence from upstream 2.1.6
 
-As of this note, the only engine change is in `starvote/__init__.py`
-(roughly +64 / −2 lines), adding two optional output toggles and one label fix:
+**The engine algorithm is essentially unchanged.** `git diff --stat` against the
+tag reports a large line count (≈ +725 / −299 even with `-w`), but that is almost
+entirely **line-reflow** (signatures and long calls re-wrapped): the two files are
+~97 % character-identical once whitespace is removed, `__version__` is still
+`2.1.6`, no functions were removed, and exactly **one** helper was added
+(`bool_converter`). The only *functional* edits are two optional output toggles:
 
 - **`print_averages`** option (default `False`) + CLI flag `-a` / `--print-averages`
   and config key `print averages = <bool>`. Suppresses the averages line unless asked.
 - **`print_maximum_score`** option (default `False`) + CLI flag `-M` / `--print-maximum-score`
   and config key `print maximum score = <bool>`. Suppresses the "Maximum score is …" line unless asked.
-- Relabeled the score bucket **`No Preference` → `Equal Support`** (aka Equal
-  Preference / No Preference — the aka lives in `GLOSSARY.md`).
+- `bool_converter` parses those two boolean config keys.
 - Both options are forwarded to method functions only when they differ from the
   default, so older/reference method implementations don't break.
 
-These changes make all 105 tests pass.
+> **Correction (do not repeat the old claim):** the **`No Preference` → `Equal
+> Support`** relabel, the Runoff (Preference) Matrix, `[Divergence from STAR]`, the
+> Majority Preference Enforcement summary, and `show_runoff_percent` are **NOT**
+> engine edits — they all live in our wrapper `starvote_larry_hastings.py`. The
+> vendored `starvote/` package still prints "No Preference" internally. Keeping the
+> engine pristine-but-for-the-two-toggles is deliberate: it makes re-pulling a
+> future upstream release trivial.
+
+To regenerate this list precisely at any time, run the `git diff` commands above and
+compare the `def`/`class` inventory of the two versions.
 
 ## How to pull a future upstream update (if ever wanted)
 
