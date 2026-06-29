@@ -138,6 +138,28 @@ highly **Condorcet-efficient**: it usually elects the head-to-head winner.
 → More source notes: **RCV-IRV center-squeeze & polarization** group in
 [`LINKS.md`](../../../interviews_conversations/LINKS.md).
 
+**Watch it happen (simulation).** endolith's *elsim* has animated 2-D spatial
+simulations of the worst-case **"core collapse"** center squeeze. As its write-up puts it:
+
+> Under IRV, vote-splitting causes the most-representative candidate to be eliminated
+> first, then the second-best eliminated second, and so on until only the worst two are
+> left in the final round and the second-worst wins… Under TVR [Total Vote Runoff], on the
+> other hand, all voter preferences are included, so the least-representative candidates
+> are eliminated first, transferring their ballots inwards such that support converges to
+> the consensus candidate in the middle of the electorate (who… is the Condorcet winner).
+
+**A 140-year-old warning.** This isn't new — E. J. Nanson described it in **1882**, calling
+IRV "Ware's method":
+
+> Then on the single vote method [plurality] R may win; on Ware's method A, B, C, D, … P,
+> may be excluded one after another on the successive scrutinies, and at the final scrutiny
+> the contest will be between Q and R, and Q, of course, wins… Thus the single vote method
+> may return the worst of all the candidates; and although **Ware's method cannot return
+> the worst, it may return the next worst.**
+> — Nanson, *Methods of Election* (1882)
+
+Animations + the full quote: [elsim — core-collapse center-squeeze](https://github.com/endolith/elsim/blob/collapse_2d/examples/README.md).
+
 Sources: [center squeeze (electionscience)](https://electionscience.org/library/the-center-squeeze-effect/),
 [Ogren 2023, Candidate Incentive Distributions (arXiv)](https://arxiv.org/abs/2306.07147),
 [Burlington 2009 (Wikipedia)](https://en.wikipedia.org/wiki/2009_Burlington_mayoral_election),

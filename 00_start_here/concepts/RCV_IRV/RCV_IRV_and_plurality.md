@@ -55,3 +55,4 @@ Methods that avoid round-by-round elimination pay their own price. **STAR and Sc
 
 - [In what sense is RCV-IRV the same as Plurality](https://docs.google.com/document/d/1bBops2LS5BtJ5KTtAowP9x22F5azpIGdoSutbnUeNrM/edit?tab=t.0) *(makes the stronger version of this argument)*
 - [RCV IRV cons — vote splitting / spoiler effect / series of choose-one elections](https://docs.google.com/document/d/1R9HQCRpFWs1ZKUNXM52bbyjVQGJPRu9Kd_a8l2T4xIo/edit?tab=t.0)
+- [elsim — animated "core collapse" simulation](https://github.com/endolith/elsim/blob/collapse_2d/examples/README.md) *(IRV vote-splitting eliminates the center candidate first; visualized vs Total Vote Runoff — see also [center squeeze](./RCV_IRV_center_squeeze.md))*
