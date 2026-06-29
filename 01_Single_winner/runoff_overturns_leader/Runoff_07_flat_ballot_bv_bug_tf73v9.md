@@ -13,8 +13,8 @@ the two engines part ways.
 
 → the bug, in full: [`small_case_abstention_lesson.md`](../pet_real_bv_election/small_case_abstention_lesson.md)
 · why "Equal Support" ≠ "abstention": [`GLOSSARY`](../../00_start_here/GLOSSARY.md)
-· where the reports differ: [reporting_diff_BV_LH](../../00_start_here/concepts/STAR_reporting/reporting_diff_BV_LH.md)
-· concept: [The Automatic Runoff Round](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md).
+· where the reports differ: [reporting_diff_BV_LH](../../00_start_here/STAR_reporting/reporting_diff_BV_LH.md)
+· concept: [The Automatic Runoff Round](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md).
 
 ---
 
@@ -28,8 +28,8 @@ Alex, Blair, Cleo
 3, 3, 3      flat — every candidate equal
 ```
 
-Source: [`Runoff_07_flat_ballot_bv_bug_tf73v9.yaml`](./Runoff_07_flat_ballot_bv_bug_tf73v9.yaml)
-· frozen export: [`Runoff_07_flat_ballot_bv_bug_tf73v9_bv_export.json`](./Runoff_07_flat_ballot_bv_bug_tf73v9_bv_export.json).
+Source: [`Runoff_07_flat_ballot_bv_bug_tf73v9.yaml`](Runoff_07_flat_ballot_bv_bug_tf73v9.yaml)
+· frozen export: [`Runoff_07_flat_ballot_bv_bug_tf73v9_bv_export.json`](Runoff_07_flat_ballot_bv_bug_tf73v9_bv_export.json).
 
 ## Where the two reports diverge (the whole point)
 

@@ -20,7 +20,7 @@ STAR, RCV-IRV and Ranked Robin all agree on **Strawberry**. Only **Approval** di
 
 **Flags:** none
 
-**Source election:** [`01_Single_winner/04b_c4_b3_display-options-all.yaml`](../../01_Single_winner/04b_c4_b3_display-options-all.yaml)  ·  **STAR tabulated mirror:** [`04b_c4_b3_display-options-all_tabulated.txt`](../../01_Single_winner_tabulated/04b_c4_b3_display-options-all_tabulated.txt)
+**Source election:** [`01_Single_winner/04b_c4_b3_display-options-all.yaml`](../../../01_Single_winner/04b_c4_b3_display-options-all.yaml)  ·  **STAR tabulated mirror:** [`04b_c4_b3_display-options-all_tabulated.txt`](../../../01_Single_winner_tabulated/04b_c4_b3_display-options-all_tabulated.txt)
 
 _4 candidates, 3 ballots._
 

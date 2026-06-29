@@ -12,7 +12,7 @@ num_winners: 3
 # 3 seats, Droop quota = 100/(3+1)+1 = 26. Proportional expectation: ~2 progressive
 # + 1 business seat. Watch a low-first-choice consensus progressive (Schools, 15)
 # take a seat over a higher-first-choice candidate (BigBiz, 17) via transfers.
-# STAR-PR counterpart: 03b_star_pr_3seats.yaml. See concepts/proportional_stv_vs_star.md.
+# STAR-PR counterpart: 03b_star_pr_3seats.yaml. See 00_start_here/proportional_stv_vs_star.md.
 ballots: |-
   29:Housing>Schools>Parks>Transit>SmallBiz>BigBiz>TaxCuts
   15:Schools>Housing>Parks>Transit>SmallBiz>BigBiz>TaxCuts

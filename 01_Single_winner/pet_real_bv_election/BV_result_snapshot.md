@@ -10,9 +10,9 @@ update the lessons and this snapshot together, deliberately.
 - **Captured:** 2026-06-28
 - **BetterVoting election id:** `pet` ("What Makes the Best Pet?")
 - **Live result (may change):** <https://bettervoting.com/pet/results>
-- **Frozen raw export (this folder):** [`best_pet_c7_b461_bv_export.json`](./best_pet_c7_b461_bv_export.json)
+- **Frozen raw export (this folder):** [`best_pet_c7_b461_bv_export.json`](best_pet_c7_b461_bv_export.json)
   — the full BetterVoting JSON (461 ballots + BetterVoting's own `Results`).
-- **Converted election (tabulated by the LH engine):** [`best_pet_c7_b461.yaml`](./best_pet_c7_b461.yaml)
+- **Converted election (tabulated by the LH engine):** [`best_pet_c7_b461.yaml`](best_pet_c7_b461.yaml)
 
 ## BetterVoting's reported result (frozen)
 
@@ -57,10 +57,10 @@ gap. The winner and runoff margin are identical.
 
 ## See also
 
-- The correctness/reconciliation write-up: [`LH_BV_reconciliation_issue.md`](./LH_BV_reconciliation_issue.md) → filed as [Equal-Vote/bettervoting#1407](https://github.com/Equal-Vote/bettervoting/issues/1407)
-- **Canonical small case (a lesson in itself): [`small_case_abstention_lesson.md`](./small_case_abstention_lesson.md)** — real BV election `dq2dmm`, 3 candidates / 8 ballots, where BV files 3 flat ballots (incl. an engaged `3,3,3`) as abstentions
-- Even-simpler 2-candidate capture (BV calls a `5,5` an abstention): [`small_abstention_c2_b5_lesson.md`](./small_abstention_c2_b5_lesson.md)
-- Minimal synthetic illustration (LH-correct behavior): [`abstention_reconciliation_min_c2_b6.yaml`](./abstention_reconciliation_min_c2_b6.yaml)
-- How that small case was reproduced on BetterVoting: [`SMALL_CASE_reproduce_on_BV.md`](./SMALL_CASE_reproduce_on_BV.md)
-- Worked lesson: [`README.md`](./README.md)
-- Concept: [BetterVoting and the LH engine](../../00_start_here/concepts/tabulation_engines/bettervoting_and_the_engine.md) · [Runoff percentages](../../00_start_here/concepts/STAR_Voting/runoff_percentages.md)
+- The correctness/reconciliation write-up: [`LH_BV_reconciliation_issue.md`](LH_BV_reconciliation_issue.md) → filed as [Equal-Vote/bettervoting#1407](https://github.com/Equal-Vote/bettervoting/issues/1407)
+- **Canonical small case (a lesson in itself): [`small_case_abstention_lesson.md`](small_case_abstention_lesson.md)** — real BV election `dq2dmm`, 3 candidates / 8 ballots, where BV files 3 flat ballots (incl. an engaged `3,3,3`) as abstentions
+- Even-simpler 2-candidate capture (BV calls a `5,5` an abstention): [`small_abstention_c2_b5_lesson.md`](small_abstention_c2_b5_lesson.md)
+- Minimal synthetic illustration (LH-correct behavior): [`abstention_reconciliation_min_c2_b6.yaml`](abstention_reconciliation_min_c2_b6.yaml)
+- How that small case was reproduced on BetterVoting: [`SMALL_CASE_reproduce_on_BV.md`](SMALL_CASE_reproduce_on_BV.md)
+- Worked lesson: [`README.md`](README.md)
+- Concept: [BetterVoting and the LH engine](../../00_start_here/tabulation_engines/bettervoting_and_the_engine.md) · [Runoff percentages](../../00_start_here/STAR_Voting/runoff_percentages.md)

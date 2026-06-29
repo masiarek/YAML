@@ -6,10 +6,10 @@ to the top of the Scoring Round (22 stars). But the other three prefer **Eden**,
 Eden wins the Automatic Runoff 3–2. Dakota leads on *how much*; Eden wins on *how
 many*. (Eden is also the Condorcet winner — a calm case.)
 
-Where [Runoff 02](./Runoff_02_atom_reversal_yx9447.md) had a *broadly-liked* leader,
+Where [Runoff 02](Runoff_02_atom_reversal_yx9447.md) had a *broadly-liked* leader,
 this one has an *intense-minority* leader — the other face of the same reversal.
-→ teaching guide: [`teaching_runoff_reversal.md`](./teaching_runoff_reversal.md)
-· concept: [The Automatic Runoff Round](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md)
+→ teaching guide: [`teaching_runoff_reversal.md`](teaching_runoff_reversal.md)
+· concept: [The Automatic Runoff Round](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md)
 · [`Runoff Reversal`](../../00_start_here/GLOSSARY.md).
 
 ---
@@ -25,8 +25,8 @@ Dakota, Eden, Flynn, Gale, Hazel
 4, 5, 0, 1, 0
 ```
 
-Source: [`Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml`](./Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml)
-· frozen export: [`Runoff_03_enthusiasts_vs_majority_rkgtpk_bv_export.json`](./Runoff_03_enthusiasts_vs_majority_rkgtpk_bv_export.json).
+Source: [`Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml`](Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml)
+· frozen export: [`Runoff_03_enthusiasts_vs_majority_rkgtpk_bv_export.json`](Runoff_03_enthusiasts_vs_majority_rkgtpk_bv_export.json).
 
 ## View 1 — BetterVoting
 
@@ -91,7 +91,7 @@ Automatic Runoff Round
 > **BV ↔ LH wording.** The line `Eden 3 (60%) vs Dakota 2 (40%)` is BetterVoting's
 > *Runoff Votes* (3 / 2) and *% Between Finalists* (60% / 40%) folded into one line —
 > LH names its denominator (`Voters with a preference`) instead of using table columns.
-> [Why the words differ →](../../00_start_here/concepts/STAR_reporting/reporting_diff_BV_LH.md#same-numbers-different-words)
+> [Why the words differ →](../../00_start_here/STAR_reporting/reporting_diff_BV_LH.md#same-numbers-different-words)
 
 ## The takeaway
 

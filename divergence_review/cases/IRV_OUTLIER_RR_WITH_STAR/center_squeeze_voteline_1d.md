@@ -20,7 +20,7 @@ STAR elects **Green** — and so do Ranked Robin and Condorcet, because **Green 
 
 **Flags:** none
 
-**Source election:** [`01_Single_winner/center_squeeze_voteline_1d.yaml`](../../01_Single_winner/center_squeeze_voteline_1d.yaml)  ·  **STAR tabulated mirror:** [`center_squeeze_voteline_1d_tabulated.txt`](../../01_Single_winner_tabulated/center_squeeze_voteline_1d_tabulated.txt)
+**Source election:** [`01_Single_winner/center_squeeze_voteline_1d.yaml`](../../../01_Single_winner/center_squeeze_voteline_1d.yaml)  ·  **STAR tabulated mirror:** [`center_squeeze_voteline_1d_tabulated.txt`](../../../01_Single_winner_tabulated/center_squeeze_voteline_1d_tabulated.txt)
 
 _Also present (identical ballots) at: `YAML_library/1_positive/center_squeeze_voteline_1d.yaml`._
 

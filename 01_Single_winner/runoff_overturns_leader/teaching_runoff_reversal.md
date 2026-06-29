@@ -5,9 +5,9 @@ stars win?"* This is the presenter's playbook for answering it — the order to 
 it in, the examples to use, **why a reversal is a good thing**, and the hard
 ("devil's advocate") questions with answers.
 
-- Concept hub: [The Automatic Runoff Round](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md) (has the flow diagram)
-- The concept lesson + all cases: [`README.md`](./README.md)
-- Voter-facing one-paragraph version (and a BetterVoting popover fix): [`explaining_to_voters.md`](./explaining_to_voters.md)
+- Concept hub: [The Automatic Runoff Round](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md) (has the flow diagram)
+- The concept lesson + all cases: [`README.md`](README.md)
+- Voter-facing one-paragraph version (and a BetterVoting popover fix): [`explaining_to_voters.md`](explaining_to_voters.md)
 - Glossary: [`Runoff Reversal`](../../00_start_here/GLOSSARY.md)
 
 ---
@@ -46,7 +46,7 @@ support, the runoff measures *preference*):
 
 ## Step by step
 
-### Step 1 — the atom (3 voters): [`01a`](./01a_c3_b3_more-stars-fewer-voters.yaml)
+### Step 1 — the atom (3 voters): [`01a`](01a_c3_b3_more-stars-fewer-voters.yaml)
 
 Show the ballots, then the result. Everyone likes Almond — but two of the three
 *prefer* Brownie:
@@ -74,7 +74,7 @@ Talking point: Almond's 13 is real — it *is* broadly liked. But when each vote
 pick between the two finalists, the majority chose Brownie. Stars found the finalists;
 the runoff picked the winner.
 
-### Step 2 — the control (same machinery, leader CONFIRMED): [`04`](./04_c4_b3_runoff-confirms-leader.yaml)
+### Step 2 — the control (same machinery, leader CONFIRMED): [`04`](04_c4_b3_runoff-confirms-leader.yaml)
 
 Immediately defuse "the runoff is rigged against the leader" by showing the *same*
 process keep a leader who *is* most-preferred:
@@ -102,12 +102,12 @@ when intensity and majority preference point at different candidates.
 
 ### Step 3 — it holds at scale, and it's real
 
-- [`01b`](./01b_c3_b9_overturn-holds-at-scale.yaml) — the same election with more
+- [`01b`](01b_c3_b9_overturn-holds-at-scale.yaml) — the same election with more
   voters: 67% / 33%. The atom wasn't a small-numbers fluke.
-- [`02`](./02_c5_b5_leader-overturned.yaml) — 5 candidates: a high-ceiling favorite
+- [`02`](02_c5_b5_leader-overturned.yaml) — 5 candidates: a high-ceiling favorite
   (the *narrow-but-deep* pattern) loses to the broad compromise.
-- [`03`](./03_c7_b3_ice-cream-live.yaml) (real BV `4c7kp9`) and
-  [`05`](./05_c3_b5_low-scores-bv1265.yaml) (real BV `BV1265`) — actual recorded
+- [`03`](03_c7_b3_ice-cream-live.yaml) (real BV `4c7kp9`) and
+  [`05`](05_c3_b5_low-scores-bv1265.yaml) (real BV `BV1265`) — actual recorded
   elections; `05` is the one that triggers BetterVoting's own "why is the top scorer
   different?" popover.
 
@@ -134,16 +134,16 @@ lowballing a rival or burying your second choice. Honest scoring is the best str
 The top two carry the most support, so the decisive question is which of *them* the
 majority prefers. If you worry the "right" candidate was a finalist at all, check the
 **Condorcet** winner (the candidate who beats everyone head-to-head) in the full
-report — STAR's runoff winner usually matches it. → [three notions of "winner"](../../00_start_here/concepts/STAR_Voting/STAR_three_winner_notions.md)
+report — STAR's runoff winner usually matches it. → [three notions of "winner"](../../00_start_here/STAR_Voting/STAR_three_winner_notions.md)
 
 **"Is the reversal random, or tied to a tie-break?"**
 Neither. It's fully deterministic from the ballots, and it has nothing to do with
 tie-breaking — a reversal isn't a tie. (Tie-breaking only runs on an exact runoff
-split; see [the flow](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md#the-flow).)
+split; see [the flow](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md#the-flow).)
 
 **"Voters will be confused/angry when their leader loses."**
 That's the real risk — so name it and explain it in one breath, the way
-[`explaining_to_voters.md`](./explaining_to_voters.md) does. Confusion comes from an
+[`explaining_to_voters.md`](explaining_to_voters.md) does. Confusion comes from an
 *unexplained* reversal, not the reversal itself.
 
 ## Two views of the real cases (BV + LH) — assets to add
@@ -160,7 +160,7 @@ To complete this (mirrors the pattern in `pet_real_bv_election/`):
    by side.
 
 <!-- Once captured:
-![BetterVoting result for BV 4c7kp9 (ice cream): ChocoDrk leads, ChocoAlm wins](./img/4c7kp9_bv_result.png)
+![BetterVoting result for BV 4c7kp9 (ice cream): ChocoDrk leads, ChocoAlm wins](img/4c7kp9_bv_result.png)
 -->
 
 See also: the full audit report for each case in

@@ -4,9 +4,9 @@ The authoritative **learning-path map**. Difficulty lives *here*, not in the
 folder names or in every file — so a single example can be 101 for its basic idea
 and reappear at 301 for the deep dive, without being duplicated or moved. (This is
 the "curriculum map, keep folders" approach; see
-[ORGANIZATION.md](./ORGANIZATION.md).)
+[ORGANIZATION.md](ORGANIZATION.md).)
 
-Each entry lists its **objective**, **key terms** (see [GLOSSARY.md](./GLOSSARY.md)),
+Each entry lists its **objective**, **key terms** (see [GLOSSARY.md](GLOSSARY.md)),
 the **files/episodes** to use, and **what to emphasize**. Example YAMLs stay in
 their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 `split_voting/`); conversation scripts live in `interviews_conversations/`.
@@ -20,7 +20,7 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 ## 101.0 — Why: the problem before the method
 - **Objective:** Make the audience *feel* the failure of Choose-One first.
 - **Key terms:** Choose-One / plurality, vote splitting, spoiler effect, lesser-evil voting.
-- **Material:** [00_START_HERE.md](./00_START_HERE.md); episode `why_do_you_love_STAR_Voting.md` (cold open).
+- **Material:** [00_START_HERE.md](00_START_HERE.md); episode `why_do_you_love_STAR_Voting.md` (cold open).
 
 ## 101.1 — Mechanics: the two rounds (2 candidates)
 - **Objective:** See the Scoring Round and Automatic Runoff once, slowly.
@@ -47,7 +47,7 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 
 ## 101.5 — One foundational idea: ballot vs tabulation
 - **Objective:** A *ballot* is what you mark; a *tabulation* is how it's counted.
-- **Material:** [TIPS_terminology.md](./TIPS_terminology.md) (top section).
+- **Material:** [TIPS_terminology.md](TIPS_terminology.md) (top section).
 - **Why here:** it unlocks 201's nomenclature and every later comparison.
 
 ---
@@ -63,17 +63,17 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 - **Emphasize:** the pairwise matrix is the auditable, precinct-summable heart.
 - **Two reports, one count:** an election appears both as BetterVoting's visual display and
   the LH engine's text report; why there are two, how they map, and the convert→validate→test
-  pipeline are in [`concepts/tabulation_engines/bettervoting_and_the_engine.md`](./concepts/tabulation_engines/bettervoting_and_the_engine.md).
+  pipeline are in [`concepts/tabulation_engines/bettervoting_and_the_engine.md`](tabulation_engines/bettervoting_and_the_engine.md).
 - **The full audit report:** the generated `_tabulated.txt` siblings carry the complete
   engine report (matrix + score distribution + the plain-English *Majority Preference*
   block). The Runoff Reversal lesson (101.3) shows the *minimal* on-screen view; reading
   the **full** report of those same elections (e.g.
   `01_Single_winner/runoff_overturns_leader_tabulated/`) is the 201 skill — and *why* the
   on-screen echo is minimal by default (don't overwhelm a beginner).
-- **Worked walkthrough:** [`concepts/tabulation_engines/LH_starvote/reading_a_star_report.md`](./concepts/tabulation_engines/LH_starvote/reading_a_star_report.md)
+- **Worked walkthrough:** [`concepts/tabulation_engines/LH_starvote/reading_a_star_report.md`](tabulation_engines/LH_starvote/reading_a_star_report.md)
   — a full LH report (BV1265) annotated section by section, with a "show which parts to
   101 / 201 / 301" table.
-- **Reading the runoff percentages:** [`concepts/STAR_Voting/runoff_percentages.md`](./concepts/STAR_Voting/runoff_percentages.md)
+- **Reading the runoff percentages:** [`concepts/STAR_Voting/runoff_percentages.md`](STAR_Voting/runoff_percentages.md)
   — the BetterVoting runoff shown two ways: % of *all* voters vs % of those *with a
   preference* (the two denominators), and why the majority bar is half of the decided
   voters, not half of everyone. The LH engine prints this same decided-voters share as
@@ -91,7 +91,7 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 
 ## 201.3 — Nomenclature: RCV vs IRV vs RCV-IRV
 - **Objective:** Stop conflating the ranked *ballot* (RCV) with one *count* (IRV).
-- **Material:** [TIPS_terminology.md](./TIPS_terminology.md); episode `RCV_or_IRV_whats_the_right_word.md`.
+- **Material:** [TIPS_terminology.md](TIPS_terminology.md); episode `RCV_or_IRV_whats_the_right_word.md`.
 - **Emphasize:** center squeeze / exhausted ballots are **IRV**-specific, not all ranked methods (Ranked Robin isn't squeezed).
 
 ## 201.4 — STAR vs RCV-IRV (the honest comparison)
@@ -127,7 +127,7 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 ## 301.3 — "Are equal-score votes discounted?"
 - **Key terms:** Equal Support / No Preference, exhausted vs no-preference.
 - **Episode:** `are_equal_score_votes_discounted.md`; demo `01_Single_winner/equal_support_runoff_demo.yaml`.
-- **In the result display:** [`concepts/STAR_Voting/runoff_percentages.md`](./concepts/STAR_Voting/runoff_percentages.md)
+- **In the result display:** [`concepts/STAR_Voting/runoff_percentages.md`](STAR_Voting/runoff_percentages.md)
   shows exactly where Equal Support lands in BetterVoting's runoff — counted in full in
   the score round, then set aside to form the "voters with a preference" denominator (so
   the winner's majority is of the decided voters, not of everyone).
@@ -170,6 +170,6 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 - **Academic / skeptic / RCV advocate:** 101 fast, then 301 with the precise caveats.
 
 ## Designing your own examples
-See [TIPS_choosing_voter_counts.md](./TIPS_choosing_voter_counts.md) (voter counts)
-and [ORGANIZATION.md](./ORGANIZATION.md) (where scenario text lives, clean-demo
-flags). Term definitions: [GLOSSARY.md](./GLOSSARY.md).
+See [TIPS_choosing_voter_counts.md](TIPS_choosing_voter_counts.md) (voter counts)
+and [ORGANIZATION.md](ORGANIZATION.md) (where scenario text lives, clean-demo
+flags). Term definitions: [GLOSSARY.md](GLOSSARY.md).

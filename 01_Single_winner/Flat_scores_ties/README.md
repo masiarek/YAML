@@ -29,9 +29,9 @@ ties & equal preferences — [tk476h](https://bettervoting.com/tk476h/), #1035).
 > with a **"bug pending"** callout linking the tracking issue (same pattern as
 > [`Runoff_07`](../runoff_overturns_leader/Runoff_07_flat_ballot_bv_bug_tf73v9.md)).
 
-Concept backing: [The Automatic Runoff Round](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md)
-· [STAR Tie-Breaking](../../00_start_here/concepts/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
-· [reporting true ties](../../00_start_here/concepts/STAR_reporting/reporting_ties.md)
+Concept backing: [The Automatic Runoff Round](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md)
+· [STAR Tie-Breaking](../../00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
+· [reporting true ties](../../00_start_here/STAR_reporting/reporting_ties.md)
 · [`GLOSSARY`](../../00_start_here/GLOSSARY.md).
 
 ---
@@ -75,14 +75,14 @@ desync from that screenshot.
 
 | # | Lesson | Cast | Where the tie is | Level | LH winner | BV status |
 |---|--------|------|------------------|:---:|:---:|---|
-| 01 | [clean top two (baseline)](./Flat_scores_ties_01_baseline_clean.md) | fruits | none — control | 101 | Apple | agrees ✅ |
-| 02 | [runoff tie, two candidates](./Flat_scores_ties_02_runoff_tie_2cand.md) | ice cream | runoff (all Equal Support) | 101 | Almond | NaN on equal ties ⚠️ #1035 |
-| 03 | [runoff tie, even 1-1 split](./Flat_scores_ties_03_runoff_tie_split.md) | capitals | runoff (real split) | 201 | Athens | check ⚠️ |
-| 04 | [scoring tie for 2nd slot (2-way)](./Flat_scores_ties_04_scoring_tie_2way.md) | lakes | scoring round | 201 | Aral | check ⚠️ |
-| 05 ⚠️ | [scoring 3-way tie **(BV555/#1379)**](./Flat_scores_ties_05_scoring_tie_3way_xmyf7k.md) | A–E | scoring round | 201/301 | A | **picks C — wrong** ❌ #1379 |
-| 06 | [scoring 4-way tie (ties every step)](./Flat_scores_ties_06_scoring_tie_4way.md) | names | both rounds | 301 | Ava | "no ballots cast" msg ⚠️ #1052 |
-| 07 | [fully flat ballots (maximal tie)](./Flat_scores_ties_07_fully_flat.md) | mountains | both rounds | 301 | Ararat | abstention mis-file ⚠️ #1407 |
-| 08 | [every ballot flat → BV counts 0](./Flat_scores_ties_08_all_flat_zero_count.md) | pizza | both rounds | 301 | Anchovy | **0 ballots** (all abstentions) ⚠️ #1407 |
+| 01 | [clean top two (baseline)](Flat_scores_ties_01_baseline_clean.md) | fruits | none — control | 101 | Apple | agrees ✅ |
+| 02 | [runoff tie, two candidates](Flat_scores_ties_02_runoff_tie_2cand.md) | ice cream | runoff (all Equal Support) | 101 | Almond | NaN on equal ties ⚠️ #1035 |
+| 03 | [runoff tie, even 1-1 split](Flat_scores_ties_03_runoff_tie_split.md) | capitals | runoff (real split) | 201 | Athens | check ⚠️ |
+| 04 | [scoring tie for 2nd slot (2-way)](Flat_scores_ties_04_scoring_tie_2way.md) | lakes | scoring round | 201 | Aral | check ⚠️ |
+| 05 ⚠️ | [scoring 3-way tie **(BV555/#1379)**](Flat_scores_ties_05_scoring_tie_3way_xmyf7k.md) | A–E | scoring round | 201/301 | A | **picks C — wrong** ❌ #1379 |
+| 06 | [scoring 4-way tie (ties every step)](Flat_scores_ties_06_scoring_tie_4way.md) | names | both rounds | 301 | Ava | "no ballots cast" msg ⚠️ #1052 |
+| 07 | [fully flat ballots (maximal tie)](Flat_scores_ties_07_fully_flat.md) | mountains | both rounds | 301 | Ararat | abstention mis-file ⚠️ #1407 |
+| 08 | [every ballot flat → BV counts 0](Flat_scores_ties_08_all_flat_zero_count.md) | pizza | both rounds | 301 | Anchovy | **0 ballots** (all abstentions) ⚠️ #1407 |
 
 **"But 5,5,5,0 works fine?"** Worth flagging: `5,5,5,0` does **not** sidestep the problem —
 in STAR it's a genuine **3-way tie** (all three total 10), the same shape as case 05.

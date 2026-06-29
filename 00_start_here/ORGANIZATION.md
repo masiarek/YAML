@@ -86,5 +86,5 @@ it later. Flip the flags back to `true` for a workshop or self-study.
 > "what"), and put longer staging notes in `video_script` — it never prints, so
 > it can be as detailed as you like without ever cluttering a demo.
 
-See also: [TIPS_choosing_voter_counts.md](./TIPS_choosing_voter_counts.md) ·
-[CURRICULUM.md](./CURRICULUM.md).
+See also: [TIPS_choosing_voter_counts.md](TIPS_choosing_voter_counts.md) ·
+[CURRICULUM.md](CURRICULUM.md).

@@ -172,5 +172,5 @@ python3 runoff_reversal_simulation.py --elections 300000 --voters 21 --candidate
 - Sincere ballots only — no strategy.
 - Spatial model is 2-D uniform; real issue spaces are lumpier (clusters, polarization).
 - "Reversal" here is score-leader-vs-runoff only; it says nothing about the Condorcet
-  winner (see [Three notions of "winner"](../00_start_here/concepts/STAR_Voting/STAR_three_winner_notions.md)).
+  winner (see [Three notions of "winner"](../00_start_here/STAR_Voting/STAR_three_winner_notions.md)).
 - **Always report the model, the size, and the tie split with the number.**

@@ -17,7 +17,7 @@ nothing is ever "exhausted."**
 
 Cues: **[DEMO]** run a file · **[SLIDE]** show a slide · **[REPO]** lesson file.
 
-→ This is one entry in the broader [`rcv_irv_false_claims.md`](./rcv_irv_false_claims.md)
+→ This is one entry in the broader [`rcv_irv_false_claims.md`](rcv_irv_false_claims.md)
 index (which routes every common "RCV" claim to its rebuttal).
 
 ---
@@ -103,7 +103,7 @@ flowchart TD
     class F claim;
 ```
 
-*Static version for slides:* [`../00_start_here/concepts/RCV_IRV/inactive_ballot_taxonomy.svg`](../00_start_here/concepts/RCV_IRV/inactive_ballot_taxonomy.svg)
+*Static version for slides:* [`../00_start_here/concepts/RCV_IRV/inactive_ballot_taxonomy.svg`](../00_start_here/RCV_IRV/inactive_ballot_taxonomy.svg)
 
 > [SLIDE] **Exhausted Ballots** (deck) — the red-box / blue-box flow chart (see
 > `interviews_conversations/LINKS.md`).

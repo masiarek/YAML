@@ -13,7 +13,7 @@ scenario_description: |-
   invalid for lack of turnout, so the engine declares NO WINNER. "Winning the
   vote" and "being elected" are different things when a quorum isn't met.
 
-  → Concept: 00_start_here/concepts/quorum.md
+  → Concept: 00_start_here/quorum.md
   → The same ballots that DO reach quorum: 01_Single_winner/quorum_demo_c3_b6.yaml
 
 voting_method: STAR

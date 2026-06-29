@@ -1,19 +1,19 @@
 # Cross-method divergence review
 
-_Generated 2026-06-29 13:47 by `scripts/build_divergence_index.py` — do not hand-edit; rebuild._
+_Generated 2026-06-29 14:14 by `scripts/build_divergence_index.py` — do not hand-edit; rebuild._
 
 Re-tabulates every **curated single-winner STAR** election under RCV-IRV, Ranked Robin (RCV-RR / Copeland) and Approval, and flags where they disagree with STAR. Only hand-built library elections are scanned (never random ballots), and the base rate is reported, so the collection stays honest rather than cherry-picked.
 
 ## Base rate
 
-- Scanned **91** single-winner STAR elections (skipped 10 non-eligible files: multi-winner / Approval / RR / RCV / ranked-ballot / unparseable).
-- **35** (38%) diverge from STAR under at least one method; **56** agree across the board.
+- Scanned **92** single-winner STAR elections (skipped 10 non-eligible files: multi-winner / Approval / RR / RCV / ranked-ballot / unparseable).
+- **36** (39%) diverge from STAR under at least one method; **56** agree across the board.
 
 | Bucket | Count |
 |---|---:|
 | IRV_OUTLIER_RR_WITH_STAR | 7 |
 | STAR_OUTLIER_RR_WITH_IRV | 1 |
-| IRV_DIFFERS_ARTIFACT | 3 |
+| IRV_DIFFERS_ARTIFACT | 4 |
 | CYCLE_OR_THREE_WAY | 4 |
 | APPROVAL_OR_MINOR | 20 |
 
@@ -26,7 +26,7 @@ Re-tabulates every **curated single-winner STAR** election under RCV-IRV, Ranked
 
 ## Cases by bucket
 
-Review order is the teaching value of each bucket. Each case links to a full teaching `.md` (ballots + every method's report + a plain-English explanation) under `cases/`. Listing is **deduped** to one entry per distinct election (26 cases; identical library copies merged).
+Review order is the teaching value of each bucket. Each case links to a full teaching `.md` (ballots + every method's report + a plain-English explanation) under `cases/`. Listing is **deduped** to one entry per distinct election (27 cases; identical library copies merged).
 
 ### IRV_OUTLIER_RR_WITH_STAR — 5
 
@@ -52,13 +52,16 @@ _STAR is the outlier — Ranked Robin sides with RCV-IRV (show it anyway, for ev
 - **[three_winners_cw_score_runoff](cases/STAR_OUTLIER_RR_WITH_IRV/three_winners_cw_score_runoff.md)** — `01_Single_winner/three_winners_cw_score_runoff.yaml` (3c/5b)  
     STAR=**Bob** · IRV=Ann · RR=Ann · Approval=Bob · Condorcet=Ann
 
-### IRV_DIFFERS_ARTIFACT — 1
+### IRV_DIFFERS_ARTIFACT — 2
 
 _RCV-IRV differs but it's a score->rank tie-break artifact (tied ballots and/or flips under reversed priority) — log, do NOT bark on IRV_
 
 - **[Approval_ballot](cases/IRV_DIFFERS_ARTIFACT/Approval_ballot.md)** — `01_Single_winner/Approval_ballot.yaml` (4c/8b)  
     STAR=**D** · IRV=A · RR=D · Approval=A · Condorcet=D  
     _flags: 4 tied-score ballot(s); IRV flips on reversed priority; RR conv-sensitive (weak=D, strict=A)_
+- **[display_options_demo](cases/IRV_DIFFERS_ARTIFACT/display_options_demo.md)** — `01_Single_winner/display_options_demo.yaml` (4c/4b)  
+    STAR=**Don** · IRV=Bob · RR=Don · Approval=Ann · Condorcet=Don  
+    _flags: 2 tied-score ballot(s); IRV flips on reversed priority; RR conv-sensitive (weak=Don, strict=Bob)_
 
 ### CYCLE_OR_THREE_WAY — 3
 

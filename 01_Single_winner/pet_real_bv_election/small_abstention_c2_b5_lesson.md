@@ -3,7 +3,7 @@
 **One line:** the tightest possible demonstration. Two candidates, five ballots. One
 voter scores **both** candidates **5** — maximum support for everyone — and
 BetterVoting files that ballot as an **abstention**. An
-[independent STAR engine](../../00_start_here/concepts/tabulation_engines/bettervoting_and_the_engine.md)
+[independent STAR engine](../../00_start_here/tabulation_engines/bettervoting_and_the_engine.md)
 (the [LH `starvote`](../../00_start_here/GLOSSARY.md) tabulator) counts it as
 **Equal Support** and still elects the same winner.
 
@@ -12,12 +12,12 @@ BetterVoting files that ballot as an **abstention**. An
 This is the **2-candidate** member of the pair. Its richer sibling, which adds a
 third candidate to show that BetterVoting's rule is "*any* flat ballot = abstention"
 (it even drops an engaged `3,3,3`), is
-[`small_case_abstention_lesson.md`](./small_case_abstention_lesson.md). At full scale:
-the 461-ballot [pet race](./README.md).
+[`small_case_abstention_lesson.md`](small_case_abstention_lesson.md). At full scale:
+the 461-ballot [pet race](README.md).
 
-→ Reading results: [How to read a STAR report](../../00_start_here/concepts/tabulation_engines/LH_starvote/reading_a_star_report.md)
-· [BetterVoting vs the LH engine — when the reports differ](../../00_start_here/concepts/tabulation_engines/bettervoting_and_the_engine.md#when-the-two-reports-differ--abstentions-vs-equal-support)
-· [Runoff percentages](../../00_start_here/concepts/STAR_Voting/runoff_percentages.md)
+→ Reading results: [How to read a STAR report](../../00_start_here/tabulation_engines/LH_starvote/reading_a_star_report.md)
+· [BetterVoting vs the LH engine — when the reports differ](../../00_start_here/tabulation_engines/bettervoting_and_the_engine.md#when-the-two-reports-differ--abstentions-vs-equal-support)
+· [Runoff percentages](../../00_start_here/STAR_Voting/runoff_percentages.md)
 · [`GLOSSARY`](../../00_start_here/GLOSSARY.md)
 
 ---
@@ -35,8 +35,8 @@ candidates `A` and `B`, five ballots:
 | 4 | 5 | 0 | prefers **A** |
 | 5 | — | — | blank — the one true **abstention** |
 
-- Frozen raw export: [`small_abstention_c2_b5_bv_export.json`](./small_abstention_c2_b5_bv_export.json)
-- Converted election (LH-tabulatable): [`small_abstention_c2_b5.yaml`](./small_abstention_c2_b5.yaml)
+- Frozen raw export: [`small_abstention_c2_b5_bv_export.json`](small_abstention_c2_b5_bv_export.json)
+- Converted election (LH-tabulatable): [`small_abstention_c2_b5.yaml`](small_abstention_c2_b5.yaml)
 - Full engine report: [`small_abstention_c2_b5_tabulated.txt`](../pet_real_bv_election_tabulated/small_abstention_c2_b5_tabulated.txt)
 
 ## Two reports — one ballot of disagreement
@@ -104,8 +104,8 @@ percentage. The 3 voters with a preference decide it, and A wins 2–1.
 
 ## See also
 
-- Richer 3-candidate version (the canonical lesson): [`small_case_abstention_lesson.md`](./small_case_abstention_lesson.md)
-- Synthetic illustration (adds an explicit `0,0` row): [`abstention_reconciliation_min_c2_b6.yaml`](./abstention_reconciliation_min_c2_b6.yaml)
-- Full 461-ballot race + frozen BV evidence: [`README.md`](./README.md) · [`BV_result_snapshot.md`](./BV_result_snapshot.md)
-- The reconciliation / issue write-up: [`LH_BV_reconciliation_issue.md`](./LH_BV_reconciliation_issue.md) (→ [#1407](https://github.com/Equal-Vote/bettervoting/issues/1407))
-- How it was reproduced on BetterVoting: [`SMALL_CASE_reproduce_on_BV.md`](./SMALL_CASE_reproduce_on_BV.md)
+- Richer 3-candidate version (the canonical lesson): [`small_case_abstention_lesson.md`](small_case_abstention_lesson.md)
+- Synthetic illustration (adds an explicit `0,0` row): [`abstention_reconciliation_min_c2_b6.yaml`](abstention_reconciliation_min_c2_b6.yaml)
+- Full 461-ballot race + frozen BV evidence: [`README.md`](README.md) · [`BV_result_snapshot.md`](BV_result_snapshot.md)
+- The reconciliation / issue write-up: [`LH_BV_reconciliation_issue.md`](LH_BV_reconciliation_issue.md) (→ [#1407](https://github.com/Equal-Vote/bettervoting/issues/1407))
+- How it was reproduced on BetterVoting: [`SMALL_CASE_reproduce_on_BV.md`](SMALL_CASE_reproduce_on_BV.md)

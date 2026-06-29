@@ -80,6 +80,7 @@ CYCLE_OR_THREE_WAY,01_Single_winner/monotonicity_star_before.yaml,3,34,X,X,X,Y,Y
 CYCLE_OR_THREE_WAY,01_Single_winner/paradoxes_and_whoops/Whoops_02_star_misses_condorcet.yaml,3,100,Ada,Ada,Bruno,Cleo,Cleo,Ada,Cleo,Cleo,25,True,False,False
 CYCLE_OR_THREE_WAY,YAML_library/1_positive/Whoops_02_star_misses_condorcet.yaml,3,100,Ada,Ada,Bruno,Cleo,Cleo,Ada,Cleo,Cleo,25,True,False,False
 IRV_DIFFERS_ARTIFACT,01_Single_winner/Approval_ballot.yaml,4,8,D,A,D,D,A,A,D,A,4,True,True,False
+IRV_DIFFERS_ARTIFACT,01_Single_winner/display_options_demo.yaml,4,4,Don,Bob,Don,Don,Bob,Ann,Don,,2,True,True,True
 IRV_DIFFERS_ARTIFACT,YAML_library/1_positive/Runoff_05_reversal_with_equal_support_xgkw3w.yaml,3,5,Sage,Rosa,Sage,Sage,Rosa,Rosa,Sage,Rosa,2,True,True,False
 IRV_DIFFERS_ARTIFACT,YAML_library/1_positive/Runoff_07_flat_ballot_bv_bug_tf73v9.yaml,3,4,Blair,Alex,Blair,Blair,Alex,Alex,Blair,,1,True,True,True
 IRV_OUTLIER_RR_WITH_STAR,01_Single_winner/09_c4_b100_tennessee-capital.yaml,4,100,Nashville,Knoxville,Knoxville,Nashville,Nashville,Nashville,Nashville,Nashville,0,False,False,False

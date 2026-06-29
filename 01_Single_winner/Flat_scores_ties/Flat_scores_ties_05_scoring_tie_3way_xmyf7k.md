@@ -11,10 +11,10 @@ score-based tiebreaker stays tied**; only the **lot number** can separate them. 
 cleanest possible test of "does your tabulator break ties deterministically *and* show its
 work?" — and the reference answer is A.
 
-→ the cascade: [STAR Tie-Breaking](../../00_start_here/concepts/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
+→ the cascade: [STAR Tie-Breaking](../../00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
 · why a published lot order matters: [#1063](https://github.com/Equal-Vote/bettervoting/issues/1063)
 · export of the tie-break sequence — **added by BV, now closed**: [#1371](https://github.com/Equal-Vote/bettervoting/issues/1371)
-· [reporting true ties](../../00_start_here/concepts/STAR_reporting/reporting_ties.md) · [`README`](./README.md).
+· [reporting true ties](../../00_start_here/STAR_reporting/reporting_ties.md) · [`README`](README.md).
 
 ---
 
@@ -26,7 +26,7 @@ A, B, C, D, E
 5, 5, 5, 4, 4
 ```
 
-Source: [`Flat_scores_ties_05_scoring_tie_3way_xmyf7k.yaml`](./Flat_scores_ties_05_scoring_tie_3way_xmyf7k.yaml)
+Source: [`Flat_scores_ties_05_scoring_tie_3way_xmyf7k.yaml`](Flat_scores_ties_05_scoring_tie_3way_xmyf7k.yaml)
 · BV: <https://bettervoting.com/xmyf7k/results>.
 
 ## Where the two engines diverge (the whole point)

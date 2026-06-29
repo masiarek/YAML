@@ -5,10 +5,10 @@ two voters have **real, opposing preferences**: one prefers Athens, one prefers 
 two finalists are chosen cleanly, then the runoff splits **1–1** and the cascade decides:
 highest score (tied) → most 5s (tied) → **lot number** → Athens.
 
-→ [STAR Tie-Breaking](../../00_start_here/concepts/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
-· [reporting true ties](../../00_start_here/concepts/STAR_reporting/reporting_ties.md)
+→ [STAR Tie-Breaking](../../00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
+· [reporting true ties](../../00_start_here/STAR_reporting/reporting_ties.md)
 · BV: pre-published lot rule [#1063](https://github.com/Equal-Vote/bettervoting/issues/1063),
-tie-break export [#1371](https://github.com/Equal-Vote/bettervoting/issues/1371) (closed) · [`README`](./README.md).
+tie-break export [#1371](https://github.com/Equal-Vote/bettervoting/issues/1371) (closed) · [`README`](README.md).
 
 ---
 
@@ -20,7 +20,7 @@ Athens, Berlin, Cairo
 4, 5, 0
 ```
 
-Source: [`Flat_scores_ties_03_runoff_tie_split.yaml`](./Flat_scores_ties_03_runoff_tie_split.yaml).
+Source: [`Flat_scores_ties_03_runoff_tie_split.yaml`](Flat_scores_ties_03_runoff_tie_split.yaml).
 
 ## What LH does
 

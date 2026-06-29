@@ -7,7 +7,7 @@ Where the flagship answers *"what's so good about STAR?"* analytically, this one
 answers *"why do YOU love it?"* — and that warmth is what makes people lean in.
 
 For the detailed arc, hand off to
-[whats_so_good_about_STAR_Voting.md](./whats_so_good_about_STAR_Voting.md). For
+[whats_so_good_about_STAR_Voting.md](whats_so_good_about_STAR_Voting.md). For
 the slide version, see `00_start_here/Why_STAR_Voting.md` (+ the presenter HTML).
 
 Cues: **[SLIDE]** show a slide (by title — see `LINKS.md`) · **[REPO]** a file.
@@ -94,7 +94,7 @@ one ballot you fill out in about ten seconds."
   `whats_so_good_about_STAR_Voting.md`, or as the **emotional closer** after the
   technical episodes. It's the bookend, not the body.
 - **Series roadmap:** call it **Episode 0** in
-  [README.md](./README.md) — the warm-up before Episode 1.
+  [README.md](README.md) — the warm-up before Episode 1.
 - **"Do we already have a 'what's so good' presentation?"** — yes:
   `00_start_here/Why_STAR_Voting.md` *is* it (11 presentation bullets, Part 1),
   with a styled `Why_STAR_Voting.html` presenter view. This conversation is the

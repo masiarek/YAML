@@ -1228,7 +1228,7 @@ def run_ranked_robin(ballots_text, file_path=None, lot_numbers=None, options=Non
             L.append(f"   *** {len(leaders)} candidates tie on wins "
                      f"({', '.join(leaders)}) — a Condorcet cycle. Resolved by total "
                      "margin, then lot order. (This is where Minimax / Ranked Pairs / "
-                     "Schulze differ — see concepts/RCV_Ranked_Robin/cycle_resolution.md.)")
+                     "Schulze differ — see 00_start_here/RCV_Ranked_Robin/cycle_resolution.md.)")
         return "\n".join(L)
 
     # On-screen echo is compact by default (house rule), but the file can opt

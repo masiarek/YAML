@@ -5,8 +5,8 @@ cities, one set of sincere ballots — and **three different methods crown three
 cities.** It's the cleanest demonstration that "the winner" isn't a property of the
 voters; it's a property of the *rule*.
 
-→ fairness test: [`reading_these_fairly.md`](./reading_these_fairly.md)
-· the set: [`README`](./README.md) · [`GLOSSARY`](../../00_start_here/GLOSSARY.md).
+→ fairness test: [`reading_these_fairly.md`](reading_these_fairly.md)
+· the set: [`README`](README.md) · [`GLOSSARY`](../../00_start_here/GLOSSARY.md).
 ↔ BV QA tracker: **BV150** (Lanphier — STAR/IRV/Condorcet give different winners; [ABIF Tennessee example](https://abif.electorama.com/id/TNexampleSTAR)).
 
 ---
@@ -26,7 +26,7 @@ Memphis, Nashville, Chattanooga, Knoxville
 ```
 
 Scores are a simple distance model (home city 5, falling off with distance). Source:
-[`Whoops_01_tennessee_three_winners.yaml`](./Whoops_01_tennessee_three_winners.yaml).
+[`Whoops_01_tennessee_three_winners.yaml`](Whoops_01_tennessee_three_winners.yaml).
 
 ## Three methods, three winners
 
@@ -66,5 +66,5 @@ standing (IRV), or beats-everyone-else (Condorcet/STAR). Same data, three answer
 >   *final two* and handles many fields fine. The catch here is specific to the centrist
 >   geometry.
 > - **The symmetric whoops:** STAR isn't immune to weird results either — it just gets
->   *this* one right. See [Whoops 02](./Whoops_02_star_misses_condorcet.md), where STAR is
+>   *this* one right. See [Whoops 02](Whoops_02_star_misses_condorcet.md), where STAR is
 >   the one that stumbles.

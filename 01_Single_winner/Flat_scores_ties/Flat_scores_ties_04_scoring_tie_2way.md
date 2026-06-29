@@ -5,11 +5,11 @@ for the second finalist slot.** Now the cascade runs in the *scoring* round to d
 advances*: head-to-head (tied) → most 5s (tied) → **lot number** → Baikal advances. Aral
 then wins the runoff cleanly. Cast: three lakes.
 
-→ [STAR Tie-Breaking](../../00_start_here/concepts/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
-· concept: [The Automatic Runoff Round](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md)
+→ [STAR Tie-Breaking](../../00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
+· concept: [The Automatic Runoff Round](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md)
 · BV: wrong finalists under ties [#1379](https://github.com/Equal-Vote/bettervoting/issues/1379),
 pre-published lot rule [#1063](https://github.com/Equal-Vote/bettervoting/issues/1063),
-tie-break export [#1371](https://github.com/Equal-Vote/bettervoting/issues/1371) (closed) · [`README`](./README.md).
+tie-break export [#1371](https://github.com/Equal-Vote/bettervoting/issues/1371) (closed) · [`README`](README.md).
 
 ---
 
@@ -22,7 +22,7 @@ Aral, Baikal, Crater
 5, 0, 0
 ```
 
-Source: [`Flat_scores_ties_04_scoring_tie_2way.yaml`](./Flat_scores_ties_04_scoring_tie_2way.yaml).
+Source: [`Flat_scores_ties_04_scoring_tie_2way.yaml`](Flat_scores_ties_04_scoring_tie_2way.yaml).
 
 ## What LH does
 

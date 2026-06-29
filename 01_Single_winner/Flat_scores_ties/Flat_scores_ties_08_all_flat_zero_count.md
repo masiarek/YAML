@@ -8,7 +8,7 @@
 > **[BV126 / #1052](https://github.com/Equal-Vote/bettervoting/issues/1052)** ("no ballots
 > have been cast") and **[BV200 / #1035](https://github.com/Equal-Vote/bettervoting/issues/1035)** (NaN).
 
-**Level 301 · the abstention trap at full strength.** Where [case 07](./Flat_scores_ties_07_fully_flat.md)
+**Level 301 · the abstention trap at full strength.** Where [case 07](Flat_scores_ties_07_fully_flat.md)
 had everyone score the *same* value (all 5s), here each voter is flat at a *different*
 level (1s, then 2s, … then 5s). Still every ballot is flat, so BV drops them all — and the
 counted total collapses to zero. LH counts all five, sees a clean three-way tie at 15, and
@@ -17,7 +17,7 @@ resolves it by lot to **Anchovy**. Cast: three pizza toppings.
 → Equal Support vs abstention: [`GLOSSARY`](../../00_start_here/GLOSSARY.md)
 · the same bug worked end-to-end: [`Runoff_07`](../runoff_overturns_leader/Runoff_07_flat_ballot_bv_bug_tf73v9.md),
 [`small_case_abstention_lesson`](../pet_real_bv_election/small_case_abstention_lesson.md)
-· [STAR Tie-Breaking](../../00_start_here/concepts/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md) · [`README`](./README.md).
+· [STAR Tie-Breaking](../../00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md) · [`README`](README.md).
 
 ---
 
@@ -34,7 +34,7 @@ Anchovy, Basil, Caper
 
 Every row is flat — each voter likes all three toppings equally, just at a different
 intensity. Totals: **Anchovy 15, Basil 15, Caper 15** (a three-way tie). Source:
-[`Flat_scores_ties_08_all_flat_zero_count.yaml`](./Flat_scores_ties_08_all_flat_zero_count.yaml).
+[`Flat_scores_ties_08_all_flat_zero_count.yaml`](Flat_scores_ties_08_all_flat_zero_count.yaml).
 
 ## View 1 — BetterVoting (incorrect — bug pending)
 

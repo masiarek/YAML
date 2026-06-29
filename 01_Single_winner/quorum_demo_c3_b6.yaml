@@ -11,7 +11,7 @@ scenario_description: |-
   (quorum met). Drop the abstention and quorum would FAIL. The abstainer changed
   no candidate's score, but their presence made the election valid.
 
-  → Concept: 00_start_here/concepts/quorum.md
+  → Concept: 00_start_here/quorum.md
 
 voting_method: STAR
 num_winners: 1

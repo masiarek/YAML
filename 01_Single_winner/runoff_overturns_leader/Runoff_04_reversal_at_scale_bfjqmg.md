@@ -1,13 +1,13 @@
 # Runoff 04 — the reversal holds at scale (67/33)
 
 **Level 101 · the atom, blown up to a crowd.** Same shape as
-[Runoff 02](./Runoff_02_atom_reversal_yx9447.md), now with nine voters: three love
+[Runoff 02](Runoff_02_atom_reversal_yx9447.md), now with nine voters: three love
 **Maple** (5s) and push Maple's total to the top of the Scoring Round (39), but six
 prefer **Olive**, who wins the Automatic Runoff **6–3** — a clean **2-to-1 majority**
 (67 / 33). Proof a reversal isn't a small-numbers fluke. (Olive is the Condorcet winner.)
 
-→ teaching guide: [`teaching_runoff_reversal.md`](./teaching_runoff_reversal.md)
-· concept: [The Automatic Runoff Round](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md)
+→ teaching guide: [`teaching_runoff_reversal.md`](teaching_runoff_reversal.md)
+· concept: [The Automatic Runoff Round](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md)
 · [`Runoff Reversal`](../../00_start_here/GLOSSARY.md).
 
 ---
@@ -20,8 +20,8 @@ Maple, Olive, Pine
 3 ×  5, 1, 2     # the Maple enthusiasts
 ```
 
-Source: [`Runoff_04_reversal_at_scale_bfjqmg.yaml`](./Runoff_04_reversal_at_scale_bfjqmg.yaml)
-· frozen export: [`Runoff_04_reversal_at_scale_bfjqmg_bv_export.json`](./Runoff_04_reversal_at_scale_bfjqmg_bv_export.json).
+Source: [`Runoff_04_reversal_at_scale_bfjqmg.yaml`](Runoff_04_reversal_at_scale_bfjqmg.yaml)
+· frozen export: [`Runoff_04_reversal_at_scale_bfjqmg_bv_export.json`](Runoff_04_reversal_at_scale_bfjqmg_bv_export.json).
 
 ## View 1 — BetterVoting
 
@@ -88,7 +88,7 @@ Automatic Runoff Round
 > **BV ↔ LH wording.** The line `Olive 6 (67%) vs Maple 3 (33%)` is BetterVoting's
 > *Runoff Votes* (6 / 3) and *% Between Finalists* (67% / 33%) folded into one line —
 > LH names its denominator (`Voters with a preference`) instead of using table columns.
-> [Why the words differ →](../../00_start_here/concepts/STAR_reporting/reporting_diff_BV_LH.md#same-numbers-different-words)
+> [Why the words differ →](../../00_start_here/STAR_reporting/reporting_diff_BV_LH.md#same-numbers-different-words)
 
 ## The takeaway
 

@@ -2,12 +2,12 @@
 
 This is a **real STAR election run on BetterVoting** (BV id `pet`): 7 candidates, **461
 ballots**, single winner. It's the worked example behind the screenshots in the
-[runoff percentages lesson](../../00_start_here/concepts/STAR_Voting/runoff_percentages.md)
-and the [BetterVoting ↔ LH engine](../../00_start_here/concepts/tabulation_engines/bettervoting_and_the_engine.md)
+[runoff percentages lesson](../../00_start_here/STAR_Voting/runoff_percentages.md)
+and the [BetterVoting ↔ LH engine](../../00_start_here/tabulation_engines/bettervoting_and_the_engine.md)
 page — here you get the **whole thing**: the election file and the full engine report,
 side by side, so you can read a real result from raw ballots to winner.
 
-- **The election file:** [`best_pet_c7_b461.yaml`](./best_pet_c7_b461.yaml) — the actual
+- **The election file:** [`best_pet_c7_b461.yaml`](best_pet_c7_b461.yaml) — the actual
   BetterVoting JSON export, converted to YAML (461 score ballots, 0–5, with blanks).
 - **The full engine report:** [`best_pet_c7_b461_tabulated.txt`](../pet_real_bv_election_tabulated/best_pet_c7_b461_tabulated.txt)
   — matrix, Condorcet check, score distribution, both rounds, winner.
@@ -15,7 +15,7 @@ side by side, so you can read a real result from raw ballots to winner.
 
 This is **Voting 201** — reading a real, full audit report. (A 101 viewer needs only the
 last three lines: Scoring Round → Automatic Runoff → winner.) For the section-by-section
-method, see [How to read a STAR report](../../00_start_here/concepts/tabulation_engines/LH_starvote/reading_a_star_report.md).
+method, see [How to read a STAR report](../../00_start_here/tabulation_engines/LH_starvote/reading_a_star_report.md).
 
 ## 1. The scoring round — add every star
 
@@ -55,7 +55,7 @@ two ways — 190 of all 461 isn't the point; 190 of the **363 with a preference*
 clearing the 182-vote majority. The 98 Equal Support voters scored Dog and Cat the same, so
 they sit out *this* head-to-head (but counted fully in the scoring round). That
 two-denominator idea is the whole
-[runoff percentages lesson](../../00_start_here/concepts/STAR_Voting/runoff_percentages.md);
+[runoff percentages lesson](../../00_start_here/STAR_Voting/runoff_percentages.md);
 the engine prints the decisive line because the file sets `show_runoff_percent: true`. (The
 saved `_tabulated` copy expands it into a "Runoff math" funnel.)
 
@@ -71,7 +71,7 @@ The full report's pairwise matrix shows **Dog beats every other candidate head-t
 
 When the score leader, the runoff winner, and the Condorcet winner are the *same*
 candidate (as here), the result is about as uncontroversial as it gets. (For the case
-where they *differ*, see [three notions of "winner"](../../00_start_here/concepts/STAR_Voting/STAR_three_winner_notions.md)
+where they *differ*, see [three notions of "winner"](../../00_start_here/STAR_Voting/STAR_three_winner_notions.md)
 and the [Runoff Reversal](../runoff_overturns_leader/README.md) walkthrough.)
 
 ## 4. Real-ballot details: abstention vs. explicit zero
@@ -101,12 +101,12 @@ lower per candidate (`5 + 4 = 9`) and its Equal Support 92 instead of 98 (`92 + 
 The winner, finalists, and runoff margin are identical. This is documented as a
 reconciliation/correctness issue:
 
-- **Canonical small case (a lesson in itself): [`small_case_abstention_lesson.md`](./small_case_abstention_lesson.md)** — real BV election `dq2dmm`, 3 candidates / 8 ballots, where BV files 3 flat ballots (incl. an engaged `3,3,3`) under "abstention"
-- Frozen BetterVoting result + raw export (this 461-ballot race): [`BV_result_snapshot.md`](./BV_result_snapshot.md)
-- Write-up & GitHub issue → [Equal-Vote/bettervoting#1407](https://github.com/Equal-Vote/bettervoting/issues/1407): [`LH_BV_reconciliation_issue.md`](./LH_BV_reconciliation_issue.md)
-- Even-simpler 2-candidate lesson + synthetic illustration: [`small_abstention_c2_b5_lesson.md`](./small_abstention_c2_b5_lesson.md) · [`abstention_reconciliation_min_c2_b6.yaml`](./abstention_reconciliation_min_c2_b6.yaml)
-- Reproduce it on BetterVoting yourself: [`SMALL_CASE_reproduce_on_BV.md`](./SMALL_CASE_reproduce_on_BV.md)
-- Concept: [BetterVoting and the LH engine — when the reports differ](../../00_start_here/concepts/tabulation_engines/bettervoting_and_the_engine.md#when-the-two-reports-differ--abstentions-vs-equal-support)
+- **Canonical small case (a lesson in itself): [`small_case_abstention_lesson.md`](small_case_abstention_lesson.md)** — real BV election `dq2dmm`, 3 candidates / 8 ballots, where BV files 3 flat ballots (incl. an engaged `3,3,3`) under "abstention"
+- Frozen BetterVoting result + raw export (this 461-ballot race): [`BV_result_snapshot.md`](BV_result_snapshot.md)
+- Write-up & GitHub issue → [Equal-Vote/bettervoting#1407](https://github.com/Equal-Vote/bettervoting/issues/1407): [`LH_BV_reconciliation_issue.md`](LH_BV_reconciliation_issue.md)
+- Even-simpler 2-candidate lesson + synthetic illustration: [`small_abstention_c2_b5_lesson.md`](small_abstention_c2_b5_lesson.md) · [`abstention_reconciliation_min_c2_b6.yaml`](abstention_reconciliation_min_c2_b6.yaml)
+- Reproduce it on BetterVoting yourself: [`SMALL_CASE_reproduce_on_BV.md`](SMALL_CASE_reproduce_on_BV.md)
+- Concept: [BetterVoting and the LH engine — when the reports differ](../../00_start_here/tabulation_engines/bettervoting_and_the_engine.md#when-the-two-reports-differ--abstentions-vs-equal-support)
 
 ## Run it yourself
 
@@ -119,5 +119,5 @@ python starvote_larry_hastings.py "01_Single_winner/pet_real_bv_election/best_pe
 Re-running rewrites the `_tabulated` sibling. Because this is a converted BetterVoting
 export, it uses the nested `election: → races:` schema (options live under
 `election.options`) — exactly the format the
-[convert → validate → tabulate pipeline](../../00_start_here/concepts/tabulation_engines/bettervoting_and_the_engine.md)
+[convert → validate → tabulate pipeline](../../00_start_here/tabulation_engines/bettervoting_and_the_engine.md)
 produces and cross-checks against BetterVoting's own result.

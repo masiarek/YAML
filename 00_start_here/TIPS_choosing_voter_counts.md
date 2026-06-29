@@ -75,4 +75,4 @@ no `Count` column), where every small number is unambiguously a score.
   scoring totals (`Blake 275`) you read past — the point is the divergence, not the
   sums.
 
-See also: [CURRICULUM.md](./CURRICULUM.md) · [GLOSSARY.md](./GLOSSARY.md).
+See also: [CURRICULUM.md](CURRICULUM.md) · [GLOSSARY.md](GLOSSARY.md).

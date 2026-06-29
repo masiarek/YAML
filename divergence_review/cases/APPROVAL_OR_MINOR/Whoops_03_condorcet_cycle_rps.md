@@ -20,7 +20,7 @@ STAR, RCV-IRV and Ranked Robin all agree on **Rock**. Only **Approval** differs,
 
 **Flags:** none
 
-**Source election:** [`01_Single_winner/paradoxes_and_whoops/Whoops_03_condorcet_cycle_rps.yaml`](../../01_Single_winner/paradoxes_and_whoops/Whoops_03_condorcet_cycle_rps.yaml)  ·  **STAR tabulated mirror:** [`Whoops_03_condorcet_cycle_rps_tabulated.txt`](../../01_Single_winner/paradoxes_and_whoops_tabulated/Whoops_03_condorcet_cycle_rps_tabulated.txt)
+**Source election:** [`01_Single_winner/paradoxes_and_whoops/Whoops_03_condorcet_cycle_rps.yaml`](../../../01_Single_winner/paradoxes_and_whoops/Whoops_03_condorcet_cycle_rps.yaml)  ·  **STAR tabulated mirror:** [`Whoops_03_condorcet_cycle_rps_tabulated.txt`](../../../01_Single_winner/paradoxes_and_whoops_tabulated/Whoops_03_condorcet_cycle_rps_tabulated.txt)
 
 _Also present (identical ballots) at: `YAML_library/1_positive/Whoops_03_condorcet_cycle_rps.yaml`._
 
@@ -105,5 +105,5 @@ Win–loss record — Copeland score = wins + ½·ties (most wins wins; ties bro
     3  Scissors   1–1–0         1      -6  Rock
 
 Winner — Ranked Robin (RCV-RR): Rock
-   *** 3 candidates tie on wins (Rock, Paper, Scissors) — a Condorcet cycle. Resolved by total margin, then lot order. (This is where Minimax / Ranked Pairs / Schulze differ — see concepts/RCV_Ranked_Robin/cycle_resolution.md.)
+   *** 3 candidates tie on wins (Rock, Paper, Scissors) — a Condorcet cycle. Resolved by total margin, then lot order. (This is where Minimax / Ranked Pairs / Schulze differ — see 00_start_here/RCV_Ranked_Robin/cycle_resolution.md.)
 ```

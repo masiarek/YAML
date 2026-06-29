@@ -7,9 +7,9 @@ finalists, two prefer **Sage**, so Sage wins. The runoff is decided by **3 of 5*
 voters, not all five — the bridge to the two-denominator idea.
 
 → what an Equal Support ballot is: [`GLOSSARY`](../../00_start_here/GLOSSARY.md)
-· the two denominators: [Runoff percentages](../../00_start_here/concepts/STAR_Voting/runoff_percentages.md)
-· concept: [The Automatic Runoff Round](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md)
-· teaching guide: [`teaching_runoff_reversal.md`](./teaching_runoff_reversal.md).
+· the two denominators: [Runoff percentages](../../00_start_here/STAR_Voting/runoff_percentages.md)
+· concept: [The Automatic Runoff Round](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md)
+· teaching guide: [`teaching_runoff_reversal.md`](teaching_runoff_reversal.md).
 
 ---
 
@@ -24,8 +24,8 @@ Rosa, Sage, Tulip
 5, 5, 2      Equal Support (Rosa = Sage)
 ```
 
-Source: [`Runoff_05_reversal_with_equal_support_xgkw3w.yaml`](./Runoff_05_reversal_with_equal_support_xgkw3w.yaml)
-· frozen export: [`Runoff_05_reversal_with_equal_support_xgkw3w_bv_export.json`](./Runoff_05_reversal_with_equal_support_xgkw3w_bv_export.json).
+Source: [`Runoff_05_reversal_with_equal_support_xgkw3w.yaml`](Runoff_05_reversal_with_equal_support_xgkw3w.yaml)
+· frozen export: [`Runoff_05_reversal_with_equal_support_xgkw3w_bv_export.json`](Runoff_05_reversal_with_equal_support_xgkw3w_bv_export.json).
 
 ## View 1 — BetterVoting
 
@@ -60,7 +60,7 @@ Tulip, they're cast votes, not abstentions — so BetterVoting and LH agree.)
 
 Watch the Runoff Table here: **% Between Finalists** is out of 3 (67% / 33%), but **%
 Runoff Votes** is out of all 5 — the two denominators side by side. ([Runoff
-percentages](../../00_start_here/concepts/STAR_Voting/runoff_percentages.md).)
+percentages](../../00_start_here/STAR_Voting/runoff_percentages.md).)
 
 ## View 2 — the LH engine
 
@@ -96,7 +96,7 @@ Automatic Runoff Round
 > **BV ↔ LH wording.** `3 of 5 (2 Equal Support). Sage 2 (67%) vs Rosa 1 (33%)` packs
 > BetterVoting's *Runoff Votes* (2 / 1), *% Between Finalists* (67% / 33%), and the
 > Equal-Support count (2) into one line that names its denominator.
-> [Why the words differ →](../../00_start_here/concepts/STAR_reporting/reporting_diff_BV_LH.md#same-numbers-different-words)
+> [Why the words differ →](../../00_start_here/STAR_reporting/reporting_diff_BV_LH.md#same-numbers-different-words)
 
 ## The takeaway
 

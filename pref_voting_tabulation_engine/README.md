@@ -49,7 +49,7 @@ Run across the repo's single-winner elections: **0 mismatches** — the LH engin
 Condorcet / IRV / Plurality machinery is independently confirmed. Wired into
 [`tests/test_pref_voting_crosscheck.py`](../STARVote_LH_tabulation_engine/tests/test_pref_voting_crosscheck.py)
 (skips cleanly if `pref_voting` isn't installed). Full write-up:
-[`cross_checking_with_pref_voting.md`](../00_start_here/concepts/tabulation_engines/cross_checking_with_pref_voting.md).
+[`cross_checking_with_pref_voting.md`](../00_start_here/tabulation_engines/cross_checking_with_pref_voting.md).
 
 ## Ranked Robin report (independent cross-check)
 
@@ -64,7 +64,7 @@ python ranked_robin_report.py ../01_Single_winner/ranked_robin_consensus_center.
 
 It uses the LH pairwise-matrix helper (`pref_voting` only for an optional Copeland
 cross-check) and **flags a cycle** when the leaders tie on wins — pointing to
-[`cycle_resolution.md`](../00_start_here/concepts/RCV_Ranked_Robin/cycle_resolution.md).
+[`cycle_resolution.md`](../00_start_here/RCV_Ranked_Robin/cycle_resolution.md).
 
 ## Files
 

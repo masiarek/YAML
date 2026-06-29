@@ -8,7 +8,7 @@ scenario_description: |-
   larger cluster and ~1 to the smaller — like STV, and unlike Bloc STAR (which
   would let the 58% majority sweep all 3). Switch voting_method between `sss`,
   `allocated`, and `rrv` to compare; `bloc` shows the majoritarian contrast.
-  STV counterpart: 03a_stv_3seats.yaml. See concepts/proportional_stv_vs_star.md.
+  STV counterpart: 03a_stv_3seats.yaml. See 00_start_here/proportional_stv_vs_star.md.
 
 # Weights are voters (percent of 100). Constructed example — see 03a header.
 num_winners: 3

@@ -20,7 +20,7 @@ STAR elects **Nashville** — and so do Ranked Robin and Condorcet, because **Na
 
 **Flags:** none
 
-**Source election:** [`01_Single_winner/09_c4_b100_tennessee-capital.yaml`](../../01_Single_winner/09_c4_b100_tennessee-capital.yaml)  ·  **STAR tabulated mirror:** [`09_c4_b100_tennessee-capital_tabulated.txt`](../../01_Single_winner_tabulated/09_c4_b100_tennessee-capital_tabulated.txt)
+**Source election:** [`01_Single_winner/09_c4_b100_tennessee-capital.yaml`](../../../01_Single_winner/09_c4_b100_tennessee-capital.yaml)  ·  **STAR tabulated mirror:** [`09_c4_b100_tennessee-capital_tabulated.txt`](../../../01_Single_winner_tabulated/09_c4_b100_tennessee-capital_tabulated.txt)
 
 _4 candidates, 100 ballots._
 

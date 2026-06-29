@@ -5,13 +5,13 @@
 Automatic Runoff hands it to **Boston**. The Scoring-Round leader **loses** — and that's
 the runoff doing its job. (Boston is also the Condorcet winner — no startling case.)
 
-The contrast: in [Runoff 01](./Runoff_01_confirms_leader_r2pvc9.md) the same machinery
+The contrast: in [Runoff 01](Runoff_01_confirms_leader_r2pvc9.md) the same machinery
 *confirmed* the leader. The runoff only changes the answer when raw stars and majority
 preference point at different candidates.
 
 Two views of the **same election** (BV id [`yx9447`](https://bettervoting.com/yx9447/results)).
-→ teaching guide: [`teaching_runoff_reversal.md`](./teaching_runoff_reversal.md)
-· concept: [The Automatic Runoff Round](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md)
+→ teaching guide: [`teaching_runoff_reversal.md`](teaching_runoff_reversal.md)
+· concept: [The Automatic Runoff Round](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md)
 · [`Runoff Reversal`](../../00_start_here/GLOSSARY.md).
 
 ---
@@ -25,8 +25,8 @@ Austin, Boston, Cairo
 4, 5, 0
 ```
 
-Source: [`Runoff_02_atom_reversal_yx9447.yaml`](./Runoff_02_atom_reversal_yx9447.yaml)
-· frozen export: [`Runoff_02_atom_reversal_yx9447_bv_export.json`](./Runoff_02_atom_reversal_yx9447_bv_export.json).
+Source: [`Runoff_02_atom_reversal_yx9447.yaml`](Runoff_02_atom_reversal_yx9447.yaml)
+· frozen export: [`Runoff_02_atom_reversal_yx9447_bv_export.json`](Runoff_02_atom_reversal_yx9447_bv_export.json).
 
 ## View 1 — BetterVoting
 
@@ -94,13 +94,13 @@ Automatic Runoff Round
 > **BV ↔ LH wording.** The line `Boston 2 (67%) vs Austin 1 (33%)` is BetterVoting's
 > *Runoff Votes* (2 / 1) and *% Between Finalists* (67% / 33%) folded into one line —
 > LH names its denominator (`Voters with a preference`) instead of using table columns.
-> [Why the words differ →](../../00_start_here/concepts/STAR_reporting/reporting_diff_BV_LH.md#same-numbers-different-words)
+> [Why the words differ →](../../00_start_here/STAR_reporting/reporting_diff_BV_LH.md#same-numbers-different-words)
 
 ## The takeaway
 
 Stars choose the two **finalists**; the runoff chooses the **winner** as the finalist
 more voters prefer. Nothing was rigged — the runoff just asked the majority question
 that raw totals can't, and BetterVoting and the LH engine agree on every number. In
-[Runoff 01](./Runoff_01_confirms_leader_r2pvc9.md) the same machinery *confirmed* the
+[Runoff 01](Runoff_01_confirms_leader_r2pvc9.md) the same machinery *confirmed* the
 leader; the only difference is whether intensity and majority preference point at the
 same candidate.

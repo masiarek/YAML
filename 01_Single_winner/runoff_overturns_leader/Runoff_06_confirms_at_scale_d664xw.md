@@ -5,13 +5,13 @@ Scoring-Round leader **Wren** is *also* the candidate most voters prefer, so the
 Automatic Runoff **confirms** the leader, 4–1. *How much* and *how many* point at the
 same candidate — no reversal. (Wren is the Condorcet winner.)
 
-This is the bookend to [Runoff 01](./Runoff_01_confirms_leader_r2pvc9.md): most of the
+This is the bookend to [Runoff 01](Runoff_01_confirms_leader_r2pvc9.md): most of the
 time the runoff just agrees with the score round. The reversals (02–05) are the
 exception — the safeguard catching the cases where intensity and majority preference
 diverge.
 
-→ teaching guide: [`teaching_runoff_reversal.md`](./teaching_runoff_reversal.md)
-· concept: [The Automatic Runoff Round](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md).
+→ teaching guide: [`teaching_runoff_reversal.md`](teaching_runoff_reversal.md)
+· concept: [The Automatic Runoff Round](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md).
 
 ---
 
@@ -26,8 +26,8 @@ Wren, Yarrow, Zinnia
 2, 1, 5      prefers Wren (over Yarrow)
 ```
 
-Source: [`Runoff_06_confirms_at_scale_d664xw.yaml`](./Runoff_06_confirms_at_scale_d664xw.yaml)
-· frozen export: [`Runoff_06_confirms_at_scale_d664xw_bv_export.json`](./Runoff_06_confirms_at_scale_d664xw_bv_export.json).
+Source: [`Runoff_06_confirms_at_scale_d664xw.yaml`](Runoff_06_confirms_at_scale_d664xw.yaml)
+· frozen export: [`Runoff_06_confirms_at_scale_d664xw_bv_export.json`](Runoff_06_confirms_at_scale_d664xw_bv_export.json).
 
 ## View 1 — BetterVoting
 
@@ -87,7 +87,7 @@ winner and the runoff winner *differ*. They agree, so it stays silent.)
 > **BV ↔ LH wording.** The line `Wren 4 (80%) vs Yarrow 1 (20%)` is BetterVoting's
 > *Runoff Votes* (4 / 1) and *% Between Finalists* (80% / 20%) folded into one line —
 > LH names its denominator (`Voters with a preference`) instead of using table columns.
-> [Why the words differ →](../../00_start_here/concepts/STAR_reporting/reporting_diff_BV_LH.md#same-numbers-different-words)
+> [Why the words differ →](../../00_start_here/STAR_reporting/reporting_diff_BV_LH.md#same-numbers-different-words)
 
 ## The takeaway — and the whole set
 

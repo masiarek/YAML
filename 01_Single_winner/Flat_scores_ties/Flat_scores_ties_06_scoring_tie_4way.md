@@ -13,8 +13,8 @@ tie-break ladder in both rounds and still lands deterministically on **Ava**.
 > is now in BV's JSON export — [#1371](https://github.com/Equal-Vote/bettervoting/issues/1371),
 > closed.)
 
-→ [STAR Tie-Breaking](../../00_start_here/concepts/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
-· [reporting true ties](../../00_start_here/concepts/STAR_reporting/reporting_ties.md) · [`README`](./README.md).
+→ [STAR Tie-Breaking](../../00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
+· [reporting true ties](../../00_start_here/STAR_reporting/reporting_ties.md) · [`README`](README.md).
 
 ---
 
@@ -26,7 +26,7 @@ Ava, Ben, Cara, Dan, Eve
 5, 5, 5, 5, 1
 ```
 
-Source: [`Flat_scores_ties_06_scoring_tie_4way.yaml`](./Flat_scores_ties_06_scoring_tie_4way.yaml).
+Source: [`Flat_scores_ties_06_scoring_tie_4way.yaml`](Flat_scores_ties_06_scoring_tie_4way.yaml).
 
 ## What LH does
 

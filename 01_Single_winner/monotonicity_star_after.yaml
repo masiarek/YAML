@@ -7,7 +7,7 @@ scenario_description: |-
   twin (01_Single_winner/monotonicity_irv_after.yaml), where the same change makes
   X LOSE to Z. The [Divergence from STAR] block below shows RCV-IRV electing Z on
   these very ballots: STAR is monotone, RCV-IRV is not.
-  See 00_start_here/concepts/monotonicity.md.
+  See 00_start_here/monotonicity.md.
 
 options:
   show_description: false

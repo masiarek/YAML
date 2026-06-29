@@ -20,7 +20,7 @@ STAR, RCV-IRV and Ranked Robin all agree on **Brownie**. Only **Approval** diffe
 
 **Flags:** none
 
-**Source election:** [`01_Single_winner/runoff_overturns_leader/01b_c3_b9_overturn-holds-at-scale.yaml`](../../01_Single_winner/runoff_overturns_leader/01b_c3_b9_overturn-holds-at-scale.yaml)  ·  **STAR tabulated mirror:** [`01b_c3_b9_overturn-holds-at-scale_tabulated.txt`](../../01_Single_winner/runoff_overturns_leader_tabulated/01b_c3_b9_overturn-holds-at-scale_tabulated.txt)
+**Source election:** [`01_Single_winner/runoff_overturns_leader/01b_c3_b9_overturn-holds-at-scale.yaml`](../../../01_Single_winner/runoff_overturns_leader/01b_c3_b9_overturn-holds-at-scale.yaml)  ·  **STAR tabulated mirror:** [`01b_c3_b9_overturn-holds-at-scale_tabulated.txt`](../../../01_Single_winner/runoff_overturns_leader_tabulated/01b_c3_b9_overturn-holds-at-scale_tabulated.txt)
 
 _3 candidates, 9 ballots._
 

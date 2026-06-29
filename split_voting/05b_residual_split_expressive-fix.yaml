@@ -13,7 +13,7 @@ scenario_description: |-
 
   Note the [Divergence from STAR] block: Choose-One (Plurality) still elects Cara on
   first-choices (Ada 35, Ben 25, Cara 40) — STAR diverges and fixes the split.
-  Deep dive: 00_start_here/concepts/residual_vote_splitting.md
+  Deep dive: 00_start_here/residual_vote_splitting.md
 
 blocs:
   Allies: [Ada, Ben]

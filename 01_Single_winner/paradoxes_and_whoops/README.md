@@ -10,17 +10,17 @@ read with care — they keep us **honest**.
 > escapes), so this folder makes a point of letting **each camp take a turn as the
 > punchline**. If you catch yourself only collecting IRV's faults, that's the bias to
 > resist — add the matching STAR, Approval, and Condorcet whoopses too. Read
-> **[`reading_these_fairly.md`](./reading_these_fairly.md)** before adding any case.
+> **[`reading_these_fairly.md`](reading_these_fairly.md)** before adding any case.
 
 ## The cases
 
 | # | Lesson | The whoops | Who takes the hit |
 |---|--------|-----------|-------------------|
-| 01 | [Tennessee — 3 methods, 3 winners](./Whoops_01_tennessee_three_winners.md) | one ballot set → Plurality=Memphis, IRV=Knoxville, Condorcet/STAR=Nashville | **Plurality & IRV** |
-| 02 | [STAR misses the Condorcet winner](./Whoops_02_star_misses_condorcet.md) | the head-to-head winner is too low-scored to reach the runoff | **STAR** |
-| 03 | [a Condorcet cycle (rock-paper-scissors)](./Whoops_03_condorcet_cycle_rps.md) | majority rule is intransitive — *no* Condorcet winner exists | **Condorcet / Ranked Robin** |
-| 04 | [IRV buries the centrist (Ossipoff)](./Whoops_04_ossipoff_centrist_irv.md) | the plurality *and* Condorcet winner is eliminated; IRV elects D | **IRV** |
-| 05 | [many IRV pathologies in one (Brams)](./Whoops_05_brams_many_pathologies_irv.md) | Condorcet failure + no-show + truncation + non-monotonicity | **IRV** |
+| 01 | [Tennessee — 3 methods, 3 winners](Whoops_01_tennessee_three_winners.md) | one ballot set → Plurality=Memphis, IRV=Knoxville, Condorcet/STAR=Nashville | **Plurality & IRV** |
+| 02 | [STAR misses the Condorcet winner](Whoops_02_star_misses_condorcet.md) | the head-to-head winner is too low-scored to reach the runoff | **STAR** |
+| 03 | [a Condorcet cycle (rock-paper-scissors)](Whoops_03_condorcet_cycle_rps.md) | majority rule is intransitive — *no* Condorcet winner exists | **Condorcet / Ranked Robin** |
+| 04 | [IRV buries the centrist (Ossipoff)](Whoops_04_ossipoff_centrist_irv.md) | the plurality *and* Condorcet winner is eliminated; IRV elects D | **IRV** |
+| 05 | [many IRV pathologies in one (Brams)](Whoops_05_brams_many_pathologies_irv.md) | Condorcet failure + no-show + truncation + non-monotonicity | **IRV** |
 
 Cases 01–03 are STAR/score files (engine-verified, in the test library); 04–05 are
 **ranked-ballot** RCV-IRV cases (IRV rounds engine-verified, Condorcet winners checked by
@@ -47,7 +47,7 @@ non-monotonicity construction. *Don't add another IRV whoops until this evens ou
 ## How to read these (the short version)
 
 A "whoops" is only worth teaching if it's an **honest** one. The full test is in
-[`reading_these_fairly.md`](./reading_these_fairly.md), but the gist:
+[`reading_these_fairly.md`](reading_these_fairly.md), but the gist:
 
 - **Structural, not contrived** — happens across a region of realistic electorates, not at
   one knife-edge with absurd weights.
@@ -100,7 +100,7 @@ Voting theory is rife with mathematical anomalies, and several books catalogue t
 - **rangevoting.org** (Warren Smith, the Center for Range Voting) — a deep trove of
   method-failure constructions and paradoxes.
 - Burlington 2009, Alaska 2022 (real center-squeeze elections — see
-  [`RCV_IRV_center_squeeze.md`](../../00_start_here/concepts/RCV_IRV/RCV_IRV_center_squeeze.md)).
+  [`RCV_IRV_center_squeeze.md`](../../00_start_here/RCV_IRV/RCV_IRV_center_squeeze.md)).
 - Classic social-choice paradoxes (Condorcet, Arrow, no-show, monotonicity).
 
 > Adding one? Run it through the engine, write the fairness box, and make sure the camp it

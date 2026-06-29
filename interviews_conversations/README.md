@@ -6,7 +6,7 @@ scripts; the demos come from `00_start_here/`, `01_Single_winner/`, and
 `split_voting/`.
 
 Start here:
-[whats_so_good_about_STAR_Voting.md](./whats_so_good_about_STAR_Voting.md) — the
+[whats_so_good_about_STAR_Voting.md](whats_so_good_about_STAR_Voting.md) — the
 flagship episode that introduces the whole arc.
 
 ---
@@ -47,7 +47,7 @@ demo or a memorable one-liner.
 | ★ | **RCV-IRV false-claims index** (reference, not a clip) | look up any "RCV" claim → its precise rebuttal | — | "RCV Common False Claims" |
 
 Episodes 1, 2, 5, and 7 are the highest-value if you only make four. Episode 11
-([are_equal_score_votes_discounted.md](./are_equal_score_votes_discounted.md)) is
+([are_equal_score_votes_discounted.md](are_equal_score_votes_discounted.md)) is
 debate-prep — deploy it only when a skeptic raises the FairVote "discounted
 votes" line; don't lead with it.
 

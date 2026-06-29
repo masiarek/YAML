@@ -5,7 +5,7 @@ that makes every later election make sense. (Feedback from a test run: people
 get lost if you jump straight into a specific ballot without this.)
 
 > Looking for persuasion material rather than the teaching sequence? See
-> [Why STAR Voting](./Why_STAR_Voting.md) — presentation slide bullets plus
+> [Why STAR Voting](Why_STAR_Voting.md) — presentation slide bullets plus
 > tiered debate-prep talking points (claim / rebuttal / response).
 
 ---

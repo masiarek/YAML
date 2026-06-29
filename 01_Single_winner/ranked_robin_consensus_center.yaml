@@ -17,7 +17,7 @@ options:
 # The LH engine now tabulates Ranked Robin first-class: this file prints the
 # round-robin (ballots + pairwise table + win-loss record). For an independent
 # Copeland cross-check, run pref_voting_tabulation_engine/ranked_robin_report.py.
-# Lesson: 00_start_here/concepts/RCV_Ranked_Robin/ranked_robin.md
+# Lesson: 00_start_here/RCV_Ranked_Robin/ranked_robin.md
 ballots: |-
   4:Ada>Ben>Cara>Dan
   4:Dan>Cara>Ben>Ada

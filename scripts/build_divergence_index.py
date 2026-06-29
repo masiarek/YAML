@@ -390,10 +390,10 @@ def case_md(r, dupes):
     candidates, ballots, ballots_text, order, title = _load_case(src)
     tab = w.tabulated_output_path(src)
     try:
-        tab_rel = "../../" + str(tab.relative_to(REPO))
+        tab_rel = "../../../" + str(tab.relative_to(REPO))
     except ValueError:
         tab_rel = str(tab)
-    src_rel = "../../" + r["file"]
+    src_rel = "../../../" + r["file"]
 
     M = []
     M.append(f"# {title}\n")
@@ -534,7 +534,10 @@ def main():
     # --- Per-case teaching .md files (one per DISTINCT election, deduped) ---
     cases_dir = OUT_DIR / "cases"
     if cases_dir.exists():
-        shutil.rmtree(cases_dir)            # rebuild clean, no stale cases
+        try:
+            shutil.rmtree(cases_dir)        # rebuild clean, no stale cases
+        except OSError:
+            pass  # best-effort: some sandboxes block deletes; files overwritten below
     deduped = _dedupe(diverged)
     case_link = {}                          # primary file -> md link from INDEX
     primaries_by_bucket = {}

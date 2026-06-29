@@ -13,7 +13,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 - **Live results:** every example slide links the real **BetterVoting** result so you
   can show it on screen, plus the matching repo **lesson** (BV screenshots beside the
   LH text report).
-- **Concept hub backing this deck:** [The Automatic Runoff Round](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md)
+- **Concept hub backing this deck:** [The Automatic Runoff Round](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md)
   · the worked teaching set: [`runoff_overturns_leader/`](../../01_Single_winner/runoff_overturns_leader/README.md)
   · presenter's guide: [`teaching_runoff_reversal.md`](../../01_Single_winner/runoff_overturns_leader/teaching_runoff_reversal.md).
 
@@ -50,7 +50,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 
 > Notes: Resist explaining *why* yet — just establish the mechanism. The "why" is the
 > next slide.
-> Concept: [The Automatic Runoff Round](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md).
+> Concept: [The Automatic Runoff Round](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md).
 
 ---
 
@@ -90,7 +90,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 - The result names all three buckets, then states the decisive split.
 
 > Notes: "Equal Support" gets a full slide later (slide 13). Flag it here, don't dwell.
-> Concept: [What the round does](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md#what-the-round-does).
+> Concept: [What the round does](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md#what-the-round-does).
 
 ---
 
@@ -103,7 +103,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 
 > Notes: Show the mermaid flowchart from the concept hub. Don't narrate every node — point
 > at the one fork that matters (winner = leader? yes/no).
-> Diagram: [The flow](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md#the-flow).
+> Diagram: [The flow](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md#the-flow).
 
 ---
 
@@ -203,8 +203,8 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 
 > Notes: Show the BV Runoff Table (both % columns) and the LH one-line summary together —
 > they're the same numbers, different words.
-> Detail: [Runoff percentages — two denominators](../../00_start_here/concepts/STAR_Voting/runoff_percentages.md)
-> · why the words differ: [reporting_diff_BV_LH](../../00_start_here/concepts/STAR_reporting/reporting_diff_BV_LH.md#same-numbers-different-words).
+> Detail: [Runoff percentages — two denominators](../../00_start_here/STAR_Voting/runoff_percentages.md)
+> · why the words differ: [reporting_diff_BV_LH](../../00_start_here/STAR_reporting/reporting_diff_BV_LH.md#same-numbers-different-words).
 
 ---
 
@@ -230,7 +230,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 - **Everyone gives everyone 5** → all Equal Support → tie → ladder decides (the silly case).
 
 > Notes: Keep this brisk — it's the "edge cases exist and are handled" slide.
-> Detail: [Variations](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md#variation-2--exact-ties).
+> Detail: [Variations](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md#variation-2--exact-ties).
 
 ---
 
@@ -246,7 +246,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
   majority** of decided voters.
 
 > Notes: These are verbatim the questions audiences ask. Full list with answers:
-> [Quick questions](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md#quick-questions-the-ones-learners-actually-ask).
+> [Quick questions](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md#quick-questions-the-ones-learners-actually-ask).
 
 ---
 
@@ -276,7 +276,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 
 > Notes: Don't hide the limits — naming them honestly builds credibility. Keep the
 > Condorcet-miss for 301; it's not a beginner's first lesson.
-> Detail: [three winner notions](../../00_start_here/concepts/STAR_Voting/STAR_three_winner_notions.md).
+> Detail: [three winner notions](../../00_start_here/STAR_Voting/STAR_three_winner_notions.md).
 
 ---
 
@@ -289,7 +289,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 - Every example in this deck has both views side by side in its lesson file.
 
 > Notes: For an audience that will actually run elections. Skip for a pure intro talk.
-> Detail: [reporting_diff_BV_LH](../../00_start_here/concepts/STAR_reporting/reporting_diff_BV_LH.md)
+> Detail: [reporting_diff_BV_LH](../../00_start_here/STAR_reporting/reporting_diff_BV_LH.md)
 > · the full set: [`runoff_overturns_leader/`](../../01_Single_winner/runoff_overturns_leader/README.md).
 
 ---
@@ -320,7 +320,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 
 > Notes: End on the promise you opened with (slide 1). If you only had three sentences,
 > these are them.
-> Concept hub: [The Automatic Runoff Round](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md)
+> Concept hub: [The Automatic Runoff Round](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md)
 > · teaching guide: [`teaching_runoff_reversal.md`](../../01_Single_winner/runoff_overturns_leader/teaching_runoff_reversal.md).
 
 ---

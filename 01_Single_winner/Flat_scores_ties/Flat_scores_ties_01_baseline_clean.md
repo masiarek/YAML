@@ -5,9 +5,9 @@ leave an **unambiguous top two** and a **decisive runoff**, so **no tie-break fi
 anywhere.** BetterVoting and the LH engine agree trivially. This is the contrast every
 later case is measured against. Cast: three fruits.
 
-→ the cascade that the tie cases trigger: [STAR Tie-Breaking](../../00_start_here/concepts/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
-· concept: [The Automatic Runoff Round](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md)
-· the set: [`README`](./README.md).
+→ the cascade that the tie cases trigger: [STAR Tie-Breaking](../../00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
+· concept: [The Automatic Runoff Round](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md)
+· the set: [`README`](README.md).
 
 ---
 
@@ -19,7 +19,7 @@ Apple, Banana, Cherry
 5, 3, 1
 ```
 
-Source: [`Flat_scores_ties_01_baseline_clean.yaml`](./Flat_scores_ties_01_baseline_clean.yaml).
+Source: [`Flat_scores_ties_01_baseline_clean.yaml`](Flat_scores_ties_01_baseline_clean.yaml).
 
 ## Why nothing ties
 
@@ -27,7 +27,7 @@ Totals are **Apple 10, Banana 6, Cherry 2** — all different. The top two (Appl
 are unambiguous, and in the runoff every voter scored Apple above Banana, so Apple wins
 outright. No head-to-head step, no "most 5s" step, no lot number. **Flat-*looking* high
 scores are not the problem; an exact *tie* is.** (Note: `5,5,5,0` would **not** be clean —
-that totals to a 3-way tie, which is [case 05](./Flat_scores_ties_05_scoring_tie_3way_xmyf7k.md).)
+that totals to a 3-way tie, which is [case 05](Flat_scores_ties_05_scoring_tie_3way_xmyf7k.md).)
 
 ## View 1 — BetterVoting
 

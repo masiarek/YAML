@@ -7,7 +7,7 @@ Condorcet winner** — and the same ballots demonstrate a no-show paradox, a tru
 incentive, favorite-betrayal, and non-monotonicity.
 
 A ranked-ballot case (no scores invented). → fairness test:
-[`reading_these_fairly.md`](./reading_these_fairly.md) · [`README`](./README.md)
+[`reading_these_fairly.md`](reading_these_fairly.md) · [`README`](README.md)
 · (the repo's standalone monotonicity demo: [`monotonicity_irv_before.yaml`](../monotonicity_irv_before.yaml)).
 
 ---
@@ -21,7 +21,7 @@ A ranked-ballot case (no scores invented). → fairness test:
 3 : F>N>G>B
 ```
 
-Source: [`Whoops_05_brams_many_pathologies_irv.yaml`](./Whoops_05_brams_many_pathologies_irv.yaml).
+Source: [`Whoops_05_brams_many_pathologies_irv.yaml`](Whoops_05_brams_many_pathologies_irv.yaml).
 
 ## G beats everyone — and IRV still drops it
 
@@ -58,6 +58,6 @@ consequences* of the ballots — not artifacts of weird weights.
 >   truncation/betrayal points are about the *incentive* IRV creates, clearly labeled.
 > - **What IRV does well:** simple, familiar, majority-of-the-final-two. These pathologies
 >   are rarer in 2-strong-candidate races.
-> - **The symmetric whoops:** see [Whoops 02](./Whoops_02_star_misses_condorcet.md) (STAR
->   misses a Condorcet winner) and [Whoops 03](./Whoops_03_condorcet_cycle_rps.md) (no
->   Condorcet winner exists). Tally in the [balance ledger](./README.md#balance-ledger).
+> - **The symmetric whoops:** see [Whoops 02](Whoops_02_star_misses_condorcet.md) (STAR
+>   misses a Condorcet winner) and [Whoops 03](Whoops_03_condorcet_cycle_rps.md) (no
+>   Condorcet winner exists). Tally in the [balance ledger](README.md#balance-ledger).

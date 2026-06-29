@@ -2,12 +2,12 @@
 
 This is STAR's single most important lesson — the one BetterVoting itself asks about
 when it pops up *"Why is the top-scoring candidate different from the winner?"*
-(Presenting with BetterVoting? [`explaining_to_voters.md`](./explaining_to_voters.md)
+(Presenting with BetterVoting? [`explaining_to_voters.md`](explaining_to_voters.md)
 has a corrected, plain-language version of that popover.)
 
 **Teaching this?** The step-by-step presenter's guide — the order to teach it in,
 why it's a *good* thing, and the devil's-advocate questions with answers — is
-[`teaching_runoff_reversal.md`](./teaching_runoff_reversal.md).
+[`teaching_runoff_reversal.md`](teaching_runoff_reversal.md).
 
 **The teaching set — `Runoff_01`–`Runoff_06`.** Six real BetterVoting elections, each a
 **two-view lesson** (BetterVoting screenshots beside the LH report) on the *how much vs
@@ -21,18 +21,18 @@ how many* arc. Read them in order:
 
 | # | Lesson | Level | What it shows |
 |---|--------|:---:|---------------|
-| 01 | [confirms the leader](./Runoff_01_confirms_leader_r2pvc9.md) | 101 | control — leader leads **and** wins (baseline) |
-| 02 | [the atom](./Runoff_02_atom_reversal_yx9447.md) | 101 | smallest reversal — broadly-liked runner-up loses |
-| 03 | [enthusiasts vs majority](./Runoff_03_enthusiasts_vs_majority_rkgtpk.md) | 201 | intense minority leads stars, majority wins (5 cand) |
-| 04 | [reversal at scale](./Runoff_04_reversal_at_scale_bfjqmg.md) | 101 | the atom blown up — 67/33, not a fluke |
-| 05 | [reversal with Equal Support](./Runoff_05_reversal_with_equal_support_xgkw3w.md) | 201 | "no preference" voters → the two-denominator bridge |
-| 06 | [confirms at scale](./Runoff_06_confirms_at_scale_d664xw.md) | 101 | control bookend — leader confirmed 4–1 |
-| 07 ⚠️ | [flat ballot / BV bug **(WIP)**](./Runoff_07_flat_ballot_bv_bug_tf73v9.md) | 201/301 | the one case where the reports *disagree* — a flat ballot BV mis-files as an abstention ([#1407](https://github.com/Equal-Vote/bettervoting/issues/1407)) |
+| 01 | [confirms the leader](Runoff_01_confirms_leader_r2pvc9.md) | 101 | control — leader leads **and** wins (baseline) |
+| 02 | [the atom](Runoff_02_atom_reversal_yx9447.md) | 101 | smallest reversal — broadly-liked runner-up loses |
+| 03 | [enthusiasts vs majority](Runoff_03_enthusiasts_vs_majority_rkgtpk.md) | 201 | intense minority leads stars, majority wins (5 cand) |
+| 04 | [reversal at scale](Runoff_04_reversal_at_scale_bfjqmg.md) | 101 | the atom blown up — 67/33, not a fluke |
+| 05 | [reversal with Equal Support](Runoff_05_reversal_with_equal_support_xgkw3w.md) | 201 | "no preference" voters → the two-denominator bridge |
+| 06 | [confirms at scale](Runoff_06_confirms_at_scale_d664xw.md) | 101 | control bookend — leader confirmed 4–1 |
+| 07 ⚠️ | [flat ballot / BV bug **(WIP)**](Runoff_07_flat_ballot_bv_bug_tf73v9.md) | 201/301 | the one case where the reports *disagree* — a flat ballot BV mis-files as an abstention ([#1407](https://github.com/Equal-Vote/bettervoting/issues/1407)) |
 
 ↔ **BV QA tracker:** this set is the runnable home for **BV90** (scoring/runoff divergence)
 and **BV205** (top-scoring candidate ≠ winner) — the "Runoff Reversal" scenarios.
 
-Concept hub for all of it: [The Automatic Runoff Round](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md).
+Concept hub for all of it: [The Automatic Runoff Round](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md).
 
 **The name for it:** we call this a **Runoff Reversal** — the Scoring-Round leader
 *loses* the Automatic Runoff to the finalist more voters prefer. (In technical or
@@ -55,7 +55,7 @@ lesson.
 
 ## The one-screen version (your real election)
 
-This is the actual recorded race in [`03_c7_b3_ice-cream-live.yaml`](./03_c7_b3_ice-cream-live.yaml)
+This is the actual recorded race in [`03_c7_b3_ice-cream-live.yaml`](03_c7_b3_ice-cream-live.yaml)
 (BetterVoting id `c3m79f`), three voters:
 
 ```
@@ -91,12 +91,12 @@ the control case where the leader **wins** (so you can see the runoff isn't rigg
 
 | File | Field | What happens |
 |------|-------|--------------|
-| [`01a_c3_b3_more-stars-fewer-voters`](./01a_c3_b3_more-stars-fewer-voters.yaml) | 3 cand, 3 voters | The atom: Almond leads 13 stars, **Brownie** wins the runoff 2–1 |
-| [`01b_c3_b9_overturn-holds-at-scale`](./01b_c3_b9_overturn-holds-at-scale.yaml) | 3 cand, 9 voters | Same election, bigger crowd: Almond leads 39–33, **Brownie** wins 6–3 (67/33) |
-| [`02_c5_b5_leader-overturned`](./02_c5_b5_leader-overturned.yaml) | 5 cand, 5 voters | Austin leads 22 stars, **Boston** (the broad compromise) wins the runoff 3–2 |
-| [`03_c7_b3_ice-cream-live`](./03_c7_b3_ice-cream-live.yaml) | 7 cand, 3 voters | The real race: ChocoDrk leads 9, **ChocoAlm** wins 2–1 |
-| [`04_c4_b3_runoff-confirms-leader`](./04_c4_b3_runoff-confirms-leader.yaml) | 4 cand, 3 voters | **Control:** Blue leads *and* wins — the runoff confirms the leader |
-| [`05_c3_b5_low-scores-bv1265`](./05_c3_b5_low-scores-bv1265.yaml) | 3 cand, 5 voters | A *real* BetterVoting election with all-low scores: C leads (7), **A** wins the runoff 3–2 |
+| [`01a_c3_b3_more-stars-fewer-voters`](01a_c3_b3_more-stars-fewer-voters.yaml) | 3 cand, 3 voters | The atom: Almond leads 13 stars, **Brownie** wins the runoff 2–1 |
+| [`01b_c3_b9_overturn-holds-at-scale`](01b_c3_b9_overturn-holds-at-scale.yaml) | 3 cand, 9 voters | Same election, bigger crowd: Almond leads 39–33, **Brownie** wins 6–3 (67/33) |
+| [`02_c5_b5_leader-overturned`](02_c5_b5_leader-overturned.yaml) | 5 cand, 5 voters | Austin leads 22 stars, **Boston** (the broad compromise) wins the runoff 3–2 |
+| [`03_c7_b3_ice-cream-live`](03_c7_b3_ice-cream-live.yaml) | 7 cand, 3 voters | The real race: ChocoDrk leads 9, **ChocoAlm** wins 2–1 |
+| [`04_c4_b3_runoff-confirms-leader`](04_c4_b3_runoff-confirms-leader.yaml) | 4 cand, 3 voters | **Control:** Blue leads *and* wins — the runoff confirms the leader |
+| [`05_c3_b5_low-scores-bv1265`](05_c3_b5_low-scores-bv1265.yaml) | 3 cand, 5 voters | A *real* BetterVoting election with all-low scores: C leads (7), **A** wins the runoff 3–2 |
 
 Two more, in the main folder, push the field even wider:
 
@@ -135,10 +135,10 @@ report** to its `_tabulated.txt` sibling (in `runoff_overturns_leader_tabulated/
 pairwise **preference matrix**, the **score distribution**, and the engine's
 plain-English **Majority Preference** block stating exactly which candidate led on score
 and which won the runoff. Learning to read that report is **Voting 201**: see the annotated walkthrough
-[How to read a STAR report](../../00_start_here/concepts/tabulation_engines/LH_starvote/reading_a_star_report.md)
+[How to read a STAR report](../../00_start_here/tabulation_engines/LH_starvote/reading_a_star_report.md)
 (it uses this folder's BV1265 example), plus
 [CURRICULUM 201.1 — Reading the results](../../00_start_here/CURRICULUM.md) and the
-step-by-step [STAR vs RCV-IRV count](../../00_start_here/concepts/tabulation_star_vs_irv.md).
+step-by-step [STAR vs RCV-IRV count](../../00_start_here/tabulation_star_vs_irv.md).
 Don't put the full report in front of a 101 beginner — point them here when they're ready.
 
 ## How often does it happen? (301)

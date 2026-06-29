@@ -100,7 +100,8 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
   **Multi-winner** uses the same block but with `show_matrix: false` and
   `matrix_finalists_only: false` (a "Top 2 Finalist" matrix is a single-winner
   concept and prints misleadingly for PR/Bloc). **Exceptions:** the options-demo
-  files (`04b_…display-options-all`, `options_examples`) keep their illustrative
+  files (`04b_…display-options-all`, `display_options_demo`, and the engine's
+  `options_examples` reference) keep their illustrative
   all-on settings — they exist to showcase options; and **two-candidate intro
   files set `show_matrix: false`** — with only two candidates the finalists matrix
   is trivial (it just echoes the runoff). The `[Divergence from STAR]`

@@ -1,0 +1,17 @@
+--- RCV / Instant-Runoff Voting (single winner) ---
+  Display options demo
+ Tabulating 4 ballots (converted from score ballots; 0 = unranked, equal scores broken by candidate priority).
+
+FINAL RESULT
+Candidate      Votes  Status
+-----------  -------  --------
+Bob                2  Elected
+Don                2  Rejected
+Ann                0  Rejected
+Cal                0  Rejected
+
+
+Winner(s) — RCV / Instant-Runoff Voting (single winner)
+  Bob
+
+NOTE: a generated cross-method view of the STAR ballots, for comparison only — not the official STAR result.

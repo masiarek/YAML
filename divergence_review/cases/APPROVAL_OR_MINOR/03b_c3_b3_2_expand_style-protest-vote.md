@@ -20,7 +20,7 @@ STAR, RCV-IRV and Ranked Robin all agree on **Almond**. Only **Approval** differ
 
 **Flags:** none
 
-**Source election:** [`01_Single_winner/03b_c3_b3_2_expand_style-protest-vote.yaml`](../../01_Single_winner/03b_c3_b3_2_expand_style-protest-vote.yaml)  ·  **STAR tabulated mirror:** [`03b_c3_b3_2_expand_style-protest-vote_tabulated.txt`](../../01_Single_winner_tabulated/03b_c3_b3_2_expand_style-protest-vote_tabulated.txt)
+**Source election:** [`01_Single_winner/03b_c3_b3_2_expand_style-protest-vote.yaml`](../../../01_Single_winner/03b_c3_b3_2_expand_style-protest-vote.yaml)  ·  **STAR tabulated mirror:** [`03b_c3_b3_2_expand_style-protest-vote_tabulated.txt`](../../../01_Single_winner_tabulated/03b_c3_b3_2_expand_style-protest-vote_tabulated.txt)
 
 _3 candidates, 3 ballots._
 

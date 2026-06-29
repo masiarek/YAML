@@ -20,7 +20,7 @@ STAR, RCV-IRV and Ranked Robin all agree on **Oak**. Only **Approval** differs, 
 
 **Flags:** none
 
-**Source election:** [`01_Single_winner/summability_demo/star_district_B.yaml`](../../01_Single_winner/summability_demo/star_district_B.yaml)  ·  **STAR tabulated mirror:** [`star_district_B_tabulated.txt`](../../01_Single_winner/summability_demo_tabulated/star_district_B_tabulated.txt)
+**Source election:** [`01_Single_winner/summability_demo/star_district_B.yaml`](../../../01_Single_winner/summability_demo/star_district_B.yaml)  ·  **STAR tabulated mirror:** [`star_district_B_tabulated.txt`](../../../01_Single_winner/summability_demo_tabulated/star_district_B_tabulated.txt)
 
 _3 candidates, 3 ballots._
 

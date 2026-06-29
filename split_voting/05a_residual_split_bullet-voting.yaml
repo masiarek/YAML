@@ -12,7 +12,7 @@ scenario_description: |-
 
   The cure is in their hands — see 05b_residual_split_expressive-fix.yaml, where the
   SAME factions score their ally even a 3 and STAR elects the majority side.
-  Deep dive: 00_start_here/concepts/residual_vote_splitting.md
+  Deep dive: 00_start_here/residual_vote_splitting.md
 
 blocs:
   Allies: [Ada, Ben]

@@ -23,7 +23,6 @@ Titles come from each file's **`election_title`** field (the convention — add 
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
-| [`options_examples.yaml`](../../00_start_here/options_examples.yaml) | `00_start_here/` | 1 | Display options demo → _Don_ |
 | [`01a_c2_b1_two-candidates.yaml`](../../01_Single_winner/01a_c2_b1_two-candidates.yaml) | `01_Single_winner/` | 1 | The simplest possible STAR Voting example → _Chocolate_ |
 | [`01a_c2_b2_two-candidates.yaml`](../../01_Single_winner/01a_c2_b2_two-candidates.yaml) | `01_Single_winner/` | 1 | Same as before - but this time two ballots → _Chocolate_ |
 | [`01b_c2_b2_two-candidates.yaml`](../../01_Single_winner/01b_c2_b2_two-candidates.yaml) | `01_Single_winner/` | 1 | Again, very similar - this time second ballot is 5 and 0 → _Choco_ |
@@ -43,6 +42,7 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | [`center_squeeze_star.yaml`](../../01_Single_winner/center_squeeze_star.yaml) | `01_Single_winner/` | 1 | Center squeeze — STAR elects the consensus (Center) → _Center_ |
 | [`center_squeeze_voteline_1d.yaml`](../../01_Single_winner/center_squeeze_voteline_1d.yaml) | `01_Single_winner/` | 1 | Center squeeze — the voteline 1D spectrum (Red / Green / Yellow) → _Green_ |
 | [`count_simplicity_star_vs_irv.yaml`](../../01_Single_winner/count_simplicity_star_vs_irv.yaml) | `01_Single_winner/` | 1 | Same winner, very different counts — STAR adds, IRV eliminates → _Carmen_ |
+| [`display_options_demo.yaml`](../../01_Single_winner/display_options_demo.yaml) | `01_Single_winner/` | 1 | Display options demo → _Don_ |
 | [`equal_support_runoff_demo.yaml`](../../01_Single_winner/equal_support_runoff_demo.yaml) | `01_Single_winner/` | 1 | Equal Support — counted in both rounds, neutral only in the tie-break → _A_ |
 | [`monotonicity_star_after.yaml`](../../01_Single_winner/monotonicity_star_after.yaml) | `01_Single_winner/` | 1 | Monotonicity — STAR counterpart (AFTER — X still wins) → _X_ |
 | [`monotonicity_star_before.yaml`](../../01_Single_winner/monotonicity_star_before.yaml) | `01_Single_winner/` | 1 | Monotonicity — STAR counterpart (BEFORE — X wins) → _X_ |

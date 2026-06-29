@@ -6,7 +6,7 @@ scenario_description: |-
 
   In the _after file, 4 voters RAISE X to the top. RCV-IRV flips X from winner to
   loser (the non-monotonicity paradox); STAR still elects X. See
-  00_start_here/concepts/monotonicity.md.
+  00_start_here/monotonicity.md.
 
 options:
   show_description: false

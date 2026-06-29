@@ -1,0 +1,46 @@
+# Single-race demo that controls its own output via `options:`.
+election_title: Display options demo
+scenario_description: |-
+  A single-winner race that turns on the preference matrix (finalists only) and
+  the Condorcet line while hiding the score-distribution table — to show how the
+  `options:` block controls what gets printed.
+
+# Presenter notes (ignored by the engine; not shown to the audience).
+video_script: |-
+  SAY: "Now that you understand the two rounds, here's what STAR can show you
+       'under the hood'. The preference matrix is just the head-to-head: who
+       beats whom. The Condorcet line tells us if a candidate beats everyone."
+  HOW: Optional / advanced. Skip for a general audience; use for analysts.
+  WHY: Demonstrate that the runoff result isn't a black box - you can inspect
+       every pairwise matchup.
+  TRANSITION: "Same data, full detail: let's flip every display option on."
+
+num_winners: 1
+voting_method: star
+
+# for demo - deactivate
+#Editor
+#└── Color Scheme
+#    └── General
+#        └── Code
+#            └── Identifier under caret <-- Uncheck "Background" on the right
+options:
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: true
+  show_score_counts: false
+blocs:
+  faction1: [Ann, Don]
+  faction2: [Bob, Cal]
+ballots: |-
+  Ann,Bob,Cal,Don
+    3,  4,  2,  5  
+    3,  4,  2,  5  
+    3,  4,  2,  4  
+    3,  5,  2,  3
+
+expected_winners:
+  - Don
+
+# file: display_options_demo.yaml

@@ -6,10 +6,10 @@ one-on-one — yet STAR elects **Ada**, because Cleo is a low-scored compromise 
 reaches the runoff. Same family as IRV's center squeeze: the broadly-acceptable middle is
 excluded *before* the decisive comparison.
 
-→ the three "winners" STAR can name: [`STAR_three_winner_notions`](../../00_start_here/concepts/STAR_Voting/STAR_three_winner_notions.md)
-· STAR's limits: [AR hub](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md#what-the-runoff-buys-you--and-its-limits)
-· the ranked cousin: [center squeeze](../../00_start_here/concepts/RCV_IRV/RCV_IRV_center_squeeze.md)
-· fairness test: [`reading_these_fairly.md`](./reading_these_fairly.md).
+→ the three "winners" STAR can name: [`STAR_three_winner_notions`](../../00_start_here/STAR_Voting/STAR_three_winner_notions.md)
+· STAR's limits: [AR hub](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md#what-the-runoff-buys-you--and-its-limits)
+· the ranked cousin: [center squeeze](../../00_start_here/RCV_IRV/RCV_IRV_center_squeeze.md)
+· fairness test: [`reading_these_fairly.md`](reading_these_fairly.md).
 ↔ BV QA tracker: **BV149** (STAR fails to elect the Condorcet winner).
 
 ---
@@ -24,7 +24,7 @@ Ada, Bruno, Cleo
 ```
 
 Cleo is everyone's acceptable middle — but the two wings only score her a **2**. Source:
-[`Whoops_02_star_misses_condorcet.yaml`](./Whoops_02_star_misses_condorcet.yaml).
+[`Whoops_02_star_misses_condorcet.yaml`](Whoops_02_star_misses_condorcet.yaml).
 
 ## Cleo wins every head-to-head — and still loses
 
@@ -66,5 +66,5 @@ says so out loud.
 >   ballot honest, and guarantees a majority-of-the-final-two winner. The miss is the
 >   exception, not the rule.
 > - **The symmetric whoops:** this is the **score-method twin of IRV center squeeze**
->   ([RCV_IRV_center_squeeze](../../00_start_here/concepts/RCV_IRV/RCV_IRV_center_squeeze.md)).
+>   ([RCV_IRV_center_squeeze](../../00_start_here/RCV_IRV/RCV_IRV_center_squeeze.md)).
 >   Different mechanism, same victim: the broadly-liked middle.

@@ -13,9 +13,9 @@ Almond.
 > is a **pre-published** lot number rather than a random shuffle
 > ([#1063](https://github.com/Equal-Vote/bettervoting/issues/1063)).
 
-→ [STAR Tie-Breaking](../../00_start_here/concepts/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
-· [reporting true ties](../../00_start_here/concepts/STAR_reporting/reporting_ties.md)
-· [`GLOSSARY` (Equal Support)](../../00_start_here/GLOSSARY.md) · [`README`](./README.md).
+→ [STAR Tie-Breaking](../../00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
+· [reporting true ties](../../00_start_here/STAR_reporting/reporting_ties.md)
+· [`GLOSSARY` (Equal Support)](../../00_start_here/GLOSSARY.md) · [`README`](README.md).
 
 ---
 
@@ -27,7 +27,7 @@ Almond, Brownie
 5, 5
 ```
 
-Source: [`Flat_scores_ties_02_runoff_tie_2cand.yaml`](./Flat_scores_ties_02_runoff_tie_2cand.yaml).
+Source: [`Flat_scores_ties_02_runoff_tie_2cand.yaml`](Flat_scores_ties_02_runoff_tie_2cand.yaml).
 
 ## What LH does
 
