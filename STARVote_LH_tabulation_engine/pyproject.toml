@@ -41,3 +41,10 @@ reference = [
     "numpy",
     "pandas",
     ]
+# Optional: independent cross-check of the ranked-ballot methods (Condorcet /
+# IRV / Plurality) against Eric Pacuit's pref_voting library. Powers
+# tests/test_pref_voting_crosscheck.py and tools_adam/pref_voting_crosscheck.py.
+# Install with:  pip install -e .[crosscheck]   (or  pip install pref_voting)
+crosscheck = [
+    "pref_voting>=1.18",
+    ]
