@@ -19,6 +19,13 @@ ENGINE="$ROOT/STARVote_LH_tabulation_engine"
 PY="python3"
 [ -x "$ROOT/.venv/bin/python" ] && PY="$ROOT/.venv/bin/python"
 
+# Repo hygiene: WARN (never block) about misplaced/junk pastes — generic img_N.png,
+# raw "Ballot Data*.json" drops, etc. — so a real file in the wrong place/name gets
+# noticed instead of silently ignored by .gitignore. Does not abort the commit.
+if [ -f "$ROOT/scripts/check_repo_hygiene.py" ]; then
+  "$PY" "$ROOT/scripts/check_repo_hygiene.py" || true
+fi
+
 # If pytest isn't installed, don't block the commit — just say how to get it.
 if ! "$PY" -c "import pytest" >/dev/null 2>&1; then
   echo "pre-commit: pytest not installed for $PY — skipping tests."

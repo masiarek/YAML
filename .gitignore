@@ -12,6 +12,17 @@ __pycache__/
 # Browser/auth session state — contains live credentials, never commit
 **/auth_state.json
 
+# Misplaced-paste junk (PyCharm/BetterVoting drops). These keep getting auto-staged;
+# ignore them so they never land in a commit. `scripts/check_repo_hygiene.py` (run by
+# the pre-commit hook) still WARNS about them, so a real file pasted with a wrong name
+# isn't silently lost — see CLAUDE.md for the img/<bv_id>_*.png and *_bv_export.json rules.
+**/Ballot Data*.json
+**/img_[0-9]*.png
+**/image_[0-9]*.png
+**/Screenshot*.png
+**/Screen Shot*.png
+**/* - Copy*
+
 # Generated search outputs from the divergence-finder tools (regenerable)
 **/star_irv_hits.csv
 **/four_way_hits.csv
