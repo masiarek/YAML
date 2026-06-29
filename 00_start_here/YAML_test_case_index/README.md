@@ -6,12 +6,13 @@ Election YAMLs live in many folders (the test harnesses glob specific ones, so t
 
 Titles come from each file's **`election_title`** field (the convention — add one to make a file's title explicit & searchable). Where that's missing, a file's first `#` comment line is shown *in italics* as a fallback.
 
-**108 election files** (102 single-winner, 6 multi-winner) across 7 method(s).
+**108 election files** (102 single-winner, 6 multi-winner) across 8 method(s).
 
 | Method | Files |
 |--------|------:|
 | STAR | 91 |
-| RCV-IRV (Hare) | 11 |
+| RCV-IRV (Hare) | 10 |
+| Ranked Robin (RCV-RR / Copeland) | 1 |
 | STV (proportional RCV) | 1 |
 | Bloc STAR | 1 |
 | STAR-PR (Sequential Selection) | 2 |
@@ -114,7 +115,7 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | [`05a_residual_split_bullet-voting.yaml`](../../split_voting/05a_residual_split_bullet-voting.yaml) | `split_voting/` | 1 | STAR's residual split — a coalition bullet-votes itself apart → _Cara_ |
 | [`05b_residual_split_expressive-fix.yaml`](../../split_voting/05b_residual_split_expressive-fix.yaml) | `split_voting/` | 1 | The cure — score your ally, and STAR's split disappears → _Ada_ |
 
-## RCV-IRV (Hare)  (11)
+## RCV-IRV (Hare)  (10)
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
@@ -122,13 +123,18 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | [`center_squeeze_irv.yaml`](../../01_Single_winner/center_squeeze_irv.yaml) | `01_Single_winner/` | 1 | Center squeeze (RCV-IRV) — minimal 27-voter case (the moderate is eliminated) |
 | [`monotonicity_irv_after.yaml`](../../01_Single_winner/monotonicity_irv_after.yaml) | `01_Single_winner/` | 1 | Non-monotonicity (RCV-IRV) — part 2: raising X makes X lose |
 | [`monotonicity_irv_before.yaml`](../../01_Single_winner/monotonicity_irv_before.yaml) | `01_Single_winner/` | 1 | Non-monotonicity (RCV-IRV) — part 1: baseline, X wins |
-| [`ranked_robin_consensus_center.yaml`](../../01_Single_winner/ranked_robin_consensus_center.yaml) | `01_Single_winner/` | 1 | Ranked Robin (RCV-RR) — the consensus center wins the round-robin |
 | [`Whoops_04_ossipoff_centrist_irv.yaml`](../../01_Single_winner/paradoxes_and_whoops/Whoops_04_ossipoff_centrist_irv.yaml) | `01_Single_winner/paradoxes_and_whoops/` | 1 | Whoops 04 — IRV buries the centrist (Ossipoff 303-voter) |
 | [`Whoops_05_brams_many_pathologies_irv.yaml`](../../01_Single_winner/paradoxes_and_whoops/Whoops_05_brams_many_pathologies_irv.yaml) | `01_Single_winner/paradoxes_and_whoops/` | 1 | Whoops 05 — many IRV pathologies in one election (Brams) |
 | [`irv_combined.yaml`](../../01_Single_winner/summability_demo/irv_combined.yaml) | `01_Single_winner/summability_demo/` | 1 | Summability demo — RCV-IRV combined A+B (B eliminated; not summable) |
 | [`irv_district_A.yaml`](../../01_Single_winner/summability_demo/irv_district_A.yaml) | `01_Single_winner/summability_demo/` | 1 | Summability demo — RCV-IRV district A (B wins) |
 | [`irv_district_B.yaml`](../../01_Single_winner/summability_demo/irv_district_B.yaml) | `01_Single_winner/summability_demo/` | 1 | Summability demo — RCV-IRV district B (B wins) |
 | [`example_tennessee.yaml`](../../RCV_IRV_tabulation_engine/example_tennessee.yaml) | `RCV_IRV_tabulation_engine/` | 1 | Tennessee capital — RCV-IRV engine demo |
+
+## Ranked Robin (RCV-RR / Copeland)  (1)
+
+| File | Folder | Winners | Title / expected |
+|------|--------|:------:|------------------|
+| [`ranked_robin_consensus_center.yaml`](../../01_Single_winner/ranked_robin_consensus_center.yaml) | `01_Single_winner/` | 1 | Ranked Robin (RCV-RR) — the consensus center wins the round-robin |
 
 ## STV (proportional RCV)  (1)
 

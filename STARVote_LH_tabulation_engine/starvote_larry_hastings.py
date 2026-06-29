@@ -977,6 +977,124 @@ def tabulate_approval(ballots_text, seats=1, priority=None):
     print(f"  {', '.join(winners)}")
 
 
+def run_ranked_robin(ballots_text, file_path=None, lot_numbers=None):
+    """Tabulate and report a Ranked Robin (RCV-RR / Copeland) election.
+
+    Ranked Robin reads the *whole* ballot: it compares every pair of candidates
+    head-to-head and elects whoever wins the most matchups (ties broken by total
+    margin, then by lot order). Prints the ballots, the round-robin (pairwise)
+    table, and each candidate's win-loss record. Accepts ranked ballots
+    ("A>B>C") or score ballots; both reduce to the same pairwise comparison.
+    """
+    import re as _re
+    from collections import Counter as _Counter
+
+    clean = "\n".join(ln.split("#")[0] for ln in ballots_text.splitlines())
+    display_rows = None
+    if ">" in clean:                                    # ranked ballots
+        voters, seen = [], []
+        for ln in ballots_text.splitlines():
+            ln = ln.split("#")[0].strip()
+            if not ln:
+                continue
+            m = _re.match(r"(\d+)\s*[:xX×]\s*(.+)", ln)
+            w, rest = (int(m.group(1)), m.group(2)) if m else (1, ln)
+            order = [c.strip() for c in rest.split(">") if c.strip()]
+            for c in order:
+                if c not in seen:
+                    seen.append(c)
+            voters += [order] * w
+        candidates = seen
+        ballots = []
+        for order in voters:
+            ranked = {c: (len(order) - i) for i, c in enumerate(order)}
+            ballots.append({c: ranked.get(c, 0) for c in candidates})
+        display_rows = [" > ".join(o) for o in voters]
+    else:                                               # score ballots
+        candidates, ballots, _ = parse_ballots_from_string(ballots_text)
+        display_rows = [", ".join(str(b.get(c, 0)) for c in candidates) for b in ballots]
+
+    n = len(ballots)
+    priority = [c for c in (lot_numbers or candidates) if c in candidates]
+    for c in candidates:
+        if c not in priority:
+            priority.append(c)
+    matrix = calculate_preference_matrix(candidates, ballots)
+
+    wins, losses, ties, margin = ({c: [] for c in candidates},
+                                  {c: [] for c in candidates},
+                                  {c: [] for c in candidates},
+                                  {c: 0 for c in candidates})
+    pair_lines = []
+    for i, a in enumerate(candidates):
+        for b in candidates[i + 1:]:
+            fa, ag, _ = matrix[a][b]
+            margin[a] += fa - ag
+            margin[b] += ag - fa
+            if fa > ag:
+                wins[a].append(b); losses[b].append(a)
+                pair_lines.append(f"   {a} beats {b}   {fa} – {ag}")
+            elif ag > fa:
+                wins[b].append(a); losses[a].append(b)
+                pair_lines.append(f"   {b} beats {a}   {ag} – {fa}")
+            else:
+                ties[a].append(b); ties[b].append(a)
+                pair_lines.append(f"   {a} ties {b}    {fa} – {ag}")
+
+    order = sorted(candidates, key=lambda c: (-len(wins[c]), -margin[c],
+                                              priority.index(c)))
+    top = len(wins[order[0]])
+    leaders = [c for c in candidates if len(wins[c]) == top]
+    winner = order[0]
+
+    L = ["--- Ranked Robin (RCV-RR / Copeland) Method (single winner) ---",
+         f" Tabulating {n} ballots "
+         f"({'ranked' if '>' in clean else 'score'} ballots).", ""]
+    L.append("Ballots:")
+    cnt, seenr = _Counter(display_rows), []
+    for r in display_rows:
+        if r not in seenr:
+            seenr.append(r)
+    for r in seenr:
+        L.append(f"   {cnt[r]:>3} × {r}")
+    L.append("")
+    L.append("Round-Robin — every pair, head-to-head (votes For – Against):")
+    L += pair_lines
+    L.append("")
+    L.append("Win–loss record (most head-to-head wins wins; "
+             "ties broken by total margin, then lot order):")
+    for c in order:
+        w, l, t = len(wins[c]), len(losses[c]), len(ties[c])
+        rec = f"{w}–{l}" + (f"–{t}t" if t else "")
+        beat = f"   (beats: {', '.join(wins[c])})" if wins[c] else ""
+        L.append(f"   {c:<12} {rec:<7} margin {margin[c]:+d}{beat}")
+    L.append("")
+    if len(leaders) == 1:
+        why = ("beats every opponent head-to-head — the Condorcet winner."
+               if not losses[winner] else f"the most head-to-head wins ({top}).")
+        L.append(f"Winner — Ranked Robin (RCV-RR): {winner}")
+        L.append(f"   {why}")
+    else:
+        L.append(f"Winner — Ranked Robin (RCV-RR): {winner}")
+        L.append(f"   *** {len(leaders)} candidates tie on wins "
+                 f"({', '.join(leaders)}) — a Condorcet cycle. Resolved by total "
+                 "margin, then lot order. (This is where Minimax / Ranked Pairs / "
+                 "Schulze differ — see concepts/RCV_Ranked_Robin/cycle_resolution.md.)")
+    plain = "\n".join(L)
+
+    hdr = "--- Ranked Robin (RCV-RR / Copeland) Method (single winner) ---"
+    win = f"Winner — Ranked Robin (RCV-RR): {winner}"
+    colored = plain.replace(hdr, f"{COLOR_HEADER}{hdr}{COLOR_RESET}") \
+                   .replace(win, f"{COLOR_WINNER}{win}{COLOR_RESET}")
+    print(colored)
+    if file_path:
+        try:
+            write_tabulated_copy(file_path, plain)
+        except Exception:
+            pass
+    return winner
+
+
 def condorcet_winner(candidates, ballots):
     """
     Condorcet winner: the candidate who wins every head-to-head pairwise
@@ -2183,6 +2301,16 @@ Memphis,Nashville,Chattanooga,Knoxville
             or bool(difflib.get_close_matches(_norm, ["approval"], cutoff=0.6))
         )
 
+        # Ranked Robin (= RCV-RR = Copeland = Consensus Voting): a Condorcet
+        # round-robin on the SAME ranked ballot as RCV-IRV, but counted by
+        # head-to-head wins. First-class here so a ranked file labeled Ranked
+        # Robin prints the round-robin (ballots + pairwise table + win-loss
+        # record), NOT the IRV elimination rounds.
+        _is_rr = _norm in {
+            "rankedrobin", "ranked_robin", "rcv_rr", "rcvrr", "rr",
+            "copeland", "consensus", "consensus_voting", "consensus_choice",
+        }
+
         # Ranked ballots ("A>C>B") can only be RCV-IRV, regardless of the label.
         # Check for ">" only in the ballot data, NOT in trailing "# comments"
         # (which may legitimately contain "->" arrows).
@@ -2195,8 +2323,9 @@ Memphis,Nashville,Chattanooga,Knoxville
         # Proportional STAR, …) but supplies RANKED ballots ("A>C>B") is self-
         # contradictory: score methods need 0–5 scores; ranked ballots are an
         # RCV-IRV input. Flag the mismatch instead of silently switching engines.
+        # (Ranked Robin / RCV-RR is itself a ranked method, so it's exempt.)
         # (No voting_method declared + ranked ballots still auto-routes to RCV-IRV.)
-        if _ranked_ballots and _mname and not _is_rcv:
+        if _ranked_ballots and _mname and not _is_rcv and not _is_rr:
             print(
                 f"Error: voting_method '{election.get('method_name')}' is a "
                 "score-ballot method, but the ballots are ranked (e.g. 'A>C>B').\n"
@@ -2206,6 +2335,13 @@ Memphis,Nashville,Chattanooga,Knoxville
                 "the ballots as scores (header + rows, e.g. 'A,B,C' then '5,4,0')."
             )
             sys.exit(1)
+
+        # Ranked Robin / RCV-RR comes BEFORE the RCV-IRV branch: a file labeled
+        # Ranked Robin has ranked ballots too, but must be counted round-robin.
+        if _is_rr:
+            run_ranked_robin(csv_input, BALLOTS_FILE,
+                             lot_numbers=election.get("lot_numbers"))
+            sys.exit(0)
 
         if _is_rcv or _ranked_ballots:
             if _IRV_AVAILABLE:

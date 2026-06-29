@@ -27,10 +27,11 @@ EXCLUDE = ("/.venv/", "/.git/", "node_modules", "_tabulated",
            "/harness_cases/", "/2_negative/", "/tests/")
 
 # Friendly section names + ordering for the methods we expect.
-METHOD_ORDER = ["STAR", "RCV_IRV", "RCV", "APPROVAL",
+METHOD_ORDER = ["STAR", "RCV_IRV", "RCV", "RANKEDROBIN", "APPROVAL",
                 "STV", "BLOC", "SSS", "RRV", "ALLOCATED"]
 METHOD_LABEL = {
     "STAR": "STAR", "RCV_IRV": "RCV-IRV (Hare)", "RCV": "RCV-IRV (Hare)",
+    "RANKEDROBIN": "Ranked Robin (RCV-RR / Copeland)",
     "APPROVAL": "Approval", "STV": "STV (proportional RCV)",
     "BLOC": "Bloc STAR", "SSS": "STAR-PR (Sequential Selection)",
     "RRV": "Reweighted Range", "ALLOCATED": "Allocated Score (STAR-PR)",

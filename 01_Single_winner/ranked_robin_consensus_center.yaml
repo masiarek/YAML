@@ -3,7 +3,7 @@ election_description: >-
   13 ranked ballots, 4 candidates. Ben beats every rival head-to-head (the Condorcet /
   Copeland winner) and wins Ranked Robin 3-0 — even though Ada and Dan each have more
   first-choices. Tabulate with pref_voting_tabulation_engine/ranked_robin_report.py.
-voting_method: RCV_IRV   # ranked ballots — this file is the Ranked Robin (RCV-RR / Copeland) demo
+voting_method: RankedRobin   # = RCV-RR / Copeland — round-robin on a ranked ballot
 num_winners: 1
 # Ranked Robin / Copeland worked example. 13 ranked ballots, 4 candidates
 # (Ada=left, Ben=center-left, Cara=center-right, Dan=right).
@@ -11,11 +11,9 @@ num_winners: 1
 #   Copeland (wins - losses): Ben +3, Cara +1, Ada -1, Dan -3  ->  RANKED ROBIN WINNER: Ben.
 # Ben is the Condorcet winner.  Note: Ada and Dan each have MORE first-choices (4) than
 # Ben (3) -- Ranked Robin elects the consensus center, not the plurality leader.
-# NOTE: the LH STAR engine has no Ranked Robin tabulator, so running this file through
-# starvote_larry_hastings.py shows the RCV-IRV elimination rounds (which also elect Ben
-# here), NOT the round-robin. For the Ranked Robin report — ballots, the full pairwise
-# table, and the win-loss record — run:
-#   python pref_voting_tabulation_engine/ranked_robin_report.py 01_Single_winner/ranked_robin_consensus_center.yaml
+# The LH engine now tabulates Ranked Robin first-class: this file prints the
+# round-robin (ballots + pairwise table + win-loss record). For an independent
+# Copeland cross-check, run pref_voting_tabulation_engine/ranked_robin_report.py.
 # Lesson: 00_start_here/concepts/RCV_Ranked_Robin/ranked_robin.md
 ballots: |-
   4:Ada>Ben>Cara>Dan

@@ -202,8 +202,12 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
   proportional; reporting options; `blocs:` vote-splitting check; quorum;
   `[Divergence from STAR]` comparison; optional `show_runoff_percent` runoff
   summary line (decided-voters denominator; forced on in `_tabulated`).
-  Auto-dispatches to RCV-IRV / Approval by `voting_method`, or to RCV-IRV when
-  ballots contain ranked `>` (comments with `->` are ignored).
+  Auto-dispatches to RCV-IRV / Approval / **Ranked Robin** by `voting_method`, or
+  to RCV-IRV when ballots contain ranked `>` (comments with `->` are ignored).
+  **Ranked Robin (RCV-RR / Copeland)** is first-class: `voting_method: RankedRobin`
+  (aliases `RCV_RR` / `Copeland` / `Consensus`) prints the round-robin report
+  (ballots + pairwise table + win-loss record), flags a Condorcet cycle, and
+  writes its `_tabulated` mirror — it does **not** fall through to the IRV rounds.
 - `RCV_IRV_tabulation_engine/rcv_irv_tabulation.py` — vendored pyrankvote; reads
   ranked (`A>C>B`) or score ballots.
 - Quick checks can use system `python3` (engines are vendored); the user runs via

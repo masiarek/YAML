@@ -1,0 +1,25 @@
+--- Ranked Robin (RCV-RR / Copeland) Method (single winner) ---
+ Tabulating 13 ballots (ranked ballots).
+
+Ballots:
+     4 × Ada > Ben > Cara > Dan
+     4 × Dan > Cara > Ben > Ada
+     3 × Ben > Cara > Ada > Dan
+     2 × Cara > Ben > Dan > Ada
+
+Round-Robin — every pair, head-to-head (votes For – Against):
+   Ben beats Ada   9 – 4
+   Cara beats Ada   9 – 4
+   Ada beats Dan   7 – 6
+   Ben beats Cara   7 – 6
+   Ben beats Dan   9 – 4
+   Cara beats Dan   9 – 4
+
+Win–loss record (most head-to-head wins wins; ties broken by total margin, then lot order):
+   Ben          3–0     margin +11   (beats: Ada, Cara, Dan)
+   Cara         2–1     margin +9   (beats: Ada, Dan)
+   Ada          1–2     margin -9   (beats: Dan)
+   Dan          0–3     margin -11
+
+Winner — Ranked Robin (RCV-RR): Ben
+   beats every opponent head-to-head — the Condorcet winner.
