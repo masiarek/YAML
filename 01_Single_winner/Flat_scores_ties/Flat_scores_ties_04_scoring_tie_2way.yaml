@@ -1,10 +1,9 @@
 election:
   election_title: Flat scores 04 — scoring-round tie for the 2nd finalist slot (2-way)
   election_description: |-
-    A leads outright; B and C tie for the second finalist slot. The cascade
-    (head-to-head -> most 5s -> lot) chooses which one advances; A then wins the
-    runoff cleanly. BV bugs: lot-number tie-break #1063; JSON sequence #1371;
-    wrong finalists under ties #1379. Level 201.
+    Aral leads outright; Baikal and Crater tie for the second finalist slot. The cascade
+    (head-to-head -> most 5s -> lot) advances Baikal; Aral then wins the runoff cleanly.
+    BV bugs: wrong finalists #1379; lot rule #1063; JSON sequence #1371. Level 201.
     Lesson: Flat_scores_ties_04_scoring_tie_2way.md  (BV id pending).
   options:
     show_description: false
@@ -23,13 +22,13 @@ election:
     num_winners: 1
     voting_method: STAR
     ballots: |-
-      A, B, C
+      Aral, Baikal, Crater
       5, 4, 4
       5, 4, 4
       5, 0, 0
-    lot_numbers: [A, B, C]
+    lot_numbers: [Aral, Baikal, Crater]
     expected_results:
       winners:
-      - A
+      - Aral
 
 # file: Flat_scores_ties_04_scoring_tie_2way.yaml

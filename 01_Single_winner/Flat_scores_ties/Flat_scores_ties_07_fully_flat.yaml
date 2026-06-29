@@ -1,10 +1,9 @@
 election:
   election_title: Flat scores 07 — fully flat ballots (the maximal tie + abstention trap)
   election_description: |-
-    Every voter scores every candidate 5: a maximal tie that ties in BOTH rounds
-    and resolves entirely by lot. Also the case where BV mis-files a fully-flat
-    ballot as an ABSTENTION (Equal-Support vs abstention, #1407) and shows NaN on
-    equal ties (BV200 #1035). Capstone. Level 301.
+    Every voter scores every mountain 5: a maximal tie that ties in BOTH rounds and resolves
+    by lot -> Ararat. Also where BV mis-files a fully-flat ballot as an ABSTENTION (#1407) and
+    shows NaN on equal ties (BV200 #1035). Capstone. Level 301.
     Lesson: Flat_scores_ties_07_fully_flat.md  (BV id pending).
   options:
     show_description: false
@@ -23,12 +22,12 @@ election:
     num_winners: 1
     voting_method: STAR
     ballots: |-
-      A, B, C
+      Ararat, Blanc, Cook
       5, 5, 5
       5, 5, 5
-    lot_numbers: [A, B, C]
+    lot_numbers: [Ararat, Blanc, Cook]
     expected_results:
       winners:
-      - A
+      - Ararat
 
 # file: Flat_scores_ties_07_fully_flat.yaml

@@ -1,12 +1,10 @@
 election:
   election_title: Flat scores 06 — scoring-round 4-way tie (ties at every step)
   election_description: |-
-    Four candidates tie at 10; ties persist through every score-based tiebreaker,
-    the lot picks two finalists, and the runoff also ties -> lot again. Stress test
-    of the full cascade in both rounds. BV bugs: 'no ballots cast' wrong message
-    under multi-step ties (BV126 #1052); wrong finalists #1379; JSON sequence
-    #1371. Level 301.
-    Lesson: Flat_scores_ties_06_scoring_tie_4way.md  (BV id pending).
+    Ava, Ben, Cara, Dan tie at 10; ties persist through every score-based tiebreaker, the
+    lot picks two finalists, and the runoff also ties -> lot again -> Ava. BV bugs: 'no
+    ballots cast' under multi-step ties (BV126 #1052); wrong finalists #1379; JSON #1371.
+    Level 301. Lesson: Flat_scores_ties_06_scoring_tie_4way.md  (BV id pending).
   options:
     show_description: false
     show_matrix: false
@@ -24,12 +22,12 @@ election:
     num_winners: 1
     voting_method: STAR
     ballots: |-
-      A, B, C, D, E
+      Ava, Ben, Cara, Dan, Eve
       5, 5, 5, 5, 1
       5, 5, 5, 5, 1
-    lot_numbers: [A, B, C, D, E]
+    lot_numbers: [Ava, Ben, Cara, Dan, Eve]
     expected_results:
       winners:
-      - A
+      - Ava
 
 # file: Flat_scores_ties_06_scoring_tie_4way.yaml

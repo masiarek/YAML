@@ -1,9 +1,8 @@
 election:
   election_title: Flat scores 03 — runoff tie, an even 1-1 split
   election_description: |-
-    Two finalists chosen cleanly, then the runoff splits 1-1 (real opposing
-    preferences, not Equal Support). Broken by highest score -> most 5s -> lot.
-    The other flavor of runoff tie. Level 201.
+    Two capitals chosen cleanly, then the runoff splits 1-1 (real opposing preferences).
+    Broken by highest score -> most 5s -> lot -> Athens. Level 201.
     Lesson: Flat_scores_ties_03_runoff_tie_split.md  (BV id pending).
   options:
     show_description: false
@@ -22,12 +21,12 @@ election:
     num_winners: 1
     voting_method: STAR
     ballots: |-
-      A, B, C
+      Athens, Berlin, Cairo
       5, 4, 0
       4, 5, 0
-    lot_numbers: [A, B, C]
+    lot_numbers: [Athens, Berlin, Cairo]
     expected_results:
       winners:
-      - A
+      - Athens
 
 # file: Flat_scores_ties_03_runoff_tie_split.yaml

@@ -1,10 +1,9 @@
 election:
   election_title: Flat scores 02 — runoff tie, two candidates (everyone equal)
   election_description: |-
-    Two candidates, both scored 5 by everyone: both advance, the runoff is 0-0
-    Equal Support, and the tie-break cascade (highest score -> most 5s -> lot)
-    decides. The minimal runoff tie. BV bugs: NaN/equal-ties #1035; no lot-number
-    tie-break #1063; JSON lacks tie-break sequence #1371. Level 101.
+    Two ice-cream flavors, both scored 5 by everyone: both advance, the runoff is 0-0
+    Equal Support, and the cascade (highest score -> most 5s -> lot) picks Almond. BV bugs:
+    NaN/equal-ties #1035; lot rule #1063; JSON sequence #1371. Level 101.
     Lesson: Flat_scores_ties_02_runoff_tie_2cand.md  (BV id pending).
   options:
     show_description: false
@@ -23,12 +22,12 @@ election:
     num_winners: 1
     voting_method: STAR
     ballots: |-
-      A, B
+      Almond, Brownie
       5, 5
       5, 5
-    lot_numbers: [A, B]
+    lot_numbers: [Almond, Brownie]
     expected_results:
       winners:
-      - A
+      - Almond
 
 # file: Flat_scores_ties_02_runoff_tie_2cand.yaml

@@ -1,6 +1,6 @@
 # Flat scores 07 — fully flat ballots (the maximal tie + the abstention trap)
 
-**Level 301 · the capstone.** Every voter scores **every** candidate 5. It's the maximal
+**Level 301 · the capstone.** Every voter scores **every** mountain 5. It's the maximal
 tie — tied in **both** rounds, resolved entirely by lot — and it sits on top of a second
 BV bug: a fully-flat ballot gets **mis-filed as an abstention** and dropped.
 
@@ -21,7 +21,7 @@ BV bug: a fully-flat ballot gets **mis-filed as an abstention** and dropped.
 ## The ballots (2 voters)
 
 ```
-A, B, C
+Ararat, Blanc, Cook
 5, 5, 5
 5, 5, 5
 ```
@@ -30,11 +30,11 @@ Source: [`Flat_scores_ties_07_fully_flat.yaml`](./Flat_scores_ties_07_fully_flat
 
 ## What LH does
 
-All three candidates total 10 — a three-way tie. Head-to-head: all 0 (every pair is Equal
-Support). Most 5s: all 2. The **lot** advances **A, B**; the runoff is 0–0 → lot → **A**.
-Crucially, the two ballots are **counted** the whole way — they're Equal Support, not
-abstentions, so they sit in the score totals and the runoff's Equal-Support bucket. Nothing
-is dropped.
+All three peaks total 10 — a three-way tie. Head-to-head: all 0 (every pair is Equal
+Support). Most 5s: all 2. The **lot** advances **Ararat, Blanc**; the runoff is 0–0 → lot →
+**Ararat**. Crucially, the two ballots are **counted** the whole way — they're Equal
+Support, not abstentions, so they sit in the score totals and the runoff's Equal-Support
+bucket. Nothing is dropped.
 
 ## View 1 — BetterVoting (bug pending)
 
@@ -48,20 +48,20 @@ filed as abstentions) and the runoff may show **NaN** (#1035).
 
 ```
 Scoring Round
-   A -- 10 -- Tied   B -- 10 -- Tied   C -- 10 -- Tied
+   Ararat -- 10 -- Tied   Blanc -- 10 -- Tied   Cook -- 10 -- Tied
  There's a three-way tie for first.
- First tiebreaker (head-to-head):  A=B=C 0  (Equal Support 2)  → still tied
- Second tiebreaker (most 5s):      A=B=C 2                     → still tied
- [Lot Number Priority] Tie among ['A','B','C'] → Resolved ['A','B'].
+ First tiebreaker (head-to-head):  Ararat=Blanc=Cook 0  (Equal Support 2)  → still tied
+ Second tiebreaker (most 5s):      Ararat=Blanc=Cook 2                     → still tied
+ [Lot Number Priority] Tie among ['Ararat','Blanc','Cook'] → Resolved ['Ararat','Blanc'].
 
 Automatic Runoff Round
-   A -- 0 -- Tied   B -- 0 -- Tied   Equal Support -- 2
+   Ararat -- 0 -- Tied   Blanc -- 0 -- Tied   Equal Support -- 2
  There's a two-way tie for first.
- First tiebreaker (highest score):  A 10 = B 10  → still tied
- Second tiebreaker (most 5s):       A  2 = B  2  → still tied
- [Lot Number Priority] Tie among ['A','B'] → Resolved ['A'].
+ First tiebreaker (highest score):  Ararat 10 = Blanc 10  → still tied
+ Second tiebreaker (most 5s):       Ararat  2 = Blanc  2  → still tied
+ [Lot Number Priority] Tie among ['Ararat','Blanc'] → Resolved ['Ararat'].
 
-Winner: A
+Winner: Ararat
 ```
 
 Full audit copy: [`_tabulated`](../Flat_scores_ties_tabulated/Flat_scores_ties_07_fully_flat_tabulated.txt).

@@ -1,9 +1,8 @@
 election:
   election_title: Flat scores 01 — clean top two (works-fine baseline)
   election_description: |-
-    The control. Distinct totals leave an unambiguous top two and a decisive
-    runoff, so NO tie-break is triggered anywhere. BV and LH agree trivially.
-    Contrast for the tie cases that follow. Level 101.
+    The control. Distinct totals leave an unambiguous top two and a decisive runoff, so
+    NO tie-break fires anywhere; BV and LH agree trivially. Fruits cast. Level 101.
     Lesson: Flat_scores_ties_01_baseline_clean.md  (BV id pending).
   options:
     show_description: false
@@ -22,12 +21,12 @@ election:
     num_winners: 1
     voting_method: STAR
     ballots: |-
-      A, B, C
+      Apple, Banana, Cherry
       5, 3, 1
       5, 3, 1
-    lot_numbers: [A, B, C]
+    lot_numbers: [Apple, Banana, Cherry]
     expected_results:
       winners:
-      - A
+      - Apple
 
 # file: Flat_scores_ties_01_baseline_clean.yaml

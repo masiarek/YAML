@@ -1,17 +1,17 @@
 # Test-library copy of 01_Single_winner/Flat_scores_ties/Flat_scores_ties_04_scoring_tie_2way.yaml (flattened for the positive harness).
-# Deterministic winner via published lot order; documents BV tie-break bugs (see the lesson).
+# 2-way tie for 2nd slot -> lot -> Baikal advances; Aral wins.
 voting_method: STAR
 num_winners: 1
 options:
   show_score_counts: true
   show_runoff_percent: true
 ballots: |-
-  A, B, C
+  Aral, Baikal, Crater
   5, 4, 4
   5, 4, 4
   5, 0, 0
-lot_numbers: [A, B, C]
+lot_numbers: [Aral, Baikal, Crater]
 expected_winners:
-  - A
+  - Aral
 
 # file: Flat_scores_ties_04_scoring_tie_2way.yaml

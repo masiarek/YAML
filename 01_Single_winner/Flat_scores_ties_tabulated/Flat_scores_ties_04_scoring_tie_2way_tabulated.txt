@@ -1,17 +1,16 @@
 ======================================================================
 SOURCE FILE:     Flat_scores_ties_04_scoring_tie_2way.yaml
-SOURCE MODIFIED: 2026-06-29 01:54:08
+SOURCE MODIFIED: 2026-06-29 02:06:01
 TABULATED FILE:  Flat_scores_ties_04_scoring_tie_2way_tabulated.txt
-TABULATED AT:    2026-06-29 01:54:08
+TABULATED AT:    2026-06-29 02:06:01
 ======================================================================
 
 election:
   election_title: Flat scores 04 — scoring-round tie for the 2nd finalist slot (2-way)
   election_description: |-
-    A leads outright; B and C tie for the second finalist slot. The cascade
-    (head-to-head -> most 5s -> lot) chooses which one advances; A then wins the
-    runoff cleanly. BV bugs: lot-number tie-break #1063; JSON sequence #1371;
-    wrong finalists under ties #1379. Level 201.
+    Aral leads outright; Baikal and Crater tie for the second finalist slot. The cascade
+    (head-to-head -> most 5s -> lot) advances Baikal; Aral then wins the runoff cleanly.
+    BV bugs: wrong finalists #1379; lot rule #1063; JSON sequence #1371. Level 201.
     Lesson: Flat_scores_ties_04_scoring_tie_2way.md  (BV id pending).
   options:
     show_description: false
@@ -30,14 +29,14 @@ election:
     num_winners: 1
     voting_method: STAR
     ballots: |-
-      A, B, C
+      Aral, Baikal, Crater
       5, 4, 4
       5, 4, 4
       5, 0, 0
-    lot_numbers: [A, B, C]
+    lot_numbers: [Aral, Baikal, Crater]
     expected_results:
       winners:
-      - A
+      - Aral
 
 # file: Flat_scores_ties_04_scoring_tie_2way.yaml
 
@@ -52,67 +51,67 @@ TABULATION RESULTS
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
         * indicates Top 2 Finalist
-               |    * A     |   * B     |     C     |
+               |   * Aral   | * Baikal  |   Crater  |
 -----------------------------------------------------
-         * A > |    ---     |3 - 0 - 0  |3 - 0 - 0  |
-         * B > | 0 - 0 - 3  |   ---     |0 - 3 - 0  |
-           C > | 0 - 0 - 3  |0 - 3 - 0  |   ---     |
+      * Aral > |    ---     |3 - 0 - 0  |3 - 0 - 0  |
+    * Baikal > | 0 - 0 - 3  |   ---     |0 - 3 - 0  |
+      Crater > | 0 - 0 - 3  |0 - 3 - 0  |   ---     |
 
 [Condorcet Winner]
-  Condorcet Winner: A — matches the STAR winner
+  Condorcet Winner: Aral — matches the STAR winner
 
 --- STAR Voting Method (single winner) ---
 [STAR Voting]
  Tabulating 3 ballots.
-Count × A,B,C
-    2 × 5,4,4
-    1 × 5,0,0
+Count × Aral,Baikal,Crater
+    2 ×    5,     4,     4
+    1 ×    5,     0,     0
 
 [Score Distribution] (number of ballots giving each score)
-   5  4  3  2  1  0  | Total   Avg
-A  3  0  0  0  0  0  |    15   5.0
-B  0  2  0  0  0  1  |     8   2.7
-C  0  2  0  0  0  1  |     8   2.7
+        5  4  3  2  1  0  | Total   Avg
+Aral    3  0  0  0  0  0  |    15   5.0
+Baikal  0  2  0  0  0  1  |     8   2.7
+Crater  0  2  0  0  0  1  |     8   2.7
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
-   A             -- 15 -- First place
-   B             --  8 -- Tied for second place
-   C             --  8 -- Tied for second place
- A advances, but there's a two-way tie for second.
+   Aral          -- 15 -- First place
+   Baikal        --  8 -- Tied for second place
+   Crater        --  8 -- Tied for second place
+ Aral advances, but there's a two-way tie for second.
 
 [STAR Voting: Scoring Round: First tiebreaker]
  The candidate preferred in the most head-to-head matchups advances.
-   B             -- 0 -- Tied for second place
-   C             -- 0 -- Tied for second place
+   Baikal        -- 0 -- Tied for second place
+   Crater        -- 0 -- Tied for second place
    Equal Support -- 3
  There's still a two-way tie for second.
 
 [STAR Voting: Scoring Round: Second tiebreaker]
  The candidate with the most votes of score 5 advances.
-   B             -- 0 -- Tied for second place
-   C             -- 0 -- Tied for second place
+   Baikal        -- 0 -- Tied for second place
+   Crater        -- 0 -- Tied for second place
  There's still a two-way tie for second.
 
 *(Ties are resolved by choosing the tied candidate with the highest-priority official lot number.)*
-    Lot-number priority order: ['A', 'B', 'C']
+    Lot-number priority order: ['Aral', 'Baikal', 'Crater']
 
 [Tiebreaker: Lot Number Priority]
-  Tie among: ['B', 'C']
-  Resolved: ['B'] (selected by lot-number priority).
+  Tie among: ['Baikal', 'Crater']
+  Resolved: ['Baikal'] (selected by lot-number priority).
 
 [STAR Voting: Automatic Runoff Round]
  The candidate preferred in the most head-to-head matchups wins.
-   A             -- 3 -- First place
-   B             -- 0
+   Aral          -- 3 -- First place
+   Baikal        -- 0
    Equal Support -- 0
- A wins.
+ Aral wins.
    Runoff math:
      3  ballots cast
    − 0  Equal Support (no preference between the two finalists)
      ─
      3  voters with a preference  (majority = 2)
-           A 3 (100%)  ·  B 0 (0%)
+           Aral 3 (100%)  ·  Baikal 0 (0%)
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
- A
+ Aral

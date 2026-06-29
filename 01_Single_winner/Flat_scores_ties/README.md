@@ -43,23 +43,36 @@ step*. Two cascades, depending on where the tie is:
 3. **Lot number** — as above.
 
 The point of the lot number is **reproducibility**: any auditor with the same ballots and
-the same published lot order gets the same winner. That is exactly what BV is missing
-(#1063, #1371).
+the same lot order gets the same winner. BV has **recently added** its tie-break priority
+sequence to the JSON export ([#1371](https://github.com/Equal-Vote/bettervoting/issues/1371)),
+(now **closed**) so an outside engine can import that order and reproduce BV's result — the
+LH engine already accepts an imported lot order for exactly this. What's still open is a
+**pre-published** lot number (a public draw before the election) rather than a post-hoc
+random shuffle ([#1063](https://github.com/Equal-Vote/bettervoting/issues/1063)), and the
+finalist/winner divergence + missing human-readable explanation in
+[#1379](https://github.com/Equal-Vote/bettervoting/issues/1379).
 
 ## The cases
 
-| # | Lesson | Where the tie is | Level | LH winner | BV status |
-|---|--------|------------------|:---:|:---:|---|
-| 01 | [clean top two (baseline)](./Flat_scores_ties_01_baseline_clean.md) | none — control | 101 | A | agrees ✅ |
-| 02 | [runoff tie, two candidates](./Flat_scores_ties_02_runoff_tie_2cand.md) | runoff (all Equal Support) | 101 | A | NaN on equal ties ⚠️ #1035 |
-| 03 | [runoff tie, even 1-1 split](./Flat_scores_ties_03_runoff_tie_split.md) | runoff (real split) | 201 | A | check ⚠️ |
-| 04 | [scoring tie for 2nd slot (2-way)](./Flat_scores_ties_04_scoring_tie_2way.md) | scoring round | 201 | A | check ⚠️ |
-| 05 ⚠️ | [scoring 3-way tie **(BV555/#1379)**](./Flat_scores_ties_05_scoring_tie_3way_xmyf7k.md) | scoring round | 201/301 | A | **picks C — wrong** ❌ #1379 |
-| 06 | [scoring 4-way tie (ties every step)](./Flat_scores_ties_06_scoring_tie_4way.md) | both rounds | 301 | A | "no ballots cast" msg ⚠️ #1052 |
-| 07 | [fully flat ballots (maximal tie)](./Flat_scores_ties_07_fully_flat.md) | both rounds | 301 | A | abstention mis-file ⚠️ #1407 |
+Each scenario has its own friendly cast (fruits, flavors, capitals, lakes, names,
+mountains, pizza); the names are in lot-priority order (the first one — A-initial — wins
+the lot), so the cascade and winner stay easy to read. **Case 05 keeps bare `A–E`** — it's
+the exact ballots in #1379 and the already-built BV election `xmyf7k`, so renaming would
+desync from that screenshot.
+
+| # | Lesson | Cast | Where the tie is | Level | LH winner | BV status |
+|---|--------|------|------------------|:---:|:---:|---|
+| 01 | [clean top two (baseline)](./Flat_scores_ties_01_baseline_clean.md) | fruits | none — control | 101 | Apple | agrees ✅ |
+| 02 | [runoff tie, two candidates](./Flat_scores_ties_02_runoff_tie_2cand.md) | ice cream | runoff (all Equal Support) | 101 | Almond | NaN on equal ties ⚠️ #1035 |
+| 03 | [runoff tie, even 1-1 split](./Flat_scores_ties_03_runoff_tie_split.md) | capitals | runoff (real split) | 201 | Athens | check ⚠️ |
+| 04 | [scoring tie for 2nd slot (2-way)](./Flat_scores_ties_04_scoring_tie_2way.md) | lakes | scoring round | 201 | Aral | check ⚠️ |
+| 05 ⚠️ | [scoring 3-way tie **(BV555/#1379)**](./Flat_scores_ties_05_scoring_tie_3way_xmyf7k.md) | A–E | scoring round | 201/301 | A | **picks C — wrong** ❌ #1379 |
+| 06 | [scoring 4-way tie (ties every step)](./Flat_scores_ties_06_scoring_tie_4way.md) | names | both rounds | 301 | Ava | "no ballots cast" msg ⚠️ #1052 |
+| 07 | [fully flat ballots (maximal tie)](./Flat_scores_ties_07_fully_flat.md) | mountains | both rounds | 301 | Ararat | abstention mis-file ⚠️ #1407 |
+| 08 | [every ballot flat → BV counts 0](./Flat_scores_ties_08_all_flat_zero_count.md) | pizza | both rounds | 301 | Anchovy | **0 ballots** (all abstentions) ⚠️ #1407 |
 
 **"But 5,5,5,0 works fine?"** Worth flagging: `5,5,5,0` does **not** sidestep the problem —
-in STAR it's a genuine **3-way tie** (A, B, C all total 10), the same shape as case 05.
+in STAR it's a genuine **3-way tie** (all three total 10), the same shape as case 05.
 What actually "works fine" — BV and LH agreeing with no tie-break at all — is when the
 scores leave an **unambiguous top two and a decisive runoff** (case **01**). So the honest
 contrast isn't "flat vs not-flat," it's **"tie vs no-tie."** Flat-looking high scores are
@@ -70,7 +83,7 @@ fine *until* they produce an exact tie.
 | Report | What it's about | Cases |
 |--------|-----------------|-------|
 | [#1379 — BV555, scoring-round 3-way tie](https://github.com/Equal-Vote/bettervoting/issues/1379) | BV picks different finalists than the reference engine **and** exports no tie-break explanation | 05 |
-| [#1371 — JSON: add tie-break priority sequence](https://github.com/Equal-Vote/bettervoting/issues/1371) | the randomized tie-break order isn't in the export, so no other engine can reproduce the result | all |
+| [#1371 — JSON: add tie-break priority sequence](https://github.com/Equal-Vote/bettervoting/issues/1371) ✅ **closed** | the randomized tie-break order is now in the export, so another engine can import it and reproduce the result | all |
 | [#1063 — deterministic lot-number tie-breaking](https://github.com/Equal-Vote/bettervoting/issues/1063) | implement the published-lot-number final rule (the fix LH already has) | all |
 | [#242 — Approval/Plurality tie handling](https://github.com/Equal-Vote/bettervoting/issues/242) · [PR #229](https://github.com/Equal-Vote/bettervoting/pull/229) | tabulators break when random tie-breakers are disabled | method note |
 | [PR #1385](https://github.com/Equal-Vote/bettervoting/pull/1385) | tie-break related fix | — |

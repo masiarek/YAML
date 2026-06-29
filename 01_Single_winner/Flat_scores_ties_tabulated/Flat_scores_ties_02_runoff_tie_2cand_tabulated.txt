@@ -1,17 +1,16 @@
 ======================================================================
 SOURCE FILE:     Flat_scores_ties_02_runoff_tie_2cand.yaml
-SOURCE MODIFIED: 2026-06-29 01:54:08
+SOURCE MODIFIED: 2026-06-29 02:06:01
 TABULATED FILE:  Flat_scores_ties_02_runoff_tie_2cand_tabulated.txt
-TABULATED AT:    2026-06-29 01:54:08
+TABULATED AT:    2026-06-29 02:06:01
 ======================================================================
 
 election:
   election_title: Flat scores 02 — runoff tie, two candidates (everyone equal)
   election_description: |-
-    Two candidates, both scored 5 by everyone: both advance, the runoff is 0-0
-    Equal Support, and the tie-break cascade (highest score -> most 5s -> lot)
-    decides. The minimal runoff tie. BV bugs: NaN/equal-ties #1035; no lot-number
-    tie-break #1063; JSON lacks tie-break sequence #1371. Level 101.
+    Two ice-cream flavors, both scored 5 by everyone: both advance, the runoff is 0-0
+    Equal Support, and the cascade (highest score -> most 5s -> lot) picks Almond. BV bugs:
+    NaN/equal-ties #1035; lot rule #1063; JSON sequence #1371. Level 101.
     Lesson: Flat_scores_ties_02_runoff_tie_2cand.md  (BV id pending).
   options:
     show_description: false
@@ -30,13 +29,13 @@ election:
     num_winners: 1
     voting_method: STAR
     ballots: |-
-      A, B
+      Almond, Brownie
       5, 5
       5, 5
-    lot_numbers: [A, B]
+    lot_numbers: [Almond, Brownie]
     expected_results:
       winners:
-      - A
+      - Almond
 
 # file: Flat_scores_ties_02_runoff_tie_2cand.yaml
 
@@ -51,56 +50,56 @@ TABULATION RESULTS
 Head-to-head / pairwise comparison
 Legend: For - Equal Support - Against
         * indicates Top 2 Finalist
-               |    * A     |   * B     |
------------------------------------------
-         * A > |    ---     |0 - 2 - 0  |
-         * B > | 0 - 2 - 0  |   ---     |
+                |  * Almond   | * Brownie  |
+--------------------------------------------
+     * Almond > |     ---     | 0 - 2 - 0  |
+    * Brownie > |  0 - 2 - 0  |    ---     |
 
 [Condorcet Winner]
-  No strict Condorcet winner; unbeaten candidates: A, B (pairwise ties)
+  No strict Condorcet winner; unbeaten candidates: Almond, Brownie (pairwise ties)
 
 --- STAR Voting Method (single winner) ---
 [STAR Voting]
  Tabulating 2 ballots.
-Count × A,B
-    2 × 5,5
+Count × Almond,Brownie
+    2 ×      5,      5
 
 [Score Distribution] (number of ballots giving each score)
-   5  4  3  2  1  0  | Total   Avg
-A  2  0  0  0  0  0  |    10   5.0
-B  2  0  0  0  0  0  |    10   5.0
+         5  4  3  2  1  0  | Total   Avg
+Almond   2  0  0  0  0  0  |    10   5.0
+Brownie  2  0  0  0  0  0  |    10   5.0
 
 [STAR Voting: Scoring Round]
  The two highest-scoring candidates advance to the next round.
-   A             -- 10 -- First place
-   B             -- 10 -- Second place
- A and B advance.
+   Almond        -- 10 -- First place
+   Brownie       -- 10 -- Second place
+ Almond and Brownie advance.
 
 [STAR Voting: Automatic Runoff Round]
  The candidate preferred in the most head-to-head matchups wins.
-   A             -- 0 -- Tied for first place
-   B             -- 0 -- Tied for first place
+   Almond        -- 0 -- Tied for first place
+   Brownie       -- 0 -- Tied for first place
    Equal Support -- 2
  There's a two-way tie for first.
 
 [STAR Voting: Automatic Runoff Round: First tiebreaker]
  The highest-scoring candidate wins.
-   A             -- 10 -- Tied for first place
-   B             -- 10 -- Tied for first place
+   Almond        -- 10 -- Tied for first place
+   Brownie       -- 10 -- Tied for first place
  There's still a two-way tie for first.
 
 [STAR Voting: Automatic Runoff Round: Second tiebreaker]
  The candidate with the most votes of score 5 wins.
-   A             -- 2 -- Tied for first place
-   B             -- 2 -- Tied for first place
+   Almond        -- 2 -- Tied for first place
+   Brownie       -- 2 -- Tied for first place
  There's still a two-way tie for first.
 
 *(Ties are resolved by choosing the tied candidate with the highest-priority official lot number.)*
-    Lot-number priority order: ['A', 'B']
+    Lot-number priority order: ['Almond', 'Brownie']
 
 [Tiebreaker: Lot Number Priority]
-  Tie among: ['A', 'B']
-  Resolved: ['A'] (selected by lot-number priority).
+  Tie among: ['Almond', 'Brownie']
+  Resolved: ['Almond'] (selected by lot-number priority).
 
 [STAR Voting: Winner — STAR Voting Method (single winner)]
- A
+ Almond

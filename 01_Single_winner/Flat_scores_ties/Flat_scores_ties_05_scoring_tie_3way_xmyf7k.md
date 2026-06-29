@@ -12,8 +12,8 @@ cleanest possible test of "does your tabulator break ties deterministically *and
 work?" — and the reference answer is A.
 
 → the cascade: [STAR Tie-Breaking](../../00_start_here/concepts/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
-· why a published lot order matters: [#1063](https://github.com/Equal-Vote/bettervoting/issues/1063),
-[#1371](https://github.com/Equal-Vote/bettervoting/issues/1371)
+· why a published lot order matters: [#1063](https://github.com/Equal-Vote/bettervoting/issues/1063)
+· export of the tie-break sequence — **recently added** by BV: [#1371](https://github.com/Equal-Vote/bettervoting/issues/1371)
 · [reporting true ties](../../00_start_here/concepts/STAR_reporting/reporting_ties.md) · [`README`](./README.md).
 
 ---
@@ -41,10 +41,16 @@ Source: [`Flat_scores_ties_05_scoring_tie_3way_xmyf7k.yaml`](./Flat_scores_ties_
 
 Both engines see the same three-way tie. LH applies the published lot order (A, B, C, …),
 advances **A** and **B**, breaks the resulting runoff tie by lot again, and elects **A** —
-printing each step. BV advances **C** and **A** and elects **C**, with nothing in the
-export to show *why*. With no published lot rule and no exported tie-break sequence, the
-result is **not reproducible** and **not auditable** — that is the bug, even more than the
-specific letter.
+printing each step. The screenshot in #1379 showed BV advancing **C** and **A** and
+electing **C**. BV has **recently added the tie-break priority sequence to its JSON export**
+([#1371](https://github.com/Equal-Vote/bettervoting/issues/1371)), so the result is now
+**reproducible** — a second engine can import BV's exported order and replay it (the LH
+engine already accepts an imported lot order for exactly this). What's still open is the
+substance of #1379: BV using a *different* order than the reference and not showing the
+tie-break in its human-readable report, plus the request for a **pre-published** lot number
+rather than a post-hoc random shuffle ([#1063](https://github.com/Equal-Vote/bettervoting/issues/1063)).
+**Re-verify `xmyf7k` against a fresh BV run** — the displayed winner may have changed since
+the export fix.
 
 ## View 1 — BetterVoting (incorrect — bug pending)
 
@@ -85,10 +91,12 @@ Full audit copy: [`_tabulated`](../Flat_scores_ties_tabulated/Flat_scores_ties_0
 
 ## The takeaway
 
-When every score-based tiebreaker ties, only a **published lot order** can produce a
-result two independent systems agree on. LH has that rule and prints every step; BV
-currently has neither, so it lands on a different winner and can't show its work. Until
-[#1379](https://github.com/Equal-Vote/bettervoting/issues/1379) /
-[#1063](https://github.com/Equal-Vote/bettervoting/issues/1063) /
-[#1371](https://github.com/Equal-Vote/bettervoting/issues/1371) land, this case stays
-flagged as a known divergence.
+When every score-based tiebreaker ties, the only thing that lets two independent systems
+agree is a **shared tie-break order**. LH publishes its lot order and prints every step;
+BV **now exports** its tie-break sequence too ([#1371](https://github.com/Equal-Vote/bettervoting/issues/1371),
+recently added), so the result can be reproduced by importing that order. What keeps this
+case flagged is the rest of [#1379](https://github.com/Equal-Vote/bettervoting/issues/1379):
+BV choosing different finalists than the reference here and not showing the tie-break in
+its human-readable report — and the open ask for a **pre-published** lot number rather than
+a random shuffle ([#1063](https://github.com/Equal-Vote/bettervoting/issues/1063)). Confirm
+the current `xmyf7k` result before treating the winner divergence as live.
