@@ -1,0 +1,128 @@
+======================================================================
+SOURCE FILE:     Flat_scores_ties_07_fully_flat.yaml
+SOURCE MODIFIED: 2026-06-29 01:54:08
+TABULATED FILE:  Flat_scores_ties_07_fully_flat_tabulated.txt
+TABULATED AT:    2026-06-29 01:54:08
+======================================================================
+
+election:
+  election_title: Flat scores 07 — fully flat ballots (the maximal tie + abstention trap)
+  election_description: |-
+    Every voter scores every candidate 5: a maximal tie that ties in BOTH rounds
+    and resolves entirely by lot. Also the case where BV mis-files a fully-flat
+    ballot as an ABSTENTION (Equal-Support vs abstention, #1407) and shows NaN on
+    equal ties (BV200 #1035). Capstone. Level 301.
+    Lesson: Flat_scores_ties_07_fully_flat.md  (BV id pending).
+  options:
+    show_description: false
+    show_matrix: false
+    matrix_finalists_only: true
+    show_condorcet: false
+    show_score_counts: true
+    show_irv: false
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: false
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "BV id pending"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      A, B, C
+      5, 5, 5
+      5, 5, 5
+    lot_numbers: [A, B, C]
+    expected_results:
+      winners:
+      - A
+
+# file: Flat_scores_ties_07_fully_flat.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Flat scores 07 — fully flat ballots (the maximal tie + abstention trap) ===
+  BV id pending
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |    * A     |   * B     |     C     |
+-----------------------------------------------------
+         * A > |    ---     |0 - 2 - 0  |0 - 2 - 0  |
+         * B > | 0 - 2 - 0  |   ---     |0 - 2 - 0  |
+           C > | 0 - 2 - 0  |0 - 2 - 0  |   ---     |
+
+[Condorcet Winner]
+  No strict Condorcet winner; unbeaten candidates: A, B, C (pairwise ties)
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 2 ballots.
+Count × A,B,C
+    2 × 5,5,5
+
+[Score Distribution] (number of ballots giving each score)
+   5  4  3  2  1  0  | Total   Avg
+A  2  0  0  0  0  0  |    10   5.0
+B  2  0  0  0  0  0  |    10   5.0
+C  2  0  0  0  0  0  |    10   5.0
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   A             -- 10 -- Tied for first place
+   B             -- 10 -- Tied for first place
+   C             -- 10 -- Tied for first place
+ There's a three-way tie for first.
+
+[STAR Voting: Scoring Round: First tiebreaker]
+ The two candidates preferred in the most head-to-head matchups advance.
+   A             -- 0 -- Tied for first place
+   B             -- 0 -- Tied for first place
+   C             -- 0 -- Tied for first place
+   Equal Support -- 2
+ There's still a three-way tie for first.
+
+[STAR Voting: Scoring Round: Second tiebreaker]
+ The two candidates with the most votes of score 5 advance.
+   A             -- 2 -- Tied for first place
+   B             -- 2 -- Tied for first place
+   C             -- 2 -- Tied for first place
+ There's still a three-way tie for first.
+
+*(Ties are resolved by choosing the tied candidate with the highest-priority official lot number.)*
+    Lot-number priority order: ['A', 'B', 'C']
+
+[Tiebreaker: Lot Number Priority]
+  Tie among: ['A', 'B', 'C']
+  Resolved: ['A', 'B'] (selected by lot-number priority).
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   A             -- 0 -- Tied for first place
+   B             -- 0 -- Tied for first place
+   Equal Support -- 2
+ There's a two-way tie for first.
+
+[STAR Voting: Automatic Runoff Round: First tiebreaker]
+ The highest-scoring candidate wins.
+   A             -- 10 -- Tied for first place
+   B             -- 10 -- Tied for first place
+ There's still a two-way tie for first.
+
+[STAR Voting: Automatic Runoff Round: Second tiebreaker]
+ The candidate with the most votes of score 5 wins.
+   A             -- 2 -- Tied for first place
+   B             -- 2 -- Tied for first place
+ There's still a two-way tie for first.
+
+[Tiebreaker: Lot Number Priority]
+  Tie among: ['A', 'B']
+  Resolved: ['A'] (selected by lot-number priority).
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ A

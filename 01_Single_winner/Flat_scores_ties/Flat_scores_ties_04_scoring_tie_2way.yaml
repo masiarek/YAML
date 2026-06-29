@@ -1,0 +1,35 @@
+election:
+  election_title: Flat scores 04 — scoring-round tie for the 2nd finalist slot (2-way)
+  election_description: |-
+    A leads outright; B and C tie for the second finalist slot. The cascade
+    (head-to-head -> most 5s -> lot) chooses which one advances; A then wins the
+    runoff cleanly. BV bugs: lot-number tie-break #1063; JSON sequence #1371;
+    wrong finalists under ties #1379. Level 201.
+    Lesson: Flat_scores_ties_04_scoring_tie_2way.md  (BV id pending).
+  options:
+    show_description: false
+    show_matrix: false
+    matrix_finalists_only: true
+    show_condorcet: false
+    show_score_counts: true
+    show_irv: false
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: false
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "BV id pending"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      A, B, C
+      5, 4, 4
+      5, 4, 4
+      5, 0, 0
+    lot_numbers: [A, B, C]
+    expected_results:
+      winners:
+      - A
+
+# file: Flat_scores_ties_04_scoring_tie_2way.yaml

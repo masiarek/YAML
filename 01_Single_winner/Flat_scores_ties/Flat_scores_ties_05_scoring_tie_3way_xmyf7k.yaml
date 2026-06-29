@@ -1,0 +1,37 @@
+election:
+  election_title: Flat scores 05 — scoring-round 3-way tie (BV555 / #1379)
+  election_description: |-
+    THE documented bug case. A, B, C tie at 10; every score-based tiebreaker stays
+    tied; the lot-number fallback picks A, B as finalists and A wins. BetterVoting
+    (xmyf7k) instead picks C and A and declares C the winner, and exports NO
+    tie-break explanation. Same ballots, different winner -> a real divergence.
+    Tracked: BV555 #1379 (wrong finalists + missing explanation), #1371 (JSON
+    sequence), #1063 (lot-number tie-break). Level 201/301. WORK IN PROGRESS until
+    BV is fixed. Lesson: Flat_scores_ties_05_scoring_tie_3way_xmyf7k.md
+    BV: https://bettervoting.com/xmyf7k/results
+  options:
+    show_description: false
+    show_matrix: false
+    matrix_finalists_only: true
+    show_condorcet: false
+    show_score_counts: true
+    show_irv: false
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: false
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "https://bettervoting.com/xmyf7k/results"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      A, B, C, D, E
+      5, 5, 5, 4, 4
+      5, 5, 5, 4, 4
+    lot_numbers: [A, B, C, D, E]
+    expected_results:
+      winners:
+      - A
+
+# file: Flat_scores_ties_05_scoring_tie_3way_xmyf7k.yaml

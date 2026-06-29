@@ -1,0 +1,16 @@
+# Test-library copy of 01_Single_winner/Flat_scores_ties/Flat_scores_ties_06_scoring_tie_4way.yaml (flattened for the positive harness).
+# Deterministic winner via published lot order; documents BV tie-break bugs (see the lesson).
+voting_method: STAR
+num_winners: 1
+options:
+  show_score_counts: true
+  show_runoff_percent: true
+ballots: |-
+  A, B, C, D, E
+  5, 5, 5, 5, 1
+  5, 5, 5, 5, 1
+lot_numbers: [A, B, C, D, E]
+expected_winners:
+  - A
+
+# file: Flat_scores_ties_06_scoring_tie_4way.yaml

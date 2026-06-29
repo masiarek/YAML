@@ -1,0 +1,33 @@
+election:
+  election_title: Flat scores 01 — clean top two (works-fine baseline)
+  election_description: |-
+    The control. Distinct totals leave an unambiguous top two and a decisive
+    runoff, so NO tie-break is triggered anywhere. BV and LH agree trivially.
+    Contrast for the tie cases that follow. Level 101.
+    Lesson: Flat_scores_ties_01_baseline_clean.md  (BV id pending).
+  options:
+    show_description: false
+    show_matrix: false
+    matrix_finalists_only: true
+    show_condorcet: false
+    show_score_counts: true
+    show_irv: false
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: false
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "BV id pending"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      A, B, C
+      5, 3, 1
+      5, 3, 1
+    lot_numbers: [A, B, C]
+    expected_results:
+      winners:
+      - A
+
+# file: Flat_scores_ties_01_baseline_clean.yaml

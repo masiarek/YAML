@@ -1,0 +1,137 @@
+======================================================================
+SOURCE FILE:     Flat_scores_ties_05_scoring_tie_3way_xmyf7k.yaml
+SOURCE MODIFIED: 2026-06-29 01:54:08
+TABULATED FILE:  Flat_scores_ties_05_scoring_tie_3way_xmyf7k_tabulated.txt
+TABULATED AT:    2026-06-29 01:54:08
+======================================================================
+
+election:
+  election_title: Flat scores 05 — scoring-round 3-way tie (BV555 / #1379)
+  election_description: |-
+    THE documented bug case. A, B, C tie at 10; every score-based tiebreaker stays
+    tied; the lot-number fallback picks A, B as finalists and A wins. BetterVoting
+    (xmyf7k) instead picks C and A and declares C the winner, and exports NO
+    tie-break explanation. Same ballots, different winner -> a real divergence.
+    Tracked: BV555 #1379 (wrong finalists + missing explanation), #1371 (JSON
+    sequence), #1063 (lot-number tie-break). Level 201/301. WORK IN PROGRESS until
+    BV is fixed. Lesson: Flat_scores_ties_05_scoring_tie_3way_xmyf7k.md
+    BV: https://bettervoting.com/xmyf7k/results
+  options:
+    show_description: false
+    show_matrix: false
+    matrix_finalists_only: true
+    show_condorcet: false
+    show_score_counts: true
+    show_irv: false
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: false
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "https://bettervoting.com/xmyf7k/results"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      A, B, C, D, E
+      5, 5, 5, 4, 4
+      5, 5, 5, 4, 4
+    lot_numbers: [A, B, C, D, E]
+    expected_results:
+      winners:
+      - A
+
+# file: Flat_scores_ties_05_scoring_tie_3way_xmyf7k.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Flat scores 05 — scoring-round 3-way tie (BV555 / ===
+  https://bettervoting.com/xmyf7k/results
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |    * A     |   * B     |     C     |     D     |     E     |
+-----------------------------------------------------------------------------
+         * A > |    ---     |0 - 2 - 0  |0 - 2 - 0  |2 - 0 - 0  |2 - 0 - 0  |
+         * B > | 0 - 2 - 0  |   ---     |0 - 2 - 0  |2 - 0 - 0  |2 - 0 - 0  |
+           C > | 0 - 2 - 0  |0 - 2 - 0  |   ---     |2 - 0 - 0  |2 - 0 - 0  |
+           D > | 0 - 0 - 2  |0 - 0 - 2  |0 - 0 - 2  |   ---     |0 - 2 - 0  |
+           E > | 0 - 0 - 2  |0 - 0 - 2  |0 - 0 - 2  |0 - 2 - 0  |   ---     |
+
+[Condorcet Winner]
+  No strict Condorcet winner; unbeaten candidates: A, B, C (pairwise ties)
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 2 ballots.
+Count × A,B,C,D,E
+    2 × 5,5,5,4,4
+
+[Score Distribution] (number of ballots giving each score)
+   5  4  3  2  1  0  | Total   Avg
+A  2  0  0  0  0  0  |    10   5.0
+B  2  0  0  0  0  0  |    10   5.0
+C  2  0  0  0  0  0  |    10   5.0
+D  0  2  0  0  0  0  |     8   4.0
+E  0  2  0  0  0  0  |     8   4.0
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   A             -- 10 -- Tied for first place
+   B             -- 10 -- Tied for first place
+   C             -- 10 -- Tied for first place
+   D             --  8
+   E             --  8
+ There's a three-way tie for first.
+
+[STAR Voting: Scoring Round: First tiebreaker]
+ The two candidates preferred in the most head-to-head matchups advance.
+   A             -- 0 -- Tied for first place
+   B             -- 0 -- Tied for first place
+   C             -- 0 -- Tied for first place
+   Equal Support -- 2
+ There's still a three-way tie for first.
+
+[STAR Voting: Scoring Round: Second tiebreaker]
+ The two candidates with the most votes of score 5 advance.
+   A             -- 2 -- Tied for first place
+   B             -- 2 -- Tied for first place
+   C             -- 2 -- Tied for first place
+ There's still a three-way tie for first.
+
+*(Ties are resolved by choosing the tied candidate with the highest-priority official lot number.)*
+    Lot-number priority order: ['A', 'B', 'C', 'D', 'E']
+
+[Tiebreaker: Lot Number Priority]
+  Tie among: ['A', 'B', 'C']
+  Resolved: ['A', 'B'] (selected by lot-number priority).
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   A             -- 0 -- Tied for first place
+   B             -- 0 -- Tied for first place
+   Equal Support -- 2
+ There's a two-way tie for first.
+
+[STAR Voting: Automatic Runoff Round: First tiebreaker]
+ The highest-scoring candidate wins.
+   A             -- 10 -- Tied for first place
+   B             -- 10 -- Tied for first place
+ There's still a two-way tie for first.
+
+[STAR Voting: Automatic Runoff Round: Second tiebreaker]
+ The candidate with the most votes of score 5 wins.
+   A             -- 2 -- Tied for first place
+   B             -- 2 -- Tied for first place
+ There's still a two-way tie for first.
+
+[Tiebreaker: Lot Number Priority]
+  Tie among: ['A', 'B']
+  Resolved: ['A'] (selected by lot-number priority).
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ A

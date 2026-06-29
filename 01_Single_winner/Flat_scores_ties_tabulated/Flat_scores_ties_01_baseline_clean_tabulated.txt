@@ -1,0 +1,95 @@
+======================================================================
+SOURCE FILE:     Flat_scores_ties_01_baseline_clean.yaml
+SOURCE MODIFIED: 2026-06-29 01:54:08
+TABULATED FILE:  Flat_scores_ties_01_baseline_clean_tabulated.txt
+TABULATED AT:    2026-06-29 01:54:08
+======================================================================
+
+election:
+  election_title: Flat scores 01 — clean top two (works-fine baseline)
+  election_description: |-
+    The control. Distinct totals leave an unambiguous top two and a decisive
+    runoff, so NO tie-break is triggered anywhere. BV and LH agree trivially.
+    Contrast for the tie cases that follow. Level 101.
+    Lesson: Flat_scores_ties_01_baseline_clean.md  (BV id pending).
+  options:
+    show_description: false
+    show_matrix: false
+    matrix_finalists_only: true
+    show_condorcet: false
+    show_score_counts: true
+    show_irv: false
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: false
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "BV id pending"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      A, B, C
+      5, 3, 1
+      5, 3, 1
+    lot_numbers: [A, B, C]
+    expected_results:
+      winners:
+      - A
+
+# file: Flat_scores_ties_01_baseline_clean.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Flat scores 01 — clean top two (works-fine baseline) ===
+  BV id pending
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |    * A     |   * B     |     C     |
+-----------------------------------------------------
+         * A > |    ---     |2 - 0 - 0  |2 - 0 - 0  |
+         * B > | 0 - 0 - 2  |   ---     |2 - 0 - 0  |
+           C > | 0 - 0 - 2  |0 - 0 - 2  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: A — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 2 ballots.
+Count × A,B,C
+    2 × 5,3,1
+
+[Score Distribution] (number of ballots giving each score)
+   5  4  3  2  1  0  | Total   Avg
+A  2  0  0  0  0  0  |    10   5.0
+B  0  0  2  0  0  0  |     6   3.0
+C  0  0  0  0  2  0  |     2   1.0
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   A             -- 10 -- First place
+   B             --  6 -- Second place
+   C             --  2
+ A and B advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   A             -- 2 -- First place
+   B             -- 0
+   Equal Support -- 0
+ A wins.
+   Runoff math:
+     2  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     2  voters with a preference  (majority = 2)
+           A 2 (100%)  ·  B 0 (0%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ A
