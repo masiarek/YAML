@@ -1,3 +1,4 @@
+election_title: "Summability demo — STAR combined A+B (Oak; precinct subtotals add up)"
 voting_method: STAR
 num_winners: 1
 options: {show_score_counts: true, show_matrix: true, matrix_finalists_only: false, show_runoff_percent: true}

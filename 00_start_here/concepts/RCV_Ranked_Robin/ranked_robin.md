@@ -82,6 +82,17 @@ Ranked Robin isn't a cure-all. Like all ranked methods it captures **order only,
 The repo's new [`pref_voting_tabulation_engine/`](../../../pref_voting_tabulation_engine/README.md)
 computes this method on any example election, under its **academic name, Copeland**.
 
+> **Want the full round-robin echo (like STAR's)?** The LH STAR engine has no Ranked Robin
+> tabulator, so handing it ranked ballots shows the *RCV-IRV* elimination rounds, not the
+> head-to-heads. For the **Ranked Robin report** — ballots, the full pairwise table, and
+> each candidate's win-loss record — run
+> [`ranked_robin_report.py`](../../../pref_voting_tabulation_engine/ranked_robin_report.py):
+> ```
+> python pref_voting_tabulation_engine/ranked_robin_report.py 01_Single_winner/ranked_robin_consensus_center.yaml
+> ```
+> It even flags a **cycle** (when the top candidates tie on wins) and points to
+> [cycle resolution](./cycle_resolution.md).
+
 **Copeland = Ranked Robin = Consensus Voting = RCV-RR** — *the same core method wearing
 different brand names from different proponent groups:*
 

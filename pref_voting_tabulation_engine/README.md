@@ -51,7 +51,23 @@ Condorcet / IRV / Plurality machinery is independently confirmed. Wired into
 (skips cleanly if `pref_voting` isn't installed). Full write-up:
 [`cross_checking_with_pref_voting.md`](../00_start_here/concepts/tabulation_engines/cross_checking_with_pref_voting.md).
 
+## Ranked Robin report (friendly RR echo)
+
+The LH STAR engine dispatches ranked ballots to **RCV-IRV** (it has no Ranked Robin
+tabulator), so its echo for a ranked file shows elimination rounds, not the round-robin.
+For the **Ranked Robin (RCV-RR / Copeland) view** — ballots, the full pairwise table, and
+each candidate's win-loss record — run:
+
+```bash
+python ranked_robin_report.py ../01_Single_winner/ranked_robin_consensus_center.yaml
+```
+
+It's dependency-light (uses the LH pairwise-matrix helper; `pref_voting` only for an
+optional Copeland cross-check), and **flags a cycle** when the leaders tie on wins —
+pointing to [`cycle_resolution.md`](../00_start_here/concepts/RCV_Ranked_Robin/cycle_resolution.md).
+
 ## Files
 
 - `pref_voting_tabulation.py` — the cross-check wrapper (parser + both engines + compare).
+- `ranked_robin_report.py` — friendly Ranked Robin / Copeland report for one or more files.
 - `example_tennessee.yaml` — a demo election (the classic 3-methods-3-winners case).

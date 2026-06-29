@@ -14,6 +14,7 @@ A pytest (test_yaml_index_current.py) regenerates this and fails if the committe
 file is stale, so the index can't silently drift out of date.
 """
 import os
+import sys
 import glob
 import yaml
 
@@ -43,10 +44,33 @@ def _race(d):
 
 
 def _title(d, race):
+    """Prefer the explicit `election_title` field (machine-readable, the house
+    convention). Comments are NOT parsed by YAML, so a `#`-comment title is only a
+    fallback (see `_first_comment`)."""
     el = d.get("election", {}) if isinstance(d, dict) else {}
     return (el.get("election_title")
             or (race.get("election_title") if isinstance(race, dict) else None)
             or "").strip().replace("\n", " ")
+
+
+def _first_comment(path):
+    """Fallback title: the first descriptive `# comment` line (skips the
+    `# file:` trailer and structural lines). Used only when `election_title` is
+    absent — add an `election_title:` field to make a file's title explicit."""
+    try:
+        for ln in open(path):
+            s = ln.strip()
+            if not s.startswith("#"):
+                continue
+            s = s.lstrip("#").strip()
+            if not s or s.lower().startswith("file:") or ":" == s[-1:]:
+                continue
+            if len(s) > 90:
+                s = s[:88].rstrip() + "…"
+            return "_" + s + "_"     # italic = scraped from a comment, not an explicit title
+    except Exception:
+        pass
+    return ""
 
 
 def _expected(race):
@@ -66,6 +90,8 @@ def collect():
         rel = os.path.relpath(p, REPO)
         if any(s in "/" + rel.replace(os.sep, "/") for s in EXCLUDE):
             continue
+        if any(t in os.path.basename(rel).lower() for t in ("temp", "trash", "scratch")):
+            continue                       # scratch files, not real cases
         try:
             d = yaml.safe_load(open(p))
         except Exception:
@@ -80,10 +106,12 @@ def collect():
             nw = int(race.get("num_winners", 1) or 1)
         except Exception:
             nw = 1
+        explicit = _title(d, race)
         rows.append({
             "method": method, "nw": nw, "rel": rel.replace(os.sep, "/"),
             "name": os.path.basename(p), "dir": os.path.dirname(rel).replace(os.sep, "/"),
-            "title": _title(d, race), "expected": _expected(race),
+            "title": explicit or _first_comment(p), "expected": _expected(race),
+            "has_title": bool(explicit),     # explicit election_title field?
         })
     rows.sort(key=lambda r: r["rel"])
     return rows
@@ -100,6 +128,10 @@ def render(rows):
                "`voting_method` and `num_winners`; this catalog groups them so you can "
                "browse by method. Excludes `_tabulated` mirrors, raw `_demo_dropbox` "
                "drops, generated copies, and deliberately-malformed negative fixtures.\n")
+    out.append("Titles come from each file's **`election_title`** field (the convention — "
+               "add one to make a file's title explicit & searchable). Where that's "
+               "missing, a file's first `#` comment line is shown *in italics* as a "
+               "fallback.\n")
 
     by_method = {}
     for r in rows:
@@ -136,6 +168,21 @@ def render(rows):
     return "\n".join(out).rstrip() + "\n"
 
 
+def audit_titles():
+    """List indexed files that lack an explicit `election_title` field (a comment
+    fallback may still be shown in the index, but adding the field makes the title
+    explicit & searchable). Returns the list of relative paths."""
+    missing = [r["rel"] for r in collect() if not r["has_title"]]
+    if not missing:
+        print("title-audit: ✓ every indexed election file has an election_title.")
+    else:
+        print(f"title-audit: ⚠️  {len(missing)} file(s) have no election_title "
+              "(add one so the index title is explicit, not a scraped comment):")
+        for rel in missing:
+            print(f"   • {rel}")
+    return missing
+
+
 def main():
     rows = collect()
     text = render(rows)
@@ -147,4 +194,6 @@ def main():
 
 
 if __name__ == "__main__":
+    if "--audit-titles" in sys.argv[1:]:
+        sys.exit(1 if audit_titles() else 0)
     main()
