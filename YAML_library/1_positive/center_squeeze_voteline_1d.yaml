@@ -1,3 +1,4 @@
+election_title: "Center squeeze — the voteline 1D spectrum (Red / Green / Yellow)"
 # Test-library copy of 01_Single_winner/center_squeeze_voteline_1d.yaml (flattened for the positive harness).
 # Voteline 1-D center squeeze: IRV & Plurality -> Yellow; STAR & Condorcet -> Green (the squeezed center).
 voting_method: STAR

@@ -1,3 +1,4 @@
+election_title: "Display-options reference — every reporting toggle (STAR)"
 voting_method: STAR        # STAR (single-winner) or Bloc STAR (num_winners >= 2)
 num_winners: 1
 

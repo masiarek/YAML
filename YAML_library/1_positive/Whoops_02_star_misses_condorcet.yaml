@@ -1,3 +1,4 @@
+election_title: "Whoops 02 — STAR misses the Condorcet winner (STAR's own whoops)"
 # Test-library copy of 01_Single_winner/paradoxes_and_whoops/Whoops_02_star_misses_condorcet.yaml (flattened for the positive harness).
 # STAR=Ada but Condorcet winner=Cleo (STAR's whoops).
 voting_method: STAR

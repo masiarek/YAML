@@ -1,3 +1,4 @@
+election_title: "Tennessee capital — cross-check demo (same ballots, three winners)"
 voting_method: STAR   # cross-check demo — the classic Tennessee capital scenario
 num_winners: 1
 ballots: |-

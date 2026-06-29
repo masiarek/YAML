@@ -1,3 +1,4 @@
+election_title: "Flat scores 06 — scoring-round 4-way tie (ties at every step)"
 # Test-library copy of 01_Single_winner/Flat_scores_ties/Flat_scores_ties_06_scoring_tie_4way.yaml (flattened for the positive harness).
 # 4-way tie both rounds -> lot -> Ava. BV 'no ballots' #1052.
 voting_method: STAR

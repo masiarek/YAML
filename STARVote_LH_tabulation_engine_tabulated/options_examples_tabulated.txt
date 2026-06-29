@@ -1,10 +1,11 @@
 ======================================================================
 SOURCE FILE:     options_examples.yaml
-SOURCE MODIFIED: 2026-06-19 01:40:00
+SOURCE MODIFIED: 2026-06-29 12:49:34
 TABULATED FILE:  options_examples_tabulated.txt
-TABULATED AT:    2026-06-28 12:09:20
+TABULATED AT:    2026-06-29 12:50:03
 ======================================================================
 
+election_title: "Display-options reference — every reporting toggle (STAR)"
 voting_method: STAR        # STAR (single-winner) or Bloc STAR (num_winners >= 2)
 num_winners: 1
 
@@ -47,6 +48,8 @@ ballots: |-
 ======================================================================
 TABULATION RESULTS
 ======================================================================
+
+=== Display-options reference — every reporting toggle (STAR) ===
 
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison

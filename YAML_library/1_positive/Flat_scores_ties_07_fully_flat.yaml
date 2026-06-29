@@ -1,3 +1,4 @@
+election_title: "Flat scores 07 — fully flat ballots (the maximal tie + abstention trap)"
 # Test-library copy of 01_Single_winner/Flat_scores_ties/Flat_scores_ties_07_fully_flat.yaml (flattened for the positive harness).
 # Fully flat -> tie both rounds -> lot -> Ararat. BV abstention #1407.
 voting_method: STAR

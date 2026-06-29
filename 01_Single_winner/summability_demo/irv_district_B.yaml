@@ -1,3 +1,4 @@
+election_title: "Summability demo — RCV-IRV district B (B wins)"
 voting_method: RCV_IRV
 num_winners: 1
 # Summability demo (IRV), district B (A/C roles swapped). IRV winner: B.

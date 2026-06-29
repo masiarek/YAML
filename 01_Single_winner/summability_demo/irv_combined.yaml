@@ -1,3 +1,4 @@
+election_title: "Summability demo — RCV-IRV combined A+B (B eliminated; not summable)"
 voting_method: RCV_IRV
 num_winners: 1
 # Summability demo (IRV), A+B merged. B wins BOTH districts, but here B has the

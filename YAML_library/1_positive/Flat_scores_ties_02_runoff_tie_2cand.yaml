@@ -1,3 +1,4 @@
+election_title: "Flat scores 02 — runoff tie, two candidates (everyone equal)"
 # Test-library copy of 01_Single_winner/Flat_scores_ties/Flat_scores_ties_02_runoff_tie_2cand.yaml (flattened for the positive harness).
 # Runoff all-Equal-Support tie -> lot -> Almond. BV NaN #1035.
 voting_method: STAR

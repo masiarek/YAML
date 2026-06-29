@@ -29,7 +29,7 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | [`01c_c2_b3_two-candidates.yaml`](../../01_Single_winner/01c_c2_b3_two-candidates.yaml) | `01_Single_winner/` | 1 | Equal support example ("I like both flavors") → _Choco_ |
 | [`02a_c3_b1_three-candidates.yaml`](../../01_Single_winner/02a_c3_b1_three-candidates.yaml) | `01_Single_winner/` | 1 | Three candidates, one ballot - single-winner STAR → _Choco_ |
 | [`02b_c3_b2_three-candidates.yaml`](../../01_Single_winner/02b_c3_b2_three-candidates.yaml) | `01_Single_winner/` | 1 | Three candidates, two ballots - single-winner STAR → _Vanilla_ |
-| [`03a_c3_b3_style-bullet-vote.yaml`](../../01_Single_winner/03a_c3_b3_style-bullet-vote.yaml) | `01_Single_winner/` | 1 | _Voting styles — what a valid STAR ballot may look like._ → _Vanilla_ |
+| [`03a_c3_b3_style-bullet-vote.yaml`](../../01_Single_winner/03a_c3_b3_style-bullet-vote.yaml) | `01_Single_winner/` | 1 | Voting styles — a valid STAR bullet vote (3 candidates) → _Vanilla_ |
 | [`03b_c3_b3_1_style-protest-vote.yaml`](../../01_Single_winner/03b_c3_b3_1_style-protest-vote.yaml) | `01_Single_winner/` | 1 | Voting styles — low-score ballots → _Almond_ |
 | [`03b_c3_b3_2_expand_style-protest-vote.yaml`](../../01_Single_winner/03b_c3_b3_2_expand_style-protest-vote.yaml) | `01_Single_winner/` | 1 | Voting styles — low-score ballots (continued) → _Almond_ |
 | [`04b_c4_b3_display-options-all.yaml`](../../01_Single_winner/04b_c4_b3_display-options-all.yaml) | `01_Single_winner/` | 1 | All options demo → _Strawberry_ |
@@ -37,8 +37,8 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | [`06a_c9_b3_large-field-equal-support.yaml`](../../01_Single_winner/06a_c9_b3_large-field-equal-support.yaml) | `01_Single_winner/` | 1 | Large field (9 candidates) — STAR scales, and Equal Support decides → _Carmen_ |
 | [`06b_c9_runoff-overturns-leader.yaml`](../../01_Single_winner/06b_c9_runoff-overturns-leader.yaml) | `01_Single_winner/` | 1 | Large field (9 candidates) — the runoff OVERTURNS the score leader → _Carmen_ |
 | [`09_c4_b100_tennessee-capital.yaml`](../../01_Single_winner/09_c4_b100_tennessee-capital.yaml) | `01_Single_winner/` | 1 | Tennessee Capital — classic STAR example → _Nashville_ |
-| [`Approval_ballot.yaml`](../../01_Single_winner/Approval_ballot.yaml) | `01_Single_winner/` | 1 |  |
-| [`abstentions.yaml`](../../01_Single_winner/abstentions.yaml) | `01_Single_winner/` | 1 |  |
+| [`Approval_ballot.yaml`](../../01_Single_winner/Approval_ballot.yaml) | `01_Single_winner/` | 1 | Approval-style & marker ballots (0/1, blanks, abstentions) under STAR |
+| [`abstentions.yaml`](../../01_Single_winner/abstentions.yaml) | `01_Single_winner/` | 1 | Abstentions — blank and abstaining ballots in STAR |
 | [`center_squeeze_star.yaml`](../../01_Single_winner/center_squeeze_star.yaml) | `01_Single_winner/` | 1 | Center squeeze — STAR elects the consensus (Center) → _Center_ |
 | [`center_squeeze_voteline_1d.yaml`](../../01_Single_winner/center_squeeze_voteline_1d.yaml) | `01_Single_winner/` | 1 | Center squeeze — the voteline 1D spectrum (Red / Green / Yellow) → _Green_ |
 | [`count_simplicity_star_vs_irv.yaml`](../../01_Single_winner/count_simplicity_star_vs_irv.yaml) | `01_Single_winner/` | 1 | Same winner, very different counts — STAR adds, IRV eliminates → _Carmen_ |
@@ -85,27 +85,27 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | [`star_combined.yaml`](../../01_Single_winner/summability_demo/star_combined.yaml) | `01_Single_winner/summability_demo/` | 1 | Summability demo — STAR combined A+B (Oak; precinct subtotals add up) → _Oak_ |
 | [`star_district_A.yaml`](../../01_Single_winner/summability_demo/star_district_A.yaml) | `01_Single_winner/summability_demo/` | 1 | Summability demo — STAR district A (Maple wins outright) → _Maple_ |
 | [`star_district_B.yaml`](../../01_Single_winner/summability_demo/star_district_B.yaml) | `01_Single_winner/summability_demo/` | 1 | Summability demo — STAR district B (Oak wins — a runoff reversal) → _Oak_ |
-| [`options_examples.yaml`](../../STARVote_LH_tabulation_engine/options_examples.yaml) | `STARVote_LH_tabulation_engine/` | 1 | _---------------------------------------------------------------------------_ |
-| [`Flat_scores_ties_01_baseline_clean.yaml`](../../YAML_library/1_positive/Flat_scores_ties_01_baseline_clean.yaml) | `YAML_library/1_positive/` | 1 | _Test-library copy of 01_Single_winner/Flat_scores_ties/Flat_scores_ties_01_baseline_clea…_ → _Apple_ |
-| [`Flat_scores_ties_02_runoff_tie_2cand.yaml`](../../YAML_library/1_positive/Flat_scores_ties_02_runoff_tie_2cand.yaml) | `YAML_library/1_positive/` | 1 | _Test-library copy of 01_Single_winner/Flat_scores_ties/Flat_scores_ties_02_runoff_tie_2c…_ → _Almond_ |
-| [`Flat_scores_ties_03_runoff_tie_split.yaml`](../../YAML_library/1_positive/Flat_scores_ties_03_runoff_tie_split.yaml) | `YAML_library/1_positive/` | 1 | _Test-library copy of 01_Single_winner/Flat_scores_ties/Flat_scores_ties_03_runoff_tie_sp…_ → _Athens_ |
-| [`Flat_scores_ties_04_scoring_tie_2way.yaml`](../../YAML_library/1_positive/Flat_scores_ties_04_scoring_tie_2way.yaml) | `YAML_library/1_positive/` | 1 | _Test-library copy of 01_Single_winner/Flat_scores_ties/Flat_scores_ties_04_scoring_tie_2…_ → _Aral_ |
-| [`Flat_scores_ties_05_scoring_tie_3way_xmyf7k.yaml`](../../YAML_library/1_positive/Flat_scores_ties_05_scoring_tie_3way_xmyf7k.yaml) | `YAML_library/1_positive/` | 1 | _Test-library copy of 01_Single_winner/Flat_scores_ties/Flat_scores_ties_05_scoring_tie_3…_ → _A_ |
-| [`Flat_scores_ties_06_scoring_tie_4way.yaml`](../../YAML_library/1_positive/Flat_scores_ties_06_scoring_tie_4way.yaml) | `YAML_library/1_positive/` | 1 | _Test-library copy of 01_Single_winner/Flat_scores_ties/Flat_scores_ties_06_scoring_tie_4…_ → _Ava_ |
-| [`Flat_scores_ties_07_fully_flat.yaml`](../../YAML_library/1_positive/Flat_scores_ties_07_fully_flat.yaml) | `YAML_library/1_positive/` | 1 | _Test-library copy of 01_Single_winner/Flat_scores_ties/Flat_scores_ties_07_fully_flat.ya…_ → _Ararat_ |
-| [`Flat_scores_ties_08_all_flat_zero_count.yaml`](../../YAML_library/1_positive/Flat_scores_ties_08_all_flat_zero_count.yaml) | `YAML_library/1_positive/` | 1 | _Test-library copy of 01_Single_winner/Flat_scores_ties/Flat_scores_ties_08_all_flat_zero…_ → _Anchovy_ |
-| [`Runoff_01_confirms_leader_r2pvc9.yaml`](../../YAML_library/1_positive/Runoff_01_confirms_leader_r2pvc9.yaml) | `YAML_library/1_positive/` | 1 | _Runoff 01 — Runoff confirms the leader (control)_ → _Aspen_ |
-| [`Runoff_02_atom_reversal_yx9447.yaml`](../../YAML_library/1_positive/Runoff_02_atom_reversal_yx9447.yaml) | `YAML_library/1_positive/` | 1 | _Runoff 02 — the atom (smallest runoff reversal)_ → _Boston_ |
-| [`Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml`](../../YAML_library/1_positive/Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml) | `YAML_library/1_positive/` | 1 | _Runoff 03 — two enthusiasts vs the majority_ → _Eden_ |
-| [`Runoff_04_reversal_at_scale_bfjqmg.yaml`](../../YAML_library/1_positive/Runoff_04_reversal_at_scale_bfjqmg.yaml) | `YAML_library/1_positive/` | 1 | _Runoff 04 — the reversal holds at scale (67/33)_ → _Olive_ |
-| [`Runoff_05_reversal_with_equal_support_xgkw3w.yaml`](../../YAML_library/1_positive/Runoff_05_reversal_with_equal_support_xgkw3w.yaml) | `YAML_library/1_positive/` | 1 | _Runoff 05 — reversal with Equal Support_ → _Sage_ |
-| [`Runoff_06_confirms_at_scale_d664xw.yaml`](../../YAML_library/1_positive/Runoff_06_confirms_at_scale_d664xw.yaml) | `YAML_library/1_positive/` | 1 | _Runoff 06 — the runoff confirms the leader at scale (control)_ → _Wren_ |
-| [`Runoff_07_flat_ballot_bv_bug_tf73v9.yaml`](../../YAML_library/1_positive/Runoff_07_flat_ballot_bv_bug_tf73v9.yaml) | `YAML_library/1_positive/` | 1 | _Runoff 07 (WIP) — flat ballot exposes the BV abstention bug_ → _Blair_ |
-| [`Whoops_01_tennessee_three_winners.yaml`](../../YAML_library/1_positive/Whoops_01_tennessee_three_winners.yaml) | `YAML_library/1_positive/` | 1 | _Test-library copy of 01_Single_winner/paradoxes_and_whoops/Whoops_01_tennessee_three_win…_ → _Nashville_ |
-| [`Whoops_02_star_misses_condorcet.yaml`](../../YAML_library/1_positive/Whoops_02_star_misses_condorcet.yaml) | `YAML_library/1_positive/` | 1 | _Test-library copy of 01_Single_winner/paradoxes_and_whoops/Whoops_02_star_misses_condorc…_ → _Ada_ |
-| [`Whoops_03_condorcet_cycle_rps.yaml`](../../YAML_library/1_positive/Whoops_03_condorcet_cycle_rps.yaml) | `YAML_library/1_positive/` | 1 | _Test-library copy of 01_Single_winner/paradoxes_and_whoops/Whoops_03_condorcet_cycle_rps…_ → _Rock_ |
-| [`center_squeeze_voteline_1d.yaml`](../../YAML_library/1_positive/center_squeeze_voteline_1d.yaml) | `YAML_library/1_positive/` | 1 | _Test-library copy of 01_Single_winner/center_squeeze_voteline_1d.yaml (flattened for the…_ → _Green_ |
-| [`example_tennessee.yaml`](../../pref_voting_tabulation_engine/example_tennessee.yaml) | `pref_voting_tabulation_engine/` | 1 | _Run:  python pref_voting_tabulation.py example_tennessee.yaml_ |
+| [`options_examples.yaml`](../../STARVote_LH_tabulation_engine/options_examples.yaml) | `STARVote_LH_tabulation_engine/` | 1 | Display-options reference — every reporting toggle (STAR) |
+| [`Flat_scores_ties_01_baseline_clean.yaml`](../../YAML_library/1_positive/Flat_scores_ties_01_baseline_clean.yaml) | `YAML_library/1_positive/` | 1 | Flat scores 01 — clean top two (works-fine baseline) → _Apple_ |
+| [`Flat_scores_ties_02_runoff_tie_2cand.yaml`](../../YAML_library/1_positive/Flat_scores_ties_02_runoff_tie_2cand.yaml) | `YAML_library/1_positive/` | 1 | Flat scores 02 — runoff tie, two candidates (everyone equal) → _Almond_ |
+| [`Flat_scores_ties_03_runoff_tie_split.yaml`](../../YAML_library/1_positive/Flat_scores_ties_03_runoff_tie_split.yaml) | `YAML_library/1_positive/` | 1 | Flat scores 03 — runoff tie, an even 1-1 split → _Athens_ |
+| [`Flat_scores_ties_04_scoring_tie_2way.yaml`](../../YAML_library/1_positive/Flat_scores_ties_04_scoring_tie_2way.yaml) | `YAML_library/1_positive/` | 1 | Flat scores 04 — scoring-round tie for the 2nd finalist slot (2-way) → _Aral_ |
+| [`Flat_scores_ties_05_scoring_tie_3way_xmyf7k.yaml`](../../YAML_library/1_positive/Flat_scores_ties_05_scoring_tie_3way_xmyf7k.yaml) | `YAML_library/1_positive/` | 1 | Flat scores 05 — scoring-round 3-way tie (BV555 / → _A_ |
+| [`Flat_scores_ties_06_scoring_tie_4way.yaml`](../../YAML_library/1_positive/Flat_scores_ties_06_scoring_tie_4way.yaml) | `YAML_library/1_positive/` | 1 | Flat scores 06 — scoring-round 4-way tie (ties at every step) → _Ava_ |
+| [`Flat_scores_ties_07_fully_flat.yaml`](../../YAML_library/1_positive/Flat_scores_ties_07_fully_flat.yaml) | `YAML_library/1_positive/` | 1 | Flat scores 07 — fully flat ballots (the maximal tie + abstention trap) → _Ararat_ |
+| [`Flat_scores_ties_08_all_flat_zero_count.yaml`](../../YAML_library/1_positive/Flat_scores_ties_08_all_flat_zero_count.yaml) | `YAML_library/1_positive/` | 1 | Flat scores 08 — every ballot flat (BetterVoting counts 0) → _Anchovy_ |
+| [`Runoff_01_confirms_leader_r2pvc9.yaml`](../../YAML_library/1_positive/Runoff_01_confirms_leader_r2pvc9.yaml) | `YAML_library/1_positive/` | 1 | Runoff 01 — Runoff confirms the leader (control) → _Aspen_ |
+| [`Runoff_02_atom_reversal_yx9447.yaml`](../../YAML_library/1_positive/Runoff_02_atom_reversal_yx9447.yaml) | `YAML_library/1_positive/` | 1 | Runoff 02 — the atom (smallest runoff reversal) → _Boston_ |
+| [`Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml`](../../YAML_library/1_positive/Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml) | `YAML_library/1_positive/` | 1 | Runoff 03 — two enthusiasts vs the majority → _Eden_ |
+| [`Runoff_04_reversal_at_scale_bfjqmg.yaml`](../../YAML_library/1_positive/Runoff_04_reversal_at_scale_bfjqmg.yaml) | `YAML_library/1_positive/` | 1 | Runoff 04 — the reversal holds at scale (67/33) → _Olive_ |
+| [`Runoff_05_reversal_with_equal_support_xgkw3w.yaml`](../../YAML_library/1_positive/Runoff_05_reversal_with_equal_support_xgkw3w.yaml) | `YAML_library/1_positive/` | 1 | Runoff 05 — reversal with Equal Support → _Sage_ |
+| [`Runoff_06_confirms_at_scale_d664xw.yaml`](../../YAML_library/1_positive/Runoff_06_confirms_at_scale_d664xw.yaml) | `YAML_library/1_positive/` | 1 | Runoff 06 — the runoff confirms the leader at scale (control) → _Wren_ |
+| [`Runoff_07_flat_ballot_bv_bug_tf73v9.yaml`](../../YAML_library/1_positive/Runoff_07_flat_ballot_bv_bug_tf73v9.yaml) | `YAML_library/1_positive/` | 1 | Runoff 07 (WIP) — flat ballot exposes the BV abstention bug → _Blair_ |
+| [`Whoops_01_tennessee_three_winners.yaml`](../../YAML_library/1_positive/Whoops_01_tennessee_three_winners.yaml) | `YAML_library/1_positive/` | 1 | Whoops 01 — same ballots, three methods, three winners (Tennessee) → _Nashville_ |
+| [`Whoops_02_star_misses_condorcet.yaml`](../../YAML_library/1_positive/Whoops_02_star_misses_condorcet.yaml) | `YAML_library/1_positive/` | 1 | Whoops 02 — STAR misses the Condorcet winner (STAR's own whoops) → _Ada_ |
+| [`Whoops_03_condorcet_cycle_rps.yaml`](../../YAML_library/1_positive/Whoops_03_condorcet_cycle_rps.yaml) | `YAML_library/1_positive/` | 1 | Whoops 03 — a Condorcet cycle (rock-paper-scissors, no winner) → _Rock_ |
+| [`center_squeeze_voteline_1d.yaml`](../../YAML_library/1_positive/center_squeeze_voteline_1d.yaml) | `YAML_library/1_positive/` | 1 | Center squeeze — the voteline 1D spectrum (Red / Green / Yellow) → _Green_ |
+| [`example_tennessee.yaml`](../../pref_voting_tabulation_engine/example_tennessee.yaml) | `pref_voting_tabulation_engine/` | 1 | Tennessee capital — cross-check demo (same ballots, three winners) |
 | [`00_plurality_vs_majority.yaml`](../../split_voting/00_plurality_vs_majority.yaml) | `split_voting/` | 1 | Plurality vs Majority — most votes isn't more than half → _Blake_ |
 | [`01_political_left_split.yaml`](../../split_voting/01_political_left_split.yaml) | `split_voting/` | 1 | Spoiler — a split coalition hands the seat to the minority → _Labour_ |
 | [`02_icecream_chocolate_split.yaml`](../../split_voting/02_icecream_chocolate_split.yaml) | `split_voting/` | 1 | Spoiler — chocolate's majority splits, vanilla steals the win → _MilkChoco_ |
@@ -118,23 +118,23 @@ Titles come from each file's **`election_title`** field (the convention — add 
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
-| [`RCV_ballot_example.yaml`](../../01_Single_winner/RCV_ballot_example.yaml) | `01_Single_winner/` | 1 |  |
-| [`center_squeeze_irv.yaml`](../../01_Single_winner/center_squeeze_irv.yaml) | `01_Single_winner/` | 1 | _Minimal center squeeze. 27 voters. Center is the 2nd choice of BOTH poles and the_ |
-| [`monotonicity_irv_after.yaml`](../../01_Single_winner/monotonicity_irv_after.yaml) | `01_Single_winner/` | 1 | _4 voters moved X to the top (Y>Z became X>Y), keeping Y above Z. X gained support._ |
-| [`monotonicity_irv_before.yaml`](../../01_Single_winner/monotonicity_irv_before.yaml) | `01_Single_winner/` | 1 | _Non-monotonicity demo, part 1 of 2 (see _after). Classic 3-candidate example._ |
+| [`RCV_ballot_example.yaml`](../../01_Single_winner/RCV_ballot_example.yaml) | `01_Single_winner/` | 1 | RCV-IRV — a basic ranked-ballot example (3 candidates) |
+| [`center_squeeze_irv.yaml`](../../01_Single_winner/center_squeeze_irv.yaml) | `01_Single_winner/` | 1 | Center squeeze (RCV-IRV) — minimal 27-voter case (the moderate is eliminated) |
+| [`monotonicity_irv_after.yaml`](../../01_Single_winner/monotonicity_irv_after.yaml) | `01_Single_winner/` | 1 | Non-monotonicity (RCV-IRV) — part 2: raising X makes X lose |
+| [`monotonicity_irv_before.yaml`](../../01_Single_winner/monotonicity_irv_before.yaml) | `01_Single_winner/` | 1 | Non-monotonicity (RCV-IRV) — part 1: baseline, X wins |
 | [`ranked_robin_consensus_center.yaml`](../../01_Single_winner/ranked_robin_consensus_center.yaml) | `01_Single_winner/` | 1 | Ranked Robin (RCV-RR) — the consensus center wins the round-robin |
 | [`Whoops_04_ossipoff_centrist_irv.yaml`](../../01_Single_winner/paradoxes_and_whoops/Whoops_04_ossipoff_centrist_irv.yaml) | `01_Single_winner/paradoxes_and_whoops/` | 1 | Whoops 04 — IRV buries the centrist (Ossipoff 303-voter) |
 | [`Whoops_05_brams_many_pathologies_irv.yaml`](../../01_Single_winner/paradoxes_and_whoops/Whoops_05_brams_many_pathologies_irv.yaml) | `01_Single_winner/paradoxes_and_whoops/` | 1 | Whoops 05 — many IRV pathologies in one election (Brams) |
-| [`irv_combined.yaml`](../../01_Single_winner/summability_demo/irv_combined.yaml) | `01_Single_winner/summability_demo/` | 1 | _Summability demo (IRV), A+B merged. B wins BOTH districts, but here B has the_ |
-| [`irv_district_A.yaml`](../../01_Single_winner/summability_demo/irv_district_A.yaml) | `01_Single_winner/summability_demo/` | 1 | _Summability demo (IRV), district A. IRV winner: B (eliminate C, C>B>A transfers -> B 7,…_ |
-| [`irv_district_B.yaml`](../../01_Single_winner/summability_demo/irv_district_B.yaml) | `01_Single_winner/summability_demo/` | 1 | _Summability demo (IRV), district B (A/C roles swapped). IRV winner: B._ |
-| [`example_tennessee.yaml`](../../RCV_IRV_tabulation_engine/example_tennessee.yaml) | `RCV_IRV_tabulation_engine/` | 1 | _higher score = higher preference, 0 = unranked._ |
+| [`irv_combined.yaml`](../../01_Single_winner/summability_demo/irv_combined.yaml) | `01_Single_winner/summability_demo/` | 1 | Summability demo — RCV-IRV combined A+B (B eliminated; not summable) |
+| [`irv_district_A.yaml`](../../01_Single_winner/summability_demo/irv_district_A.yaml) | `01_Single_winner/summability_demo/` | 1 | Summability demo — RCV-IRV district A (B wins) |
+| [`irv_district_B.yaml`](../../01_Single_winner/summability_demo/irv_district_B.yaml) | `01_Single_winner/summability_demo/` | 1 | Summability demo — RCV-IRV district B (B wins) |
+| [`example_tennessee.yaml`](../../RCV_IRV_tabulation_engine/example_tennessee.yaml) | `RCV_IRV_tabulation_engine/` | 1 | Tennessee capital — RCV-IRV engine demo |
 
 ## STV (proportional RCV)  (1)
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
-| [`03a_stv_3seats.yaml`](../../02_Multi_winner/03a_stv_3seats.yaml) | `02_Multi_winner/` | 3 | _CONSTRUCTED 100-voter electorate (the figures in the "Better elections are_ |
+| [`03a_stv_3seats.yaml`](../../02_Multi_winner/03a_stv_3seats.yaml) | `02_Multi_winner/` | 3 | STV — 3 seats, 7 candidates (proportional RCV) |
 
 ## Bloc STAR  (1)
 

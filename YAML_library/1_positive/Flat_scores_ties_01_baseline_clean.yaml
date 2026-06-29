@@ -1,3 +1,4 @@
+election_title: "Flat scores 01 — clean top two (works-fine baseline)"
 # Test-library copy of 01_Single_winner/Flat_scores_ties/Flat_scores_ties_01_baseline_clean.yaml (flattened for the positive harness).
 # Distinct scores -> no tie; control case.
 voting_method: STAR

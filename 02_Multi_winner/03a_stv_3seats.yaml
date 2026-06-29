@@ -1,3 +1,4 @@
+election_title: "STV — 3 seats, 7 candidates (proportional RCV)"
 voting_method: STV   # Single Transferable Vote — proportional RCV (multi-winner)
 num_winners: 3
 

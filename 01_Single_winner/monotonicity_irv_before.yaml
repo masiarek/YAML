@@ -1,3 +1,4 @@
+election_title: "Non-monotonicity (RCV-IRV) — part 1: baseline, X wins"
 voting_method: RCV_IRV   # RCV-IRV — monotonicity demo (BEFORE: X wins)
 num_winners: 1
 

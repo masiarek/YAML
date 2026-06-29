@@ -1,3 +1,4 @@
+election_title: "Center squeeze (RCV-IRV) — minimal 27-voter case (the moderate is eliminated)"
 voting_method: RCV_IRV   # RCV-IRV — center squeeze (Center eliminated; Left wins)
 num_winners: 1
 

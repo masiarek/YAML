@@ -1,3 +1,4 @@
+election_title: "Whoops 03 — a Condorcet cycle (rock-paper-scissors, no winner)"
 # Test-library copy of 01_Single_winner/paradoxes_and_whoops/Whoops_03_condorcet_cycle_rps.yaml (flattened for the positive harness).
 # Condorcet cycle (no CW); STAR=Rock, Approval=Paper.
 voting_method: STAR

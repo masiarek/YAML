@@ -1,3 +1,4 @@
+election_title: "Whoops 01 — same ballots, three methods, three winners (Tennessee)"
 # Test-library copy of 01_Single_winner/paradoxes_and_whoops/Whoops_01_tennessee_three_winners.yaml (flattened for the positive harness).
 # Plurality=Memphis, IRV=Knoxville, Condorcet/STAR=Nashville.
 voting_method: STAR

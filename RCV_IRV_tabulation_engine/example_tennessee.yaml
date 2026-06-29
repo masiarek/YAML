@@ -1,3 +1,4 @@
+election_title: "Tennessee capital — RCV-IRV engine demo"
 voting_method: RCV   # Instant-Runoff Voting (single winner)
 
 num_winners: 1

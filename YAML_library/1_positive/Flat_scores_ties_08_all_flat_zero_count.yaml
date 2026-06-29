@@ -1,3 +1,4 @@
+election_title: "Flat scores 08 — every ballot flat (BetterVoting counts 0)"
 # Test-library copy of 01_Single_winner/Flat_scores_ties/Flat_scores_ties_08_all_flat_zero_count.yaml (flattened for the positive harness).
 # Every ballot flat -> BV counts 0; LH 3-way tie at 15 -> lot -> Anchovy. #1407.
 voting_method: STAR

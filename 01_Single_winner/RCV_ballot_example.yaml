@@ -1,3 +1,4 @@
+election_title: "RCV-IRV — a basic ranked-ballot example (3 candidates)"
 voting_method: RCV_IRV   # RCV-IRV Example  - Single-winner
 
 num_winners: 1
