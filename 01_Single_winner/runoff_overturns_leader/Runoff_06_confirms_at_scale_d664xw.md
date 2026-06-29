@@ -30,27 +30,27 @@ Source: [`Runoff_06_confirms_at_scale_d664xw.yaml`](./Runoff_06_confirms_at_scal
 · frozen export: [`Runoff_06_confirms_at_scale_d664xw_bv_export.json`](./Runoff_06_confirms_at_scale_d664xw_bv_export.json).
 
 ## View 1 — BetterVoting
-![img.png](img.png)
-
-![img_1.png](img_1.png)
-
-![img_2.png](img_2.png)
-
-![img_3.png](img_3.png)
-
 
 Wren leads the Scoring Round (21) **and** wins the Automatic Runoff 4–1.
 Source: <https://bettervoting.com/d664xw/results>.
 
 **Result — Scoring Round + Automatic Runoff:**
 
-> 📷 _Paste the BetterVoting result screenshot here (PyCharm: click this line, then ⌘V)._
+![BetterVoting result for d664xw: Wren wins; Scoring Round bars (Wren 21, Yarrow 13, Zinnia 6); Automatic Runoff Wren 80% vs Yarrow 20% — the leader confirmed](d664xw_result_bars.png)
 
 **Why there's no reversal.** Wren has the most stars (21) *and* is the head-to-head
 favorite: four of the five voters score Wren above Yarrow. So *how much* and *how many*
 agree, and the runoff confirms the leader. The runoff didn't change the answer — but it
 asked the question, which is the safeguard. A reversal only happens when those two
 point at **different** candidates; here they don't.
+
+**The same runoff, other views (raw votes, and pie):**
+
+![Automatic Runoff bar view (raw votes): Wren 4 vs Yarrow 1](d664xw_runoff_counts.png)
+
+![Automatic Runoff pie (percentages): Wren 80% vs Yarrow 20%](d664xw_runoff_pie.png)
+
+![Automatic Runoff pie (raw votes): Wren 4 vs Yarrow 1](d664xw_runoff_pie_counts.png)
 
 **Race Details — Scores Table + Runoff Table:**
 

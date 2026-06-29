@@ -9,6 +9,21 @@ has a corrected, plain-language version of that popover.)
 why it's a *good* thing, and the devil's-advocate questions with answers — is
 [`teaching_runoff_reversal.md`](./teaching_runoff_reversal.md).
 
+**The teaching set — `Runoff_01`–`Runoff_06`.** Six real BetterVoting elections, each a
+**two-view lesson** (BetterVoting screenshots beside the LH report) on the *how much vs
+how many* arc. Read them in order:
+
+| # | Lesson | Level | What it shows |
+|---|--------|:---:|---------------|
+| 01 | [confirms the leader](./Runoff_01_confirms_leader_r2pvc9.md) | 101 | control — leader leads **and** wins (baseline) |
+| 02 | [the atom](./Runoff_02_atom_reversal_yx9447.md) | 101 | smallest reversal — broadly-liked runner-up loses |
+| 03 | [enthusiasts vs majority](./Runoff_03_enthusiasts_vs_majority_rkgtpk.md) | 201 | intense minority leads stars, majority wins (5 cand) |
+| 04 | [reversal at scale](./Runoff_04_reversal_at_scale_bfjqmg.md) | 101 | the atom blown up — 67/33, not a fluke |
+| 05 | [reversal with Equal Support](./Runoff_05_reversal_with_equal_support_xgkw3w.md) | 201 | "no preference" voters → the two-denominator bridge |
+| 06 | [confirms at scale](./Runoff_06_confirms_at_scale_d664xw.md) | 101 | control bookend — leader confirmed 4–1 |
+
+Concept hub for all of it: [The Automatic Runoff Round](../../00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff.md).
+
 **The name for it:** we call this a **Runoff Reversal** — the Scoring-Round leader
 *loses* the Automatic Runoff to the finalist more voters prefer. (In technical or
 debate writing, the precise phrasing is "the runoff overturns the score leader," to
