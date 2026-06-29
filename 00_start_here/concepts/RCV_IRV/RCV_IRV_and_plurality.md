@@ -2,6 +2,8 @@
 
 *A claim you'll hear from STAR/Condorcet advocates. It's **partly right and partly overstated** — here's the precise version, so you're never caught out by it.*
 
+> **Applies to:** the **first-choice-elimination** methods — [Hare](RCV-IRV-Hare.md) and [Contingent/Supplementary](RCV-IRV-contingent-supplementary.md), which do tally a plurality each round. It does **not** describe [Coombs](RCV-IRV-Coombs.md) (eliminates on *last* place) or [Baldwin/Nanson](RCV-IRV-Baldwin-Nanson.md) (eliminate on *Borda* score) — those read the whole ballot, so they aren't "plurality in sequence." See [Which RCV-IRV?](RCV_IRV_variants.md).
+
 ---
 
 Someone tells you "RCV-IRV is just a series of plurality elections." It's a confusing claim because there's a true idea buried inside an exaggeration. Sorting the two apart is itself good education.

@@ -4,6 +4,54 @@
 
 ---
 
+## How the methods divide (family tree)
+
+Every method below reads the **same ranked ballot**; they differ in *what they do with
+it*. ✅ marks the **Condorcet-safe** methods (always elect the head-to-head winner);
+❌ marks Hare's **center squeeze**.
+
+```mermaid
+graph TD
+    R["RANKED BALLOT<br/>voter orders the candidates"]
+
+    R --> SEQ["Sequential elimination<br/>(instant-runoff shape)"]
+    R --> PW["Pairwise / Condorcet<br/>(no elimination)"]
+    R --> POS["Positional<br/>(no elimination)"]
+    R --> MW["Multi-winner<br/>(proportional)"]
+
+    SEQ --> F1["eliminate by FEWEST first choices"]
+    SEQ --> FL["eliminate by MOST last choices"]
+    SEQ --> FB["eliminate by lowest BORDA score"]
+    SEQ --> FH["eliminate loser of BOTTOM-TWO runoff"]
+
+    F1 --> HARE["RCV-IRV (Hare)<br/>= US 'RCV' ❌ squeeze"]
+    F1 --> BATCH["Batch elimination"]
+    F1 --> CONT["Contingent / Supplementary<br/>one round, top-two"]
+    FL --> COOMBS["Coombs"]
+    FB --> BALD["Baldwin ✅"]
+    FB --> NAN["Nanson ✅"]
+    FH --> BTR["BTR-IRV ✅"]
+
+    PW --> RR["Ranked Robin / Copeland ✅"]
+    PW --> CMORE["Schulze · Ranked Pairs · Minimax ✅"]
+    POS --> BORDA["Borda"]
+    POS --> BUCK["Bucklin"]
+    MW --> STV["STV — Hare, proportional"]
+
+    classDef safe fill:#dff0d8,stroke:#3c763d,color:#1b3a1b;
+    classDef squeeze fill:#f2dede,stroke:#a94442,color:#5a1a1a;
+    class BALD,NAN,BTR,RR,CMORE safe;
+    class HARE squeeze;
+```
+
+*The whole tree is **ranked** voting. Score/rate methods — **STAR**, **Approval**,
+**Score** — sit outside it entirely (voters rate rather than order), which is why they
+aren't on this chart. The single split that matters most: methods that **eliminate on
+first choices** (Hare, Contingent) can squeeze the center; methods that read the
+**whole ballot** (Borda-elim, BTR, and the Condorcet family) don't.*
+
+---
+
 ## The default: RCV-IRV (Hare)
 
 Unless someone says otherwise, "RCV" in the US means **IRV under the Hare rule** (after Thomas Hare): tally first choices; if a candidate has more than half, they win; otherwise **eliminate the candidate with the fewest first choices**, transfer each of those ballots to its next still-standing choice, and repeat until someone holds a majority of the remaining active ballots (or only two candidates are left). Everything below is a variation on *that* — either a different rule for **who gets eliminated**, or a different rule for **how the ballots are read**.
@@ -14,16 +62,16 @@ Unless someone says otherwise, "RCV" in the US means **IRV under the Hare rule**
 
 These keep the "instant runoff" shape but swap the elimination rule. They read an identical ranked ballot and can elect different winners.
 
-| Variant | Elimination rule | Condorcet-safe? | Seen in the wild |
-|---|---|---|---|
-| **Hare (standard IRV)** | drop the candidate with the **fewest first-place** votes, one per round | No (center squeeze) | US "RCV": Maine, Alaska, NYC, SF… |
-| **Batch elimination** | drop **all** candidates who are mathematically out of reach **at once** | Same winner as Hare in most cases; can differ at the margins | North Carolina statute; speeds hand counts |
-| **Contingent vote** | **one** round only — eliminate everyone except the **top two**, then transfer | No | Sri Lanka presidency (rank up to 3) |
-| **Supplementary vote** | contingent vote with the ballot **limited to 1st + 2nd** choice | No | London Mayor / English PCCs **until 2022** (now first-past-the-post) |
-| **Bottom-Two-Runoff (BTR-IRV)** | each round, the **two lowest** candidates meet head-to-head; the **loser** is eliminated | **Yes** — a Condorcet winner can never be cut | proposed reform (Rob LeGrand, 2006) |
-| **Coombs** | drop the candidate with the **most last-place** votes, each round | No, but resists center squeeze | rare; classroom / academic |
-| **Baldwin** | drop the candidate with the **lowest Borda score**, each round | **Yes** | academic |
-| **Nanson** | drop **every** candidate at or below the **average Borda score**, each round | **Yes** | academic; some org elections |
+| Variant | Elimination rule | Condorcet-safe? | Seen in the wild | Page |
+|---|---|---|---|---|
+| **Hare (standard IRV)** | drop the candidate with the **fewest first-place** votes, one per round | No (center squeeze) | US "RCV": Maine, Alaska, NYC, SF… | [Hare](RCV-IRV-Hare.md) |
+| **Batch elimination** | drop **all** candidates who are mathematically out of reach **at once** | Same winner as Hare in most cases; can differ at the margins | North Carolina statute; speeds hand counts | [Hare § batch](RCV-IRV-Hare.md) |
+| **Contingent vote** | **one** round only — eliminate everyone except the **top two**, then transfer | No | Sri Lanka presidency (rank up to 3) | [Contingent & SV](RCV-IRV-contingent-supplementary.md) |
+| **Supplementary vote** | contingent vote with the ballot **limited to 1st + 2nd** choice | No | London Mayor / English PCCs **until 2022** (now first-past-the-post) | [Contingent & SV](RCV-IRV-contingent-supplementary.md) |
+| **Bottom-Two-Runoff (BTR-IRV)** | each round, the **two lowest** candidates meet head-to-head; the **loser** is eliminated | **Yes** — a Condorcet winner can never be cut | proposed reform (Rob LeGrand, 2006) | [BTR](RCV-IRV-BTR.md) |
+| **Coombs** | drop the candidate with the **most last-place** votes, each round | No, but resists center squeeze | rare; classroom / academic | [Coombs](RCV-IRV-Coombs.md) |
+| **Baldwin** | drop the candidate with the **lowest Borda score**, each round | **Yes** | academic | [Baldwin & Nanson](RCV-IRV-Baldwin-Nanson.md) |
+| **Nanson** | drop **every** candidate at or below the **average Borda score**, each round | **Yes** | academic; some org elections | [Baldwin & Nanson](RCV-IRV-Baldwin-Nanson.md) |
 
 Two things worth underlining. First, **Hare is the only one of these the US actually calls "RCV"** — but it's also the one prone to *center squeeze* (eliminating a broadly-liked middle candidate who'd beat everyone head-to-head). Second, the **Condorcet-safe** variants (BTR, Baldwin, Nanson) fix that specific flaw precisely because they stop eliminating purely on first-choice counts. (Borda and Coombs read whole ballots but are **not** Condorcet methods; BTR/Baldwin/Nanson are.)
 

@@ -55,7 +55,7 @@ FairVote's multi-winner reform is the **Single Transferable Vote (STV)** — the
 |---|---|
 | Any ranked-ballot method (the whole family) | **Ranked voting** |
 | The method FairVote promotes in the US (single-winner) | **RCV-IRV** |
-| …its exact elimination rule, for papers & specs | **RCV-IRV (Hare)** — eliminate fewest-first-choices, transfer, repeat |
+| …its exact elimination rule, for papers & specs | **[RCV-IRV (Hare)](RCV-IRV-Hare.md)** — eliminate fewest-first-choices, transfer, repeat |
 | The Condorcet round-robin alternative | **RCV-RR** (Ranked Robin) |
 | Score/approve methods (not ranked at all) | **STAR**, **Approval** |
 

@@ -5,6 +5,10 @@ quietly borrowed for the whole method, when **IRV's count is the opposite of sim
 STAR keeps *both* halves simple — and its ballot carries strength of support on top of
 order.
 
+> **Applies to:** the **count** of every sequential-elimination variant
+> ([Hare](RCV-IRV-Hare.md) and the rest run multi-round elimination); the *ballot* is
+> simple, the *tabulation* isn't. See [Which RCV-IRV?](RCV_IRV_variants.md).
+
 → Builds on [`what_is_a_voting_method.md`](../../../interviews_conversations/what_is_a_voting_method.md)
 (a method = ballot **+** count) · related: [`summability.md`](./RCV_IRV_lack_of_summability.md),
 [`monotonicity.md`](./RCV_IRV_non_monotonicity.md) · step-by-step trace of both counts:

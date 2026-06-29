@@ -4,6 +4,14 @@
 support can cause them to **lose** — and moving a loser **down** can make them
 **win**. This isn't a glitch; it's baked into eliminate-and-transfer.
 
+> **Applies to:** [Hare](RCV-IRV-Hare.md) **and the other sequential-elimination
+> variants** — [BTR](RCV-IRV-BTR.md), [Coombs](RCV-IRV-Coombs.md), and
+> [Baldwin/Nanson](RCV-IRV-Baldwin-Nanson.md) are non-monotonic too, because
+> *eliminate-and-transfer* is the cause. (So this is **not** Hare-specific the way
+> [center squeeze](RCV_IRV_center_squeeze.md) is.) The non-eliminating Condorcet
+> methods like [Ranked Robin](../RCV_Ranked_Robin/ranked_robin.md) are **monotonic**.
+> See [Which RCV-IRV?](RCV_IRV_variants.md).
+
 > Why this page matters: most people are never told this. "Rank your honest
 > favorite first, it can't backfire" is the core promise of IRV — and
 > non-monotonicity is the case where that promise breaks. It's the single most

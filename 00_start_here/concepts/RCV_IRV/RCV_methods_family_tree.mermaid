@@ -1,0 +1,34 @@
+%% How ranked-voting (RCV) methods divide.
+%% Same ranked ballot, different rules. ✅ = Condorcet-safe; ❌ = Hare center squeeze.
+%% Score/rate methods (STAR, Approval, Score) are NOT ranked, so they're not shown.
+graph TD
+    R["RANKED BALLOT<br/>voter orders the candidates"]
+
+    R --> SEQ["Sequential elimination<br/>(instant-runoff shape)"]
+    R --> PW["Pairwise / Condorcet<br/>(no elimination)"]
+    R --> POS["Positional<br/>(no elimination)"]
+    R --> MW["Multi-winner<br/>(proportional)"]
+
+    SEQ --> F1["eliminate by FEWEST first choices"]
+    SEQ --> FL["eliminate by MOST last choices"]
+    SEQ --> FB["eliminate by lowest BORDA score"]
+    SEQ --> FH["eliminate loser of BOTTOM-TWO runoff"]
+
+    F1 --> HARE["RCV-IRV (Hare)<br/>= US 'RCV' ❌ squeeze"]
+    F1 --> BATCH["Batch elimination"]
+    F1 --> CONT["Contingent / Supplementary<br/>one round, top-two"]
+    FL --> COOMBS["Coombs"]
+    FB --> BALD["Baldwin ✅"]
+    FB --> NAN["Nanson ✅"]
+    FH --> BTR["BTR-IRV ✅"]
+
+    PW --> RR["Ranked Robin / Copeland ✅"]
+    PW --> CMORE["Schulze · Ranked Pairs · Minimax ✅"]
+    POS --> BORDA["Borda"]
+    POS --> BUCK["Bucklin"]
+    MW --> STV["STV — Hare, proportional"]
+
+    classDef safe fill:#dff0d8,stroke:#3c763d,color:#1b3a1b;
+    classDef squeeze fill:#f2dede,stroke:#a94442,color:#5a1a1a;
+    class BALD,NAN,BTR,RR,CMORE safe;
+    class HARE squeeze;

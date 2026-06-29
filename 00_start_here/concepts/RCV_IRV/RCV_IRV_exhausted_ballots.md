@@ -2,6 +2,8 @@
 
 *When a validly-cast ranked ballot stops counting before the final round — and why the "majority" IRV reports is a majority of the **ballots still active**, not of everyone who voted.*
 
+> **Applies to:** any RCV-IRV that eliminates and transfers ([Hare](RCV-IRV-Hare.md) and the rest) — and it gets **worse the fewer candidates you may rank**, so the [Supplementary Vote](RCV-IRV-contingent-supplementary.md) (only two choices) exhausts the most. Pairwise Condorcet methods like [Ranked Robin](../RCV_Ranked_Robin/ranked_robin.md) read the whole ballot and don't exhaust. See [Which RCV-IRV?](RCV_IRV_variants.md).
+
 ---
 
 In RCV-IRV, ballots are counted in rounds. In each round your ballot counts for your highest-ranked candidate who is **still in the race**. A ballot becomes **exhausted** when, at some round, it has **no remaining ranked candidate left to count for** — so from that point on it sits out the tally entirely. RCV-IRV's algorithm only ever reads a *subset* of the rankings a voter wrote down; which rankings get counted depends entirely on the order of elimination.

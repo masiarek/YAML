@@ -4,6 +4,13 @@
 winner depends on the *elimination order*, and the elimination order depends on every
 ballot, you need the **full ballot set in one place** to run the count.
 
+> **Applies to:** **all** sequential-elimination variants — [Hare](RCV-IRV-Hare.md),
+> [BTR](RCV-IRV-BTR.md), [Coombs](RCV-IRV-Coombs.md),
+> [Baldwin/Nanson](RCV-IRV-Baldwin-Nanson.md), and STV — since every one of them
+> depends on elimination order. The **summable** alternatives are the pairwise
+> [Ranked Robin](../RCV_Ranked_Robin/ranked_robin.md) (precinct matrices just add up)
+> and positional methods. See [Which RCV-IRV?](RCV_IRV_variants.md).
+
 > Why this page matters: summability sounds like a dry administrative detail, but it
 > drives real things voters care about — how elections are audited, whether a precinct
 > can verify its own result, and whether early/partial counts mean anything. IRV
