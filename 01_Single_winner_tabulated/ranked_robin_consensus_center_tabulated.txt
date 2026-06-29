@@ -7,13 +7,13 @@ Ballots:
      3 × Ben > Cara > Ada > Dan
      2 × Cara > Ben > Dan > Ada
 
-Round-Robin — every pair, head-to-head (votes For – Against):
-   Ben beats Ada   9 – 4
-   Cara beats Ada   9 – 4
-   Ada beats Dan   7 – 6
-   Ben beats Cara   7 – 6
-   Ben beats Dan   9 – 4
-   Cara beats Dan   9 – 4
+Round-Robin — every pair, head-to-head (For – Against):
+   Ben   beats Ada    9 – 4
+   Cara  beats Ada    9 – 4
+   Ada   beats Dan    7 – 6
+   Ben   beats Cara   7 – 6
+   Ben   beats Dan    9 – 4
+   Cara  beats Dan    9 – 4
 
 --- Pairwise (Round-Robin) Matrix ---
 Head-to-head / pairwise comparison — the Ranked Robin tally
@@ -25,11 +25,12 @@ Legend: For - Equal Support - Against   (row vs column)
   Cara > | 9 - 0 - 4 |6 - 0 - 7 |   ---    |9 - 0 - 4 |
    Dan > | 6 - 0 - 7 |4 - 0 - 9 |4 - 0 - 9 |   ---    |
 
-Win–loss record (most head-to-head wins wins; ties broken by total margin, then lot order):
-   Ben          3–0     margin +11   (beats: Ada, Cara, Dan)
-   Cara         2–1     margin +9   (beats: Ada, Dan)
-   Ada          1–2     margin -9   (beats: Dan)
-   Dan          0–3     margin -11
+Win–loss record — Copeland score = wins + ½·ties (most wins wins; ties broken by total margin, then lot order):
+    #  Candidate  W–L–T  Copeland  Margin  Beats
+    1  Ben        3–0–0         3     +11  Cara, Ada, Dan
+    2  Cara       2–1–0         2      +9  Ada, Dan
+    3  Ada        1–2–0         1      -9  Dan
+    4  Dan        0–3–0         0     -11  —
 
 Winner — Ranked Robin (RCV-RR): Ben
    beats every opponent head-to-head — the Condorcet winner.

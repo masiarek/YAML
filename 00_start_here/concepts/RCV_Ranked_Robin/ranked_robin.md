@@ -122,8 +122,10 @@ ballots: |-
   2:Cara>Ben>Ada
 ```
 
-The **on-screen echo** (compact — no `show_matrix`) shows the ballots, the head-to-head
-list, the win-loss record, and the winner:
+The **on-screen echo** (compact — no `show_matrix`) shows the ballots, the aligned
+head-to-head list, the win-loss record table, and the winner. The record table reports
+the **Copeland score** (`wins + ½·ties`, the academic standard) alongside the win-loss
+count and total margin:
 
 ```text
 --- Ranked Robin (RCV-RR / Copeland) Method (single winner) ---
@@ -134,15 +136,16 @@ Ballots:
      2 × Ben > Cara > Ada
      2 × Cara > Ben > Ada
 
-Round-Robin — every pair, head-to-head (votes For – Against):
-   Ben beats Ada   4 – 3
-   Cara beats Ada   4 – 3
-   Ben beats Cara   5 – 2
+Round-Robin — every pair, head-to-head (For – Against):
+   Ben   beats Ada    4 – 3
+   Cara  beats Ada    4 – 3
+   Ben   beats Cara   5 – 2
 
-Win–loss record (most head-to-head wins wins; ties broken by total margin, then lot order):
-   Ben          2–0     margin +4   (beats: Ada, Cara)
-   Cara         1–1     margin -2   (beats: Ada)
-   Ada          0–2     margin -2
+Win–loss record — Copeland score = wins + ½·ties (most wins wins; ties broken by total margin, then lot order):
+    #  Candidate  W–L–T  Copeland  Margin  Beats
+    1  Ben        2–0–0         2      +4  Cara, Ada
+    2  Cara       1–1–0         1      -2  Ada
+    3  Ada        0–2–0         0      -2  —
 
 Winner — Ranked Robin (RCV-RR): Ben
    beats every opponent head-to-head — the Condorcet winner.
@@ -167,6 +170,18 @@ Legend: For - Equal Support - Against   (row vs column)
 Add `options: { show_matrix: true }` to pull that matrix onto the screen too — which
 is what [`ranked_robin_consensus_center.yaml`](../../../01_Single_winner/ranked_robin_consensus_center.yaml)
 does, since the matrix is the point of that worked example.
+
+> **Why this format.** The two conventions every source agrees on are the **preference
+> (pairwise) matrix** and the **win-loss record** — Equal Vote leads with the record and
+> calls the matrix the tool "for making sense of the ballot data," and the academic
+> [Copeland](https://en.wikipedia.org/wiki/Copeland%27s_method) literature treats the
+> outranking matrix as the standard presentation (row = "runner," column = "opponent,"
+> diagonal blank). We follow both, and add the academic **Copeland score** (`wins + ½·ties`)
+> as an explicit column, since there's no finalized public-facing spec to defer to. Our
+> tie-break is **total margin, then lot order** — a deliberate, fully-reported choice
+> (the record table shows the margin that settles it); it differs from Equal Vote's
+> published hierarchy (Favorite / Copeland / Smith-Minimax), which we treat as one option
+> among several until a standard settles. See [cycle resolution](./cycle_resolution.md).
 
 **Copeland = Ranked Robin = Consensus Voting = RCV-RR** — *the same core method wearing
 different brand names from different proponent groups:*

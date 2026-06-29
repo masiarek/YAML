@@ -1025,7 +1025,7 @@ def run_ranked_robin(ballots_text, file_path=None, lot_numbers=None, options=Non
                                   {c: [] for c in candidates},
                                   {c: [] for c in candidates},
                                   {c: 0 for c in candidates})
-    pair_lines = []
+    raw_pairs = []                                  # (winner, verb, loser, hi, lo)
     for i, a in enumerate(candidates):
         for b in candidates[i + 1:]:
             fa, ag, _ = matrix[a][b]
@@ -1033,19 +1033,48 @@ def run_ranked_robin(ballots_text, file_path=None, lot_numbers=None, options=Non
             margin[b] += ag - fa
             if fa > ag:
                 wins[a].append(b); losses[b].append(a)
-                pair_lines.append(f"   {a} beats {b}   {fa} – {ag}")
+                raw_pairs.append((a, "beats", b, fa, ag))
             elif ag > fa:
                 wins[b].append(a); losses[a].append(b)
-                pair_lines.append(f"   {b} beats {a}   {ag} – {fa}")
+                raw_pairs.append((b, "beats", a, ag, fa))
             else:
                 ties[a].append(b); ties[b].append(a)
-                pair_lines.append(f"   {a} ties {b}    {fa} – {ag}")
+                raw_pairs.append((a, "ties", b, fa, ag))
 
+    # Copeland score = wins + ½·ties (the academic standard tally). Rank by most
+    # wins, then total margin, then lot order.
+    cope = {c: len(wins[c]) + 0.5 * len(ties[c]) for c in candidates}
     order = sorted(candidates, key=lambda c: (-len(wins[c]), -margin[c],
                                               priority.index(c)))
     top = len(wins[order[0]])
     leaders = [c for c in candidates if len(wins[c]) == top]
     winner = order[0]
+
+    # --- Aligned head-to-head list (names padded into columns) ---
+    nw = max((len(c) for c in candidates), default=4)
+    sw = max((len(str(v)) for *_, hi, lo in raw_pairs for v in (hi, lo)), default=1)
+    pair_lines = []
+    for w_, verb, l_, hi, lo in raw_pairs:
+        pair_lines.append(
+            f"   {w_:<{nw}}  {verb:<5} {l_:<{nw}}   {hi:>{sw}} – {lo:>{sw}}")
+
+    # --- Aligned win-loss record table (with Copeland score + margin columns) ---
+    def _beats(c):
+        return ", ".join(sorted(wins[c], key=lambda x: order.index(x))) or "—"
+    HC, HR, HK, HM = "Candidate", "W–L–T", "Copeland", "Margin"
+    recs = {c: f"{len(wins[c])}–{len(losses[c])}–{len(ties[c])}" for c in candidates}
+    cand_w = max(nw, len(HC))
+    rec_w = max(max((len(r) for r in recs.values()), default=0), len(HR))
+    cope_w = max(max((len(f"{cope[c]:g}") for c in candidates), default=1), len(HK))
+    marg_w = max(max((len(f"{margin[c]:+d}") for c in candidates), default=2), len(HM))
+    record_lines = [
+        f"   {'#':>2}  {HC:<{cand_w}}  {HR:<{rec_w}}  {HK:>{cope_w}}  "
+        f"{HM:>{marg_w}}  Beats"
+    ]
+    for idx, c in enumerate(order, 1):
+        record_lines.append(
+            f"   {idx:>2}  {c:<{cand_w}}  {recs[c]:<{rec_w}}  "
+            f"{cope[c]:>{cope_w}g}  {margin[c]:>+{marg_w}d}  {_beats(c)}")
 
     # Full N×N pairwise matrix — the Ranked Robin tally itself (the summable
     # heart of the count). Each cell reads For - Equal Support - Against for the
@@ -1106,19 +1135,15 @@ def run_ranked_robin(ballots_text, file_path=None, lot_numbers=None, options=Non
             for r in display_rows:               # one row per voter
                 L.append(f"   {r}")
         L.append("")
-        L.append("Round-Robin — every pair, head-to-head (votes For – Against):")
+        L.append("Round-Robin — every pair, head-to-head (For – Against):")
         L += pair_lines
         L.append("")
         if full:                                # full N×N grid → _tabulated mirror
             L += _matrix_lines()
             L.append("")
-        L.append("Win–loss record (most head-to-head wins wins; "
-                 "ties broken by total margin, then lot order):")
-        for c in order:
-            w, l, t = len(wins[c]), len(losses[c]), len(ties[c])
-            rec = f"{w}–{l}" + (f"–{t}t" if t else "")
-            beat = f"   (beats: {', '.join(wins[c])})" if wins[c] else ""
-            L.append(f"   {c:<12} {rec:<7} margin {margin[c]:+d}{beat}")
+        L.append("Win–loss record — Copeland score = wins + ½·ties "
+                 "(most wins wins; ties broken by total margin, then lot order):")
+        L += record_lines
         L.append("")
         if len(leaders) == 1:
             why = ("beats every opponent head-to-head — the Condorcet winner."
