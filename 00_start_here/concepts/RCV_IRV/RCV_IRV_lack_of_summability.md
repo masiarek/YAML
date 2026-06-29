@@ -67,3 +67,25 @@ matrix that adds across precincts. So "ranked ballots can't be summed" is wrong;
 **IRV's elimination count** specifically that can't. (See
 [`TIPS_terminology.md`](../../TIPS_terminology.md) and the STAR counterpart,
 [`STAR is summable`](../STAR_Voting/STAR_summability.md).)
+
+### Same ballots, summed — Ranked Robin on the example above
+
+Take the *exact* two districts IRV couldn't combine and build each one's **pairwise
+matrix** (For–Against–NoPref for every pair). The matrices **add**, cell by cell:
+
+```
+                A vs B        A vs C        B vs C
+District A     6 – 7 – 0     6 – 3 – 4     4 – 3 – 6
+District B     3 – 4 – 6     3 – 6 – 4     7 – 6 – 0
+─────────────────────────────────────────────────────
+Combined       9 – 11 – 6    9 – 9 – 8    11 – 9 – 6     (= the sum)
+```
+
+From that summed matrix: **B beats A (11–9) and beats C (11–9)** → **B is the Ranked
+Robin / Condorcet winner.** So the candidate who won *both* districts wins the merged
+election too — and you reach it by **adding precinct tables**, never pooling ballots.
+Same ranked ballots that broke IRV's count; Ranked Robin sums them and gets the
+sensible answer. (Produced by the LH engine's `calculate_preference_matrix`; the
+[`pref_voting` engine](../../../pref_voting_tabulation_engine/README.md) reports the same
+**Copeland = Ranked Robin** winner. Files:
+[`summability_demo/`](../../../01_Single_winner/summability_demo/).)
