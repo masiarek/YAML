@@ -1,0 +1,344 @@
+{
+  "Election": {
+    "election_id": "tf73v9",
+    "title": "Runoff_07 (WIP) — flat ballot exposes the BV abstention bug",
+    "description": null,
+    "frontend_url": "",
+    "start_time": null,
+    "end_time": null,
+    "owner_id": "ea09e7c7-b00d-427a-bef8-32ade437d49d",
+    "audit_ids": null,
+    "admin_ids": null,
+    "credential_ids": null,
+    "state": "draft",
+    "races": [
+      {
+        "title": "Runoff_07 (WIP) — flat ballot exposes the BV abstention bug",
+        "race_id": "0",
+        "num_winners": 1,
+        "voting_method": "STAR",
+        "candidates": [
+          {
+            "candidate_id": "c-34y",
+            "candidate_name": "Alex"
+          },
+          {
+            "candidate_id": "c-kph",
+            "candidate_name": "Blair"
+          },
+          {
+            "candidate_id": "c-8r2",
+            "candidate_name": "Cleo"
+          }
+        ]
+      }
+    ],
+    "settings": {
+      "voter_access": "open",
+      "voter_authentication": {},
+      "ballot_updates": false,
+      "public_results": true,
+      "random_candidate_order": true,
+      "require_instruction_confirmation": true,
+      "draggable_ballot": false,
+      "term_type": "election",
+      "contact_email": ""
+    },
+    "auth_key": null,
+    "claim_key_hash": "c5ff76375888b9284082dfac9ecec249d8aa4451fd340078a8b49ce8e9c38e86",
+    "is_public": false,
+    "create_date": "2026-06-29T00:02:57.974Z",
+    "update_date": "1782691377974",
+    "head": true,
+    "ballot_source": "live_election",
+    "public_archive_id": null
+  },
+  "Ballots": [
+    {
+      "ballot_id": "b-7c3rfgth",
+      "election_id": "tf73v9",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-34y",
+              "score": 4
+            },
+            {
+              "candidate_id": "c-kph",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-8r2",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-34944pf2",
+      "election_id": "tf73v9",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-34y",
+              "score": 3
+            },
+            {
+              "candidate_id": "c-kph",
+              "score": 3
+            },
+            {
+              "candidate_id": "c-8r2",
+              "score": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-9p6kjvhr",
+      "election_id": "tf73v9",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-34y",
+              "score": 4
+            },
+            {
+              "candidate_id": "c-kph",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-8r2",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ballot_id": "b-kdd9ww2h",
+      "election_id": "tf73v9",
+      "precinct": null,
+      "votes": [
+        {
+          "race_id": "0",
+          "scores": [
+            {
+              "candidate_id": "c-34y",
+              "score": 5
+            },
+            {
+              "candidate_id": "c-kph",
+              "score": 1
+            },
+            {
+              "candidate_id": "c-8r2",
+              "score": 2
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Results": [
+    {
+      "votingMethod": "STAR",
+      "elected": [
+        {
+          "id": "c-kph",
+          "name": "Blair",
+          "tieBreakOrder": 1,
+          "votesPreferredOver": {
+            "c-8r2": 2,
+            "c-kph": 0,
+            "c-34y": 2
+          },
+          "winsAgainst": {
+            "c-8r2": true,
+            "c-kph": false,
+            "c-34y": true
+          },
+          "score": 11,
+          "fiveStarCount": 2
+        }
+      ],
+      "tied": [],
+      "other": [
+        {
+          "id": "c-34y",
+          "name": "Alex",
+          "tieBreakOrder": 2,
+          "votesPreferredOver": {
+            "c-8r2": 3,
+            "c-kph": 1,
+            "c-34y": 0
+          },
+          "winsAgainst": {
+            "c-8r2": true,
+            "c-kph": false,
+            "c-34y": false
+          },
+          "score": 13,
+          "fiveStarCount": 1
+        },
+        {
+          "id": "c-8r2",
+          "name": "Cleo",
+          "tieBreakOrder": 0,
+          "votesPreferredOver": {
+            "c-8r2": 0,
+            "c-kph": 1,
+            "c-34y": 0
+          },
+          "winsAgainst": {
+            "c-8r2": false,
+            "c-kph": false,
+            "c-34y": false
+          },
+          "score": 2,
+          "fiveStarCount": 0
+        }
+      ],
+      "roundResults": [
+        {
+          "winners": [
+            {
+              "id": "c-kph",
+              "name": "Blair",
+              "tieBreakOrder": 1,
+              "votesPreferredOver": {
+                "c-8r2": 2,
+                "c-kph": 0,
+                "c-34y": 2
+              },
+              "winsAgainst": {
+                "c-8r2": true,
+                "c-kph": false,
+                "c-34y": true
+              },
+              "score": 11,
+              "fiveStarCount": 2
+            }
+          ],
+          "runner_up": [
+            {
+              "id": "c-34y",
+              "name": "Alex",
+              "tieBreakOrder": 2,
+              "votesPreferredOver": {
+                "c-8r2": 3,
+                "c-kph": 1,
+                "c-34y": 0
+              },
+              "winsAgainst": {
+                "c-8r2": true,
+                "c-kph": false,
+                "c-34y": false
+              },
+              "score": 13,
+              "fiveStarCount": 1
+            }
+          ],
+          "tied": [],
+          "tieBreakType": "none",
+          "logs": [
+            {
+              "key": "tabulation_logs.star.advance_to_runoff_basic",
+              "names": [
+                "Alex",
+                "Blair"
+              ],
+              "stars": [
+                "13",
+                "11"
+              ]
+            },
+            {
+              "key": "tabulation_logs.star.runoff_win",
+              "winner": "Blair",
+              "runner_up": "Alex",
+              "winner_votes": 2,
+              "runner_up_votes": 1,
+              "equal_votes": 0
+            }
+          ]
+        }
+      ],
+      "summaryData": {
+        "candidates": [
+          {
+            "id": "c-kph",
+            "name": "Blair",
+            "tieBreakOrder": 1,
+            "votesPreferredOver": {
+              "c-8r2": 2,
+              "c-kph": 0,
+              "c-34y": 2
+            },
+            "winsAgainst": {
+              "c-8r2": true,
+              "c-kph": false,
+              "c-34y": true
+            },
+            "score": 11,
+            "fiveStarCount": 2
+          },
+          {
+            "id": "c-34y",
+            "name": "Alex",
+            "tieBreakOrder": 2,
+            "votesPreferredOver": {
+              "c-8r2": 3,
+              "c-kph": 1,
+              "c-34y": 0
+            },
+            "winsAgainst": {
+              "c-8r2": true,
+              "c-kph": false,
+              "c-34y": false
+            },
+            "score": 13,
+            "fiveStarCount": 1
+          },
+          {
+            "id": "c-8r2",
+            "name": "Cleo",
+            "tieBreakOrder": 0,
+            "votesPreferredOver": {
+              "c-8r2": 0,
+              "c-kph": 1,
+              "c-34y": 0
+            },
+            "winsAgainst": {
+              "c-8r2": false,
+              "c-kph": false,
+              "c-34y": false
+            },
+            "score": 2,
+            "fiveStarCount": 0
+          }
+        ],
+        "nOutOfBoundsVotes": 0,
+        "nAbstentions": 1,
+        "nTallyVotes": 3
+      },
+      "tieBreakType": "none",
+      "perm": [
+        "c-8r2",
+        "c-kph",
+        "c-34y"
+      ]
+    }
+  ]
+}

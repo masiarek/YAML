@@ -1,0 +1,115 @@
+======================================================================
+SOURCE FILE:     Runoff_07_flat_ballot_bv_bug_tf73v9.yaml
+SOURCE MODIFIED: 2026-06-29 00:06:03
+TABULATED FILE:  Runoff_07_flat_ballot_bv_bug_tf73v9_tabulated.txt
+TABULATED AT:    2026-06-29 00:06:16
+======================================================================
+
+election:
+  election_title: Runoff 07 (WIP) — flat ballot exposes the BV abstention bug
+  election_description: |-
+    ⚠️ WORK IN PROGRESS — illustration pending a BetterVoting fix
+    (Equal-Vote/bettervoting#1407). A REAL BetterVoting election (BV id tf73v9),
+    captured 2026-06-28. A reversal (Alex leads the scoring round, Blair wins the
+    runoff) that ALSO contains a flat ballot (3,3,3). The two reports AGREE on the
+    winner (Blair) but DISAGREE on the bookkeeping: the LH engine counts all 4
+    ballots and treats the 3,3,3 as Equal Support; BetterVoting files the 3,3,3 as an
+    ABSTENTION (nAbstentions = 1, nTallyVotes = 3) and drops its 3 stars from every
+    candidate's total. This is the flat-ballot abstention bug, now inside a reversal.
+    Level 201/301. Full two-view lesson: Runoff_07_flat_ballot_bv_bug_tf73v9.md
+  options:
+    show_description: false
+    show_matrix: true
+    matrix_finalists_only: true
+    show_condorcet: true
+    show_score_counts: true
+    show_irv: false
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: false
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "https://bettervoting.com/tf73v9/results"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      Alex, Blair, Cleo
+      5, 1, 2
+      4, 5, 0
+      4, 5, 0
+      3, 3, 3
+    lot_numbers: [Cleo, Blair, Alex]
+    expected_results:
+      winners:
+      - Blair
+
+# file: Runoff_07_flat_ballot_bv_bug_tf73v9.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Runoff 07 (WIP) — flat ballot exposes the BV abstention bug ===
+  https://bettervoting.com/tf73v9/results
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |   * Alex   | * Blair   |    Cleo   |
+-----------------------------------------------------
+      * Alex > |    ---     |1 - 1 - 2  |3 - 1 - 0  |
+     * Blair > | 2 - 1 - 1  |   ---     |2 - 1 - 1  |
+        Cleo > | 0 - 1 - 3  |1 - 1 - 2  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Blair — matches the STAR winner
+
+[Divergence from STAR]
+  STAR     = Blair
+  Approval = Alex   (differs from STAR)
+
+Majority Preference Enforcement Principle:
+ - Score Round Winner(s) = (Alex)
+  - Runoff Round Winner = (Blair)
+  Candidate Alex earned the highest total score,
+  but Candidate Blair won the automatic runoff by being the head-to-head majority favorite.
+
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 4 ballots.
+Count × Alex,Blair,Cleo
+    2 ×    4,    5,   0
+    1 ×    5,    1,   2
+    1 ×    3,    3,   3
+
+[Score Distribution] (number of ballots giving each score)
+       5  4  3  2  1  0  | Total   Avg
+Alex   1  2  1  0  0  0  |    16   4.0
+Blair  2  0  1  0  1  0  |    14   3.5
+Cleo   0  0  1  1  0  2  |     5   1.2
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Alex          -- 16 -- First place
+   Blair         -- 14 -- Second place
+   Cleo          --  5
+ Alex and Blair advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Blair         -- 2 -- First place
+   Alex          -- 1
+   Equal Support -- 1
+ Blair wins.
+   Runoff math:
+     4  ballots cast
+   − 1  Equal Support (no preference between the two finalists)
+     ─
+     3  voters with a preference  (majority = 2)
+           Blair 2 (67%)  ·  Alex 1 (33%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Blair

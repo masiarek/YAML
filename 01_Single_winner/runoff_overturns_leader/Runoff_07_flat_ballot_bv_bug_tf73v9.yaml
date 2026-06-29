@@ -1,0 +1,40 @@
+election:
+  election_title: Runoff 07 (WIP) — flat ballot exposes the BV abstention bug
+  election_description: |-
+    ⚠️ WORK IN PROGRESS — illustration pending a BetterVoting fix
+    (Equal-Vote/bettervoting#1407). A REAL BetterVoting election (BV id tf73v9),
+    captured 2026-06-28. A reversal (Alex leads the scoring round, Blair wins the
+    runoff) that ALSO contains a flat ballot (3,3,3). The two reports AGREE on the
+    winner (Blair) but DISAGREE on the bookkeeping: the LH engine counts all 4
+    ballots and treats the 3,3,3 as Equal Support; BetterVoting files the 3,3,3 as an
+    ABSTENTION (nAbstentions = 1, nTallyVotes = 3) and drops its 3 stars from every
+    candidate's total. This is the flat-ballot abstention bug, now inside a reversal.
+    Level 201/301. Full two-view lesson: Runoff_07_flat_ballot_bv_bug_tf73v9.md
+  options:
+    show_description: false
+    show_matrix: true
+    matrix_finalists_only: true
+    show_condorcet: true
+    show_score_counts: true
+    show_irv: false
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: false
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "https://bettervoting.com/tf73v9/results"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      Alex, Blair, Cleo
+      5, 1, 2
+      4, 5, 0
+      4, 5, 0
+      3, 3, 3
+    lot_numbers: [Cleo, Blair, Alex]
+    expected_results:
+      winners:
+      - Blair
+
+# file: Runoff_07_flat_ballot_bv_bug_tf73v9.yaml
