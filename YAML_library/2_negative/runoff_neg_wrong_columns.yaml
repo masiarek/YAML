@@ -1,0 +1,12 @@
+# NEGATIVE (Runoff set): a ballot row with the wrong number of columns.
+# Three candidates, but the second ballot has only two values.
+# Expected error: "has 2 value(s), expected 3"
+voting_method: STAR
+num_winners: 1
+ballots: |-
+  Austin, Boston, Cairo
+  5, 1, 2
+  4, 5
+  4, 5, 0
+
+# file: runoff_neg_wrong_columns.yaml

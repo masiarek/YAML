@@ -1,0 +1,16 @@
+# Runoff 07 (WIP) — flat ballot exposes the BV abstention bug
+# Test-library copy of 01_Single_winner/runoff_overturns_leader/Runoff_07_flat_ballot_bv_bug_tf73v9.yaml (flattened for the positive harness).
+voting_method: STAR
+num_winners: 1
+options:
+  show_runoff_percent: true
+ballots: |-
+  Alex, Blair, Cleo
+  5, 1, 2
+  4, 5, 0
+  4, 5, 0
+  3, 3, 3
+expected_winners:
+  - Blair
+
+# file: Runoff_07_flat_ballot_bv_bug_tf73v9.yaml

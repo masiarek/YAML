@@ -1,0 +1,21 @@
+# Runoff 04 — the reversal holds at scale (67/33)
+# Test-library copy of 01_Single_winner/runoff_overturns_leader/Runoff_04_reversal_at_scale_bfjqmg.yaml (flattened for the positive harness).
+voting_method: STAR
+num_winners: 1
+options:
+  show_runoff_percent: true
+ballots: |-
+  Maple, Olive, Pine
+  4, 5, 0
+  4, 5, 0
+  4, 5, 0
+  5, 1, 2
+  5, 1, 2
+  4, 5, 0
+  5, 1, 2
+  4, 5, 0
+  4, 5, 0
+expected_winners:
+  - Olive
+
+# file: Runoff_04_reversal_at_scale_bfjqmg.yaml

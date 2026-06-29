@@ -1,0 +1,10 @@
+# NEGATIVE (Runoff set): ranked ballots (A>B>C) under a score method (STAR).
+# Expected error: "is a score-ballot method, but the ballots are ranked"
+voting_method: STAR
+num_winners: 1
+ballots: |-
+  Austin > Boston > Cairo
+  Boston > Austin > Cairo
+  Boston > Austin > Cairo
+
+# file: runoff_neg_ranked_in_star.yaml

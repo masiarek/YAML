@@ -97,6 +97,10 @@ LIB_CASES = {
     "bv15_neg2.yaml": ["invalid: Blake=x"],
     "bv20_neg1.yaml": ["has 2 value(s), expected 3"],
     "bv20_neg2.yaml": ["STAR ballots use scores 0..5", "invalid: Blake=a"],
+    # Runoff-set negatives (derived from Runoff_02 Austin/Boston/Cairo).
+    "runoff_neg_out_of_range.yaml":   ["STAR ballots use scores 0..5", "invalid: Boston=7"],
+    "runoff_neg_wrong_columns.yaml":  ["has 2 value(s), expected 3"],
+    "runoff_neg_ranked_in_star.yaml": ["is a score-ballot method, but the ballots are ranked"],
 }
 
 

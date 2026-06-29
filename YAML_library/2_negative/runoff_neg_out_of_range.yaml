@@ -1,0 +1,12 @@
+# NEGATIVE (Runoff set): a score above 5 (STAR scores are 0..5).
+# Derived from Runoff_02 (Austin/Boston/Cairo); Boston gets an illegal 7.
+# Expected error: "invalid: Boston=7"
+voting_method: STAR
+num_winners: 1
+ballots: |-
+  Austin, Boston, Cairo
+  5, 1, 2
+  4, 7, 0
+  4, 5, 0
+
+# file: runoff_neg_out_of_range.yaml
