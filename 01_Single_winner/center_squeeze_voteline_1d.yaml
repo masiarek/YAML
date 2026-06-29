@@ -1,0 +1,40 @@
+election:
+  election_title: Center squeeze — the voteline 1D spectrum (Red / Green / Yellow)
+  election_description: |-
+    The classic 1-D spectrum demo (zesty.ca/voting/voteline): Red on the left,
+    Green in the center, Yellow on the right, with voters spread across the line.
+    Green is the CONDORCET winner (beats Red AND Yellow head-to-head) but has the
+    FEWEST first choices (31.3%), so RCV-IRV eliminates Green first and YELLOW wins
+    (52.9%) — the center squeeze. STAR advances Green on strength of support and wins
+    the runoff 65-35. Plurality also picks Yellow. Approval / Borda / Condorcet /
+    Ranked Robin all pick Green. Scores are a reasonable 1-D spatial model (own side
+    5, adjacent center 3, far side 0-1). Weights are percentages x10. Level 201/301.
+    Lesson: 00_start_here/concepts/RCV_IRV/RCV_IRV_center_squeeze.md
+  options:
+    show_description: false
+    show_matrix: true
+    matrix_finalists_only: true
+    show_condorcet: true
+    show_score_counts: false
+    show_irv: true
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: true
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "1-D spectrum: Red (left) / Green (center) / Yellow (right)"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      Red, Green, Yellow
+      332 × 5, 3, 0      # red > green > yellow  (left bloc)
+      138 × 3, 5, 1      # green > red > yellow  (center-left)
+      175 × 1, 5, 3      # green > yellow > red  (center-right)
+      353 × 0, 3, 5      # yellow > green > red  (right bloc)
+    lot_numbers: [Red, Green, Yellow]
+    expected_results:
+      winners:
+      - Green
+
+# file: center_squeeze_voteline_1d.yaml

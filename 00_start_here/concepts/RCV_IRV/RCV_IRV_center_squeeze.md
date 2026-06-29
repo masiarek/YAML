@@ -42,6 +42,59 @@ IRV eliminates Center in round 1; STAR advances Center on strength of support an
 wins the runoff. (Verified on the engine.) A richer themed version is the Star Wars
 vote-split demo, [`04_star_wars_vote_split.yaml`](../../../split_voting/04_star_wars_vote_split.yaml).
 
+## A visual example — the voteline 1-D spectrum
+
+The squeeze is easiest to *see* on a left–right spectrum. In the classic
+**voteline** demo ([zesty.ca/voting/voteline](http://zesty.ca/voting/voteline/);
+walkthrough in this video, [youtu.be/7btAd1HYvjU?t=1782](https://youtu.be/7btAd1HYvjU?t=1782)),
+three candidates sit on a line — **Red** (left), **Green** (center), **Yellow**
+(right) — and voters are spread across it. Slide the voters around and you can watch
+IRV *cross a threshold* into the squeeze. Here is the configuration where it bites:
+
+```
+red > green > yellow : 33.2%      green > yellow > red : 17.5%
+green > red > yellow : 13.8%      yellow > green > red : 35.3%
+```
+
+**First choices:** Yellow 35.3%, Red 33.2%, **Green 31.3% (fewest).** So:
+
+- **RCV-IRV** eliminates **Green** first (the center!), its ballots split to the two
+  wings, and **Yellow wins 52.9%.**
+- But **Green is the Condorcet winner** — it beats Red (66.6 vs 33.2) *and* Yellow
+  (64.5 vs 35.3) head-to-head. IRV threw out the one candidate a majority preferred
+  over each rival.
+- **STAR** advances Green on its scores (lots of 3s from both wings + 5s from the
+  center) and wins the runoff **65–35**.
+
+Run it: [`center_squeeze_voteline_1d.yaml`](../../../01_Single_winner/center_squeeze_voteline_1d.yaml)
+(scores are a simple 1-D spatial model: own side 5, the adjacent center 3, the far
+side 0–1; weights are the percentages ×10). The engine's own divergence block:
+
+```
+[Divergence from STAR]
+  STAR                   = Green
+  Choose-One (Plurality) = Yellow   (differs from STAR)
+  RCV-IRV                = Yellow   (differs from STAR)
+
+Scoring Round      Green 3620 (1st) · Yellow 2428 (2nd) · Red 2249
+Automatic Runoff   Green 645 (65%) vs Yellow 353 (35%)   → Green wins
+```
+
+| Method | Winner |
+|---|---|
+| Plurality | Yellow |
+| **RCV-IRV / Hare** | **Yellow** ❌ — squeezes out the center |
+| Approval · Borda · Condorcet · Ranked Robin | Green |
+| **STAR** | **Green** ✅ (= the Condorcet winner) |
+
+**The threshold, made concrete.** This isn't randomness — it's structural. With the
+voters more *centered*, Green has enough first-choices to survive elimination and
+RCV-IRV happens to elect Green too. Shift the electorate so the wings (Red, Yellow)
+each out-poll the center on *first* choices, and Green is eliminated first — the
+squeeze appears. STAR and the Condorcet methods elect Green on **both** sides of that
+line, because they read the whole ballot, not just the top choice. *(This is also why
+"RCV ≠ Random" — IRV fails here predictably, every time the geometry repeats.)*
+
 ## Vote splitting vs center squeeze
 
 They look alike but aren't. **Vote splitting** is *similar* candidates sharing one
