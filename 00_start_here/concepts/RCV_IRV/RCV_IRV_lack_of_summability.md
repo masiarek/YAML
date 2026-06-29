@@ -90,4 +90,5 @@ Same ranked ballots that broke IRV's count; Ranked Robin sums them and gets the
 sensible answer. (Produced by the LH engine's `calculate_preference_matrix`; the
 [`pref_voting` engine](../../../pref_voting_tabulation_engine/README.md) reports the same
 **Copeland = Ranked Robin** winner. Files:
-[`summability_demo/`](../../../01_Single_winner/summability_demo/).)
+[`summability_demo/`](../../../01_Single_winner/summability_demo/).) **Full RR-side
+treatment:** [Ranked Robin is summable](../RCV_Ranked_Robin/RCV_RR_summability.md).

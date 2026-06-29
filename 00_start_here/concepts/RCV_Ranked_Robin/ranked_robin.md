@@ -83,6 +83,7 @@ for STAR and RCV-IRV. Details:
 
 ## Related concept pages
 
+- [Ranked Robin is summable](./RCV_RR_summability.md) — the pairwise matrix adds across precincts (and the topic hub: [Summability](../topics/summability/README.md))
 - [Strict vs. weak ranks](../strict_vs_weak_ranks.md) — Ranked Robin allows equal ranks; IRV doesn't
 - [Center squeeze](../RCV_IRV/RCV_IRV_center_squeeze.md) — the failure RR avoids and IRV doesn't
 - [Is IRV "just plurality"?](../RCV_IRV/RCV_IRV_and_plurality.md) — why IRV isn't pairwise
