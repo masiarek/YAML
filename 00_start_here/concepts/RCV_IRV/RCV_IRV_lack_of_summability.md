@@ -25,6 +25,27 @@ full ranking, centrally.
 There's no small fixed-size table a precinct can publish that sums to the whole. The
 only "summable" object is the entire pile of ballots.
 
+## Worked example — two districts both won by B, merged, B *loses*
+
+The classic demonstration (after [rangevoting.org](https://www.rangevoting.org/IrvNonAdd.html),
+verified on the engine — run [`summability_demo/`](../../../01_Single_winner/summability_demo/)):
+
+```
+District A          District B          Combined (A + B)
+  6 : A               6 : C               6 : A   6 : C
+  4 : B               4 : B               4 : B   4 : B
+  3 : C>B>A           3 : A>B>C           3 : C>B>A   3 : A>B>C
+
+IRV: C out → B 7, A 6   IRV: A out → B 7, C 6   first-choices: A 9, C 9, B 8
+  → B wins                → B wins              → B (fewest) ELIMINATED → A/C tie
+```
+
+**B wins each district outright, yet is *eliminated* when the districts are combined.**
+That's the whole problem in one example: the district winners (B, B) tell you nothing
+about the combined winner, and there is no precinct subtotal you could have published that
+would add up to it. To get the real answer you must pool every ballot and recount from
+scratch. (Contrast STAR below, where the precinct subtotals *do* add up.)
+
 ## What that costs
 
 - **Central tabulation** — ballots (or full cast-vote records) must be gathered in one

@@ -1,0 +1,73 @@
+======================================================================
+SOURCE FILE:     star_district_A.yaml
+SOURCE MODIFIED: 2026-06-29 10:24:04
+TABULATED FILE:  star_district_A_tabulated.txt
+TABULATED AT:    2026-06-29 10:24:04
+======================================================================
+
+voting_method: STAR
+num_winners: 1
+options: {show_score_counts: true, show_matrix: true, matrix_finalists_only: false, show_runoff_percent: true}
+expected_winners: [Maple]
+ballots: |-
+  Maple, Oak, Pine
+  5,4,0
+  5,3,1
+  0,2,5
+lot_numbers: [Maple, Oak, Pine]
+
+# file: star_district_A.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |  * Maple   |  * Oak    |    Pine   |
+-----------------------------------------------------
+     * Maple > |    ---     |2 - 0 - 1  |2 - 0 - 1  |
+       * Oak > | 1 - 0 - 2  |   ---     |2 - 0 - 1  |
+        Pine > | 1 - 0 - 2  |1 - 0 - 2  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Maple — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 3 ballots.
+Maple,Oak,Pine
+    5,  4,   0
+    5,  3,   1
+    0,  2,   5
+
+[Score Distribution] (number of ballots giving each score)
+       5  4  3  2  1  0  | Total   Avg
+Maple  2  0  0  0  0  1  |    10   3.3
+Oak    0  1  1  1  0  0  |     9   3.0
+Pine   1  0  0  0  1  1  |     6   2.0
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Maple         -- 10 -- First place
+   Oak           --  9 -- Second place
+   Pine          --  6
+ Maple and Oak advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Maple         -- 2 -- First place
+   Oak           -- 1
+   Equal Support -- 0
+ Maple wins.
+   Runoff math:
+     3  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     3  voters with a preference  (majority = 2)
+           Maple 2 (67%)  ·  Oak 1 (33%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Maple

@@ -37,6 +37,7 @@ CROSS_DIRS = [
     str(REPO_ROOT / "01_Single_winner" / "runoff_overturns_leader"),
     str(REPO_ROOT / "01_Single_winner" / "paradoxes_and_whoops"),
     str(REPO_ROOT / "01_Single_winner" / "Flat_scores_ties"),
+    str(REPO_ROOT / "01_Single_winner" / "summability_demo"),
     str(REPO_ROOT / "split_voting"),
     str(REPO_ROOT / "YAML_library" / "1_positive"),
 ]

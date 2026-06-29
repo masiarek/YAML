@@ -1,0 +1,13 @@
+voting_method: RCV_IRV
+num_winners: 1
+# Summability demo (IRV), A+B merged. B wins BOTH districts, but here B has the
+# fewest first-choices (8 vs 9, 9), is ELIMINATED, and A/C tie. You cannot recover
+# this from the district winners or any fixed precinct subtotal -> IRV isn't summable.
+ballots: |-
+  6:A
+  4:B
+  3:C>B>A
+  6:C
+  4:B
+  3:A>B>C
+# file: irv_combined.yaml

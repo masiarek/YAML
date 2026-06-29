@@ -1,0 +1,8 @@
+voting_method: RCV_IRV
+num_winners: 1
+# Summability demo (IRV), district B (A/C roles swapped). IRV winner: B.
+ballots: |-
+  6:C
+  4:B
+  3:A>B>C
+# file: irv_district_B.yaml

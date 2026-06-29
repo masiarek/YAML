@@ -1,0 +1,8 @@
+voting_method: RCV_IRV
+num_winners: 1
+# Summability demo (IRV), district A. IRV winner: B (eliminate C, C>B>A transfers -> B 7, A 6).
+ballots: |-
+  6:A
+  4:B
+  3:C>B>A
+# file: irv_district_A.yaml
