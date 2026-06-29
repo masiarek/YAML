@@ -2,6 +2,12 @@
 
 *A ranked method that compares every candidate head-to-head and elects whoever beats the most rivals. Same ranked ballot as IRV, but a completely different — and far more transparent — way of counting it.*
 
+→ **Run it / tabulated example:** [`summability_demo/`](../../../01_Single_winner/summability_demo/)
+shows the **pairwise matrix** (the Ranked Robin tally) computed and *added across precincts*;
+the [`pref_voting` engine](../../../pref_voting_tabulation_engine/README.md) reports the
+**Copeland = Ranked Robin** winner on any election (`python pref_voting_tabulation.py example_tennessee.yaml`).
+· Topic hub: [Summability](../topics/summability/README.md).
+
 ---
 
 **Ranked Robin** (also marketed as **Consensus Voting**, and abbreviated **RCV-RR**) is a **Condorcet** method: it's a round-robin tournament among the candidates. You rank the candidates — and crucially, **you may rank candidates equally** — then the count compares **every pair** of candidates head-to-head and elects the one who **wins the most matchups** (ties broken by the sum of win margins).
@@ -53,6 +59,13 @@ Condorcet/Copeland winner). They agree on the winner whenever a Condorcet winner
 i.e. almost always — and differ *only* in the **cycle/tie-break rule** (Ranked Robin: sum
 of margins; Consensus Choice: "Most Wins, Smallest Loss"; textbook Copeland: by score). So
 treat them as one method with several brands, not byte-identical algorithms.
+
+> **House naming (which word when).** Say **Ranked Robin (RR)** to people — it's the
+> friendliest adopted name. Use **RCV-RR** in method comparisons and engine output, exactly
+> parallel to **RCV-IRV** (ranked ballot + which count). Use **Copeland** when talking to
+> the *engine* or academics (it's what `pref_voting` calls it). Mention **Consensus
+> Voting / Consensus Choice** once as the advocacy brand, then move on. (Same
+> meet-them-where-they-are rule as [`TIPS_terminology.md`](../../TIPS_terminology.md).)
 
 ```bash
 # run Copeland (= Ranked Robin) on any election, beside the other methods:

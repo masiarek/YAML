@@ -9,8 +9,10 @@ ballot, you need the **full ballot set in one place** to run the count.
 > can verify its own result, and whether early/partial counts mean anything. IRV
 > quietly gives all of that up.
 
-→ STAR keeps this property — see [`STAR is summable`](../STAR_Voting/STAR_summability.md).
-Glossary: [`summability`](../../GLOSSARY.md).
+→ Cross-method **topic hub**: [Summability](../topics/summability/README.md) (STAR / Ranked
+Robin / IRV side by side). STAR keeps this property —
+[`STAR is summable`](../STAR_Voting/STAR_summability.md). Glossary:
+[`summability`](../../GLOSSARY.md).
 
 ---
 

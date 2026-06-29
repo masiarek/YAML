@@ -13,6 +13,11 @@ The pages are grouped to mirror the folders: **general / cross-method** ideas si
 the top level, IRV-specific problems live in [`RCV_IRV/`](./RCV_IRV/), and STAR's own
 properties live in [`STAR_Voting/`](./STAR_Voting/).
 
+**Two ways to browse.** The authoritative pages are organized **by method** (below). Ideas
+that cut across methods also have a **by-topic** view in [`topics/`](./topics/README.md) —
+thin hubs that link to each method's treatment of one idea (so you can browse by topic in
+the GitHub file tree, not just by method). First hub: [Summability](./topics/summability/README.md).
+
 ### General & cross-method
 
 | Concept | One line | Page |
@@ -22,7 +27,7 @@ properties live in [`STAR_Voting/`](./STAR_Voting/).
 | **Scoring methods aren't RCV** | scoring methods (Approval, STAR) rate candidates and sit *outside* the ranked-voting family | [scoring-methods-vs-ranked-voting.md](./scoring-methods-vs-ranked-voting.md) |
 | **Strict vs. weak ranks** | many ranked methods allow equal ranks & compare pairwise — RCV-IRV does neither | [strict_vs_weak_ranks.md](./strict_vs_weak_ranks.md) |
 | **"Preference" (a slippery word)** | everyday opinion vs. technical "ranking"; why "Preferential Voting" is a misnomer | [preference.md](./preference.md) |
-| **Ranked Robin (Consensus Voting)** | a Condorcet method: ranks + equal ranks, every pair compared head-to-head | [RCV_Ranked_Robin/ranked_robin.md](./RCV_Ranked_Robin/ranked_robin.md) |
+| **Ranked Robin / RCV-RR (Consensus Voting; = Copeland)** | a Condorcet method: ranks + equal ranks, every pair compared head-to-head; tabulable via the pref_voting engine | [RCV_Ranked_Robin/ranked_robin.md](./RCV_Ranked_Robin/ranked_robin.md) |
 | **Proportional Representation** | multi-seat — coalitions get proportional seats; STV ≈ STAR-PR, Bloc differs (301) | [proportional_representation/](./proportional_representation/README.md) ([STV vs STAR-PR](./proportional_representation/stv/proportional_stv_vs_star.md) · [STAR-PR methods](./proportional_representation/STAR_PR/README.md)) |
 | **Tabulation, step by step (201)** | the same ballots counted both ways — STAR's 2 steps vs IRV's elimination rounds | [tabulation_star_vs_irv.md](./tabulation_star_vs_irv.md) |
 | **RCV-IRV vs. STAR (side-by-side)** | balanced comparison hub — real strengths on both sides — routing to the facet pages | [rcv_irv_vs_star.md](./rcv_irv_vs_star.md) |
