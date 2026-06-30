@@ -24,6 +24,11 @@ see [cycle resolution](../../RCV_Ranked_Robin/cycle_resolution.md). The repo's
 [divergence ledger](../../../divergence_review/INDEX.md) catalogs real library elections
 where STAR, IRV, and the Condorcet winner disagree.
 
+> **"Isn't Ranked Robin the same as Condorcet?"** Almost — they're identical when a
+> Condorcet winner exists, and part ways only in a cycle (Condorcet goes blank, Ranked
+> Robin still picks the best record). Worked through with a real example in
+> [Ranked Robin vs. the Condorcet winner](../../RCV_Ranked_Robin/ranked_robin_vs_condorcet.md).
+
 Glossary: [`Condorcet`](../../GLOSSARY.md).
 
 ---

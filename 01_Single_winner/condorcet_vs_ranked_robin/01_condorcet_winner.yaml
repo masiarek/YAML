@@ -1,0 +1,22 @@
+election_title: "Condorcet winner exists — Ranked Robin elects it"
+election_description: >-
+  5 ranked ballots, 3 candidates. Ada beats both Ben and Cara head-to-head, so Ada is the
+  Condorcet winner — and Ranked Robin (most pairwise wins) elects Ada. When a Condorcet
+  winner exists, Ranked Robin and "the Condorcet winner" are the SAME answer.
+voting_method: RankedRobin   # = RCV-RR / Copeland — round-robin on a ranked ballot
+num_winners: 1
+lot_numbers: [Ada, Ben, Cara]
+options:
+  show_matrix: true          # show the full pairwise matrix on screen
+# Pairwise: Ada beats Ben 3-2 and beats Cara 5-0; Ben beats Cara 5-0.
+#   Win-loss: Ada 2-0, Ben 1-1, Cara 0-2  ->  RANKED ROBIN WINNER: Ada (= Condorcet winner).
+# Companion file: 02_cycle_no_condorcet.yaml (same three candidates, no Condorcet winner).
+# Lesson: 00_start_here/RCV_Ranked_Robin/ranked_robin_vs_condorcet.md
+ballots: |-
+  Ada>Ben>Cara
+  Ada>Ben>Cara
+  Ada>Ben>Cara
+  Ben>Ada>Cara
+  Ben>Ada>Cara
+
+# file: 01_condorcet_winner.yaml

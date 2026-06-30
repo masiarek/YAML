@@ -1,0 +1,27 @@
+election_title: "No Condorcet winner (a cycle) — Ranked Robin still elects one"
+election_description: >-
+  7 ranked ballots, 3 candidates, in a rock-paper-scissors cycle: Ada beats Ben, Ben beats
+  Cara, Cara beats Ada. NO candidate beats both others, so there is NO Condorcet winner.
+  Ranked Robin still produces a winner: everyone has a 1-1 record, so it breaks the tie by
+  total margin — Ada (strongest margins) wins. This is where Ranked Robin and "the
+  Condorcet winner" PART WAYS: the Condorcet winner is undefined, Ranked Robin is not.
+voting_method: RankedRobin   # = RCV-RR / Copeland — round-robin on a ranked ballot
+num_winners: 1
+lot_numbers: [Ada, Ben, Cara]
+options:
+  show_matrix: true          # show the 3x3 pairwise matrix on screen
+# Cycle: Ada>Ben 5-2, Ben>Cara 5-2, Cara>Ada 4-3.  Every candidate is 1-1.
+#   Tiebreak = total margin: Ada +2, Ben 0, Cara -2  ->  RANKED ROBIN WINNER: Ada.
+#   There is NO Condorcet winner (no one beats both rivals).
+# Companion file: 01_condorcet_winner.yaml (same three candidates, Ada IS the Condorcet winner).
+# Lesson: 00_start_here/RCV_Ranked_Robin/ranked_robin_vs_condorcet.md
+ballots: |-
+  Ada>Ben>Cara
+  Ada>Ben>Cara
+  Ada>Ben>Cara
+  Ben>Cara>Ada
+  Ben>Cara>Ada
+  Cara>Ada>Ben
+  Cara>Ada>Ben
+
+# file: 02_cycle_no_condorcet.yaml
