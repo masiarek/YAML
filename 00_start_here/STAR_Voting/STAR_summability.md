@@ -4,7 +4,7 @@
 result by **adding up independent precinct totals**. STAR is summable, which makes it
 precinct-auditable and gives meaningful early/partial results.
 
-→ Cross-method **topic hub**: [Summability](../topics/summability/README.md) (STAR / Ranked
+→ Cross-method **topic hub**: [Summability](../topics/summability/README_summability.md) (STAR / Ranked
 Robin / IRV side by side). The method that is *not* summable is RCV-IRV —
 [`IRV's lack of summability`](../RCV_IRV/RCV_IRV_lack_of_summability.md).
 Glossary: [`summability`](../GLOSSARY.md).

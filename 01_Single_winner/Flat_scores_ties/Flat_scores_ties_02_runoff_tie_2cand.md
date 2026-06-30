@@ -15,7 +15,7 @@ Almond.
 
 → [STAR Tie-Breaking](../../00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
 · [reporting true ties](../../00_start_here/STAR_reporting/reporting_ties.md)
-· [`GLOSSARY` (Equal Support)](../../00_start_here/GLOSSARY.md) · [`README`](README.md).
+· [`GLOSSARY` (Equal Support)](../../00_start_here/GLOSSARY.md) · [`README`](README_Flat_scores_ties.md).
 
 ---
 

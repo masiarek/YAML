@@ -14,7 +14,7 @@ BV bug: a fully-flat ballot gets **mis-filed as an abstention** and dropped.
 
 → [STAR Tie-Breaking](../../00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
 · [`GLOSSARY` (Equal Support vs abstention)](../../00_start_here/GLOSSARY.md)
-· [reporting true ties](../../00_start_here/STAR_reporting/reporting_ties.md) · [`README`](README.md).
+· [reporting true ties](../../00_start_here/STAR_reporting/reporting_ties.md) · [`README`](README_Flat_scores_ties.md).
 
 ---
 

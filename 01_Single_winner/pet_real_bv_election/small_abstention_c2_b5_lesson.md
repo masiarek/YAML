@@ -13,7 +13,7 @@ This is the **2-candidate** member of the pair. Its richer sibling, which adds a
 third candidate to show that BetterVoting's rule is "*any* flat ballot = abstention"
 (it even drops an engaged `3,3,3`), is
 [`small_case_abstention_lesson.md`](small_case_abstention_lesson.md). At full scale:
-the 461-ballot [pet race](README.md).
+the 461-ballot [pet race](README_pet_real_bv_election.md).
 
 → Reading results: [How to read a STAR report](../../00_start_here/tabulation_engines/LH_starvote/reading_a_star_report.md)
 · [BetterVoting vs the LH engine — when the reports differ](../../00_start_here/tabulation_engines/bettervoting_and_the_engine.md#when-the-two-reports-differ--abstentions-vs-equal-support)
@@ -106,6 +106,6 @@ percentage. The 3 voters with a preference decide it, and A wins 2–1.
 
 - Richer 3-candidate version (the canonical lesson): [`small_case_abstention_lesson.md`](small_case_abstention_lesson.md)
 - Synthetic illustration (adds an explicit `0,0` row): [`abstention_reconciliation_min_c2_b6.yaml`](abstention_reconciliation_min_c2_b6.yaml)
-- Full 461-ballot race + frozen BV evidence: [`README.md`](README.md) · [`BV_result_snapshot.md`](BV_result_snapshot.md)
+- Full 461-ballot race + frozen BV evidence: [`README.md`](README_pet_real_bv_election.md) · [`BV_result_snapshot.md`](BV_result_snapshot.md)
 - The reconciliation / issue write-up: [`LH_BV_reconciliation_issue.md`](LH_BV_reconciliation_issue.md) (→ [#1407](https://github.com/Equal-Vote/bettervoting/issues/1407))
 - How it was reproduced on BetterVoting: [`SMALL_CASE_reproduce_on_BV.md`](SMALL_CASE_reproduce_on_BV.md)

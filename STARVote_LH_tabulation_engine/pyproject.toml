@@ -7,7 +7,7 @@ name = "starvote"
 authors = [
     {name = "Larry Hastings", email = "larry@hastings.org"},
     ]
-readme = "README.md"
+readme = "README_STARVote_LH_tabulation_engine.md"
 requires-python = ">=3.6"
 classifiers = [
     "Intended Audience :: Developers",

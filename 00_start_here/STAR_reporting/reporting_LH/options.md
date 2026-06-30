@@ -5,7 +5,7 @@ report shows** — it changes the *display*, never the result. (The saved
 `_tabulated.txt` ignores these and always renders everything; house default on
 screen is "less is more.")
 
-→ Up: [How the LH engine reports](README.md) · hub: [STAR Reporting](../README.md) · house defaults: [`CLAUDE.md`](../../../CLAUDE.md).
+→ Up: [How the LH engine reports](README_reporting_LH.md) · hub: [STAR Reporting](../README_STAR_reporting.md) · house defaults: [`CLAUDE.md`](../../../CLAUDE.md).
 
 ---
 

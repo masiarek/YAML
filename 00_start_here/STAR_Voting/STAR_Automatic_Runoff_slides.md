@@ -10,7 +10,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
   can show it on screen, plus the matching repo **lesson** (BV screenshots beside the
   LH text report).
 - **Concept hub backing this deck:** [The Automatic Runoff Round](STAR_Automatic_Runoff.md)
-  · the worked teaching set: [`runoff_overturns_leader/`](../../01_Single_winner/runoff_overturns_leader/README.md)
+  · the worked teaching set: [`runoff_overturns_leader/`](../../01_Single_winner/runoff_overturns_leader/README_runoff_overturns_leader.md)
   · presenter's guide: [`teaching_runoff_reversal.md`](../../01_Single_winner/runoff_overturns_leader/teaching_runoff_reversal.md).
 
 ---
@@ -286,7 +286,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 
 > Notes: For an audience that will actually run elections. Skip for a pure intro talk.
 > Detail: [reporting_diff_BV_LH](../STAR_reporting/reporting_diff_BV_LH.md)
-> · the full set: [`runoff_overturns_leader/`](../../01_Single_winner/runoff_overturns_leader/README.md).
+> · the full set: [`runoff_overturns_leader/`](../../01_Single_winner/runoff_overturns_leader/README_runoff_overturns_leader.md).
 
 ---
 

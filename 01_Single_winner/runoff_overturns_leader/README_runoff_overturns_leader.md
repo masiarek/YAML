@@ -17,7 +17,7 @@ how many* arc. Read them in order:
 > where the two **diverge** (the discrepancy is the lesson, e.g. `Runoff_07`) or where
 > reading **BV's own UI** is the point (this set — the screenshots teach how a STAR result
 > *looks*). When BV and LH simply agree and there's no UI to teach, LH-only is enough (see
-> the [vote-splitting set](../../split_voting/README.md)).
+> the [vote-splitting set](../../split_voting/README_split_voting.md)).
 
 | # | Lesson | Level | What it shows |
 |---|--------|:---:|---------------|
@@ -151,7 +151,7 @@ Reversal happens in roughly **1 election in 11**; under white-noise *Impartial
 Culture* it's higher, and at tiny electorates the figure is dominated by ties. The
 takeaway for a debate: never quote a bare percentage without naming the model, the
 electorate size, and how ties were counted. Full writeup:
-[`simulations/README.md`](../../simulations/README.md#runoff-reversal-frequency-simulation).
+[`simulations/README.md`](../../simulations/README_simulations.md#runoff-reversal-frequency-simulation).
 
 ## Run them yourself
 

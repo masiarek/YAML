@@ -14,9 +14,9 @@ the top level, IRV-specific problems live in [`RCV_IRV/`](RCV_IRV/), and STAR's 
 properties live in [`STAR_Voting/`](STAR_Voting/).
 
 **Two ways to browse.** The authoritative pages are organized **by method** (below). Ideas
-that cut across methods also have a **by-topic** view in [`topics/`](topics/README.md) —
+that cut across methods also have a **by-topic** view in [`topics/`](topics/README_topics.md) —
 thin hubs that link to each method's treatment of one idea (so you can browse by topic in
-the GitHub file tree, not just by method). First hub: [Summability](topics/summability/README.md).
+the GitHub file tree, not just by method). First hub: [Summability](topics/summability/README_summability.md).
 
 ### General & cross-method
 
@@ -28,11 +28,11 @@ the GitHub file tree, not just by method). First hub: [Summability](topics/summa
 | **Strict vs. weak ranks** | many ranked methods allow equal ranks & compare pairwise — RCV-IRV does neither | [strict_vs_weak_ranks.md](strict_vs_weak_ranks.md) |
 | **"Preference" (a slippery word)** | everyday opinion vs. technical "ranking"; why "Preferential Voting" is a misnomer | [preference.md](preference.md) |
 | **Ranked Robin / RCV-RR (Consensus Voting; = Copeland)** | a Condorcet method: ranks + equal ranks, every pair compared head-to-head; tabulable via the pref_voting engine | [RCV_Ranked_Robin/ranked_robin.md](RCV_Ranked_Robin/ranked_robin.md) |
-| **Proportional Representation** | multi-seat — coalitions get proportional seats; STV ≈ STAR-PR, Bloc differs (301) | [proportional_representation/](proportional_representation/README.md) ([STV vs STAR-PR](proportional_representation/stv/proportional_stv_vs_star.md) · [STAR-PR methods](proportional_representation/STAR_PR/README.md)) |
+| **Proportional Representation** | multi-seat — coalitions get proportional seats; STV ≈ STAR-PR, Bloc differs (301) | [proportional_representation/](proportional_representation/README_proportional_representation.md) ([STV vs STAR-PR](proportional_representation/stv/proportional_stv_vs_star.md) · [STAR-PR methods](proportional_representation/STAR_PR/README_STAR_PR.md)) |
 | **Tabulation, step by step (201)** | the same ballots counted both ways — STAR's 2 steps vs IRV's elimination rounds | [tabulation_star_vs_irv.md](tabulation_star_vs_irv.md) |
 | **RCV-IRV vs. STAR (side-by-side)** | balanced comparison hub — real strengths on both sides — routing to the facet pages | [rcv_irv_vs_star.md](rcv_irv_vs_star.md) |
 | **Tabulation engines — BV, LH, RCV-IRV** | why an election has two reports (BetterVoting's visual display + the LH engine's text report), how they map, and the convert→validate→test pipeline; hub for the per-engine folders | [tabulation_engines/](tabulation_engines/bettervoting_and_the_engine.md) |
-| **STAR Reporting — reading & comparing results** | how a result is reported: scores, runoff, percentages, Equal Support/abstentions; LH vs BetterVoting and where they differ; the Score Distribution and Preference Matrix up close | [STAR_reporting/](STAR_reporting/README.md) |
+| **STAR Reporting — reading & comparing results** | how a result is reported: scores, runoff, percentages, Equal Support/abstentions; LH vs BetterVoting and where they differ; the Score Distribution and Preference Matrix up close | [STAR_reporting/](STAR_reporting/README_STAR_reporting.md) |
 | **Quorum — did enough show up?** | a turnout threshold separate from who wins; abstentions count toward it; an unmet quorum means no winner — won the count but not elected | [quorum.md](quorum.md) |
 
 ### RCV-IRV — problems specific to instant-runoff
@@ -53,8 +53,8 @@ the GitHub file tree, not just by method). First hub: [Summability](topics/summa
 |---------|----------|------|
 | **STAR's hybrid nature** | expressive scoring to find the finalists + a majority runoff to pick the winner — the design the rest of these pages build on | [STAR_hybrid_nature.md](STAR_Voting/STAR_hybrid_nature.md) |
 | **The Automatic Runoff Round** | STAR's second step, end to end — finalists, the For/Against/Equal Support counts, percentages, tie-breaking, and Runoff Reversal; the hub for all runoff topics | [STAR_Automatic_Runoff.md](STAR_Voting/STAR_Automatic_Runoff.md) |
-| **Runoff Reversal — top scorer ≠ winner** | the Scoring Round picks two finalists; the Automatic Runoff lets the *majority-preferred* finalist win — even with fewer total stars | [runoff_overturns_leader/](../01_Single_winner/runoff_overturns_leader/README.md) |
-| **The LH starvote engine** | what the engine is (a thin fork + a thick reporting wrapper) and our improvements — the minimal **echo** vs the always-full **`_tabulated`** mirror, the matrix/divergence/runoff-funnel reporting, and multi-method dispatch | [LH_starvote/](tabulation_engines/LH_starvote/README.md) |
+| **Runoff Reversal — top scorer ≠ winner** | the Scoring Round picks two finalists; the Automatic Runoff lets the *majority-preferred* finalist win — even with fewer total stars | [runoff_overturns_leader/](../01_Single_winner/runoff_overturns_leader/README_runoff_overturns_leader.md) |
+| **The LH starvote engine** | what the engine is (a thin fork + a thick reporting wrapper) and our improvements — the minimal **echo** vs the always-full **`_tabulated`** mirror, the matrix/divergence/runoff-funnel reporting, and multi-method dispatch | [LH_starvote/](tabulation_engines/LH_starvote/README_LH_starvote.md) |
 | **Reading a STAR report (201)** | the full engine report, section by section — matrix, divergence, both rounds, winner — and which parts to show 101 vs 201 vs 301 | [reading_a_star_report.md](tabulation_engines/LH_starvote/reading_a_star_report.md) |
 | **Reading the runoff percentages** | the same runoff vote shown two ways — % of all voters vs % of the voters *with a preference*; why the winner needs a majority of the decided voters, and where Equal Support goes | [runoff_percentages.md](STAR_Voting/runoff_percentages.md) |
 | **Three notions of "winner"** | Condorcet vs Score vs Runoff can name three different candidates in one election | [STAR_three_winner_notions.md](STAR_Voting/STAR_three_winner_notions.md) |

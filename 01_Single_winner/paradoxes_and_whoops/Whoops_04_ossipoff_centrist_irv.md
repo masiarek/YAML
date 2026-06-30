@@ -8,7 +8,7 @@ rival head-to-head — and IRV eliminates C anyway**, electing D.
 
 A ranked-ballot case (no scores invented). → fairness test:
 [`reading_these_fairly.md`](reading_these_fairly.md) · cousin:
-[center squeeze](../../00_start_here/RCV_IRV/RCV_IRV_center_squeeze.md) · [`README`](README.md).
+[center squeeze](../../00_start_here/RCV_IRV/RCV_IRV_center_squeeze.md) · [`README`](README_paradoxes_and_whoops.md).
 
 ---
 
@@ -59,4 +59,4 @@ enough to make the point unmissable.
 >   explain; the failure is specific to squeezed centrists.
 > - **The symmetric whoops:** STAR isn't spotless — see [Whoops 02](Whoops_02_star_misses_condorcet.md),
 >   where STAR itself misses the Condorcet winner. The honest tally is in the
->   [README balance ledger](README.md#balance-ledger).
+>   [README balance ledger](README_paradoxes_and_whoops.md#balance-ledger).

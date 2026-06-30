@@ -121,7 +121,7 @@ The BetterVoting screenshots above and this engine line are **two reports of the
 election** — why there are two, and how every piece maps between them, is
 [BetterVoting and the LH engine](../tabulation_engines/bettervoting_and_the_engine.md).
 The full election file and complete report for this pets race are in the worked lesson
-[A real BetterVoting election, end to end](../../01_Single_winner/pet_real_bv_election/README.md).
+[A real BetterVoting election, end to end](../../01_Single_winner/pet_real_bv_election/README_pet_real_bv_election.md).
 
 ## The one-sentence version
 

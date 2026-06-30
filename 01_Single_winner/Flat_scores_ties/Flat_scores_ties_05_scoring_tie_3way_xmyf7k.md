@@ -14,7 +14,7 @@ work?" — and the reference answer is A.
 → the cascade: [STAR Tie-Breaking](../../00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
 · why a published lot order matters: [#1063](https://github.com/Equal-Vote/bettervoting/issues/1063)
 · export of the tie-break sequence — **added by BV, now closed**: [#1371](https://github.com/Equal-Vote/bettervoting/issues/1371)
-· [reporting true ties](../../00_start_here/STAR_reporting/reporting_ties.md) · [`README`](README.md).
+· [reporting true ties](../../00_start_here/STAR_reporting/reporting_ties.md) · [`README`](README_Flat_scores_ties.md).
 
 ---
 

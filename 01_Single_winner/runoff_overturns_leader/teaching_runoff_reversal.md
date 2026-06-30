@@ -6,7 +6,7 @@ it in, the examples to use, **why a reversal is a good thing**, and the hard
 ("devil's advocate") questions with answers.
 
 - Concept hub: [The Automatic Runoff Round](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md) (has the flow diagram)
-- The concept lesson + all cases: [`README.md`](README.md)
+- The concept lesson + all cases: [`README.md`](README_runoff_overturns_leader.md)
 - Voter-facing one-paragraph version (and a BetterVoting popover fix): [`explaining_to_voters.md`](explaining_to_voters.md)
 - Glossary: [`Runoff Reversal`](../../00_start_here/GLOSSARY.md)
 

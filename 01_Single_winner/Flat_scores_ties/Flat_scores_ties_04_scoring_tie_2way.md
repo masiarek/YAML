@@ -9,7 +9,7 @@ then wins the runoff cleanly. Cast: three lakes.
 · concept: [The Automatic Runoff Round](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md)
 · BV: wrong finalists under ties [#1379](https://github.com/Equal-Vote/bettervoting/issues/1379),
 pre-published lot rule [#1063](https://github.com/Equal-Vote/bettervoting/issues/1063),
-tie-break export [#1371](https://github.com/Equal-Vote/bettervoting/issues/1371) (closed) · [`README`](README.md).
+tie-break export [#1371](https://github.com/Equal-Vote/bettervoting/issues/1371) (closed) · [`README`](README_Flat_scores_ties.md).
 
 ---
 

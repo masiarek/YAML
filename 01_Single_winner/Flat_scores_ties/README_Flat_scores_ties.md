@@ -19,7 +19,7 @@ ties & equal preferences — [tk476h](https://bettervoting.com/tk476h/), #1035).
 > only where the two **diverge** (the discrepancy is the lesson) or where reading **BV's
 > own UI** is the point. When they *agree*, LH-only is enough — don't paste screenshots
 > that just duplicate the LH numbers. This tie/abstention set is two-view *because* BV
-> mishandles these cases; the [vote-splitting set](../../split_voting/README.md) is
+> mishandles these cases; the [vote-splitting set](../../split_voting/README_split_voting.md) is
 > LH-only *because* BV and LH agree there.
 
 > **Workflow / status.** The LH side is complete and verified. The BV side is being

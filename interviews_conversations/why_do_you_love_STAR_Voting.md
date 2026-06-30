@@ -94,7 +94,7 @@ one ballot you fill out in about ten seconds."
   `whats_so_good_about_STAR_Voting.md`, or as the **emotional closer** after the
   technical episodes. It's the bookend, not the body.
 - **Series roadmap:** call it **Episode 0** in
-  [README.md](README.md) — the warm-up before Episode 1.
+  [README.md](README_interviews_conversations.md) — the warm-up before Episode 1.
 - **"Do we already have a 'what's so good' presentation?"** — yes:
   `00_start_here/Why_STAR_Voting.md` *is* it (11 presentation bullets, Part 1),
   with a styled `Why_STAR_Voting.html` presenter view. This conversation is the

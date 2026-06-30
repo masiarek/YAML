@@ -62,5 +62,5 @@ gap. The winner and runoff margin are identical.
 - Even-simpler 2-candidate capture (BV calls a `5,5` an abstention): [`small_abstention_c2_b5_lesson.md`](small_abstention_c2_b5_lesson.md)
 - Minimal synthetic illustration (LH-correct behavior): [`abstention_reconciliation_min_c2_b6.yaml`](abstention_reconciliation_min_c2_b6.yaml)
 - How that small case was reproduced on BetterVoting: [`SMALL_CASE_reproduce_on_BV.md`](SMALL_CASE_reproduce_on_BV.md)
-- Worked lesson: [`README.md`](README.md)
+- Worked lesson: [`README.md`](README_pet_real_bv_election.md)
 - Concept: [BetterVoting and the LH engine](../../00_start_here/tabulation_engines/bettervoting_and_the_engine.md) · [Runoff percentages](../../00_start_here/STAR_Voting/runoff_percentages.md)

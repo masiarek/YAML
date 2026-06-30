@@ -5,7 +5,7 @@ ballots gave each score* to each candidate — the raw shape behind the score to
 It's where you can see at a glance whether a candidate is broadly liked, polarizing,
 or unknown — and it keeps an honest line between an explicit **0** and a **blank**.
 
-→ Hub: [STAR Reporting](../README.md) · the full report: [How the LH engine reports](README.md) · what counts as a blank: [`GLOSSARY`](../../GLOSSARY.md).
+→ Hub: [STAR Reporting](../README_STAR_reporting.md) · the full report: [How the LH engine reports](README_reporting_LH.md) · what counts as a blank: [`GLOSSARY`](../../GLOSSARY.md).
 
 Turn it on with `options: { show_score_counts: true }` (the saved `_tabulated.txt`
 always includes it).

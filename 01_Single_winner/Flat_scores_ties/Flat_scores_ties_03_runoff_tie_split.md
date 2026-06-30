@@ -8,7 +8,7 @@ highest score (tied) → most 5s (tied) → **lot number** → Athens.
 → [STAR Tie-Breaking](../../00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
 · [reporting true ties](../../00_start_here/STAR_reporting/reporting_ties.md)
 · BV: pre-published lot rule [#1063](https://github.com/Equal-Vote/bettervoting/issues/1063),
-tie-break export [#1371](https://github.com/Equal-Vote/bettervoting/issues/1371) (closed) · [`README`](README.md).
+tie-break export [#1371](https://github.com/Equal-Vote/bettervoting/issues/1371) (closed) · [`README`](README_Flat_scores_ties.md).
 
 ---
 

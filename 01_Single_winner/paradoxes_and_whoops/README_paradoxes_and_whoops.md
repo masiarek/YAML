@@ -64,7 +64,7 @@ these aren't cheap gotchas.
 
 The contrast here is **method vs method**, not **BV vs LH** — BetterVoting and the engine
 agree on these. So no BV screenshots; see the
-[two-view principle](../Flat_scores_ties/README.md) for when those are warranted.
+[two-view principle](../Flat_scores_ties/README_Flat_scores_ties.md) for when those are warranted.
 
 ## Run them yourself
 

@@ -4,7 +4,7 @@ test_yaml_index_current.py
 Anti-staleness guard for the by-voting-method YAML index.
 
 Regenerates the index in memory (scripts/build_yaml_index.py) and asserts the
-committed file 00_start_here/YAML_test_case_index/README.md matches. If you add,
+committed file 00_start_here/YAML_test_case_index/README_YAML_test_case_index.md matches. If you add,
 move, or remove a YAML election file and forget to refresh the index, this fails
 with a clear instruction.
 """
@@ -16,7 +16,7 @@ import pytest
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 GEN = REPO_ROOT / "scripts" / "build_yaml_index.py"
-INDEX = REPO_ROOT / "00_start_here" / "YAML_test_case_index" / "README.md"
+INDEX = REPO_ROOT / "00_start_here" / "YAML_test_case_index" / "README_YAML_test_case_index.md"
 
 
 def _load_generator():

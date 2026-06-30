@@ -16,7 +16,7 @@ ballot, you need the **full ballot set in one place** to run the count.
 > can verify its own result, and whether early/partial counts mean anything. IRV
 > quietly gives all of that up.
 
-→ Cross-method **topic hub**: [Summability](../topics/summability/README.md) (STAR / Ranked
+→ Cross-method **topic hub**: [Summability](../topics/summability/README_summability.md) (STAR / Ranked
 Robin / IRV side by side). STAR keeps this property —
 [`STAR is summable`](../STAR_Voting/STAR_summability.md). Glossary:
 [`summability`](../GLOSSARY.md).
@@ -95,7 +95,7 @@ Robin / Condorcet winner.** So the candidate who won *both* districts wins the m
 election too — and you reach it by **adding precinct tables**, never pooling ballots.
 Same ranked ballots that broke IRV's count; Ranked Robin sums them and gets the
 sensible answer. (Produced by the LH engine's `calculate_preference_matrix`; the
-[`pref_voting` engine](../../pref_voting_tabulation_engine/README.md) reports the same
+[`pref_voting` engine](../../pref_voting_tabulation_engine/README_pref_voting_tabulation_engine.md) reports the same
 **Copeland = Ranked Robin** winner. Files:
 [`summability_demo/`](../../01_Single_winner/summability_demo/).) **Full RR-side
 treatment:** [Ranked Robin is summable](../RCV_Ranked_Robin/RCV_RR_summability.md).

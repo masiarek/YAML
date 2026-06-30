@@ -5,7 +5,7 @@ plain-English summary, both rounds, winner. A 101 voter only needs the last thre
 lines; this page walks through the *whole* thing, section by section, so you can read
 (and trust) any STAR result.
 
-→ The phenomenon this example shows: [Runoff Reversal](../../../01_Single_winner/runoff_overturns_leader/README.md).
+→ The phenomenon this example shows: [Runoff Reversal](../../../01_Single_winner/runoff_overturns_leader/README_runoff_overturns_leader.md).
 Curriculum: [201.1 — Reading the results](../../CURRICULUM.md). This text report is the
 engine's half of a pair — the other is BetterVoting's visual display of the same race:
 [BetterVoting and the LH engine](../bettervoting_and_the_engine.md). The engine upstream:

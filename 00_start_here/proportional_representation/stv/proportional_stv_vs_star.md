@@ -6,7 +6,7 @@ does this with ranked ballots + vote transfers; **STAR-PR** does it with scored
 ballots + ballot reweighting. They're different machinery, same goal.
 
 → Glossary: [`STV`](../../GLOSSARY.md), [`Proportional STAR`](../../GLOSSARY.md) · Curriculum: [`301.1`](../../CURRICULUM.md) · Level: **Voting 301**
-· STAR-PR methods explained: [STAR_PR](../STAR_PR/README.md)
+· STAR-PR methods explained: [STAR_PR](../STAR_PR/README_STAR_PR.md)
 
 ---
 
@@ -68,6 +68,6 @@ transfer idea, but it fills several seats against a quota instead of one. Reserv
   needed — set `voting_method: STV` and `num_winners: k`.
 - **STAR-PR** runs on the STAR engine: `voting_method: sss | allocated | rrv`
   (proportional) or `bloc` (majoritarian contrast), with `num_winners: k`. Each method
-  is explained in [STAR_PR](../STAR_PR/README.md).
+  is explained in [STAR_PR](../STAR_PR/README_STAR_PR.md).
 
 Source: [Equal Vote — "Better elections are possible. Here's how." (video)](https://youtu.be/C_27pYcjsJs?t=127).

@@ -7,7 +7,7 @@ glob specific folders, so we DON'T move files; we index them in place), reads ea
 file's `voting_method` and `num_winners`, and writes a Markdown catalog grouped by
 method to:
 
-    00_start_here/YAML_test_case_index/README.md
+    00_start_here/YAML_test_case_index/README_YAML_test_case_index.md
 
 Run from the repo root:   python scripts/build_yaml_index.py
 A pytest (test_yaml_index_current.py) regenerates this and fails if the committed
@@ -19,7 +19,7 @@ import glob
 import yaml
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT = os.path.join(REPO, "00_start_here", "YAML_test_case_index", "README.md")
+OUT = os.path.join(REPO, "00_start_here", "YAML_test_case_index", "README_YAML_test_case_index.md")
 
 # Exclude generated mirrors, raw drops, and deliberately-malformed fixtures.
 EXCLUDE = ("/.venv/", "/.git/", "node_modules", "_tabulated",

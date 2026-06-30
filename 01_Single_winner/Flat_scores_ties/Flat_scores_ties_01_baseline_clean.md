@@ -7,7 +7,7 @@ later case is measured against. Cast: three fruits.
 
 → the cascade that the tie cases trigger: [STAR Tie-Breaking](../../00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
 · concept: [The Automatic Runoff Round](../../00_start_here/STAR_Voting/STAR_Automatic_Runoff.md)
-· the set: [`README`](README.md).
+· the set: [`README`](README_Flat_scores_ties.md).
 
 ---
 

@@ -5,7 +5,7 @@
 Python social-choice library), so we know the LH engine's ranked-ballot machinery —
 **Condorcet, RCV-IRV, Plurality** — is correct, not just internally consistent.
 
-→ engine: [`pref_voting_tabulation_engine/`](../../pref_voting_tabulation_engine/README.md)
+→ engine: [`pref_voting_tabulation_engine/`](../../pref_voting_tabulation_engine/README_pref_voting_tabulation_engine.md)
 · test: [`tests/test_pref_voting_crosscheck.py`](../../STARVote_LH_tabulation_engine/tests/test_pref_voting_crosscheck.py).
 
 ---
@@ -78,10 +78,10 @@ Hitler/Washington/Stalin case). Use it as a sanity check, not an automated guard
 
 `pref_voting` ships profile **generators** (`generate_profiles`, spatial models) and axiom
 checkers (monotonicity, no-show, etc.) that can *find* fresh paradox cases automatically —
-a great source for the [paradoxes & whoops gallery](../../01_Single_winner/paradoxes_and_whoops/README.md).
+a great source for the [paradoxes & whoops gallery](../../01_Single_winner/paradoxes_and_whoops/README_paradoxes_and_whoops.md).
 
 **House rule when mining:** respect the gallery's
-[balance ledger](../../01_Single_winner/paradoxes_and_whoops/README.md#balance-ledger).
+[balance ledger](../../01_Single_winner/paradoxes_and_whoops/README_paradoxes_and_whoops.md#balance-ledger).
 The generators make IRV failures especially easy to surface — so deliberately search for
 cases that embarrass the **score family (STAR/Approval)** and **Condorcet/Ranked Robin**
 too, not just IRV. A mismatch the cross-check ever flags is itself a candidate teaching

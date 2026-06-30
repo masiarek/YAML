@@ -6,7 +6,7 @@ the **eligible electorate** must participate for the election to count. It's
 toward it** — showing up and turning in a blank ballot is still participation.
 
 → What an abstention is: [`GLOSSARY`](GLOSSARY.md) · the abstention vs Equal Support
-distinction: [the abstention lesson](../01_Single_winner/pet_real_bv_election/small_case_abstention_lesson.md) · how results are reported: [STAR Reporting](STAR_reporting/README.md).
+distinction: [the abstention lesson](../01_Single_winner/pet_real_bv_election/small_case_abstention_lesson.md) · how results are reported: [STAR Reporting](STAR_reporting/README_STAR_reporting.md).
 
 ---
 

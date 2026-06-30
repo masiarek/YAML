@@ -14,7 +14,7 @@ tie-break ladder in both rounds and still lands deterministically on **Ava**.
 > closed.)
 
 → [STAR Tie-Breaking](../../00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md)
-· [reporting true ties](../../00_start_here/STAR_reporting/reporting_ties.md) · [`README`](README.md).
+· [reporting true ties](../../00_start_here/STAR_reporting/reporting_ties.md) · [`README`](README_Flat_scores_ties.md).
 
 ---
 

@@ -5,7 +5,7 @@ one pair at a time — how many voters **prefer** each, and how many rated them
 **equal**. It's how you check whether STAR's winner is also the **Condorcet winner**
 (the candidate who beats everyone head-to-head).
 
-→ Hub: [STAR Reporting](../README.md) · the full report: [How the LH engine reports](README.md) · the no-preference bucket: [Runoff percentages](../../STAR_Voting/runoff_percentages.md) · [`GLOSSARY`](../../GLOSSARY.md).
+→ Hub: [STAR Reporting](../README_STAR_reporting.md) · the full report: [How the LH engine reports](README_reporting_LH.md) · the no-preference bucket: [Runoff percentages](../../STAR_Voting/runoff_percentages.md) · [`GLOSSARY`](../../GLOSSARY.md).
 
 ---
 

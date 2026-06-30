@@ -43,7 +43,7 @@ How the pieces line up (same Dog/Cat race):
 
 See both sides for this exact race, end to end — the export YAML and the full engine
 report — in the worked lesson
-[A real BetterVoting election, end to end](../../01_Single_winner/pet_real_bv_election/README.md).
+[A real BetterVoting election, end to end](../../01_Single_winner/pet_real_bv_election/README_pet_real_bv_election.md).
 
 ## When the two reports differ — abstentions vs Equal Support
 
@@ -115,4 +115,4 @@ a count.
 
 *This page is about STAR's two reports (BetterVoting + the LH `starvote` engine).
 **Ranked** ballots are a different family with a different count — see
-[RCV-IRV](RCV_IRV/README.md).*
+[RCV-IRV](RCV_IRV/README_RCV_IRV.md).*

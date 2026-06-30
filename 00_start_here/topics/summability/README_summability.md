@@ -45,4 +45,4 @@ Glossary: [`summability`](../../GLOSSARY.md).
 
 *This is a **topic hub** (cross-method index). The authoritative write-ups live in the
 per-method folders linked above; this page just gathers the summability angle in one place
-for folks browsing by topic. See [`../`](../README.md) for the other topic hubs.*
+for folks browsing by topic. See [`../`](../README_topics.md) for the other topic hubs.*

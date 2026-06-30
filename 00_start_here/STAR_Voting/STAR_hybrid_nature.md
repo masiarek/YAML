@@ -6,7 +6,7 @@ with the **legitimacy** of a majority runoff (the winner is the one more voters
 actually prefer between the top two). Score to find the finalists; majority to pick
 the winner.
 
-→ The payoff this design produces: [Runoff Reversal](../../01_Single_winner/runoff_overturns_leader/README.md)
+→ The payoff this design produces: [Runoff Reversal](../../01_Single_winner/runoff_overturns_leader/README_runoff_overturns_leader.md)
 and [Three notions of "winner"](STAR_three_winner_notions.md).
 Glossary: [`STAR`](../GLOSSARY.md).
 
@@ -67,7 +67,7 @@ broadly-liked compromise.
 ## Where this leads
 
 - When the scoring leader and the runoff winner **differ**, that's
-  [**Runoff Reversal**](../../01_Single_winner/runoff_overturns_leader/README.md) —
+  [**Runoff Reversal**](../../01_Single_winner/runoff_overturns_leader/README_runoff_overturns_leader.md) —
   the most important consequence of the hybrid design.
 - When **Condorcet, Score, and Runoff** point at three different candidates, see
   [Three notions of "winner"](STAR_three_winner_notions.md).

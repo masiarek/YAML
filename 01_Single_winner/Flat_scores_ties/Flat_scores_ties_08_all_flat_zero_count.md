@@ -17,7 +17,7 @@ resolves it by lot to **Anchovy**. Cast: three pizza toppings.
 → Equal Support vs abstention: [`GLOSSARY`](../../00_start_here/GLOSSARY.md)
 · the same bug worked end-to-end: [`Runoff_07`](../runoff_overturns_leader/Runoff_07_flat_ballot_bv_bug_tf73v9.md),
 [`small_case_abstention_lesson`](../pet_real_bv_election/small_case_abstention_lesson.md)
-· [STAR Tie-Breaking](../../00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md) · [`README`](README.md).
+· [STAR Tie-Breaking](../../00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md) · [`README`](README_Flat_scores_ties.md).
 
 ---
 

@@ -4,7 +4,7 @@
 interactive bar/pie charts plus "Race Details" tables — for the same STAR election the
 LH engine prints as text. Same method, same winner; a friendlier, less exhaustive view.
 
-→ Hub: [STAR Reporting](../README.md) · the mapping in full: [BetterVoting and the LH engine](../../tabulation_engines/bettervoting_and_the_engine.md) · the percentages: [Runoff percentages](../../STAR_Voting/runoff_percentages.md).
+→ Hub: [STAR Reporting](../README_STAR_reporting.md) · the mapping in full: [BetterVoting and the LH engine](../../tabulation_engines/bettervoting_and_the_engine.md) · the percentages: [Runoff percentages](../../STAR_Voting/runoff_percentages.md).
 
 ---
 

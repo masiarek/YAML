@@ -37,7 +37,7 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 - **Objective:** Remove the fear of "voting wrong."
 - **Key terms:** bullet vote, equal scores, partial ballot, blank vs explicit 0.
 - **Files:** `01_Single_winner/03*`; large field (9 candidates) `06a` (STAR scales; Equal Support decides the runoff) and `06b` (the runoff overturns the score leader).
-- **The headline lesson — top scorer ≠ winner:** the dedicated walkthrough [`01_Single_winner/runoff_overturns_leader/`](../01_Single_winner/runoff_overturns_leader/README.md) collects this as an approachable 3→9-candidate progression (with a confirm-case control), answering BetterVoting's *"why is the top-scoring candidate different from the winner?"*
+- **The headline lesson — top scorer ≠ winner:** the dedicated walkthrough [`01_Single_winner/runoff_overturns_leader/`](../01_Single_winner/runoff_overturns_leader/README_runoff_overturns_leader.md) collects this as an approachable 3→9-candidate progression (with a confirm-case control), answering BetterVoting's *"why is the top-scoring candidate different from the winner?"*
 - **Ballot note:** the ballot's own line *"equal scores indicate no preference"* means no preference *in the runoff* — those ballots still count in the scoring round. (That's the Equal Support point; see `interviews_conversations/are_equal_score_votes_discounted.md`.)
 
 ## 101.4 — The payoff: the spoiler, in numbers
@@ -79,7 +79,7 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
   voters, not half of everyone. The LH engine prints this same decided-voters share as
   a one-line summary — enable with `options: { show_runoff_percent: true }` (forced on
   in the `_tabulated` copy). Pairs with 301.3 (Equal Support).
-- **A real election, end to end:** [`01_Single_winner/pet_real_bv_election/`](../01_Single_winner/pet_real_bv_election/README.md)
+- **A real election, end to end:** [`01_Single_winner/pet_real_bv_election/`](../01_Single_winner/pet_real_bv_election/README_pet_real_bv_election.md)
   — a real BetterVoting STAR election ("What Makes the Best Pet?", 7 pets, 461 ballots),
   the actual export YAML plus its full engine report, read section by section (scoring →
   runoff → runoff % → Condorcet check), including the real-ballot distinction between an

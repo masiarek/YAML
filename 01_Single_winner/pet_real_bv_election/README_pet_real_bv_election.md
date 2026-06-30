@@ -72,7 +72,7 @@ The full report's pairwise matrix shows **Dog beats every other candidate head-t
 When the score leader, the runoff winner, and the Condorcet winner are the *same*
 candidate (as here), the result is about as uncontroversial as it gets. (For the case
 where they *differ*, see [three notions of "winner"](../../00_start_here/STAR_Voting/STAR_three_winner_notions.md)
-and the [Runoff Reversal](../runoff_overturns_leader/README.md) walkthrough.)
+and the [Runoff Reversal](../runoff_overturns_leader/README_runoff_overturns_leader.md) walkthrough.)
 
 ## 4. Real-ballot details: abstention vs. explicit zero
 

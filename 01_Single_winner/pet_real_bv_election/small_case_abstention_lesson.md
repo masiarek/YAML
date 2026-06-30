@@ -5,7 +5,7 @@ abstentions** — but only **one** ballot is actually blank. The other two are a
 all-zero ballot and a voter who scored **every** candidate **3**. This small case
 (three candidates, so it separates ideas a two-candidate race blurs) is the cleanest
 picture of the [abstention reconciliation](BV_result_snapshot.md) seen at scale in
-the 461-ballot [pet race](README.md).
+the 461-ballot [pet race](README_pet_real_bv_election.md).
 
 > Filed with BetterVoting: **[Equal-Vote/bettervoting#1407](https://github.com/Equal-Vote/bettervoting/issues/1407)**.
 
@@ -174,7 +174,7 @@ A ballot that scores everyone the same is a **vote**, not a missing one:
 
 ## How this scales
 
-The full [pet race](README.md) (461 ballots) shows the identical rule at size:
+The full [pet race](README_pet_real_bv_election.md) (461 ballots) shows the identical rule at size:
 BetterVoting reports **6 abstentions**, all flat ballots — including one voter who
 scored **all seven** candidates **5** and another **all 4**. Frozen evidence:
 [`BV_result_snapshot.md`](BV_result_snapshot.md).

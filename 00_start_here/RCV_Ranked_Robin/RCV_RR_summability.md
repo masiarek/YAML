@@ -5,7 +5,7 @@ the **pairwise matrix** — for every pair of candidates, how many ballots rank 
 B over A, or neither — and those matrices **add across precincts**. So the *same ranked
 ballot* IRV must count centrally, Ranked Robin can tally locally and add up.
 
-→ Cross-method **topic hub**: [Summability](../topics/summability/README.md)
+→ Cross-method **topic hub**: [Summability](../topics/summability/README_summability.md)
 · the method itself: [Ranked Robin](ranked_robin.md)
 · the contrast — [IRV is *not* summable](../RCV_IRV/RCV_IRV_lack_of_summability.md)
 · the score-method counterpart: [STAR is summable](../STAR_Voting/STAR_summability.md)
@@ -44,7 +44,7 @@ count.)
 ## Tabulate & verify it
 
 The LH engine computes the matrix (`calculate_preference_matrix`); the
-[`pref_voting` engine](../../pref_voting_tabulation_engine/README.md) reports the
+[`pref_voting` engine](../../pref_voting_tabulation_engine/README_pref_voting_tabulation_engine.md) reports the
 **Copeland = Ranked Robin** winner and is itself
 [cross-checked](../tabulation_engines/cross_checking_with_pref_voting.md) against the LH
 engine — so the summable artifact is independently confirmed.

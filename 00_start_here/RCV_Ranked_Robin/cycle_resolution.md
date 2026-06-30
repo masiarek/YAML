@@ -105,7 +105,7 @@ splits. (Outside cycles — i.e. almost always — they're identical.)
 
 Rarely, but not never. Cycles get likelier in **small, sharply three-way-divided** races and
 much rarer as the electorate grows and preferences spread along a spectrum. As with the
-[runoff-reversal frequency](../../01_Single_winner/runoff_overturns_leader/README.md) caveat:
+[runoff-reversal frequency](../../01_Single_winner/runoff_overturns_leader/README_runoff_overturns_leader.md) caveat:
 any rate you quote depends on the voter model, so state the assumptions rather than a bare
 number.
 

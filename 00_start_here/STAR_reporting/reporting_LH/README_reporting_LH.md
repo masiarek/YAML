@@ -5,7 +5,7 @@ number that produced the winner, in order — and saves a maximal `_tabulated.tx
 copy of it. This page is the reporting-lens summary; the section-by-section walk is
 [Reading a STAR report](../../tabulation_engines/LH_starvote/reading_a_star_report.md).
 
-→ Hub: [STAR Reporting](../README.md) · the engine itself: [BetterVoting and the LH engine](../../tabulation_engines/bettervoting_and_the_engine.md) · [`GLOSSARY`](../../GLOSSARY.md).
+→ Hub: [STAR Reporting](../README_STAR_reporting.md) · the engine itself: [BetterVoting and the LH engine](../../tabulation_engines/bettervoting_and_the_engine.md) · [`GLOSSARY`](../../GLOSSARY.md).
 
 ---
 
@@ -53,4 +53,4 @@ runoff line expanded into the funnel — so the saved audit copy is fully
 self-explanatory. Which flag shows which section: [**LH reporting options**](options.md).
 (House defaults: `CLAUDE.md`.)
 
-See it on a real election: [the pet race report](../../../01_Single_winner/pet_real_bv_election/README.md).
+See it on a real election: [the pet race report](../../../01_Single_winner/pet_real_bv_election/README_pet_real_bv_election.md).
