@@ -1,4 +1,4 @@
-# STAR Voting — Curriculum (Voting 101 / 201 / 301)
+# STAR Voting — Curriculum (Voting 101 / 201 / 301 / 302)
 
 The authoritative **learning-path map**. Difficulty lives *here*, not in the
 folder names or in every file — so a single example can be 101 for its basic idea
