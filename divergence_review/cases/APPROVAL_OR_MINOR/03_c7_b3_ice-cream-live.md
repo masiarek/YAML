@@ -58,8 +58,8 @@ ChocoDrk            1  Rejected
 ChocoHzn            0  Rejected
 Mango               0  Rejected
 VanillaFrnch        0  Rejected
-VanillaClssc        0  Rejected
 Peach               0  Rejected
+VanillaClssc        0  Rejected
 
 
 Winner(s) — RCV / Instant-Runoff Voting (single winner)
@@ -75,9 +75,10 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 3 ballots (score ballots).
 
 Ballots:
-     1 × 4, 5, 3, 0, 1, 2, 0
-     1 × 0, 3, 0, 0, 0, 0, 0
-     1 × 5, 0, 0, 0, 0, 0, 0
+   columns = ChocoDrk, ChocoAlm, ChocoHzn, VanillaClssc, VanillaFrnch, Mango, Peach      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+     1 × 4, 5, 3, 0, 1, 2, 0   →   ChocoAlm > ChocoDrk > ChocoHzn > Mango > VanillaFrnch > VanillaClssc=Peach
+     1 × 0, 3, 0, 0, 0, 0, 0   →   ChocoAlm > ChocoDrk=ChocoHzn=VanillaClssc=VanillaFrnch=Mango=Peach
+     1 × 5, 0, 0, 0, 0, 0, 0   →   ChocoDrk > ChocoAlm=ChocoHzn=VanillaClssc=VanillaFrnch=Mango=Peach
 
 Round-Robin — every pair, head-to-head (For – Against):
    ChocoAlm      beats ChocoDrk       2 – 1

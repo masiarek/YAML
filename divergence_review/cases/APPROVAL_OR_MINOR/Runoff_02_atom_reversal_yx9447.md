@@ -72,8 +72,9 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 3 ballots (score ballots).
 
 Ballots:
-     1 × 5, 1, 2
-     2 × 4, 5, 0
+   columns = Austin, Boston, Cairo      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+     1 × 5, 1, 2   →   Austin > Cairo > Boston
+     2 × 4, 5, 0   →   Boston > Austin > Cairo
 
 Round-Robin — every pair, head-to-head (For – Against):
    Boston  beats Austin   2 – 1

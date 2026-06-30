@@ -77,11 +77,12 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 5 ballots (score ballots).
 
 Ballots:
-     1 × 5, 0, 1, 0, 0
-     1 × 5, 0, 0, 1, 0
-     1 × 4, 5, 0, 0, 1
-     1 × 4, 5, 1, 0, 0
-     1 × 4, 5, 0, 1, 0
+   columns = Dakota, Eden, Flynn, Gale, Hazel      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+     1 × 5, 0, 1, 0, 0   →   Dakota > Flynn > Eden=Gale=Hazel
+     1 × 5, 0, 0, 1, 0   →   Dakota > Gale > Eden=Flynn=Hazel
+     1 × 4, 5, 0, 0, 1   →   Eden > Dakota > Hazel > Flynn=Gale
+     1 × 4, 5, 1, 0, 0   →   Eden > Dakota > Flynn > Gale=Hazel
+     1 × 4, 5, 0, 1, 0   →   Eden > Dakota > Gale > Flynn=Hazel
 
 Round-Robin — every pair, head-to-head (For – Against):
    Eden    beats Dakota   3 – 2

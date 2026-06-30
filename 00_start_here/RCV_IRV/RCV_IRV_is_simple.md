@@ -62,7 +62,7 @@ tally.* That's the half "look how simple it is" leaves out.
 
 **The ballot — at least as easy to mark:**
 - 0–5 is the familiar **five-star** mental model (every rating app you already use).
-  (Why a score ballot differs from a rank ballot: [`scores_vs_ranks.md`](../scores_vs_ranks.md).)
+  (Why a score ballot differs from a rank ballot: [`scores_vs_ranks.md`](../scores_and_ranks/scores_vs_ranks.md).)
 - You **rate each candidate on their own** — no forcing a complete strict order among a
   field of strangers ("is she my 4th or my 5th?").
 - **Equal scores are allowed** — you can say "I like these two the same" (the repo's

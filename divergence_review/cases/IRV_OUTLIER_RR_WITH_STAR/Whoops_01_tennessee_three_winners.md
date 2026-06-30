@@ -91,10 +91,11 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 100 ballots (score ballots).
 
 Ballots:
-    42 × 5, 2, 1, 0
-    26 × 1, 5, 3, 2
-    15 × 0, 3, 5, 4
-    17 × 0, 3, 4, 5
+   columns = Memphis, Nashville, Chattanooga, Knoxville      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+    42 × 5, 2, 1, 0   →   Memphis > Nashville > Chattanooga > Knoxville
+    26 × 1, 5, 3, 2   →   Nashville > Chattanooga > Knoxville > Memphis
+    15 × 0, 3, 5, 4   →   Chattanooga > Knoxville > Nashville > Memphis
+    17 × 0, 3, 4, 5   →   Knoxville > Chattanooga > Nashville > Memphis
 
 Round-Robin — every pair, head-to-head (For – Against):
    Nashville    beats Memphis       58 – 42

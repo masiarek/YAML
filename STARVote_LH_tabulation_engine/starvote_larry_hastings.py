@@ -1085,7 +1085,18 @@ def run_ranked_robin(ballots_text, file_path=None, lot_numbers=None, options=Non
         display_rows = [" > ".join(o) for o in voters]
     else:                                               # score ballots
         candidates, ballots, _ = parse_ballots_from_string(ballots_text)
-        display_rows = [", ".join(str(b.get(c, 0)) for c in candidates) for b in ballots]
+
+        def _weak_rank(b):
+            # The ranking Ranked Robin actually reads from a score ballot: order by
+            # score (high to low); EQUAL scores are a tie ("=") — no head-to-head
+            # preference — which is exactly how the pairwise matrix treats them.
+            groups = {}
+            for c in candidates:
+                groups.setdefault(b.get(c, 0), []).append(c)
+            return " > ".join("=".join(groups[s]) for s in sorted(groups, reverse=True))
+
+        display_rows = [", ".join(str(b.get(c, 0)) for c in candidates)
+                        + "   →   " + _weak_rank(b) for b in ballots]
 
     n = len(ballots)
     priority = [c for c in (lot_numbers or candidates) if c in candidates]
@@ -1197,6 +1208,9 @@ def run_ranked_robin(ballots_text, file_path=None, lot_numbers=None, options=Non
              f" Tabulating {n} ballots "
              f"({'ranked' if '>' in clean else 'score'} ballots).", ""]
         L.append("Ballots:")
+        if ">" not in clean:        # score input: show how scores become RR's ranking
+            L.append(f"   columns = {', '.join(candidates)}"
+                     "      (scores  →  the ranking Ranked Robin reads;  \"=\" = tied)")
         if _collapse:
             cnt, seenr = _Counter(display_rows), []
             for r in display_rows:

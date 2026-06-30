@@ -23,9 +23,9 @@ the GitHub file tree, not just by method). First hub: [Summability](topics/summa
 | Concept | One line | Page |
 |---------|----------|------|
 | **Ballot & terminology basics** | the 4 ideas people most often get wrong — start here | [ballot_and_terminology_basics.md](ballot_and_terminology_basics.md) |
-| **Scores vs. ranks (don't confuse them!)** | order-only (ranks) vs. order+strength (scores) — relative vs. absolute preference | [scores_vs_ranks.md](scores_vs_ranks.md) |
+| **Scores vs. ranks (don't confuse them!)** | order-only (ranks) vs. order+strength (scores) — relative vs. absolute preference | [scores_vs_ranks.md](scores_and_ranks/scores_vs_ranks.md) |
 | **Scoring methods aren't RCV** | scoring methods (Approval, STAR) rate candidates and sit *outside* the ranked-voting family | [scoring-methods-vs-ranked-voting.md](scoring-methods-vs-ranked-voting.md) |
-| **Strict vs. weak ranks** | many ranked methods allow equal ranks & compare pairwise — RCV-IRV does neither | [strict_vs_weak_ranks.md](strict_vs_weak_ranks.md) |
+| **Strict vs. weak ranks** | many ranked methods allow equal ranks & compare pairwise — RCV-IRV does neither | [strict_vs_weak_ranks.md](scores_and_ranks/strict_vs_weak_ranks.md) |
 | **"Preference" (a slippery word)** | everyday opinion vs. technical "ranking"; why "Preferential Voting" is a misnomer | [preference.md](preference.md) |
 | **Ranked Robin / RCV-RR (Consensus Voting; = Copeland)** | a Condorcet method: ranks + equal ranks, every pair compared head-to-head; tabulable via the pref_voting engine | [RCV_Ranked_Robin/ranked_robin.md](RCV_Ranked_Robin/ranked_robin.md) |
 | **Proportional Representation** | multi-seat — coalitions get proportional seats; STV ≈ STAR-PR, Bloc differs (301) | [proportional_representation/](proportional_representation/README_proportional_representation.md) ([STV vs STAR-PR](proportional_representation/stv/proportional_stv_vs_star.md) · [STAR-PR methods](proportional_representation/STAR_PR/README_STAR_PR.md)) |

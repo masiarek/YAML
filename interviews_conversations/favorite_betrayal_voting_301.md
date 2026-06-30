@@ -290,6 +290,6 @@ able to help them win."
 - `simulations/fbc_simulation.py` + `simulations/README.md` — the brute-force FBC
   measurement behind Section 5 (FBC compliance frequency and the betrayal
   works:backfires ratio, STAR vs RCV-IRV).
-- `00_start_here/concepts/residual_vote_splitting.md` — the same "only top-two
+- `00_start_here/residual_vote_splitting.md` — the same "only top-two
   advance" root cause seen as vote-splitting: STAR's self-inflicted bullet-voting /
   chicken-dilemma edge case, with the `split_voting/05a`–`05b` matched demo.

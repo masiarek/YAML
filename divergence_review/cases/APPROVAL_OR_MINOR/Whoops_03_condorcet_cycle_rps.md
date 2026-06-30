@@ -80,9 +80,10 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 100 ballots (score ballots).
 
 Ballots:
-    35 × 5, 3, 0
-    33 × 0, 5, 3
-    32 × 3, 0, 5
+   columns = Rock, Paper, Scissors      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+    35 × 5, 3, 0   →   Rock > Paper > Scissors
+    33 × 0, 5, 3   →   Paper > Scissors > Rock
+    32 × 3, 0, 5   →   Scissors > Rock > Paper
 
 Round-Robin — every pair, head-to-head (For – Against):
    Rock      beats Paper      67 – 33

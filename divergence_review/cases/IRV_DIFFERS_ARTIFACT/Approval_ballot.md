@@ -77,11 +77,12 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 8 ballots (score ballots).
 
 Ballots:
-     1 × 0, 0, 1, 1
-     4 × 0, 0, 0, 0
-     1 × 1, 0, 0, 1
-     1 × 1, 1, 0, 1
-     1 × 5, 5, 5, 5
+   columns = A, B, C, D      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+     1 × 0, 0, 1, 1   →   C=D > A=B
+     4 × 0, 0, 0, 0   →   A=B=C=D
+     1 × 1, 0, 0, 1   →   A=D > B=C
+     1 × 1, 1, 0, 1   →   A=B=D > C
+     1 × 5, 5, 5, 5   →   A=B=C=D
 
 Round-Robin — every pair, head-to-head (For – Against):
    A  beats B   1 – 0

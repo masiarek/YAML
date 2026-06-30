@@ -78,9 +78,10 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 100 ballots (score ballots).
 
 Ballots:
-    33 × 5, 4, 0
-    27 × 4, 5, 0
-    40 × 0, 1, 5
+   columns = Skywalker, Leia, Vader      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+    33 × 5, 4, 0   →   Skywalker > Leia > Vader
+    27 × 4, 5, 0   →   Leia > Skywalker > Vader
+    40 × 0, 1, 5   →   Vader > Leia > Skywalker
 
 Round-Robin — every pair, head-to-head (For – Against):
    Leia       beats Skywalker   67 – 33

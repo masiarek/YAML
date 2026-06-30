@@ -67,7 +67,7 @@ _Last full review: 2026-06-21._
 
 ## RCV-IRV monotonicity source notes (research)
 
-> **RCV-IRV-specific** — the research behind `concepts/RCV_IRV/RCV_IRV_non_monotonicity.md`. Not STAR material.
+> **RCV-IRV-specific** — the research behind `RCV_IRV/RCV_IRV_non_monotonicity.md`. Not STAR material.
 
 | Short name | Purpose | URL | Last reviewed |
 |------------|---------|-----|---------------|
@@ -78,7 +78,7 @@ _Last full review: 2026-06-21._
 
 ## RCV-IRV center-squeeze & polarization source notes (research)
 
-> **RCV-IRV-specific / context** — research behind `concepts/RCV_IRV_center_squeeze.md`.
+> **RCV-IRV-specific / context** — research behind `RCV_IRV_center_squeeze.md`.
 
 | Short name | Purpose | URL | Last reviewed |
 |------------|---------|-----|---------------|
@@ -113,7 +113,7 @@ _Last full review: 2026-06-21._
 | **STAR Voting org** | Campaign / get involved | https://starvoting.org |
 | **BetterVoting** | Cast a STAR ballot / run a poll (audience CTA) | https://bettervoting.com |
 | **Better elections (video)** | Equal Vote intro; STV / proportional 3-seat example (basis for 03a/03b) | https://youtu.be/C_27pYcjsJs |
-| **FairVote: displaying RCV results** | Best practices for showing RCV-IRV results (round-by-round table / bar series); basis for the display notes in `concepts/tabulation_star_vs_irv.md` | https://fairvote.org/how-to-display-rcv-election-results/ |
+| **FairVote: displaying RCV results** | Best practices for showing RCV-IRV results (round-by-round table / bar series); basis for the display notes in `tabulation_star_vs_irv.md` | https://fairvote.org/how-to-display-rcv-election-results/ |
 | **Center for Civic Design — RCV** | Researched best practices for RCV results display & ballot design | https://civicdesign.org/topics/rcv/ |
 
 ## Software / code

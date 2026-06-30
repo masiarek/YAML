@@ -141,7 +141,7 @@ priority first) used only when STAR's deterministic tiebreakers can't separate
 the candidates. Imported BetterVoting files carry it automatically; hand-written
 files usually omit it (the engine then assumes CSV column order). The full
 ladder — and what JSON provides vs. what you may set by hand — is documented in
-[`00_start_here/concepts/tie_breaking.md`](00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md).
+[`00_start_here/tie_breaking.md`](00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md).
 
 ---
 
@@ -249,5 +249,5 @@ dependencies.
 - [`00_start_here/00_START_HERE.md`](00_start_here/00_START_HERE.md) — guided entry point
 - [`00_start_here/CURRICULUM.md`](00_start_here/CURRICULUM.md) — levels 101 / 201 / 301
 - [`00_start_here/GLOSSARY.md`](00_start_here/GLOSSARY.md) — terms, precisely defined
-- [`00_start_here/concepts/`](00_start_here/) — center squeeze, monotonicity, tie-breaking, STAR vs IRV…
+- [`00_start_here/`](00_start_here/) — center squeeze, monotonicity, tie-breaking, STAR vs IRV…
 - [`CLAUDE.md`](CLAUDE.md) — house conventions for contributing consistently

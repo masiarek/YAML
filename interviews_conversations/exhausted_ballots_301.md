@@ -103,7 +103,7 @@ flowchart TD
     class F claim;
 ```
 
-*Static version for slides:* [`../00_start_here/concepts/RCV_IRV/inactive_ballot_taxonomy.svg`](../00_start_here/RCV_IRV/inactive_ballot_taxonomy.svg)
+*Static version for slides:* [`../00_start_here/RCV_IRV/inactive_ballot_taxonomy.svg`](../00_start_here/RCV_IRV/inactive_ballot_taxonomy.svg)
 
 > [SLIDE] **Exhausted Ballots** (deck) — the red-box / blue-box flow chart (see
 > `interviews_conversations/LINKS.md`).
@@ -266,7 +266,7 @@ still counted to pick the finalists. It's a declared tie, not a lost voice.
 Cross-references:
 - `00_start_here/GLOSSARY.md` — "Exhausted ballot," "Equal Support / No Preference."
 - `00_start_here/TIPS_terminology.md` — exhaustion is IRV-specific, not all RCV.
-- `00_start_here/CURRICULUM.md` — 301.6.
+- `00_start_here/CURRICULUM.md` — 301.7.
 - `LINKS.md` → **Exhausted Ballots (doc)**, **Exhausted Ballots (deck)**,
   **Full Deck 2025** ("Ranked Choice Deal Breakers" / exhausted-ballot slides), and
   the **RCV-IRV exhausted-ballot source notes** group (wasted-votes glossary,

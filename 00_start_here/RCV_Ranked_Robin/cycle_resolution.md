@@ -3,6 +3,10 @@
 > **Status: draft / Level 301.** A learning page on what happens to Condorcet methods
 > when there's *no* Condorcet winner — and why a whole family of methods exists just to
 > answer that. All examples below are verified with the `pref_voting` engine.
+>
+> **For the underlying math** — tournaments as graphs, the Smith & Schwartz sets, and each
+> method mapped to its math (Floyd–Warshall, game theory, NP-hardness) — see
+> [The Math Behind Condorcet](the_math_behind_condorcet.md).
 
 **One line:** when a [Condorcet winner](../GLOSSARY.md) exists, **every** Condorcet
 method elects them — Ranked Robin, Minimax, Ranked Pairs, Schulze all agree. They differ

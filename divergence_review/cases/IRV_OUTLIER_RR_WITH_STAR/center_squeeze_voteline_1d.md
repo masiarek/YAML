@@ -81,10 +81,11 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 998 ballots (score ballots).
 
 Ballots:
-   332 × 5, 3, 0
-   138 × 3, 5, 1
-   175 × 1, 5, 3
-   353 × 0, 3, 5
+   columns = Red, Green, Yellow      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+   332 × 5, 3, 0   →   Red > Green > Yellow
+   138 × 3, 5, 1   →   Green > Red > Yellow
+   175 × 1, 5, 3   →   Green > Yellow > Red
+   353 × 0, 3, 5   →   Yellow > Green > Red
 
 Round-Robin — every pair, head-to-head (For – Against):
    Green   beats Red      666 – 332

@@ -25,7 +25,7 @@ All four express a "preference" in the everyday sense. So naming *one* of them "
 Australia calls **RCV-IRV** "Preferential Voting" — and it's misleading on two levels:
 
 - **It implies it's *the* way to express preferences.** But every method above expresses preferences. Approval, Score, and STAR voters are expressing preferences too. The name quietly suggests the others don't.
-- **"Preference" is broader than "ranking."** In the everyday sense, a preference includes **strength** ("I love A, tolerate B"), which a **score** captures but a **rank** throws away. So "Preferential Voting" attaches the *broad* concept (which covers scoring) to the *narrow* mechanism (strict ranking) — the exact opposite of clarifying. (See [scores_vs_ranks.md](scores_vs_ranks.md).)
+- **"Preference" is broader than "ranking."** In the everyday sense, a preference includes **strength** ("I love A, tolerate B"), which a **score** captures but a **rank** throws away. So "Preferential Voting" attaches the *broad* concept (which covers scoring) to the *narrow* mechanism (strict ranking) — the exact opposite of clarifying. (See [scores_vs_ranks.md](scores_and_ranks/scores_vs_ranks.md).)
 
 The same word trips people elsewhere too: a **"preference ballot"** is ambiguous (ranks? scores?), and "preferences" can even mislead about *intent* — a judge or a voter may be expressing what they believe is **right**, not merely what they personally fancy.
 
@@ -38,8 +38,8 @@ The same word trips people elsewhere too: a **"preference ballot"** is ambiguous
 ## Related concept pages
 
 - [RCV vs. IRV vs. RCV-IRV — terminology](RCV_IRV/RCV-IRV-confusing-name.md) — the parallel naming mess
-- [Scores vs. ranks](scores_vs_ranks.md) — why "preference" includes strength, which ranks drop
-- [Strict vs. weak ranks](strict_vs_weak_ranks.md) — equal ranks, and what a ranking can/can't say
+- [Scores vs. ranks](scores_and_ranks/scores_vs_ranks.md) — why "preference" includes strength, which ranks drop
+- [Strict vs. weak ranks](scores_and_ranks/strict_vs_weak_ranks.md) — equal ranks, and what a ranking can/can't say
 - [Ranked Robin (Consensus Voting)](RCV_Ranked_Robin/ranked_robin.md)
 
 ## Learn more — in this library

@@ -70,8 +70,9 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 3 ballots (score ballots).
 
 Ballots:
-     2 × 0, 1, 0
-     1 × 0, 0, 1
+   columns = Choco, Almond, Vanilla      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+     2 × 0, 1, 0   →   Almond > Choco=Vanilla
+     1 × 0, 0, 1   →   Vanilla > Choco=Almond
 
 Round-Robin — every pair, head-to-head (For – Against):
    Almond   beats Choco     2 – 0

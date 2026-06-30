@@ -1,11 +1,9 @@
 election_title: "No Condorcet winner and Ranked Robin"
 election_description: >-
-  A randomly generated 6-candidate, 5-ballot score election (record 0 from
-  tools_adam/random_star_divergence.py). STAR elects B; so does Ranked Robin. But NO
-  candidate beats all five rivals head-to-head, so there is no Condorcet winner (the
-  Condorcet column in the sweep CSV is blank). Ranked Robin still produces a winner —
-  whoever wins the most matchups — and that is B.
-voting_method: RankedRobin   # = RCV-RR / Copeland — round-robin on the same score ballots
+  STAR elects B; so does Ranked Robin. But NO candidate beats all five rivals head-to-head, so there is no Condorcet winner (the Condorcet column in the sweep CSV is blank). 
+  
+  Ranked Robin still produces a winner —  whoever wins the most matchups — and that is B.
+voting_method: rr   # = RCV-RR / Copeland — round-robin on the same score ballots
 num_winners: 1
 lot_numbers: [A, B, C, D, E, F]
 options:

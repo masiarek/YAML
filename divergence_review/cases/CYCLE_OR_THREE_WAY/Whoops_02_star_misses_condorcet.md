@@ -82,9 +82,10 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 100 ballots (score ballots).
 
 Ballots:
-    40 × 5, 1, 2
-    35 × 1, 5, 2
-    25 × 3, 3, 5
+   columns = Ada, Bruno, Cleo      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+    40 × 5, 1, 2   →   Ada > Cleo > Bruno
+    35 × 1, 5, 2   →   Bruno > Cleo > Ada
+    25 × 3, 3, 5   →   Cleo > Ada=Bruno
 
 Round-Robin — every pair, head-to-head (For – Against):
    Ada    beats Bruno   40 – 35

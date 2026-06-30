@@ -70,8 +70,9 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 9 ballots (score ballots).
 
 Ballots:
-     3 × 5, 1, 0
-     6 × 4, 5, 0
+   columns = Almond, Brownie, Cocoa      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+     3 × 5, 1, 0   →   Almond > Brownie > Cocoa
+     6 × 4, 5, 0   →   Brownie > Almond > Cocoa
 
 Round-Robin — every pair, head-to-head (For – Against):
    Brownie  beats Almond    6 – 3

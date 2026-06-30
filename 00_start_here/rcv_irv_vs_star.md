@@ -34,7 +34,7 @@ Read that table both ways. The rows where STAR wins (summability, monotonicity, 
 
 ## The detailed facet pages
 
-- [Scores vs. ranks](scores_vs_ranks.md) · [Strict vs. weak ranks](strict_vs_weak_ranks.md)
+- [Scores vs. ranks](scores_and_ranks/scores_vs_ranks.md) · [Strict vs. weak ranks](scores_and_ranks/strict_vs_weak_ranks.md)
 - [Tabulation, step by step](tabulation_star_vs_irv.md) — same ballots, both counts
 - [Center squeeze](RCV_IRV/RCV_IRV_center_squeeze.md) · [Monotonicity](RCV_IRV/RCV_IRV_non_monotonicity.md) · [Summability](STAR_Voting/STAR_summability.md)
 - [Exhausted ballots](RCV_IRV/RCV_IRV_exhausted_ballots.md) · [Residual vote-splitting](STAR_Voting/residual_vote_splitting.md)

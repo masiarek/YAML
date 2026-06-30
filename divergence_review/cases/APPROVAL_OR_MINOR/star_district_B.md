@@ -71,9 +71,10 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 3 ballots (score ballots).
 
 Ballots:
-     1 × 1, 5, 4
-     1 × 0, 5, 3
-     1 × 4, 0, 5
+   columns = Maple, Oak, Pine      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+     1 × 1, 5, 4   →   Oak > Pine > Maple
+     1 × 0, 5, 3   →   Oak > Pine > Maple
+     1 × 4, 0, 5   →   Pine > Maple > Oak
 
 Round-Robin — every pair, head-to-head (For – Against):
    Oak    beats Maple   2 – 1

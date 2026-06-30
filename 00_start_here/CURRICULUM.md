@@ -63,17 +63,17 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 - **Emphasize:** the pairwise matrix is the auditable, precinct-summable heart.
 - **Two reports, one count:** an election appears both as BetterVoting's visual display and
   the LH engine's text report; why there are two, how they map, and the convert→validate→test
-  pipeline are in [`concepts/tabulation_engines/bettervoting_and_the_engine.md`](tabulation_engines/bettervoting_and_the_engine.md).
+  pipeline are in [`tabulation_engines/bettervoting_and_the_engine.md`](tabulation_engines/bettervoting_and_the_engine.md).
 - **The full audit report:** the generated `_tabulated.txt` siblings carry the complete
   engine report (matrix + score distribution + the plain-English *Majority Preference*
   block). The Runoff Reversal lesson (101.3) shows the *minimal* on-screen view; reading
   the **full** report of those same elections (e.g.
   `01_Single_winner/runoff_overturns_leader_tabulated/`) is the 201 skill — and *why* the
   on-screen echo is minimal by default (don't overwhelm a beginner).
-- **Worked walkthrough:** [`concepts/tabulation_engines/LH_starvote/reading_a_star_report.md`](tabulation_engines/LH_starvote/reading_a_star_report.md)
+- **Worked walkthrough:** [`tabulation_engines/LH_starvote/reading_a_star_report.md`](tabulation_engines/LH_starvote/reading_a_star_report.md)
   — a full LH report (BV1265) annotated section by section, with a "show which parts to
   101 / 201 / 301" table.
-- **Reading the runoff percentages:** [`concepts/STAR_Voting/runoff_percentages.md`](STAR_Voting/runoff_percentages.md)
+- **Reading the runoff percentages:** [`STAR_Voting/runoff_percentages.md`](STAR_Voting/runoff_percentages.md)
   — the BetterVoting runoff shown two ways: % of *all* voters vs % of those *with a
   preference* (the two denominators), and why the majority bar is half of the decided
   voters, not half of everyone. The LH engine prints this same decided-voters share as
@@ -116,8 +116,9 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 - **Objective:** Give a cohesive minority the representation it earned.
 - **Key terms:** proportional representation, Droop quota, Allocated Score, Sequentially Spent Score (SSS), Reweighted Range Voting (RRV), STV.
 - **Files:** `02_Multi_winner/02a–02c` (allocated / sss / rrv). Compare with Bloc STAR.
-- **STV comparison:** `02_Multi_winner/03a_stv_3seats.yaml` (STV) vs `03b_star_pr_3seats.yaml` (STAR-PR) — same electorate, same proportional slate; Bloc STAR differs. Page: `concepts/proportional_representation/` (STV vs STAR-PR + STAR-PR methods).
+- **STV comparison:** `02_Multi_winner/03a_stv_3seats.yaml` (STV) vs `03b_star_pr_3seats.yaml` (STAR-PR) — same electorate, same proportional slate; Bloc STAR differs. Page: `proportional_representation/` (STV vs STAR-PR + STAR-PR methods).
 - **Emphasize:** STV is the proportional multi-winner *cousin of IRV*, not IRV; proportional methods seat coalitions in proportion, Bloc STAR lets a majority sweep.
+- **Deeper math:** [the math behind proportional STAR](proportional_representation/STAR_PR/the_math_behind_proportional_star.md) — quotas, D'Hondt reweighting, JR/EJR, fair division.
 
 ## 301.2 — Favorite betrayal: does *only* "RCV" avoid it?
 - **Key terms:** Favorite-Betrayal Criterion, Later-No-Harm, center squeeze, the incompatibility theorem.
@@ -127,7 +128,7 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 ## 301.3 — "Are equal-score votes discounted?"
 - **Key terms:** Equal Support / No Preference, exhausted vs no-preference.
 - **Episode:** `are_equal_score_votes_discounted.md`; demo `01_Single_winner/equal_support_runoff_demo.yaml`.
-- **In the result display:** [`concepts/STAR_Voting/runoff_percentages.md`](STAR_Voting/runoff_percentages.md)
+- **In the result display:** [`STAR_Voting/runoff_percentages.md`](STAR_Voting/runoff_percentages.md)
   shows exactly where Equal Support lands in BetterVoting's runoff — counted in full in
   the score round, then set aside to form the "voters with a preference" denominator (so
   the winner's majority is of the decided voters, not of everyone).
@@ -135,6 +136,7 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 ## 301.4 — The honest limits & theory
 - **Key terms:** Gibbard / Gibbard–Satterthwaite, strategy resistance vs proofness, Condorcet efficiency, Test of Balance.
 - **Material:** `Why_STAR_Voting.md` Part 2 Tier 2–3; "resistant, not proof."
+- **Deeper math:** [the math behind Condorcet](RCV_Ranked_Robin/the_math_behind_condorcet.md) (tournaments, Smith/Schwartz, Arrow & Gibbard–Satterthwaite) · [the math behind proportional STAR](proportional_representation/STAR_PR/the_math_behind_proportional_star.md) (apportionment, Balinski–Young).
 
 ## 301.5 — The vote-splitting formula (blocs)
 - **Objective:** Confirm a spoiler in numbers for a declared bloc.
@@ -143,15 +145,19 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 ## 301.6 — When Condorcet, Score, and Runoff disagree (and how often)
 - **Objective:** "Winner" isn't one thing — three reasonable definitions can name three
   different candidates; STAR targets the runoff winner *by design* (it is not a Condorcet method).
-- **Material:** `concepts/STAR_Voting/STAR_three_winner_notions.md` (CW = Ann, Score = Carl,
+- **Material:** `STAR_Voting/STAR_three_winner_notions.md` (CW = Ann, Score = Carl,
   Runoff = Bob); builds on the 101 Runoff Reversal lesson `01_Single_winner/runoff_overturns_leader/`.
 - **Frequency:** `simulations/runoff_reversal_simulation.py` measures how often score and
   runoff diverge — and shows the rate swings with the model (impartial vs spatial), the
   electorate size, and the tie rule. **Lesson: never quote a rate without the model + size + tie split.**
 - **Emphasize:** the methodological habit (measure it, report the assumptions) is as much
   the point as the numbers.
+- **Ranked Robin vs. Condorcet:** [ranked_robin_vs_condorcet.md](RCV_Ranked_Robin/ranked_robin_vs_condorcet.md)
+  — why a cycle leaves "the Condorcet winner" blank while Ranked Robin still elects one
+  (worked on the random-sweep record 0); deeper math in
+  [the math behind Condorcet](RCV_Ranked_Robin/the_math_behind_condorcet.md).
 
-## 301.6 — "Exhausted ballots": what FairVote's word hides
+## 301.7 — "Exhausted ballots": what FairVote's word hides
 - **Objective:** Untangle the overloaded RCV-IRV term — separate the fair, voter-side
   cases from the method-caused ones a fully and correctly ranked ballot still suffers.
 - **Key terms:** ballot exhaustion, inactive ballot, exhausted-untransferable,

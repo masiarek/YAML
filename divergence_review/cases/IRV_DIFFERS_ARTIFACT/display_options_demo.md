@@ -74,9 +74,10 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 4 ballots (score ballots).
 
 Ballots:
-     2 × 3, 4, 2, 5
-     1 × 3, 4, 2, 4
-     1 × 3, 5, 2, 3
+   columns = Ann, Bob, Cal, Don      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+     2 × 3, 4, 2, 5   →   Don > Bob > Ann > Cal
+     1 × 3, 4, 2, 4   →   Bob=Don > Ann > Cal
+     1 × 3, 5, 2, 3   →   Bob > Ann=Don > Cal
 
 Round-Robin — every pair, head-to-head (For – Against):
    Bob  beats Ann   4 – 0

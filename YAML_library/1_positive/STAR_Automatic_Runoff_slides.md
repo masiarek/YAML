@@ -1,7 +1,7 @@
 # The Automatic Runoff — slide outline
 
 > **Library copy.** Source of truth lives at
-> `00_start_here/concepts/STAR_Voting/STAR_Automatic_Runoff_slides.md`;
+> `00_start_here/STAR_Voting/STAR_Automatic_Runoff_slides.md`;
 > filed here beside the `Runoff_01–07` test cases.
 
 A presentation deck for STAR's second step, built to **scale 101 → 201 → 301**: open

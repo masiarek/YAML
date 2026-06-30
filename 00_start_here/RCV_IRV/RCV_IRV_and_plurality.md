@@ -42,13 +42,13 @@ Debora is the broadly-liked compromise candidate, yet she has the **fewest first
 
 ## And to keep it balanced
 
-Methods that avoid round-by-round elimination pay their own price. **STAR and Score fail Later-No-Harm and the Majority criterion** — a candidate a majority scores highest can still lose — and they invite **strategic min/max exaggeration**. No method escapes Gibbard–Satterthwaite. The fair claim isn't "IRV bad, STAR perfect"; it's that IRV's *elimination* mechanism has specific, well-documented failure modes that pairwise and scored methods handle differently. (See [scores_vs_ranks.md](../scores_vs_ranks.md) and [strict_vs_weak_ranks.md](../strict_vs_weak_ranks.md).)
+Methods that avoid round-by-round elimination pay their own price. **STAR and Score fail Later-No-Harm and the Majority criterion** — a candidate a majority scores highest can still lose — and they invite **strategic min/max exaggeration**. No method escapes Gibbard–Satterthwaite. The fair claim isn't "IRV bad, STAR perfect"; it's that IRV's *elimination* mechanism has specific, well-documented failure modes that pairwise and scored methods handle differently. (See [scores_vs_ranks.md](../scores_and_ranks/scores_vs_ranks.md) and [strict_vs_weak_ranks.md](../scores_and_ranks/strict_vs_weak_ranks.md).)
 
 ---
 
 ## Related concept pages
 
-- [Strict vs. weak ranks](../strict_vs_weak_ranks.md) — IRV is strict and not pairwise; other ranked methods differ
+- [Strict vs. weak ranks](../scores_and_ranks/strict_vs_weak_ranks.md) — IRV is strict and not pairwise; other ranked methods differ
 - [Center squeeze](RCV_IRV_center_squeeze.md) — the failure this critique points at
 - [Monotonicity](RCV_IRV_non_monotonicity.md) — more support can hurt a candidate under IRV
 - [RCV vs. IRV vs. RCV-IRV — terminology](RCV-IRV-confusing-name.md)

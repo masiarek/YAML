@@ -57,8 +57,8 @@ Candidate      Votes  Status
 -----------  -------  --------
 Boston             3  Elected
 Austin             2  Rejected
-Erie               0  Rejected
 Denver             0  Rejected
+Erie               0  Rejected
 Chicago            0  Rejected
 
 
@@ -75,11 +75,12 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 5 ballots (score ballots).
 
 Ballots:
-     1 × 5, 0, 1, 0, 2
-     1 × 5, 0, 0, 1, 0
-     1 × 4, 5, 1, 0, 0
-     1 × 4, 5, 0, 2, 0
-     1 × 4, 5, 0, 0, 1
+   columns = Austin, Boston, Chicago, Denver, Erie      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+     1 × 5, 0, 1, 0, 2   →   Austin > Erie > Chicago > Boston=Denver
+     1 × 5, 0, 0, 1, 0   →   Austin > Denver > Boston=Chicago=Erie
+     1 × 4, 5, 1, 0, 0   →   Boston > Austin > Chicago > Denver=Erie
+     1 × 4, 5, 0, 2, 0   →   Boston > Austin > Denver > Chicago=Erie
+     1 × 4, 5, 0, 0, 1   →   Boston > Austin > Erie > Chicago=Denver
 
 Round-Robin — every pair, head-to-head (For – Against):
    Boston   beats Austin    3 – 2

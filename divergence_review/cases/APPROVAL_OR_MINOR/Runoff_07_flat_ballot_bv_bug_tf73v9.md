@@ -75,9 +75,10 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 4 ballots (score ballots).
 
 Ballots:
-     1 × 5, 1, 2
-     2 × 4, 5, 0
-     1 × 3, 3, 3
+   columns = Alex, Blair, Cleo      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+     1 × 5, 1, 2   →   Alex > Cleo > Blair
+     2 × 4, 5, 0   →   Blair > Alex > Cleo
+     1 × 3, 3, 3   →   Alex=Blair=Cleo
 
 Round-Robin — every pair, head-to-head (For – Against):
    Blair  beats Alex    2 – 1

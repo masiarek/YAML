@@ -78,9 +78,10 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 27 ballots (score ballots).
 
 Ballots:
-    12 × 5, 4, 3
-     9 × 3, 4, 5
-     6 × 4, 5, 3
+   columns = Left, Center, Right      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+    12 × 5, 4, 3   →   Left > Center > Right
+     9 × 3, 4, 5   →   Right > Center > Left
+     6 × 4, 5, 3   →   Center > Left > Right
 
 Round-Robin — every pair, head-to-head (For – Against):
    Center  beats Left     15 – 12

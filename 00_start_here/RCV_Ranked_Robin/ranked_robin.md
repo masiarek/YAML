@@ -29,7 +29,7 @@ Because it's computed entirely from the **pairwise matrix** (for each pair, how 
 | Precinct-summable? | ❌ No | ✅ Yes (add pairwise matrices) |
 | Exhausted ballots? | Possible | No — all rankings are read |
 
-The headline: the two things people *assume* "RCV" does — let you mark ties and compare candidates head-to-head — are exactly what **RCV-RR (Ranked Robin)** does and what **RCV-IRV (Instant-Runoff Voting)** does not. (See [strict_vs_weak_ranks.md](../strict_vs_weak_ranks.md) and [RCV_IRV_and_plurality.md](../RCV_IRV/RCV_IRV_and_plurality.md).)
+The headline: the two things people *assume* "RCV" does — let you mark ties and compare candidates head-to-head — are exactly what **RCV-RR (Ranked Robin)** does and what **RCV-IRV (Instant-Runoff Voting)** does not. (See [strict_vs_weak_ranks.md](../scores_and_ranks/strict_vs_weak_ranks.md) and [RCV_IRV_and_plurality.md](../RCV_IRV/RCV_IRV_and_plurality.md).)
 
 ## Why it matters
 
@@ -75,7 +75,7 @@ confirms Copeland = Ben, and IRV happens to agree here too.)
 
 ## For balance — its limits
 
-Ranked Robin isn't a cure-all. Like all ranked methods it captures **order only, not strength** — it can't tell a near-tie from a landslide ([scores_vs_ranks.md](../scores_vs_ranks.md)) — so it carries less information than a scored method like STAR. When there's a **Condorcet cycle** (A beats B, B beats C, C beats A, with no candidate beating all others), there is no Condorcet winner and the method falls back on a tiebreak rule (sum of margins), which reasonable people can debate. And no method escapes Gibbard–Satterthwaite. Its real-world **adoption is limited** so far compared with IRV.
+Ranked Robin isn't a cure-all. Like all ranked methods it captures **order only, not strength** — it can't tell a near-tie from a landslide ([scores_vs_ranks.md](../scores_and_ranks/scores_vs_ranks.md)) — so it carries less information than a scored method like STAR. When there's a **Condorcet cycle** (A beats B, B beats C, C beats A, with no candidate beating all others), there is no Condorcet winner and the method falls back on a tiebreak rule (sum of margins), which reasonable people can debate. And no method escapes Gibbard–Satterthwaite. Its real-world **adoption is limited** so far compared with IRV.
 
 ## Now you can tabulate it — the `pref_voting` engine
 
@@ -224,10 +224,10 @@ for STAR and RCV-IRV. Details:
 
 - [Ranked Robin is summable](RCV_RR_summability.md) — the pairwise matrix adds across precincts (and the topic hub: [Summability](../topics/summability/README_summability.md))
 - [Cycle resolution](cycle_resolution.md) — why Copeland is tie-prone, and why Minimax / Ranked Pairs / Schulze exist (they differ only on cycles)
-- [Strict vs. weak ranks](../strict_vs_weak_ranks.md) — Ranked Robin allows equal ranks; IRV doesn't
+- [Strict vs. weak ranks](../scores_and_ranks/strict_vs_weak_ranks.md) — Ranked Robin allows equal ranks; IRV doesn't
 - [Center squeeze](../RCV_IRV/RCV_IRV_center_squeeze.md) — the failure RR avoids and IRV doesn't
 - [Is IRV "just plurality"?](../RCV_IRV/RCV_IRV_and_plurality.md) — why IRV isn't pairwise
-- [Scores vs. ranks](../scores_vs_ranks.md) — RR is still order-only, unlike STAR
+- [Scores vs. ranks](../scores_and_ranks/scores_vs_ranks.md) — RR is still order-only, unlike STAR
 - [RCV-IRV vs. STAR (side-by-side)](../rcv_irv_vs_star.md)
 - [RCV vs. IRV vs. RCV-IRV — terminology](../RCV_IRV/RCV-IRV-confusing-name.md)
 

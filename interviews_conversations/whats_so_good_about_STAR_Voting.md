@@ -285,7 +285,7 @@ Saying that out loud is what earns you the room.
 > [REPO] `00_start_here/Why_STAR_Voting.md` Part 2 — Tier 1 #2/#3 and Tier 3 #9
 > (later-no-harm / center squeeze) for the rebuttals.
 > [REPO] The scorecard's "Spoiler / vote-splitting? No" is the *forced* kind; the
-> narrow self-inflicted residual is `00_start_here/concepts/residual_vote_splitting.md`
+> narrow self-inflicted residual is `00_start_here/residual_vote_splitting.md`
 > (demos `split_voting/05a`–`05b`).
 > [DEMO] Optional: run a strict 4-candidate file through both engines and show
 > the `[Divergence from STAR]` block where RCV-IRV and STAR disagree.

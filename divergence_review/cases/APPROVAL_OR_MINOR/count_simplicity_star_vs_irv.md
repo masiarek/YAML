@@ -93,11 +93,12 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 40 ballots (score ballots).
 
 Ballots:
-    10 × 4, 3, 5, 2, 1
-     9 × 5, 3, 4, 2, 1
-     8 × 3, 5, 4, 2, 1
-     7 × 3, 2, 4, 5, 1
-     6 × 3, 2, 4, 1, 5
+   columns = Andre, Blake, Carmen, Dana, Evan      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+    10 × 4, 3, 5, 2, 1   →   Carmen > Andre > Blake > Dana > Evan
+     9 × 5, 3, 4, 2, 1   →   Andre > Carmen > Blake > Dana > Evan
+     8 × 3, 5, 4, 2, 1   →   Blake > Carmen > Andre > Dana > Evan
+     7 × 3, 2, 4, 5, 1   →   Dana > Carmen > Andre > Blake > Evan
+     6 × 3, 2, 4, 1, 5   →   Evan > Carmen > Andre > Blake > Dana
 
 Round-Robin — every pair, head-to-head (For – Against):
    Andre   beats Blake    32 –  8

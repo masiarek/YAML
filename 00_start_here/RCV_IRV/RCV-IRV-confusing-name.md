@@ -66,8 +66,8 @@ When in doubt in conversation, the safest opener is: *"Which form of ranked voti
 ## Related concept pages
 
 - [Which RCV-IRV? — Hare and the other variants](RCV_IRV_variants.md) — batch / contingent / BTR / Coombs / Baldwin / Nanson, STV, and the ballot-rule knobs
-- [Strict vs. weak ranks](../strict_vs_weak_ranks.md) — RCV-IRV forbids equal ranks and isn't pairwise; other ranked methods differ
-- [Scores vs. ranks — don't confuse ranks and ratings](../scores_vs_ranks.md)
+- [Strict vs. weak ranks](../scores_and_ranks/strict_vs_weak_ranks.md) — RCV-IRV forbids equal ranks and isn't pairwise; other ranked methods differ
+- [Scores vs. ranks — don't confuse ranks and ratings](../scores_and_ranks/scores_vs_ranks.md)
 - [Scoring methods vs. ranked voting](../scoring-methods-vs-ranked-voting.md)
 
 ## Learn more — in this library

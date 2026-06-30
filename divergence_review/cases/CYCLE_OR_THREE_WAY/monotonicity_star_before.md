@@ -78,9 +78,10 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 34 ballots (score ballots).
 
 Ballots:
-    12 × 5, 3, 0
-    12 × 0, 5, 3
-    10 × 3, 0, 5
+   columns = X, Y, Z      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+    12 × 5, 3, 0   →   X > Y > Z
+    12 × 0, 5, 3   →   Y > Z > X
+    10 × 3, 0, 5   →   Z > X > Y
 
 Round-Robin — every pair, head-to-head (For – Against):
    X  beats Y   22 – 12

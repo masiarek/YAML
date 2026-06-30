@@ -36,7 +36,7 @@ The headline: **allowing equal ranks and using pairwise comparisons are features
 - *"All my rankings get counted."* — No. IRV only ever counts your highest *continuing* choice; lower rankings are ignored unless and until higher ones are eliminated, and a ballot can be **exhausted** with no remaining choice counted.
 - *"RCV compares the candidates head-to-head."* — No. That's **Condorcet** (e.g., Ranked Robin). IRV only counts top-choice tallies each round.
 - *"I can skip ranks freely."* — Risky. Skipped or repeated rankings are handled differently by jurisdiction and can exhaust the ballot.
-- *"Ranked = good, so all ranked methods behave alike."* — They don't. A weak-ranked Condorcet method reliably finds the candidate closest to the center of opinion; strict-rank IRV can eliminate that very candidate ([center squeeze](RCV_IRV/RCV_IRV_center_squeeze.md)).
+- *"Ranked = good, so all ranked methods behave alike."* — They don't. A weak-ranked Condorcet method reliably finds the candidate closest to the center of opinion; strict-rank IRV can eliminate that very candidate ([center squeeze](../RCV_IRV/RCV_IRV_center_squeeze.md)).
 
 ## Why equal ranks (weak ranking) matter
 
@@ -49,12 +49,12 @@ Forcing a **strict** order makes voters invent distinctions they don't feel — 
 ## Related concepts in this library
 
 - [Scores vs. ranks — don't confuse ranks and ratings](scores_vs_ranks.md)
-- [Scoring methods vs. ranked voting](scoring-methods-vs-ranked-voting.md)
-- [RCV vs. IRV vs. RCV-IRV — terminology](RCV_IRV/RCV-IRV-confusing-name.md)
-- [Ranked Robin (Consensus Voting)](RCV_Ranked_Robin/ranked_robin.md) — the Condorcet method that *does* allow equal ranks and compares pairwise
-- [Is IRV "just plurality"?](RCV_IRV/RCV_IRV_and_plurality.md) — why elimination is a first-choice plurality test (and where that claim overreaches)
-- [Center squeeze](RCV_IRV/RCV_IRV_center_squeeze.md) — what strict-rank IRV does to a strong compromise candidate
-- [Is RCV "simple"? (201)](RCV_IRV/RCV_IRV_is_simple.md)
+- [Scoring methods vs. ranked voting](../scoring-methods-vs-ranked-voting.md)
+- [RCV vs. IRV vs. RCV-IRV — terminology](../RCV_IRV/RCV-IRV-confusing-name.md)
+- [Ranked Robin (Consensus Voting)](../RCV_Ranked_Robin/ranked_robin.md) — the Condorcet method that *does* allow equal ranks and compares pairwise
+- [Is IRV "just plurality"?](../RCV_IRV/RCV_IRV_and_plurality.md) — why elimination is a first-choice plurality test (and where that claim overreaches)
+- [Center squeeze](../RCV_IRV/RCV_IRV_center_squeeze.md) — what strict-rank IRV does to a strong compromise candidate
+- [Is RCV "simple"? (201)](../RCV_IRV/RCV_IRV_is_simple.md)
 
 ## Learn more
 

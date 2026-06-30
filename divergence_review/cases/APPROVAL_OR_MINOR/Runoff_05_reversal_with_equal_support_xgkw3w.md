@@ -76,10 +76,11 @@ NOTE: a generated cross-method view of the STAR ballots, for comparison only —
  Tabulating 5 ballots (score ballots).
 
 Ballots:
-     1 × 5, 1, 0
-     2 × 4, 5, 0
-     1 × 3, 3, 1
-     1 × 5, 5, 2
+   columns = Rosa, Sage, Tulip      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+     1 × 5, 1, 0   →   Rosa > Sage > Tulip
+     2 × 4, 5, 0   →   Sage > Rosa > Tulip
+     1 × 3, 3, 1   →   Rosa=Sage > Tulip
+     1 × 5, 5, 2   →   Rosa=Sage > Tulip
 
 Round-Robin — every pair, head-to-head (For – Against):
    Sage   beats Rosa    2 – 1

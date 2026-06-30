@@ -5,6 +5,8 @@ the same thing? Almost — and the gap between them is the whole lesson.*
 
 → Topic hub: [Condorcet efficiency](../topics/condorcet/README_condorcet.md) · cycles in depth:
 [`cycle_resolution.md`](cycle_resolution.md) · the method: [`ranked_robin.md`](ranked_robin.md)
+· the deeper math: [the math behind Condorcet](the_math_behind_condorcet.md)
+· **Level: Voting 301** — Curriculum [301.6](../CURRICULUM.md)
 
 ---
 
@@ -123,6 +125,27 @@ head-to-head champion rarely exists, so **Condorcet is usually blank** — but *
 always answers**, because "best record" always has a top.
 
 *(The full 6×6 matrix is in the file's `_tabulated` mirror if you want it.)*
+
+## Same ballot, two different conversions (and why IRV is fragile)
+
+Neither method reads *scores* — they read *ranks*, so a score ballot is converted first.
+But **Ranked Robin and RCV-IRV convert it differently**, and that gap is the whole reason
+IRV can be fragile. Take voter #1 from record 0 — `A3 B3 C0 D2 E4 F3`:
+
+| Method | The ranking it reads | What it did with the tie |
+|--------|----------------------|--------------------------|
+| **Ranked Robin** (weak ranks) | `E > A=B=F > D > C` | kept the three-way tie at 3 as a real tie (`=`) |
+| **RCV-IRV** (strict ranks)    | `E > A > B > F > D`  | **forced** `A=B=F` into `A > B > F` by priority, and **dropped C** (0 = unranked) |
+
+Ranked Robin keeps equal scores **tied** — no head-to-head preference — which is exactly
+what its pairwise count uses. RCV-IRV **can't represent a tie**, so it *invents* a strict
+order: it breaks `A=B=F` by candidate priority into `A > B > F`, and treats C's 0 as
+*unranked* (so the ballot can later exhaust). That manufactured order is precisely why IRV
+is fragile — **reverse the priority and `A > B > F` becomes `F > B > A`**, which can change
+who gets eliminated and flip the winner. Ranked Robin never has to invent an order it
+wasn't given.
+
+→ More on this: [strict vs. weak ranks](../scores_and_ranks/strict_vs_weak_ranks.md).
 
 ## So which should I say?
 
