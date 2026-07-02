@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     rrv_sample_c15_b13_three-parties.yaml
-SOURCE MODIFIED: 2026-07-02 11:51:58
+SOURCE MODIFIED: 2026-07-02 11:59:47
 TABULATED FILE:  rrv_sample_c15_b13_three-parties_tabulated.txt
-TABULATED AT:    2026-07-02 11:58:22
+TABULATED AT:    2026-07-02 11:59:57
 ======================================================================
 
 election_title: "RRV sample as single-winner STAR — three parties (Purple/Orange/Yellow)"
@@ -21,6 +21,12 @@ scenario_description: |-
   Scores mapped from the source 0-9 scale to STAR's 0-5 by round(x * 5 / 9):
   0->0, 1->1, 2->1, 3->2, 4->2, 5->3, 6->3, 7->4, 8->4, 9->5.
   Source: https://bettervoting.org (RRV sample election)
+
+  TEACHING NOTE: on this 0-5 scale STAR elects Orange5, but on the source 0-9
+  scale it elects Orange1 — the scale's granularity moves the second finalist.
+  Worked as a 301 lesson in
+  00_start_here/scores_and_ranks/scale_granularity_flips_the_winner.md (see also
+  Curriculum 301.8).
 
 options:
   show_description: false
@@ -76,6 +82,12 @@ TABULATION RESULTS
   Scores mapped from the source 0-9 scale to STAR's 0-5 by round(x * 5 / 9):
   0->0, 1->1, 2->1, 3->2, 4->2, 5->3, 6->3, 7->4, 8->4, 9->5.
   Source: https://bettervoting.org (RRV sample election)
+
+  TEACHING NOTE: on this 0-5 scale STAR elects Orange5, but on the source 0-9
+  scale it elects Orange1 — the scale's granularity moves the second finalist.
+  Worked as a 301 lesson in
+  00_start_here/scores_and_ranks/scale_granularity_flips_the_winner.md (see also
+  Curriculum 301.8).
 
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison

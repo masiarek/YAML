@@ -129,7 +129,10 @@ Score 0–9 → **B** (avg 5.6 vs C 5.4, A 3.6, D 3.4)
    monotone integer mapping into 0–5 can save it — six distinct values are
    forced onto exactly 0,1,2,3,4,5. A near-tie that flips under rescaling is
    itself a teaching point: the finer the scale, the more of the electorate's
-   mind survives the count.
+   mind survives the count. For a case where rescaling flips not just a pure-Score
+   near-tie but the **STAR winner itself**, see
+   [`../../00_start_here/scores_and_ranks/scale_granularity_flips_the_winner.md`](../../00_start_here/scores_and_ranks/scale_granularity_flips_the_winner.md)
+   (Curriculum 301.8).
 
 6. **Verify, don't trust — even friendly sources.** Two on-screen averages in
    the video don't reproduce from its own ballots: Election 1 shows A's

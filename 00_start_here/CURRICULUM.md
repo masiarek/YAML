@@ -171,6 +171,18 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 - **Emphasize:** exhaustion is **IRV**-specific (Ranked Robin reads every rank); STAR
   counts every ballot in both rounds, so nothing exhausts.
 
+## 301.8 — Scale granularity can flip the winner
+- **Objective:** a score scale's *resolution* (0–5 vs 0–9…) is a modeling choice; when the
+  top contenders are bunched, compressing the scale can move a **finalist** and flip the
+  **STAR** winner — even though rescaling never reorders any voter's own preferences.
+- **Key terms:** score resolution / granularity, finalist selection, near-tie, quantization.
+- **Material:** [`scores_and_ranks/scale_granularity_flips_the_winner.md`](scores_and_ranks/scale_granularity_flips_the_winner.md);
+  case `01_Single_winner/_main/rrv_sample_c15_b13_three-parties.yaml` (BetterVoting's RRV
+  sample run as single-winner STAR: 0–5 → Orange5, 0–9 → Orange1).
+- **Emphasize:** a *fragile, mapping-dependent* divergence (a 2nd-place tie on one scale, a
+  one-point gap on the other) — present both counts, never quote one. Builds on Black Curtain
+  #5 and the report-your-assumptions habit of 301.6.
+
 ---
 
 ## Suggested pacing by audience
