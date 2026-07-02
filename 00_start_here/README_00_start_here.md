@@ -25,9 +25,11 @@ the GitHub file tree, not just by method). First hub: [Summability](topics/summa
 | **Ballot & terminology basics** | the 4 ideas people most often get wrong — start here | [ballot_and_terminology_basics.md](ballot_and_terminology_basics.md) |
 | **Scores vs. ranks (don't confuse them!)** | order-only (ranks) vs. order+strength (scores) — relative vs. absolute preference | [scores_vs_ranks.md](scores_and_ranks/scores_vs_ranks.md) |
 | **Scoring methods aren't RCV** | scoring methods (Approval, STAR) rate candidates and sit *outside* the ranked-voting family | [scoring-methods-vs-ranked-voting.md](scoring-methods-vs-ranked-voting.md) |
+| **Approval — honest limits** | no preference strength/order, the approval-threshold dilemma, bullet-voting; balanced with its equal-vote simplicity | [approval_honest_limits.md](Approval_Voting/approval_honest_limits.md) |
 | **Strict vs. weak ranks** | many ranked methods allow equal ranks & compare pairwise — RCV-IRV does neither | [strict_vs_weak_ranks.md](scores_and_ranks/strict_vs_weak_ranks.md) |
 | **"Preference" (a slippery word)** | everyday opinion vs. technical "ranking"; why "Preferential Voting" is a misnomer | [preference.md](preference.md) |
 | **Ranked Robin / RCV-RR (Consensus Voting; = Copeland)** | a Condorcet method: ranks + equal ranks, every pair compared head-to-head; tabulable via the pref_voting engine | [RCV_Ranked_Robin/ranked_robin.md](RCV_Ranked_Robin/ranked_robin.md) |
+| **Ranked Robin (RCV-RR) — honest limits** | Condorcet cycles need a resolution rule; no preference strength (bland-compromise winner); burial | [RCV_RR_honest_limits.md](RCV_Ranked_Robin/RCV_RR_honest_limits.md) |
 | **Proportional Representation** | multi-seat — coalitions get proportional seats; STV ≈ STAR-PR, Bloc differs (301) | [proportional_representation/](proportional_representation/README_proportional_representation.md) ([STV vs STAR-PR](proportional_representation/stv/proportional_stv_vs_star.md) · [STAR-PR methods](proportional_representation/STAR_PR/README_STAR_PR.md)) |
 | **Tabulation, step by step (201)** | the same ballots counted both ways — STAR's 2 steps vs IRV's elimination rounds | [tabulation_star_vs_irv.md](tabulation_star_vs_irv.md) |
 | **RCV-IRV vs. STAR (side-by-side)** | balanced comparison hub — real strengths on both sides — routing to the facet pages | [rcv_irv_vs_star.md](rcv_irv_vs_star.md) |
@@ -63,6 +65,7 @@ the GitHub file tree, not just by method). First hub: [Summability](topics/summa
 | **STAR is summable** | tally by adding independent precinct totals; precinct-auditable, meaningful partials | [STAR_summability.md](STAR_Voting/STAR_summability.md) |
 | **Residual vote-splitting** | STAR ends *forced* splitting; the narrow leftover is self-inflicted bullet-voting / the chicken dilemma | [residual_vote_splitting.md](STAR_Voting/residual_vote_splitting.md) |
 | **Equally Weighted Vote (Equal Vote Criterion)** | every ballot has an exact opposite that cancels it (the Test of Balance) — why STAR fully ends *forced* vote-splitting; Choose-One and RCV-IRV fail it | [equally_weighted_vote.md](STAR_Voting/equally_weighted_vote.md) |
+| **STAR — honest limits** | not Condorcet-compliant, not FBC-proof, gives up Later-No-Harm, residual splitting, strategic scoring — stated plainly | [STAR_honest_limits.md](STAR_Voting/STAR_honest_limits.md) |
 | **Tie-breaking — the full chain** | ties fall through pairwise → five-star → lot order, in both rounds | [Tie_Breaking_STAR/tie_breaking.md](STAR_Voting/Tie_Breaking_STAR/tie_breaking.md) |
 | **Tie-breaking in BetterVoting JSON** | how a BV export pre-draws the official lot order, and its YAML mapping | [Tie_Breaking_STAR/tie_breaking_JSON.md](STAR_Voting/Tie_Breaking_STAR/tie_breaking_JSON.md) |
 
