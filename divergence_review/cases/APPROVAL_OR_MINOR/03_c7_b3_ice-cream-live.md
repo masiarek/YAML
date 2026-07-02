@@ -58,8 +58,8 @@ ChocoDrk            1  Rejected
 ChocoHzn            0  Rejected
 Mango               0  Rejected
 VanillaFrnch        0  Rejected
-Peach               0  Rejected
 VanillaClssc        0  Rejected
+Peach               0  Rejected
 
 
 Winner(s) — RCV / Instant-Runoff Voting (single winner)

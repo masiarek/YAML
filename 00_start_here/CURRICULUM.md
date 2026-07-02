@@ -136,6 +136,10 @@ their content-typed folders (`01_Single_winner/`, `02_Multi_winner/`,
 ## 301.4 — The honest limits & theory
 - **Key terms:** Gibbard / Gibbard–Satterthwaite, strategy resistance vs proofness, Condorcet efficiency, Test of Balance.
 - **Material:** `Why_STAR_Voting.md` Part 2 Tier 2–3; "resistant, not proof."
+- **The Equal Vote / Test of Balance:** [`STAR_Voting/equally_weighted_vote.md`](STAR_Voting/equally_weighted_vote.md)
+  (why STAR passes — any ballot has an exact opposite that cancels) and
+  [`RCV_IRV/RCV_IRV_equal_vote.md`](RCV_IRV/RCV_IRV_equal_vote.md) (why RCV-IRV fails —
+  stated fairly, with the honest caveats on the criticism).
 - **Deeper math:** [the math behind Condorcet](RCV_Ranked_Robin/the_math_behind_condorcet.md) (tournaments, Smith/Schwartz, Arrow & Gibbard–Satterthwaite) · [the math behind proportional STAR](proportional_representation/STAR_PR/the_math_behind_proportional_star.md) (apportionment, Balinski–Young).
 
 ## 301.5 — The vote-splitting formula (blocs)

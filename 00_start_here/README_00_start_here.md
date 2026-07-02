@@ -46,6 +46,7 @@ the GitHub file tree, not just by method). First hub: [Summability](topics/summa
 | **IRV non-monotonicity** | under IRV, *more* first-choice support can make the winner **lose** | [RCV_IRV_non_monotonicity.md](RCV_IRV/RCV_IRV_non_monotonicity.md) |
 | **Exhausted ballots** | a validly-cast ranked ballot can stop counting; IRV's "majority" is of active ballots | [RCV_IRV_exhausted_ballots.md](RCV_IRV/RCV_IRV_exhausted_ballots.md) |
 | **IRV isn't summable** | the winner depends on elimination order, so every ballot must be counted centrally | [RCV_IRV_lack_of_summability.md](RCV_IRV/RCV_IRV_lack_of_summability.md) |
+| **Fails the Equal Vote** | opposite voters can't reliably cancel under sequential elimination — the equal-vote / spoiler failure (with an honest "is this fair?" caveat) | [RCV_IRV_equal_vote.md](RCV_IRV/RCV_IRV_equal_vote.md) |
 
 ### STAR Voting — STAR's properties & strengths
 
@@ -61,6 +62,7 @@ the GitHub file tree, not just by method). First hub: [Summability](topics/summa
 | **STAR is monotone** | raising a candidate's score can never make them lose — the failure IRV has, STAR doesn't | [STAR_monotonicity.md](STAR_Voting/STAR_monotonicity.md) |
 | **STAR is summable** | tally by adding independent precinct totals; precinct-auditable, meaningful partials | [STAR_summability.md](STAR_Voting/STAR_summability.md) |
 | **Residual vote-splitting** | STAR ends *forced* splitting; the narrow leftover is self-inflicted bullet-voting / the chicken dilemma | [residual_vote_splitting.md](STAR_Voting/residual_vote_splitting.md) |
+| **Equally Weighted Vote (Equal Vote Criterion)** | every ballot has an exact opposite that cancels it (the Test of Balance) — why STAR fully ends *forced* vote-splitting; Choose-One and RCV-IRV fail it | [equally_weighted_vote.md](STAR_Voting/equally_weighted_vote.md) |
 | **Tie-breaking — the full chain** | ties fall through pairwise → five-star → lot order, in both rounds | [Tie_Breaking_STAR/tie_breaking.md](STAR_Voting/Tie_Breaking_STAR/tie_breaking.md) |
 | **Tie-breaking in BetterVoting JSON** | how a BV export pre-draws the official lot order, and its YAML mapping | [Tie_Breaking_STAR/tie_breaking_JSON.md](STAR_Voting/Tie_Breaking_STAR/tie_breaking_JSON.md) |
 

@@ -6,18 +6,19 @@ Election YAMLs live in many folders (the test harnesses glob specific ones, so t
 
 Titles come from each file's **`election_title`** field (the convention — add one to make a file's title explicit & searchable). Where that's missing, a file's first `#` comment line is shown *in italics* as a fallback.
 
-**108 election files** (102 single-winner, 6 multi-winner) across 8 method(s).
+**111 election files** (105 single-winner, 6 multi-winner) across 9 method(s).
 
 | Method | Files |
 |--------|------:|
 | STAR | 91 |
 | RCV-IRV (Hare) | 10 |
-| Ranked Robin (RCV-RR / Copeland) | 1 |
+| Ranked Robin (RCV-RR / Copeland) | 3 |
 | STV (proportional RCV) | 1 |
 | Bloc STAR | 1 |
 | STAR-PR (Sequential Selection) | 2 |
 | Reweighted Range | 1 |
 | Allocated Score (STAR-PR) | 1 |
+| RR | 1 |
 
 ## STAR  (91)
 
@@ -130,11 +131,13 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | [`irv_district_B.yaml`](../../01_Single_winner/summability_demo/irv_district_B.yaml) | `01_Single_winner/summability_demo/` | 1 | Summability demo — RCV-IRV district B (B wins) |
 | [`example_tennessee.yaml`](../../RCV_IRV_tabulation_engine/example_tennessee.yaml) | `RCV_IRV_tabulation_engine/` | 1 | Tennessee capital — RCV-IRV engine demo |
 
-## Ranked Robin (RCV-RR / Copeland)  (1)
+## Ranked Robin (RCV-RR / Copeland)  (3)
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
 | [`ranked_robin_consensus_center.yaml`](../../01_Single_winner/ranked_robin_consensus_center.yaml) | `01_Single_winner/` | 1 | Ranked Robin (RCV-RR) — the consensus center wins the round-robin |
+| [`01_condorcet_winner.yaml`](../../01_Single_winner/condorcet_vs_ranked_robin/01_condorcet_winner.yaml) | `01_Single_winner/condorcet_vs_ranked_robin/` | 1 | Condorcet winner exists — Ranked Robin elects it |
+| [`02_cycle_no_condorcet.yaml`](../../01_Single_winner/condorcet_vs_ranked_robin/02_cycle_no_condorcet.yaml) | `01_Single_winner/condorcet_vs_ranked_robin/` | 1 | No Condorcet winner (a cycle) — Ranked Robin still elects one |
 
 ## STV (proportional RCV)  (1)
 
@@ -166,3 +169,9 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
 | [`02a_c5_b63_proportional-allocated-score.yaml`](../../02_Multi_winner/02a_c5_b63_proportional-allocated-score.yaml) | `02_Multi_winner/` | 3 | Proportional STAR — Allocated Score Voting → _Alice, Ben, Dan_ |
+
+## RR  (1)
+
+| File | Folder | Winners | Title / expected |
+|------|--------|:------:|------------------|
+| [`03_real_record0_c6_b5.yaml`](../../01_Single_winner/condorcet_vs_ranked_robin/03_real_record0_c6_b5.yaml) | `01_Single_winner/condorcet_vs_ranked_robin/` | 1 | No Condorcet winner and Ranked Robin |
