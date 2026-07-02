@@ -1,0 +1,24 @@
+election_title: "BV parity — STAR: runner-up tie, Allison wins"
+scenario_description: |-
+  Ported from BetterVoting's tabulator unit tests (Star.test.ts :: "Runnerup tie").
+  Allison wins; Bill is the runner-up after tie handling.
+
+num_winners: 1
+voting_method: STAR
+ballots: |-
+  Allison,Bill,Carmen,Doug
+  5,4,3,3
+  4,5,1,1
+  4,5,1,2
+  3,5,1,0
+  5,4,3,0
+  5,0,4,1
+  5,0,4,0
+  4,0,5,1
+  3,4,5,0
+  3,5,5,4
+
+expected_winners:
+  - Allison
+
+# file: BV_Library_star_runnerup_tie.yaml

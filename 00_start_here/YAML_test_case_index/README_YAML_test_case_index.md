@@ -6,13 +6,14 @@ Election YAMLs live in many folders (the test harnesses glob specific ones, so t
 
 Titles come from each file's **`election_title`** field (the convention — add one to make a file's title explicit & searchable). Where that's missing, a file's first `#` comment line is shown *in italics* as a fallback.
 
-**111 election files** (105 single-winner, 6 multi-winner) across 9 method(s).
+**117 election files** (111 single-winner, 6 multi-winner) across 10 method(s).
 
 | Method | Files |
 |--------|------:|
-| STAR | 91 |
+| STAR | 96 |
 | RCV-IRV (Hare) | 10 |
 | Ranked Robin (RCV-RR / Copeland) | 3 |
+| Approval | 1 |
 | STV (proportional RCV) | 1 |
 | Bloc STAR | 1 |
 | STAR-PR (Sequential Selection) | 2 |
@@ -20,7 +21,7 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | Allocated Score (STAR-PR) | 1 |
 | RR | 1 |
 
-## STAR  (91)
+## STAR  (96)
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
@@ -33,6 +34,7 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | [`03a_c3_b3_style-bullet-vote.yaml`](../../01_Single_winner/03a_c3_b3_style-bullet-vote.yaml) | `01_Single_winner/` | 1 | Voting styles — a valid STAR bullet vote (3 candidates) → _Vanilla_ |
 | [`03b_c3_b3_1_style-protest-vote.yaml`](../../01_Single_winner/03b_c3_b3_1_style-protest-vote.yaml) | `01_Single_winner/` | 1 | Voting styles — low-score ballots → _Almond_ |
 | [`03b_c3_b3_2_expand_style-protest-vote.yaml`](../../01_Single_winner/03b_c3_b3_2_expand_style-protest-vote.yaml) | `01_Single_winner/` | 1 | Voting styles — low-score ballots (continued) → _Almond_ |
+| [`03c_c6_b8_style-gallery.yaml`](../../01_Single_winner/03c_c6_b8_style-gallery.yaml) | `01_Single_winner/` | 1 | Voting styles — eight ways to fill out one 5-star ballot → _Bianca_ |
 | [`04b_c4_b3_display-options-all.yaml`](../../01_Single_winner/04b_c4_b3_display-options-all.yaml) | `01_Single_winner/` | 1 | All options demo → _Strawberry_ |
 | [`05a_c5_b3_unanimous-ballots.yaml`](../../01_Single_winner/05a_c5_b3_unanimous-ballots.yaml) | `01_Single_winner/` | 1 | Unanimous ballots (five candidates) → _Andre_ |
 | [`06a_c9_b3_large-field-equal-support.yaml`](../../01_Single_winner/06a_c9_b3_large-field-equal-support.yaml) | `01_Single_winner/` | 1 | Large field (9 candidates) — STAR scales, and Equal Support decides → _Carmen_ |
@@ -64,6 +66,10 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | [`Flat_scores_ties_06_scoring_tie_4way.yaml`](../../01_Single_winner/Flat_scores_ties/Flat_scores_ties_06_scoring_tie_4way.yaml) | `01_Single_winner/Flat_scores_ties/` | 1 | Flat scores 06 — scoring-round 4-way tie (ties at every step) → _Ava_ |
 | [`Flat_scores_ties_07_fully_flat.yaml`](../../01_Single_winner/Flat_scores_ties/Flat_scores_ties_07_fully_flat.yaml) | `01_Single_winner/Flat_scores_ties/` | 1 | Flat scores 07 — fully flat ballots (the maximal tie + abstention trap) → _Ararat_ |
 | [`Flat_scores_ties_08_all_flat_zero_count.yaml`](../../01_Single_winner/Flat_scores_ties/Flat_scores_ties_08_all_flat_zero_count.yaml) | `01_Single_winner/Flat_scores_ties/` | 1 | Flat scores 08 — every ballot flat (BetterVoting counts 0) → _Anchovy_ |
+| [`Black_Curtain_01_c3_b5_hidden-consensus.yaml`](../../01_Single_winner/black_curtain/Black_Curtain_01_c3_b5_hidden-consensus.yaml) | `01_Single_winner/black_curtain/` | 1 | The Black Curtain → _Cal_ |
+| [`Black_Curtain_02_c3_b5_near-clones.yaml`](../../01_Single_winner/black_curtain/Black_Curtain_02_c3_b5_near-clones.yaml) | `01_Single_winner/black_curtain/` | 1 | The Black Curtain → _Cal_ |
+| [`Black_Curtain_03_c3_b5_polarized-on-cal.yaml`](../../01_Single_winner/black_curtain/Black_Curtain_03_c3_b5_polarized-on-cal.yaml) | `01_Single_winner/black_curtain/` | 1 | The Black Curtain → _Cal_ |
+| [`Black_Curtain_04_c4_b5_four-candidates.yaml`](../../01_Single_winner/black_curtain/Black_Curtain_04_c4_b5_four-candidates.yaml) | `01_Single_winner/black_curtain/` | 1 | The Black Curtain → _Cal_ |
 | [`Whoops_01_tennessee_three_winners.yaml`](../../01_Single_winner/paradoxes_and_whoops/Whoops_01_tennessee_three_winners.yaml) | `01_Single_winner/paradoxes_and_whoops/` | 1 | Whoops 01 — same ballots, three methods, three winners (Tennessee) → _Nashville_ |
 | [`Whoops_02_star_misses_condorcet.yaml`](../../01_Single_winner/paradoxes_and_whoops/Whoops_02_star_misses_condorcet.yaml) | `01_Single_winner/paradoxes_and_whoops/` | 1 | Whoops 02 — STAR misses the Condorcet winner (STAR's own whoops) → _Ada_ |
 | [`Whoops_03_condorcet_cycle_rps.yaml`](../../01_Single_winner/paradoxes_and_whoops/Whoops_03_condorcet_cycle_rps.yaml) | `01_Single_winner/paradoxes_and_whoops/` | 1 | Whoops 03 — a Condorcet cycle (rock-paper-scissors, no winner) → _Rock_ |
@@ -138,6 +144,12 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | [`ranked_robin_consensus_center.yaml`](../../01_Single_winner/ranked_robin_consensus_center.yaml) | `01_Single_winner/` | 1 | Ranked Robin (RCV-RR) — the consensus center wins the round-robin |
 | [`01_condorcet_winner.yaml`](../../01_Single_winner/condorcet_vs_ranked_robin/01_condorcet_winner.yaml) | `01_Single_winner/condorcet_vs_ranked_robin/` | 1 | Condorcet winner exists — Ranked Robin elects it |
 | [`02_cycle_no_condorcet.yaml`](../../01_Single_winner/condorcet_vs_ranked_robin/02_cycle_no_condorcet.yaml) | `01_Single_winner/condorcet_vs_ranked_robin/` | 1 | No Condorcet winner (a cycle) — Ranked Robin still elects one |
+
+## Approval  (1)
+
+| File | Folder | Winners | Title / expected |
+|------|--------|:------:|------------------|
+| [`Black_Curtain_01a_c3_b5_approval.yaml`](../../01_Single_winner/black_curtain/Black_Curtain_01a_c3_b5_approval.yaml) | `01_Single_winner/black_curtain/` | 1 | The Black Curtain → _Bob_ |
 
 ## STV (proportional RCV)  (1)
 

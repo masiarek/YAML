@@ -1,0 +1,16 @@
+election_title: "BV parity — STAR: runoff tie broken by score"
+scenario_description: |-
+  Ported from BetterVoting's tabulator unit tests (Star.test.ts :: "Runoff tie, score resolves").
+  The runoff ties, and the higher score total resolves it in Bill's favor.
+
+num_winners: 1
+voting_method: STAR
+ballots: |-
+  Allison,Bill
+  0,5
+  3,2
+
+expected_winners:
+  - Bill
+
+# file: BV_Library_star_runoff_tie_score_resolves.yaml

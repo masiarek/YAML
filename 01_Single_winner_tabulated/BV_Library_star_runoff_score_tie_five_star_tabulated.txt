@@ -1,0 +1,89 @@
+======================================================================
+SOURCE FILE:     BV_Library_star_runoff_score_tie_five_star.yaml
+SOURCE MODIFIED: 2026-07-02 08:52:23
+TABULATED FILE:  BV_Library_star_runoff_score_tie_five_star_tabulated.txt
+TABULATED AT:    2026-07-02 08:52:44
+======================================================================
+
+election_title: "BV parity — STAR: runoff & score tie, five-star tiebreaker"
+scenario_description: |-
+  Ported from BetterVoting's tabulator unit tests
+  (Star.test.ts :: "Runoff & Score Tie, use five-star tiebreaker to resolve").
+  Score totals and runoff both tie; the five-star count breaks it for Allison.
+
+num_winners: 1
+voting_method: STAR
+ballots: |-
+  Allison,Bill
+  2,4
+  5,3
+
+expected_winners:
+  - Allison
+
+# file: BV_Library_star_runoff_score_tie_five_star.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== BV parity — STAR: runoff & score tie, five-star tiebreaker ===
+  Ported from BetterVoting's tabulator unit tests
+  (Star.test.ts :: "Runoff & Score Tie, use five-star tiebreaker to resolve").
+  Score totals and runoff both tie; the five-star count breaks it for Allison.
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+                |  * Allison  |  * Bill    |
+--------------------------------------------
+    * Allison > |     ---     | 1 - 0 - 1  |
+       * Bill > |  1 - 0 - 1  |    ---     |
+
+[Condorcet Winner]
+  No strict Condorcet winner; unbeaten candidates: Allison, Bill (pairwise ties)
+
+[Divergence from STAR]
+  STAR     = Allison
+  Approval = Bill   (differs from STAR)
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 2 ballots.
+Allison,Bill
+      2,   4
+      5,   3
+
+[Score Distribution] (number of ballots giving each score)
+         5  4  3  2  1  0  | Total   Avg
+Allison  1  0  0  1  0  0  |     7   3.5
+Bill     0  1  1  0  0  0  |     7   3.5
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Allison       -- 7 -- First place
+   Bill          -- 7 -- Second place
+ Allison and Bill advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Allison       -- 1 -- Tied for first place
+   Bill          -- 1 -- Tied for first place
+   Equal Support -- 0
+ There's a two-way tie for first.
+
+[STAR Voting: Automatic Runoff Round: First tiebreaker]
+ The highest-scoring candidate wins.
+   Allison       -- 7 -- Tied for first place
+   Bill          -- 7 -- Tied for first place
+ There's still a two-way tie for first.
+
+[STAR Voting: Automatic Runoff Round: Second tiebreaker]
+ The candidate with the most votes of score 5 wins.
+   Allison       -- 1 -- First place
+   Bill          -- 0
+ Allison wins.
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Allison

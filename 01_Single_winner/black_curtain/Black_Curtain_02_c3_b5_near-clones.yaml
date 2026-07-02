@@ -1,0 +1,41 @@
+election_title: The Black Curtain #2 — two candidates everyone loves
+
+scenario_description: |-
+  Election 2 of 4 from "The Black Curtain". Same five voters, same first
+  choices — but now BOTH blocs love Ann and Cal (scores 8 and 9) and everyone
+  hates Bob. Choose-One, RCV-IRV, STAR, and pure Score all elect Cal.
+  Approval ("approve" = video score 5+) ends in a 5–5 coin toss between Ann
+  and Cal — at approval resolution the two near-clones are indistinguishable.
+  Original 0–9 video scores mapped to 0–5: 0→0, 1→1, 4→2, 5→3, 8→4, 9→5.
+  See README_black_curtain.md.
+  Source video: https://www.youtube.com/watch?v=5_ZMruwOZgw
+  Notes doc: https://docs.google.com/document/d/1ntOS5PQ_kkPnaZpDeqLShGv2pz_k6Zom9LnTEdjjd4o
+  BetterVoting template: https://bettervoting.com/p9gwc3/vote
+
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: true
+  show_irv: true
+  show_runoff_percent: true
+  brief: true
+  collapse_ballots: false
+  count_separator: "×"
+
+voting_method: STAR
+num_winners: 1
+
+ballots: |-
+  Ann,Bob,Cal
+  4,0,5   # voter 1 — video 0-9: A=8 B=0 C=9
+  4,0,5   # voter 2 — video 0-9: A=8 B=0 C=9
+  4,0,5   # voter 3 — video 0-9: A=8 B=0 C=9
+  5,0,4   # voter 4 — video 0-9: A=9 B=0 C=8
+  5,0,4   # voter 5 — video 0-9: A=9 B=0 C=8
+
+expected_winners:
+  - Cal
+
+# file: Black_Curtain_02_c3_b5_near-clones.yaml

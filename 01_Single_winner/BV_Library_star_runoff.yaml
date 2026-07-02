@@ -1,0 +1,16 @@
+election_title: "BV parity — STAR: runoff, lower total wins the runoff"
+scenario_description: |-
+  Ported from BetterVoting's tabulator unit tests (Star.test.ts :: "Runoff").
+  Bill wins the automatic runoff despite a simple two-ballot field.
+
+num_winners: 1
+voting_method: STAR
+ballots: |-
+  Allison,Bill
+  0,5
+  2,4
+
+expected_winners:
+  - Bill
+
+# file: BV_Library_star_runoff.yaml

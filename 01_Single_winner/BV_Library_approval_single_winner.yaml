@@ -1,0 +1,26 @@
+election_title: "BV parity — Approval: most approvals wins (single winner)"
+scenario_description: |-
+  Ported from BetterVoting's tabulator unit tests (Approval.test.ts :: "Single Winner Test").
+  Dave has the most approvals and wins. In the original two rows carried out-of-bounds
+  marks (a 2 and a -1) that BetterVoting counts as 0/not-approved; here they are written
+  as plain 0 so the file validates under this engine while preserving every approval total.
+
+num_winners: 1
+voting_method: Approval
+ballots: |-
+  Alice,Bob,Carol,Dave
+  1,1,1,1
+  0,1,1,1
+  0,1,1,1
+  0,0,1,1
+  0,0,1,1
+  0,0,1,1
+  0,0,0,1
+  -,-,-,-
+  0,0,0,0
+  0,0,0,0
+
+expected_winners:
+  - Dave
+
+# file: BV_Library_approval_single_winner.yaml

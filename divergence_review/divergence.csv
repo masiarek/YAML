@@ -6,9 +6,13 @@ AGREE,01_Single_winner/01c_c2_b3_two-candidates.yaml,2,3,Choco,Choco,Choco,Choco
 AGREE,01_Single_winner/02a_c3_b1_three-candidates.yaml,3,1,Choco,Choco,Choco,Choco,Choco,Choco,Choco,Choco,0,False,False,False
 AGREE,01_Single_winner/02b_c3_b2_three-candidates.yaml,3,2,Vanilla,Vanilla,Vanilla,Vanilla,Vanilla,Vanilla,,,0,False,False,True
 AGREE,01_Single_winner/03a_c3_b3_style-bullet-vote.yaml,3,3,Vanilla,Vanilla,Vanilla,Vanilla,Vanilla,Vanilla,Vanilla,Vanilla,1,False,False,False
+AGREE,01_Single_winner/03c_c6_b8_style-gallery.yaml,6,8,Bianca,Bianca,Frank,Bianca,Bianca,Bianca,Bianca,Bianca,3,True,False,False
 AGREE,01_Single_winner/05a_c5_b3_unanimous-ballots.yaml,5,3,Andre,Andre,Andre,Andre,Andre,Andre,Andre,Andre,0,False,False,False
 AGREE,01_Single_winner/06a_c9_b3_large-field-equal-support.yaml,9,3,Carmen,Carmen,Gabe,Carmen,Carmen,Carmen,Carmen,Carmen,3,True,False,False
 AGREE,01_Single_winner/06b_c9_runoff-overturns-leader.yaml,9,3,Carmen,Carmen,Carmen,Carmen,Carmen,Carmen,Carmen,Carmen,3,False,False,False
+AGREE,01_Single_winner/BV_Library_star_condorcet_winner.yaml,4,10,Allison,Allison,Allison,Allison,Allison,Allison,Allison,Allison,1,False,False,False
+AGREE,01_Single_winner/BV_Library_star_runnerup_tie.yaml,4,10,Allison,Allison,Allison,Allison,Allison,Allison,,,3,False,False,True
+AGREE,01_Single_winner/BV_Library_star_runoff.yaml,2,2,Bill,Bill,Bill,Bill,Bill,Bill,Bill,Bill,0,False,False,False
 AGREE,01_Single_winner/Flat_scores_ties/Flat_scores_ties_01_baseline_clean.yaml,3,2,Apple,Apple,Apple,Apple,Apple,Apple,Apple,Apple,0,False,False,False
 AGREE,01_Single_winner/Flat_scores_ties/Flat_scores_ties_02_runoff_tie_2cand.yaml,2,2,Almond,Almond,Brownie,Almond,Almond,Almond,,Almond,2,True,False,True
 AGREE,01_Single_winner/Flat_scores_ties/Flat_scores_ties_03_runoff_tie_split.yaml,3,2,Athens,Athens,Berlin,Athens,Athens,Athens,,,0,True,False,True
@@ -18,6 +22,7 @@ AGREE,01_Single_winner/Flat_scores_ties/Flat_scores_ties_06_scoring_tie_4way.yam
 AGREE,01_Single_winner/Flat_scores_ties/Flat_scores_ties_07_fully_flat.yaml,3,2,Ararat,Ararat,Cook,Ararat,Ararat,Ararat,,Ararat,2,True,False,True
 AGREE,01_Single_winner/Flat_scores_ties/Flat_scores_ties_08_all_flat_zero_count.yaml,3,5,Anchovy,Anchovy,Caper,Anchovy,Anchovy,Anchovy,,Anchovy,5,True,False,True
 AGREE,01_Single_winner/abstentions.yaml,2,6,Dog,Dog,Dog,Dog,Dog,Dog,Dog,Dog,1,False,False,False
+AGREE,01_Single_winner/black_curtain/Black_Curtain_04_c4_b5_four-candidates.yaml,4,5,Cal,Cal,Cal,Cal,Cal,Cal,Cal,Cal,0,False,False,False
 AGREE,01_Single_winner/equal_support_runoff_demo.yaml,3,100,A,A,B,A,A,A,A,A,40,True,False,False
 AGREE,01_Single_winner/pet_real_bv_election/abstention_reconciliation_min_c2_b6.yaml,2,6,Dog,Dog,Dog,Dog,Dog,Dog,Dog,Dog,1,False,False,False
 AGREE,01_Single_winner/pet_real_bv_election/best_pet_c7_b461.yaml,7,461,Dog,Dog,Cat,Dog,Dog,Dog,Dog,Dog,360,True,False,False
@@ -58,6 +63,10 @@ AGREE,split_voting/05b_residual_split_expressive-fix.yaml,3,100,Ada,Ada,Ada,Ada,
 APPROVAL_OR_MINOR,01_Single_winner/03b_c3_b3_1_style-protest-vote.yaml,3,3,Almond,Almond,Almond,Almond,Almond,Choco,Almond,Almond,0,False,False,False
 APPROVAL_OR_MINOR,01_Single_winner/03b_c3_b3_2_expand_style-protest-vote.yaml,3,3,Almond,Almond,Almond,Almond,Almond,Choco,Almond,Almond,0,False,False,False
 APPROVAL_OR_MINOR,01_Single_winner/04b_c4_b3_display-options-all.yaml,4,3,Strawberry,Strawberry,Strawberry,Strawberry,Strawberry,Vanilla,Strawberry,Strawberry,0,False,False,False
+APPROVAL_OR_MINOR,01_Single_winner/BV_Library_star_runoff_score_tie_five_star.yaml,2,2,Allison,Allison,Bill,Allison,Allison,Bill,,,0,True,False,True
+APPROVAL_OR_MINOR,01_Single_winner/black_curtain/Black_Curtain_01_c3_b5_hidden-consensus.yaml,3,5,Cal,Cal,Cal,Cal,Cal,Bob,Cal,Cal,0,False,False,False
+APPROVAL_OR_MINOR,01_Single_winner/black_curtain/Black_Curtain_02_c3_b5_near-clones.yaml,3,5,Cal,Cal,Cal,Cal,Cal,Ann,Cal,Cal,0,False,False,False
+APPROVAL_OR_MINOR,01_Single_winner/black_curtain/Black_Curtain_03_c3_b5_polarized-on-cal.yaml,3,5,Cal,Cal,Cal,Cal,Cal,Ann,Cal,Cal,0,False,False,False
 APPROVAL_OR_MINOR,01_Single_winner/count_simplicity_star_vs_irv.yaml,5,40,Carmen,Carmen,Carmen,Carmen,Carmen,Andre,Carmen,Carmen,0,False,False,False
 APPROVAL_OR_MINOR,01_Single_winner/paradoxes_and_whoops/Whoops_03_condorcet_cycle_rps.yaml,3,100,Rock,Rock,Rock,Rock,Rock,Paper,,,0,False,False,True
 APPROVAL_OR_MINOR,01_Single_winner/runoff_overturns_leader/01a_c3_b3_more-stars-fewer-voters.yaml,3,3,Brownie,Brownie,Brownie,Brownie,Brownie,Almond,Brownie,Brownie,0,False,False,False
@@ -75,6 +84,7 @@ APPROVAL_OR_MINOR,YAML_library/1_positive/Runoff_02_atom_reversal_yx9447.yaml,3,
 APPROVAL_OR_MINOR,YAML_library/1_positive/Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml,5,5,Eden,Eden,Eden,Eden,Eden,Dakota,Eden,Eden,0,False,False,False
 APPROVAL_OR_MINOR,YAML_library/1_positive/Runoff_04_reversal_at_scale_bfjqmg.yaml,3,9,Olive,Olive,Olive,Olive,Olive,Maple,Olive,Olive,0,False,False,False
 APPROVAL_OR_MINOR,YAML_library/1_positive/Whoops_03_condorcet_cycle_rps.yaml,3,100,Rock,Rock,Rock,Rock,Rock,Paper,,,0,False,False,True
+CYCLE_OR_THREE_WAY,01_Single_winner/BV_Library_star_runoff_tie_score_resolves.yaml,2,2,Bill,Bill,Bill,Allison,Allison,Allison,,,0,False,False,True
 CYCLE_OR_THREE_WAY,01_Single_winner/monotonicity_star_after.yaml,3,34,X,Z,Z,X,X,X,,,0,False,False,True
 CYCLE_OR_THREE_WAY,01_Single_winner/monotonicity_star_before.yaml,3,34,X,X,X,Y,Y,Y,,,0,False,False,True
 CYCLE_OR_THREE_WAY,01_Single_winner/paradoxes_and_whoops/Whoops_02_star_misses_condorcet.yaml,3,100,Ada,Ada,Bruno,Cleo,Cleo,Ada,Cleo,Cleo,25,True,False,False

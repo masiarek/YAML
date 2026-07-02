@@ -1,0 +1,56 @@
+election_title: "Voting styles — eight ways to fill out one 5-star ballot"
+
+scenario_description: |-
+  A gallery of legal STAR ballot styles, one voter per style: traditional
+  (choose-one), strong backup, weak backup, partisan slate, ranked-style,
+  nuanced, "anyone but...", and a protest (least-bad) vote. Every ballot is
+  valid — STAR scores each candidate independently 0-5, so equal scores and
+  skipped candidates can't spoil a ballot. Note the two Equal Support ballots
+  in the runoff: the partisan and "anyone but" voters scored both finalists
+  the same, so they expressed no preference between them — but their scores
+  still helped pick the finalists.
+  Lesson: 00_start_here/STAR_Voting/STAR_ballot_voting_styles.md
+
+# Presenter notes (ignored by the engine; not shown to the audience).
+video_script: |-
+  SAY: "There is no wrong way to fill out a STAR ballot. Here are eight voters,
+       each using a different style — from a plain old choose-one vote to a
+       full 'ranked-style' spread — all on the same six candidates."
+  HOW: Walk down the eight ballots, naming each style as you go.
+  WHY: Remove the fear of 'voting wrong' — every style is legal and counted.
+  POINT OUT: The partisan and 'anyone but Chris' voters gave both finalists a 5,
+       so they're Equal Support in the runoff — no preference between the
+       finalists, but their scores still chose WHO the finalists were.
+  TRANSITION: "Legal isn't the same as expressive. Which of these styles gets
+       the most out of the ballot? That's the lesson doc's job."
+
+options:
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
+  show_matrix: true   # show the Runoff (Preference) Matrix
+  matrix_finalists_only: true   # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_condorcet: false   # show the [Condorcet Winner] line
+  show_score_counts: false   # show the per-candidate [Score Distribution] table
+  show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
+  show_runoff_percent: true   # compact self-reconciling runoff summary
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: false   # each ballot is a distinct teaching case — one row per voter
+  count_separator: "×"   # collapsed-count separator: ×, :, or x/X
+
+voting_method: STAR   # STAR Voting — single-winner
+num_winners: 1
+
+ballots: |-
+  Allen,Bianca,Chris,Desi,Edith,Frank
+      0,     5,    0,   0,    0,    0   # traditional choose-one: 5 for Bianca, nothing else
+      0,     5,    0,   0,    0,    4   # strong backup: Bianca 5, Frank close behind at 4
+      0,     5,    0,   0,    0,    1   # weak backup: Bianca 5, Frank a reluctant 1
+      5,     5,    0,   0,    0,    5   # partisan slate: 5s for my party (A, B, F), 0s for the rest
+      2,     5,    0,   3,    1,    4   # ranked-style: each score used once, like a ranking
+      3,     4,    0,   3,    1,    5   # nuanced: full range, equal 3s where truly equal
+      5,     5,    0,   5,    5,    5   # "anyone but Chris": max support for everyone else
+      0,     0,    0,   0,    0,    1   # protest / least-bad: dislikes everyone, Frank least
+
+expected_winners:
+  - Bianca
+
+# file: 03c_c6_b8_style-gallery.yaml

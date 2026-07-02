@@ -1,0 +1,17 @@
+election_title: "BV parity — STAR: runoff & score tie, five-star tiebreaker"
+scenario_description: |-
+  Ported from BetterVoting's tabulator unit tests
+  (Star.test.ts :: "Runoff & Score Tie, use five-star tiebreaker to resolve").
+  Score totals and runoff both tie; the five-star count breaks it for Allison.
+
+num_winners: 1
+voting_method: STAR
+ballots: |-
+  Allison,Bill
+  2,4
+  5,3
+
+expected_winners:
+  - Allison
+
+# file: BV_Library_star_runoff_score_tie_five_star.yaml

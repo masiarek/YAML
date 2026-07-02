@@ -133,7 +133,7 @@ End Lesson 0 with a promise and a map:
 |------|-------------|---------|
 | 01a–c | `01_Single_winner/01*` | **The mechanics.** 2 candidates — watch the two rounds turn. |
 | 02a–b | `01_Single_winner/02*` | **Why it matters.** Add a 3rd candidate; the winner becomes the broad compromise. |
-| 03a–b | `01_Single_winner/03*` | **How you're allowed to vote** — bullet votes, equal scores, low-score ballots. |
+| 03a–c | `01_Single_winner/03*` | **How you're allowed to vote** — bullet votes, equal scores, low-score ballots, and the eight-style gallery (traditional / backup / partisan / ranked-style / "anyone but…"). Lesson: [`STAR_Voting/STAR_ballot_voting_styles.md`](STAR_Voting/STAR_ballot_voting_styles.md). |
 | 04a–b | `01_Single_winner/04*` | Display/analysis options (matrix, Condorcet). |
 | 05a | `01_Single_winner/05*` | Edge case: unanimous ballots. |
 | 09 | `01_Single_winner/09*` | The classic Tennessee capital example — the payoff. |

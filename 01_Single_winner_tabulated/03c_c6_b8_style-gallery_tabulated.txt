@@ -1,0 +1,142 @@
+======================================================================
+SOURCE FILE:     03c_c6_b8_style-gallery.yaml
+SOURCE MODIFIED: 2026-07-01 22:45:10
+TABULATED FILE:  03c_c6_b8_style-gallery_tabulated.txt
+TABULATED AT:    2026-07-02 06:58:35
+======================================================================
+
+election_title: "Voting styles — eight ways to fill out one 5-star ballot"
+
+scenario_description: |-
+  A gallery of legal STAR ballot styles, one voter per style: traditional
+  (choose-one), strong backup, weak backup, partisan slate, ranked-style,
+  nuanced, "anyone but...", and a protest (least-bad) vote. Every ballot is
+  valid — STAR scores each candidate independently 0-5, so equal scores and
+  skipped candidates can't spoil a ballot. Note the two Equal Support ballots
+  in the runoff: the partisan and "anyone but" voters scored both finalists
+  the same, so they expressed no preference between them — but their scores
+  still helped pick the finalists.
+  Lesson: 00_start_here/STAR_Voting/STAR_ballot_voting_styles.md
+
+# Presenter notes (ignored by the engine; not shown to the audience).
+video_script: |-
+  SAY: "There is no wrong way to fill out a STAR ballot. Here are eight voters,
+       each using a different style — from a plain old choose-one vote to a
+       full 'ranked-style' spread — all on the same six candidates."
+  HOW: Walk down the eight ballots, naming each style as you go.
+  WHY: Remove the fear of 'voting wrong' — every style is legal and counted.
+  POINT OUT: The partisan and 'anyone but Chris' voters gave both finalists a 5,
+       so they're Equal Support in the runoff — no preference between the
+       finalists, but their scores still chose WHO the finalists were.
+  TRANSITION: "Legal isn't the same as expressive. Which of these styles gets
+       the most out of the ballot? That's the lesson doc's job."
+
+options:
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
+  show_matrix: true   # show the Runoff (Preference) Matrix
+  matrix_finalists_only: true   # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_condorcet: false   # show the [Condorcet Winner] line
+  show_score_counts: false   # show the per-candidate [Score Distribution] table
+  show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
+  show_runoff_percent: true   # compact self-reconciling runoff summary
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: false   # each ballot is a distinct teaching case — one row per voter
+  count_separator: "×"   # collapsed-count separator: ×, :, or x/X
+
+voting_method: STAR   # STAR Voting — single-winner
+num_winners: 1
+
+ballots: |-
+  Allen,Bianca,Chris,Desi,Edith,Frank
+      0,     5,    0,   0,    0,    0   # traditional choose-one: 5 for Bianca, nothing else
+      0,     5,    0,   0,    0,    4   # strong backup: Bianca 5, Frank close behind at 4
+      0,     5,    0,   0,    0,    1   # weak backup: Bianca 5, Frank a reluctant 1
+      5,     5,    0,   0,    0,    5   # partisan slate: 5s for my party (A, B, F), 0s for the rest
+      2,     5,    0,   3,    1,    4   # ranked-style: each score used once, like a ranking
+      3,     4,    0,   3,    1,    5   # nuanced: full range, equal 3s where truly equal
+      5,     5,    0,   5,    5,    5   # "anyone but Chris": max support for everyone else
+      0,     0,    0,   0,    0,    1   # protest / least-bad: dislikes everyone, Frank least
+
+expected_winners:
+  - Bianca
+
+# file: 03c_c6_b8_style-gallery.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Voting styles — eight ways to fill out one 5-star ballot ===
+  A gallery of legal STAR ballot styles, one voter per style: traditional
+  (choose-one), strong backup, weak backup, partisan slate, ranked-style,
+  nuanced, "anyone but...", and a protest (least-bad) vote. Every ballot is
+  valid — STAR scores each candidate independently 0-5, so equal scores and
+  skipped candidates can't spoil a ballot. Note the two Equal Support ballots
+  in the runoff: the partisan and "anyone but" voters scored both finalists
+  the same, so they expressed no preference between them — but their scores
+  still helped pick the finalists.
+  Lesson: 00_start_here/STAR_Voting/STAR_ballot_voting_styles.md
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |    Allen   | * Bianca  |   Chris   |    Desi   |   Edith   | * Frank   |
+-----------------------------------------------------------------------------------------
+       Allen > |    ---     |0 - 3 - 5  |4 - 4 - 0  |1 - 6 - 1  |3 - 5 - 0  |0 - 3 - 5  |
+    * Bianca > | 5 - 3 - 0  |   ---     |7 - 1 - 0  |6 - 2 - 0  |6 - 2 - 0  |4 - 2 - 2  |
+       Chris > | 0 - 4 - 4  |0 - 1 - 7  |   ---     |0 - 5 - 3  |0 - 5 - 3  |0 - 1 - 7  |
+        Desi > | 1 - 6 - 1  |0 - 2 - 6  |3 - 5 - 0  |   ---     |2 - 6 - 0  |0 - 2 - 6  |
+       Edith > | 0 - 5 - 3  |0 - 2 - 6  |3 - 5 - 0  |0 - 6 - 2  |   ---     |0 - 2 - 6  |
+     * Frank > | 5 - 3 - 0  |2 - 2 - 4  |7 - 1 - 0  |6 - 2 - 0  |6 - 2 - 0  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Bianca — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 8 ballots.
+Allen,Bianca,Chris,Desi,Edith,Frank
+    0,     5,    0,   0,    0,    0
+    0,     5,    0,   0,    0,    4
+    0,     5,    0,   0,    0,    1
+    5,     5,    0,   0,    0,    5
+    2,     5,    0,   3,    1,    4
+    3,     4,    0,   3,    1,    5
+    5,     5,    0,   5,    5,    5
+    0,     0,    0,   0,    0,    1
+
+[Score Distribution] (number of ballots giving each score)
+        5  4  3  2  1  0  | Total   Avg
+Allen   2  0  1  1  0  4  |    15   1.9
+Bianca  6  1  0  0  0  1  |    34   4.2
+Chris   0  0  0  0  0  8  |     0   0.0
+Desi    1  0  2  0  0  5  |    11   1.4
+Edith   1  0  0  0  2  5  |     7   0.9
+Frank   3  2  0  0  2  1  |    25   3.1
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Bianca        -- 34 -- First place
+   Frank         -- 25 -- Second place
+   Allen         -- 15
+   Desi          -- 11
+   Edith         --  7
+   Chris         --  0
+ Bianca and Frank advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Bianca        -- 4 -- First place
+   Frank         -- 2
+   Equal Support -- 2
+ Bianca wins.
+   Runoff math:
+     8  ballots cast
+   − 2  Equal Support (no preference between the two finalists)
+     ─
+     6  voters with a preference  (majority = 4)
+           Bianca 4 (67%)  ·  Frank 2 (33%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Bianca
