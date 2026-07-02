@@ -19,7 +19,7 @@ ties even arise) differ by method.
 | **Ranked Robin** | a pairwise tie, or a Condorcet **cycle** | total margin, then lot order | [cycle resolution](../../RCV_Ranked_Robin/cycle_resolution.md) |
 
 Runnable tie cases (flat-score ballots engineered to tie) live in
-[`Flat_scores_ties/`](../../../01_Single_winner/Flat_scores_ties/) — useful for seeing exactly
+[`Flat_scores_ties/`](../../../01_STAR/Flat_scores_ties) — useful for seeing exactly
 when each round produces a tie and how the lot order settles it.
 
 Glossary: [`lot numbers`](../../GLOSSARY.md).

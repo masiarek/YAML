@@ -34,8 +34,8 @@ The percentage line returns only for a decided runoff.
 
 <!-- Screenshot slot — LH engine tie report.
      Source: run election `02b_c3_b2_three-candidates` (in 01_Single_winner/) and
-     screenshot the colored terminal output. Save as: img/02b_c3_b2_lh_tie.png
-![LH engine report of a runoff tie, resolved by the score round](img/02b_c3_b2_lh_tie.png) -->
+     screenshot the colored terminal output. Save as: img/REPLACE_02b_c3_b2_lh_tie.png
+![LH engine report of a runoff tie, resolved by the score round](img/REPLACE_02b_c3_b2_lh_tie.png) -->
 
 ## How a tie reads in BetterVoting
 

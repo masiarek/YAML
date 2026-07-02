@@ -78,10 +78,10 @@ Hitler/Washington/Stalin case). Use it as a sanity check, not an automated guard
 
 `pref_voting` ships profile **generators** (`generate_profiles`, spatial models) and axiom
 checkers (monotonicity, no-show, etc.) that can *find* fresh paradox cases automatically —
-a great source for the [paradoxes & whoops gallery](../../01_Single_winner/paradoxes_and_whoops/README_paradoxes_and_whoops.md).
+a great source for the [paradoxes & whoops gallery](../../method_comparisons/paradoxes_and_whoops/README_paradoxes_and_whoops.md).
 
 **House rule when mining:** respect the gallery's
-[balance ledger](../../01_Single_winner/paradoxes_and_whoops/README_paradoxes_and_whoops.md#balance-ledger).
+[balance ledger](../../method_comparisons/paradoxes_and_whoops/README_paradoxes_and_whoops.md#balance-ledger).
 The generators make IRV failures especially easy to surface — so deliberately search for
 cases that embarrass the **score family (STAR/Approval)** and **Condorcet/Ranked Robin**
 too, not just IRV. A mismatch the cross-check ever flags is itself a candidate teaching

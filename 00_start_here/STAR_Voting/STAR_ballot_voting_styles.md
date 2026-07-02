@@ -43,7 +43,7 @@ look:
 - **Traditional / choose-one** works exactly as the voter intends — but it's a
   bullet vote, and it under-uses the ballot: if Bianca doesn't reach the
   runoff, this ballot has no say in the final head-to-head. (The dedicated
-  small demo: [`03a_c3_b3_style-bullet-vote.yaml`](../../01_Single_winner/03a_c3_b3_style-bullet-vote.yaml).)
+  small demo: [`03a_c3_b3_style-bullet-vote.yaml`](../../01_STAR/_main/03a_c3_b3_style-bullet-vote.yaml).)
 - **Backups are free.** The strong-backup and weak-backup ballots are the
   everyday super-power of a scored ballot: supporting a second choice can
   never hurt your first choice in the scoring round — a 5 is a 5 no matter
@@ -65,12 +65,12 @@ look:
   least-bad preference and can decide a race. Caveat: compressing your scores
   into the bottom of the range also shrinks your voice in the scoring round —
   a least-bad choice counts, but the full range counts louder.
-  ([`03b_c3_b3_1_style-protest-vote.yaml`](../../01_Single_winner/03b_c3_b3_1_style-protest-vote.yaml).)
+  ([`03b_c3_b3_1_style-protest-vote.yaml`](../../01_STAR/_main/03b_c3_b3_1_style-protest-vote.yaml).)
 
 ## All eight styles in one election
 
 The gallery above is a real, tabulatable election:
-[`03c_c6_b8_style-gallery.yaml`](../../01_Single_winner/03c_c6_b8_style-gallery.yaml).
+[`03c_c6_b8_style-gallery.yaml`](../../01_STAR/_main/03c_c6_b8_style-gallery.yaml).
 Bianca and Frank reach the runoff on scores; Bianca wins it 4–2, with the
 partisan and "anyone but Chris" voters counted as Equal Support (they scored
 both finalists 5):
@@ -96,7 +96,7 @@ Automatic Runoff Round
    Bianca 4 (67%) vs Frank 2 (33%); majority = 4.
 ```
 
-Full report: [`03c_c6_b8_style-gallery_tabulated.txt`](../../01_Single_winner_tabulated/03c_c6_b8_style-gallery_tabulated.txt).
+Full report: [`03c_c6_b8_style-gallery_tabulated.txt`](../../01_STAR/_main/_main_tabulated/03c_c6_b8_style-gallery_tabulated.txt).
 
 ## Blanks, and what they mean
 
@@ -140,7 +140,7 @@ above is safe to publish as a how-to: there is no trick style to teach.
 - [Equally Weighted Vote](equally_weighted_vote.md) — why no style out-muscles another
 - [STAR's honest limits](STAR_honest_limits.md) — what a backup score does and doesn't risk
 - [Curriculum 101.3 — How you're allowed to vote](../CURRICULUM.md) — this page's slot in the learning path
-- Small demos: [`03a` bullet vote](../../01_Single_winner/03a_c3_b3_style-bullet-vote.yaml) · [`03b` protest vote](../../01_Single_winner/03b_c3_b3_1_style-protest-vote.yaml) · [`03c` the full gallery](../../01_Single_winner/03c_c6_b8_style-gallery.yaml)
+- Small demos: [`03a` bullet vote](../../01_STAR/_main/03a_c3_b3_style-bullet-vote.yaml) · [`03b` protest vote](../../01_STAR/_main/03b_c3_b3_1_style-protest-vote.yaml) · [`03c` the full gallery](../../01_STAR/_main/03c_c6_b8_style-gallery.yaml)
 
 ## Learn more
 

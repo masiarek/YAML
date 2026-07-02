@@ -2,7 +2,7 @@
 
 *A ranked method that compares every candidate head-to-head and elects whoever beats the most rivals. Same ranked ballot as IRV, but a completely different — and far more transparent — way of counting it.*
 
-→ **Run it / tabulated example:** [`summability_demo/`](../../01_Single_winner/summability_demo/)
+→ **Run it / tabulated example:** [`summability_demo/`](../../method_comparisons/summability_demo)
 shows the **pairwise matrix** (the Ranked Robin tally) computed and *added across precincts*;
 the [`pref_voting` engine](../../pref_voting_tabulation_engine/README_pref_voting_tabulation_engine.md) reports the
 **Copeland = Ranked Robin** winner on any election (`python pref_voting_tabulation.py example_tennessee.yaml`).
@@ -38,7 +38,7 @@ Because it reads every ranking against every opponent, Ranked Robin elects the c
 ## A worked example — the consensus center wins the round-robin
 
 Thirteen voters, four candidates on a left→right line (Ada, Ben, Cara, Dan). Run it:
-[`ranked_robin_consensus_center.yaml`](../../01_Single_winner/ranked_robin_consensus_center.yaml)
+[`ranked_robin_consensus_center.yaml`](../../05_Ranked_Robin/_main/ranked_robin_consensus_center.yaml)
 (or paste the `count:A>B>C` block into [LeGrand's calculator](https://www.cs.angelo.edu/~rlegrand/rbvote/calc.html)).
 
 ```
@@ -168,7 +168,7 @@ Legend: For - Equal Support - Against   (row vs column)
 ```
 
 Add `options: { show_matrix: true }` to pull that matrix onto the screen too — which
-is what [`ranked_robin_consensus_center.yaml`](../../01_Single_winner/ranked_robin_consensus_center.yaml)
+is what [`ranked_robin_consensus_center.yaml`](../../05_Ranked_Robin/_main/ranked_robin_consensus_center.yaml)
 does, since the matrix is the point of that worked example.
 
 > **Why this format.** The two conventions every source agrees on are the **preference

@@ -40,8 +40,8 @@ So the precise statement isn't "RCV has center squeeze," or even "IRV" — it's
 
 The smallest clean squeeze, as a matched pair (27 voters, Left / Center / Right):
 
-→ [`center_squeeze_irv.yaml`](../../01_Single_winner/center_squeeze_irv.yaml)
- · [`center_squeeze_star.yaml`](../../01_Single_winner/center_squeeze_star.yaml)
+→ [`center_squeeze_irv.yaml`](../../method_comparisons/center_squeeze/center_squeeze_irv.yaml)
+ · [`center_squeeze_star.yaml`](../../method_comparisons/center_squeeze/center_squeeze_star.yaml)
 
 Center is the **Condorcet winner** (beats Left 15–12, Right 18–9) but has the
 **fewest first-choices (6)**. The STAR file's output shows all four methods on the
@@ -54,7 +54,7 @@ STAR = Center   ( = Condorcet winner — also what Ranked Robin would elect )
 
 IRV eliminates Center in round 1; STAR advances Center on strength of support and
 wins the runoff. (Verified on the engine.) A richer themed version is the Star Wars
-vote-split demo, [`04_star_wars_vote_split.yaml`](../../split_voting/04_star_wars_vote_split.yaml).
+vote-split demo, [`04_star_wars_vote_split.yaml`](../../method_comparisons/split_voting/_main/04_star_wars_vote_split.yaml).
 
 ## A visual example — the voteline 1-D spectrum
 
@@ -80,7 +80,7 @@ green > red > yellow : 13.8%      yellow > green > red : 35.3%
 - **STAR** advances Green on its scores (lots of 3s from both wings + 5s from the
   center) and wins the runoff **65–35**.
 
-Run it: [`center_squeeze_voteline_1d.yaml`](../../01_Single_winner/center_squeeze_voteline_1d.yaml)
+Run it: [`center_squeeze_voteline_1d.yaml`](../../method_comparisons/center_squeeze/center_squeeze_voteline_1d.yaml)
 (scores are a simple 1-D spatial model: own side 5, the adjacent center 3, the far
 side 0–1; weights are the percentages ×10). The engine's own divergence block:
 

@@ -1,0 +1,142 @@
+======================================================================
+SOURCE FILE:     06a_c9_b3_large-field-equal-support.yaml
+SOURCE MODIFIED: 2026-06-24 07:58:37
+TABULATED FILE:  06a_c9_b3_large-field-equal-support_tabulated.txt
+TABULATED AT:    2026-07-02 12:16:13
+======================================================================
+
+election_title: Large field (9 candidates) — STAR scales, and Equal Support decides
+scenario_description: |-
+  The ballot-visual election: 9 candidates, scored 0–5. STAR handles a big field
+  with no extra machinery — the scoring round is just addition (no elimination
+  rounds, unlike IRV, which would need up to 8).
+
+  Carmen (15) and David (14) are the two highest totals, so they're the finalists.
+  In the automatic runoff, 2 of the 3 voters scored BOTH finalists equally (Equal
+  Support); the one voter who preferred Carmen decides it. Carmen wins.
+
+  Discussion (Larry):
+   - 9 candidates, one screen — why no rounds? (Scoring is addition.)
+   - Most of the runoff is "Equal Support" — were those votes wasted? (No: they
+     picked the finalists; neutral only on the Carmen-vs-David tie they declared.)
+   - Helena and Gabe got plenty of stars — why aren't they in the runoff? (Only
+     the top two by score are finalists.)
+   - Did the runoff change the result or confirm it? (Confirms here; see
+     06b_c9_runoff-overturns-leader.yaml for a case where it OVERTURNS the leader.)
+
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  brief: true
+  collapse_ballots: true
+  count_separator: "×"
+
+voting_method: STAR
+num_winners: 1
+
+ballots: |-
+  Andre,Blake,Carmen,David,Ella,Fernando,Gabe,Helena,Ira
+  4,0,5,5,1,3,5,4,0
+  4,3,5,5,1,3,5,4,1
+  1,0,5,4,1,3,1,4,0
+
+expected_winners:
+  - Carmen
+
+# [SLIDE] Full Deck — "INTRODUCING STAR VOTING" (the 5-star ballot + instructions).
+
+# file: 06a_c9_b3_large-field-equal-support.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Large field (9 candidates) — STAR scales, and Equal Support decides ===
+  The ballot-visual election: 9 candidates, scored 0–5. STAR handles a big field
+  with no extra machinery — the scoring round is just addition (no elimination
+  rounds, unlike IRV, which would need up to 8).
+
+  Carmen (15) and David (14) are the two highest totals, so they're the finalists.
+  In the automatic runoff, 2 of the 3 voters scored BOTH finalists equally (Equal
+  Support); the one voter who preferred Carmen decides it. Carmen wins.
+
+  Discussion (Larry):
+   - 9 candidates, one screen — why no rounds? (Scoring is addition.)
+   - Most of the runoff is "Equal Support" — were those votes wasted? (No: they
+     picked the finalists; neutral only on the Carmen-vs-David tie they declared.)
+   - Helena and Gabe got plenty of stars — why aren't they in the runoff? (Only
+     the top two by score are finalists.)
+   - Did the runoff change the result or confirm it? (Confirms here; see
+     06b_c9_runoff-overturns-leader.yaml for a case where it OVERTURNS the leader.)
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+                 |     Andre    |    Blake    |  * Carmen   |  * David    |     Ella    |   Fernando  |     Gabe    |    Helena   |     Ira     |
+-------------------------------------------------------------------------------------------------------------------------------------------------
+         Andre > |     ---      | 3 - 0 - 0   | 0 - 0 - 3   | 0 - 0 - 3   | 2 - 1 - 0   | 2 - 0 - 1   | 0 - 1 - 2   | 0 - 2 - 1   | 3 - 0 - 0   |
+         Blake > |  0 - 0 - 3   |    ---      | 0 - 0 - 3   | 0 - 0 - 3   | 1 - 0 - 2   | 0 - 1 - 2   | 0 - 0 - 3   | 0 - 0 - 3   | 1 - 2 - 0   |
+      * Carmen > |  3 - 0 - 0   | 3 - 0 - 0   |    ---      | 1 - 2 - 0   | 3 - 0 - 0   | 3 - 0 - 0   | 1 - 2 - 0   | 3 - 0 - 0   | 3 - 0 - 0   |
+       * David > |  3 - 0 - 0   | 3 - 0 - 0   | 0 - 2 - 1   |    ---      | 3 - 0 - 0   | 3 - 0 - 0   | 1 - 2 - 0   | 2 - 1 - 0   | 3 - 0 - 0   |
+          Ella > |  0 - 1 - 2   | 2 - 0 - 1   | 0 - 0 - 3   | 0 - 0 - 3   |    ---      | 0 - 0 - 3   | 0 - 1 - 2   | 0 - 0 - 3   | 2 - 1 - 0   |
+      Fernando > |  1 - 0 - 2   | 2 - 1 - 0   | 0 - 0 - 3   | 0 - 0 - 3   | 3 - 0 - 0   |    ---      | 1 - 0 - 2   | 0 - 0 - 3   | 3 - 0 - 0   |
+          Gabe > |  2 - 1 - 0   | 3 - 0 - 0   | 0 - 2 - 1   | 0 - 2 - 1   | 2 - 1 - 0   | 2 - 0 - 1   |    ---      | 2 - 0 - 1   | 3 - 0 - 0   |
+        Helena > |  1 - 2 - 0   | 3 - 0 - 0   | 0 - 0 - 3   | 0 - 1 - 2   | 3 - 0 - 0   | 3 - 0 - 0   | 1 - 0 - 2   |    ---      | 3 - 0 - 0   |
+           Ira > |  0 - 0 - 3   | 0 - 2 - 1   | 0 - 0 - 3   | 0 - 0 - 3   | 0 - 1 - 2   | 0 - 0 - 3   | 0 - 0 - 3   | 0 - 0 - 3   |    ---      |
+
+[Condorcet Winner]
+  Condorcet Winner: Carmen — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 3 ballots.
+Andre,Blake,Carmen,David,Ella,Fernando,Gabe,Helena,Ira
+    4,    0,     5,    5,   1,       3,   5,     4,  0
+    4,    3,     5,    5,   1,       3,   5,     4,  1
+    1,    0,     5,    4,   1,       3,   1,     4,  0
+
+[Score Distribution] (number of ballots giving each score)
+          5  4  3  2  1  0  | Total   Avg
+Andre     0  2  0  0  1  0  |     9   3.0
+Blake     0  0  1  0  0  2  |     3   1.0
+Carmen    3  0  0  0  0  0  |    15   5.0
+David     2  1  0  0  0  0  |    14   4.7
+Ella      0  0  0  0  3  0  |     3   1.0
+Fernando  0  0  3  0  0  0  |     9   3.0
+Gabe      2  0  0  0  1  0  |    11   3.7
+Helena    0  3  0  0  0  0  |    12   4.0
+Ira       0  0  0  0  1  2  |     1   0.3
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Carmen        -- 15 -- First place
+   David         -- 14 -- Second place
+   Helena        -- 12
+   Gabe          -- 11
+   Andre         --  9
+   Fernando      --  9
+   Blake         --  3
+   Ella          --  3
+   Ira           --  1
+ Carmen and David advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Carmen        -- 1 -- First place
+   David         -- 0
+   Equal Support -- 2
+ Carmen wins.
+   Runoff math:
+     3  ballots cast
+   − 2  Equal Support (no preference between the two finalists)
+     ─
+     1  voters with a preference  (majority = 1)
+           Carmen 1 (100%)  ·  David 0 (0%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Carmen

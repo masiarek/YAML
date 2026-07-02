@@ -54,7 +54,7 @@ import starvote  # noqa: E402
 import starvote_larry_hastings as w  # noqa: E402
 
 # Folders that hold real, curated single-winner STAR elections (per CLAUDE.md).
-SCAN_DIRS = ["01_Single_winner", "split_voting", "YAML_library/1_positive"]
+SCAN_DIRS = ["01_STAR", "method_comparisons", "YAML_library/1_positive"]
 
 OUT_DIR = REPO / "divergence_review"
 

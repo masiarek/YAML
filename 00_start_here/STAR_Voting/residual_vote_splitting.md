@@ -44,8 +44,8 @@ you guess wrong**.
 Same three candidates and the same true preferences; only the *expressiveness*
 changes (60 voters on the Ada/Ben side, 40 for opponent Cara):
 
-→ [`05a_residual_split_bullet-voting.yaml`](../../split_voting/05a_residual_split_bullet-voting.yaml)
- · [`05b_residual_split_expressive-fix.yaml`](../../split_voting/05b_residual_split_expressive-fix.yaml)
+→ [`05a_residual_split_bullet-voting.yaml`](../../method_comparisons/split_voting/_main/05a_residual_split_bullet-voting.yaml)
+ · [`05b_residual_split_expressive-fix.yaml`](../../method_comparisons/split_voting/_main/05b_residual_split_expressive-fix.yaml)
 
 | File | Ada/Ben behavior | Scores (Ada / Ben / Cara) | STAR winner |
 |------|------------------|--------------------------|-------------|

@@ -20,7 +20,7 @@ There is **no Condorcet winner** — the head-to-head results form a cycle (X be
 
 **Flags:** none
 
-**Source election:** [`01_Single_winner/BV_Library/BV_Library_star_runoff_tie_score_resolves.yaml`](../../../01_Single_winner/BV_Library/BV_Library_star_runoff_tie_score_resolves.yaml)  ·  **STAR tabulated mirror:** [`BV_Library_star_runoff_tie_score_resolves_tabulated.txt`](../../../01_Single_winner/BV_Library/BV_Library_tabulated/BV_Library_star_runoff_tie_score_resolves_tabulated.txt)
+**Source election:** [`method_comparisons/BV_Library/BV_Library_star_runoff_tie_score_resolves.yaml`](../../../method_comparisons/BV_Library/BV_Library_star_runoff_tie_score_resolves.yaml)  ·  **STAR tabulated mirror:** [`BV_Library_star_runoff_tie_score_resolves_tabulated.txt`](../../../method_comparisons/BV_Library/BV_Library_tabulated/BV_Library_star_runoff_tie_score_resolves_tabulated.txt)
 
 _2 candidates, 2 ballots._
 

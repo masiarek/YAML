@@ -41,7 +41,7 @@ A **Runoff Reversal** is just *how much* and *how many* pointing at different
 candidates: the leader had more total support, but fewer voters prefer them
 head-to-head. It's the safeguard working, not a glitch. Worked examples, the voter
 patterns behind it, and how to teach it:
-[Runoff Reversal](../../01_Single_winner/runoff_overturns_leader/README_runoff_overturns_leader.md).
+[Runoff Reversal](../../01_STAR/runoff_overturns_leader/README_runoff_overturns_leader.md).
 
 ## What the round does
 
@@ -65,7 +65,7 @@ Automatic Runoff Round
    Banana 3 (75%) vs Apple 1 (25%); majority = 3.
 ```
 
-(From [`flat_scores_abstention_c3_b8`](../../01_Single_winner/pet_real_bv_election/flat_scores_abstention_c3_b8.yaml).)
+(From [`flat_scores_abstention_c3_b8`](../../01_STAR/pet_real_bv_election/flat_scores_abstention_c3_b8.yaml).)
 
 ## The flow
 
@@ -132,9 +132,9 @@ candidate different from the winner?"* here.)
 the plain phrasing "**the runoff overturns the score leader**" (it avoids colliding
 with *reversal symmetry* in social-choice theory). Full walkthrough as a 3→9-candidate
 progression, plus a voter-facing explanation:
-[`runoff_overturns_leader/`](../../01_Single_winner/runoff_overturns_leader/README_runoff_overturns_leader.md).
+[`runoff_overturns_leader/`](../../01_STAR/runoff_overturns_leader/README_runoff_overturns_leader.md).
 Teaching it (step-by-step, why it's good, devil's-advocate Q&A):
-[`teaching_runoff_reversal.md`](../../01_Single_winner/runoff_overturns_leader/teaching_runoff_reversal.md).
+[`teaching_runoff_reversal.md`](../../01_STAR/runoff_overturns_leader/teaching_runoff_reversal.md).
 Why STAR is built to do this: [STAR's hybrid nature](STAR_hybrid_nature.md) ·
 the three different "winners" (score / runoff / Condorcet): [three winner notions](STAR_three_winner_notions.md).
 
@@ -192,7 +192,7 @@ Then STAR can miss them. It's rare — and it's an honest **limit**, in the cons
   doesn't degenerate into Approval.
 - **Resists intensity capture and center squeeze** — a passionate minority can't win on
   volume, and a broadly-acceptable middle candidate isn't eliminated early
-  ([center squeeze, STAR vs IRV](../../01_Single_winner/center_squeeze_star.yaml)).
+  ([center squeeze, STAR vs IRV](../../method_comparisons/center_squeeze/center_squeeze_star.yaml)).
 - Still **simple** — two steps, easy to hand-count.
 
 **Its limits**
@@ -220,7 +220,7 @@ here honestly but explored calmly in **201/301**, not in a learner's first lesso
 
 | Variation | What happens | Page |
 |---|---|---|
-| Runoff Reversal | score leader loses the runoff | [`runoff_overturns_leader/`](../../01_Single_winner/runoff_overturns_leader/README_runoff_overturns_leader.md) |
+| Runoff Reversal | score leader loses the runoff | [`runoff_overturns_leader/`](../../01_STAR/runoff_overturns_leader/README_runoff_overturns_leader.md) |
 | Exact tie | even split → tie-break ladder | [Tie-Breaking](Tie_Breaking_STAR/tie_breaking.md) |
 | Two candidates | runoff *is* the election | — |
 | Percentages | decided-voters denominator | [runoff percentages](runoff_percentages.md) |

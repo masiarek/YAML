@@ -40,11 +40,11 @@ engaged voters and makes published score totals miss a hand count. (Terms:
 The cleanest proof is the 3-candidate case shown both ways:
 
 - **BetterVoting view** — election ID **`dq2dmm`** (reports `nAbstentions: 3`).
-- **LH view** — the same BV JSON tabulated by LH: [`flat_scores_abstention_c3_b8_tabulated.txt`](../../01_Single_winner/pet_real_bv_election_tabulated/flat_scores_abstention_c3_b8_tabulated.txt) (1 abstention; the flat `3,3,3` counted as Equal Support).
+- **LH view** — the same BV JSON tabulated by LH: [`flat_scores_abstention_c3_b8_tabulated.txt`](../../01_STAR/pet_real_bv_election/pet_real_bv_election_tabulated/flat_scores_abstention_c3_b8_tabulated.txt) (1 abstention; the flat `3,3,3` counted as Equal Support).
 
 <!-- Screenshot slot — BetterVoting result for BV id `dq2dmm` (shows 3 abstentions / 5 tallied).
-     Save as: img/dq2dmm_bv_abstentions.png
-![BetterVoting result for dq2dmm: 3 abstentions / 5 tallied, Banana wins](img/dq2dmm_bv_abstentions.png) -->
+     Save as: img/REPLACE_dq2dmm_bv_abstentions.png
+![BetterVoting result for dq2dmm: 3 abstentions / 5 tallied, Banana wins](img/REPLACE_dq2dmm_bv_abstentions.png) -->
 
 ## Same numbers, different words
 
@@ -76,6 +76,6 @@ Finalists (67%)`, in one line that says what it's dividing by.
 
 ## Evidence & the filed issue
 
-- Frozen BetterVoting result + raw export: [`BV_result_snapshot.md`](../../01_Single_winner/pet_real_bv_election/BV_result_snapshot.md)
-- Minimal cases: [3-candidate](../../01_Single_winner/pet_real_bv_election/small_case_abstention_lesson.md) (a flat `3,3,3` dropped) · [2-candidate](../../01_Single_winner/pet_real_bv_election/small_abstention_c2_b5_lesson.md) (a `5,5` dropped)
-- Write-up filed with BetterVoting: [`LH_BV_reconciliation_issue.md`](../../01_Single_winner/pet_real_bv_election/LH_BV_reconciliation_issue.md) → [Equal-Vote/bettervoting#1407](https://github.com/Equal-Vote/bettervoting/issues/1407)
+- Frozen BetterVoting result + raw export: [`BV_result_snapshot.md`](../../01_STAR/pet_real_bv_election/BV_result_snapshot.md)
+- Minimal cases: [3-candidate](../../01_STAR/pet_real_bv_election/small_case_abstention_lesson.md) (a flat `3,3,3` dropped) · [2-candidate](../../01_STAR/pet_real_bv_election/small_abstention_c2_b5_lesson.md) (a `5,5` dropped)
+- Write-up filed with BetterVoting: [`LH_BV_reconciliation_issue.md`](../../01_STAR/pet_real_bv_election/LH_BV_reconciliation_issue.md) → [Equal-Vote/bettervoting#1407](https://github.com/Equal-Vote/bettervoting/issues/1407)

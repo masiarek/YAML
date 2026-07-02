@@ -20,7 +20,7 @@ STAR, RCV-IRV and Ranked Robin all agree on **Carmen**. Only **Approval** differ
 
 **Flags:** none
 
-**Source election:** [`01_Single_winner/_main/count_simplicity_star_vs_irv.yaml`](../../../01_Single_winner/_main/count_simplicity_star_vs_irv.yaml)  ·  **STAR tabulated mirror:** [`count_simplicity_star_vs_irv_tabulated.txt`](../../../01_Single_winner/_main/_main_tabulated/count_simplicity_star_vs_irv_tabulated.txt)
+**Source election:** [`method_comparisons/_main/count_simplicity_star_vs_irv.yaml`](../../../method_comparisons/_main/count_simplicity_star_vs_irv.yaml)  ·  **STAR tabulated mirror:** [`count_simplicity_star_vs_irv_tabulated.txt`](../../../method_comparisons/_main/_main_tabulated/count_simplicity_star_vs_irv_tabulated.txt)
 
 _5 candidates, 40 ballots._
 

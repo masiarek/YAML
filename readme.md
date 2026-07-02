@@ -56,7 +56,7 @@ count is **legible and reproducible**, so it can be taught and audited.
 | `pref_voting_tabulation_engine/` | Independent cross-check engine — wraps Eric Pacuit's `pref_voting` to verify the LH engine's Condorcet / IRV / Plurality (and report Copeland = Ranked Robin). Optional dep. |
 | `YAML_library/1_positive/` | BetterVoting JSON → YAML converter (`01_convert_json_yaml.py`) and imported elections. |
 | `YAML_library/2_negative/` | Malformed fixtures — every one must fail with the right plain-language error (see Validation philosophy below). |
-| `01_Single_winner/`, `02_Multi_winner/`, `split_voting/` | Hand-authored example elections, grouped by content type. |
+|  `01_STAR/` … `05_Ranked_Robin/`, `method_comparisons/`, `other_methods/` | Hand-authored example elections, grouped by content type. |
 | `simulations/` | Monte-Carlo scripts: Favorite Betrayal frequency and runoff-reversal rates. |
 | `divergence_review/` | Case index + CSV of elections where methods disagree (STAR vs IRV vs Condorcet…). |
 | `_demo_dropbox/` | Watch-folder demo: drop a BetterVoting JSON export in, get canonical YAML + tabulation out. |
@@ -210,7 +210,7 @@ sibling:
 
 ```bash
 python STARVote_LH_tabulation_engine/starvote_larry_hastings.py \
-    01_Single_winner/your_election.yaml
+    01_STAR/your_election.yaml
 ```
 
 **Import a BetterVoting JSON export** — converts every `*.json` in the folder

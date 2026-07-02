@@ -1,8 +1,8 @@
 # YAML_library — the import pipeline & validation fixtures
 
 Two jobs live here. **Teaching elections do not** — those live in
-[`01_Single_winner/`](../01_Single_winner/), [`02_Multi_winner/`](../02_Multi_winner/),
-and [`split_voting/`](../split_voting/), one canonical copy each.
+[`01_STAR/`](../01_STAR/), [`02_STAR_Bloc/`](../02_STAR_Bloc/), [`03_STAR_PR/`](../03_STAR_PR/),
+and [`method_comparisons/`](../method_comparisons/), one canonical copy each.
 
 ## `1_positive/` — the BetterVoting import pipeline
 

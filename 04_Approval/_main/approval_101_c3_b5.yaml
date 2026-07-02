@@ -1,0 +1,32 @@
+election_title: Approval 101 — most approvals wins
+
+scenario_description: |-
+  The simplest Approval election: each voter marks 1 (approve) or 0 for every
+  candidate, and the most-approved candidate wins. Five voters, three
+  candidates. Bob is nobody's only choice, but four of five voters approve
+  him — the broadest support in the field.
+  More Approval cases: method_comparisons/BV_Library (a real BetterVoting
+  approval election) and method_comparisons/black_curtain (the same five
+  voters counted by Approval vs STAR vs RCV-IRV).
+
+options:
+  show_description: false
+  brief: true
+  collapse_ballots: false
+  count_separator: "×"
+
+voting_method: Approval
+num_winners: 1
+
+ballots: |-
+  Ann,Bob,Cal
+  1,1,0   # voter 1 — approves Ann and Bob
+  0,1,1   # voter 2 — approves Bob and Cal
+  1,1,0   # voter 3 — approves Ann and Bob
+  0,1,0   # voter 4 — approves only Bob
+  1,0,1   # voter 5 — approves Ann and Cal
+
+expected_winners:
+  - Bob
+
+# file: approval_101_c3_b5.yaml

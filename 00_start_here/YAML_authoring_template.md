@@ -187,6 +187,6 @@ pytest suite, not the engine — a wrong answer key shows up as a test failure.)
    `pytest tests/test_single_winner_positive.py` — your file is discovered
    automatically (single-winner STAR cases with `expected_winners`).
 
-Live examples to crib from: [`01_Single_winner/`](../01_Single_winner/) —
+Live examples to crib from: [`01_STAR/`](../01_STAR/) —
 start with `01a_c2_b1_two-candidates.yaml` (simplest) and
 `03c_c6_b8_style-gallery.yaml` (every optional field in use).

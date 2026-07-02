@@ -30,8 +30,8 @@ Take the exact ballots that make RCV-IRV fail (see the IRV page), translated to
 0–5 scores (1st → 5, 2nd → 3, unranked → 0), and run STAR before and after **4
 voters raise X**:
 
-→ [`monotonicity_star_before.yaml`](../../01_Single_winner/monotonicity_star_before.yaml)
- · [`monotonicity_star_after.yaml`](../../01_Single_winner/monotonicity_star_after.yaml)
+→ [`monotonicity_star_before.yaml`](../../method_comparisons/monotonicity/monotonicity_star_before.yaml)
+ · [`monotonicity_star_after.yaml`](../../method_comparisons/monotonicity/monotonicity_star_after.yaml)
 
 ```
             BEFORE                         AFTER (4 voters raise X)

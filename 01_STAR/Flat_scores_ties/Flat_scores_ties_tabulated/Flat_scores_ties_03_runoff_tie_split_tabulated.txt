@@ -1,0 +1,108 @@
+======================================================================
+SOURCE FILE:     Flat_scores_ties_03_runoff_tie_split.yaml
+SOURCE MODIFIED: 2026-06-28 22:06:01
+TABULATED FILE:  Flat_scores_ties_03_runoff_tie_split_tabulated.txt
+TABULATED AT:    2026-07-02 12:16:12
+======================================================================
+
+election:
+  election_title: Flat scores 03 — runoff tie, an even 1-1 split
+  election_description: |-
+    Two capitals chosen cleanly, then the runoff splits 1-1 (real opposing preferences).
+    Broken by highest score -> most 5s -> lot -> Athens. Level 201.
+    Lesson: Flat_scores_ties_03_runoff_tie_split.md  (BV id pending).
+  options:
+    show_description: false
+    show_matrix: false
+    matrix_finalists_only: true
+    show_condorcet: false
+    show_score_counts: true
+    show_irv: false
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: false
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "BV id pending"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      Athens, Berlin, Cairo
+      5, 4, 0
+      4, 5, 0
+    lot_numbers: [Athens, Berlin, Cairo]
+    expected_results:
+      winners:
+      - Athens
+
+# file: Flat_scores_ties_03_runoff_tie_split.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Flat scores 03 — runoff tie, an even 1-1 split ===
+  BV id pending
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |  * Athens  | * Berlin  |   Cairo   |
+-----------------------------------------------------
+    * Athens > |    ---     |1 - 0 - 1  |2 - 0 - 0  |
+    * Berlin > | 1 - 0 - 1  |   ---     |2 - 0 - 0  |
+       Cairo > | 0 - 0 - 2  |0 - 0 - 2  |   ---     |
+
+[Condorcet Winner]
+  No strict Condorcet winner; unbeaten candidates: Athens, Berlin (pairwise ties)
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 2 ballots.
+Athens,Berlin,Cairo
+     5,     4,    0
+     4,     5,    0
+
+[Score Distribution] (number of ballots giving each score)
+        5  4  3  2  1  0  | Total   Avg
+Athens  1  1  0  0  0  0  |     9   4.5
+Berlin  1  1  0  0  0  0  |     9   4.5
+Cairo   0  0  0  0  0  2  |     0   0.0
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Athens        -- 9 -- First place
+   Berlin        -- 9 -- Second place
+   Cairo         -- 0
+ Athens and Berlin advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Athens        -- 1 -- Tied for first place
+   Berlin        -- 1 -- Tied for first place
+   Equal Support -- 0
+ There's a two-way tie for first.
+
+[STAR Voting: Automatic Runoff Round: First tiebreaker]
+ The highest-scoring candidate wins.
+   Athens        -- 9 -- Tied for first place
+   Berlin        -- 9 -- Tied for first place
+ There's still a two-way tie for first.
+
+[STAR Voting: Automatic Runoff Round: Second tiebreaker]
+ The candidate with the most votes of score 5 wins.
+   Athens        -- 1 -- Tied for first place
+   Berlin        -- 1 -- Tied for first place
+ There's still a two-way tie for first.
+
+*(Ties are resolved by choosing the tied candidate with the highest-priority official lot number.)*
+    Lot-number priority order: ['Athens', 'Berlin', 'Cairo']
+
+[Tiebreaker: Lot Number Priority]
+  Tie among: ['Athens', 'Berlin']
+  Resolved: ['Athens'] (selected by lot-number priority).
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Athens

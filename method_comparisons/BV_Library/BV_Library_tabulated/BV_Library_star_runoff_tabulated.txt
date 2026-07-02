@@ -1,0 +1,77 @@
+======================================================================
+SOURCE FILE:     BV_Library_star_runoff.yaml
+SOURCE MODIFIED: 2026-07-02 08:52:18
+TABULATED FILE:  BV_Library_star_runoff_tabulated.txt
+TABULATED AT:    2026-07-02 12:16:20
+======================================================================
+
+election_title: "BV parity — STAR: runoff, lower total wins the runoff"
+scenario_description: |-
+  Ported from BetterVoting's tabulator unit tests (Star.test.ts :: "Runoff").
+  Bill wins the automatic runoff despite a simple two-ballot field.
+
+num_winners: 1
+voting_method: STAR
+ballots: |-
+  Allison,Bill
+  0,5
+  2,4
+
+expected_winners:
+  - Bill
+
+# file: BV_Library_star_runoff.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== BV parity — STAR: runoff, lower total wins the runoff ===
+  Ported from BetterVoting's tabulator unit tests (Star.test.ts :: "Runoff").
+  Bill wins the automatic runoff despite a simple two-ballot field.
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+                |  * Allison  |  * Bill    |
+--------------------------------------------
+    * Allison > |     ---     | 0 - 0 - 2  |
+       * Bill > |  2 - 0 - 0  |    ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Bill — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 2 ballots.
+Allison,Bill
+      0,   5
+      2,   4
+
+[Score Distribution] (number of ballots giving each score)
+         5  4  3  2  1  0  | Total   Avg
+Allison  0  0  0  1  0  1  |     2   1.0
+Bill     1  1  0  0  0  0  |     9   4.5
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Bill          -- 9 -- First place
+   Allison       -- 2 -- Second place
+ Bill and Allison advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Bill          -- 2 -- First place
+   Allison       -- 0
+   Equal Support -- 0
+ Bill wins.
+   Runoff math:
+     2  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     2  voters with a preference  (majority = 2)
+           Bill 2 (100%)  ·  Allison 0 (0%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Bill

@@ -26,7 +26,7 @@ summability is about the **count**, not the ballot.)
 
 Take the [two districts IRV can't sum](../RCV_IRV/RCV_IRV_lack_of_summability.md#worked-example--two-districts-both-won-by-b-merged-b-loses)
 (B wins both, but is *eliminated* when merged). Count them with Ranked Robin and the
-pairwise matrices add cell by cell — run [`summability_demo/`](../../01_Single_winner/summability_demo/):
+pairwise matrices add cell by cell — run [`summability_demo/`](../../method_comparisons/summability_demo):
 
 ```
                 A vs B        A vs C        B vs C

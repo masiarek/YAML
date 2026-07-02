@@ -80,7 +80,7 @@ Two transparent steps you can do on a napkin and audit on a precinct table.
 
 ## See it — same winner, very different counts
 
-→ [`01_Single_winner/count_simplicity_star_vs_irv.yaml`](../../01_Single_winner/count_simplicity_star_vs_irv.yaml)
+→ [`method_comparisons/_main/count_simplicity_star_vs_irv.yaml`](../../method_comparisons/_main/count_simplicity_star_vs_irv.yaml)
 (45 voters, 5 candidates). Carmen, the broad consensus, wins under **both** methods — so
 this isn't about who *should* win. It's about the *work the count takes.*
 
@@ -92,8 +92,8 @@ this isn't about who *should* win. It's about the *work the count takes.*
 
 ```
 # run both on the one file:
-python3 STARVote_LH_tabulation_engine/starvote_larry_hastings.py 01_Single_winner/count_simplicity_star_vs_irv.yaml
-python3 RCV_IRV_tabulation_engine/rcv_irv_tabulation.py    01_Single_winner/count_simplicity_star_vs_irv.yaml
+python3 STARVote_LH_tabulation_engine/starvote_larry_hastings.py method_comparisons/_main/count_simplicity_star_vs_irv.yaml
+python3 RCV_IRV_tabulation_engine/rcv_irv_tabulation.py    method_comparisons/_main/count_simplicity_star_vs_irv.yaml
 ```
 
 ## How to say it (without attacking anyone)

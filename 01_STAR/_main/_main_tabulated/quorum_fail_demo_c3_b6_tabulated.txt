@@ -1,0 +1,79 @@
+======================================================================
+SOURCE FILE:     quorum_fail_demo_c3_b6.yaml
+SOURCE MODIFIED: 2026-06-29 14:09:58
+TABULATED FILE:  quorum_fail_demo_c3_b6_tabulated.txt
+TABULATED AT:    2026-07-02 12:16:14
+======================================================================
+
+election_title: Quorum FAILS — won the count, but not elected
+scenario_description: |-
+  The SAME six ballots as `quorum_demo_c3_b6.yaml` (Anna wins the tabulation) —
+  only the assumed electorate changes, and now no one is elected.
+
+  A made-up-for-teaching rule (NOT how real quorum works — a real election uses
+  the actual registered electorate): pretend the electorate is the turnout plus
+  another 100%, i.e. eligible_voters = 6 cast × 2 = 12. The default quorum is a
+  majority (>50%) of eligible voters, so it needs more than 6 — at least 7.
+
+  Exactly 6 of 12 turn out: 50%. A quorum is a *strict* majority, so 50% is not
+  enough — it fails by one. Anna still wins the count, but the election is
+  invalid for lack of turnout, so the engine declares NO WINNER. "Winning the
+  vote" and "being elected" are different things when a quorum isn't met.
+
+  → Concept: 00_start_here/quorum.md
+  → The same ballots that DO reach quorum: 01_Single_winner/quorum_demo_c3_b6.yaml
+
+voting_method: STAR
+num_winners: 1
+eligible_voters: 12   # made-up electorate (turnout 6 + 100%); real elections use the true roll
+# quorum omitted -> default majority (>50%) of 12 = at least 7; only 6 voted.
+
+options:
+  show_description: false
+  show_matrix: false
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  show_runoff_percent: true
+  brief: true
+  collapse_ballots: false
+  count_separator: "×"
+
+ballots: |-
+  Anna, Ben, Cara
+  5, 0, 0
+  5, 1, 0
+  4, 0, 1
+  0, 5, 0
+  1, 4, 0
+  -, -, -    # blank ballot: still counts toward turnout (but turnout is short here)
+
+# No expected_winners: quorum is not met, so no winner is declared.
+
+# file: quorum_fail_demo_c3_b6.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Quorum FAILS — won the count, but not elected ===
+  The SAME six ballots as `quorum_demo_c3_b6.yaml` (Anna wins the tabulation) —
+  only the assumed electorate changes, and now no one is elected.
+
+  A made-up-for-teaching rule (NOT how real quorum works — a real election uses
+  the actual registered electorate): pretend the electorate is the turnout plus
+  another 100%, i.e. eligible_voters = 6 cast × 2 = 12. The default quorum is a
+  majority (>50%) of eligible voters, so it needs more than 6 — at least 7.
+
+  Exactly 6 of 12 turn out: 50%. A quorum is a *strict* majority, so 50% is not
+  enough — it fails by one. Anna still wins the count, but the election is
+  invalid for lack of turnout, so the engine declares NO WINNER. "Winning the
+  vote" and "being elected" are different things when a quorum isn't met.
+
+  → Concept: 00_start_here/quorum.md
+  → The same ballots that DO reach quorum: 01_Single_winner/quorum_demo_c3_b6.yaml
+
+--- STAR Voting Method (single winner) ---
+ Quorum: 6 of 12 eligible voters participated (50% turnout); requires more than 50% (>= 7). NOT MET.
+ No winner declared — quorum not reached.

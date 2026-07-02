@@ -21,5 +21,5 @@ there's almost nothing to keep in sync. Browse by method *or* by topic, whicheve
 | **Ties & tie-breaking** | where ties arise and how the lot order settles them | [ties/](ties/README_ties.md) |
 
 *(Add a new hub when a topic is clearly treated in 2+ method folders. A candidate still
-open: **vote-splitting** — see [`split_voting/`](../../split_voting/) for the worked
+open: **vote-splitting** — see [`split_voting/`](../../method_comparisons/split_voting) for the worked
 examples.)*

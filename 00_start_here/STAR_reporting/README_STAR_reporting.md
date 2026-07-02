@@ -57,7 +57,7 @@ JSON tabulated by LH, i.e. the `_tabulated` mirror). Compare them side by side.
 
 | Example | BetterVoting (election ID) | LH engine (tabulated mirror) |
 |---|---|---|
-| Pet race, 461 ballots | **`pet`** → [bettervoting.com/pet/results](https://bettervoting.com/pet/results) | [`best_pet_c7_b461_tabulated.txt`](../../01_Single_winner/pet_real_bv_election_tabulated/best_pet_c7_b461_tabulated.txt) · [lesson](../../01_Single_winner/pet_real_bv_election/README_pet_real_bv_election.md) |
-| 3-candidate flat-scores | **`dq2dmm`** | [`flat_scores_abstention_c3_b8_tabulated.txt`](../../01_Single_winner/pet_real_bv_election_tabulated/flat_scores_abstention_c3_b8_tabulated.txt) · [lesson](../../01_Single_winner/pet_real_bv_election/small_case_abstention_lesson.md) |
-| 2-candidate minimal | **`3w6v4b`** | [`small_abstention_c2_b5_tabulated.txt`](../../01_Single_winner/pet_real_bv_election_tabulated/small_abstention_c2_b5_tabulated.txt) · [lesson](../../01_Single_winner/pet_real_bv_election/small_abstention_c2_b5_lesson.md) |
-| Runoff tie | *(create one — see [ties](reporting_ties.md))* | [`02b_c3_b2_three-candidates_tabulated.txt`](../../01_Single_winner_tabulated/02b_c3_b2_three-candidates_tabulated.txt) |
+| Pet race, 461 ballots | **`pet`** → [bettervoting.com/pet/results](https://bettervoting.com/pet/results) | [`best_pet_c7_b461_tabulated.txt`](../../01_STAR/pet_real_bv_election/pet_real_bv_election_tabulated/best_pet_c7_b461_tabulated.txt) · [lesson](../../01_STAR/pet_real_bv_election/README_pet_real_bv_election.md) |
+| 3-candidate flat-scores | **`dq2dmm`** | [`flat_scores_abstention_c3_b8_tabulated.txt`](../../01_STAR/pet_real_bv_election/pet_real_bv_election_tabulated/flat_scores_abstention_c3_b8_tabulated.txt) · [lesson](../../01_STAR/pet_real_bv_election/small_case_abstention_lesson.md) |
+| 2-candidate minimal | **`3w6v4b`** | [`small_abstention_c2_b5_tabulated.txt`](../../01_STAR/pet_real_bv_election/pet_real_bv_election_tabulated/small_abstention_c2_b5_tabulated.txt) · [lesson](../../01_STAR/pet_real_bv_election/small_abstention_c2_b5_lesson.md) |
+| Runoff tie | *(create one — see [ties](reporting_ties.md))* | [`02b_c3_b2_three-candidates_tabulated.txt`](../../01_STAR/_main/_main_tabulated/02b_c3_b2_three-candidates_tabulated.txt) |

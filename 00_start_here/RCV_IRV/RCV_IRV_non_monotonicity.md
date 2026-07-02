@@ -46,8 +46,8 @@ opponent who would have lost to them, leaving behind the opponent who beats them
 The classic 3-candidate case, as two elections that differ by **one change**: 4
 voters raise X from second to first.
 
-→ [`monotonicity_irv_before.yaml`](../../01_Single_winner/monotonicity_irv_before.yaml)
- · [`monotonicity_irv_after.yaml`](../../01_Single_winner/monotonicity_irv_after.yaml)
+→ [`monotonicity_irv_before.yaml`](../../method_comparisons/monotonicity/monotonicity_irv_before.yaml)
+ · [`monotonicity_irv_after.yaml`](../../method_comparisons/monotonicity/monotonicity_irv_after.yaml)
 
 ```
 BEFORE                              AFTER  (4 voters raise X: Y>Z → X>Y)

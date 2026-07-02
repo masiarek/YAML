@@ -1,0 +1,135 @@
+======================================================================
+SOURCE FILE:     Flat_scores_ties_06_scoring_tie_4way.yaml
+SOURCE MODIFIED: 2026-06-28 22:13:54
+TABULATED FILE:  Flat_scores_ties_06_scoring_tie_4way_tabulated.txt
+TABULATED AT:    2026-07-02 12:16:12
+======================================================================
+
+election:
+  election_title: Flat scores 06 — scoring-round 4-way tie (ties at every step)
+  election_description: |-
+    Ava, Ben, Cara, Dan tie at 10; ties persist through every score-based tiebreaker, the
+    lot picks two finalists, and the runoff also ties -> lot again -> Ava. BV bugs: 'no
+    ballots cast' under multi-step ties (BV126 #1052); wrong finalists #1379; tie-break export #1371 (closed).
+    Level 301. Lesson: Flat_scores_ties_06_scoring_tie_4way.md  (BV id pending).
+  options:
+    show_description: false
+    show_matrix: false
+    matrix_finalists_only: true
+    show_condorcet: false
+    show_score_counts: true
+    show_irv: false
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: false
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "BV id pending"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      Ava, Ben, Cara, Dan, Eve
+      5, 5, 5, 5, 1
+      5, 5, 5, 5, 1
+    lot_numbers: [Ava, Ben, Cara, Dan, Eve]
+    expected_results:
+      winners:
+      - Ava
+
+# file: Flat_scores_ties_06_scoring_tie_4way.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Flat scores 06 — scoring-round 4-way tie (ties at every step) ===
+  BV id pending
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |   * Ava    |  * Ben    |    Cara   |    Dan    |    Eve    |
+-----------------------------------------------------------------------------
+       * Ava > |    ---     |0 - 2 - 0  |0 - 2 - 0  |0 - 2 - 0  |2 - 0 - 0  |
+       * Ben > | 0 - 2 - 0  |   ---     |0 - 2 - 0  |0 - 2 - 0  |2 - 0 - 0  |
+        Cara > | 0 - 2 - 0  |0 - 2 - 0  |   ---     |0 - 2 - 0  |2 - 0 - 0  |
+         Dan > | 0 - 2 - 0  |0 - 2 - 0  |0 - 2 - 0  |   ---     |2 - 0 - 0  |
+         Eve > | 0 - 0 - 2  |0 - 0 - 2  |0 - 0 - 2  |0 - 0 - 2  |   ---     |
+
+[Condorcet Winner]
+  No strict Condorcet winner; unbeaten candidates: Ava, Ben, Cara, Dan (pairwise ties)
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 2 ballots.
+Count × Ava,Ben,Cara,Dan,Eve
+    2 ×   5,  5,   5,  5,  1
+
+[Score Distribution] (number of ballots giving each score)
+      5  4  3  2  1  0  | Total   Avg
+Ava   2  0  0  0  0  0  |    10   5.0
+Ben   2  0  0  0  0  0  |    10   5.0
+Cara  2  0  0  0  0  0  |    10   5.0
+Dan   2  0  0  0  0  0  |    10   5.0
+Eve   0  0  0  0  2  0  |     2   1.0
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Ava           -- 10 -- Tied for first place
+   Ben           -- 10 -- Tied for first place
+   Cara          -- 10 -- Tied for first place
+   Dan           -- 10 -- Tied for first place
+   Eve           --  2
+ There's a four-way tie for first.
+
+[STAR Voting: Scoring Round: First tiebreaker]
+ The two candidates preferred in the most head-to-head matchups advance.
+   Ava           -- 0 -- Tied for first place
+   Ben           -- 0 -- Tied for first place
+   Cara          -- 0 -- Tied for first place
+   Dan           -- 0 -- Tied for first place
+   Equal Support -- 2
+ There's still a four-way tie for first.
+
+[STAR Voting: Scoring Round: Second tiebreaker]
+ The two candidates with the most votes of score 5 advance.
+   Ava           -- 2 -- Tied for first place
+   Ben           -- 2 -- Tied for first place
+   Cara          -- 2 -- Tied for first place
+   Dan           -- 2 -- Tied for first place
+ There's still a four-way tie for first.
+
+*(Ties are resolved by choosing the tied candidate with the highest-priority official lot number.)*
+    Lot-number priority order: ['Ava', 'Ben', 'Cara', 'Dan', 'Eve']
+
+[Tiebreaker: Lot Number Priority]
+  Tie among: ['Ava', 'Ben', 'Cara', 'Dan']
+  Resolved: ['Ava', 'Ben'] (selected by lot-number priority).
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Ava           -- 0 -- Tied for first place
+   Ben           -- 0 -- Tied for first place
+   Equal Support -- 2
+ There's a two-way tie for first.
+
+[STAR Voting: Automatic Runoff Round: First tiebreaker]
+ The highest-scoring candidate wins.
+   Ava           -- 10 -- Tied for first place
+   Ben           -- 10 -- Tied for first place
+ There's still a two-way tie for first.
+
+[STAR Voting: Automatic Runoff Round: Second tiebreaker]
+ The candidate with the most votes of score 5 wins.
+   Ava           -- 2 -- Tied for first place
+   Ben           -- 2 -- Tied for first place
+ There's still a two-way tie for first.
+
+[Tiebreaker: Lot Number Priority]
+  Tie among: ['Ava', 'Ben']
+  Resolved: ['Ava'] (selected by lot-number priority).
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Ava

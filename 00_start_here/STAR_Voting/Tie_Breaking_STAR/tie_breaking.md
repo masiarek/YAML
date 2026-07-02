@@ -212,7 +212,7 @@ column-order fallback is exactly what you want.
   **Equal Support** — [`GLOSSARY.md`](../../GLOSSARY.md)
 - Equal-score handling in the runoff:
   [`are_equal_score_votes_discounted.md`](../../../interviews_conversations/are_equal_score_votes_discounted.md)
-  · demo [`equal_support_runoff_demo.yaml`](../../../01_Single_winner/equal_support_runoff_demo.yaml)
+  · demo [`equal_support_runoff_demo.yaml`](../../../01_STAR/_main/equal_support_runoff_demo.yaml)
 - Converter + engine wiring and the full test matrix (perm, `tieBreakOrder`,
   no-sequence, manual override, column-order fallback, and the non-vacuous
   self-check): [`tests/test_lot_number_tiebreak.py`](../../../STARVote_LH_tabulation_engine/tests/test_lot_number_tiebreak.py)

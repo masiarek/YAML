@@ -10,8 +10,8 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
   can show it on screen, plus the matching repo **lesson** (BV screenshots beside the
   LH text report).
 - **Concept hub backing this deck:** [The Automatic Runoff Round](STAR_Automatic_Runoff.md)
-  · the worked teaching set: [`runoff_overturns_leader/`](../../01_Single_winner/runoff_overturns_leader/README_runoff_overturns_leader.md)
-  · presenter's guide: [`teaching_runoff_reversal.md`](../../01_Single_winner/runoff_overturns_leader/teaching_runoff_reversal.md).
+  · the worked teaching set: [`runoff_overturns_leader/`](../../01_STAR/runoff_overturns_leader/README_runoff_overturns_leader.md)
+  · presenter's guide: [`teaching_runoff_reversal.md`](../../01_STAR/runoff_overturns_leader/teaching_runoff_reversal.md).
 
 ---
 
@@ -111,7 +111,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 
 > Notes: Open the BV link live; point at the dashed majority line Aspen clears.
 > Live result: <https://bettervoting.com/r2pvc9/results>
-> Lesson: [Runoff 01 — confirms the leader](../../01_Single_winner/runoff_overturns_leader/Runoff_01_confirms_leader_r2pvc9.md).
+> Lesson: [Runoff 01 — confirms the leader](../../01_STAR/runoff_overturns_leader/Runoff_01_confirms_leader_r2pvc9.md).
 
 ---
 
@@ -138,7 +138,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 > Notes: Put slide 8 (Aspen) and this side by side if you can — identical mechanism,
 > opposite outcome, because the preferences differ.
 > Live result: <https://bettervoting.com/yx9447/results>
-> Lesson: [Runoff 02 — the atom](../../01_Single_winner/runoff_overturns_leader/Runoff_02_atom_reversal_yx9447.md).
+> Lesson: [Runoff 02 — the atom](../../01_STAR/runoff_overturns_leader/Runoff_02_atom_reversal_yx9447.md).
 
 ---
 
@@ -153,7 +153,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 
 > Notes: Use this to kill the "cute toy example" objection. Same shape, bigger room.
 > Live result: <https://bettervoting.com/bfjqmg/results>
-> Lesson: [Runoff 04 — reversal at scale](../../01_Single_winner/runoff_overturns_leader/Runoff_04_reversal_at_scale_bfjqmg.md).
+> Lesson: [Runoff 04 — reversal at scale](../../01_STAR/runoff_overturns_leader/Runoff_04_reversal_at_scale_bfjqmg.md).
 
 ---
 
@@ -168,7 +168,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 > Notes: First 201 slide. Good place to say: STAR rewards breadth of support, not just
 > intensity. Eden is also the Condorcet winner — a calm case, no cross-method drama.
 > Live result: <https://bettervoting.com/rkgtpk/results>
-> Lesson: [Runoff 03 — enthusiasts vs majority](../../01_Single_winner/runoff_overturns_leader/Runoff_03_enthusiasts_vs_majority_rkgtpk.md).
+> Lesson: [Runoff 03 — enthusiasts vs majority](../../01_STAR/runoff_overturns_leader/Runoff_03_enthusiasts_vs_majority_rkgtpk.md).
 
 ---
 
@@ -184,7 +184,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 > Notes: The single most-confused term in STAR. Hammer "cast vote, no preference ≠ didn't
 > vote." This is the bridge to the two-denominator slide.
 > Live result: <https://bettervoting.com/xgkw3w/results>
-> Lesson: [Runoff 05 — reversal with Equal Support](../../01_Single_winner/runoff_overturns_leader/Runoff_05_reversal_with_equal_support_xgkw3w.md)
+> Lesson: [Runoff 05 — reversal with Equal Support](../../01_STAR/runoff_overturns_leader/Runoff_05_reversal_with_equal_support_xgkw3w.md)
 > · term: [`GLOSSARY`](../GLOSSARY.md).
 
 ---
@@ -214,7 +214,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 > Notes: Reassures the room the runoff isn't out to overturn leaders for sport. It
 > confirms far more often than it reverses.
 > Live result: <https://bettervoting.com/d664xw/results>
-> Lesson: [Runoff 06 — confirms at scale](../../01_Single_winner/runoff_overturns_leader/Runoff_06_confirms_at_scale_d664xw.md).
+> Lesson: [Runoff 06 — confirms at scale](../../01_STAR/runoff_overturns_leader/Runoff_06_confirms_at_scale_d664xw.md).
 
 ---
 
@@ -257,7 +257,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 
 > Notes: "Center squeeze" is an **IRV**-specific failure — name IRV precisely here, not
 > "RCV." STAR's runoff is what avoids it.
-> Comparison: [center squeeze, STAR vs IRV](../../01_Single_winner/center_squeeze_star.yaml).
+> Comparison: [center squeeze, STAR vs IRV](../../method_comparisons/center_squeeze/center_squeeze_star.yaml).
 
 ---
 
@@ -286,7 +286,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 
 > Notes: For an audience that will actually run elections. Skip for a pure intro talk.
 > Detail: [reporting_diff_BV_LH](../STAR_reporting/reporting_diff_BV_LH.md)
-> · the full set: [`runoff_overturns_leader/`](../../01_Single_winner/runoff_overturns_leader/README_runoff_overturns_leader.md).
+> · the full set: [`runoff_overturns_leader/`](../../01_STAR/runoff_overturns_leader/README_runoff_overturns_leader.md).
 
 ---
 
@@ -302,8 +302,8 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 > Notes: Optional 301 capstone — shows the audience how to *audit* a result and why the
 > Equal-Support vs abstention distinction (slide 13) actually matters in practice.
 > Live result: <https://bettervoting.com/tf73v9/results>
-> Lesson: [Runoff 07 — flat ballot / BV bug (WIP)](../../01_Single_winner/runoff_overturns_leader/Runoff_07_flat_ballot_bv_bug_tf73v9.md)
-> · the bug in full: [`small_case_abstention_lesson.md`](../../01_Single_winner/pet_real_bv_election/small_case_abstention_lesson.md).
+> Lesson: [Runoff 07 — flat ballot / BV bug (WIP)](../../01_STAR/runoff_overturns_leader/Runoff_07_flat_ballot_bv_bug_tf73v9.md)
+> · the bug in full: [`small_case_abstention_lesson.md`](../../01_STAR/pet_real_bv_election/small_case_abstention_lesson.md).
 
 ---
 
@@ -317,7 +317,7 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 > Notes: End on the promise you opened with (slide 1). If you only had three sentences,
 > these are them.
 > Concept hub: [The Automatic Runoff Round](STAR_Automatic_Runoff.md)
-> · teaching guide: [`teaching_runoff_reversal.md`](../../01_Single_winner/runoff_overturns_leader/teaching_runoff_reversal.md).
+> · teaching guide: [`teaching_runoff_reversal.md`](../../01_STAR/runoff_overturns_leader/teaching_runoff_reversal.md).
 
 ---
 
@@ -325,13 +325,13 @@ two denominators) for a technical/debate crowd. Stop wherever your audience is.
 
 | # | Slide | Level | BetterVoting result | Repo lesson |
 |---|-------|:---:|---------------------|-------------|
-| 01 | confirms the leader (control) | 101 | [r2pvc9](https://bettervoting.com/r2pvc9/results) | [Runoff_01](../../01_Single_winner/runoff_overturns_leader/Runoff_01_confirms_leader_r2pvc9.md) |
-| 02 | the atom (smallest reversal) | 101 | [yx9447](https://bettervoting.com/yx9447/results) | [Runoff_02](../../01_Single_winner/runoff_overturns_leader/Runoff_02_atom_reversal_yx9447.md) |
-| 03 | enthusiasts vs majority | 201 | [rkgtpk](https://bettervoting.com/rkgtpk/results) | [Runoff_03](../../01_Single_winner/runoff_overturns_leader/Runoff_03_enthusiasts_vs_majority_rkgtpk.md) |
-| 04 | reversal at scale (67/33) | 101 | [bfjqmg](https://bettervoting.com/bfjqmg/results) | [Runoff_04](../../01_Single_winner/runoff_overturns_leader/Runoff_04_reversal_at_scale_bfjqmg.md) |
-| 05 | reversal with Equal Support | 201 | [xgkw3w](https://bettervoting.com/xgkw3w/results) | [Runoff_05](../../01_Single_winner/runoff_overturns_leader/Runoff_05_reversal_with_equal_support_xgkw3w.md) |
-| 06 | confirms at scale (control) | 101 | [d664xw](https://bettervoting.com/d664xw/results) | [Runoff_06](../../01_Single_winner/runoff_overturns_leader/Runoff_06_confirms_at_scale_d664xw.md) |
-| 07 ⚠️ | flat ballot / BV bug (WIP) | 301 | [tf73v9](https://bettervoting.com/tf73v9/results) | [Runoff_07](../../01_Single_winner/runoff_overturns_leader/Runoff_07_flat_ballot_bv_bug_tf73v9.md) |
+| 01 | confirms the leader (control) | 101 | [r2pvc9](https://bettervoting.com/r2pvc9/results) | [Runoff_01](../../01_STAR/runoff_overturns_leader/Runoff_01_confirms_leader_r2pvc9.md) |
+| 02 | the atom (smallest reversal) | 101 | [yx9447](https://bettervoting.com/yx9447/results) | [Runoff_02](../../01_STAR/runoff_overturns_leader/Runoff_02_atom_reversal_yx9447.md) |
+| 03 | enthusiasts vs majority | 201 | [rkgtpk](https://bettervoting.com/rkgtpk/results) | [Runoff_03](../../01_STAR/runoff_overturns_leader/Runoff_03_enthusiasts_vs_majority_rkgtpk.md) |
+| 04 | reversal at scale (67/33) | 101 | [bfjqmg](https://bettervoting.com/bfjqmg/results) | [Runoff_04](../../01_STAR/runoff_overturns_leader/Runoff_04_reversal_at_scale_bfjqmg.md) |
+| 05 | reversal with Equal Support | 201 | [xgkw3w](https://bettervoting.com/xgkw3w/results) | [Runoff_05](../../01_STAR/runoff_overturns_leader/Runoff_05_reversal_with_equal_support_xgkw3w.md) |
+| 06 | confirms at scale (control) | 101 | [d664xw](https://bettervoting.com/d664xw/results) | [Runoff_06](../../01_STAR/runoff_overturns_leader/Runoff_06_confirms_at_scale_d664xw.md) |
+| 07 ⚠️ | flat ballot / BV bug (WIP) | 301 | [tf73v9](https://bettervoting.com/tf73v9/results) | [Runoff_07](../../01_STAR/runoff_overturns_leader/Runoff_07_flat_ballot_bv_bug_tf73v9.md) |
 
 **Suggested cuts by audience:** *public intro (101)* → slides 1–11, 15–18, 22. *Technical
 / debate (201+)* → all of it. *Lightning (8–10 min)* → 1, 3, 4, 5, 9, 10, 18, 22.

@@ -1,0 +1,94 @@
+======================================================================
+SOURCE FILE:     Flat_scores_ties_01_baseline_clean.yaml
+SOURCE MODIFIED: 2026-06-28 22:06:01
+TABULATED FILE:  Flat_scores_ties_01_baseline_clean_tabulated.txt
+TABULATED AT:    2026-07-02 12:16:12
+======================================================================
+
+election:
+  election_title: Flat scores 01 — clean top two (works-fine baseline)
+  election_description: |-
+    The control. Distinct totals leave an unambiguous top two and a decisive runoff, so
+    NO tie-break fires anywhere; BV and LH agree trivially. Fruits cast. Level 101.
+    Lesson: Flat_scores_ties_01_baseline_clean.md  (BV id pending).
+  options:
+    show_description: false
+    show_matrix: false
+    matrix_finalists_only: true
+    show_condorcet: false
+    show_score_counts: true
+    show_irv: false
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: false
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "BV id pending"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      Apple, Banana, Cherry
+      5, 3, 1
+      5, 3, 1
+    lot_numbers: [Apple, Banana, Cherry]
+    expected_results:
+      winners:
+      - Apple
+
+# file: Flat_scores_ties_01_baseline_clean.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Flat scores 01 — clean top two (works-fine baseline) ===
+  BV id pending
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |  * Apple   | * Banana  |   Cherry  |
+-----------------------------------------------------
+     * Apple > |    ---     |2 - 0 - 0  |2 - 0 - 0  |
+    * Banana > | 0 - 0 - 2  |   ---     |2 - 0 - 0  |
+      Cherry > | 0 - 0 - 2  |0 - 0 - 2  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Apple — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 2 ballots.
+Count × Apple,Banana,Cherry
+    2 ×     5,     3,     1
+
+[Score Distribution] (number of ballots giving each score)
+        5  4  3  2  1  0  | Total   Avg
+Apple   2  0  0  0  0  0  |    10   5.0
+Banana  0  0  2  0  0  0  |     6   3.0
+Cherry  0  0  0  0  2  0  |     2   1.0
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Apple         -- 10 -- First place
+   Banana        --  6 -- Second place
+   Cherry        --  2
+ Apple and Banana advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Apple         -- 2 -- First place
+   Banana        -- 0
+   Equal Support -- 0
+ Apple wins.
+   Runoff math:
+     2  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     2  voters with a preference  (majority = 2)
+           Apple 2 (100%)  ·  Banana 0 (0%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Apple

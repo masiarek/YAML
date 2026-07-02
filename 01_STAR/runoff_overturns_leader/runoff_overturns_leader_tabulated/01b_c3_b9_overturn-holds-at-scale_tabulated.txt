@@ -1,0 +1,110 @@
+======================================================================
+SOURCE FILE:     01b_c3_b9_overturn-holds-at-scale.yaml
+SOURCE MODIFIED: 2026-06-26 18:42:52
+TABULATED FILE:  01b_c3_b9_overturn-holds-at-scale_tabulated.txt
+TABULATED AT:    2026-07-02 12:16:12
+======================================================================
+
+election_title: The same overturn at scale — 67% to 33%
+scenario_description: |-
+  Same election as 01a, just more voters — proof the three-person version wasn't a
+  fluke. Three Almond superfans (5 stars) against six who prefer Brownie. Almond
+  still leads the scoring round (39 to 33), and Brownie still wins the automatic
+  runoff — now 6-3, a clean 67% to 33%. The pattern doesn't depend on small numbers.
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  brief: true
+  collapse_ballots: true
+  count_separator: "×"
+voting_method: STAR
+num_winners: 1
+ballots: |-
+  Almond, Brownie, Cocoa
+       5,       1,     0
+       5,       1,     0
+       5,       1,     0
+       4,       5,     0
+       4,       5,     0
+       4,       5,     0
+       4,       5,     0
+       4,       5,     0
+       4,       5,     0
+expected_winners:
+  - Brownie
+
+# file: 01b_c3_b9_overturn-holds-at-scale.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== The same overturn at scale — 67% to 33% ===
+  Same election as 01a, just more voters — proof the three-person version wasn't a
+  fluke. Three Almond superfans (5 stars) against six who prefer Brownie. Almond
+  still leads the scoring round (39 to 33), and Brownie still wins the automatic
+  runoff — now 6-3, a clean 67% to 33%. The pattern doesn't depend on small numbers.
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+                |  * Almond   | * Brownie  |    Cocoa   |
+---------------------------------------------------------
+     * Almond > |     ---     | 3 - 0 - 6  | 9 - 0 - 0  |
+    * Brownie > |  6 - 0 - 3  |    ---     | 9 - 0 - 0  |
+        Cocoa > |  0 - 0 - 9  | 0 - 0 - 9  |    ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Brownie — matches the STAR winner
+
+[Divergence from STAR]
+  STAR     = Brownie
+  Approval = Almond   (differs from STAR)
+
+Majority Preference Enforcement Principle:
+ - Score Round Winner(s) = (Almond)
+ - Runoff Round Winner   = (Brownie)
+  Candidate Almond earned the highest total score,
+  but Candidate Brownie won the automatic runoff by being the head-to-head majority favorite.
+
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 9 ballots.
+Count × Almond,Brownie,Cocoa
+    6 ×      4,      5,    0
+    3 ×      5,      1,    0
+
+[Score Distribution] (number of ballots giving each score)
+         5  4  3  2  1  0  | Total   Avg
+Almond   3  6  0  0  0  0  |    39   4.3
+Brownie  6  0  0  0  3  0  |    33   3.7
+Cocoa    0  0  0  0  0  9  |     0   0.0
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Almond        -- 39 -- First place
+   Brownie       -- 33 -- Second place
+   Cocoa         --  0
+ Almond and Brownie advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Brownie       -- 6 -- First place
+   Almond        -- 3
+   Equal Support -- 0
+ Brownie wins.
+   Runoff math:
+     9  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     9  voters with a preference  (majority = 5)
+           Brownie 6 (67%)  ·  Almond 3 (33%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Brownie

@@ -1,0 +1,117 @@
+======================================================================
+SOURCE FILE:     02a_c3_b1_three-candidates.yaml
+SOURCE MODIFIED: 2026-06-24 07:58:37
+TABULATED FILE:  02a_c3_b1_three-candidates_tabulated.txt
+TABULATED AT:    2026-07-02 12:16:16
+======================================================================
+
+election_title: Three candidates, one ballot - single-winner STAR
+scenario_description: |-
+  Election: Pick your favorite ice cream flavor.
+  Edge case: one voter only (one ballot).
+
+  Caroline - she scores all three flavors:
+  - she loves Choco flavor (5 stars)
+  - she is OK with Vanilla flavor (3 stars)
+  - she dislikes Almond flavor (0 stars)
+
+  With a single voter, the winner is simply her highest-scored flavor (Choco);
+  the automatic runoff can't change that. This is our baseline before we add
+  more voters in the next example.
+
+# Presenter notes (ignored by the engine; not shown to the audience).
+video_script: |-
+  SAY: "We now have THREE flavors but, for one moment, just one voter. With one
+       ballot the winner is obviously her favorite, Choco."
+  HOW: Keep it brief - this is a setup slide, not the payoff.
+  WHY: Hold candidates at 3 but voters at 1, so the next example changes exactly
+       ONE thing (a second voter) and the winner can flip cleanly.
+  TRANSITION: "Remember Choco wins here. Watch what happens when one more person
+       votes - the winner is about to change."
+
+options:
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
+  show_matrix: true   # show the Runoff (Preference) Matrix
+  matrix_finalists_only: true   # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_condorcet: false   # show the [Condorcet Winner] line
+  show_score_counts: false   # show the per-candidate [Score Distribution] table
+  show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"   # collapsed-count separator: ×, :, or x/X
+
+voting_method: STAR   # STAR Voting - Single-winner
+num_winners: 1
+ballots: |-
+  Choco,Vanilla,Almond
+      5,      3,     0  # Caroline loves Choco flavor
+
+expected_winners:
+  - Choco
+
+# file: 02a_c3_b1_three-candidates.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Three candidates, one ballot - single-winner STAR ===
+  Election: Pick your favorite ice cream flavor.
+  Edge case: one voter only (one ballot).
+
+  Caroline - she scores all three flavors:
+  - she loves Choco flavor (5 stars)
+  - she is OK with Vanilla flavor (3 stars)
+  - she dislikes Almond flavor (0 stars)
+
+  With a single voter, the winner is simply her highest-scored flavor (Choco);
+  the automatic runoff can't change that. This is our baseline before we add
+  more voters in the next example.
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+                |   * Choco   | * Vanilla  |   Almond   |
+---------------------------------------------------------
+      * Choco > |     ---     | 1 - 0 - 0  | 1 - 0 - 0  |
+    * Vanilla > |  0 - 0 - 1  |    ---     | 1 - 0 - 0  |
+       Almond > |  0 - 0 - 1  | 0 - 0 - 1  |    ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Choco — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 1 ballot.
+Choco,Vanilla,Almond
+    5,      3,     0
+
+[Score Distribution] (number of ballots giving each score)
+         5  4  3  2  1  0  | Total   Avg
+Choco    1  0  0  0  0  0  |     5   5.0
+Vanilla  0  0  1  0  0  0  |     3   3.0
+Almond   0  0  0  0  0  1  |     0   0.0
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Choco         -- 5 -- First place
+   Vanilla       -- 3 -- Second place
+   Almond        -- 0
+ Choco and Vanilla advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Choco         -- 1 -- First place
+   Vanilla       -- 0
+   Equal Support -- 0
+ Choco wins.
+   Runoff math:
+     1  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     1  voters with a preference  (majority = 1)
+           Choco 1 (100%)  ·  Vanilla 0 (0%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Choco

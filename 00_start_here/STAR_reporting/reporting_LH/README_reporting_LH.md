@@ -53,4 +53,4 @@ runoff line expanded into the funnel — so the saved audit copy is fully
 self-explanatory. Which flag shows which section: [**LH reporting options**](options.md).
 (House defaults: `CLAUDE.md`.)
 
-See it on a real election: [the pet race report](../../../01_Single_winner/pet_real_bv_election/README_pet_real_bv_election.md).
+See it on a real election: [the pet race report](../../../01_STAR/pet_real_bv_election/README_pet_real_bv_election.md).

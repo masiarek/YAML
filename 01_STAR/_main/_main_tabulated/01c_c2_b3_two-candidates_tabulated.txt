@@ -1,0 +1,108 @@
+======================================================================
+SOURCE FILE:     01c_c2_b3_two-candidates.yaml
+SOURCE MODIFIED: 2026-06-24 07:58:37
+TABULATED FILE:  01c_c2_b3_two-candidates_tabulated.txt
+TABULATED AT:    2026-07-02 12:16:14
+======================================================================
+
+election_title: Equal support example ("I like both flavors")
+
+scenario_description: |-
+  Now we add a third ballot, from Julia, who likes both flavors equally (both 5 stars).
+  Because she scores the two finalists the same, her ballot counts as
+  "Equal Support = 1" in the Automatic Runoff Round.
+
+# Presenter notes (ignored by the engine; not shown to the audience).
+video_script: |-
+  SAY: "Julia scores both flavors a 5 - she genuinely has no preference. STAR
+       lets her do that. Watch the runoff: her ballot shows up as 'Equal
+       Support', not a vote for either finalist."
+  HOW: Pause on the 'Equal Support = 1' line; this is the first new vocabulary.
+  WHY: Introduce equal scores and the 'Equal Support' bucket on a tiny, safe
+       example so the term is familiar before it appears in bigger elections.
+  POINT OUT: Equal scores are allowed and honest - you are never forced to
+       invent a preference you don't feel.
+  TRANSITION: "That's the full mechanics with two candidates: scoring, the top
+       two, and an automatic runoff that can register 'no preference'. Now the
+       payoff - let's add a THIRD flavor and watch the winner change."
+
+options:
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
+  show_matrix: false   # show the Runoff (Preference) Matrix
+  matrix_finalists_only: false   # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_condorcet: false   # show the [Condorcet Winner] line
+  show_score_counts: false   # show the per-candidate [Score Distribution] table
+  show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"   # collapsed-count separator: ×, :, or x/X
+
+voting_method: STAR   # STAR Voting - Single-winner
+num_winners: 1
+
+ballots: |-
+  Choco,Vanilla
+      5,      3       # Caroline - she likes both flavors
+      5,      0       # George - he likes only one flavor (Choco)
+      5,      5       # Julia - she likes both flavors equally
+
+expected_winners:
+  - Choco
+
+# file: 01c_c2_b3_two-candidates.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Equal support example ("I like both flavors") ===
+  Now we add a third ballot, from Julia, who likes both flavors equally (both 5 stars).
+  Because she scores the two finalists the same, her ballot counts as
+  "Equal Support = 1" in the Automatic Runoff Round.
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+                |   * Choco   | * Vanilla  |
+--------------------------------------------
+      * Choco > |     ---     | 2 - 1 - 0  |
+    * Vanilla > |  0 - 1 - 2  |    ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Choco — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 3 ballots.
+Choco,Vanilla
+    5,      3
+    5,      0
+    5,      5
+
+[Score Distribution] (number of ballots giving each score)
+         5  4  3  2  1  0  | Total   Avg
+Choco    3  0  0  0  0  0  |    15   5.0
+Vanilla  1  0  1  0  0  1  |     8   2.7
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Choco         -- 15 -- First place
+   Vanilla       --  8 -- Second place
+ Choco and Vanilla advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Choco         -- 2 -- First place
+   Vanilla       -- 0
+   Equal Support -- 1
+ Choco wins.
+   Runoff math:
+     3  ballots cast
+   − 1  Equal Support (no preference between the two finalists)
+     ─
+     2  voters with a preference  (majority = 2)
+           Choco 2 (100%)  ·  Vanilla 0 (0%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Choco

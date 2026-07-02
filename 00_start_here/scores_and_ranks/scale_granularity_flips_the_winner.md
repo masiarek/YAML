@@ -7,12 +7,12 @@ works one real example where it does exactly that.*
 
 → Companions: [the fidelity ladder](fidelity_ladder.md) · [scores vs. ranks](scores_vs_ranks.md) ·
 Black Curtain lesson #5 (the 0–9 → 0–5 problem) in
-[`README_black_curtain.md`](../../01_Single_winner/black_curtain/README_black_curtain.md) ·
+[`README_black_curtain.md`](../../method_comparisons/black_curtain/README_black_curtain.md) ·
 Curriculum: [301.1 (RRV/proportional)](../CURRICULUM.md) and
 [301.6 (when Score/Runoff/Condorcet disagree)](../CURRICULUM.md)
 
-Files: [`rrv_sample_c15_b13_three-parties.yaml`](../../01_Single_winner/_main/rrv_sample_c15_b13_three-parties.yaml) ·
-full report [`…_tabulated.txt`](../../01_Single_winner/_main/_main_tabulated/rrv_sample_c15_b13_three-parties_tabulated.txt)
+Files: [`rrv_sample_c15_b13_three-parties.yaml`](../../03_STAR_PR/_main/rrv_sample_c15_b13_three-parties.yaml) ·
+full report [`…_tabulated.txt`](../../03_STAR_PR/_main/_main_tabulated/rrv_sample_c15_b13_three-parties_tabulated.txt)
 
 ---
 

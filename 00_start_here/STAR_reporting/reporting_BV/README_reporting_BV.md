@@ -56,4 +56,4 @@ filing flat ballots under **Equal Support**. Same winner, different tally and sc
 totals — see [Where the two reports differ](../reporting_diff_BV_LH.md).
 
 Try it: [bettervoting.com](https://bettervoting.com) · a real frozen result:
-[pet race snapshot](../../../01_Single_winner/pet_real_bv_election/BV_result_snapshot.md).
+[pet race snapshot](../../../01_STAR/pet_real_bv_election/BV_result_snapshot.md).

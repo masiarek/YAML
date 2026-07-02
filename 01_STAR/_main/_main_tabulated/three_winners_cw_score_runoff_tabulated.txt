@@ -1,0 +1,139 @@
+======================================================================
+SOURCE FILE:     three_winners_cw_score_runoff.yaml
+SOURCE MODIFIED: 2026-06-26 20:07:51
+TABULATED FILE:  three_winners_cw_score_runoff_tabulated.txt
+TABULATED AT:    2026-07-02 12:16:16
+======================================================================
+
+election_title: Three notions of "winner" disagree — Condorcet, Score, and Runoff
+scenario_description: |-
+  One tiny election, three different "winners" depending on what you mean by the word.
+  Five voters, three candidates (Ann, Bob, Carl):
+
+   - Condorcet winner = ANN — she beats both Bob and Carl one-on-one (3 of 5 prefer
+     her each time). The "beats everyone head-to-head" winner.
+   - Score winner = CARL — he has the most total stars (19). The "highest intensity /
+     utility favorite" winner.
+   - STAR winner = BOB — the Scoring Round sends the top two (Carl 19, Bob 18) to the
+     Automatic Runoff, and a 3-2 majority prefers Bob there. The "broad compromise the
+     majority actually picks between the finalists" winner.
+
+  No method is malfunctioning — they optimize for different things. STAR deliberately
+  lands on Bob: it uses scores to FIND the finalists, then a majority runoff to CHOOSE
+  between them. (Ann is shut out only because she's edged for second place in the
+  scoring round — a reminder STAR is not a Condorcet method, by design.)
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: true
+  show_score_counts: false
+  show_irv: false
+  brief: true
+  collapse_ballots: true
+  count_separator: "×"
+voting_method: STAR
+num_winners: 1
+ballots: |-
+  Ann, Bob, Carl
+    5,   4,    3
+    5,   4,    3
+    5,   4,    3
+    0,   3,    5
+    0,   3,    5
+expected_winners:
+  - Bob
+
+# file: three_winners_cw_score_runoff.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Three notions of "winner" disagree — Condorcet, Score, and Runoff ===
+  One tiny election, three different "winners" depending on what you mean by the word.
+  Five voters, three candidates (Ann, Bob, Carl):
+
+   - Condorcet winner = ANN — she beats both Bob and Carl one-on-one (3 of 5 prefer
+     her each time). The "beats everyone head-to-head" winner.
+   - Score winner = CARL — he has the most total stars (19). The "highest intensity /
+     utility favorite" winner.
+   - STAR winner = BOB — the Scoring Round sends the top two (Carl 19, Bob 18) to the
+     Automatic Runoff, and a 3-2 majority prefers Bob there. The "broad compromise the
+     majority actually picks between the finalists" winner.
+
+  No method is malfunctioning — they optimize for different things. STAR deliberately
+  lands on Bob: it uses scores to FIND the finalists, then a majority runoff to CHOOSE
+  between them. (Ann is shut out only because she's edged for second place in the
+  scoring round — a reminder STAR is not a Condorcet method, by design.)
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |     Ann    |  * Bob    |  * Carl   |
+-----------------------------------------------------
+         Ann > |    ---     |3 - 0 - 2  |3 - 0 - 2  |
+       * Bob > | 2 - 0 - 3  |   ---     |3 - 0 - 2  |
+      * Carl > | 2 - 0 - 3  |2 - 0 - 3  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Ann — STAR elected Bob instead (Ann was eliminated in the scoring round)
+
+[Divergence from STAR]
+  STAR                   = Bob
+  Choose-One (Plurality) = Ann   (differs from STAR)
+  RCV-IRV                = Ann   (differs from STAR)
+  RCV-RR (Condorcet)     = Ann   (differs from STAR)
+  Note: no ballots had tied scores, so RCV-IRV vs STAR here is a genuine
+        method difference, not a tie-breaking artifact.
+  Note: Ranked Robin (RCV-RR) sides with RCV-IRV, so STAR is the outlier
+        here — STAR need not elect the Condorcet candidate.
+  Full round-by-round reports (generated for review):
+  RCV-IRV rounds: _main_tabulated/three_winners_cw_score_runoff_RCV-IRV_tabulated.txt
+     file:///sessions/upbeat-gracious-keller/mnt/YAML/01_STAR/_main/_main_tabulated/three_winners_cw_score_runoff_RCV-IRV_tabulated.txt
+  RCV-RR round-robin: _main_tabulated/three_winners_cw_score_runoff_RCV-RR_tabulated.txt
+     file:///sessions/upbeat-gracious-keller/mnt/YAML/01_STAR/_main/_main_tabulated/three_winners_cw_score_runoff_RCV-RR_tabulated.txt
+
+Majority Preference Enforcement Principle:
+ - Score Round Winner(s) = (Carl)
+ - Runoff Round Winner   = (Bob)
+  Candidate Carl earned the highest total score,
+  but Candidate Bob won the automatic runoff by being the head-to-head majority favorite.
+
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 5 ballots.
+Count × Ann,Bob,Carl
+    3 ×   5,  4,   3
+    2 ×   0,  3,   5
+
+[Score Distribution] (number of ballots giving each score)
+      5  4  3  2  1  0  | Total   Avg
+Ann   3  0  0  0  0  2  |    15   3.0
+Bob   0  3  2  0  0  0  |    18   3.6
+Carl  2  0  3  0  0  0  |    19   3.8
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Carl          -- 19 -- First place
+   Bob           -- 18 -- Second place
+   Ann           -- 15
+ Carl and Bob advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Bob           -- 3 -- First place
+   Carl          -- 2
+   Equal Support -- 0
+ Bob wins.
+   Runoff math:
+     5  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     5  voters with a preference  (majority = 3)
+           Bob 3 (60%)  ·  Carl 2 (40%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Bob

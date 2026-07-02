@@ -1,0 +1,103 @@
+======================================================================
+SOURCE FILE:     04_c4_b3_runoff-confirms-leader.yaml
+SOURCE MODIFIED: 2026-06-26 18:43:07
+TABULATED FILE:  04_c4_b3_runoff-confirms-leader_tabulated.txt
+TABULATED AT:    2026-07-02 12:16:11
+======================================================================
+
+election_title: The control case — here the runoff CONFIRMS the score leader
+scenario_description: |-
+  Same machinery, opposite result — and that's the point. Blue is both the biggest
+  star pile (14) AND the majority's preferred finalist, so the automatic runoff
+  simply confirms the scoring leader: Blue wins either way.
+
+  This is why STAR's runoff isn't "rigged against front-runners." It only overturns
+  the leader when the star total and the head-to-head majority disagree (01a-03);
+  when the leader really is the most-preferred candidate, the leader wins.
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  brief: true
+  collapse_ballots: true
+  count_separator: "×"
+voting_method: STAR
+num_winners: 1
+ballots: |-
+  Amber, Blue, Coral, Dune
+      2,    5,     1,    0
+      2,    5,     0,    1
+      5,    4,     0,    0
+expected_winners:
+  - Blue
+
+# file: 04_c4_b3_runoff-confirms-leader.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== The control case — here the runoff CONFIRMS the score leader ===
+  Same machinery, opposite result — and that's the point. Blue is both the biggest
+  star pile (14) AND the majority's preferred finalist, so the automatic runoff
+  simply confirms the scoring leader: Blue wins either way.
+
+  This is why STAR's runoff isn't "rigged against front-runners." It only overturns
+  the leader when the star total and the head-to-head majority disagree (01a-03);
+  when the leader really is the most-preferred candidate, the leader wins.
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |  * Amber   |  * Blue   |   Coral   |    Dune   |
+-----------------------------------------------------------------
+     * Amber > |    ---     |1 - 0 - 2  |3 - 0 - 0  |3 - 0 - 0  |
+      * Blue > | 2 - 0 - 1  |   ---     |3 - 0 - 0  |3 - 0 - 0  |
+       Coral > | 0 - 0 - 3  |0 - 0 - 3  |   ---     |1 - 1 - 1  |
+        Dune > | 0 - 0 - 3  |0 - 0 - 3  |1 - 1 - 1  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Blue — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 3 ballots.
+Amber,Blue,Coral,Dune
+    2,   5,    1,   0
+    2,   5,    0,   1
+    5,   4,    0,   0
+
+[Score Distribution] (number of ballots giving each score)
+       5  4  3  2  1  0  | Total   Avg
+Amber  1  0  0  2  0  0  |     9   3.0
+Blue   2  1  0  0  0  0  |    14   4.7
+Coral  0  0  0  0  1  2  |     1   0.3
+Dune   0  0  0  0  1  2  |     1   0.3
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Blue          -- 14 -- First place
+   Amber         --  9 -- Second place
+   Coral         --  1
+   Dune          --  1
+ Blue and Amber advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Blue          -- 2 -- First place
+   Amber         -- 1
+   Equal Support -- 0
+ Blue wins.
+   Runoff math:
+     3  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     3  voters with a preference  (majority = 2)
+           Blue 2 (67%)  ·  Amber 1 (33%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Blue

@@ -65,20 +65,83 @@ def scan():
     return hits
 
 
+# --------------------------------------------------------------------------- #
+# Relative-link checker: every [text](relative/path) in a tracked .md must
+# resolve. Folder reorganizations silently break these; this catches them.
+# (External http(s)/mailto links and pure #anchors are not checked.)
+# --------------------------------------------------------------------------- #
+MD_LINK = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
+_EXTERNAL = re.compile(r"(?i)^\s*(https?:|mailto:|#)")
+_FENCED = re.compile(r"```.*?```", re.S)
+_INLINE_CODE = re.compile(r"`[^`\n]*`")
+
+
+def check_links():
+    """Return sorted [(md_file, raw_link)] for every relative link that does
+    not resolve to an existing file or directory."""
+    from urllib.parse import unquote
+    broken = []
+    for dirpath, dirnames, filenames in os.walk(REPO):
+        dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS]
+        rel_dir = os.path.relpath(dirpath, REPO)
+        if rel_dir != "." and _skip(rel_dir):
+            continue
+        for fn in filenames:
+            if not fn.lower().endswith(".md"):
+                continue
+            full = os.path.join(dirpath, fn)
+            rel = os.path.normpath(os.path.join(rel_dir, fn))
+            try:
+                text = open(full, encoding="utf-8").read()
+            except OSError:
+                continue
+            # Links inside code blocks / inline code are examples, not links.
+            text = _INLINE_CODE.sub("", _FENCED.sub("", text))
+            for m in MD_LINK.finditer(text):
+                raw = m.group(1).strip()
+                if _EXTERNAL.match(raw):
+                    continue
+                target = raw.split()[0].strip("<>")     # drop optional "title"
+                target = target.split("#")[0]           # drop #fragment
+                if not target:
+                    continue
+                # 'REPLACE_*' basenames are deliberate placeholders (e.g. a
+                # screenshot not yet captured) — skip, don't report.
+                if os.path.basename(target).startswith("REPLACE_"):
+                    continue
+                p = os.path.normpath(
+                    os.path.join(dirpath, unquote(target).replace("/", os.sep)))
+                if not os.path.exists(p):
+                    broken.append((rel, raw))
+    return sorted(set(broken))
+
+
 def main(argv):
+    rc = 0
     hits = scan()
     if not hits:
         print("repo-hygiene: ✓ no misplaced/junk files found.")
-        return 0
-    print("repo-hygiene: ⚠️  misplaced or junk files detected "
-          f"({len(hits)}). These are ignored by git, but check each — a *real*")
-    print("              file pasted with the wrong name/place would otherwise be lost:")
-    for rel, msg in hits:
-        print(f"   • {rel}\n       {msg}")
-    print("\n  (House rules: BV screenshots → img/<bv_id>_*.png; BV exports → "
-          "<descriptor>_<bvid>_bv_export.json. See CLAUDE.md.)")
-    # exit non-zero so a caller *can* gate on it; the pre-commit hook runs it warn-only.
-    return 1
+    else:
+        rc = 1
+        print("repo-hygiene: ⚠️  misplaced or junk files detected "
+              f"({len(hits)}). These are ignored by git, but check each — a *real*")
+        print("              file pasted with the wrong name/place would otherwise be lost:")
+        for rel, msg in hits:
+            print(f"   • {rel}\n       {msg}")
+        print("\n  (House rules: BV screenshots → img/<bv_id>_*.png; BV exports → "
+              "<descriptor>_<bvid>_bv_export.json. See CLAUDE.md.)")
+    dead = check_links()
+    if not dead:
+        print("repo-hygiene: ✓ all relative Markdown links resolve.")
+    else:
+        rc = 1
+        print(f"repo-hygiene: ⚠️  broken relative links ({len(dead)}) — a folder "
+              "move probably left these behind:")
+        for rel, raw in dead:
+            print(f"   • {rel}  →  ({raw})")
+    # exit non-zero so a caller *can* gate on it; the pre-commit hook runs it
+    # warn-only, and tests/test_md_links.py gates on the link half.
+    return rc
 
 
 if __name__ == "__main__":

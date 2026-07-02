@@ -166,5 +166,5 @@ exercises all three shapes against a perfect symmetric tie (where the lot is the
   <https://docs.bettervoting.com/help/ties.html>
 - [`tie_breaking.md`](tie_breaking.md) — the tiebreak ladder (both rounds) and
   what you may set in a **hand-written** YAML.
-- [`../../readme.md`](../../readme.md) — the converter in the overall pipeline.
+- [`../../readme.md`](../../../readme.md) — the converter in the overall pipeline.
 - Glossary: **Tiebreaker** — [`../GLOSSARY.md`](../../GLOSSARY.md)

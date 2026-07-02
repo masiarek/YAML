@@ -1,0 +1,99 @@
+======================================================================
+SOURCE FILE:     Runoff_01_confirms_leader_r2pvc9.yaml
+SOURCE MODIFIED: 2026-06-28 14:23:00
+TABULATED FILE:  Runoff_01_confirms_leader_r2pvc9_tabulated.txt
+TABULATED AT:    2026-07-02 12:16:11
+======================================================================
+
+election:
+  election_title: Runoff 01 — Runoff confirms the leader (control)
+  election_description: |-
+    A REAL BetterVoting election (BV id r2pvc9), captured 2026-06-28. The control
+    case for the Runoff Reversal set: the Scoring-Round leader (Aspen) is ALSO the
+    candidate more voters prefer head-to-head, so the runoff CONFIRMS the leader —
+    proof the runoff isn't rigged against whoever has the most stars. Winner = the
+    Condorcet winner. Level 101. Full two-view lesson: Runoff_01_confirms_leader_r2pvc9.md
+  options:
+    show_description: false
+    show_matrix: true
+    matrix_finalists_only: true
+    show_condorcet: true
+    show_score_counts: false
+    show_irv: false
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: false
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "https://bettervoting.com/r2pvc9/results"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      Aspen, Birch, Cedar
+      5, 2, 1
+      2, 5, 0
+      5, 3, 0
+    lot_numbers: [Aspen, Birch, Cedar]
+    expected_results:
+      winners:
+      - Aspen
+
+# file: Runoff_01_confirms_leader_r2pvc9.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Runoff 01 — Runoff confirms the leader (control) ===
+  https://bettervoting.com/r2pvc9/results
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |  * Aspen   | * Birch   |   Cedar   |
+-----------------------------------------------------
+     * Aspen > |    ---     |2 - 0 - 1  |3 - 0 - 0  |
+     * Birch > | 1 - 0 - 2  |   ---     |3 - 0 - 0  |
+       Cedar > | 0 - 0 - 3  |0 - 0 - 3  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Aspen — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 3 ballots.
+Aspen,Birch,Cedar
+    5,    2,    1
+    2,    5,    0
+    5,    3,    0
+
+[Score Distribution] (number of ballots giving each score)
+       5  4  3  2  1  0  | Total   Avg
+Aspen  2  0  0  1  0  0  |    12   4.0
+Birch  1  0  1  1  0  0  |    10   3.3
+Cedar  0  0  0  0  1  2  |     1   0.3
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Aspen         -- 12 -- First place
+   Birch         -- 10 -- Second place
+   Cedar         --  1
+ Aspen and Birch advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Aspen         -- 2 -- First place
+   Birch         -- 1
+   Equal Support -- 0
+ Aspen wins.
+   Runoff math:
+     3  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     3  voters with a preference  (majority = 2)
+           Aspen 2 (67%)  ·  Birch 1 (33%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Aspen

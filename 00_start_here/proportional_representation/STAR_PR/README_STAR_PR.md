@@ -57,13 +57,13 @@ voting_method: allocated   # or: sss | rrv   (proportional)
 num_winners: 3
 ```
 
-Worked examples in [`02_Multi_winner/`](../../../02_Multi_winner/):
+Worked examples in [`03_STAR_PR/`](../../../03_STAR_PR/):
 
-- [`02a_c5_b63_proportional-allocated-score.yaml`](../../../02_Multi_winner/02a_c5_b63_proportional-allocated-score.yaml) — Allocated Score
-- [`02b_c5_b63_proportional-sss.yaml`](../../../02_Multi_winner/02b_c5_b63_proportional-sss.yaml) — SSS
-- [`02c_c5_b63_proportional-rrv.yaml`](../../../02_Multi_winner/02c_c5_b63_proportional-rrv.yaml) — RRV
-- [`03b_star_pr_3seats.yaml`](../../../02_Multi_winner/03b_star_pr_3seats.yaml) — STAR-PR vs the STV file in the same race
-- [`01_c4_b2_bloc-star-2-seats.yaml`](../../../02_Multi_winner/01_c4_b2_bloc-star-2-seats.yaml) — Bloc STAR (majoritarian contrast)
+- [`02a_c5_b63_proportional-allocated-score.yaml`](../../../03_STAR_PR/_main/02a_c5_b63_proportional-allocated-score.yaml) — Allocated Score
+- [`02b_c5_b63_proportional-sss.yaml`](../../../03_STAR_PR/_main/02b_c5_b63_proportional-sss.yaml) — SSS
+- [`02c_c5_b63_proportional-rrv.yaml`](../../../03_STAR_PR/_main/02c_c5_b63_proportional-rrv.yaml) — RRV
+- [`03b_star_pr_3seats.yaml`](../../../03_STAR_PR/_main/03b_star_pr_3seats.yaml) — STAR-PR vs the STV file in the same race
+- [`01_c4_b2_bloc-star-2-seats.yaml`](../../../02_STAR_Bloc/_main/01_c4_b2_bloc-star-2-seats.yaml) — Bloc STAR (majoritarian contrast)
 
 The head-to-head with STV, on one shared electorate, is in
 [STV vs STAR-PR](../stv/proportional_stv_vs_star.md): STV and all three STAR-PR

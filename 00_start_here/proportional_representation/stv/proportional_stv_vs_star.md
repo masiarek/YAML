@@ -28,8 +28,8 @@ Proportionally, 58% / 42% over 3 seats ≈ **2 progressive + 1 business**. (The
 "Better elections are possible" video gives only first-choice % and STV outcomes,
 not ballots — so this is an illustrative reconstruction, not a transcription.)
 
-→ Run them: [`03a_stv_3seats.yaml`](../../../02_Multi_winner/03a_stv_3seats.yaml) (ranked, STV)
- · [`03b_star_pr_3seats.yaml`](../../../02_Multi_winner/03b_star_pr_3seats.yaml) (scored, STAR-PR)
+→ Run them: [`03a_stv_3seats.yaml`](../../../other_methods/_main/03a_stv_3seats.yaml) (ranked, STV)
+ · [`03b_star_pr_3seats.yaml`](../../../03_STAR_PR/_main/03b_star_pr_3seats.yaml) (scored, STAR-PR)
 
 ## Results — proportional methods agree; majoritarian doesn't
 

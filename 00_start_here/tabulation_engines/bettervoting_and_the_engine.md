@@ -43,7 +43,7 @@ How the pieces line up (same Dog/Cat race):
 
 See both sides for this exact race, end to end — the export YAML and the full engine
 report — in the worked lesson
-[A real BetterVoting election, end to end](../../01_Single_winner/pet_real_bv_election/README_pet_real_bv_election.md).
+[A real BetterVoting election, end to end](../../01_STAR/pet_real_bv_election/README_pet_real_bv_election.md).
 
 ## When the two reports differ — abstentions vs Equal Support
 
@@ -72,10 +72,10 @@ Equal Support and are excluded *only* from the runoff percentage denominator.
 This is the "results don't reconcile" branch of the pipeline below. It's tracked as a
 documentation/correctness issue for BetterVoting:
 
-- Minimal **real** BetterVoting reproduction (3 candidates / 8 ballots, where BV files a flat `3,3,3` as an abstention): [`small_case_abstention_lesson.md`](../../01_Single_winner/pet_real_bv_election/small_case_abstention_lesson.md)
-- Frozen evidence + raw export (the 461-ballot race): [`BV_result_snapshot.md`](../../01_Single_winner/pet_real_bv_election/BV_result_snapshot.md)
-- Write-up & GitHub issue [Equal-Vote/bettervoting#1407](https://github.com/Equal-Vote/bettervoting/issues/1407): [`LH_BV_reconciliation_issue.md`](../../01_Single_winner/pet_real_bv_election/LH_BV_reconciliation_issue.md)
-- Synthetic minimal illustration: [`abstention_reconciliation_min_c2_b6.yaml`](../../01_Single_winner/pet_real_bv_election/abstention_reconciliation_min_c2_b6.yaml)
+- Minimal **real** BetterVoting reproduction (3 candidates / 8 ballots, where BV files a flat `3,3,3` as an abstention): [`small_case_abstention_lesson.md`](../../01_STAR/pet_real_bv_election/small_case_abstention_lesson.md)
+- Frozen evidence + raw export (the 461-ballot race): [`BV_result_snapshot.md`](../../01_STAR/pet_real_bv_election/BV_result_snapshot.md)
+- Write-up & GitHub issue [Equal-Vote/bettervoting#1407](https://github.com/Equal-Vote/bettervoting/issues/1407): [`LH_BV_reconciliation_issue.md`](../../01_STAR/pet_real_bv_election/LH_BV_reconciliation_issue.md)
+- Synthetic minimal illustration: [`abstention_reconciliation_min_c2_b6.yaml`](../../01_STAR/pet_real_bv_election/abstention_reconciliation_min_c2_b6.yaml)
 
 The terminology — why a flat ballot is *Equal Support*, not a discarded or abstaining vote
 — is [runoff percentages](../STAR_Voting/runoff_percentages.md) and

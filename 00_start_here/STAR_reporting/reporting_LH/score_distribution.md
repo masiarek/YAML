@@ -32,7 +32,7 @@ Cherry  0  0  1  1  2  3    1  |     7   1.0
   explicit **`0`** is different — it's a *cast* "I rate you zero," so it sits in the
   `0` column, not in `Abs`. (Here the only blank is the one fully-blank ballot, so
   every row shows `Abs 1`.) This is the same **0-vs-blank** distinction that drives
-  the [abstention discussion](../../../01_Single_winner/pet_real_bv_election/small_case_abstention_lesson.md).
+  the [abstention discussion](../../../01_STAR/pet_real_bv_election/small_case_abstention_lesson.md).
 - **`Total`** = the sum of stars = the Scoring Round number: Apple = `5·2 + 4·1 + 3·2 = 20`.
 - **`Avg`** = `Total ÷ (ballots − Abs)` — the mean score among voters **who actually
   scored** this candidate (blanks excluded, explicit zeros **included**). Apple =

@@ -1,0 +1,133 @@
+======================================================================
+SOURCE FILE:     05b_residual_split_expressive-fix.yaml
+SOURCE MODIFIED: 2026-06-29 14:09:58
+TABULATED FILE:  05b_residual_split_expressive-fix_tabulated.txt
+TABULATED AT:    2026-07-02 12:16:21
+======================================================================
+
+election_title: The cure — score your ally, and STAR's split disappears
+scenario_description: |-
+  Same three candidates and the same factions as 05a, with one change: the Ada/Ben
+  side actually USES the score ballot. Ada-fans still favor Ada but give ally Ben a
+  3; Ben-fans favor Ben but give Ada a 3. They sincerely prefer either ally to Cara.
+
+  Scores now: Ada 250, Ben 230, Cara 200. The two finalists are Ada and Ben — the
+  opponent Cara is shut out — and the runoff keeps the seat on the majority side.
+  Nothing about the electorate's true preferences changed between 05a and 05b; only
+  whether voters expressed support for their ally. That is the whole point: STAR
+  removes FORCED vote-splitting, and hands voters the tool to avoid the self-
+  inflicted kind.
+
+  Note the [Divergence from STAR] block: Choose-One (Plurality) still elects Cara on
+  first-choices (Ada 35, Ben 25, Cara 40) — STAR diverges and fixes the split.
+  Deep dive: 00_start_here/residual_vote_splitting.md
+
+blocs:
+  Allies: [Ada, Ben]
+
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  brief: true
+  collapse_ballots: true
+  count_separator: "×"
+
+voting_method: STAR
+num_winners: 1
+
+ballots: |-
+  Count:Ada,Ben,Cara
+  35:5,3,0   # Ada-fans — favorite Ada, but honestly score ally Ben a 3
+  25:3,5,0   # Ben-fans — favorite Ben, but honestly score ally Ada a 3
+  40:0,0,5   # Cara bloc (the minority side)
+
+expected_winners:
+  - Ada
+
+# file: 05b_residual_split_expressive-fix.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== The cure — score your ally, and STAR's split disappears ===
+  Same three candidates and the same factions as 05a, with one change: the Ada/Ben
+  side actually USES the score ballot. Ada-fans still favor Ada but give ally Ben a
+  3; Ben-fans favor Ben but give Ada a 3. They sincerely prefer either ally to Cara.
+
+  Scores now: Ada 250, Ben 230, Cara 200. The two finalists are Ada and Ben — the
+  opponent Cara is shut out — and the runoff keeps the seat on the majority side.
+  Nothing about the electorate's true preferences changed between 05a and 05b; only
+  whether voters expressed support for their ally. That is the whole point: STAR
+  removes FORCED vote-splitting, and hands voters the tool to avoid the self-
+  inflicted kind.
+
+  Note the [Divergence from STAR] block: Choose-One (Plurality) still elects Cara on
+  first-choices (Ada 35, Ben 25, Cara 40) — STAR diverges and fixes the split.
+  Deep dive: 00_start_here/residual_vote_splitting.md
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+                 |    * Ada     |   * Ben     |     Cara    |
+-------------------------------------------------------------
+         * Ada > |     ---      |35 - 40 - 25 |60 -  0 - 40 |
+         * Ben > | 25 - 40 - 35 |    ---      |60 -  0 - 40 |
+          Cara > | 40 -  0 - 60 |40 -  0 - 60 |    ---      |
+
+[Condorcet Winner]
+  Condorcet Winner: Ada — matches the STAR winner
+
+[Divergence from STAR]
+  STAR                   = Ada
+  Choose-One (Plurality) = Cara   (differs from STAR)
+
+[Vote-splitting check]
+  Choose-One first choices: Cara 40, Ada 35, Ben 25
+  Plurality winner: Cara (40, 40.0%)
+  Bloc 'Allies' = Ada, Ben: combined 60 (60.0%); winner Cara is OUTSIDE it.
+  => VOTE SPLITTING: the 'Allies' bloc is an outright majority (60 vs Cara's
+     40) but split across 2 candidates, so Cara won Choose-One. STAR elected
+     Ada.
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 100 ballots.
+Count × Ada,Ben,Cara
+   40 ×   0,  0,   5
+   35 ×   5,  3,   0
+   25 ×   3,  5,   0
+
+[Score Distribution] (number of ballots giving each score)
+       5   4   3   2   1   0  | Total   Avg
+Ada   35   0  25   0   0  40  |   250   2.5
+Ben   25   0  35   0   0  40  |   230   2.3
+Cara  40   0   0   0   0  60  |   200   2.0
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Ada           -- 250 -- First place
+   Ben           -- 230 -- Second place
+   Cara          -- 200
+ Ada and Ben advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Ada           -- 35 -- First place
+   Ben           -- 25
+   Equal Support -- 40
+ Ada wins.
+   Runoff math:
+     100  ballots cast
+   −  40  Equal Support (no preference between the two finalists)
+     ───
+      60  voters with a preference  (majority = 31)
+           Ada 35 (58%)  ·  Ben 25 (42%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Ada

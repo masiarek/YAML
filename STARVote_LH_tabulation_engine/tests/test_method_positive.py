@@ -5,8 +5,9 @@ Discovery test for the NON-(single-winner-STAR) teaching cases — the coverage
 gap left by test_single_winner_positive.py (which asserts only single-winner
 STAR files in its fixed folder list).
 
-Every *.yaml under the teaching roots (01_Single_winner, 02_Multi_winner,
-split_voting, recursively, skipping *_tabulated mirrors) that declares a
+Every *.yaml under the teaching roots (01_STAR through 05_Ranked_Robin,
+method_comparisons, other_methods — recursively, skipping *_tabulated
+mirrors) that declares a
 top-level `expected_winners:` list is run through the real CLI. The run must
 exit 0 and elect exactly the declared winners — RCV-IRV, Ranked Robin,
 Approval, STV, and the multi-winner STAR family (bloc / sss / rrv / allocated)
@@ -33,20 +34,23 @@ REPO_ROOT = ENGINE_DIR.parent
 WRAPPER = ENGINE_DIR / "starvote_larry_hastings.py"
 
 TEACHING_ROOTS = [
-    REPO_ROOT / "01_Single_winner",
-    REPO_ROOT / "02_Multi_winner",
-    REPO_ROOT / "split_voting",
+    REPO_ROOT / "01_STAR",
+    REPO_ROOT / "02_STAR_Bloc",
+    REPO_ROOT / "03_STAR_PR",
+    REPO_ROOT / "04_Approval",
+    REPO_ROOT / "05_Ranked_Robin",
+    REPO_ROOT / "method_comparisons",
+    REPO_ROOT / "other_methods",
 ]
 
 # Folders whose single-winner STAR files test_single_winner_positive.py already
 # runs (keep in sync with SINGLE_WINNER_DIRS there).
 STAR_COVERED = {
-    REPO_ROOT / "01_Single_winner",
-    REPO_ROOT / "01_Single_winner" / "_main",
-    REPO_ROOT / "01_Single_winner" / "runoff_overturns_leader",
-    REPO_ROOT / "01_Single_winner" / "summability_demo",
-    REPO_ROOT / "01_Single_winner" / "BV_Library",
-    REPO_ROOT / "split_voting",
+    REPO_ROOT / "01_STAR" / "_main",
+    REPO_ROOT / "01_STAR" / "runoff_overturns_leader",
+    REPO_ROOT / "method_comparisons" / "summability_demo",
+    REPO_ROOT / "method_comparisons" / "BV_Library",
+    REPO_ROOT / "method_comparisons" / "split_voting" / "_main",
     REPO_ROOT / "YAML_library" / "1_positive",
 }
 

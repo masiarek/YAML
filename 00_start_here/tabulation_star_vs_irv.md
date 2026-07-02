@@ -10,7 +10,7 @@ argument) and [`summability.md`](STAR_Voting/STAR_summability.md). When the two 
 *different* people, see [`RCV_IRV_center_squeeze.md`](RCV_IRV/RCV_IRV_center_squeeze.md). Level **201**.
 
 Worked on one shared file:
-[`01_Single_winner/count_simplicity_star_vs_irv.yaml`](../01_Single_winner/count_simplicity_star_vs_irv.yaml)
+[`01_Single_winner/count_simplicity_star_vs_irv.yaml`](../method_comparisons/_main/count_simplicity_star_vs_irv.yaml)
 — 45 voters, 5 candidates (Andre, Blake, Carmen, Dana, Evan).
 
 ---

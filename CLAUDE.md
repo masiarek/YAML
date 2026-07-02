@@ -163,7 +163,7 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
   ballots accept only `0`/`1` (+ blank/marker = not approved).
 - **Levels (101/201/301)** live ONLY in `00_start_here/CURRICULUM.md`
   (authoritative). Don't tag every file. Example folders stay content-typed
-  (`01_Single_winner/`, `02_Multi_winner/`, `split_voting/`).
+  (`01_STAR/`…`05_Ranked_Robin/`, `method_comparisons/`, `other_methods/`).
 - **Where text lives:** per-file context in the YAML (`scenario_description`
   printable, `video_script` = notes, never echoed); cross-file teaching in
   Markdown. No `.md` per YAML. See `ORGANIZATION.md`.
@@ -228,8 +228,8 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
 
 ## Tests
 - `STARVote_LH_tabulation_engine/tests/test_single_winner_positive.py` — every
-  single-winner STAR file with `expected_winners` (in `01_Single_winner/`,
-  `split_voting/`, `YAML_library/1_positive/`) is run through the CLI (which also
+  single-winner STAR file with `expected_winners` (in `01_STAR/`, `method_comparisons/`,
+  `YAML_library/1_positive/`) is run through the CLI (which also
   writes its `_tabulated` copy) and checked for exit 0 + correct winner.
 - `…/tests/test_harness_selfcheck.py` — meta-tests proving the winner check isn't
   vacuous: deliberately-wrong answer keys (single- and multi-winner) in

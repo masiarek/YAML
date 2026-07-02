@@ -14,7 +14,7 @@ method elects them — Ranked Robin, Minimax, Ranked Pairs, Schulze all agree. T
 one beating all). "Cycle resolution" is the rule a method uses to pick a winner in that
 case — and it's the *entire* difference between these methods.
 
-→ the cycle itself: [Whoops_03 — Condorcet cycle](../../01_Single_winner/paradoxes_and_whoops/Whoops_03_condorcet_cycle_rps.md)
+→ the cycle itself: [Whoops_03 — Condorcet cycle](../../method_comparisons/paradoxes_and_whoops/Whoops_03_condorcet_cycle_rps.md)
 · the base method: [Ranked Robin](ranked_robin.md) · [`GLOSSARY`](../GLOSSARY.md).
 
 ---
@@ -28,7 +28,7 @@ choice is obvious. But majority preference isn't guaranteed to be transitive. So
 > **C > A**.
 
 There is no "beats everyone" candidate — the result is a **cycle** (the
-[Condorcet paradox](../../01_Single_winner/paradoxes_and_whoops/Whoops_03_condorcet_cycle_rps.md),
+[Condorcet paradox](../../method_comparisons/paradoxes_and_whoops/Whoops_03_condorcet_cycle_rps.md),
 known since the 1780s). Now "elect the candidate the majority prefers" has *no* answer, and
 a method has to break the tie somehow. *How* it breaks it is what separates the methods.
 
@@ -100,7 +100,7 @@ splits. (Outside cycles — i.e. almost always — they're identical.)
   Smallest Loss" — same family, different cycle rule.) See [`ranked_robin.md`](ranked_robin.md).
 - **STAR is *not* a Condorcet method** and doesn't try to resolve cycles at all. Its
   score-then-runoff just produces a winner, which *can* differ from the Condorcet winner
-  ([Whoops_02](../../01_Single_winner/paradoxes_and_whoops/Whoops_02_star_misses_condorcet.md)).
+  ([Whoops_02](../../method_comparisons/paradoxes_and_whoops/Whoops_02_star_misses_condorcet.md)).
   The trade: these ranked methods capture *pure majority preference* but ignore *intensity*;
   STAR captures intensity (how much, not just which) at the cost of strict Condorcet
   guarantees. Neither is "the" right answer — it's a values choice.
@@ -109,7 +109,7 @@ splits. (Outside cycles — i.e. almost always — they're identical.)
 
 Rarely, but not never. Cycles get likelier in **small, sharply three-way-divided** races and
 much rarer as the electorate grows and preferences spread along a spectrum. As with the
-[runoff-reversal frequency](../../01_Single_winner/runoff_overturns_leader/README_runoff_overturns_leader.md) caveat:
+[runoff-reversal frequency](../../01_STAR/runoff_overturns_leader/README_runoff_overturns_leader.md) caveat:
 any rate you quote depends on the voter model, so state the assumptions rather than a bare
 number.
 

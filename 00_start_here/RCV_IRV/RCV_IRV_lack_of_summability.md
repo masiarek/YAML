@@ -37,7 +37,7 @@ only "summable" object is the entire pile of ballots.
 ## Worked example — two districts both won by B, merged, B *loses*
 
 The classic demonstration (after [rangevoting.org](https://www.rangevoting.org/IrvNonAdd.html),
-verified on the engine — run [`summability_demo/`](../../01_Single_winner/summability_demo/)):
+verified on the engine — run [`summability_demo/`](../../method_comparisons/summability_demo)):
 
 ```
 District A          District B          Combined (A + B)
@@ -97,5 +97,5 @@ Same ranked ballots that broke IRV's count; Ranked Robin sums them and gets the
 sensible answer. (Produced by the LH engine's `calculate_preference_matrix`; the
 [`pref_voting` engine](../../pref_voting_tabulation_engine/README_pref_voting_tabulation_engine.md) reports the same
 **Copeland = Ranked Robin** winner. Files:
-[`summability_demo/`](../../01_Single_winner/summability_demo/).) **Full RR-side
+[`summability_demo/`](../../method_comparisons/summability_demo).) **Full RR-side
 treatment:** [Ranked Robin is summable](../RCV_Ranked_Robin/RCV_RR_summability.md).

@@ -23,7 +23,7 @@ runs on existing equipment.
 
 ## See it both ways (runnable)
 
-The same two-district example, counted two ways — [`summability_demo/`](../../../01_Single_winner/summability_demo/):
+The same two-district example, counted two ways — [`summability_demo/`](../../../method_comparisons/summability_demo):
 
 - **IRV (not summable):** B wins both districts, but is *eliminated* when they merge — no
   subtotal predicts it. → [worked example](../../RCV_IRV/RCV_IRV_lack_of_summability.md#worked-example--two-districts-both-won-by-b-merged-b-loses)

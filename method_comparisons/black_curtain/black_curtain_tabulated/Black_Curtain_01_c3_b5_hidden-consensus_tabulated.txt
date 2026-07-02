@@ -1,0 +1,132 @@
+======================================================================
+SOURCE FILE:     Black_Curtain_01_c3_b5_hidden-consensus.yaml
+SOURCE MODIFIED: 2026-07-02 09:04:58
+TABULATED FILE:  Black_Curtain_01_c3_b5_hidden-consensus_tabulated.txt
+TABULATED AT:    2026-07-02 12:20:27
+======================================================================
+
+election_title: The Black Curtain #1 — the hidden consensus candidate
+
+scenario_description: |-
+  Election 1 of 4 from "The Black Curtain" (Common Sense for Uniting America /
+  MaxVoting.org). A 3-voter bloc loves Cal and hates Ann; a 2-voter bloc loves
+  Ann and hates Cal. EVERY voter gave Bob a near-top score — the broad
+  consensus candidate.
+
+  Choose-One, RCV-IRV, and STAR all elect Cal (the majority bloc's favorite;
+  STAR's runoff prefers Cal over Bob 3 to 2). Approval and pure Score would
+  elect Bob. No method is "wrong" — they answer different questions.
+  Original 0–9 video scores mapped to 0–5: 0→0, 1→1, 4→2, 5→3, 8→4, 9→5.
+  See README_black_curtain.md in this folder.
+  Source video: https://www.youtube.com/watch?v=5_ZMruwOZgw
+  Notes doc: https://docs.google.com/document/d/1ntOS5PQ_kkPnaZpDeqLShGv2pz_k6Zom9LnTEdjjd4o
+  BetterVoting template: https://bettervoting.com/p9gwc3/vote
+  This folder on GitHub: https://github.com/masiarek/YAML/tree/master/01_Single_winner/black_curtain
+
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: true
+  show_irv: true    # print the [Divergence from STAR] RCV-IRV comparison
+  show_runoff_percent: true
+  brief: true
+  collapse_ballots: false   # each voter is part of the story
+  count_separator: "×"
+
+voting_method: STAR
+num_winners: 1
+
+ballots: |-
+  Ann,Bob,Cal
+  0,4,5   # voter 1 — video 0-9: A=0 B=8 C=9
+  0,4,5   # voter 2 — video 0-9: A=0 B=8 C=9
+  0,4,5   # voter 3 — video 0-9: A=0 B=8 C=9
+  5,4,0   # voter 4 — video 0-9: A=9 B=8 C=0
+  5,4,0   # voter 5 — video 0-9: A=9 B=8 C=0
+
+expected_winners:
+  - Cal
+
+# file: Black_Curtain_01_c3_b5_hidden-consensus.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== The Black Curtain ===
+  Election 1 of 4 from "The Black Curtain" (Common Sense for Uniting America /
+  MaxVoting.org). A 3-voter bloc loves Cal and hates Ann; a 2-voter bloc loves
+  Ann and hates Cal. EVERY voter gave Bob a near-top score — the broad
+  consensus candidate.
+
+  Choose-One, RCV-IRV, and STAR all elect Cal (the majority bloc's favorite;
+  STAR's runoff prefers Cal over Bob 3 to 2). Approval and pure Score would
+  elect Bob. No method is "wrong" — they answer different questions.
+  Original 0–9 video scores mapped to 0–5: 0→0, 1→1, 4→2, 5→3, 8→4, 9→5.
+  See README_black_curtain.md in this folder.
+  Source video: https://www.youtube.com/watch?v=5_ZMruwOZgw
+  Notes doc: https://docs.google.com/document/d/1ntOS5PQ_kkPnaZpDeqLShGv2pz_k6Zom9LnTEdjjd4o
+  BetterVoting template: https://bettervoting.com/p9gwc3/vote
+  This folder on GitHub: https://github.com/masiarek/YAML/tree/master/01_Single_winner/black_curtain
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |     Ann    |  * Bob    |  * Cal    |
+-----------------------------------------------------
+         Ann > |    ---     |2 - 0 - 3  |2 - 0 - 3  |
+       * Bob > | 3 - 0 - 2  |   ---     |2 - 0 - 3  |
+       * Cal > | 3 - 0 - 2  |3 - 0 - 2  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Cal — matches the STAR winner
+
+[Divergence from STAR]
+  STAR     = Cal
+  Approval = Bob   (differs from STAR)
+
+Majority Preference Enforcement Principle:
+ - Score Round Winner(s) = (Bob)
+ - Runoff Round Winner   = (Cal)
+  Candidate Bob earned the highest total score,
+  but Candidate Cal won the automatic runoff by being the head-to-head majority favorite.
+
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 5 ballots.
+Count × Ann,Bob,Cal
+    3 ×   0,  4,  5
+    2 ×   5,  4,  0
+
+[Score Distribution] (number of ballots giving each score)
+     5  4  3  2  1  0  | Total   Avg
+Ann  2  0  0  0  0  3  |    10   2.0
+Bob  0  5  0  0  0  0  |    20   4.0
+Cal  3  0  0  0  0  2  |    15   3.0
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Bob           -- 20 -- First place
+   Cal           -- 15 -- Second place
+   Ann           -- 10
+ Bob and Cal advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Cal           -- 3 -- First place
+   Bob           -- 2
+   Equal Support -- 0
+ Cal wins.
+   Runoff math:
+     5  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     5  voters with a preference  (majority = 3)
+           Cal 3 (60%)  ·  Bob 2 (40%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Cal

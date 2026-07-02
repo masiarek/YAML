@@ -20,7 +20,7 @@ STAR, RCV-IRV and Ranked Robin all agree on **Boston**. Only **Approval** differ
 
 **Flags:** none
 
-**Source election:** [`01_Single_winner/runoff_overturns_leader/02_c5_b5_leader-overturned.yaml`](../../../01_Single_winner/runoff_overturns_leader/02_c5_b5_leader-overturned.yaml)  ·  **STAR tabulated mirror:** [`02_c5_b5_leader-overturned_tabulated.txt`](../../../01_Single_winner/runoff_overturns_leader/runoff_overturns_leader_tabulated/02_c5_b5_leader-overturned_tabulated.txt)
+**Source election:** [`01_STAR/runoff_overturns_leader/02_c5_b5_leader-overturned.yaml`](../../../01_STAR/runoff_overturns_leader/02_c5_b5_leader-overturned.yaml)  ·  **STAR tabulated mirror:** [`02_c5_b5_leader-overturned_tabulated.txt`](../../../01_STAR/runoff_overturns_leader/runoff_overturns_leader_tabulated/02_c5_b5_leader-overturned_tabulated.txt)
 
 _5 candidates, 5 ballots._
 

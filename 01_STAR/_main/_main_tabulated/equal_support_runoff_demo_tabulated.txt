@@ -1,0 +1,122 @@
+======================================================================
+SOURCE FILE:     equal_support_runoff_demo.yaml
+SOURCE MODIFIED: 2026-06-24 07:58:37
+TABULATED FILE:  equal_support_runoff_demo_tabulated.txt
+TABULATED AT:    2026-07-02 12:16:14
+======================================================================
+
+election_title: Equal Support — counted in both rounds, neutral only in the tie-break
+scenario_description: |-
+  A demo for the "discounted votes" objection. 100 voters, candidates A, B, C.
+
+  40 voters score A=5 AND B=5 (they love both) and C=0. 35 prefer A (A=5, B=3).
+  25 prefer C (A=0, B=0, C=5).
+
+  Scoring Round: A and B have the highest totals and advance — and the 40
+  "equal support" ballots are exactly what pushed them there. So those ballots
+  were COUNTED: they chose the finalists.
+
+  Automatic Runoff: between A and B, the 40 equal-A-B ballots and the 25 C-lovers
+  (who scored both finalists 0) have no preference, so they are "Equal Support."
+  The runoff is decided by the 35 voters who did prefer one finalist: A wins.
+
+  Takeaway: an Equal Support ballot is a voter who DECLARED A TIE between the
+  finalists, not a voter who lost their voice. It counted in the scoring round
+  and is simply neutral in a tie-break it has no preference in.
+
+voting_method: STAR
+num_winners: 1
+
+options:
+  show_description: false   # show the scenario context on screen (study/reference)
+  show_matrix: true
+  show_condorcet: false
+  matrix_finalists_only: true   # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_score_counts: false   # show the per-candidate [Score Distribution] table
+  show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"   # collapsed-count separator: ×, :, or x/X
+
+ballots: |-
+  Count:A,B,C
+  40:5,5,0   # love BOTH A and B -> helps advance them; neutral in the runoff
+  35:5,3,0   # prefer A over B -> decides the runoff
+  25:0,0,5   # prefer C -> no preference between A and B
+
+expected_winners:
+  - A
+
+# file: equal_support_runoff_demo.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Equal Support — counted in both rounds, neutral only in the tie-break ===
+  A demo for the "discounted votes" objection. 100 voters, candidates A, B, C.
+
+  40 voters score A=5 AND B=5 (they love both) and C=0. 35 prefer A (A=5, B=3).
+  25 prefer C (A=0, B=0, C=5).
+
+  Scoring Round: A and B have the highest totals and advance — and the 40
+  "equal support" ballots are exactly what pushed them there. So those ballots
+  were COUNTED: they chose the finalists.
+
+  Automatic Runoff: between A and B, the 40 equal-A-B ballots and the 25 C-lovers
+  (who scored both finalists 0) have no preference, so they are "Equal Support."
+  The runoff is decided by the 35 voters who did prefer one finalist: A wins.
+
+  Takeaway: an Equal Support ballot is a voter who DECLARED A TIE between the
+  finalists, not a voter who lost their voice. It counted in the scoring round
+  and is simply neutral in a tie-break it has no preference in.
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+                 |     * A      |    * B      |      C      |
+-------------------------------------------------------------
+           * A > |     ---      |35 - 65 -  0 |75 -  0 - 25 |
+           * B > |  0 - 65 - 35 |    ---      |75 -  0 - 25 |
+             C > | 25 -  0 - 75 |25 -  0 - 75 |    ---      |
+
+[Condorcet Winner]
+  Condorcet Winner: A — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 100 ballots.
+Count × A,B,C
+   40 × 5,5,0
+   35 × 5,3,0
+   25 × 0,0,5
+
+[Score Distribution] (number of ballots giving each score)
+    5   4   3   2   1   0  | Total   Avg
+A  75   0   0   0   0  25  |   375   3.8
+B  40   0  35   0   0  25  |   305   3.0
+C  25   0   0   0   0  75  |   125   1.2
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   A             -- 375 -- First place
+   B             -- 305 -- Second place
+   C             -- 125
+ A and B advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   A             -- 35 -- First place
+   B             --  0
+   Equal Support -- 65
+ A wins.
+   Runoff math:
+     100  ballots cast
+   −  65  Equal Support (no preference between the two finalists)
+     ───
+      35  voters with a preference  (majority = 18)
+           A 35 (100%)  ·  B 0 (0%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ A

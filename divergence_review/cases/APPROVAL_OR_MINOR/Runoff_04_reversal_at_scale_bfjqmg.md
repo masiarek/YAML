@@ -20,7 +20,7 @@ STAR, RCV-IRV and Ranked Robin all agree on **Olive**. Only **Approval** differs
 
 **Flags:** none
 
-**Source election:** [`01_Single_winner/runoff_overturns_leader/Runoff_04_reversal_at_scale_bfjqmg.yaml`](../../../01_Single_winner/runoff_overturns_leader/Runoff_04_reversal_at_scale_bfjqmg.yaml)  ·  **STAR tabulated mirror:** [`Runoff_04_reversal_at_scale_bfjqmg_tabulated.txt`](../../../01_Single_winner/runoff_overturns_leader/runoff_overturns_leader_tabulated/Runoff_04_reversal_at_scale_bfjqmg_tabulated.txt)
+**Source election:** [`01_STAR/runoff_overturns_leader/Runoff_04_reversal_at_scale_bfjqmg.yaml`](../../../01_STAR/runoff_overturns_leader/Runoff_04_reversal_at_scale_bfjqmg.yaml)  ·  **STAR tabulated mirror:** [`Runoff_04_reversal_at_scale_bfjqmg_tabulated.txt`](../../../01_STAR/runoff_overturns_leader/runoff_overturns_leader_tabulated/Runoff_04_reversal_at_scale_bfjqmg_tabulated.txt)
 
 _3 candidates, 9 ballots._
 

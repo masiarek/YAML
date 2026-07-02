@@ -1,0 +1,117 @@
+======================================================================
+SOURCE FILE:     Runoff_05_reversal_with_equal_support_xgkw3w.yaml
+SOURCE MODIFIED: 2026-06-28 19:30:51
+TABULATED FILE:  Runoff_05_reversal_with_equal_support_xgkw3w_tabulated.txt
+TABULATED AT:    2026-07-02 12:16:11
+======================================================================
+
+election:
+  election_title: Runoff 05 — reversal with Equal Support
+  election_description: |-
+    A REAL BetterVoting election (BV id xgkw3w), captured 2026-06-28. The first
+    reversal where some voters have NO PREFERENCE between the two finalists. Rosa
+    leads the Scoring Round (21), but two voters scored Rosa and Sage equally (3,3
+    and 5,5) — Equal Support — so they sit out the runoff. Of the three voters who DID
+    pick between the finalists, two prefer Sage, so Sage wins. The runoff line reads
+    "3 of 5 (2 Equal Support)" — the bridge to the two-denominator idea. Both
+    equal-support voters rated Tulip (a 1 and a 2), so they are CAST votes, not
+    abstentions — BetterVoting and LH agree (nAbstentions = 0). Winner = the Condorcet
+    winner. Level 201. Full two-view lesson: Runoff_05_reversal_with_equal_support_xgkw3w.md
+  options:
+    show_description: false
+    show_matrix: true
+    matrix_finalists_only: true
+    show_condorcet: true
+    show_score_counts: false
+    show_irv: false
+    show_runoff_percent: true
+    brief: true
+    collapse_ballots: false
+    count_separator: "×"
+  races:
+  - race_id: '0'
+    race_description: "https://bettervoting.com/xgkw3w/results"
+    num_winners: 1
+    voting_method: STAR
+    ballots: |-
+      Rosa, Sage, Tulip
+      5, 1, 0
+      4, 5, 0
+      4, 5, 0
+      3, 3, 1
+      5, 5, 2
+    lot_numbers: [Tulip, Sage, Rosa]
+    expected_results:
+      winners:
+      - Sage
+
+# file: Runoff_05_reversal_with_equal_support_xgkw3w.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Runoff 05 — reversal with Equal Support ===
+  https://bettervoting.com/xgkw3w/results
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |   * Rosa   |  * Sage   |   Tulip   |
+-----------------------------------------------------
+      * Rosa > |    ---     |1 - 2 - 2  |5 - 0 - 0  |
+      * Sage > | 2 - 2 - 1  |   ---     |5 - 0 - 0  |
+       Tulip > | 0 - 0 - 5  |0 - 0 - 5  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Sage — matches the STAR winner
+
+[Divergence from STAR]
+  STAR     = Sage
+  Approval = Rosa   (differs from STAR)
+
+Majority Preference Enforcement Principle:
+ - Score Round Winner(s) = (Rosa)
+ - Runoff Round Winner   = (Sage)
+  Candidate Rosa earned the highest total score,
+  but Candidate Sage won the automatic runoff by being the head-to-head majority favorite.
+
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 5 ballots.
+Count × Rosa,Sage,Tulip
+    2 ×    4,   5,    0
+    1 ×    5,   1,    0
+    1 ×    3,   3,    1
+    1 ×    5,   5,    2
+
+[Score Distribution] (number of ballots giving each score)
+       5  4  3  2  1  0  | Total   Avg
+Rosa   2  2  1  0  0  0  |    21   4.2
+Sage   3  0  1  0  1  0  |    19   3.8
+Tulip  0  0  0  1  1  3  |     3   0.6
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Rosa          -- 21 -- First place
+   Sage          -- 19 -- Second place
+   Tulip         --  3
+ Rosa and Sage advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Sage          -- 2 -- First place
+   Rosa          -- 1
+   Equal Support -- 2
+ Sage wins.
+   Runoff math:
+     5  ballots cast
+   − 2  Equal Support (no preference between the two finalists)
+     ─
+     3  voters with a preference  (majority = 2)
+           Sage 2 (67%)  ·  Rosa 1 (33%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Sage

@@ -6,11 +6,11 @@ Run every election file in `elections_illustrations/` (recursively) through the
 STAR tabulation engine and write a plain-text result for each.
 
 For every folder that contains election files, a sibling "mirror" folder is
-created with the `_tabulated` suffix (e.g. `02_Multi_winner` -> `Multi_winner_tabulated`,
+created with the `_tabulated` suffix (e.g. `03_STAR_PR` -> `03_STAR_PR_tabulated`,
 and the top-level `elections_illustrations` -> `elections_illustrations_tabulated`).
 Each output file also gets a `_tabulated` suffix, e.g.:
 
-    elections_illustrations/02_Multi_winner/foo.yaml
+    elections_illustrations/03_STAR_PR/foo.yaml
     -> elections_illustrations/Multi_winner_tabulated/foo_tabulated.txt
 
 All `*_tabulated` mirror folders are WIPED before the run, so the output always

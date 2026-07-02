@@ -1,0 +1,33 @@
+--- RCV / Instant-Runoff Voting (single winner) ---
+  Display-options reference — every reporting toggle (STAR)
+ Tabulating 100 ballots (converted from score ballots; 0 = unranked, equal scores broken by candidate priority).
+
+ROUND 1
+Candidate      Votes  Status
+-----------  -------  --------
+Memphis           42  Hopeful
+Nashville         26  Hopeful
+Knoxville         17  Hopeful
+Chattanooga       15  Rejected
+
+ROUND 2
+Candidate      Votes  Status
+-----------  -------  --------
+Memphis           42  Hopeful
+Knoxville         32  Hopeful
+Nashville         26  Rejected
+Chattanooga        0  Rejected
+
+FINAL RESULT
+Candidate      Votes  Status
+-----------  -------  --------
+Knoxville         58  Elected
+Memphis           42  Rejected
+Nashville          0  Rejected
+Chattanooga        0  Rejected
+
+
+Winner(s) — RCV / Instant-Runoff Voting (single winner)
+  Knoxville
+
+NOTE: a generated cross-method view of the STAR ballots, for comparison only — not the official STAR result.

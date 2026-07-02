@@ -46,21 +46,36 @@ Google Docs:
 
 Group by **teaching role**, not by file type:
 
+Prominence follows the library's mission: the **equal-vote (EVC) methods get
+the numbered, front-rank folders**; other methods appear mainly as contrast
+material.
+
 ```
 00_start_here/        lessons, glossary, curriculum, tips, conventions (Markdown)
-01_Single_winner/     single-winner example YAMLs
-01_Single_winner_tabulated/   generated _tabulated.txt (sibling, mirrors source)
-02_Multi_winner/      multi-winner / proportional YAMLs
-02_Multi_winner_tabulated/
-split_voting/         spoiler / vote-splitting example set
+01_STAR/              single-winner STAR — the headline method
+  _main/              loose files that belong to no themed set
+  _main/_main_tabulated/          their generated _tabulated.txt mirrors
+  runoff_overturns_leader/ …      themed sets: YAMLs + README (+ img/), each
+                                  with its mirrors nested inside
+02_STAR_Bloc/         Bloc STAR (multi-winner, majoritarian)
+03_STAR_PR/           proportional STAR (sss / allocated / rrv)
+04_Approval/          Approval Voting
+05_Ranked_Robin/      Ranked Robin (RCV-RR / Copeland)
+method_comparisons/   SAME ballots, DIFFERENT methods — black_curtain,
+                      center_squeeze, monotonicity, split_voting, summability,
+                      paradoxes_and_whoops, BV_Library (matched sets stay together)
+other_methods/        standalone non-EVC reference cases (RCV-IRV, STV…)
 interviews_conversations/   Larry↔Adam scripts + LINKS registry (Markdown)
 STARVote_LH_tabulation_engine/   the engine + tools
 RCV_IRV_tabulation_engine/       the RCV-IRV engine
 ```
 
-- **`_tabulated` output stays in a sibling `*_tabulated/` folder** — generated,
-  regenerable, separate from source, but easy to diff against the YAML it came
-  from. (They're committed by choice; they could be gitignored instead.)
+- **`_tabulated` output nests INSIDE the source file's own folder** as
+  `<folder>/<folder>_tabulated/` (the engine computes this:
+  `tabulated_output_path`). Loose files live in a `_main/` subfolder so their
+  mirrors nest the same way. Generated, regenerable, separate from source, but
+  right next to the YAML it came from. (Committed by choice; they could be
+  gitignored instead.)
 - **Markdown teaching docs cluster in `00_start_here/`** and in each folder's
   `README.md`, so the prose has a home that isn't tangled with the data.
 

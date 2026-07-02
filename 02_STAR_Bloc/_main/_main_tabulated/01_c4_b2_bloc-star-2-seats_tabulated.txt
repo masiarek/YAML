@@ -1,0 +1,159 @@
+======================================================================
+SOURCE FILE:     01_c4_b2_bloc-star-2-seats.yaml
+SOURCE MODIFIED: 2026-06-24 07:58:37
+TABULATED FILE:  01_c4_b2_bloc-star-2-seats_tabulated.txt
+TABULATED AT:    2026-07-02 12:20:25
+======================================================================
+
+election_title: "Bloc STAR Voting: 2-Seat Committee Election"
+scenario_description: |-
+  A basic multi-winner example with 4 candidates and 2 seats. It demonstrates how
+  Bloc STAR fills each seat sequentially through a dedicated scoring round and
+  automatic runoff.
+
+# Presenter notes (ignored by the engine; not shown to the audience).
+video_script: |-
+  SAY: "Sometimes we fill several seats, not one - a committee, a board. The
+       simplest multi-winner method is Bloc STAR: just run single-winner STAR
+       once per seat. Watch the rounds repeat."
+  HOW: Point out the 'Round 1' / 'Round 2' separators - each seat is its own
+       full scoring + runoff.
+  WHY: Bridge from single-winner: Bloc STAR is literally 'STAR, repeated'. Easy
+       to grasp, and the baseline the proportional methods improve on.
+  POINT OUT: Bloc STAR is majoritarian - a cohesive majority can win EVERY seat.
+       That's the limitation the next examples fix.
+  TRANSITION: "Bloc STAR lets a majority sweep all the seats. What if we want a
+       minority to earn fair representation? That's proportional STAR - next."
+
+options:
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
+  show_matrix: false
+  matrix_finalists_only: false
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"   # collapsed-count separator: ×, :, or x/X
+
+num_winners: 2
+voting_method: bloc
+ballots: |-
+  Ann,Bob,Cal,Don
+  1,  0,  4,  5
+  1,  2,  4,  5
+
+expected_winners:
+  - Don
+  - Cal
+
+# file: 01_c4_b2_bloc-star-2-seats.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Bloc STAR Voting: 2-Seat Committee Election ===
+  A basic multi-winner example with 4 candidates and 2 seats. It demonstrates how
+  Bloc STAR fills each seat sequentially through a dedicated scoring round and
+  automatic runoff.
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |     Ann    |    Bob    |  * Cal    |  * Don    |
+-----------------------------------------------------------------
+         Ann > |    ---     |1 - 0 - 1  |0 - 0 - 2  |0 - 0 - 2  |
+         Bob > | 1 - 0 - 1  |   ---     |0 - 0 - 2  |0 - 0 - 2  |
+       * Cal > | 2 - 0 - 0  |2 - 0 - 0  |   ---     |0 - 0 - 2  |
+       * Don > | 2 - 0 - 0  |2 - 0 - 0  |2 - 0 - 0  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Don — matches the STAR winner
+
+[Divergence from STAR]
+  STAR     = Don
+  Approval = Cal   (differs from STAR)
+
+--- Bloc STAR Voting Method (2 winners) ---
+[Bloc STAR]
+ Tabulating 2 ballots.
+Ann,Bob,Cal,Don
+  1,  0,  4,  5
+  1,  2,  4,  5
+
+[Score Distribution] (number of ballots giving each score)
+     5  4  3  2  1  0  | Total   Avg
+Ann  0  0  0  0  2  0  |     2   1.0
+Bob  0  0  0  1  0  1  |     2   1.0
+Cal  0  2  0  0  0  0  |     8   4.0
+Don  2  0  0  0  0  0  |    10   5.0
+ Want to fill 2 seats.
+
+[Bloc STAR: Round 1: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Don           -- 10 -- First place
+   Cal           --  8 -- Second place
+   Ann           --  2
+   Bob           --  2
+ Don and Cal advance.
+
+[Bloc STAR: Round 1: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Don           -- 2 -- First place
+   Cal           -- 0
+   Equal Support -- 0
+ Don wins.
+   Runoff math:
+     2  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     2  voters with a preference  (majority = 2)
+           Don 2 (100%)  ·  Cal 0 (0%)
+
+──────────────────────────────────────────────────
+[Bloc STAR: Round 2: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Cal           -- 8 -- First place
+   Ann           -- 2 -- Tied for second place
+   Bob           -- 2 -- Tied for second place
+ Cal advances, but there's a two-way tie for second.
+
+[Bloc STAR: Round 2: Scoring Round: First tiebreaker]
+ The candidate preferred in the most head-to-head matchups advances.
+   Ann           -- 1 -- Tied for second place
+   Bob           -- 1 -- Tied for second place
+   Equal Support -- 0
+ There's still a two-way tie for second.
+
+[Bloc STAR: Round 2: Scoring Round: Second tiebreaker]
+ The candidate with the most votes of score 5 advances.
+   Ann           -- 0 -- Tied for second place
+   Bob           -- 0 -- Tied for second place
+ There's still a two-way tie for second.
+
+*** No official tie-breaking lot numbers were provided.
+    Ties are resolved using a fallback order: CSV column order.
+    Lot-number priority order: ['Ann', 'Bob', 'Cal', 'Don']
+
+[Tiebreaker: Lot Number Priority]
+  Tie among: ['Ann', 'Bob']
+  Resolved: ['Ann'] (selected by lot-number priority).
+
+[Bloc STAR: Round 2: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Cal           -- 2 -- First place
+   Ann           -- 0
+   Equal Support -- 0
+ Cal wins.
+   Runoff math:
+     2  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     2  voters with a preference  (majority = 2)
+           Cal 2 (100%)  ·  Ann 0 (0%)
+
+[Bloc STAR: Winners — Bloc STAR Voting Method (2 winners)]
+ Don
+ Cal

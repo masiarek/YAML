@@ -114,14 +114,14 @@ and only the 1 truly-blank ballot is an abstention. The **363 decided voters and
 winner are identical** either way. Full reconciliation:
 [BetterVoting and the LH engine](../tabulation_engines/bettervoting_and_the_engine.md#when-the-two-reports-differ--abstentions-vs-equal-support)
 and the frozen evidence in
-[`BV_result_snapshot.md`](../../01_Single_winner/pet_real_bv_election/BV_result_snapshot.md). (See [reading a STAR report](../tabulation_engines/LH_starvote/reading_a_star_report.md) for the
+[`BV_result_snapshot.md`](../../01_STAR/pet_real_bv_election/BV_result_snapshot.md). (See [reading a STAR report](../tabulation_engines/LH_starvote/reading_a_star_report.md) for the
 rest of the engine output, and `CLAUDE.md` for the option's house default.)
 
 The BetterVoting screenshots above and this engine line are **two reports of the same
 election** — why there are two, and how every piece maps between them, is
 [BetterVoting and the LH engine](../tabulation_engines/bettervoting_and_the_engine.md).
 The full election file and complete report for this pets race are in the worked lesson
-[A real BetterVoting election, end to end](../../01_Single_winner/pet_real_bv_election/README_pet_real_bv_election.md).
+[A real BetterVoting election, end to end](../../01_STAR/pet_real_bv_election/README_pet_real_bv_election.md).
 
 ## The one-sentence version
 

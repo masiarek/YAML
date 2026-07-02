@@ -4,7 +4,7 @@
 reasonable definitions can point at **three different candidates** — and STAR's job
 is to choose among them on purpose, not by accident.
 
-→ Related: the simpler two-way case, [Runoff Reversal](../../01_Single_winner/runoff_overturns_leader/README_runoff_overturns_leader.md)
+→ Related: the simpler two-way case, [Runoff Reversal](../../01_STAR/runoff_overturns_leader/README_runoff_overturns_leader.md)
 (score leader ≠ STAR winner). Glossary: [`Condorcet winner`](../GLOSSARY.md).
 
 ---
@@ -25,7 +25,7 @@ same person and there's nothing to discuss. The lesson is what happens when they
 
 ## One election, three winners
 
-→ [`three_winners_cw_score_runoff.yaml`](../../01_Single_winner/three_winners_cw_score_runoff.yaml)
+→ [`three_winners_cw_score_runoff.yaml`](../../01_STAR/_main/three_winners_cw_score_runoff.yaml)
 — five voters, three candidates:
 
 ```

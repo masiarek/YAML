@@ -35,12 +35,11 @@ from scenario_eval import scenario_winners  # noqa: E402
 
 # Folders that hold single-winner example/test cases.
 SINGLE_WINNER_DIRS = [
-    REPO_ROOT / "01_Single_winner",
-    REPO_ROOT / "01_Single_winner" / "_main",
-    REPO_ROOT / "01_Single_winner" / "runoff_overturns_leader",
-    REPO_ROOT / "01_Single_winner" / "summability_demo",
-    REPO_ROOT / "01_Single_winner" / "BV_Library",
-    REPO_ROOT / "split_voting" / "_main",
+    REPO_ROOT / "01_STAR" / "_main",
+    REPO_ROOT / "01_STAR" / "runoff_overturns_leader",
+    REPO_ROOT / "method_comparisons" / "summability_demo",
+    REPO_ROOT / "method_comparisons" / "BV_Library",
+    REPO_ROOT / "method_comparisons" / "split_voting" / "_main",
     REPO_ROOT / "YAML_library" / "1_positive",
 ]
 
