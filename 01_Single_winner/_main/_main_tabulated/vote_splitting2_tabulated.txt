@@ -1,0 +1,154 @@
+======================================================================
+SOURCE FILE:     vote_splitting2.yaml
+SOURCE MODIFIED: 2026-06-24 07:58:37
+TABULATED FILE:  vote_splitting2_tabulated.txt
+TABULATED AT:    2026-07-02 09:37:48
+======================================================================
+
+election_title: Vote splitting — two chocolates split the majority
+scenario_description: |-
+  Election: pick ONE dessert for the party. 360 voters.
+ 
+  220 of the 360 are chocolate lovers — a clear 61% majority. But there are TWO
+  chocolates on the menu, DarkChoco and MilkChoco, and 140 voters prefer Vanilla.
+ 
+  Under Choose-One Plurality each voter may name only one flavor, so the
+  chocolate majority splits its vote — 120 for DarkChoco, 100 for MilkChoco —
+  and Vanilla wins with just 140 of 360 (38.9%), a dessert a 61% majority
+  actively dislikes. That is vote splitting / the spoiler effect.
+ 
+  STAR fixes it without asking chocolate to drop a flavor: every voter scores
+  all three 0–5, so a chocolate lover can give BOTH chocolates a high score
+  instead of choosing between them. The two highest totals advance to an
+  automatic runoff, and the winner has majority support head-to-head.
+
+# Presenter notes (ignored by the engine; not shown to the audience).
+video_script: |-
+  SAY: "Two hundred twenty of our three hundred sixty voters love chocolate — a
+       clear majority. But there are two chocolates on the menu, DarkChoco and
+       MilkChoco, and under today's Choose-One rules each fan can pick only one.
+       So the chocolate vote splits, one hundred twenty to one hundred — and
+       Vanilla wins with a hundred forty votes, a dessert a sixty-one percent
+       majority didn't even want."
+  HOW: Show the Choose-One tally FIRST (Vanilla 140, DarkChoco 120, MilkChoco
+       100) and let the wrong winner sting for a beat before STAR appears. Then
+       reveal the same 360 ballots as 0–5 scores.
+  WHY: This is the payoff scenario — the entire case for STAR in one race. Hold
+       the candidates at three so the ONLY things that change are the ballot and
+       the count, not the field.
+  TRANSITION: "Now watch the SAME 360 voters fill out a STAR ballot — giving
+       both chocolates a score instead of choosing between them — and see who
+       actually wins."
+
+blocs:
+  Chocolate: [DarkChoco, MilkChoco]
+
+voting_method: STAR   # STAR Voting - Single-winner
+num_winners: 1
+
+options:
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
+  # Layer 1 (general audience): keep the render clean. The matrix and the
+  # Condorcet line are the Layer 2 deep-dive — flip either to true to discuss
+  # the head-to-head winner with a more advanced audience from this SAME file.
+  show_matrix: true
+  show_condorcet: false
+  show_score_counts: false   # the per-flavor score distribution reads well on screen
+  brief: true   # collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true   # group identical ballots as "count × scores"
+  count_separator: "×"
+  matrix_finalists_only: true   # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
+
+ballots: |-
+  Count:DarkChoco,MilkChoco,Vanilla
+  120:5,4,0   # love dark, like milk, no vanilla
+  100:4,5,0   # love milk, like dark, no vanilla
+  140:2,1,5   # love vanilla, mild on chocolate
+
+expected_winners:
+  - DarkChoco
+
+# file: vote_splitting2.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Vote splitting — two chocolates split the majority ===
+  Election: pick ONE dessert for the party. 360 voters.
+
+  220 of the 360 are chocolate lovers — a clear 61% majority. But there are TWO
+  chocolates on the menu, DarkChoco and MilkChoco, and 140 voters prefer Vanilla.
+
+  Under Choose-One Plurality each voter may name only one flavor, so the
+  chocolate majority splits its vote — 120 for DarkChoco, 100 for MilkChoco —
+  and Vanilla wins with just 140 of 360 (38.9%), a dessert a 61% majority
+  actively dislikes. That is vote splitting / the spoiler effect.
+
+  STAR fixes it without asking chocolate to drop a flavor: every voter scores
+  all three 0–5, so a chocolate lover can give BOTH chocolates a high score
+  instead of choosing between them. The two highest totals advance to an
+  automatic runoff, and the winner has majority support head-to-head.
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+                    |   * DarkChoco   |  * MilkChoco   |     Vanilla    |
+-------------------------------------------------------------------------
+      * DarkChoco > |       ---       |260 -   0 - 100 |220 -   0 - 140 |
+      * MilkChoco > | 100 -   0 - 260 |      ---       |220 -   0 - 140 |
+          Vanilla > | 140 -   0 - 220 |140 -   0 - 220 |      ---       |
+
+[Condorcet Winner]
+  Condorcet Winner: DarkChoco — matches the STAR winner
+
+[Divergence from STAR]
+  STAR                   = DarkChoco
+  Choose-One (Plurality) = Vanilla   (differs from STAR)
+
+[Vote-splitting check]
+  Choose-One first choices: Vanilla 140, DarkChoco 120, MilkChoco 100
+  Plurality winner: Vanilla (140, 38.9%)
+  Bloc 'Chocolate' = DarkChoco, MilkChoco: combined 220 (61.1%); winner Vanilla is OUTSIDE it.
+  => VOTE SPLITTING: the 'Chocolate' bloc is an outright majority (220 vs
+     Vanilla's 140) but split across 2 candidates, so Vanilla won Choose-
+     One. STAR elected DarkChoco.
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 360 ballots.
+Count × DarkChoco,MilkChoco,Vanilla
+  140 ×         2,        1,      5
+  120 ×         5,        4,      0
+  100 ×         4,        5,      0
+
+[Score Distribution] (number of ballots giving each score)
+             5    4    3    2    1    0  | Total   Avg
+DarkChoco  120  100    0  140    0    0  |  1280   3.6
+MilkChoco  100  120    0    0  140    0  |  1120   3.1
+Vanilla    140    0    0    0    0  220  |   700   1.9
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   DarkChoco     -- 1280 -- First place
+   MilkChoco     -- 1120 -- Second place
+   Vanilla       --  700
+ DarkChoco and MilkChoco advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   DarkChoco     -- 260 -- First place
+   MilkChoco     -- 100
+   Equal Support --   0
+ DarkChoco wins.
+   Runoff math:
+     360  ballots cast
+   −   0  Equal Support (no preference between the two finalists)
+     ───
+     360  voters with a preference  (majority = 181)
+           DarkChoco 260 (72%)  ·  MilkChoco 100 (28%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ DarkChoco

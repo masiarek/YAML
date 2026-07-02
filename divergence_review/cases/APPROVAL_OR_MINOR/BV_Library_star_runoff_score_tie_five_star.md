@@ -20,7 +20,7 @@ STAR, RCV-IRV and Ranked Robin all agree on **Allison**. Only **Approval** diffe
 
 **Flags:** IRV winner flips under reversed priority (fragile tie)
 
-**Source election:** [`01_Single_winner/BV_Library/BV_Library_star_runoff_score_tie_five_star.yaml`](../../../01_Single_winner/BV_Library/BV_Library_star_runoff_score_tie_five_star.yaml)  ·  **STAR tabulated mirror:** [`BV_Library_star_runoff_score_tie_five_star_tabulated.txt`](../../../01_Single_winner/BV_Library_tabulated/BV_Library_star_runoff_score_tie_five_star_tabulated.txt)
+**Source election:** [`01_Single_winner/BV_Library/BV_Library_star_runoff_score_tie_five_star.yaml`](../../../01_Single_winner/BV_Library/BV_Library_star_runoff_score_tie_five_star.yaml)  ·  **STAR tabulated mirror:** [`BV_Library_star_runoff_score_tie_five_star_tabulated.txt`](../../../01_Single_winner/BV_Library/BV_Library_tabulated/BV_Library_star_runoff_score_tie_five_star_tabulated.txt)
 
 _2 candidates, 2 ballots._
 

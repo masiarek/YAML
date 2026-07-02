@@ -1,0 +1,23 @@
+--- RCV / Instant-Runoff Voting (single winner) ---
+  Monotonicity — STAR counterpart (AFTER — X still wins)
+ Tabulating 34 ballots (converted from score ballots; 0 = unranked, equal scores broken by candidate priority).
+
+ROUND 1
+Candidate      Votes  Status
+-----------  -------  --------
+X                 16  Hopeful
+Z                 10  Hopeful
+Y                  8  Rejected
+
+FINAL RESULT
+Candidate      Votes  Status
+-----------  -------  --------
+Z                 18  Elected
+X                 16  Rejected
+Y                  0  Rejected
+
+
+Winner(s) — RCV / Instant-Runoff Voting (single winner)
+  Z
+
+NOTE: a generated cross-method view of the STAR ballots, for comparison only — not the official STAR result.

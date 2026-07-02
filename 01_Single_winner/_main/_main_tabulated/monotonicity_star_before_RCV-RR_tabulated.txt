@@ -1,0 +1,31 @@
+--- Ranked Robin (RCV-RR / Copeland) Method (single winner) ---
+ Tabulating 34 ballots (score ballots).
+
+Ballots:
+   columns = X, Y, Z      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+    12 × 5, 3, 0   →   X > Y > Z
+    12 × 0, 5, 3   →   Y > Z > X
+    10 × 3, 0, 5   →   Z > X > Y
+
+Round-Robin — every pair, head-to-head (For – Against):
+   X  beats Y   22 – 12
+   Z  beats X   22 – 12
+   Y  beats Z   24 – 10
+
+--- Pairwise (Round-Robin) Matrix ---
+Head-to-head / pairwise comparison — the Ranked Robin tally
+Legend: For - Equal Support - Against   (row vs column)
+      |      X       |     Y       |     Z       |
+--------------------------------------------------
+  X > |     ---      |22 -  0 - 12 |12 -  0 - 22 |
+  Y > | 12 -  0 - 22 |    ---      |24 -  0 - 10 |
+  Z > | 22 -  0 - 12 |10 -  0 - 24 |    ---      |
+
+Win–loss record — Copeland score = wins + ½·ties (most wins wins; ties broken by total margin, then lot order):
+    #  Candidate  W–L–T  Copeland  Margin  Beats
+    1  Y          1–1–0         1      +4  Z
+    2  X          1–1–0         1      +0  Y
+    3  Z          1–1–0         1      -4  X
+
+Winner — Ranked Robin (RCV-RR): Y
+   *** 3 candidates tie on wins (X, Y, Z) — a Condorcet cycle. Resolved by total margin, then lot order. (This is where Minimax / Ranked Pairs / Schulze differ — see 00_start_here/RCV_Ranked_Robin/cycle_resolution.md.)

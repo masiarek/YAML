@@ -20,7 +20,7 @@ RCV-IRV and Ranked Robin both elect **Ann**, the Condorcet (pairwise) winner. ST
 
 **Flags:** none
 
-**Source election:** [`01_Single_winner/three_winners_cw_score_runoff.yaml`](../../../01_Single_winner/three_winners_cw_score_runoff.yaml)  ·  **STAR tabulated mirror:** [`three_winners_cw_score_runoff_tabulated.txt`](../../../01_Single_winner_tabulated/three_winners_cw_score_runoff_tabulated.txt)
+**Source election:** [`01_Single_winner/_main/three_winners_cw_score_runoff.yaml`](../../../01_Single_winner/_main/three_winners_cw_score_runoff.yaml)  ·  **STAR tabulated mirror:** [`three_winners_cw_score_runoff_tabulated.txt`](../../../01_Single_winner/_main/_main_tabulated/three_winners_cw_score_runoff_tabulated.txt)
 
 _3 candidates, 5 ballots._
 

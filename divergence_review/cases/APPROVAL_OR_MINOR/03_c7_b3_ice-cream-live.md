@@ -20,7 +20,7 @@ STAR, RCV-IRV and Ranked Robin all agree on **ChocoAlm**. Only **Approval** diff
 
 **Flags:** none
 
-**Source election:** [`01_Single_winner/runoff_overturns_leader/03_c7_b3_ice-cream-live.yaml`](../../../01_Single_winner/runoff_overturns_leader/03_c7_b3_ice-cream-live.yaml)  ·  **STAR tabulated mirror:** [`03_c7_b3_ice-cream-live_tabulated.txt`](../../../01_Single_winner/runoff_overturns_leader_tabulated/03_c7_b3_ice-cream-live_tabulated.txt)
+**Source election:** [`01_Single_winner/runoff_overturns_leader/03_c7_b3_ice-cream-live.yaml`](../../../01_Single_winner/runoff_overturns_leader/03_c7_b3_ice-cream-live.yaml)  ·  **STAR tabulated mirror:** [`03_c7_b3_ice-cream-live_tabulated.txt`](../../../01_Single_winner/runoff_overturns_leader/runoff_overturns_leader_tabulated/03_c7_b3_ice-cream-live_tabulated.txt)
 
 _7 candidates, 3 ballots._
 
@@ -58,8 +58,8 @@ ChocoDrk            1  Rejected
 ChocoHzn            0  Rejected
 Mango               0  Rejected
 VanillaFrnch        0  Rejected
-VanillaClssc        0  Rejected
 Peach               0  Rejected
+VanillaClssc        0  Rejected
 
 
 Winner(s) — RCV / Instant-Runoff Voting (single winner)

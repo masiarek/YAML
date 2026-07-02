@@ -1,0 +1,125 @@
+======================================================================
+SOURCE FILE:     04b_c4_b3_display-options-all.yaml
+SOURCE MODIFIED: 2026-06-21 07:07:40
+TABULATED FILE:  04b_c4_b3_display-options-all_tabulated.txt
+TABULATED AT:    2026-07-02 09:37:45
+======================================================================
+
+# Single-race demo exercising EVERY supported field and `options:` flag.
+# Run:  python starvote_larry_hastings.py \
+#         "elections_illustrations/01_Single_winner/04b_c4_b3_display-options-all.yaml"
+
+# election_title + scenario_description print as a header above the results.
+election_title: All options demo
+scenario_description: |-
+  Reference example that sets every supported field and display option, so you
+  can see exactly what each one does. Single-winner STAR over four candidates;
+  the finalists-only matrix, Condorcet line, and score distribution are all on.
+
+# Presenter notes (ignored by the engine; not shown to the audience).
+video_script: |-
+  SAY: "This is the 'everything on' reference - the full score distribution, the
+       matrix, the Condorcet check, verbose round headers."
+  HOW: Reference slide, not a teaching beat. Use it to point people at the
+       options they can toggle in their own files.
+  WHY: One place that shows every supported option in action.
+  TRANSITION: "That's single-winner STAR end to end. Next we elect MULTIPLE
+       winners - first Bloc STAR, then the proportional methods."
+
+num_winners: 1        # 1 = single-winner STAR; >=2 requires voting_method: bloc
+voting_method: STAR   # STAR (single winner) or bloc (multi-winner Bloc STAR)
+
+options:
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
+  # --- Preference (head-to-head) matrix ---
+  show_matrix: true            # show the Runoff (Preference) Matrix
+  matrix_finalists_only: true  # true = only the 2 finalists (decisive matchup);
+                               # false = full N×N grid. Requires show_matrix.
+
+  # --- Analyses ---
+  show_condorcet: true     # show the [Condorcet Winner] line
+  show_score_counts: true  # show the per-candidate [Score Distribution] table
+
+  # --- Output style ---
+  brief: true              # true = collapse repetitive "[STAR Voting: ...]" headers
+                           # into plain sub-headings; false = keep full headers
+  collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
+                           # (most common first); false = echo every ballot
+  count_separator: "×"     # separator for the collapsed count: "×", ":", or "x"/"X"
+                           # (all round-trip back to valid input)
+
+ballots: |-
+  Choco,Almond,Vanilla,Strawberry
+       0,     2,     3,         5
+       0,     2,     3,         5
+       0,     2,     5,         3
+
+expected_winners:
+  - Strawberry
+
+# file: 04b_c4_b3_display-options-all.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== All options demo ===
+  Reference example that sets every supported field and display option, so you
+  can see exactly what each one does. Single-winner STAR over four candidates;
+  the finalists-only matrix, Condorcet line, and score distribution are all on.
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+                   |      Choco     |     Almond    |  * Vanilla    | * Strawberry  |
+-------------------------------------------------------------------------------------
+           Choco > |      ---       |  0 - 0 - 3    |  0 - 0 - 3    |  0 - 0 - 3    |
+          Almond > |   3 - 0 - 0    |     ---       |  0 - 0 - 3    |  0 - 0 - 3    |
+       * Vanilla > |   3 - 0 - 0    |  3 - 0 - 0    |     ---       |  1 - 0 - 2    |
+    * Strawberry > |   3 - 0 - 0    |  3 - 0 - 0    |  2 - 0 - 1    |     ---       |
+
+[Condorcet Winner]
+  Condorcet Winner: Strawberry — matches the STAR winner
+
+[Divergence from STAR]
+  STAR     = Strawberry
+  Approval = Vanilla   (differs from STAR)
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 3 ballots.
+Count × Choco,Almond,Vanilla,Strawberry
+    2 ×     0,     2,      3,         5
+    1 ×     0,     2,      5,         3
+
+[Score Distribution] (number of ballots giving each score)
+            5  4  3  2  1  0  | Total   Avg
+Choco       0  0  0  0  0  3  |     0   0.0
+Almond      0  0  0  3  0  0  |     6   2.0
+Vanilla     1  0  2  0  0  0  |    11   3.7
+Strawberry  2  0  1  0  0  0  |    13   4.3
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Strawberry    -- 13 -- First place
+   Vanilla       -- 11 -- Second place
+   Almond        --  6
+   Choco         --  0
+ Strawberry and Vanilla advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Strawberry    -- 2 -- First place
+   Vanilla       -- 1
+   Equal Support -- 0
+ Strawberry wins.
+   Runoff math:
+     3  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     3  voters with a preference  (majority = 2)
+           Strawberry 2 (67%)  ·  Vanilla 1 (33%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Strawberry

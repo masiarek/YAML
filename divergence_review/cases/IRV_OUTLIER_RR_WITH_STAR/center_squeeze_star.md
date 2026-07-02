@@ -20,7 +20,7 @@ STAR elects **Center** — and so do Ranked Robin and Condorcet, because **Cente
 
 **Flags:** none
 
-**Source election:** [`01_Single_winner/center_squeeze_star.yaml`](../../../01_Single_winner/center_squeeze_star.yaml)  ·  **STAR tabulated mirror:** [`center_squeeze_star_tabulated.txt`](../../../01_Single_winner_tabulated/center_squeeze_star_tabulated.txt)
+**Source election:** [`01_Single_winner/_main/center_squeeze_star.yaml`](../../../01_Single_winner/_main/center_squeeze_star.yaml)  ·  **STAR tabulated mirror:** [`center_squeeze_star_tabulated.txt`](../../../01_Single_winner/_main/_main_tabulated/center_squeeze_star_tabulated.txt)
 
 _3 candidates, 27 ballots._
 

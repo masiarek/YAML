@@ -20,7 +20,7 @@ STAR elects **Leia** — and so do Ranked Robin and Condorcet, because **Leia is
 
 **Flags:** none
 
-**Source election:** [`split_voting/04_star_wars_vote_split.yaml`](../../../split_voting/04_star_wars_vote_split.yaml)  ·  **STAR tabulated mirror:** [`04_star_wars_vote_split_tabulated.txt`](../../../split_voting_tabulated/04_star_wars_vote_split_tabulated.txt)
+**Source election:** [`split_voting/_main/04_star_wars_vote_split.yaml`](../../../split_voting/_main/04_star_wars_vote_split.yaml)  ·  **STAR tabulated mirror:** [`04_star_wars_vote_split_tabulated.txt`](../../../split_voting/_main/_main_tabulated/04_star_wars_vote_split_tabulated.txt)
 
 _3 candidates, 100 ballots._
 

@@ -1,0 +1,88 @@
+======================================================================
+SOURCE FILE:     01a_c2_b2_two-candidates.yaml
+SOURCE MODIFIED: 2026-06-24 07:58:37
+TABULATED FILE:  01a_c2_b2_two-candidates_tabulated.txt
+TABULATED AT:    2026-07-02 09:37:44
+======================================================================
+
+election_title: Same as before - but this time two ballots
+
+scenario_description: |-
+
+# Presenter notes (ignored by the engine; not shown to the audience).
+video_script: |-
+  The goal here is two show how the results change when we add one more vote.
+  
+  5,      3       # Caroline - she likes both flavors
+  5,      3       # Bob - he likes both flavors too
+ballots: |-
+  Chocolate,Vanilla
+          5,      3       # Caroline - she likes both flavors
+          5,      3       # Bob - he likes both flavors too
+
+options:
+  show_description: false
+  show_matrix: false            # as little noise as possible
+  matrix_finalists_only: false   # as little noise as possible
+  show_score_counts: false
+  show_condorcet: false   # show the [Condorcet Winner] line
+  show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: false   # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"   # collapsed-count separator: ×, :, or x/X
+
+expected_winners:
+  - Chocolate
+
+# file: 01a_c2_b2_two-candidates.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Same as before - but this time two ballots ===
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+                  |  * Chocolate  |  * Vanilla   |
+--------------------------------------------------
+    * Chocolate > |      ---      |  2 - 0 - 0   |
+      * Vanilla > |   0 - 0 - 2   |     ---      |
+
+[Condorcet Winner]
+  Condorcet Winner: Chocolate — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 2 ballots.
+Count × Chocolate,Vanilla
+    2 ×         5,      3
+
+[Score Distribution] (number of ballots giving each score)
+           5  4  3  2  1  0  | Total   Avg
+Chocolate  2  0  0  0  0  0  |    10   5.0
+Vanilla    0  0  2  0  0  0  |     6   3.0
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Chocolate     -- 10 -- First place
+   Vanilla       --  6 -- Second place
+ Chocolate and Vanilla advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Chocolate     -- 2 -- First place
+   Vanilla       -- 0
+   Equal Support -- 0
+ Chocolate wins.
+   Runoff math:
+     2  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     2  voters with a preference  (majority = 2)
+           Chocolate 2 (100%)  ·  Vanilla 0 (0%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Chocolate

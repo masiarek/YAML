@@ -441,16 +441,14 @@ def save_results_to_file(path, winners, report):
 def tabulated_output_path(src_path):
     """Where to write the plain-text tabulation for an election file.
 
-    The copy goes into a sibling folder whose name is the source folder + the
-    '_tabulated' suffix, and the file itself also gets a '_tabulated' suffix.
+    The copy goes into a '<folder>_tabulated' subfolder NESTED INSIDE the source
+    file's own folder, and the file itself also gets a '_tabulated' suffix.
     Example:
-        .../elections_illustrations/02_Multi_winner/foo.yaml
-        -> .../elections_illustrations/Multi_winner_tabulated/foo_tabulated.txt
-        .../elections_illustrations/bar.yaml
-        -> .../elections_illustrations_tabulated/bar_tabulated.txt
+        .../01_Single_winner/black_curtain/foo.yaml
+        -> .../01_Single_winner/black_curtain/black_curtain_tabulated/foo_tabulated.txt
     """
     p = Path(src_path).resolve()
-    out_dir = p.parent.parent / (p.parent.name + "_tabulated")
+    out_dir = p.parent / (p.parent.name + "_tabulated")
     return out_dir / (p.stem + "_tabulated.txt")
 
 
@@ -479,35 +477,71 @@ def ensure_filename_comment(path):
 
 
 def write_tabulated_copy(src_path, output_text):
-    """Write the (ANSI-stripped) tabulation text next to its source, under the
-    '<folder>_tabulated' mirror folder. Returns the path written."""
+    """Write the (ANSI-stripped) tabulation text under the '<folder>_tabulated'
+    mirror folder nested inside the source file's folder. Returns the path written."""
     out_path = tabulated_output_path(src_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(strip_ansi(output_text), encoding="utf-8")
     return out_path
 
 
+def write_composed_tabulated(src_path, results_text):
+    """Write the standard '_tabulated' mirror: a provenance header, the ORIGINAL
+    election file copied as-is, then the (ANSI-stripped) tabulation results.
+    Shared by the STAR and Approval paths. Returns the path written."""
+    import datetime
+    try:
+        original = Path(src_path).read_text(encoding="utf-8")
+    except OSError:
+        original = ""
+    divider = "=" * 70
+    src_name = Path(src_path).name
+    out_name = tabulated_output_path(src_path).name
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S %Z").strip()
+    try:
+        mtime = datetime.datetime.fromtimestamp(
+            Path(src_path).stat().st_mtime
+        ).strftime("%Y-%m-%d %H:%M:%S")
+    except OSError:
+        mtime = "unknown"
+    composed = (
+        f"{divider}\n"
+        f"SOURCE FILE:     {src_name}\n"
+        f"SOURCE MODIFIED: {mtime}\n"
+        f"TABULATED FILE:  {out_name}\n"
+        f"TABULATED AT:    {timestamp}\n"
+        f"{divider}\n\n"
+        f"{original.rstrip()}\n\n"
+        f"{divider}\n"
+        f"TABULATION RESULTS\n"
+        f"{divider}\n\n"
+        f"{strip_ansi(results_text).lstrip()}"
+    )
+    return write_tabulated_copy(src_path, composed)
+
+
 def aux_tabulated_path(src_path, method_tag):
     """Path for an AUXILIARY method mirror (e.g. the round-by-round RCV-IRV or
     Ranked Robin report generated alongside a STAR run). Same '<folder>_tabulated'
-    mirror folder as the STAR copy, but the filename carries a method tag so it
-    never collides with the primary '<stem>_tabulated.txt':
-        .../split_voting/04_star_wars_vote_split.yaml
-        -> .../split_voting_tabulated/04_star_wars_vote_split_RCV-IRV_tabulated.txt
+    mirror folder (nested inside the source folder) as the STAR copy, but the
+    filename carries a method tag so it never collides with the primary
+    '<stem>_tabulated.txt':
+        .../split_voting/_main/04_star_wars_vote_split.yaml
+        -> .../split_voting/_main/_main_tabulated/04_star_wars_vote_split_RCV-IRV_tabulated.txt
     """
     p = Path(src_path).resolve()
-    out_dir = p.parent.parent / (p.parent.name + "_tabulated")
+    out_dir = p.parent / (p.parent.name + "_tabulated")
     return out_dir / f"{p.stem}_{method_tag}_tabulated.txt"
 
 
 def method_mirror_links(out_path, src_path):
     """Two display lines for a generated mirror: a short repo-relative-ish path
     (clickable in most IDE terminals) and an absolute file:// URL (paste to open).
-    The short path is relative to the source file's grandparent, i.e.
+    The short path is relative to the source file's folder, i.e.
     '<folder>_tabulated/<name>'."""
     out_path = Path(out_path).resolve()
     try:
-        short = out_path.relative_to(Path(src_path).resolve().parent.parent)
+        short = out_path.relative_to(Path(src_path).resolve().parent)
     except ValueError:
         short = out_path
     return str(short), out_path.as_uri()
@@ -2654,7 +2688,24 @@ Memphis,Nashville,Chattanooga,Knoxville
             if _norm not in {"approval", "approve", "av", "approval_voting",
                              "approval_single_winner", "approval_multi_winner"}:
                 print(f"(Interpreting voting_method '{_raw}' as Approval.)")
-            tabulate_approval(csv_input, seats=_seats)
+            # Capture the report so it both echoes on screen AND writes the
+            # standard '<folder>_tabulated' mirror (same composed format as
+            # the STAR path: provenance header + original file + results).
+            import contextlib as _ctx
+            import io as _io
+            _buf = _io.StringIO()
+            try:
+                with _ctx.redirect_stdout(_buf):
+                    tabulate_approval(csv_input, seats=_seats)
+            except SystemExit:
+                sys.stdout.write(_buf.getvalue())  # don't swallow error text
+                raise
+            _out = _buf.getvalue()
+            sys.stdout.write(_out)
+            try:
+                write_composed_tabulated(BALLOTS_FILE, _out)
+            except Exception:
+                pass
             sys.exit(0)
 
         if election["seats"] is not None:
@@ -2780,38 +2831,8 @@ Memphis,Nashville,Chattanooga,Knoxville
         _, file_out = _capture(full_kwargs)
 
         # The '_tabulated' file is the ORIGINAL election file copied as-is,
-        # followed by the tabulation results.
-        try:
-            original = Path(BALLOTS_FILE).read_text(encoding="utf-8")
-        except OSError:
-            original = ""
-        import datetime
-
-        divider = "=" * 70
-        src_name = Path(BALLOTS_FILE).name
-        tab_path = tabulated_output_path(BALLOTS_FILE)
-        out_name = tab_path.name
-        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S %Z").strip()
-        try:
-            mtime = datetime.datetime.fromtimestamp(
-                Path(BALLOTS_FILE).stat().st_mtime
-            ).strftime("%Y-%m-%d %H:%M:%S")
-        except OSError:
-            mtime = "unknown"
-        composed = (
-            f"{divider}\n"
-            f"SOURCE FILE:     {src_name}\n"
-            f"SOURCE MODIFIED: {mtime}\n"
-            f"TABULATED FILE:  {out_name}\n"
-            f"TABULATED AT:    {timestamp}\n"
-            f"{divider}\n\n"
-            f"{original.rstrip()}\n\n"
-            f"{divider}\n"
-            f"TABULATION RESULTS\n"
-            f"{divider}\n\n"
-            f"{strip_ansi(file_out).lstrip()}"
-        )
-        write_tabulated_copy(BALLOTS_FILE, composed)
+        # followed by the tabulation results (see write_composed_tabulated).
+        write_composed_tabulated(BALLOTS_FILE, file_out)
 
         if SAVE_RESULTS:
             names = winners if isinstance(winners, (list, tuple)) else [winners]

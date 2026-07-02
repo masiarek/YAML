@@ -1,0 +1,115 @@
+======================================================================
+SOURCE FILE:     01b_c2_b2_two-candidates.yaml
+SOURCE MODIFIED: 2026-06-24 07:58:37
+TABULATED FILE:  01b_c2_b2_two-candidates_tabulated.txt
+TABULATED AT:    2026-07-02 09:37:44
+======================================================================
+
+election_title: Again, very similar - this time second ballot is 5 and 0
+scenario_description: |-
+  Same as before (Caroline vote is the first), 
+  but this time with one more person (hence one more ballot 
+  - the second row) — from George:
+  
+  George (new ballot) he likes only Choco:
+  - he loves the Choco flavor (5 stars)
+  - he dislikes Vanilla (0 stars)
+
+  We are adding up the scores given to each candidate (Tallying = Scoring Round).
+
+# Presenter notes (ignored by the engine; not shown to the audience).
+video_script: |-
+  SAY: "Same election, but now a second voter, George. Watch the Scoring Round:
+       we simply add each candidate's scores across all ballots."
+  HOW: Point at the running totals. Emphasize 'just addition' - it's not magic.
+  WHY: Reinforce what the Scoring Round actually does before counts get bigger.
+  POINT OUT: Both voters happen to prefer Choco, so Choco still wins - two
+       candidates rarely produce drama. That's expected.
+  TRANSITION: "Still Choco. Two candidates can't really surprise us. Let's add
+       one more voter (Julia), then a third flavor - that's where it gets
+       interesting."
+
+options:
+  show_description: false   # clean demo: description stays in the file (+_tabulated), hidden on screen
+  show_matrix: false   # show the Runoff (Preference) Matrix
+  matrix_finalists_only: false   # true = finalists only; false = full N×N grid (needs show_matrix)
+  show_condorcet: false   # show the [Condorcet Winner] line
+  show_score_counts: false   # show the per-candidate [Score Distribution] table
+  show_irv: false   # show the [Divergence from STAR] RCV-IRV comparison
+  brief: true   # true = collapse repetitive "[STAR Voting: ...]" headers
+  collapse_ballots: true   # true = group identical ballots as "count <sep> scores"
+  count_separator: "×"   # collapsed-count separator: ×, :, or x/X
+
+voting_method: STAR   # STAR Voting - Single-winner
+num_winners: 1
+
+ballots: |-
+  Choco,Vanilla
+      5,      3       # Caroline - she likes both flavors
+      5,      0       # George - he likes only one flavor (Choco)
+
+expected_winners:
+  - Choco
+
+# file: 01b_c2_b2_two-candidates.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Again, very similar - this time second ballot is 5 and 0 ===
+  Same as before (Caroline vote is the first), 
+  but this time with one more person (hence one more ballot 
+  - the second row) — from George:
+
+  George (new ballot) he likes only Choco:
+  - he loves the Choco flavor (5 stars)
+  - he dislikes Vanilla (0 stars)
+
+  We are adding up the scores given to each candidate (Tallying = Scoring Round).
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+                |   * Choco   | * Vanilla  |
+--------------------------------------------
+      * Choco > |     ---     | 2 - 0 - 0  |
+    * Vanilla > |  0 - 0 - 2  |    ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Choco — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 2 ballots.
+Choco,Vanilla
+    5,      3
+    5,      0
+
+[Score Distribution] (number of ballots giving each score)
+         5  4  3  2  1  0  | Total   Avg
+Choco    2  0  0  0  0  0  |    10   5.0
+Vanilla  0  0  1  0  0  1  |     3   1.5
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Choco         -- 10 -- First place
+   Vanilla       --  3 -- Second place
+ Choco and Vanilla advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Choco         -- 2 -- First place
+   Vanilla       -- 0
+   Equal Support -- 0
+ Choco wins.
+   Runoff math:
+     2  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     2  voters with a preference  (majority = 2)
+           Choco 2 (100%)  ·  Vanilla 0 (0%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Choco

@@ -20,7 +20,7 @@ There is **no Condorcet winner** — the head-to-head results form a cycle (X be
 
 **Flags:** none
 
-**Source election:** [`01_Single_winner/monotonicity_star_after.yaml`](../../../01_Single_winner/monotonicity_star_after.yaml)  ·  **STAR tabulated mirror:** [`monotonicity_star_after_tabulated.txt`](../../../01_Single_winner_tabulated/monotonicity_star_after_tabulated.txt)
+**Source election:** [`01_Single_winner/_main/monotonicity_star_after.yaml`](../../../01_Single_winner/_main/monotonicity_star_after.yaml)  ·  **STAR tabulated mirror:** [`monotonicity_star_after_tabulated.txt`](../../../01_Single_winner/_main/_main_tabulated/monotonicity_star_after_tabulated.txt)
 
 _3 candidates, 34 ballots._
 

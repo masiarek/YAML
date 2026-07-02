@@ -20,7 +20,7 @@ STAR, RCV-IRV and Ranked Robin all agree on **Eden**. Only **Approval** differs,
 
 **Flags:** none
 
-**Source election:** [`01_Single_winner/runoff_overturns_leader/Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml`](../../../01_Single_winner/runoff_overturns_leader/Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml)  ·  **STAR tabulated mirror:** [`Runoff_03_enthusiasts_vs_majority_rkgtpk_tabulated.txt`](../../../01_Single_winner/runoff_overturns_leader_tabulated/Runoff_03_enthusiasts_vs_majority_rkgtpk_tabulated.txt)
+**Source election:** [`01_Single_winner/runoff_overturns_leader/Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml`](../../../01_Single_winner/runoff_overturns_leader/Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml)  ·  **STAR tabulated mirror:** [`Runoff_03_enthusiasts_vs_majority_rkgtpk_tabulated.txt`](../../../01_Single_winner/runoff_overturns_leader/runoff_overturns_leader_tabulated/Runoff_03_enthusiasts_vs_majority_rkgtpk_tabulated.txt)
 
 _5 candidates, 5 ballots._
 

@@ -18,7 +18,7 @@ from pathlib import Path
 ENGINE_DIR = Path(__file__).resolve().parent.parent
 REPO_ROOT = ENGINE_DIR.parent
 WRAPPER = ENGINE_DIR / "starvote_larry_hastings.py"
-CANON = REPO_ROOT / "01_Single_winner" / "ranked_robin_consensus_center.yaml"
+CANON = REPO_ROOT / "01_Single_winner" / "_main" / "ranked_robin_consensus_center.yaml"
 
 
 def _run(path):
@@ -39,7 +39,7 @@ def test_canonical_ranked_robin_file():
     # This file sets options: { show_matrix: true }, so the echo opts INTO the
     # full pairwise matrix. The _tabulated mirror always has it regardless.
     assert "Pairwise (Round-Robin) Matrix" in out
-    tab = (REPO_ROOT / "01_Single_winner_tabulated"
+    tab = (REPO_ROOT / "01_Single_winner" / "_main" / "_main_tabulated"
            / "ranked_robin_consensus_center_tabulated.txt")
     assert tab.exists()
     mirror = tab.read_text()

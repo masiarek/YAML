@@ -1,0 +1,125 @@
+======================================================================
+SOURCE FILE:     quorum_demo_c3_b6.yaml
+SOURCE MODIFIED: 2026-06-29 14:09:58
+TABULATED FILE:  quorum_demo_c3_b6_tabulated.txt
+TABULATED AT:    2026-07-02 09:37:47
+======================================================================
+
+election_title: Quorum — an abstention still counts toward turnout
+scenario_description: |-
+  A 10-member board (eligible_voters: 10). Six members submit a ballot — five
+  score the candidates, and one turns in a BLANK ballot (an abstention). No
+  explicit quorum is set, so the engine's default applies: a majority (>50%) of
+  eligible voters must participate — i.e. at least 6 of 10.
+
+  The teaching point (ties quorum to abstention): the blank ballot is the SIXTH
+  participant. A cast abstention is still participation, so it counts toward
+  quorum — and here it is exactly what carries turnout from 5 (not enough) to 6
+  (quorum met). Drop the abstention and quorum would FAIL. The abstainer changed
+  no candidate's score, but their presence made the election valid.
+
+  → Concept: 00_start_here/quorum.md
+
+voting_method: STAR
+num_winners: 1
+eligible_voters: 10   # the electorate (aliases: electorate / registered_voters)
+# quorum omitted -> default = majority (>50%) of eligible voters = at least 6.
+
+options:
+  show_description: false
+  show_matrix: false   # the story here is quorum + the runoff line, not the matrix
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  show_runoff_percent: true
+  brief: true
+  collapse_ballots: false   # one row per voter — the blank ballot is the point
+  count_separator: "×"
+
+ballots: |-
+  Anna, Ben, Cara
+  5, 0, 0
+  5, 1, 0
+  4, 0, 1
+  0, 5, 0
+  1, 4, 0
+  -, -, -    # blank ballot: an abstention — counts toward quorum, scores no one
+
+expected_winners:
+  - Anna
+
+# file: quorum_demo_c3_b6.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Quorum — an abstention still counts toward turnout ===
+  A 10-member board (eligible_voters: 10). Six members submit a ballot — five
+  score the candidates, and one turns in a BLANK ballot (an abstention). No
+  explicit quorum is set, so the engine's default applies: a majority (>50%) of
+  eligible voters must participate — i.e. at least 6 of 10.
+
+  The teaching point (ties quorum to abstention): the blank ballot is the SIXTH
+  participant. A cast abstention is still participation, so it counts toward
+  quorum — and here it is exactly what carries turnout from 5 (not enough) to 6
+  (quorum met). Drop the abstention and quorum would FAIL. The abstainer changed
+  no candidate's score, but their presence made the election valid.
+
+  → Concept: 00_start_here/quorum.md
+ Quorum: 6 of 10 eligible voters participated (60% turnout); requires more than 50% (>= 6). MET.
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |   * Anna   |  * Ben    |    Cara   |
+-----------------------------------------------------
+      * Anna > |    ---     |3 - 1 - 2  |4 - 2 - 0  |
+       * Ben > | 2 - 1 - 3  |   ---     |3 - 2 - 1  |
+        Cara > | 0 - 2 - 4  |1 - 2 - 3  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Anna — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 6 ballots. Note: 1 of 6 ballots is marked as an abstention.
+Anna,Ben,Cara
+   5,  0,   0
+   5,  1,   0
+   4,  0,   1
+   0,  5,   0
+   1,  4,   0
+   -,  -,   -
+  ('-' = left blank / abstained; '0' = scored zero — both count as 0 stars.)
+
+[Score Distribution] (number of ballots giving each score)
+      5  4  3  2  1  0  Abs  | Total   Avg
+Anna  2  1  0  0  1  1    1  |    15   3.0
+Ben   1  1  0  0  1  2    1  |    10   2.0
+Cara  0  0  0  0  1  4    1  |     1   0.2
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Anna          -- 15 -- First place
+   Ben           -- 10 -- Second place
+   Cara          --  1
+ Anna and Ben advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Anna          -- 3 -- First place
+   Ben           -- 2
+   Equal Support -- 1
+ Anna wins.
+   Runoff math:
+     6  ballots cast
+   − 1  Equal Support (no preference between the two finalists)
+     ─
+     5  voters with a preference  (majority = 3)
+           Anna 3 (60%)  ·  Ben 2 (40%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Anna

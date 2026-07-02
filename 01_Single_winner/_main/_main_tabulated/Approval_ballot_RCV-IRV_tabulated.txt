@@ -1,0 +1,18 @@
+--- RCV / Instant-Runoff Voting (single winner) ---
+  Approval-style & marker ballots (0/1, blanks, abstentions) under STAR
+ Tabulating 8 ballots (converted from score ballots; 0 = unranked, equal scores broken by candidate priority).
+
+FINAL RESULT
+Candidate      Votes  Status
+-----------  -------  --------
+A                  3  Elected
+C                  1  Rejected
+D                  0  Rejected
+B                  0  Rejected
+Blank Votes        4  Rejected
+
+
+Winner(s) — RCV / Instant-Runoff Voting (single winner)
+  A
+
+NOTE: a generated cross-method view of the STAR ballots, for comparison only — not the official STAR result.

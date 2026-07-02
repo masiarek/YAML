@@ -20,7 +20,7 @@ On these ballots RCV-IRV reports **A** rather than STAR's **D**, but this is an 
 
 **Flags:** 4 tied-score ballot(s); IRV winner flips under reversed priority (fragile tie); RR conversion-sensitive (weak=D, strict=A)
 
-**Source election:** [`01_Single_winner/Approval_ballot.yaml`](../../../01_Single_winner/Approval_ballot.yaml)  ·  **STAR tabulated mirror:** [`Approval_ballot_tabulated.txt`](../../../01_Single_winner_tabulated/Approval_ballot_tabulated.txt)
+**Source election:** [`01_Single_winner/_main/Approval_ballot.yaml`](../../../01_Single_winner/_main/Approval_ballot.yaml)  ·  **STAR tabulated mirror:** [`Approval_ballot_tabulated.txt`](../../../01_Single_winner/_main/_main_tabulated/Approval_ballot_tabulated.txt)
 
 _4 candidates, 8 ballots._
 

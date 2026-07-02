@@ -74,8 +74,8 @@ def _write(tmp_path, with_option):
 
 
 def _tabulated_text(yaml_path):
-    # tabulated_output_path: out_dir = p.parent.parent / (p.parent.name + "_tabulated")
-    hits = list(yaml_path.parent.parent.glob("*_tabulated/case_tabulated.txt"))
+    # tabulated_output_path: out_dir = p.parent / (p.parent.name + "_tabulated")
+    hits = list(yaml_path.parent.glob("*_tabulated/case_tabulated.txt"))
     assert hits, "no _tabulated copy was written"
     return hits[0].read_text()
 

@@ -26,39 +26,6 @@ Titles come from each file's **`election_title`** field (the convention — add 
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
-| [`01a_c2_b1_two-candidates.yaml`](../../01_Single_winner/01a_c2_b1_two-candidates.yaml) | `01_Single_winner/` | 1 | The simplest possible STAR Voting example → _Chocolate_ |
-| [`01a_c2_b2_two-candidates.yaml`](../../01_Single_winner/01a_c2_b2_two-candidates.yaml) | `01_Single_winner/` | 1 | Same as before - but this time two ballots → _Chocolate_ |
-| [`01b_c2_b2_two-candidates.yaml`](../../01_Single_winner/01b_c2_b2_two-candidates.yaml) | `01_Single_winner/` | 1 | Again, very similar - this time second ballot is 5 and 0 → _Choco_ |
-| [`01c_c2_b3_two-candidates.yaml`](../../01_Single_winner/01c_c2_b3_two-candidates.yaml) | `01_Single_winner/` | 1 | Equal support example ("I like both flavors") → _Choco_ |
-| [`02a_c3_b1_three-candidates.yaml`](../../01_Single_winner/02a_c3_b1_three-candidates.yaml) | `01_Single_winner/` | 1 | Three candidates, one ballot - single-winner STAR → _Choco_ |
-| [`02b_c3_b2_three-candidates.yaml`](../../01_Single_winner/02b_c3_b2_three-candidates.yaml) | `01_Single_winner/` | 1 | Three candidates, two ballots - single-winner STAR → _Vanilla_ |
-| [`03a_c3_b3_style-bullet-vote.yaml`](../../01_Single_winner/03a_c3_b3_style-bullet-vote.yaml) | `01_Single_winner/` | 1 | Voting styles — a valid STAR bullet vote (3 candidates) → _Vanilla_ |
-| [`03b_c3_b3_1_style-protest-vote.yaml`](../../01_Single_winner/03b_c3_b3_1_style-protest-vote.yaml) | `01_Single_winner/` | 1 | Voting styles — low-score ballots → _Almond_ |
-| [`03b_c3_b3_2_expand_style-protest-vote.yaml`](../../01_Single_winner/03b_c3_b3_2_expand_style-protest-vote.yaml) | `01_Single_winner/` | 1 | Voting styles — low-score ballots (continued) → _Almond_ |
-| [`03c_c6_b8_style-gallery.yaml`](../../01_Single_winner/03c_c6_b8_style-gallery.yaml) | `01_Single_winner/` | 1 | Voting styles — eight ways to fill out one 5-star ballot → _Bianca_ |
-| [`04b_c4_b3_display-options-all.yaml`](../../01_Single_winner/04b_c4_b3_display-options-all.yaml) | `01_Single_winner/` | 1 | All options demo → _Strawberry_ |
-| [`05a_c5_b3_unanimous-ballots.yaml`](../../01_Single_winner/05a_c5_b3_unanimous-ballots.yaml) | `01_Single_winner/` | 1 | Unanimous ballots (five candidates) → _Andre_ |
-| [`06a_c9_b3_large-field-equal-support.yaml`](../../01_Single_winner/06a_c9_b3_large-field-equal-support.yaml) | `01_Single_winner/` | 1 | Large field (9 candidates) — STAR scales, and Equal Support decides → _Carmen_ |
-| [`06b_c9_runoff-overturns-leader.yaml`](../../01_Single_winner/06b_c9_runoff-overturns-leader.yaml) | `01_Single_winner/` | 1 | Large field (9 candidates) — the runoff OVERTURNS the score leader → _Carmen_ |
-| [`09_c4_b100_tennessee-capital.yaml`](../../01_Single_winner/09_c4_b100_tennessee-capital.yaml) | `01_Single_winner/` | 1 | Tennessee Capital — classic STAR example → _Nashville_ |
-| [`Approval_ballot.yaml`](../../01_Single_winner/Approval_ballot.yaml) | `01_Single_winner/` | 1 | Approval-style & marker ballots (0/1, blanks, abstentions) under STAR |
-| [`abstentions.yaml`](../../01_Single_winner/abstentions.yaml) | `01_Single_winner/` | 1 | Abstentions — blank and abstaining ballots in STAR |
-| [`center_squeeze_star.yaml`](../../01_Single_winner/center_squeeze_star.yaml) | `01_Single_winner/` | 1 | Center squeeze — STAR elects the consensus (Center) → _Center_ |
-| [`center_squeeze_voteline_1d.yaml`](../../01_Single_winner/center_squeeze_voteline_1d.yaml) | `01_Single_winner/` | 1 | Center squeeze — the voteline 1D spectrum (Red / Green / Yellow) → _Green_ |
-| [`count_simplicity_star_vs_irv.yaml`](../../01_Single_winner/count_simplicity_star_vs_irv.yaml) | `01_Single_winner/` | 1 | Same winner, very different counts — STAR adds, IRV eliminates → _Carmen_ |
-| [`display_options_demo.yaml`](../../01_Single_winner/display_options_demo.yaml) | `01_Single_winner/` | 1 | Display options demo → _Don_ |
-| [`equal_support_runoff_demo.yaml`](../../01_Single_winner/equal_support_runoff_demo.yaml) | `01_Single_winner/` | 1 | Equal Support — counted in both rounds, neutral only in the tie-break → _A_ |
-| [`monotonicity_star_after.yaml`](../../01_Single_winner/monotonicity_star_after.yaml) | `01_Single_winner/` | 1 | Monotonicity — STAR counterpart (AFTER — X still wins) → _X_ |
-| [`monotonicity_star_before.yaml`](../../01_Single_winner/monotonicity_star_before.yaml) | `01_Single_winner/` | 1 | Monotonicity — STAR counterpart (BEFORE — X wins) → _X_ |
-| [`quorum_demo_c3_b6.yaml`](../../01_Single_winner/quorum_demo_c3_b6.yaml) | `01_Single_winner/` | 1 | Quorum — an abstention still counts toward turnout → _Anna_ |
-| [`quorum_fail_demo_c3_b6.yaml`](../../01_Single_winner/quorum_fail_demo_c3_b6.yaml) | `01_Single_winner/` | 1 | Quorum FAILS — won the count, but not elected |
-| [`three_winners_cw_score_runoff.yaml`](../../01_Single_winner/three_winners_cw_score_runoff.yaml) | `01_Single_winner/` | 1 | Three notions of "winner" disagree — Condorcet, Score, and Runoff → _Bob_ |
-| [`vote_splitting.yaml`](../../01_Single_winner/vote_splitting.yaml) | `01_Single_winner/` | 1 | Vote splitting — two chocolates split the majority → _DarkChoco_ |
-| [`vote_splitting2.yaml`](../../01_Single_winner/vote_splitting2.yaml) | `01_Single_winner/` | 1 | Vote splitting — two chocolates split the majority → _DarkChoco_ |
-| [`vote_splitting3.yaml`](../../01_Single_winner/vote_splitting3.yaml) | `01_Single_winner/` | 1 | Vote splitting — two chocolates split the majority → _DarkChoco_ |
-| [`vote_splitting_scenario1_spoiler.yaml`](../../01_Single_winner/vote_splitting_scenario1_spoiler.yaml) | `01_Single_winner/` | 1 | Vote splitting — scenario 1 of 3 — the spoiler strikes → _DarkChoco_ |
-| [`vote_splitting_scenario2_bloc_leads.yaml`](../../01_Single_winner/vote_splitting_scenario2_bloc_leads.yaml) | `01_Single_winner/` | 1 | Vote splitting — scenario 2 of 3 — no spoiler (bloc leader wins anyway) → _DarkChoco_ |
-| [`vote_splitting_scenario3_outsider_wins.yaml`](../../01_Single_winner/vote_splitting_scenario3_outsider_wins.yaml) | `01_Single_winner/` | 1 | Vote splitting — scenario 3 of 3 — no spoiler (the outsider truly wins) → _Vanilla_ |
 | [`BV_Library_star_condorcet_winner.yaml`](../../01_Single_winner/BV_Library/BV_Library_star_condorcet_winner.yaml) | `01_Single_winner/BV_Library/` | 1 | BV parity — STAR: highest-scoring Condorcet winner → _Allison_ |
 | [`BV_Library_star_runnerup_tie.yaml`](../../01_Single_winner/BV_Library/BV_Library_star_runnerup_tie.yaml) | `01_Single_winner/BV_Library/` | 1 | BV parity — STAR: runner-up tie, Allison wins → _Allison_ |
 | [`BV_Library_star_runoff.yaml`](../../01_Single_winner/BV_Library/BV_Library_star_runoff.yaml) | `01_Single_winner/BV_Library/` | 1 | BV parity — STAR: runoff, lower total wins the runoff → _Bill_ |
@@ -72,6 +39,39 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | [`Flat_scores_ties_06_scoring_tie_4way.yaml`](../../01_Single_winner/Flat_scores_ties/Flat_scores_ties_06_scoring_tie_4way.yaml) | `01_Single_winner/Flat_scores_ties/` | 1 | Flat scores 06 — scoring-round 4-way tie (ties at every step) → _Ava_ |
 | [`Flat_scores_ties_07_fully_flat.yaml`](../../01_Single_winner/Flat_scores_ties/Flat_scores_ties_07_fully_flat.yaml) | `01_Single_winner/Flat_scores_ties/` | 1 | Flat scores 07 — fully flat ballots (the maximal tie + abstention trap) → _Ararat_ |
 | [`Flat_scores_ties_08_all_flat_zero_count.yaml`](../../01_Single_winner/Flat_scores_ties/Flat_scores_ties_08_all_flat_zero_count.yaml) | `01_Single_winner/Flat_scores_ties/` | 1 | Flat scores 08 — every ballot flat (BetterVoting counts 0) → _Anchovy_ |
+| [`01a_c2_b1_two-candidates.yaml`](../../01_Single_winner/_main/01a_c2_b1_two-candidates.yaml) | `01_Single_winner/_main/` | 1 | The simplest possible STAR Voting example → _Chocolate_ |
+| [`01a_c2_b2_two-candidates.yaml`](../../01_Single_winner/_main/01a_c2_b2_two-candidates.yaml) | `01_Single_winner/_main/` | 1 | Same as before - but this time two ballots → _Chocolate_ |
+| [`01b_c2_b2_two-candidates.yaml`](../../01_Single_winner/_main/01b_c2_b2_two-candidates.yaml) | `01_Single_winner/_main/` | 1 | Again, very similar - this time second ballot is 5 and 0 → _Choco_ |
+| [`01c_c2_b3_two-candidates.yaml`](../../01_Single_winner/_main/01c_c2_b3_two-candidates.yaml) | `01_Single_winner/_main/` | 1 | Equal support example ("I like both flavors") → _Choco_ |
+| [`02a_c3_b1_three-candidates.yaml`](../../01_Single_winner/_main/02a_c3_b1_three-candidates.yaml) | `01_Single_winner/_main/` | 1 | Three candidates, one ballot - single-winner STAR → _Choco_ |
+| [`02b_c3_b2_three-candidates.yaml`](../../01_Single_winner/_main/02b_c3_b2_three-candidates.yaml) | `01_Single_winner/_main/` | 1 | Three candidates, two ballots - single-winner STAR → _Vanilla_ |
+| [`03a_c3_b3_style-bullet-vote.yaml`](../../01_Single_winner/_main/03a_c3_b3_style-bullet-vote.yaml) | `01_Single_winner/_main/` | 1 | Voting styles — a valid STAR bullet vote (3 candidates) → _Vanilla_ |
+| [`03b_c3_b3_1_style-protest-vote.yaml`](../../01_Single_winner/_main/03b_c3_b3_1_style-protest-vote.yaml) | `01_Single_winner/_main/` | 1 | Voting styles — low-score ballots → _Almond_ |
+| [`03b_c3_b3_2_expand_style-protest-vote.yaml`](../../01_Single_winner/_main/03b_c3_b3_2_expand_style-protest-vote.yaml) | `01_Single_winner/_main/` | 1 | Voting styles — low-score ballots (continued) → _Almond_ |
+| [`03c_c6_b8_style-gallery.yaml`](../../01_Single_winner/_main/03c_c6_b8_style-gallery.yaml) | `01_Single_winner/_main/` | 1 | Voting styles — eight ways to fill out one 5-star ballot → _Bianca_ |
+| [`04b_c4_b3_display-options-all.yaml`](../../01_Single_winner/_main/04b_c4_b3_display-options-all.yaml) | `01_Single_winner/_main/` | 1 | All options demo → _Strawberry_ |
+| [`05a_c5_b3_unanimous-ballots.yaml`](../../01_Single_winner/_main/05a_c5_b3_unanimous-ballots.yaml) | `01_Single_winner/_main/` | 1 | Unanimous ballots (five candidates) → _Andre_ |
+| [`06a_c9_b3_large-field-equal-support.yaml`](../../01_Single_winner/_main/06a_c9_b3_large-field-equal-support.yaml) | `01_Single_winner/_main/` | 1 | Large field (9 candidates) — STAR scales, and Equal Support decides → _Carmen_ |
+| [`06b_c9_runoff-overturns-leader.yaml`](../../01_Single_winner/_main/06b_c9_runoff-overturns-leader.yaml) | `01_Single_winner/_main/` | 1 | Large field (9 candidates) — the runoff OVERTURNS the score leader → _Carmen_ |
+| [`09_c4_b100_tennessee-capital.yaml`](../../01_Single_winner/_main/09_c4_b100_tennessee-capital.yaml) | `01_Single_winner/_main/` | 1 | Tennessee Capital — classic STAR example → _Nashville_ |
+| [`Approval_ballot.yaml`](../../01_Single_winner/_main/Approval_ballot.yaml) | `01_Single_winner/_main/` | 1 | Approval-style & marker ballots (0/1, blanks, abstentions) under STAR |
+| [`abstentions.yaml`](../../01_Single_winner/_main/abstentions.yaml) | `01_Single_winner/_main/` | 1 | Abstentions — blank and abstaining ballots in STAR |
+| [`center_squeeze_star.yaml`](../../01_Single_winner/_main/center_squeeze_star.yaml) | `01_Single_winner/_main/` | 1 | Center squeeze — STAR elects the consensus (Center) → _Center_ |
+| [`center_squeeze_voteline_1d.yaml`](../../01_Single_winner/_main/center_squeeze_voteline_1d.yaml) | `01_Single_winner/_main/` | 1 | Center squeeze — the voteline 1D spectrum (Red / Green / Yellow) → _Green_ |
+| [`count_simplicity_star_vs_irv.yaml`](../../01_Single_winner/_main/count_simplicity_star_vs_irv.yaml) | `01_Single_winner/_main/` | 1 | Same winner, very different counts — STAR adds, IRV eliminates → _Carmen_ |
+| [`display_options_demo.yaml`](../../01_Single_winner/_main/display_options_demo.yaml) | `01_Single_winner/_main/` | 1 | Display options demo → _Don_ |
+| [`equal_support_runoff_demo.yaml`](../../01_Single_winner/_main/equal_support_runoff_demo.yaml) | `01_Single_winner/_main/` | 1 | Equal Support — counted in both rounds, neutral only in the tie-break → _A_ |
+| [`monotonicity_star_after.yaml`](../../01_Single_winner/_main/monotonicity_star_after.yaml) | `01_Single_winner/_main/` | 1 | Monotonicity — STAR counterpart (AFTER — X still wins) → _X_ |
+| [`monotonicity_star_before.yaml`](../../01_Single_winner/_main/monotonicity_star_before.yaml) | `01_Single_winner/_main/` | 1 | Monotonicity — STAR counterpart (BEFORE — X wins) → _X_ |
+| [`quorum_demo_c3_b6.yaml`](../../01_Single_winner/_main/quorum_demo_c3_b6.yaml) | `01_Single_winner/_main/` | 1 | Quorum — an abstention still counts toward turnout → _Anna_ |
+| [`quorum_fail_demo_c3_b6.yaml`](../../01_Single_winner/_main/quorum_fail_demo_c3_b6.yaml) | `01_Single_winner/_main/` | 1 | Quorum FAILS — won the count, but not elected |
+| [`three_winners_cw_score_runoff.yaml`](../../01_Single_winner/_main/three_winners_cw_score_runoff.yaml) | `01_Single_winner/_main/` | 1 | Three notions of "winner" disagree — Condorcet, Score, and Runoff → _Bob_ |
+| [`vote_splitting.yaml`](../../01_Single_winner/_main/vote_splitting.yaml) | `01_Single_winner/_main/` | 1 | Vote splitting — two chocolates split the majority → _DarkChoco_ |
+| [`vote_splitting2.yaml`](../../01_Single_winner/_main/vote_splitting2.yaml) | `01_Single_winner/_main/` | 1 | Vote splitting — two chocolates split the majority → _DarkChoco_ |
+| [`vote_splitting3.yaml`](../../01_Single_winner/_main/vote_splitting3.yaml) | `01_Single_winner/_main/` | 1 | Vote splitting — two chocolates split the majority → _DarkChoco_ |
+| [`vote_splitting_scenario1_spoiler.yaml`](../../01_Single_winner/_main/vote_splitting_scenario1_spoiler.yaml) | `01_Single_winner/_main/` | 1 | Vote splitting — scenario 1 of 3 — the spoiler strikes → _DarkChoco_ |
+| [`vote_splitting_scenario2_bloc_leads.yaml`](../../01_Single_winner/_main/vote_splitting_scenario2_bloc_leads.yaml) | `01_Single_winner/_main/` | 1 | Vote splitting — scenario 2 of 3 — no spoiler (bloc leader wins anyway) → _DarkChoco_ |
+| [`vote_splitting_scenario3_outsider_wins.yaml`](../../01_Single_winner/_main/vote_splitting_scenario3_outsider_wins.yaml) | `01_Single_winner/_main/` | 1 | Vote splitting — scenario 3 of 3 — no spoiler (the outsider truly wins) → _Vanilla_ |
 | [`Black_Curtain_01_c3_b5_hidden-consensus.yaml`](../../01_Single_winner/black_curtain/Black_Curtain_01_c3_b5_hidden-consensus.yaml) | `01_Single_winner/black_curtain/` | 1 | The Black Curtain → _Cal_ |
 | [`Black_Curtain_02_c3_b5_near-clones.yaml`](../../01_Single_winner/black_curtain/Black_Curtain_02_c3_b5_near-clones.yaml) | `01_Single_winner/black_curtain/` | 1 | The Black Curtain → _Cal_ |
 | [`Black_Curtain_03_c3_b5_polarized-on-cal.yaml`](../../01_Single_winner/black_curtain/Black_Curtain_03_c3_b5_polarized-on-cal.yaml) | `01_Single_winner/black_curtain/` | 1 | The Black Curtain → _Cal_ |
@@ -101,22 +101,22 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | [`star_district_B.yaml`](../../01_Single_winner/summability_demo/star_district_B.yaml) | `01_Single_winner/summability_demo/` | 1 | Summability demo — STAR district B (Oak wins — a runoff reversal) → _Oak_ |
 | [`options_examples.yaml`](../../STARVote_LH_tabulation_engine/options_examples.yaml) | `STARVote_LH_tabulation_engine/` | 1 | Display-options reference — every reporting toggle (STAR) |
 | [`example_tennessee.yaml`](../../pref_voting_tabulation_engine/example_tennessee.yaml) | `pref_voting_tabulation_engine/` | 1 | Tennessee capital — cross-check demo (same ballots, three winners) |
-| [`00_plurality_vs_majority.yaml`](../../split_voting/00_plurality_vs_majority.yaml) | `split_voting/` | 1 | Plurality vs Majority — most votes isn't more than half → _Blake_ |
-| [`01_political_left_split.yaml`](../../split_voting/01_political_left_split.yaml) | `split_voting/` | 1 | Spoiler — a split coalition hands the seat to the minority → _Labour_ |
-| [`02_icecream_chocolate_split.yaml`](../../split_voting/02_icecream_chocolate_split.yaml) | `split_voting/` | 1 | Spoiler — chocolate's majority splits, vanilla steals the win → _MilkChoco_ |
-| [`03_lunch_veggie_vs_meat.yaml`](../../split_voting/03_lunch_veggie_vs_meat.yaml) | `split_voting/` | 1 | Spoiler — the veggie majority splits, the burger wins the lunch vote → _VeggieCurry_ |
-| [`04_star_wars_vote_split.yaml`](../../split_voting/04_star_wars_vote_split.yaml) | `split_voting/` | 1 | The Voting Dilemma — Skywalker & Leia split the Rebel vote → _Leia_ |
-| [`05a_residual_split_bullet-voting.yaml`](../../split_voting/05a_residual_split_bullet-voting.yaml) | `split_voting/` | 1 | STAR's residual split — a coalition bullet-votes itself apart → _Cara_ |
-| [`05b_residual_split_expressive-fix.yaml`](../../split_voting/05b_residual_split_expressive-fix.yaml) | `split_voting/` | 1 | The cure — score your ally, and STAR's split disappears → _Ada_ |
+| [`00_plurality_vs_majority.yaml`](../../split_voting/_main/00_plurality_vs_majority.yaml) | `split_voting/_main/` | 1 | Plurality vs Majority — most votes isn't more than half → _Blake_ |
+| [`01_political_left_split.yaml`](../../split_voting/_main/01_political_left_split.yaml) | `split_voting/_main/` | 1 | Spoiler — a split coalition hands the seat to the minority → _Labour_ |
+| [`02_icecream_chocolate_split.yaml`](../../split_voting/_main/02_icecream_chocolate_split.yaml) | `split_voting/_main/` | 1 | Spoiler — chocolate's majority splits, vanilla steals the win → _MilkChoco_ |
+| [`03_lunch_veggie_vs_meat.yaml`](../../split_voting/_main/03_lunch_veggie_vs_meat.yaml) | `split_voting/_main/` | 1 | Spoiler — the veggie majority splits, the burger wins the lunch vote → _VeggieCurry_ |
+| [`04_star_wars_vote_split.yaml`](../../split_voting/_main/04_star_wars_vote_split.yaml) | `split_voting/_main/` | 1 | The Voting Dilemma — Skywalker & Leia split the Rebel vote → _Leia_ |
+| [`05a_residual_split_bullet-voting.yaml`](../../split_voting/_main/05a_residual_split_bullet-voting.yaml) | `split_voting/_main/` | 1 | STAR's residual split — a coalition bullet-votes itself apart → _Cara_ |
+| [`05b_residual_split_expressive-fix.yaml`](../../split_voting/_main/05b_residual_split_expressive-fix.yaml) | `split_voting/_main/` | 1 | The cure — score your ally, and STAR's split disappears → _Ada_ |
 
 ## RCV-IRV (Hare)  (10)
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
-| [`RCV_ballot_example.yaml`](../../01_Single_winner/RCV_ballot_example.yaml) | `01_Single_winner/` | 1 | RCV-IRV — a basic ranked-ballot example (3 candidates) |
-| [`center_squeeze_irv.yaml`](../../01_Single_winner/center_squeeze_irv.yaml) | `01_Single_winner/` | 1 | Center squeeze (RCV-IRV) — minimal 27-voter case (the moderate is eliminated) |
-| [`monotonicity_irv_after.yaml`](../../01_Single_winner/monotonicity_irv_after.yaml) | `01_Single_winner/` | 1 | Non-monotonicity (RCV-IRV) — part 2: raising X makes X lose |
-| [`monotonicity_irv_before.yaml`](../../01_Single_winner/monotonicity_irv_before.yaml) | `01_Single_winner/` | 1 | Non-monotonicity (RCV-IRV) — part 1: baseline, X wins |
+| [`RCV_ballot_example.yaml`](../../01_Single_winner/_main/RCV_ballot_example.yaml) | `01_Single_winner/_main/` | 1 | RCV-IRV — a basic ranked-ballot example (3 candidates) |
+| [`center_squeeze_irv.yaml`](../../01_Single_winner/_main/center_squeeze_irv.yaml) | `01_Single_winner/_main/` | 1 | Center squeeze (RCV-IRV) — minimal 27-voter case (the moderate is eliminated) |
+| [`monotonicity_irv_after.yaml`](../../01_Single_winner/_main/monotonicity_irv_after.yaml) | `01_Single_winner/_main/` | 1 | Non-monotonicity (RCV-IRV) — part 2: raising X makes X lose |
+| [`monotonicity_irv_before.yaml`](../../01_Single_winner/_main/monotonicity_irv_before.yaml) | `01_Single_winner/_main/` | 1 | Non-monotonicity (RCV-IRV) — part 1: baseline, X wins |
 | [`Whoops_04_ossipoff_centrist_irv.yaml`](../../01_Single_winner/paradoxes_and_whoops/Whoops_04_ossipoff_centrist_irv.yaml) | `01_Single_winner/paradoxes_and_whoops/` | 1 | Whoops 04 — IRV buries the centrist (Ossipoff 303-voter) |
 | [`Whoops_05_brams_many_pathologies_irv.yaml`](../../01_Single_winner/paradoxes_and_whoops/Whoops_05_brams_many_pathologies_irv.yaml) | `01_Single_winner/paradoxes_and_whoops/` | 1 | Whoops 05 — many IRV pathologies in one election (Brams) |
 | [`irv_combined.yaml`](../../01_Single_winner/summability_demo/irv_combined.yaml) | `01_Single_winner/summability_demo/` | 1 | Summability demo — RCV-IRV combined A+B (B eliminated; not summable) |
@@ -128,9 +128,9 @@ Titles come from each file's **`election_title`** field (the convention — add 
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
-| [`ranked_robin_consensus_center.yaml`](../../01_Single_winner/ranked_robin_consensus_center.yaml) | `01_Single_winner/` | 1 | Ranked Robin (RCV-RR) — the consensus center wins the round-robin |
 | [`BV_Library_ranked_robin_single_winner.yaml`](../../01_Single_winner/BV_Library/BV_Library_ranked_robin_single_winner.yaml) | `01_Single_winner/BV_Library/` | 1 | BV parity — Ranked Robin: Condorcet winner (equal ranks allowed) → _Alice_ |
 | [`BV_Library_ranked_robin_ties.yaml`](../../01_Single_winner/BV_Library/BV_Library_ranked_robin_ties.yaml) | `01_Single_winner/BV_Library/` | 1 | BV parity — Ranked Robin: Copeland tie broken by tiebreak order → _Alice_ |
+| [`ranked_robin_consensus_center.yaml`](../../01_Single_winner/_main/ranked_robin_consensus_center.yaml) | `01_Single_winner/_main/` | 1 | Ranked Robin (RCV-RR) — the consensus center wins the round-robin |
 | [`01_condorcet_winner.yaml`](../../01_Single_winner/condorcet_vs_ranked_robin/01_condorcet_winner.yaml) | `01_Single_winner/condorcet_vs_ranked_robin/` | 1 | Condorcet winner exists — Ranked Robin elects it |
 | [`02_cycle_no_condorcet.yaml`](../../01_Single_winner/condorcet_vs_ranked_robin/02_cycle_no_condorcet.yaml) | `01_Single_winner/condorcet_vs_ranked_robin/` | 1 | No Condorcet winner (a cycle) — Ranked Robin still elects one |
 
@@ -145,32 +145,32 @@ Titles come from each file's **`election_title`** field (the convention — add 
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
-| [`03a_stv_3seats.yaml`](../../02_Multi_winner/03a_stv_3seats.yaml) | `02_Multi_winner/` | 3 | STV — 3 seats, 7 candidates (proportional RCV) |
+| [`03a_stv_3seats.yaml`](../../02_Multi_winner/_main/03a_stv_3seats.yaml) | `02_Multi_winner/_main/` | 3 | STV — 3 seats, 7 candidates (proportional RCV) |
 
 ## Bloc STAR  (1)
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
-| [`01_c4_b2_bloc-star-2-seats.yaml`](../../02_Multi_winner/01_c4_b2_bloc-star-2-seats.yaml) | `02_Multi_winner/` | 2 | Bloc STAR Voting: 2-Seat Committee Election → _Don, Cal_ |
+| [`01_c4_b2_bloc-star-2-seats.yaml`](../../02_Multi_winner/_main/01_c4_b2_bloc-star-2-seats.yaml) | `02_Multi_winner/_main/` | 2 | Bloc STAR Voting: 2-Seat Committee Election → _Don, Cal_ |
 
 ## STAR-PR (Sequential Selection)  (2)
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
-| [`02b_c5_b63_proportional-sss.yaml`](../../02_Multi_winner/02b_c5_b63_proportional-sss.yaml) | `02_Multi_winner/` | 3 | Proportional STAR — Sequentially Spent Score → _Alice, Ben, Dan_ |
-| [`03b_star_pr_3seats.yaml`](../../02_Multi_winner/03b_star_pr_3seats.yaml) | `02_Multi_winner/` | 3 | Proportional STAR — same 3-seat electorate as the STV demo |
+| [`02b_c5_b63_proportional-sss.yaml`](../../02_Multi_winner/_main/02b_c5_b63_proportional-sss.yaml) | `02_Multi_winner/_main/` | 3 | Proportional STAR — Sequentially Spent Score → _Alice, Ben, Dan_ |
+| [`03b_star_pr_3seats.yaml`](../../02_Multi_winner/_main/03b_star_pr_3seats.yaml) | `02_Multi_winner/_main/` | 3 | Proportional STAR — same 3-seat electorate as the STV demo |
 
 ## Reweighted Range  (1)
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
-| [`02c_c5_b63_proportional-rrv.yaml`](../../02_Multi_winner/02c_c5_b63_proportional-rrv.yaml) | `02_Multi_winner/` | 3 | Proportional — Reweighted Range Voting → _Alice, Ben, Dan_ |
+| [`02c_c5_b63_proportional-rrv.yaml`](../../02_Multi_winner/_main/02c_c5_b63_proportional-rrv.yaml) | `02_Multi_winner/_main/` | 3 | Proportional — Reweighted Range Voting → _Alice, Ben, Dan_ |
 
 ## Allocated Score (STAR-PR)  (1)
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
-| [`02a_c5_b63_proportional-allocated-score.yaml`](../../02_Multi_winner/02a_c5_b63_proportional-allocated-score.yaml) | `02_Multi_winner/` | 3 | Proportional STAR — Allocated Score Voting → _Alice, Ben, Dan_ |
+| [`02a_c5_b63_proportional-allocated-score.yaml`](../../02_Multi_winner/_main/02a_c5_b63_proportional-allocated-score.yaml) | `02_Multi_winner/_main/` | 3 | Proportional STAR — Allocated Score Voting → _Alice, Ben, Dan_ |
 
 ## PLURALITY  (1)
 

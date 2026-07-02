@@ -20,7 +20,7 @@ STAR, RCV-IRV and Ranked Robin all agree on **A**. Only **Approval** differs, el
 
 **Flags:** 1 tied-score ballot(s)
 
-**Source election:** [`01_Single_winner/runoff_overturns_leader/05_c3_b5_low-scores-bv1265.yaml`](../../../01_Single_winner/runoff_overturns_leader/05_c3_b5_low-scores-bv1265.yaml)  ·  **STAR tabulated mirror:** [`05_c3_b5_low-scores-bv1265_tabulated.txt`](../../../01_Single_winner/runoff_overturns_leader_tabulated/05_c3_b5_low-scores-bv1265_tabulated.txt)
+**Source election:** [`01_Single_winner/runoff_overturns_leader/05_c3_b5_low-scores-bv1265.yaml`](../../../01_Single_winner/runoff_overturns_leader/05_c3_b5_low-scores-bv1265.yaml)  ·  **STAR tabulated mirror:** [`05_c3_b5_low-scores-bv1265_tabulated.txt`](../../../01_Single_winner/runoff_overturns_leader/runoff_overturns_leader_tabulated/05_c3_b5_low-scores-bv1265_tabulated.txt)
 
 _3 candidates, 5 ballots._
 

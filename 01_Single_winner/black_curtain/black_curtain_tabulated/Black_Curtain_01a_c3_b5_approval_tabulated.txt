@@ -1,0 +1,59 @@
+======================================================================
+SOURCE FILE:     Black_Curtain_01a_c3_b5_approval.yaml
+SOURCE MODIFIED: 2026-07-02 09:05:00
+TABULATED FILE:  Black_Curtain_01a_c3_b5_approval_tabulated.txt
+TABULATED AT:    2026-07-02 09:37:51
+======================================================================
+
+election_title: The Black Curtain #1 as Approval — the consensus candidate wins
+
+scenario_description: |-
+  The SAME five voters as Black_Curtain_01_c3_b5_hidden-consensus.yaml, counted as
+  an Approval election. In the video, "approve" = any 0–9 score of 5 or more
+  (on this repo's 0–5 scale: 3 or more). Bob — every voter's strong second —
+  is approved by all 5 voters and wins; Cal (the Choose-One / RCV-IRV / STAR
+  winner) gets only 3 approvals. Same ballots, different question, different
+  winner. See README_black_curtain.md.
+  Source video: https://www.youtube.com/watch?v=5_ZMruwOZgw
+  Notes doc: https://docs.google.com/document/d/1ntOS5PQ_kkPnaZpDeqLShGv2pz_k6Zom9LnTEdjjd4o
+  BetterVoting template: https://bettervoting.com/p9gwc3/vote
+  This folder on GitHub: https://github.com/masiarek/YAML/tree/master/01_Single_winner/black_curtain
+
+options:
+  show_description: false
+  show_matrix: false
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  brief: true
+  collapse_ballots: false
+  count_separator: "×"
+
+voting_method: Approval
+num_winners: 1
+
+ballots: |-
+  Ann,Bob,Cal
+  0,1,1   # voter 1 — approves Bob (8) and Cal (9)
+  0,1,1   # voter 2 — approves Bob (8) and Cal (9)
+  0,1,1   # voter 3 — approves Bob (8) and Cal (9)
+  1,1,0   # voter 4 — approves Ann (9) and Bob (8)
+  1,1,0   # voter 5 — approves Ann (9) and Bob (8)
+
+expected_winners:
+  - Bob
+
+# file: Black_Curtain_01a_c3_b5_approval.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+--- Approval Voting (single winner) ---
+ Tabulating 5 ballots (any non-zero score = approval).
+   Bob -- 5 -- Elected
+   Cal -- 3
+   Ann -- 2
+
+Winner — Approval Voting (single winner)
+  Bob

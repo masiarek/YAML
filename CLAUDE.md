@@ -167,8 +167,14 @@ taxonomy from memory:** see `00_start_here/TIPS_terminology.md` and `GLOSSARY.md
 - **Where text lives:** per-file context in the YAML (`scenario_description`
   printable, `video_script` = notes, never echoed); cross-file teaching in
   Markdown. No `.md` per YAML. See `ORGANIZATION.md`.
-- **`_tabulated`** files are generated siblings in `*_tabulated/`; regenerate by
+- **`_tabulated`** files are generated into a `<folder>_tabulated/` subfolder
+  **nested inside the source file's own folder** (e.g.
+  `01_Single_winner/black_curtain/black_curtain_tabulated/`); regenerate by
   re-running the YAMLs after engine changes. They always show full context.
+  Loose top-level election files are grouped under a `_main/` subfolder so their
+  mirrors nest the same way (`.../_main/_main_tabulated/`). The path is computed by
+  `tabulated_output_path` / `aux_tabulated_path` in the engine as
+  `p.parent / (p.parent.name + "_tabulated")`.
 - **Embed LH output as text in Markdown (Adam's preference), sized to the election.**
   When a teaching/reporting `.md` discusses a result, paste the actual LH output inline
   as a fenced code block (strip ANSI) rather than only linking the `_tabulated` file —

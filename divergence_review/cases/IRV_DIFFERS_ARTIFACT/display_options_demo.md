@@ -20,7 +20,7 @@ On these ballots RCV-IRV reports **Bob** rather than STAR's **Don**, but this is
 
 **Flags:** 2 tied-score ballot(s); IRV winner flips under reversed priority (fragile tie); RR conversion-sensitive (weak=Don, strict=Bob)
 
-**Source election:** [`01_Single_winner/display_options_demo.yaml`](../../../01_Single_winner/display_options_demo.yaml)  ·  **STAR tabulated mirror:** [`display_options_demo_tabulated.txt`](../../../01_Single_winner_tabulated/display_options_demo_tabulated.txt)
+**Source election:** [`01_Single_winner/_main/display_options_demo.yaml`](../../../01_Single_winner/_main/display_options_demo.yaml)  ·  **STAR tabulated mirror:** [`display_options_demo_tabulated.txt`](../../../01_Single_winner/_main/_main_tabulated/display_options_demo_tabulated.txt)
 
 _4 candidates, 4 ballots._
 

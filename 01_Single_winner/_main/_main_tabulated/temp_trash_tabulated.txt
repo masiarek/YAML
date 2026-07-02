@@ -1,0 +1,82 @@
+======================================================================
+SOURCE FILE:     temp_trash.yaml
+SOURCE MODIFIED: 2026-06-28 13:15:58
+TABULATED FILE:  temp_trash_tabulated.txt
+TABULATED AT:    2026-07-02 09:37:47
+======================================================================
+
+voting_method: STAR   # STAR Voting - Single-winner
+num_winners: 1
+
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  brief: true
+  collapse_ballots: false
+  show_runoff_percent: true
+  count_separator: "×"
+ballots: |-
+  Apple  Berry  Cherry
+  5      4      0
+  5      0      2
+  1      5      3
+
+# file: temp_trash.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |  * Apple   | * Berry   |   Cherry  |
+-----------------------------------------------------
+     * Apple > |    ---     |2 - 0 - 1  |2 - 0 - 1  |
+     * Berry > | 1 - 0 - 2  |   ---     |2 - 0 - 1  |
+      Cherry > | 1 - 0 - 2  |1 - 0 - 2  |   ---     |
+
+[Condorcet Winner]
+  Condorcet Winner: Apple — matches the STAR winner
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 3 ballots.
+Apple,Berry,Cherry
+    5,    4,     0
+    5,    0,     2
+    1,    5,     3
+
+[Score Distribution] (number of ballots giving each score)
+        5  4  3  2  1  0  | Total   Avg
+Apple   2  0  0  0  1  0  |    11   3.7
+Berry   1  1  0  0  0  1  |     9   3.0
+Cherry  0  0  1  1  0  1  |     5   1.7
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Apple         -- 11 -- First place
+   Berry         --  9 -- Second place
+   Cherry        --  5
+ Apple and Berry advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Apple         -- 2 -- First place
+   Berry         -- 1
+   Equal Support -- 0
+ Apple wins.
+   Runoff math:
+     3  ballots cast
+   − 0  Equal Support (no preference between the two finalists)
+     ─
+     3  voters with a preference  (majority = 2)
+           Apple 2 (67%)  ·  Berry 1 (33%)
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Apple
