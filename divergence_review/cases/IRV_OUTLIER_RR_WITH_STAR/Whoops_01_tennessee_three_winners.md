@@ -22,8 +22,6 @@ STAR elects **Nashville** — and so do Ranked Robin and Condorcet, because **Na
 
 **Source election:** [`01_Single_winner/paradoxes_and_whoops/Whoops_01_tennessee_three_winners.yaml`](../../../01_Single_winner/paradoxes_and_whoops/Whoops_01_tennessee_three_winners.yaml)  ·  **STAR tabulated mirror:** [`Whoops_01_tennessee_three_winners_tabulated.txt`](../../../01_Single_winner/paradoxes_and_whoops_tabulated/Whoops_01_tennessee_three_winners_tabulated.txt)
 
-_Also present (identical ballots) at: `YAML_library/1_positive/Whoops_01_tennessee_three_winners.yaml`._
-
 _4 candidates, 100 ballots._
 
 ## The ballots

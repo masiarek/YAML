@@ -22,8 +22,6 @@ STAR, RCV-IRV and Ranked Robin all agree on **Sage**. Only **Approval** differs,
 
 **Source election:** [`01_Single_winner/runoff_overturns_leader/Runoff_05_reversal_with_equal_support_xgkw3w.yaml`](../../../01_Single_winner/runoff_overturns_leader/Runoff_05_reversal_with_equal_support_xgkw3w.yaml)  ·  **STAR tabulated mirror:** [`Runoff_05_reversal_with_equal_support_xgkw3w_tabulated.txt`](../../../01_Single_winner/runoff_overturns_leader_tabulated/Runoff_05_reversal_with_equal_support_xgkw3w_tabulated.txt)
 
-_Also present (identical ballots) at: `YAML_library/1_positive/Runoff_05_reversal_with_equal_support_xgkw3w.yaml`._
-
 _3 candidates, 5 ballots._
 
 ## The ballots

@@ -2,7 +2,7 @@
 SOURCE FILE:     BV_Library_plurality_single_winner.yaml
 SOURCE MODIFIED: 2026-07-02 08:54:23
 TABULATED FILE:  BV_Library_plurality_single_winner_tabulated.txt
-TABULATED AT:    2026-07-02 08:54:42
+TABULATED AT:    2026-07-02 09:02:43
 ======================================================================
 
 election_title: "BV parity — Plurality (choose-one): most first-marks wins"

@@ -2,7 +2,7 @@
 SOURCE FILE:     BV_Library_star_runoff_tie_score_resolves.yaml
 SOURCE MODIFIED: 2026-07-02 08:52:20
 TABULATED FILE:  BV_Library_star_runoff_tie_score_resolves_tabulated.txt
-TABULATED AT:    2026-07-02 08:54:43
+TABULATED AT:    2026-07-02 09:02:44
 ======================================================================
 
 election_title: "BV parity — STAR: runoff tie broken by score"
@@ -48,8 +48,8 @@ Legend: For - Equal Support - Against
   Approval               = Allison   (differs from STAR)
   RCV-RR                 = Allison   (differs from STAR)
   Full round-by-round reports (generated for review):
-  RCV-RR round-robin: 01_Single_winner_tabulated/BV_Library_star_runoff_tie_score_resolves_RCV-RR_tabulated.txt
-     file:///sessions/eloquent-serene-noether/mnt/YAML/01_Single_winner_tabulated/BV_Library_star_runoff_tie_score_resolves_RCV-RR_tabulated.txt
+  RCV-RR round-robin: BV_Library_tabulated/BV_Library_star_runoff_tie_score_resolves_RCV-RR_tabulated.txt
+     file:///sessions/eloquent-serene-noether/mnt/YAML/01_Single_winner/BV_Library_tabulated/BV_Library_star_runoff_tie_score_resolves_RCV-RR_tabulated.txt
 
 --- STAR Voting Method (single winner) ---
 [STAR Voting]

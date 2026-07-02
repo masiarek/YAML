@@ -22,8 +22,6 @@ STAR, RCV-IRV and Ranked Robin all agree on **Eden**. Only **Approval** differs,
 
 **Source election:** [`01_Single_winner/runoff_overturns_leader/Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml`](../../../01_Single_winner/runoff_overturns_leader/Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml)  ·  **STAR tabulated mirror:** [`Runoff_03_enthusiasts_vs_majority_rkgtpk_tabulated.txt`](../../../01_Single_winner/runoff_overturns_leader_tabulated/Runoff_03_enthusiasts_vs_majority_rkgtpk_tabulated.txt)
 
-_Also present (identical ballots) at: `YAML_library/1_positive/Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml`._
-
 _5 candidates, 5 ballots._
 
 ## The ballots
@@ -59,8 +57,8 @@ Candidate      Votes  Status
 -----------  -------  --------
 Eden               3  Elected
 Dakota             2  Rejected
-Gale               0  Rejected
 Flynn              0  Rejected
+Gale               0  Rejected
 Hazel              0  Rejected
 
 

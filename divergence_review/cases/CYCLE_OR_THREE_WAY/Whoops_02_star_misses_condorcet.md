@@ -22,8 +22,6 @@ The methods split: STAR=Ada, RCV-IRV=Ada, Ranked Robin=Cleo; the Condorcet (pair
 
 **Source election:** [`01_Single_winner/paradoxes_and_whoops/Whoops_02_star_misses_condorcet.yaml`](../../../01_Single_winner/paradoxes_and_whoops/Whoops_02_star_misses_condorcet.yaml)  ·  **STAR tabulated mirror:** [`Whoops_02_star_misses_condorcet_tabulated.txt`](../../../01_Single_winner/paradoxes_and_whoops_tabulated/Whoops_02_star_misses_condorcet_tabulated.txt)
 
-_Also present (identical ballots) at: `YAML_library/1_positive/Whoops_02_star_misses_condorcet.yaml`._
-
 _3 candidates, 100 ballots._
 
 ## The ballots

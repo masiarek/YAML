@@ -22,8 +22,6 @@ STAR, RCV-IRV and Ranked Robin all agree on **Rock**. Only **Approval** differs,
 
 **Source election:** [`01_Single_winner/paradoxes_and_whoops/Whoops_03_condorcet_cycle_rps.yaml`](../../../01_Single_winner/paradoxes_and_whoops/Whoops_03_condorcet_cycle_rps.yaml)  ·  **STAR tabulated mirror:** [`Whoops_03_condorcet_cycle_rps_tabulated.txt`](../../../01_Single_winner/paradoxes_and_whoops_tabulated/Whoops_03_condorcet_cycle_rps_tabulated.txt)
 
-_Also present (identical ballots) at: `YAML_library/1_positive/Whoops_03_condorcet_cycle_rps.yaml`._
-
 _3 candidates, 100 ballots._
 
 ## The ballots

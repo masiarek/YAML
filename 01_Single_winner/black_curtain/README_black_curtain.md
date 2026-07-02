@@ -4,8 +4,10 @@
 ["The Black Curtain"](https://www.youtube.com/watch?v=5_ZMruwOZgw)
 by Common Sense for Uniting America (Ted Getschman / [MaxVoting.org](https://maxvoting.org)).
 BetterVoting template: <https://bettervoting.com/p9gwc3/vote>.
-Adam's notes doc: [The Black Curtain (Google Doc)](https://docs.google.com/document/d/1ntOS5PQ_kkPnaZpDeqLShGv2pz_k6Zom9LnTEdjjd4o). This folder
-re-creates all four elections as runnable YAML cases for this repo's engine.*
+Adam's notes doc: [The Black Curtain (Google Doc)](https://docs.google.com/document/d/1ntOS5PQ_kkPnaZpDeqLShGv2pz_k6Zom9LnTEdjjd4o).
+This folder on GitHub:
+<https://github.com/masiarek/YAML/tree/master/01_Single_winner/black_curtain>.
+This folder re-creates all four elections as runnable YAML cases for this repo's engine.*
 
 ---
 
@@ -160,8 +162,5 @@ python STARVote_LH_tabulation_engine/starvote_larry_hastings.py 01_Single_winner
 - [`../runoff_overturns_leader/`](../runoff_overturns_leader/) — when STAR's runoff agrees/disagrees with the score leader
 - Source video: [The Black Curtain](https://www.youtube.com/watch?v=5_ZMruwOZgw) · playlist: [Common Sense for Uniting America](https://www.youtube.com/watch?v=5_ZMruwOZgw&list=PLQod5if9cV9hiWml-4ZyQQNWvys8vlYHM)
 
-*Terminology note: the video says "RCV"; per house style this page says
-RCV-IRV — ranked ballots counted by instant runoff. See
-[`../../00_start_here/TIPS_terminology.md`](../../00_start_here/TIPS_terminology.md).*
 
 # file: README_black_curtain.md

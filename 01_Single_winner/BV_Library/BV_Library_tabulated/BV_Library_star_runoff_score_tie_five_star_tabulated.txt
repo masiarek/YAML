@@ -2,7 +2,7 @@
 SOURCE FILE:     BV_Library_star_runoff_score_tie_five_star.yaml
 SOURCE MODIFIED: 2026-07-02 08:52:23
 TABULATED FILE:  BV_Library_star_runoff_score_tie_five_star_tabulated.txt
-TABULATED AT:    2026-07-02 08:54:42
+TABULATED AT:    2026-07-02 09:02:43
 ======================================================================
 
 election_title: "BV parity — STAR: runoff & score tie, five-star tiebreaker"
@@ -46,7 +46,15 @@ Legend: For - Equal Support - Against
 
 [Divergence from STAR]
   STAR     = Allison
+  RCV-IRV  = Bill   (differs from STAR)
   Approval = Bill   (differs from STAR)
+  Note: no ballots had tied scores, so RCV-IRV vs STAR here is a genuine
+        method difference, not a tie-breaking artifact.
+  Note: Ranked Robin (RCV-RR) agrees with STAR, so RCV-IRV is the lone
+        outlier — the classic center-squeeze signature.
+  Full round-by-round reports (generated for review):
+  RCV-IRV rounds: BV_Library_tabulated/BV_Library_star_runoff_score_tie_five_star_RCV-IRV_tabulated.txt
+     file:///sessions/eloquent-serene-noether/mnt/YAML/01_Single_winner/BV_Library_tabulated/BV_Library_star_runoff_score_tie_five_star_RCV-IRV_tabulated.txt
 
 --- STAR Voting Method (single winner) ---
 [STAR Voting]

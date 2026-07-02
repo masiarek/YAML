@@ -20,7 +20,7 @@ STAR, RCV-IRV and Ranked Robin all agree on **Allison**. Only **Approval** diffe
 
 **Flags:** IRV winner flips under reversed priority (fragile tie)
 
-**Source election:** [`01_Single_winner/BV_Library_star_runoff_score_tie_five_star.yaml`](../../../01_Single_winner/BV_Library_star_runoff_score_tie_five_star.yaml)  ·  **STAR tabulated mirror:** [`BV_Library_star_runoff_score_tie_five_star_tabulated.txt`](../../../01_Single_winner_tabulated/BV_Library_star_runoff_score_tie_five_star_tabulated.txt)
+**Source election:** [`01_Single_winner/BV_Library/BV_Library_star_runoff_score_tie_five_star.yaml`](../../../01_Single_winner/BV_Library/BV_Library_star_runoff_score_tie_five_star.yaml)  ·  **STAR tabulated mirror:** [`BV_Library_star_runoff_score_tie_five_star_tabulated.txt`](../../../01_Single_winner/BV_Library_tabulated/BV_Library_star_runoff_score_tie_five_star_tabulated.txt)
 
 _2 candidates, 2 ballots._
 
@@ -54,12 +54,12 @@ Each row is a group of identical score ballots (0 = no support, 5 = max).
 FINAL RESULT
 Candidate      Votes  Status
 -----------  -------  --------
-Bill               1  Elected
-Allison            1  Rejected
+Allison            1  Elected
+Bill               1  Rejected
 
 
 Winner(s) — RCV / Instant-Runoff Voting (single winner)
-  Bill
+  Allison
 
 NOTE: a generated cross-method view of the STAR ballots, for comparison only — not the official STAR result.
 ```
