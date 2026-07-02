@@ -19,4 +19,7 @@ ballots: |-
   Ben>Ada>Cara
   Ben>Ada>Cara
 
+expected_winners:
+  - Ada
+
 # file: 01_condorcet_winner.yaml

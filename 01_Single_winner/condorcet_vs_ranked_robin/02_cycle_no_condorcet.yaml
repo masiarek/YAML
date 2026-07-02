@@ -24,4 +24,7 @@ ballots: |-
   Cara>Ada>Ben
   Cara>Ada>Ben
 
+expected_winners:
+  - Ada
+
 # file: 02_cycle_no_condorcet.yaml

@@ -11,4 +11,7 @@ ballots: |-
   8:Y>Z
   10:Z>X
 
+expected_winners:
+  - Z
+
 # file: monotonicity_irv_after.yaml

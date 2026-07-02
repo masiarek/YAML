@@ -2,7 +2,7 @@
 SOURCE FILE:     BV_Library_approval_single_winner.yaml
 SOURCE MODIFIED: 2026-07-02 08:52:26
 TABULATED FILE:  BV_Library_approval_single_winner_tabulated.txt
-TABULATED AT:    2026-07-02 09:37:51
+TABULATED AT:    2026-07-02 11:57:37
 ======================================================================
 
 election_title: "BV parity — Approval: most approvals wins (single winner)"

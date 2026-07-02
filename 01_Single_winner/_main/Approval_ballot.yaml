@@ -13,4 +13,7 @@ ballots: |-
   5,5,5,5
   -,-,-,-
 
+expected_winners:
+  - D
+
 # file: Approval_ballot.yaml

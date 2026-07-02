@@ -6,4 +6,8 @@ ballots: |-
   6:C
   4:B
   3:A>B>C
+
+expected_winners:
+  - B
+
 # file: irv_district_B.yaml

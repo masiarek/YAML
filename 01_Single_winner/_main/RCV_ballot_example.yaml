@@ -7,4 +7,7 @@ ballots: |-
   35:B>C>A
   25:C>A>B
 
+expected_winners:
+  - A
+
 # file: RCV_ballot_example.yaml

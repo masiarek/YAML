@@ -2,7 +2,7 @@
 SOURCE FILE:     abstentions.yaml
 SOURCE MODIFIED: 2026-06-29 08:51:30
 TABULATED FILE:  abstentions_tabulated.txt
-TABULATED AT:    2026-07-02 09:37:46
+TABULATED AT:    2026-07-02 11:53:33
 ======================================================================
 
 election_title: "Abstentions — blank and abstaining ballots in STAR"

@@ -21,4 +21,7 @@ election:
       53:D>E>C>B>A
       49:E>D>C>B>A
 
+expected_winners:
+  - D
+
 # file: Whoops_04_ossipoff_centrist_irv.yaml

@@ -1,11 +1,12 @@
 ======================================================================
 SOURCE FILE:     abstention_reconciliation_min_c2_b6.yaml
-SOURCE MODIFIED: 2026-06-28 12:16:50
+SOURCE MODIFIED: 2026-06-28 08:35:23
 TABULATED FILE:  abstention_reconciliation_min_c2_b6_tabulated.txt
-TABULATED AT:    2026-06-28 12:16:55
+TABULATED AT:    2026-07-02 11:57:40
 ======================================================================
 
 election_title: Abstention vs Equal Support — the minimal reconciliation case
+
 scenario_description: |-
   The smallest election that reproduces the LH-engine ↔ BetterVoting count
   reconciliation (the full version is the 461-ballot pet race in this folder).

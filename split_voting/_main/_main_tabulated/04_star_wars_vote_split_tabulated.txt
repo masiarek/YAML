@@ -2,7 +2,7 @@
 SOURCE FILE:     04_star_wars_vote_split.yaml
 SOURCE MODIFIED: 2026-06-24 07:58:37
 TABULATED FILE:  04_star_wars_vote_split_tabulated.txt
-TABULATED AT:    2026-07-02 09:37:50
+TABULATED AT:    2026-07-02 11:57:41
 ======================================================================
 
 election_title: The Voting Dilemma — Skywalker & Leia split the Rebel vote
@@ -109,7 +109,7 @@ Legend: For - Equal Support - Against
         outlier — the classic center-squeeze signature.
   Full round-by-round reports (generated for review):
   RCV-IRV rounds: _main_tabulated/04_star_wars_vote_split_RCV-IRV_tabulated.txt
-     file:///sessions/eloquent-serene-noether/mnt/YAML/split_voting/_main/_main_tabulated/04_star_wars_vote_split_RCV-IRV_tabulated.txt
+     file:///sessions/upbeat-gracious-keller/mnt/YAML/split_voting/_main/_main_tabulated/04_star_wars_vote_split_RCV-IRV_tabulated.txt
 
 [Vote-splitting check]
   Choose-One first choices: Vader 40, Skywalker 33, Leia 27

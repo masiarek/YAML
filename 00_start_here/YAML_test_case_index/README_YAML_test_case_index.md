@@ -6,11 +6,11 @@ Election YAMLs live in many folders (the test harnesses glob specific ones, so t
 
 Titles come from each file's **`election_title`** field (the convention — add one to make a file's title explicit & searchable). Where that's missing, a file's first `#` comment line is shown *in italics* as a fallback.
 
-**107 election files** (101 single-winner, 6 multi-winner) across 11 method(s).
+**108 election files** (102 single-winner, 6 multi-winner) across 11 method(s).
 
 | Method | Files |
 |--------|------:|
-| STAR | 82 |
+| STAR | 83 |
 | RCV-IRV (Hare) | 10 |
 | Ranked Robin (RCV-RR / Copeland) | 5 |
 | Approval | 2 |
@@ -22,7 +22,7 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | PLURALITY | 1 |
 | RR | 1 |
 
-## STAR  (82)
+## STAR  (83)
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
@@ -54,8 +54,8 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | [`06a_c9_b3_large-field-equal-support.yaml`](../../01_Single_winner/_main/06a_c9_b3_large-field-equal-support.yaml) | `01_Single_winner/_main/` | 1 | Large field (9 candidates) — STAR scales, and Equal Support decides → _Carmen_ |
 | [`06b_c9_runoff-overturns-leader.yaml`](../../01_Single_winner/_main/06b_c9_runoff-overturns-leader.yaml) | `01_Single_winner/_main/` | 1 | Large field (9 candidates) — the runoff OVERTURNS the score leader → _Carmen_ |
 | [`09_c4_b100_tennessee-capital.yaml`](../../01_Single_winner/_main/09_c4_b100_tennessee-capital.yaml) | `01_Single_winner/_main/` | 1 | Tennessee Capital — classic STAR example → _Nashville_ |
-| [`Approval_ballot.yaml`](../../01_Single_winner/_main/Approval_ballot.yaml) | `01_Single_winner/_main/` | 1 | Approval-style & marker ballots (0/1, blanks, abstentions) under STAR |
-| [`abstentions.yaml`](../../01_Single_winner/_main/abstentions.yaml) | `01_Single_winner/_main/` | 1 | Abstentions — blank and abstaining ballots in STAR |
+| [`Approval_ballot.yaml`](../../01_Single_winner/_main/Approval_ballot.yaml) | `01_Single_winner/_main/` | 1 | Approval-style & marker ballots (0/1, blanks, abstentions) under STAR → _D_ |
+| [`abstentions.yaml`](../../01_Single_winner/_main/abstentions.yaml) | `01_Single_winner/_main/` | 1 | Abstentions — blank and abstaining ballots in STAR → _Dog_ |
 | [`center_squeeze_star.yaml`](../../01_Single_winner/_main/center_squeeze_star.yaml) | `01_Single_winner/_main/` | 1 | Center squeeze — STAR elects the consensus (Center) → _Center_ |
 | [`center_squeeze_voteline_1d.yaml`](../../01_Single_winner/_main/center_squeeze_voteline_1d.yaml) | `01_Single_winner/_main/` | 1 | Center squeeze — the voteline 1D spectrum (Red / Green / Yellow) → _Green_ |
 | [`count_simplicity_star_vs_irv.yaml`](../../01_Single_winner/_main/count_simplicity_star_vs_irv.yaml) | `01_Single_winner/_main/` | 1 | Same winner, very different counts — STAR adds, IRV eliminates → _Carmen_ |
@@ -65,6 +65,7 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | [`monotonicity_star_before.yaml`](../../01_Single_winner/_main/monotonicity_star_before.yaml) | `01_Single_winner/_main/` | 1 | Monotonicity — STAR counterpart (BEFORE — X wins) → _X_ |
 | [`quorum_demo_c3_b6.yaml`](../../01_Single_winner/_main/quorum_demo_c3_b6.yaml) | `01_Single_winner/_main/` | 1 | Quorum — an abstention still counts toward turnout → _Anna_ |
 | [`quorum_fail_demo_c3_b6.yaml`](../../01_Single_winner/_main/quorum_fail_demo_c3_b6.yaml) | `01_Single_winner/_main/` | 1 | Quorum FAILS — won the count, but not elected |
+| [`rrv_sample_c15_b13_three-parties.yaml`](../../01_Single_winner/_main/rrv_sample_c15_b13_three-parties.yaml) | `01_Single_winner/_main/` | 1 | RRV sample as single-winner STAR — three parties (Purple/Orange/Yellow) → _Orange5_ |
 | [`three_winners_cw_score_runoff.yaml`](../../01_Single_winner/_main/three_winners_cw_score_runoff.yaml) | `01_Single_winner/_main/` | 1 | Three notions of "winner" disagree — Condorcet, Score, and Runoff → _Bob_ |
 | [`vote_splitting.yaml`](../../01_Single_winner/_main/vote_splitting.yaml) | `01_Single_winner/_main/` | 1 | Vote splitting — two chocolates split the majority → _DarkChoco_ |
 | [`vote_splitting2.yaml`](../../01_Single_winner/_main/vote_splitting2.yaml) | `01_Single_winner/_main/` | 1 | Vote splitting — two chocolates split the majority → _DarkChoco_ |
@@ -113,15 +114,15 @@ Titles come from each file's **`election_title`** field (the convention — add 
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
-| [`RCV_ballot_example.yaml`](../../01_Single_winner/_main/RCV_ballot_example.yaml) | `01_Single_winner/_main/` | 1 | RCV-IRV — a basic ranked-ballot example (3 candidates) |
-| [`center_squeeze_irv.yaml`](../../01_Single_winner/_main/center_squeeze_irv.yaml) | `01_Single_winner/_main/` | 1 | Center squeeze (RCV-IRV) — minimal 27-voter case (the moderate is eliminated) |
-| [`monotonicity_irv_after.yaml`](../../01_Single_winner/_main/monotonicity_irv_after.yaml) | `01_Single_winner/_main/` | 1 | Non-monotonicity (RCV-IRV) — part 2: raising X makes X lose |
-| [`monotonicity_irv_before.yaml`](../../01_Single_winner/_main/monotonicity_irv_before.yaml) | `01_Single_winner/_main/` | 1 | Non-monotonicity (RCV-IRV) — part 1: baseline, X wins |
+| [`RCV_ballot_example.yaml`](../../01_Single_winner/_main/RCV_ballot_example.yaml) | `01_Single_winner/_main/` | 1 | RCV-IRV — a basic ranked-ballot example (3 candidates) → _A_ |
+| [`center_squeeze_irv.yaml`](../../01_Single_winner/_main/center_squeeze_irv.yaml) | `01_Single_winner/_main/` | 1 | Center squeeze (RCV-IRV) — minimal 27-voter case (the moderate is eliminated) → _Left_ |
+| [`monotonicity_irv_after.yaml`](../../01_Single_winner/_main/monotonicity_irv_after.yaml) | `01_Single_winner/_main/` | 1 | Non-monotonicity (RCV-IRV) — part 2: raising X makes X lose → _Z_ |
+| [`monotonicity_irv_before.yaml`](../../01_Single_winner/_main/monotonicity_irv_before.yaml) | `01_Single_winner/_main/` | 1 | Non-monotonicity (RCV-IRV) — part 1: baseline, X wins → _X_ |
 | [`Whoops_04_ossipoff_centrist_irv.yaml`](../../01_Single_winner/paradoxes_and_whoops/Whoops_04_ossipoff_centrist_irv.yaml) | `01_Single_winner/paradoxes_and_whoops/` | 1 | Whoops 04 — IRV buries the centrist (Ossipoff 303-voter) |
 | [`Whoops_05_brams_many_pathologies_irv.yaml`](../../01_Single_winner/paradoxes_and_whoops/Whoops_05_brams_many_pathologies_irv.yaml) | `01_Single_winner/paradoxes_and_whoops/` | 1 | Whoops 05 — many IRV pathologies in one election (Brams) |
-| [`irv_combined.yaml`](../../01_Single_winner/summability_demo/irv_combined.yaml) | `01_Single_winner/summability_demo/` | 1 | Summability demo — RCV-IRV combined A+B (B eliminated; not summable) |
-| [`irv_district_A.yaml`](../../01_Single_winner/summability_demo/irv_district_A.yaml) | `01_Single_winner/summability_demo/` | 1 | Summability demo — RCV-IRV district A (B wins) |
-| [`irv_district_B.yaml`](../../01_Single_winner/summability_demo/irv_district_B.yaml) | `01_Single_winner/summability_demo/` | 1 | Summability demo — RCV-IRV district B (B wins) |
+| [`irv_combined.yaml`](../../01_Single_winner/summability_demo/irv_combined.yaml) | `01_Single_winner/summability_demo/` | 1 | Summability demo — RCV-IRV combined A+B (B eliminated; not summable) → _C_ |
+| [`irv_district_A.yaml`](../../01_Single_winner/summability_demo/irv_district_A.yaml) | `01_Single_winner/summability_demo/` | 1 | Summability demo — RCV-IRV district A (B wins) → _B_ |
+| [`irv_district_B.yaml`](../../01_Single_winner/summability_demo/irv_district_B.yaml) | `01_Single_winner/summability_demo/` | 1 | Summability demo — RCV-IRV district B (B wins) → _B_ |
 | [`example_tennessee.yaml`](../../RCV_IRV_tabulation_engine/example_tennessee.yaml) | `RCV_IRV_tabulation_engine/` | 1 | Tennessee capital — RCV-IRV engine demo |
 
 ## Ranked Robin (RCV-RR / Copeland)  (5)
@@ -130,9 +131,9 @@ Titles come from each file's **`election_title`** field (the convention — add 
 |------|--------|:------:|------------------|
 | [`BV_Library_ranked_robin_single_winner.yaml`](../../01_Single_winner/BV_Library/BV_Library_ranked_robin_single_winner.yaml) | `01_Single_winner/BV_Library/` | 1 | BV parity — Ranked Robin: Condorcet winner (equal ranks allowed) → _Alice_ |
 | [`BV_Library_ranked_robin_ties.yaml`](../../01_Single_winner/BV_Library/BV_Library_ranked_robin_ties.yaml) | `01_Single_winner/BV_Library/` | 1 | BV parity — Ranked Robin: Copeland tie broken by tiebreak order → _Alice_ |
-| [`ranked_robin_consensus_center.yaml`](../../01_Single_winner/_main/ranked_robin_consensus_center.yaml) | `01_Single_winner/_main/` | 1 | Ranked Robin (RCV-RR) — the consensus center wins the round-robin |
-| [`01_condorcet_winner.yaml`](../../01_Single_winner/condorcet_vs_ranked_robin/01_condorcet_winner.yaml) | `01_Single_winner/condorcet_vs_ranked_robin/` | 1 | Condorcet winner exists — Ranked Robin elects it |
-| [`02_cycle_no_condorcet.yaml`](../../01_Single_winner/condorcet_vs_ranked_robin/02_cycle_no_condorcet.yaml) | `01_Single_winner/condorcet_vs_ranked_robin/` | 1 | No Condorcet winner (a cycle) — Ranked Robin still elects one |
+| [`ranked_robin_consensus_center.yaml`](../../01_Single_winner/_main/ranked_robin_consensus_center.yaml) | `01_Single_winner/_main/` | 1 | Ranked Robin (RCV-RR) — the consensus center wins the round-robin → _Ben_ |
+| [`01_condorcet_winner.yaml`](../../01_Single_winner/condorcet_vs_ranked_robin/01_condorcet_winner.yaml) | `01_Single_winner/condorcet_vs_ranked_robin/` | 1 | Condorcet winner exists — Ranked Robin elects it → _Ada_ |
+| [`02_cycle_no_condorcet.yaml`](../../01_Single_winner/condorcet_vs_ranked_robin/02_cycle_no_condorcet.yaml) | `01_Single_winner/condorcet_vs_ranked_robin/` | 1 | No Condorcet winner (a cycle) — Ranked Robin still elects one → _Ada_ |
 
 ## Approval  (2)
 
@@ -145,7 +146,7 @@ Titles come from each file's **`election_title`** field (the convention — add 
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
-| [`03a_stv_3seats.yaml`](../../02_Multi_winner/_main/03a_stv_3seats.yaml) | `02_Multi_winner/_main/` | 3 | STV — 3 seats, 7 candidates (proportional RCV) |
+| [`03a_stv_3seats.yaml`](../../02_Multi_winner/_main/03a_stv_3seats.yaml) | `02_Multi_winner/_main/` | 3 | STV — 3 seats, 7 candidates (proportional RCV) → _Housing, Schools, SmallBiz_ |
 
 ## Bloc STAR  (1)
 
@@ -158,7 +159,7 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
 | [`02b_c5_b63_proportional-sss.yaml`](../../02_Multi_winner/_main/02b_c5_b63_proportional-sss.yaml) | `02_Multi_winner/_main/` | 3 | Proportional STAR — Sequentially Spent Score → _Alice, Ben, Dan_ |
-| [`03b_star_pr_3seats.yaml`](../../02_Multi_winner/_main/03b_star_pr_3seats.yaml) | `02_Multi_winner/_main/` | 3 | Proportional STAR — same 3-seat electorate as the STV demo |
+| [`03b_star_pr_3seats.yaml`](../../02_Multi_winner/_main/03b_star_pr_3seats.yaml) | `02_Multi_winner/_main/` | 3 | Proportional STAR — same 3-seat electorate as the STV demo → _Housing, Schools, SmallBiz_ |
 
 ## Reweighted Range  (1)
 
@@ -182,4 +183,4 @@ Titles come from each file's **`election_title`** field (the convention — add 
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
-| [`03_real_record0_c6_b5.yaml`](../../01_Single_winner/condorcet_vs_ranked_robin/03_real_record0_c6_b5.yaml) | `01_Single_winner/condorcet_vs_ranked_robin/` | 1 | No Condorcet winner and Ranked Robin |
+| [`03_real_record0_c6_b5.yaml`](../../01_Single_winner/condorcet_vs_ranked_robin/03_real_record0_c6_b5.yaml) | `01_Single_winner/condorcet_vs_ranked_robin/` | 1 | No Condorcet winner and Ranked Robin → _B_ |

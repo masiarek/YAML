@@ -21,4 +21,7 @@ ballots: |-
   0,0 # all-zero — a CAST ballot that supports neither (an explicit zero)
   -,- # blank — a true ABSTENTION: no score recorded for anyone
 
+expected_winners:
+  - Dog
+
 # file: abstentions.yaml

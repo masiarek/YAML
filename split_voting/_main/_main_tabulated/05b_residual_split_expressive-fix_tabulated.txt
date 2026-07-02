@@ -2,7 +2,7 @@
 SOURCE FILE:     05b_residual_split_expressive-fix.yaml
 SOURCE MODIFIED: 2026-06-29 14:09:58
 TABULATED FILE:  05b_residual_split_expressive-fix_tabulated.txt
-TABULATED AT:    2026-07-02 09:37:50
+TABULATED AT:    2026-07-02 11:57:42
 ======================================================================
 
 election_title: The cure — score your ally, and STAR's split disappears

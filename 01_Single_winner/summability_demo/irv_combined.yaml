@@ -11,4 +11,8 @@ ballots: |-
   6:C
   4:B
   3:A>B>C
+
+expected_winners:
+  - C
+
 # file: irv_combined.yaml

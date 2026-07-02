@@ -19,4 +19,7 @@ ballots: |-
   2,4,5,4,1,2
   0,5,0,5,2,3
 
+expected_winners:
+  - B
+
 # file: 03_real_record0_c6_b5.yaml

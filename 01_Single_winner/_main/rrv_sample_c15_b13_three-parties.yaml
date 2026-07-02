@@ -1,0 +1,52 @@
+election_title: "RRV sample as single-winner STAR — three parties (Purple/Orange/Yellow)"
+
+scenario_description: |-
+  Ported from BetterVoting.org's "Reweighted Range Voting Sample Election".
+  Three "parties" (Purple, Orange, Yellow), five candidates each; 13 voters
+  mostly loyal to a party (3 Purple, 6 Orange, 4 Yellow). The source table is
+  laid out candidates-as-rows / voters-as-columns; here it is TRANSPOSED so each
+  voter is one ballot row across all 15 candidates.
+
+  RRV is a proportional MULTI-winner method; this file instead runs the same
+  ballots through SINGLE-winner STAR to see who one seat would go to. Orange has
+  the most loyal voters (6 of 13), so an Orange candidate is expected to lead.
+
+  Scores mapped from the source 0-9 scale to STAR's 0-5 by round(x * 5 / 9):
+  0->0, 1->1, 2->1, 3->2, 4->2, 5->3, 6->3, 7->4, 8->4, 9->5.
+  Source: https://bettervoting.org (RRV sample election)
+
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: false
+  show_irv: false
+  show_runoff_percent: true
+  brief: true
+  collapse_ballots: false
+  count_separator: "×"
+
+num_winners: 1
+voting_method: STAR
+
+ballots: |-
+  Purple1,Purple2,Purple3,Purple4,Purple5,Orange1,Orange2,Orange3,Orange4,Orange5,Yellow1,Yellow2,Yellow3,Yellow4,Yellow5
+  5,4,5,4,5,1,1,1,1,1,0,0,0,0,0
+  5,4,4,5,5,1,0,1,0,1,0,1,0,1,0
+  4,5,5,2,4,1,1,1,1,2,1,0,0,1,0
+  0,0,0,0,0,5,5,4,5,5,0,0,0,0,0
+  0,0,0,0,0,5,1,4,4,4,0,0,1,0,0
+  0,0,0,0,0,5,3,4,4,2,0,1,0,0,1
+  0,0,0,0,0,5,4,4,4,4,0,0,0,0,0
+  0,0,0,0,0,4,5,5,5,5,0,1,0,0,1
+  0,0,0,0,0,4,5,5,5,5,0,0,0,0,0
+  1,1,1,1,1,0,0,0,0,0,5,5,2,5,5
+  1,1,1,1,0,0,0,0,0,0,4,4,4,4,4
+  1,1,1,1,1,0,0,0,0,1,5,4,4,5,4
+  2,0,2,2,1,0,0,0,0,0,5,5,4,4,5
+
+expected_winners:
+  - Orange5
+
+# file: rrv_sample_c15_b13_three-parties.yaml

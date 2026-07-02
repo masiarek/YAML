@@ -1,8 +1,8 @@
 ======================================================================
 SOURCE FILE:     03b_star_pr_3seats.yaml
-SOURCE MODIFIED: 2026-06-29 14:09:58
+SOURCE MODIFIED: 2026-07-02 11:56:34
 TABULATED FILE:  03b_star_pr_3seats_tabulated.txt
-TABULATED AT:    2026-07-02 09:37:49
+TABULATED AT:    2026-07-02 11:57:41
 ======================================================================
 
 election_title: Proportional STAR — same 3-seat electorate as the STV demo
@@ -41,6 +41,11 @@ ballots: |-
   22:2,1,0,0,5,4,3   # SmallBiz > BigBiz > TaxCuts > (progressive)
   17:2,1,0,0,4,5,3   # BigBiz-first business
   3:2,1,0,0,4,3,5    # TaxCuts-first business
+
+expected_winners:
+  - Housing
+  - Schools
+  - SmallBiz
 
 # file: 03b_star_pr_3seats.yaml
 

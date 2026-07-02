@@ -1,0 +1,85 @@
+--- RCV / Instant-Runoff Voting (single winner) ---
+  RRV sample as single-winner STAR — three parties (Purple/Orange/Yellow)
+ Tabulating 13 ballots (converted from score ballots; 0 = unranked, equal scores broken by candidate priority).
+
+ROUND 1
+Candidate      Votes  Status
+-----------  -------  --------
+Orange1            4  Hopeful
+Yellow1            4  Hopeful
+Orange2            2  Hopeful
+Purple1            2  Hopeful
+Purple2            1  Rejected
+Orange3            0  Rejected
+Yellow2            0  Rejected
+Purple3            0  Rejected
+Yellow4            0  Rejected
+Purple4            0  Rejected
+Orange4            0  Rejected
+Purple5            0  Rejected
+Yellow3            0  Rejected
+Yellow5            0  Rejected
+Orange5            0  Rejected
+
+ROUND 2
+Candidate      Votes  Status
+-----------  -------  --------
+Orange1            4  Hopeful
+Yellow1            4  Hopeful
+Purple1            3  Hopeful
+Orange2            2  Rejected
+Purple2            0  Rejected
+Orange3            0  Rejected
+Yellow2            0  Rejected
+Purple3            0  Rejected
+Yellow4            0  Rejected
+Purple4            0  Rejected
+Orange4            0  Rejected
+Purple5            0  Rejected
+Yellow3            0  Rejected
+Yellow5            0  Rejected
+Orange5            0  Rejected
+
+ROUND 3
+Candidate      Votes  Status
+-----------  -------  --------
+Orange1            6  Hopeful
+Yellow1            4  Hopeful
+Purple1            3  Rejected
+Orange2            0  Rejected
+Purple2            0  Rejected
+Orange3            0  Rejected
+Yellow2            0  Rejected
+Purple3            0  Rejected
+Yellow4            0  Rejected
+Purple4            0  Rejected
+Orange4            0  Rejected
+Purple5            0  Rejected
+Yellow3            0  Rejected
+Yellow5            0  Rejected
+Orange5            0  Rejected
+
+FINAL RESULT
+Candidate      Votes  Status
+-----------  -------  --------
+Orange1            9  Elected
+Yellow1            4  Rejected
+Purple1            0  Rejected
+Orange2            0  Rejected
+Purple2            0  Rejected
+Orange3            0  Rejected
+Yellow2            0  Rejected
+Purple3            0  Rejected
+Yellow4            0  Rejected
+Purple4            0  Rejected
+Orange4            0  Rejected
+Purple5            0  Rejected
+Yellow3            0  Rejected
+Yellow5            0  Rejected
+Orange5            0  Rejected
+
+
+Winner(s) — RCV / Instant-Runoff Voting (single winner)
+  Orange1
+
+NOTE: a generated cross-method view of the STAR ballots, for comparison only — not the official STAR result.

@@ -58,6 +58,11 @@ def load_ballots_block(path):
                 found = find_ballots(v)
                 if found:
                     return found
+        elif isinstance(d, list):               # e.g. election: races: [ {...} ]
+            for v in d:
+                found = find_ballots(v)
+                if found:
+                    return found
         return None
 
     race = find_ballots(data) or {}
@@ -204,7 +209,7 @@ def run(path):
         candidates_names, parsed = parse_score_ballots(ballots_text)
     if not parsed:
         print("Error: no valid ballots found.")
-        return
+        sys.exit(1)                             # an error must not exit 0
 
     cand_objs = {name: Candidate(name) for name in candidates_names}
     pv_ballots = []

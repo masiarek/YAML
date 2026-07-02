@@ -24,4 +24,7 @@ ballots: |-
   3:Ben>Cara>Ada>Dan
   2:Cara>Ben>Dan>Ada
 
+expected_winners:
+  - Ben
+
 # file: ranked_robin_consensus_center.yaml

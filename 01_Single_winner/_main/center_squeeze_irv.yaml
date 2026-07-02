@@ -12,4 +12,7 @@ ballots: |-
   9:Right>Center>Left
   6:Center>Left>Right
 
+expected_winners:
+  - Left
+
 # file: center_squeeze_irv.yaml

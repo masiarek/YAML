@@ -35,4 +35,9 @@ ballots: |-
   17:2,1,0,0,4,5,3   # BigBiz-first business
   3:2,1,0,0,4,3,5    # TaxCuts-first business
 
+expected_winners:
+  - Housing
+  - Schools
+  - SmallBiz
+
 # file: 03b_star_pr_3seats.yaml

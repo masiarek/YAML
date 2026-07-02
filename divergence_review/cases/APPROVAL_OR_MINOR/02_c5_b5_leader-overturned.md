@@ -57,8 +57,8 @@ Candidate      Votes  Status
 -----------  -------  --------
 Boston             3  Elected
 Austin             2  Rejected
-Erie               0  Rejected
 Denver             0  Rejected
+Erie               0  Rejected
 Chicago            0  Rejected
 
 

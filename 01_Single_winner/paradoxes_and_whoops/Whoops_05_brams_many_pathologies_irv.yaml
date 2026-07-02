@@ -20,4 +20,7 @@ election:
       5:N>G>B>F
       3:F>N>G>B
 
+expected_winners:
+  - B
+
 # file: Whoops_05_brams_many_pathologies_irv.yaml

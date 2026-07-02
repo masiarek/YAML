@@ -22,4 +22,9 @@ ballots: |-
   17:BigBiz>SmallBiz>TaxCuts>Housing>Schools>Parks>Transit
   3:TaxCuts>SmallBiz>BigBiz>Housing>Schools>Parks>Transit
 
+expected_winners:
+  - Housing
+  - Schools
+  - SmallBiz
+
 # file: 03a_stv_3seats.yaml
