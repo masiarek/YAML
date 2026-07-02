@@ -1,0 +1,65 @@
+======================================================================
+SOURCE FILE:     irv_combined.yaml
+SOURCE MODIFIED: 2026-07-02 13:00:37
+TABULATED FILE:  irv_combined_tabulated.txt
+TABULATED AT:    2026-07-02 13:01:33
+======================================================================
+
+election_title: "Summability demo — RCV-IRV combined A+B (B eliminated; not summable)"
+
+scenario_description: |-
+  Districts A + B merged, counted by RCV-IRV. B won BOTH districts — but in
+  the combined electorate B has the fewest first choices (8 vs 9 and 9), is
+  eliminated first, and both B-bullet blocs exhaust. The race then ends in a
+  GENUINE 9-9 tie between A and C; the engine's seeded coin flip elects A (see
+  the note at expected_winners). No district subtotal can produce this result:
+  IRV needs every ballot in one pile. Compare the star_* trio, where
+  subtotals simply add.
+voting_method: RCV_IRV
+num_winners: 1
+# Summability demo (IRV), A+B merged. B wins BOTH districts, but here B has the
+# fewest first-choices (8 vs 9, 9), is ELIMINATED, and A/C tie. You cannot recover
+# this from the district winners or any fixed precinct subtotal -> IRV isn't summable.
+ballots: |-
+  6:A
+  4:B
+  3:C>B>A
+  6:C
+  4:B
+  3:A>B>C
+
+# NOTE: after B's elimination A and C are GENUINELY TIED 9-9 (that's the
+# lesson). pyrankvote resolves elimination ties by coin flip; the engine seeds
+# the RNG so the flip is reproducible — seeded, it elects A. If the seed or
+# tie policy ever changes, this key (and the RNG note) must change with it.
+expected_winners:
+  - A
+
+# file: irv_combined.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+--- RCV / Instant-Runoff Voting (single winner) ---
+  Summability demo — RCV-IRV combined A+B (B eliminated; not summable)
+ Tabulating 26 ballots (ranked ballots).
+
+ROUND 1
+Candidate      Votes  Status
+-----------  -------  --------
+A                  9  Hopeful
+C                  9  Hopeful
+B                  8  Rejected
+
+FINAL RESULT
+Candidate      Votes  Status
+-----------  -------  --------
+A                  9  Elected
+C                  9  Rejected
+B                  0  Rejected
+Blank Votes        8  Rejected
+
+
+Winner(s) — RCV / Instant-Runoff Voting (single winner)
+  A

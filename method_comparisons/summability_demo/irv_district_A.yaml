@@ -1,4 +1,11 @@
 election_title: "Summability demo — RCV-IRV district A (B wins)"
+
+scenario_description: |-
+  District A of the RCV-IRV summability trio: C is eliminated, C's ballots
+  transfer to B, B wins. Looks precinct-friendly — until you try to combine
+  districts. See irv_combined.yaml: no fixed set of district-level IRV
+  subtotals can be added into the combined answer, because who gets eliminated
+  depends on ALL ballots at once.
 voting_method: RCV_IRV
 num_winners: 1
 # Summability demo (IRV), district A. IRV winner: B (eliminate C, C>B>A transfers -> B 7, A 6).

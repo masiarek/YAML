@@ -1,4 +1,12 @@
 election_title: "RCV-IRV — a basic ranked-ballot example (3 candidates)"
+
+scenario_description: |-
+  A first ranked-ballot count: 100 voters, three candidates, weighted rows
+  like "40:A>C>B". A leads with 40 first choices but no majority; C (25) is
+  eliminated, C's ballots transfer to A, and A wins 65-35. Use it to learn the
+  round-by-round report before the pathology cases (center_squeeze,
+  monotonicity, summability in method_comparisons/) show what elimination
+  order can do.
 voting_method: RCV_IRV   # RCV-IRV Example  - Single-winner
 
 num_winners: 1

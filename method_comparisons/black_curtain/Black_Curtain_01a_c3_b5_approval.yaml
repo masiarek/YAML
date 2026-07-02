@@ -10,7 +10,7 @@ scenario_description: |-
   Source video: https://www.youtube.com/watch?v=5_ZMruwOZgw
   Notes doc: https://docs.google.com/document/d/1ntOS5PQ_kkPnaZpDeqLShGv2pz_k6Zom9LnTEdjjd4o
   BetterVoting template: https://bettervoting.com/p9gwc3/vote
-  This folder on GitHub: https://github.com/masiarek/YAML/tree/master/01_Single_winner/black_curtain
+  This folder on GitHub: https://github.com/masiarek/YAML/tree/master/method_comparisons/black_curtain
 
 options:
   show_description: false

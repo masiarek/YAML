@@ -6,11 +6,11 @@ Election YAMLs live in many folders (the test harnesses glob specific ones, so t
 
 Titles come from each file's **`election_title`** field (the convention — add one to make a file's title explicit & searchable). Where that's missing, a file's first `#` comment line is shown *in italics* as a fallback.
 
-**109 election files** (103 single-winner, 6 multi-winner) across 11 method(s).
+**118 election files** (112 single-winner, 6 multi-winner) across 11 method(s).
 
 | Method | Files |
 |--------|------:|
-| STAR | 83 |
+| STAR | 92 |
 | RCV-IRV (Hare) | 10 |
 | Ranked Robin (RCV-RR / Copeland) | 5 |
 | Approval | 3 |
@@ -22,7 +22,7 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | PLURALITY | 1 |
 | RR | 1 |
 
-## STAR  (83)
+## STAR  (92)
 
 | File | Folder | Winners | Title / expected |
 |------|--------|:------:|------------------|
@@ -79,6 +79,15 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | [`Runoff_05_reversal_with_equal_support_xgkw3w.yaml`](../../01_STAR/runoff_overturns_leader/Runoff_05_reversal_with_equal_support_xgkw3w.yaml) | `01_STAR/runoff_overturns_leader/` | 1 | Runoff 05 — reversal with Equal Support → _Sage_ |
 | [`Runoff_06_confirms_at_scale_d664xw.yaml`](../../01_STAR/runoff_overturns_leader/Runoff_06_confirms_at_scale_d664xw.yaml) | `01_STAR/runoff_overturns_leader/` | 1 | Runoff 06 — the runoff confirms the leader at scale (control) → _Wren_ |
 | [`Runoff_07_flat_ballot_bv_bug_tf73v9.yaml`](../../01_STAR/runoff_overturns_leader/Runoff_07_flat_ballot_bv_bug_tf73v9.yaml) | `01_STAR/runoff_overturns_leader/` | 1 | Runoff 07 (WIP) — flat ballot exposes the BV abstention bug → _Blair_ |
+| [`tie_break_01_scoring_five_star_breaks.yaml`](../../01_STAR/tie_break_dead_rung/tie_break_01_scoring_five_star_breaks.yaml) | `01_STAR/tie_break_dead_rung/` | 1 | Tie-break 01 — scoring-round tie, FIVE-STAR breaks it (a 5 exists) → _Alice_ |
+| [`tie_break_02_scoring_no_fives_to_lot.yaml`](../../01_STAR/tie_break_dead_rung/tie_break_02_scoring_no_fives_to_lot.yaml) | `01_STAR/tie_break_dead_rung/` | 1 | Tie-break 02 — scoring-round tie, NO fives, five-star is a dead rung → LOT → _Alice_ |
+| [`tie_break_03_runoff_no_fives_to_lot.yaml`](../../01_STAR/tie_break_dead_rung/tie_break_03_runoff_no_fives_to_lot.yaml) | `01_STAR/tie_break_dead_rung/` | 1 | Tie-break 03 — runoff tie, score tied, NO fives → LOT → _Alice_ |
+| [`tie_break_04_runoff_five_star_breaks.yaml`](../../01_STAR/tie_break_dead_rung/tie_break_04_runoff_five_star_breaks.yaml) | `01_STAR/tie_break_dead_rung/` | 1 | Tie-break 04 — runoff tie, score tied, FIVE-STAR breaks it (a 5 exists) → _Alice_ |
+| [`tie_break_05_scoring_five_star_vs_adversarial_lot.yaml`](../../01_STAR/tie_break_dead_rung/tie_break_05_scoring_five_star_vs_adversarial_lot.yaml) | `01_STAR/tie_break_dead_rung/` | 1 | Dead rung 01 — scoring tie, five-star rung ALIVE → _Ben_ |
+| [`tie_break_06_scoring_dead_rung_adversarial_lot.yaml`](../../01_STAR/tie_break_dead_rung/tie_break_06_scoring_dead_rung_adversarial_lot.yaml) | `01_STAR/tie_break_dead_rung/` | 1 | Dead rung 02 — same tie, but nobody scored a 5 → _Ann_ |
+| [`tie_break_07_runoff_five_star_vs_adversarial_lot.yaml`](../../01_STAR/tie_break_dead_rung/tie_break_07_runoff_five_star_vs_adversarial_lot.yaml) | `01_STAR/tie_break_dead_rung/` | 1 | Dead rung 03 — runoff tie broken by five-star → _Ann_ |
+| [`tie_break_08_runoff_dead_rung_adversarial_lot.yaml`](../../01_STAR/tie_break_dead_rung/tie_break_08_runoff_dead_rung_adversarial_lot.yaml) | `01_STAR/tie_break_dead_rung/` | 1 | Dead rung 04 — runoff tie, nobody scored a 5, lot decides → _Ben_ |
+| [`tie_break_09_five_star_tied_nonzero.yaml`](../../01_STAR/tie_break_dead_rung/tie_break_09_five_star_tied_nonzero.yaml) | `01_STAR/tie_break_dead_rung/` | 1 | Dead rung 05 — five-star rung alive but non-separating → _Ben_ |
 | [`rrv_sample_c15_b13_three-parties.yaml`](../../03_STAR_PR/_main/rrv_sample_c15_b13_three-parties.yaml) | `03_STAR_PR/_main/` | 1 | RRV sample as single-winner STAR — three parties (Purple/Orange/Yellow) → _Orange5_ |
 | [`options_examples.yaml`](../../STARVote_LH_tabulation_engine/options_examples.yaml) | `STARVote_LH_tabulation_engine/` | 1 | Display-options reference — every reporting toggle (STAR) |
 | [`BV_Library_star_condorcet_winner.yaml`](../../method_comparisons/BV_Library/BV_Library_star_condorcet_winner.yaml) | `method_comparisons/BV_Library/` | 1 | BV parity — STAR: highest-scoring Condorcet winner → _Allison_ |
@@ -120,7 +129,7 @@ Titles come from each file's **`election_title`** field (the convention — add 
 | [`monotonicity_irv_before.yaml`](../../method_comparisons/monotonicity/monotonicity_irv_before.yaml) | `method_comparisons/monotonicity/` | 1 | Non-monotonicity (RCV-IRV) — part 1: baseline, X wins → _X_ |
 | [`Whoops_04_ossipoff_centrist_irv.yaml`](../../method_comparisons/paradoxes_and_whoops/Whoops_04_ossipoff_centrist_irv.yaml) | `method_comparisons/paradoxes_and_whoops/` | 1 | Whoops 04 — IRV buries the centrist (Ossipoff 303-voter) |
 | [`Whoops_05_brams_many_pathologies_irv.yaml`](../../method_comparisons/paradoxes_and_whoops/Whoops_05_brams_many_pathologies_irv.yaml) | `method_comparisons/paradoxes_and_whoops/` | 1 | Whoops 05 — many IRV pathologies in one election (Brams) |
-| [`irv_combined.yaml`](../../method_comparisons/summability_demo/irv_combined.yaml) | `method_comparisons/summability_demo/` | 1 | Summability demo — RCV-IRV combined A+B (B eliminated; not summable) → _C_ |
+| [`irv_combined.yaml`](../../method_comparisons/summability_demo/irv_combined.yaml) | `method_comparisons/summability_demo/` | 1 | Summability demo — RCV-IRV combined A+B (B eliminated; not summable) → _A_ |
 | [`irv_district_A.yaml`](../../method_comparisons/summability_demo/irv_district_A.yaml) | `method_comparisons/summability_demo/` | 1 | Summability demo — RCV-IRV district A (B wins) → _B_ |
 | [`irv_district_B.yaml`](../../method_comparisons/summability_demo/irv_district_B.yaml) | `method_comparisons/summability_demo/` | 1 | Summability demo — RCV-IRV district B (B wins) → _B_ |
 | [`RCV_ballot_example.yaml`](../../other_methods/_main/RCV_ballot_example.yaml) | `other_methods/_main/` | 1 | RCV-IRV — a basic ranked-ballot example (3 candidates) → _A_ |

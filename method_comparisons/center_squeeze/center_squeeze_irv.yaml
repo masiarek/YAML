@@ -1,4 +1,13 @@
 election_title: "Center squeeze (RCV-IRV) — minimal 27-voter case (the moderate is eliminated)"
+
+scenario_description: |-
+  The minimal center-squeeze electorate, counted by RCV-IRV: 27 voters on a
+  1-D spectrum. Center is every faction's acceptable second choice and beats
+  either pole head-to-head — but holds the FEWEST first choices (6), is
+  eliminated in round one, and polar Left wins. The matched file
+  center_squeeze_star.yaml scores the same profile 0-5 and elects Center.
+  See center_squeeze_voteline_1d.yaml for the spectrum picture and the
+  center-squeeze topic hub for the cross-method view.
 voting_method: RCV_IRV   # RCV-IRV — center squeeze (Center eliminated; Left wins)
 num_winners: 1
 

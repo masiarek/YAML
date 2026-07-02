@@ -1,4 +1,11 @@
 election_title: "Summability demo — RCV-IRV district B (B wins)"
+
+scenario_description: |-
+  District B of the RCV-IRV summability trio: B wins here too — both districts
+  independently elect B. Yet the combined electorate does NOT elect B (see
+  irv_combined.yaml: B is eliminated first there). District winners, and even
+  full district round-by-round tallies, cannot be summed into the combined
+  result — the non-summability this trio demonstrates.
 voting_method: RCV_IRV
 num_winners: 1
 # Summability demo (IRV), district B (A/C roles swapped). IRV winner: B.

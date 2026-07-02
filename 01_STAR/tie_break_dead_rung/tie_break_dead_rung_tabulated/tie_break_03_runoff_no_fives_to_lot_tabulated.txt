@@ -1,0 +1,112 @@
+======================================================================
+SOURCE FILE:     tie_break_03_runoff_no_fives_to_lot.yaml
+SOURCE MODIFIED: 2026-07-02 12:29:42
+TABULATED FILE:  tie_break_03_runoff_no_fives_to_lot_tabulated.txt
+TABULATED AT:    2026-07-02 13:01:28
+======================================================================
+
+election_title: "Tie-break 03 — runoff tie, score tied, NO fives → LOT"
+
+scenario_description: |-
+  The runoff ladder's dead-rung case. Two candidates, both finalists. They tie
+  head-to-head (1-1) AND tie on total score (4-4), so the runoff falls to its
+  second rung — most score-5 votes. But neither earned a 5, so five-star reads
+  0-0 and the LOT decides. lot_numbers pins Alice ahead of Ben, so Alice wins.
+  Contrast tie_break_04 (same tie, but a 5 exists -> five-star decides).
+  See 00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md.
+
+options:
+  show_description: false
+  show_matrix: false
+  matrix_finalists_only: false
+  show_condorcet: false
+  show_score_counts: true
+  show_irv: false
+  show_runoff_percent: true
+  brief: true
+  collapse_ballots: false
+  count_separator: "×"
+
+num_winners: 1
+voting_method: STAR
+lot_numbers: [Alice, Ben]
+ballots: |-
+  Alice,Ben
+  4,0
+  0,4
+
+expected_winners:
+  - Alice
+
+# file: tie_break_03_runoff_no_fives_to_lot.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Tie-break 03 — runoff tie, score tied, NO fives → LOT ===
+  The runoff ladder's dead-rung case. Two candidates, both finalists. They tie
+  head-to-head (1-1) AND tie on total score (4-4), so the runoff falls to its
+  second rung — most score-5 votes. But neither earned a 5, so five-star reads
+  0-0 and the LOT decides. lot_numbers pins Alice ahead of Ben, so Alice wins.
+  Contrast tie_break_04 (same tie, but a 5 exists -> five-star decides).
+  See 00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md.
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |  * Alice   |  * Ben    |
+-----------------------------------------
+     * Alice > |    ---     |1 - 0 - 1  |
+       * Ben > | 1 - 0 - 1  |   ---     |
+
+[Condorcet Winner]
+  No strict Condorcet winner; unbeaten candidates: Alice, Ben (pairwise ties)
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 2 ballots.
+Alice,Ben
+    4,  0
+    0,  4
+
+[Score Distribution] (number of ballots giving each score)
+       5  4  3  2  1  0  | Total   Avg
+Alice  0  1  0  0  0  1  |     4   2.0
+Ben    0  1  0  0  0  1  |     4   2.0
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Alice         -- 4 -- First place
+   Ben           -- 4 -- Second place
+ Alice and Ben advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Alice         -- 1 -- Tied for first place
+   Ben           -- 1 -- Tied for first place
+   Equal Support -- 0
+ There's a two-way tie for first.
+
+[STAR Voting: Automatic Runoff Round: First tiebreaker]
+ The highest-scoring candidate wins.
+   Alice         -- 4 -- Tied for first place
+   Ben           -- 4 -- Tied for first place
+ There's still a two-way tie for first.
+
+[STAR Voting: Automatic Runoff Round: Second tiebreaker]
+ The candidate with the most votes of score 5 wins.
+   Alice         -- 0 -- Tied for first place
+   Ben           -- 0 -- Tied for first place
+ There's still a two-way tie for first.
+
+*(Ties are resolved by choosing the tied candidate with the highest-priority official lot number.)*
+    Lot-number priority order: ['Alice', 'Ben']
+
+[Tiebreaker: Lot Number Priority]
+  Tie among: ['Alice', 'Ben']
+  Resolved: ['Alice'] (selected by lot-number priority).
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Alice

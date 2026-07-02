@@ -1,0 +1,39 @@
+election_title: Dead rung 01 — scoring tie, five-star rung ALIVE
+
+scenario_description: |-
+  Ben and Cara tie for the second finalist slot (11 points each) AND tie
+  pairwise (2-2). The FIVE-STAR rung decides: Ben has two 5s, Cara one, so
+  Ben advances — and then beats Ann in the runoff 3-2.
+  The lot order deliberately favors Cara: if the engine skipped the five-star
+  rung and went straight to the lot, Cara would advance and ANN would win.
+  The expected winner (Ben) therefore proves the rung was consulted.
+
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: true
+  show_irv: false
+  show_runoff_percent: true
+  brief: true
+  collapse_ballots: false
+  count_separator: "×"
+
+voting_method: STAR
+num_winners: 1
+
+lot_numbers: [Cara, Ann, Ben]   # lot favors Cara — five-star must outrank it
+
+ballots: |-
+  Ann,Ben,Cara
+  3,5,1   # Ben bloc
+  3,5,0   # Ben bloc
+  4,0,3   # Cara bloc
+  4,0,4   # Cara bloc
+  0,1,1   # low-score voter
+
+expected_winners:
+  - Ben
+
+# file: tie_break_05_scoring_five_star_vs_adversarial_lot.yaml

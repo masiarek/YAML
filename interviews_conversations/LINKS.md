@@ -97,7 +97,7 @@ _Last full review: 2026-06-21._
 | **Top-Two Winner** | The second round / top-two write-up | https://docs.google.com/document/d/1AaMhaVmQN_cS66_-r5fC9Wv_fEmhYe41GRHnBKqN-48/edit | 2026-06-21 |
 | **How STAR Works (YT transcript)** | Transcript of the "How Does STAR Voting Work?" video | https://docs.google.com/document/d/1gr8T36_ARPOIS0Mj8VWr6W6iDRMlngcj-CuOUlgLb3M/edit | 2026-06-21 |
 | **Runoff Phase (YT script)** | Video script: STAR Voting — The Automatic Runoff Phase | https://docs.google.com/document/d/1J_jxAxD58czvQOgpr8-RKWqWZyo0eaJd4prOBWimGUY/edit | 2026-06-21 |
-| **Equal Support vs Equal Preference** | Terminology for the no-preference runoff bucket | https://docs.google.com/document/d/1_b2kBNqp-XwM71JOXyWm5LIXQvNzT0UVREr_WYFGhv4/edit | 2026-06-21 |
+| **Equal Support vs Equal Preference** | Terminology for the no-preference runoff bucket | https://docs.google.com/document/d/1_b2kBNqp-XwM71JOXyWm5LIXQvNzT0UVREr_WYFGhv4/edit | 2026-06-21 | <!-- terminology-ok: external slide title -->
 | **STAR's Hybrid Nature** | Expressive scoring + majority-style runoff | https://docs.google.com/document/d/1OdwXLsXKO7i3MwoFuTFGDjlLraG6eK1JYH10zpFjNKc/edit | 2026-06-21 |
 | **Ratings, Rankings & Preferences** | The cardinal-vs-ordinal main reference | https://docs.google.com/document/d/1ImJsgGzxkcdWwAJjDZEaWbgTRi4sPiDFSEP2OkfOhgI/edit | 2026-06-21 |
 

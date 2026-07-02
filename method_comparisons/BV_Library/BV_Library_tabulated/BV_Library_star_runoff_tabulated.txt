@@ -2,7 +2,7 @@
 SOURCE FILE:     BV_Library_star_runoff.yaml
 SOURCE MODIFIED: 2026-07-02 08:52:18
 TABULATED FILE:  BV_Library_star_runoff_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:20
+TABULATED AT:    2026-07-02 12:52:22
 ======================================================================
 
 election_title: "BV parity — STAR: runoff, lower total wins the runoff"

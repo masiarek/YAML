@@ -1,0 +1,15 @@
+--- RCV / Instant-Runoff Voting (single winner) ---
+  Tie-break 04 — runoff tie, score tied, FIVE-STAR breaks it (a 5 exists)
+ Tabulating 2 ballots (converted from score ballots; 0 = unranked, equal scores broken by candidate priority).
+
+FINAL RESULT
+Candidate      Votes  Status
+-----------  -------  --------
+Ben                1  Elected
+Alice              1  Rejected
+
+
+Winner(s) — RCV / Instant-Runoff Voting (single winner)
+  Ben
+
+NOTE: a generated cross-method view of the STAR ballots, for comparison only — not the official STAR result.

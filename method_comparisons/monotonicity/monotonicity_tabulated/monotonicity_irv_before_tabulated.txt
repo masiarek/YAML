@@ -1,0 +1,56 @@
+======================================================================
+SOURCE FILE:     monotonicity_irv_before.yaml
+SOURCE MODIFIED: 2026-07-02 13:00:37
+TABULATED FILE:  monotonicity_irv_before_tabulated.txt
+TABULATED AT:    2026-07-02 13:01:32
+======================================================================
+
+election_title: "Non-monotonicity (RCV-IRV) — part 1: baseline, X wins"
+
+scenario_description: |-
+  Part 1 of the RCV-IRV monotonicity pair: 34 voters, X wins (Z is eliminated,
+  Z's ballots transfer to X). This is the baseline for the paradox — in part 2
+  (monotonicity_irv_after.yaml) four voters RAISE X from second to first
+  choice, change nothing else, and X LOSES. Keep both files side by side; the
+  ballots differ only in those four voters.
+voting_method: RCV_IRV   # RCV-IRV — monotonicity demo (BEFORE: X wins)
+num_winners: 1
+
+# Non-monotonicity demo, part 1 of 2 (see _after). Classic 3-candidate example.
+# 34 voters. Round 1: X 12, Y 12, Z 10 -> Z eliminated; Z>X transfers -> X 22. X WINS.
+# Then in the _after file, 4 voters RAISE X to first (X>Y) and X LOSES — the paradox.
+ballots: |-
+  12:X>Y
+  12:Y>Z
+  10:Z>X
+
+expected_winners:
+  - X
+
+# file: monotonicity_irv_before.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+--- RCV / Instant-Runoff Voting (single winner) ---
+  Non-monotonicity (RCV-IRV) — part 1: baseline, X wins
+ Tabulating 34 ballots (ranked ballots).
+
+ROUND 1
+Candidate      Votes  Status
+-----------  -------  --------
+Y                 12  Hopeful
+X                 12  Hopeful
+Z                 10  Rejected
+
+FINAL RESULT
+Candidate      Votes  Status
+-----------  -------  --------
+X                 22  Elected
+Y                 12  Rejected
+Z                  0  Rejected
+
+
+Winner(s) — RCV / Instant-Runoff Voting (single winner)
+  X

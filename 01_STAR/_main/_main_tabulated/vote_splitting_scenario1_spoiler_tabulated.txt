@@ -2,7 +2,7 @@
 SOURCE FILE:     vote_splitting_scenario1_spoiler.yaml
 SOURCE MODIFIED: 2026-06-24 07:58:37
 TABULATED FILE:  vote_splitting_scenario1_spoiler_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:16
+TABULATED AT:    2026-07-02 12:52:18
 ======================================================================
 
 election_title: Vote splitting — scenario 1 of 3 — the spoiler strikes

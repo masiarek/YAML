@@ -1,0 +1,53 @@
+======================================================================
+SOURCE FILE:     irv_district_A.yaml
+SOURCE MODIFIED: 2026-07-02 13:00:37
+TABULATED FILE:  irv_district_A_tabulated.txt
+TABULATED AT:    2026-07-02 13:01:33
+======================================================================
+
+election_title: "Summability demo — RCV-IRV district A (B wins)"
+
+scenario_description: |-
+  District A of the RCV-IRV summability trio: C is eliminated, C's ballots
+  transfer to B, B wins. Looks precinct-friendly — until you try to combine
+  districts. See irv_combined.yaml: no fixed set of district-level IRV
+  subtotals can be added into the combined answer, because who gets eliminated
+  depends on ALL ballots at once.
+voting_method: RCV_IRV
+num_winners: 1
+# Summability demo (IRV), district A. IRV winner: B (eliminate C, C>B>A transfers -> B 7, A 6).
+ballots: |-
+  6:A
+  4:B
+  3:C>B>A
+
+expected_winners:
+  - B
+
+# file: irv_district_A.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+--- RCV / Instant-Runoff Voting (single winner) ---
+  Summability demo — RCV-IRV district A (B wins)
+ Tabulating 13 ballots (ranked ballots).
+
+ROUND 1
+Candidate      Votes  Status
+-----------  -------  --------
+A                  6  Hopeful
+B                  4  Hopeful
+C                  3  Rejected
+
+FINAL RESULT
+Candidate      Votes  Status
+-----------  -------  --------
+B                  7  Elected
+A                  6  Rejected
+C                  0  Rejected
+
+
+Winner(s) — RCV / Instant-Runoff Voting (single winner)
+  B

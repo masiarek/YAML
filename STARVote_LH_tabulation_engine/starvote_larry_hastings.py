@@ -565,7 +565,9 @@ def build_irv_report(candidates, ballots, priority, title=None):
         for b in ballots
     ]
     try:
-        result = _pyrankvote.instant_runoff_voting(
+        import random
+        random.seed(0)      # reproducible elimination-tie resolution (see
+        result = _pyrankvote.instant_runoff_voting(   # compute_irv_winner)
             list(cand_objs.values()), pv_ballots)
     except Exception:
         return None
@@ -915,6 +917,12 @@ def compute_irv_winner(candidates, ballots, priority):
         pv_ballots.append(_IRVBallot(ranked_candidates=[cand_objs[n] for n in ranking]))
 
     try:
+        # pyrankvote breaks elimination ties with random.choice(); unseeded,
+        # the [Divergence from STAR] block could flip between runs on a
+        # genuinely tied profile. Seed for reproducibility (matches the
+        # RCV-IRV engine's own seeding in rcv_irv_tabulation.run).
+        import random
+        random.seed(0)
         result = _pyrankvote.instant_runoff_voting(
             list(cand_objs.values()), pv_ballots
         )
@@ -2657,7 +2665,24 @@ Memphis,Nashville,Chattanooga,Knoxville
         if _is_rcv or _ranked_ballots:
             if _IRV_AVAILABLE:
                 import rcv_irv_tabulation
-                rcv_irv_tabulation.run(BALLOTS_FILE)
+                # Capture the report so it both echoes AND writes the standard
+                # '<folder>_tabulated' mirror (house rule: every tabulated YAML
+                # gets a mirror; this path was the last one missing it).
+                import contextlib as _ctx
+                import io as _io
+                _buf = _io.StringIO()
+                try:
+                    with _ctx.redirect_stdout(_buf):
+                        rcv_irv_tabulation.run(BALLOTS_FILE)
+                except SystemExit:
+                    sys.stdout.write(_buf.getvalue())  # don't swallow errors
+                    raise
+                _out = _buf.getvalue()
+                sys.stdout.write(_out)
+                try:
+                    write_composed_tabulated(BALLOTS_FILE, _out)
+                except Exception:
+                    pass
                 sys.exit(0)
             print("Error: this file needs the RCV-IRV engine, but it could not "
                   "be imported (RCV_IRV_tabulation_engine missing?).")

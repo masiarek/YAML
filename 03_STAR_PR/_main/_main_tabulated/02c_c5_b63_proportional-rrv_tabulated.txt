@@ -2,7 +2,7 @@
 SOURCE FILE:     02c_c5_b63_proportional-rrv.yaml
 SOURCE MODIFIED: 2026-06-24 07:58:37
 TABULATED FILE:  02c_c5_b63_proportional-rrv_tabulated.txt
-TABULATED AT:    2026-07-02 12:20:25
+TABULATED AT:    2026-07-02 13:01:29
 ======================================================================
 
 # Proportional multi-winner example: Reweighted Range Voting (RRV).

@@ -1,0 +1,32 @@
+election_title: "Tie-break 04 — runoff tie, score tied, FIVE-STAR breaks it (a 5 exists)"
+
+scenario_description: |-
+  The runoff ladder's working case. Two candidates tie head-to-head (1-1) and tie
+  on total score (5-5), so the runoff falls to its second rung — most score-5
+  votes. Alice has one 5, Ben has none, so Alice wins WITHOUT reaching the lot.
+  Contrast tie_break_03 (same tie, no 5 exists -> the lot decides).
+  See 00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md.
+
+options:
+  show_description: false
+  show_matrix: false
+  matrix_finalists_only: false
+  show_condorcet: false
+  show_score_counts: true
+  show_irv: false
+  show_runoff_percent: true
+  brief: true
+  collapse_ballots: false
+  count_separator: "×"
+
+num_winners: 1
+voting_method: STAR
+ballots: |-
+  Alice,Ben
+  5,1
+  0,4
+
+expected_winners:
+  - Alice
+
+# file: tie_break_04_runoff_five_star_breaks.yaml

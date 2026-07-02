@@ -52,7 +52,7 @@ debate-prep — deploy it only when a skeptic raises the FairVote "discounted
 votes" line; don't lead with it.
 
 ### Suggested additional topics (good standalone clips)
-- "Equal Preference / no-preference in the runoff" — what an equal score does.
+- "Equal Preference / no-preference in the runoff" — what an equal score does. <!-- terminology-ok: names the aka under discussion -->
 - "Bullet voting — is it a strategy?" (it isn't; show why).
 - "The preference matrix, read out loud" — using the engine's `show_matrix`.
 - "Abstentions, blanks, and 0s" — what the ballot markers mean (use the engine's

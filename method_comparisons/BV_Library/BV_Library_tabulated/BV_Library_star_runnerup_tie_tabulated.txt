@@ -2,7 +2,7 @@
 SOURCE FILE:     BV_Library_star_runnerup_tie.yaml
 SOURCE MODIFIED: 2026-07-02 08:52:15
 TABULATED FILE:  BV_Library_star_runnerup_tie_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:19
+TABULATED AT:    2026-07-02 12:52:21
 ======================================================================
 
 election_title: "BV parity — STAR: runner-up tie, Allison wins"

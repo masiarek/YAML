@@ -25,7 +25,7 @@ are wrong.
 A real BetterVoting STAR race, id `pet` ("What Makes the Best Pet?"), 7 candidates,
 461 ballots. Public ballots + both reports:
 
-- Repo (ballots, converted YAML, full engine report): <https://github.com/masiarek/YAML/tree/master/01_Single_winner/pet_real_bv_election>
+- Repo (ballots, converted YAML, full engine report): <https://github.com/masiarek/YAML/tree/master/01_STAR/pet_real_bv_election>
 - Live result (**may change** if recounted): <https://bettervoting.com/pet/results>
 - **Frozen snapshot** of the result + raw export this issue is based on (so the
   numbers below stay reproducible even if the live page changes):

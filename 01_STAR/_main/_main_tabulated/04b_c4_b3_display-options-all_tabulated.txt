@@ -2,7 +2,7 @@
 SOURCE FILE:     04b_c4_b3_display-options-all.yaml
 SOURCE MODIFIED: 2026-06-21 07:07:40
 TABULATED FILE:  04b_c4_b3_display-options-all_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:14
+TABULATED AT:    2026-07-02 12:52:16
 ======================================================================
 
 # Single-race demo exercising EVERY supported field and `options:` flag.

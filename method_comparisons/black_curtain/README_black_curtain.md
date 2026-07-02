@@ -6,7 +6,7 @@ by Common Sense for Uniting America (Ted Getschman / [MaxVoting.org](https://max
 BetterVoting template: <https://bettervoting.com/p9gwc3/vote>.
 Adam's notes doc: [The Black Curtain (Google Doc)](https://docs.google.com/document/d/1ntOS5PQ_kkPnaZpDeqLShGv2pz_k6Zom9LnTEdjjd4o).
 This folder on GitHub:
-<https://github.com/masiarek/YAML/tree/master/01_Single_winner/black_curtain>.
+<https://github.com/masiarek/YAML/tree/master/method_comparisons/black_curtain>.
 This folder re-creates all four elections as runnable YAML cases for this repo's engine.*
 
 ---

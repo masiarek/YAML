@@ -2,7 +2,7 @@
 SOURCE FILE:     center_squeeze_voteline_1d.yaml
 SOURCE MODIFIED: 2026-06-29 14:09:58
 TABULATED FILE:  center_squeeze_voteline_1d_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:19
+TABULATED AT:    2026-07-02 12:52:21
 ======================================================================
 
 election:

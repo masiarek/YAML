@@ -2,7 +2,7 @@
 SOURCE FILE:     04_c4_b3_runoff-confirms-leader.yaml
 SOURCE MODIFIED: 2026-06-26 18:43:07
 TABULATED FILE:  04_c4_b3_runoff-confirms-leader_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:11
+TABULATED AT:    2026-07-02 12:52:11
 ======================================================================
 
 election_title: The control case — here the runoff CONFIRMS the score leader

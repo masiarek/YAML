@@ -194,6 +194,14 @@ def parse_ranked_ballots(ballot_string):
 # Main
 # --------------------------------------------------------------------------- #
 def run(path):
+    # pyrankvote breaks elimination ties with random.choice(). Unseeded, the
+    # SAME ballots can elect DIFFERENT winners run to run — unacceptable for a
+    # library whose counts must be reproducible (cf. the STAR engine's
+    # deterministic lot order). Seed the RNG so tie resolution is arbitrary
+    # but stable. (A true tie is still a tie — the report shows the tied
+    # tallies; this only pins which candidate the coin flip picks.)
+    import random
+    random.seed(0)
     title, ballots_text, num_winners = load_ballots_block(path)
     seats = max(1, int(num_winners or 1))
 

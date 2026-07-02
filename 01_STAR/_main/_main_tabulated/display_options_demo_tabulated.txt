@@ -2,7 +2,7 @@
 SOURCE FILE:     display_options_demo.yaml
 SOURCE MODIFIED: 2026-06-29 14:05:32
 TABULATED FILE:  display_options_demo_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:13
+TABULATED AT:    2026-07-02 12:52:15
 ======================================================================
 
 # Single-race demo that controls its own output via `options:`.

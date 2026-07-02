@@ -1,0 +1,104 @@
+======================================================================
+SOURCE FILE:     03a_stv_3seats.yaml
+SOURCE MODIFIED: 2026-07-02 13:00:37
+TABULATED FILE:  03a_stv_3seats_tabulated.txt
+TABULATED AT:    2026-07-02 13:01:33
+======================================================================
+
+election_title: "STV — 3 seats, 7 candidates (proportional RCV)"
+
+scenario_description: |-
+  STV — the proportional method for RANKED ballots — fills 3 seats from a
+  100-voter, 7-candidate field: a 58-voter community-services wing and a
+  42-voter business wing. Proportionality gives the majority two seats
+  (Housing, Schools) and the minority one (SmallBiz), where Bloc voting would
+  hand the majority a 3-0 sweep. Score-ballot counterpart: 03_STAR_PR/
+  (same electorate logic under sss / allocated / rrv).
+voting_method: STV   # Single Transferable Vote — proportional RCV (multi-winner)
+num_winners: 3
+
+# CONSTRUCTED 100-voter electorate (the figures in the "Better elections are
+# possible" video give first-choice % + STV outcomes, not ballots — STV needs full
+# rankings, so this is an illustrative reconstruction, not a transcription).
+#
+# 7 candidates in two clusters:
+#   Progressive: Housing, Schools, Parks, Transit   (58 first-choices)
+#   Business:    SmallBiz, BigBiz, TaxCuts           (42 first-choices)
+# 3 seats, Droop quota = 100/(3+1)+1 = 26. Proportional expectation: ~2 progressive
+# + 1 business seat. Watch a low-first-choice consensus progressive (Schools, 15)
+# take a seat over a higher-first-choice candidate (BigBiz, 17) via transfers.
+# STAR-PR counterpart: 03b_star_pr_3seats.yaml. See 00_start_here/proportional_stv_vs_star.md.
+ballots: |-
+  29:Housing>Schools>Parks>Transit>SmallBiz>BigBiz>TaxCuts
+  15:Schools>Housing>Parks>Transit>SmallBiz>BigBiz>TaxCuts
+  13:Parks>Schools>Housing>Transit>SmallBiz>BigBiz>TaxCuts
+  1:Transit>Schools>Housing>Parks>SmallBiz>BigBiz>TaxCuts
+  22:SmallBiz>BigBiz>TaxCuts>Housing>Schools>Parks>Transit
+  17:BigBiz>SmallBiz>TaxCuts>Housing>Schools>Parks>Transit
+  3:TaxCuts>SmallBiz>BigBiz>Housing>Schools>Parks>Transit
+
+expected_winners:
+  - Housing
+  - Schools
+  - SmallBiz
+
+# file: 03a_stv_3seats.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+--- STV / Single Transferable Vote (multi-winner — 3 seats) ---
+  STV — 3 seats, 7 candidates (proportional RCV)
+ Tabulating 100 ballots (ranked ballots).
+ 3 seats; Droop quota = 26 (26.0% of 100).
+
+ROUND 1
+Candidate      Votes  Status
+-----------  -------  --------
+Housing           29  Elected
+SmallBiz          22  Hopeful
+BigBiz            17  Hopeful
+Schools           15  Hopeful
+Parks             13  Hopeful
+TaxCuts            3  Hopeful
+Transit            1  Hopeful
+
+ROUND 2
+Candidate      Votes  Status
+-----------  -------  --------
+Housing        25.00  Elected
+SmallBiz       22.00  Hopeful
+Schools        19.00  Hopeful
+BigBiz         17.00  Hopeful
+Parks          13.00  Rejected
+TaxCuts         3.00  Rejected
+Transit         1.00  Rejected
+
+ROUND 3
+Candidate      Votes  Status
+-----------  -------  --------
+Housing        25.00  Elected
+Schools        33.00  Elected
+SmallBiz       25.00  Hopeful
+BigBiz         17.00  Hopeful
+Parks           0.00  Rejected
+TaxCuts         0.00  Rejected
+Transit         0.00  Rejected
+
+FINAL RESULT
+Candidate      Votes  Status
+-----------  -------  --------
+Housing        25.00  Elected
+Schools        25.00  Elected
+SmallBiz       33.00  Elected
+BigBiz         17.00  Rejected
+Parks           0.00  Rejected
+TaxCuts         0.00  Rejected
+Transit         0.00  Rejected
+
+
+Winner(s) — STV / Single Transferable Vote (multi-winner — 3 seats)
+  Housing
+  Schools
+  SmallBiz

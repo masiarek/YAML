@@ -48,7 +48,8 @@ tag reports a large line count (≈ +725 / −299 even with `-w`), but that is a
 entirely **line-reflow** (signatures and long calls re-wrapped): the two files are
 ~97 % character-identical once whitespace is removed, `__version__` is still
 `2.1.6`, no functions were removed, and exactly **one** helper was added
-(`bool_converter`). The only *functional* edits are two optional output toggles:
+(`bool_converter`). The *functional* edits are two optional output toggles plus
+one small tiebreak **bug fix** (see below):
 
 - **`print_averages`** option (default `False`) + CLI flag `-a` / `--print-averages`
   and config key `print averages = <bool>`. Suppresses the averages line unless asked.
@@ -57,6 +58,26 @@ entirely **line-reflow** (signatures and long calls re-wrapped): the two files a
 - `bool_converter` parses those two boolean config keys.
 - Both options are forwarded to method functions only when they differ from the
   default, so older/reference method implementations don't break.
+
+### Bug fix — five-star tiebreak default score (2025)
+
+- **File/location:** `starvote/__init__.py`, `_maximum_score_count_round()`, the
+  2-candidate fast path (the `if len(candidates) == 2:` branch).
+- **What changed:** `ballot_get(candidate1, 1)` → `ballot_get(candidate1, 0)`.
+  The `.get()` default for the *second* candidate was `1` while the first
+  candidate (and the general N-candidate path) correctly used `0`.
+- **Effect:** this function powers the **five-star** tiebreaker (it counts votes
+  equal to `maximum_score`). With the wrong default, a ballot that *omits*
+  candidate1 contributed a phantom score of `1`; that only equals `maximum_score`
+  when `maximum_score == 1` (Approval-style), so the miscount was **dormant for
+  normal 0–5 STAR** (full ballots always include both candidates, and `1 ≠ 5`).
+  It was still a latent correctness bug, now aligned with `candidate0` and the
+  general path so all three agree.
+- **Why upstream:** it's the *voting algorithm's* tiebreak mechanics, so it lives
+  in `starvote/` (per the table above), not our wrapper. Consider offering it to
+  Larry.
+- **Regression guard:** the four `01_STAR/tie_break_dead_rung/` cases exercise the
+  five-star rung firing vs. falling through to the lot in both rounds.
 
 > **Correction (do not repeat the old claim):** the **`No Preference` → `Equal
 > Support`** relabel, the Runoff (Preference) Matrix, `[Divergence from STAR]`, the

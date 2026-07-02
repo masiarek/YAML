@@ -2,7 +2,7 @@
 SOURCE FILE:     Runoff_01_confirms_leader_r2pvc9.yaml
 SOURCE MODIFIED: 2026-06-28 14:23:00
 TABULATED FILE:  Runoff_01_confirms_leader_r2pvc9_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:11
+TABULATED AT:    2026-07-02 12:52:12
 ======================================================================
 
 election:

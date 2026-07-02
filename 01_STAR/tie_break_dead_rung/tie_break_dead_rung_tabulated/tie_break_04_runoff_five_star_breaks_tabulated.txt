@@ -1,0 +1,113 @@
+======================================================================
+SOURCE FILE:     tie_break_04_runoff_five_star_breaks.yaml
+SOURCE MODIFIED: 2026-07-02 12:29:45
+TABULATED FILE:  tie_break_04_runoff_five_star_breaks_tabulated.txt
+TABULATED AT:    2026-07-02 13:01:28
+======================================================================
+
+election_title: "Tie-break 04 — runoff tie, score tied, FIVE-STAR breaks it (a 5 exists)"
+
+scenario_description: |-
+  The runoff ladder's working case. Two candidates tie head-to-head (1-1) and tie
+  on total score (5-5), so the runoff falls to its second rung — most score-5
+  votes. Alice has one 5, Ben has none, so Alice wins WITHOUT reaching the lot.
+  Contrast tie_break_03 (same tie, no 5 exists -> the lot decides).
+  See 00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md.
+
+options:
+  show_description: false
+  show_matrix: false
+  matrix_finalists_only: false
+  show_condorcet: false
+  show_score_counts: true
+  show_irv: false
+  show_runoff_percent: true
+  brief: true
+  collapse_ballots: false
+  count_separator: "×"
+
+num_winners: 1
+voting_method: STAR
+ballots: |-
+  Alice,Ben
+  5,1
+  0,4
+
+expected_winners:
+  - Alice
+
+# file: tie_break_04_runoff_five_star_breaks.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+=== Tie-break 04 — runoff tie, score tied, FIVE-STAR breaks it (a 5 exists) ===
+  The runoff ladder's working case. Two candidates tie head-to-head (1-1) and tie
+  on total score (5-5), so the runoff falls to its second rung — most score-5
+  votes. Alice has one 5, Ben has none, so Alice wins WITHOUT reaching the lot.
+  Contrast tie_break_03 (same tie, no 5 exists -> the lot decides).
+  See 00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md.
+
+--- Runoff (Preference) Matrix ---
+Head-to-head / pairwise comparison
+Legend: For - Equal Support - Against
+        * indicates Top 2 Finalist
+               |  * Alice   |  * Ben    |
+-----------------------------------------
+     * Alice > |    ---     |1 - 0 - 1  |
+       * Ben > | 1 - 0 - 1  |   ---     |
+
+[Condorcet Winner]
+  No strict Condorcet winner; unbeaten candidates: Alice, Ben (pairwise ties)
+
+[Divergence from STAR]
+  STAR    = Alice
+  RCV-IRV = Ben   (differs from STAR)
+  Note: no ballots had tied scores, so RCV-IRV vs STAR here is a genuine
+        method difference, not a tie-breaking artifact.
+  Note: Ranked Robin (RCV-RR) agrees with STAR, so RCV-IRV is the lone
+        outlier — the classic center-squeeze signature.
+  Full round-by-round reports (generated for review):
+  RCV-IRV rounds: tie_break_dead_rung_tabulated/tie_break_04_runoff_five_star_breaks_RCV-IRV_tabulated.txt
+     file:///sessions/upbeat-gracious-keller/mnt/YAML/01_STAR/tie_break_dead_rung/tie_break_dead_rung_tabulated/tie_break_04_runoff_five_star_breaks_RCV-IRV_tabulated.txt
+
+--- STAR Voting Method (single winner) ---
+[STAR Voting]
+ Tabulating 2 ballots.
+Alice,Ben
+    5,  1
+    0,  4
+
+[Score Distribution] (number of ballots giving each score)
+       5  4  3  2  1  0  | Total   Avg
+Alice  1  0  0  0  0  1  |     5   2.5
+Ben    0  1  0  0  1  0  |     5   2.5
+
+[STAR Voting: Scoring Round]
+ The two highest-scoring candidates advance to the next round.
+   Alice         -- 5 -- First place
+   Ben           -- 5 -- Second place
+ Alice and Ben advance.
+
+[STAR Voting: Automatic Runoff Round]
+ The candidate preferred in the most head-to-head matchups wins.
+   Alice         -- 1 -- Tied for first place
+   Ben           -- 1 -- Tied for first place
+   Equal Support -- 0
+ There's a two-way tie for first.
+
+[STAR Voting: Automatic Runoff Round: First tiebreaker]
+ The highest-scoring candidate wins.
+   Alice         -- 5 -- Tied for first place
+   Ben           -- 5 -- Tied for first place
+ There's still a two-way tie for first.
+
+[STAR Voting: Automatic Runoff Round: Second tiebreaker]
+ The candidate with the most votes of score 5 wins.
+   Alice         -- 1 -- First place
+   Ben           -- 0
+ Alice wins.
+
+[STAR Voting: Winner — STAR Voting Method (single winner)]
+ Alice

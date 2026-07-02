@@ -1,13 +1,17 @@
 ======================================================================
 SOURCE FILE:     01a_c2_b2_two-candidates.yaml
-SOURCE MODIFIED: 2026-06-24 07:58:37
+SOURCE MODIFIED: 2026-07-02 13:00:37
 TABULATED FILE:  01a_c2_b2_two-candidates_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:16
+TABULATED AT:    2026-07-02 13:00:51
 ======================================================================
 
 election_title: Same as before - but this time two ballots
 
 scenario_description: |-
+  The same election as 01a_c2_b1 with one more identical ballot: two voters,
+  both scoring Chocolate 5 and Vanilla 3. Nothing changes but the totals
+  (10 vs 6) — a first look at how the report scales counts. Compare the two
+  files line by line to see exactly which numbers one added ballot moves.
 
 # Presenter notes (ignored by the engine; not shown to the audience).
 video_script: |-
@@ -41,6 +45,10 @@ TABULATION RESULTS
 ======================================================================
 
 === Same as before - but this time two ballots ===
+  The same election as 01a_c2_b1 with one more identical ballot: two voters,
+  both scoring Chocolate 5 and Vanilla 3. Nothing changes but the totals
+  (10 vs 6) — a first look at how the report scales counts. Compare the two
+  files line by line to see exactly which numbers one added ballot moves.
 
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison

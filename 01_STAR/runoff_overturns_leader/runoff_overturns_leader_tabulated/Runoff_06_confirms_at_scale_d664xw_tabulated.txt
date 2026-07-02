@@ -2,7 +2,7 @@
 SOURCE FILE:     Runoff_06_confirms_at_scale_d664xw.yaml
 SOURCE MODIFIED: 2026-06-28 19:52:03
 TABULATED FILE:  Runoff_06_confirms_at_scale_d664xw_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:11
+TABULATED AT:    2026-07-02 12:52:12
 ======================================================================
 
 election:

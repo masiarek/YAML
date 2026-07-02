@@ -1,7 +1,12 @@
 election_title: The simplest possible STAR Voting example
 
 scenario_description: |-
- Self-explanatory — the simplest possible STAR election.
+  The smallest possible STAR election: ONE voter, two flavors. Caroline scores
+  Chocolate 5 and Vanilla 3; with only two candidates both advance, and her
+  preference decides the runoff — Chocolate wins. Illustration-only: use it to
+  learn the report layout (ballots, Scoring Round, Automatic Runoff) before
+  anything interesting happens. With two candidates STAR always agrees with
+  Choose-One; the interesting cases start at three.
 
 # Presenter notes (ignored by the engine; not shown to the audience).
 video_script: |-

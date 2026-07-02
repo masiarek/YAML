@@ -1,11 +1,19 @@
 ======================================================================
 SOURCE FILE:     star_district_B.yaml
-SOURCE MODIFIED: 2026-06-29 08:28:53
+SOURCE MODIFIED: 2026-07-02 13:00:37
 TABULATED FILE:  star_district_B_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:22
+TABULATED AT:    2026-07-02 13:00:53
 ======================================================================
 
 election_title: "Summability demo — STAR district B (Oak wins — a runoff reversal)"
+
+scenario_description: |-
+  District B of the STAR summability trio — the other half of the
+  star_combined electorate. Publish its per-candidate score sums and pairwise
+  matrix, add them to district A's, and you have the combined election's
+  entire count: that's summability, and it's what makes STAR precinct-friendly
+  and cheap to audit. Contrast the irv_* files, whose district tallies cannot
+  be combined.
 voting_method: STAR
 num_winners: 1
 options: {show_score_counts: true, show_matrix: true, matrix_finalists_only: false, show_runoff_percent: true}
@@ -24,6 +32,12 @@ TABULATION RESULTS
 ======================================================================
 
 === Summability demo — STAR district B (Oak wins — a runoff reversal) ===
+  District B of the STAR summability trio — the other half of the
+  star_combined electorate. Publish its per-candidate score sums and pairwise
+  matrix, add them to district A's, and you have the combined election's
+  entire count: that's summability, and it's what makes STAR precinct-friendly
+  and cheap to audit. Contrast the irv_* files, whose district tallies cannot
+  be combined.
 
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison

@@ -2,7 +2,7 @@
 SOURCE FILE:     Flat_scores_ties_06_scoring_tie_4way.yaml
 SOURCE MODIFIED: 2026-06-28 22:13:54
 TABULATED FILE:  Flat_scores_ties_06_scoring_tie_4way_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:12
+TABULATED AT:    2026-07-02 12:52:14
 ======================================================================
 
 election:

@@ -1,0 +1,35 @@
+election_title: Dead rung 04 — runoff tie, nobody scored a 5, lot decides
+
+scenario_description: |-
+  Case 03 with the enthusiasm removed: both voters top out at 4. Head-to-head
+  1-1, scores 4-4, and the five-star rung reads 0-0 — dead. Nothing on the
+  ballots can separate the pair, so the pre-drawn lot decides: Ben.
+  This is the "cautious electorate" edge case: the ladder is effectively one
+  rung shorter, and the lot decides more often than the ladder's length
+  suggests. Strange-looking, but perfectly legal ballots.
+
+options:
+  show_description: false
+  show_matrix: false
+  show_condorcet: false
+  show_score_counts: true
+  show_irv: false
+  show_runoff_percent: true
+  brief: true
+  collapse_ballots: false
+  count_separator: "×"
+
+voting_method: STAR
+num_winners: 1
+
+lot_numbers: [Ben, Ann]   # the rung is dead — the lot is all that's left
+
+ballots: |-
+  Ann,Ben
+  4,0   # tops out at 4
+  0,4   # tops out at 4
+
+expected_winners:
+  - Ben
+
+# file: tie_break_08_runoff_dead_rung_adversarial_lot.yaml

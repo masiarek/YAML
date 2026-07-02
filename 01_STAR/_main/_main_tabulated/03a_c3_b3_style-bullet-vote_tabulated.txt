@@ -1,23 +1,23 @@
 ======================================================================
 SOURCE FILE:     03a_c3_b3_style-bullet-vote.yaml
-SOURCE MODIFIED: 2026-06-29 08:51:30
+SOURCE MODIFIED: 2026-07-02 13:00:37
 TABULATED FILE:  03a_c3_b3_style-bullet-vote_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:16
+TABULATED AT:    2026-07-02 13:00:51
 ======================================================================
 
 election_title: "Voting styles — a valid STAR bullet vote (3 candidates)"
+
+scenario_description: |-
+  Three legal STAR ballot styles on one ballot set: a full/expressive ballot
+  using the whole 0-5 range, a ballot with equal scores, and a bullet vote
+  (only one candidate scored). All are valid; bullet voting is allowed but not
+  recommended — if your one pick doesn't reach the runoff, your ballot has no
+  say in the final head-to-head, so you forfeit influence. Vanilla wins here
+  either way.
 # Voting styles — what a valid STAR ballot may look like.
 # STAR lets you score each candidate 0–5 independently, so several styles are
 # all legal on the same ballot set.
 
-#election_title: Voting styles — bullet voting
-#scenario_description: |-
-#  Shows three legal STAR ballot styles on one ballot set: a full/expressive
-#  ballot, a ballot with equal scores, and a bullet vote (only one candidate
-#  scored). All are valid; bullet voting is allowed but not recommended -
-#  scoring only one candidate gives your ballot no say in the automatic runoff
-#  unless that candidate is a finalist, so you forfeit influence over the final
-#  head-to-head.
 
 # Presenter notes (ignored by the engine; not shown to the audience).
 video_script: |-
@@ -62,6 +62,12 @@ TABULATION RESULTS
 ======================================================================
 
 === Voting styles — a valid STAR bullet vote (3 candidates) ===
+  Three legal STAR ballot styles on one ballot set: a full/expressive ballot
+  using the whole 0-5 range, a ballot with equal scores, and a bullet vote
+  (only one candidate scored). All are valid; bullet voting is allowed but not
+  recommended — if your one pick doesn't reach the runoff, your ballot has no
+  say in the final head-to-head, so you forfeit influence. Vanilla wins here
+  either way.
 
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison

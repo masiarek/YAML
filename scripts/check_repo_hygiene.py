@@ -116,6 +116,133 @@ def check_links():
     return sorted(set(broken))
 
 
+# --------------------------------------------------------------------------- #
+# Description quality gate: every teaching YAML must carry a real
+# scenario_description — it is the educational prose on that file's generated
+# page. Missing, placeholder ("tbd"), or one-liner-thin descriptions are the
+# difference between a lesson and a bare data file.
+# --------------------------------------------------------------------------- #
+TEACHING_ROOTS = ["01_STAR", "02_STAR_Bloc", "03_STAR_PR", "04_Approval",
+                  "05_Ranked_Robin", "method_comparisons", "other_methods"]
+MIN_DESCRIPTION_CHARS = 80
+PLACEHOLDER = re.compile(r"^\s*(tbd|todo|fixme|xxx|\?+|self-explanatory\b.*)\s*$",
+                         re.I | re.S)
+
+
+def _yaml_teaching_files():
+    for root in TEACHING_ROOTS:
+        base = os.path.join(REPO, root)
+        for dirpath, dirnames, filenames in os.walk(base):
+            dirnames[:] = [d for d in dirnames
+                           if not d.endswith(("_tabulated", "_generated", "_pages"))]
+            for fn in sorted(filenames):
+                if fn.endswith((".yaml", ".yml")):
+                    yield os.path.join(dirpath, fn)
+
+
+def _find_key(node, keys):
+    if isinstance(node, dict):
+        for k in keys:
+            if node.get(k):
+                return node[k]
+        for v in node.values():
+            r = _find_key(v, keys)
+            if r:
+                return r
+    elif isinstance(node, list):
+        for v in node:
+            r = _find_key(v, keys)
+            if r:
+                return r
+    return None
+
+
+def check_descriptions():
+    """Return [(file, problem)] for teaching YAMLs with weak/no descriptions."""
+    try:
+        import yaml as _yaml
+    except ImportError:  # pragma: no cover
+        return []
+    bad = []
+    for path in _yaml_teaching_files():
+        rel = os.path.relpath(path, REPO)
+        try:
+            data = _yaml.safe_load(open(path, encoding="utf-8").read())
+        except Exception:
+            continue        # malformed YAML is the negative suite's business
+        if not isinstance(data, (dict, list)):
+            continue
+        if _find_key(data, ["ballots"]) is None:
+            continue        # not an election file
+        desc = _find_key(data, ["scenario_description", "election_description",
+                                "race_description"])
+        text = str(desc).strip() if desc else ""
+        if not text:
+            bad.append((rel, "no scenario_description — the generated page has no lesson"))
+        elif PLACEHOLDER.match(text):
+            bad.append((rel, f"placeholder description ({text[:20]!r})"))
+        elif len(text) < MIN_DESCRIPTION_CHARS:
+            bad.append((rel, f"description too thin ({len(text)} chars < "
+                             f"{MIN_DESCRIPTION_CHARS}) — say what it shows and "
+                             f"what to look for"))
+        if not _find_key(data, ["election_title", "title"]):
+            bad.append((rel, "no election_title"))
+    return sorted(bad)
+
+
+# --------------------------------------------------------------------------- #
+# Terminology linter: mechanical enforcement of the house canon (CLAUDE.md).
+# Precision over recall — every rule here should be a near-certain mistake.
+# --------------------------------------------------------------------------- #
+TERM_RULES = [
+    (re.compile(r"\bBuckling\b"),
+     "misspelling: the method is 'Bucklin'"),
+    (re.compile(r"\bCond(?:ercet|orect|orcert)\b", re.I),
+     "misspelling: 'Condorcet'"),
+    (re.compile(r"\bEqual Preference\b"),
+     "house canon: the runoff bucket is 'Equal Support' (the aka is documented "
+     "once in GLOSSARY.md, not used as a lead term)"),
+    (re.compile(r"\bRCV\b(?!-IRV|-RR)(?=.*(?:eliminat|exhaust|non-?monoton|center[ -]squeez|squeez))", re.I),
+     "precision: center squeeze / exhausted ballots / non-monotonicity are "
+     "IRV-specific — say 'RCV-IRV' or 'IRV', not bare 'RCV'"),
+]
+# Files that DISCUSS or QUOTE the wrong usage on purpose (the canon statement
+# itself, the naming debate, verbatim false claims). Everything else can
+# suppress a single deliberate line with the marker: terminology-ok
+TERM_SKIP_FILES = {"GLOSSARY.md", "TIPS_terminology.md", "CLAUDE.md", "AGENTS.md",
+                   "rcv_irv_false_claims.md", "RCV_or_IRV_whats_the_right_word.md",
+                   "RCV-IRV-confusing-name.md"}
+
+
+def check_terminology():
+    """Return [(file, lineno, message)] for house-canon violations in
+    hand-written .md files and YAML descriptions."""
+    hits = []
+    for dirpath, dirnames, filenames in os.walk(REPO):
+        dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS
+                       and not d.endswith(("_tabulated", "_generated", "_pages"))
+                       and d not in ("divergence_review", "YAML_test_case_index")]
+        for fn in filenames:
+            if not fn.endswith((".md", ".yaml", ".yml")) or fn in TERM_SKIP_FILES:
+                continue
+            path = os.path.join(dirpath, fn)
+            rel = os.path.relpath(path, REPO)
+            try:
+                lines = open(path, encoding="utf-8").read().splitlines()
+            except OSError:
+                continue
+            for i, ln in enumerate(lines, 1):
+                if "terminology-ok" in ln:      # deliberate, reviewed usage
+                    continue
+                # Quoted 'RCV' / "RCV" is someone's usage under discussion,
+                # not our own claim — exempt it from the precision rule.
+                scrubbed = re.sub(r"[\"'“”‘’]RCV[.,]?[\"'“”‘’]", "QUOTEDRCV", ln)
+                for rx, msg in TERM_RULES:
+                    if rx.search(scrubbed):
+                        hits.append((rel, i, msg))
+    return sorted(hits)
+
+
 def main(argv):
     rc = 0
     hits = scan()
@@ -139,6 +266,22 @@ def main(argv):
               "move probably left these behind:")
         for rel, raw in dead:
             print(f"   • {rel}  →  ({raw})")
+    weak = check_descriptions()
+    if not weak:
+        print("repo-hygiene: ✓ every teaching YAML has a real description.")
+    else:
+        rc = 1
+        print(f"repo-hygiene: ⚠️  weak/missing descriptions ({len(weak)}):")
+        for rel, msg in weak:
+            print(f"   • {rel}\n       {msg}")
+    terms = check_terminology()
+    if not terms:
+        print("repo-hygiene: ✓ no house-terminology violations.")
+    else:
+        rc = 1
+        print(f"repo-hygiene: ⚠️  terminology violations ({len(terms)}):")
+        for rel, ln, msg in terms:
+            print(f"   • {rel}:{ln}  {msg}")
     # exit non-zero so a caller *can* gate on it; the pre-commit hook runs it
     # warn-only, and tests/test_md_links.py gates on the link half.
     return rc

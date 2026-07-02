@@ -1,11 +1,18 @@
 ======================================================================
 SOURCE FILE:     star_district_A.yaml
-SOURCE MODIFIED: 2026-06-29 08:28:53
+SOURCE MODIFIED: 2026-07-02 13:00:37
 TABULATED FILE:  star_district_A_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:22
+TABULATED AT:    2026-07-02 13:00:53
 ======================================================================
 
 election_title: "Summability demo — STAR district A (Maple wins outright)"
+
+scenario_description: |-
+  District A of the STAR summability trio: 3 ballots, Maple wins. The point of
+  the trio: STAR's precinct subtotals — per-candidate score sums and the
+  pairwise matrix — can be published as-is and simply ADDED. See
+  star_combined.yaml, where this district's tallies and district B's sum,
+  cell by cell, to the combined result with no ballot-level recount.
 voting_method: STAR
 num_winners: 1
 options: {show_score_counts: true, show_matrix: true, matrix_finalists_only: false, show_runoff_percent: true}
@@ -24,6 +31,11 @@ TABULATION RESULTS
 ======================================================================
 
 === Summability demo — STAR district A (Maple wins outright) ===
+  District A of the STAR summability trio: 3 ballots, Maple wins. The point of
+  the trio: STAR's precinct subtotals — per-candidate score sums and the
+  pairwise matrix — can be published as-is and simply ADDED. See
+  star_combined.yaml, where this district's tallies and district B's sum,
+  cell by cell, to the combined result with no ballot-level recount.
 
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison

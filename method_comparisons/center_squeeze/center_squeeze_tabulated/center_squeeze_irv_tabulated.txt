@@ -1,0 +1,60 @@
+======================================================================
+SOURCE FILE:     center_squeeze_irv.yaml
+SOURCE MODIFIED: 2026-07-02 13:00:37
+TABULATED FILE:  center_squeeze_irv_tabulated.txt
+TABULATED AT:    2026-07-02 13:01:32
+======================================================================
+
+election_title: "Center squeeze (RCV-IRV) — minimal 27-voter case (the moderate is eliminated)"
+
+scenario_description: |-
+  The minimal center-squeeze electorate, counted by RCV-IRV: 27 voters on a
+  1-D spectrum. Center is every faction's acceptable second choice and beats
+  either pole head-to-head — but holds the FEWEST first choices (6), is
+  eliminated in round one, and polar Left wins. The matched file
+  center_squeeze_star.yaml scores the same profile 0-5 and elects Center.
+  See center_squeeze_voteline_1d.yaml for the spectrum picture and the
+  center-squeeze topic hub for the cross-method view.
+voting_method: RCV_IRV   # RCV-IRV — center squeeze (Center eliminated; Left wins)
+num_winners: 1
+
+# Minimal center squeeze. 27 voters. Center is the 2nd choice of BOTH poles and the
+# Condorcet winner (beats Left 15–12, beats Right 18–9), but has the fewest
+# first-choices (6) — so IRV eliminates Center first and the polar Left wins.
+# STAR and Condorcet/Ranked Robin elect Center: see center_squeeze_star.yaml and
+# 00_start_here/center_squeeze.md.
+ballots: |-
+  12:Left>Center>Right
+  9:Right>Center>Left
+  6:Center>Left>Right
+
+expected_winners:
+  - Left
+
+# file: center_squeeze_irv.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+--- RCV / Instant-Runoff Voting (single winner) ---
+  Center squeeze (RCV-IRV) — minimal 27-voter case (the moderate is eliminated)
+ Tabulating 27 ballots (ranked ballots).
+
+ROUND 1
+Candidate      Votes  Status
+-----------  -------  --------
+Left              12  Hopeful
+Right              9  Hopeful
+Center             6  Rejected
+
+FINAL RESULT
+Candidate      Votes  Status
+-----------  -------  --------
+Left              18  Elected
+Right              9  Rejected
+Center             0  Rejected
+
+
+Winner(s) — RCV / Instant-Runoff Voting (single winner)
+  Left

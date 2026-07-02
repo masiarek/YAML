@@ -1,4 +1,12 @@
 election_title: "Approval-style & marker ballots (0/1, blanks, abstentions) under STAR"
+
+scenario_description: |-
+  Despite the name, this is a STAR file: it shows that approval-style 0/1
+  scoring and every ballot marker are LEGAL on a STAR ballot. Eight ballots
+  exercise the whole marker set — blanks (-), a race abstention (~), an
+  all-zero ballot, and a max-everything 5,5,5,5 — all tabulating as documented
+  (markers count 0 and are reported honestly). D wins. For real Approval
+  counting (most approvals wins), see 04_Approval/.
 voting_method: STAR
 
 num_winners: 1

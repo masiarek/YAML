@@ -1,0 +1,33 @@
+election_title: Dead rung 05 — five-star rung alive but non-separating
+
+scenario_description: |-
+  The subtler failure mode: the rung is NOT dead — both candidates have
+  exactly one 5 — but 1-1 separates nobody, so the tie still falls to the
+  lot (Ben). A rung can run, count real votes, and still decide nothing.
+  Compare case 03 (rung separates) and case 04 (rung dead).
+
+options:
+  show_description: false
+  show_matrix: false
+  show_condorcet: false
+  show_score_counts: true
+  show_irv: false
+  show_runoff_percent: true
+  brief: true
+  collapse_ballots: false
+  count_separator: "×"
+
+voting_method: STAR
+num_winners: 1
+
+lot_numbers: [Ben, Ann]
+
+ballots: |-
+  Ann,Ben
+  5,0   # one 5 for Ann
+  0,5   # one 5 for Ben
+
+expected_winners:
+  - Ben
+
+# file: tie_break_09_five_star_tied_nonzero.yaml

@@ -2,7 +2,7 @@
 SOURCE FILE:     05a_c5_b3_unanimous-ballots.yaml
 SOURCE MODIFIED: 2026-06-24 07:58:37
 TABULATED FILE:  05a_c5_b3_unanimous-ballots_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:15
+TABULATED AT:    2026-07-02 12:52:17
 ======================================================================
 
 election_title: Unanimous ballots (five candidates)

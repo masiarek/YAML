@@ -1,0 +1,41 @@
+election_title: Dead rung 02 — same tie, but nobody scored a 5
+
+scenario_description: |-
+  The SAME shape as case 01 with every top score capped at 4: Ben and Cara
+  still tie on points (9-9) and pairwise (2-2) for the second finalist slot —
+  but now NOBODY scored the maximum, so the five-star rung reads 0-0 and is
+  a DEAD RUNG. The tie falls through to the lot, which favors Cara; Ann then
+  beats Cara in the runoff 3-1.
+  One point of enthusiasm is the whole difference: case 01 is decided by
+  ballots (five-star), case 02 by the pre-drawn lot. See
+  00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md.
+
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: true
+  show_irv: false
+  show_runoff_percent: true
+  brief: true
+  collapse_ballots: false
+  count_separator: "×"
+
+voting_method: STAR
+num_winners: 1
+
+lot_numbers: [Cara, Ann, Ben]   # with the rung dead, THIS decides who advances
+
+ballots: |-
+  Ann,Ben,Cara
+  3,4,1   # Ben bloc — tops out at 4
+  3,4,0   # Ben bloc
+  4,0,3   # Cara bloc
+  4,0,4   # Cara bloc
+  0,1,1   # low-score voter
+
+expected_winners:
+  - Ann
+
+# file: tie_break_06_scoring_dead_rung_adversarial_lot.yaml

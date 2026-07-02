@@ -18,7 +18,7 @@ STAR, RCV-IRV and Ranked Robin all agree on **Allison**. Only **Approval** diffe
 | Approval | Bill |
 | Condorcet | none (cycle) |
 
-**Flags:** IRV winner flips under reversed priority (fragile tie)
+**Flags:** none
 
 **Source election:** [`method_comparisons/BV_Library/BV_Library_star_runoff_score_tie_five_star.yaml`](../../../method_comparisons/BV_Library/BV_Library_star_runoff_score_tie_five_star.yaml)  ·  **STAR tabulated mirror:** [`BV_Library_star_runoff_score_tie_five_star_tabulated.txt`](../../../method_comparisons/BV_Library/BV_Library_tabulated/BV_Library_star_runoff_score_tie_five_star_tabulated.txt)
 
@@ -44,8 +44,6 @@ Each row is a group of identical score ballots (0 = no support, 5 = max).
 **STAR winner: Allison**
 
 ## RCV-IRV — round by round
-
-> ⚠️ This election has a **fragile IRV tie** (equal scores force an arbitrary tie-break). The round table below is only *one* realization; a different tie-break can change the winner. See the flag above.
 
 ```text
 --- RCV / Instant-Runoff Voting (single winner) ---

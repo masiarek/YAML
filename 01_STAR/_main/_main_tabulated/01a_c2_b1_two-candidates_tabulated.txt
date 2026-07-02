@@ -1,14 +1,19 @@
 ======================================================================
 SOURCE FILE:     01a_c2_b1_two-candidates.yaml
-SOURCE MODIFIED: 2026-06-24 07:58:37
+SOURCE MODIFIED: 2026-07-02 13:00:37
 TABULATED FILE:  01a_c2_b1_two-candidates_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:15
+TABULATED AT:    2026-07-02 13:00:51
 ======================================================================
 
 election_title: The simplest possible STAR Voting example
 
 scenario_description: |-
- Self-explanatory — the simplest possible STAR election.
+  The smallest possible STAR election: ONE voter, two flavors. Caroline scores
+  Chocolate 5 and Vanilla 3; with only two candidates both advance, and her
+  preference decides the runoff — Chocolate wins. Illustration-only: use it to
+  learn the report layout (ballots, Scoring Round, Automatic Runoff) before
+  anything interesting happens. With two candidates STAR always agrees with
+  Choose-One; the interesting cases start at three.
 
 # Presenter notes (ignored by the engine; not shown to the audience).
 video_script: |-
@@ -55,7 +60,12 @@ TABULATION RESULTS
 ======================================================================
 
 === The simplest possible STAR Voting example ===
-  Self-explanatory — the simplest possible STAR election.
+  The smallest possible STAR election: ONE voter, two flavors. Caroline scores
+  Chocolate 5 and Vanilla 3; with only two candidates both advance, and her
+  preference decides the runoff — Chocolate wins. Illustration-only: use it to
+  learn the report layout (ballots, Scoring Round, Automatic Runoff) before
+  anything interesting happens. With two candidates STAR always agrees with
+  Choose-One; the interesting cases start at three.
 
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison

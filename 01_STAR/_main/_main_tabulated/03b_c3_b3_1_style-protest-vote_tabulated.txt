@@ -2,7 +2,7 @@
 SOURCE FILE:     03b_c3_b3_1_style-protest-vote.yaml
 SOURCE MODIFIED: 2026-06-24 07:58:37
 TABULATED FILE:  03b_c3_b3_1_style-protest-vote_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:14
+TABULATED AT:    2026-07-02 12:52:16
 ======================================================================
 
 election_title: Voting styles — low-score ballots

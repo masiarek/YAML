@@ -2,7 +2,7 @@
 SOURCE FILE:     rrv_sample_c15_b13_three-parties.yaml
 SOURCE MODIFIED: 2026-07-02 11:59:47
 TABULATED FILE:  rrv_sample_c15_b13_three-parties_tabulated.txt
-TABULATED AT:    2026-07-02 12:20:26
+TABULATED AT:    2026-07-02 13:01:29
 ======================================================================
 
 election_title: "RRV sample as single-winner STAR — three parties (Purple/Orange/Yellow)"

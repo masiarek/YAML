@@ -44,7 +44,7 @@ The second case is why the popular slogan is misleading even for voters whose ba
 - **2011 San Francisco mayoral:** ~27% of ballots ranked *neither* finalist.
 - **2021 NYC City Council special elections:** ~12% exhausted on average.
 
-A rough rule of thumb cited in the literature: in competitive RCV elections, **over 10% of ballots are commonly exhausted or spoiled** — and even a few percent can decide a close race.
+A rough rule of thumb cited in the literature: in competitive RCV-IRV elections, **over 10% of ballots are commonly exhausted or spoiled** — and even a few percent can decide a close race.
 
 ## A claim to state precisely
 
@@ -73,7 +73,7 @@ Scored methods sidestep exhaustion by design — a blank on a STAR/Score ballot 
 ## Learn more — in this library
 
 - [Exhausted Ballots — main](https://docs.google.com/document/d/1ASC5BS10rCfAYZWGeCyS7dKdKc4p5wwI6DHs4F7ScGc/edit)
-- [Exhausted Ballots (slide deck) — RCV exhaustion vs. STAR "no-preference"](https://docs.google.com/presentation/d/1ipof9WSSy0GenVKWfKLu_jlYwUIT0TU0WVSAap0VZ5Q/edit)
+- [Exhausted Ballots (slide deck) — RCV-IRV exhaustion vs. STAR "no-preference"](https://docs.google.com/presentation/d/1ipof9WSSy0GenVKWfKLu_jlYwUIT0TU0WVSAap0VZ5Q/edit)
 - [Commentary — exhausted ballots (Electowiki, with proponent/critic framing)](https://docs.google.com/document/d/1-iim_UdVhbZpuIGzo4idBr3glCW6pRGB_AUWu5-mdUs/edit)
 - [Exhausted Ballot — definitions](https://docs.google.com/document/d/1cZa8RdDeTZF25tfQ3zvLN8QQGhctNUAM-Hnr82ePxWg/edit)
 - [Ballot truncation — prevalence and consequences (Kilgour, Grégoire & Foley, 2019)](https://docs.google.com/document/d/1NLudb3YSlupSFvGT12NHHLrq0y8vmlK-AwAJ_gM2poU/edit)

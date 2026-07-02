@@ -2,7 +2,7 @@
 SOURCE FILE:     quorum_fail_demo_c3_b6.yaml
 SOURCE MODIFIED: 2026-06-29 14:09:58
 TABULATED FILE:  quorum_fail_demo_c3_b6_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:14
+TABULATED AT:    2026-07-02 12:52:17
 ======================================================================
 
 election_title: Quorum FAILS — won the count, but not elected

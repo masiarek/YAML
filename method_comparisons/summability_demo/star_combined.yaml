@@ -1,4 +1,12 @@
 election_title: "Summability demo — STAR combined A+B (Oak; precinct subtotals add up)"
+
+scenario_description: |-
+  Districts A + B merged (all six ballots): Oak wins the combined STAR count.
+  Check it against the two district files — every score total and every
+  pairwise-matrix cell here is exactly the SUM of the districts' published
+  subtotals. No central ballot pile, no recount: precincts report, totals add.
+  That is summability; the irv_* trio shows RCV-IRV failing exactly this
+  test.
 voting_method: STAR
 num_winners: 1
 options: {show_score_counts: true, show_matrix: true, matrix_finalists_only: false, show_runoff_percent: true}

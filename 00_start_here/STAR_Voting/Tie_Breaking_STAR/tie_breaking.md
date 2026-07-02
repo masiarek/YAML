@@ -63,6 +63,58 @@ math adds up.
 
 ---
 
+## Edge case: "five-star" is a *dead rung* when nobody scored the max
+
+The five-star rung counts votes equal to the **scale maximum** — literally
+`score == 5` on a 0–5 ballot. (In the engine this is `_maximum_score_count_round`,
+which compares each score to `maximum_score`, the *option* — **not** the highest
+score any voter actually used.) Two consequences that surprise people:
+
+1. **If none of the tied candidates earned a single 5, the rung is inert.** It
+   still runs, and the report still prints it, but every count is `0`, so it
+   can't separate anyone — the tie falls straight through to the **lot**.
+2. **It's the scale's max, not the field's max.** On a 0–9 ballot
+   (`maximum_score: 9`) the same rung becomes a *nine-star* count. A cautious
+   electorate that tops out at 4s hands the rung nothing to weigh, so the ladder
+   is effectively one rung shorter: pairwise/score → **lot**.
+
+The same two ballots, capped a single point apart, decide the second finalist by
+two different rules — five-star in one, the lot in the other:
+
+```
+ FIVE-STAR PRESENT (a 5 exists)              NO FIVES (all scores ≤ 4)
+   Alice,Ben,Cara                              Alice,Ben,Cara
+   5,5,3                                        4,4,2
+   5,1,3                                        4,0,2
+
+ Ben & Cara tie 6–6; pairwise 1–1            Ben & Cara tie 4–4; pairwise 1–1
+ Second tiebreaker — FIVE-STAR:              Second tiebreaker — FIVE-STAR:
+   Ben  1  → advances (Second place)            Ben 0, Cara 0  → STILL TIED
+                                              *** No lot numbers provided …
+                                              [Tiebreaker: Lot Number Priority]
+                                                Resolved: Ben (by lot / column order)
+```
+
+The **runoff** ladder does the same thing: when the two finalists are tied
+head-to-head **and** tied on total score, five-star is consulted — but if neither
+finalist earned a 5, it reads `0–0` and the **lot** decides. (Constructed cases:
+`Alice,Ben / 5,1 / 0,4` → five-star breaks it; `Alice,Ben / 4,0 / 0,4` → no fives,
+lot decides. Both verified against the engine.)
+
+**Why it matters.** The "deterministic tests settle almost everything, the lot is
+rare" framing holds for typical elections, where leading candidates attract *some*
+5s. But in **low-score / conservative-grading** contests — or real data compressed
+onto a coarse scale that never reaches the top — the five-star rung can quietly do
+nothing, and the **lot decides more often than the ladder's length suggests**. When
+you build or read a close example, check whether the tied candidates actually have
+max-score votes before crediting the outcome to five-star.
+
+Runnable cases (all four verified in the test suite):
+[`01_STAR/tie_break_dead_rung/`](../../../01_STAR/tie_break_dead_rung/README_tie_break_dead_rung.md)
+— five-star-breaks vs no-fives-→-lot, in both the scoring round and the runoff.
+
+---
+
 ## Worked example — Ice Cream, 6 flavors (ties in *both* rounds)
 
 Two ballots, six flavors. This is the canonical "it tied twice" case — and,
@@ -197,6 +249,9 @@ column-order fallback is exactly what you want.
   omitted) = highest priority = wins the tie.
 - **Two rounds, two ladders.** Scoring Round: pairwise → five-star → lot. Runoff:
   score → five-star → lot. An election can break ties in both.
+- **Five-star needs actual 5s.** That rung counts votes of the *scale maximum*
+  (5). If no tied candidate earned one, it reads 0–0 and the tie drops to the lot —
+  common in low-score elections. See "dead rung" above.
 - **Imported files carry the order; hand-written files usually don't need to.**
 - **`-` / blank = 0.** A blank or marker cell counts as score 0 (no support); it
   doesn't affect the tiebreak ladder beyond its zero contribution.

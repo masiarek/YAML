@@ -1,20 +1,20 @@
 # Cross-method divergence review
 
-_Generated 2026-07-02 12:23 by `scripts/build_divergence_index.py` — do not hand-edit; rebuild._
+_Generated 2026-07-02 14:13 by `scripts/build_divergence_index.py` — do not hand-edit; rebuild._
 
 Re-tabulates every **curated single-winner STAR** election under RCV-IRV, Ranked Robin (RCV-RR / Copeland) and Approval, and flags where they disagree with STAR. Only hand-built library elections are scanned (never random ballots), and the base rate is reported, so the collection stays honest rather than cherry-picked.
 
 ## Base rate
 
-- Scanned **82** single-winner STAR elections (skipped 13 non-eligible files: multi-winner / Approval / RR / RCV / ranked-ballot / unparseable).
-- **32** (39%) diverge from STAR under at least one method; **50** agree across the board.
+- Scanned **91** single-winner STAR elections (skipped 13 non-eligible files: multi-winner / Approval / RR / RCV / ranked-ballot / unparseable).
+- **38** (42%) diverge from STAR under at least one method; **53** agree across the board.
 
 | Bucket | Count |
 |---|---:|
 | IRV_OUTLIER_RR_WITH_STAR | 5 |
 | STAR_OUTLIER_RR_WITH_IRV | 1 |
-| IRV_DIFFERS_ARTIFACT | 2 |
-| CYCLE_OR_THREE_WAY | 4 |
+| IRV_DIFFERS_ARTIFACT | 4 |
+| CYCLE_OR_THREE_WAY | 8 |
 | APPROVAL_OR_MINOR | 20 |
 
 ## Score→rank conversion (recorded both ways)
@@ -26,7 +26,7 @@ Re-tabulates every **curated single-winner STAR** election under RCV-IRV, Ranked
 
 ## Cases by bucket
 
-Review order is the teaching value of each bucket. Each case links to a full teaching `.md` (ballots + every method's report + a plain-English explanation) under `cases/`. Listing is **deduped** to one entry per distinct election (32 cases; identical library copies merged).
+Review order is the teaching value of each bucket. Each case links to a full teaching `.md` (ballots + every method's report + a plain-English explanation) under `cases/`. Listing is **deduped** to one entry per distinct election (38 cases; identical library copies merged).
 
 ### IRV_OUTLIER_RR_WITH_STAR — 5
 
@@ -50,7 +50,7 @@ _STAR is the outlier — Ranked Robin sides with RCV-IRV (show it anyway, for ev
 - **[three_winners_cw_score_runoff](cases/STAR_OUTLIER_RR_WITH_IRV/three_winners_cw_score_runoff.md)** — `01_STAR/_main/three_winners_cw_score_runoff.yaml` (3c/5b)  
     STAR=**Bob** · IRV=Ann · RR=Ann · Approval=Bob · Condorcet=Ann
 
-### IRV_DIFFERS_ARTIFACT — 2
+### IRV_DIFFERS_ARTIFACT — 4
 
 _RCV-IRV differs but it's a score->rank tie-break artifact (tied ballots and/or flips under reversed priority) — log, do NOT bark on IRV_
 
@@ -60,11 +60,25 @@ _RCV-IRV differs but it's a score->rank tie-break artifact (tied ballots and/or 
 - **[display_options_demo](cases/IRV_DIFFERS_ARTIFACT/display_options_demo.md)** — `01_STAR/_main/display_options_demo.yaml` (4c/4b)  
     STAR=**Don** · IRV=Bob · RR=Don · Approval=Ann · Condorcet=Don  
     _flags: 2 tied-score ballot(s); IRV flips on reversed priority; RR conv-sensitive (weak=Don, strict=Bob)_
+- **[tie_break_05_scoring_five_star_vs_adversarial_lot](cases/IRV_DIFFERS_ARTIFACT/tie_break_05_scoring_five_star_vs_adversarial_lot.md)** — `01_STAR/tie_break_dead_rung/tie_break_05_scoring_five_star_vs_adversarial_lot.yaml` (3c/5b)  
+    STAR=**Ben** · IRV=Cara · RR=Ann · Approval=Ann · Condorcet=none  
+    _flags: 2 tied-score ballot(s); IRV flips on reversed priority; RR conv-sensitive (weak=Ann, strict=Cara)_
+- **[tie_break_06_scoring_dead_rung_adversarial_lot](cases/IRV_DIFFERS_ARTIFACT/tie_break_06_scoring_dead_rung_adversarial_lot.md)** — `01_STAR/tie_break_dead_rung/tie_break_06_scoring_dead_rung_adversarial_lot.yaml` (3c/5b)  
+    STAR=**Ann** · IRV=Cara · RR=Ann · Approval=Ann · Condorcet=none  
+    _flags: 2 tied-score ballot(s); IRV flips on reversed priority; RR conv-sensitive (weak=Ann, strict=Cara)_
 
-### CYCLE_OR_THREE_WAY — 4
+### CYCLE_OR_THREE_WAY — 8
 
 _Condorcet cycle / three-way split — genuinely hard case, no clean villain_
 
+- **[tie_break_04_runoff_five_star_breaks](cases/CYCLE_OR_THREE_WAY/tie_break_04_runoff_five_star_breaks.md)** — `01_STAR/tie_break_dead_rung/tie_break_04_runoff_five_star_breaks.yaml` (2c/2b)  
+    STAR=**Alice** · IRV=Ben · RR=Alice · Approval=Alice · Condorcet=none
+- **[tie_break_07_runoff_five_star_vs_adversarial_lot](cases/CYCLE_OR_THREE_WAY/tie_break_07_runoff_five_star_vs_adversarial_lot.md)** — `01_STAR/tie_break_dead_rung/tie_break_07_runoff_five_star_vs_adversarial_lot.yaml` (2c/2b)  
+    STAR=**Ann** · IRV=Ben · RR=Ben · Approval=Ben · Condorcet=none
+- **[tie_break_08_runoff_dead_rung_adversarial_lot](cases/CYCLE_OR_THREE_WAY/tie_break_08_runoff_dead_rung_adversarial_lot.md)** — `01_STAR/tie_break_dead_rung/tie_break_08_runoff_dead_rung_adversarial_lot.yaml` (2c/2b)  
+    STAR=**Ben** · IRV=Ann · RR=Ben · Approval=Ben · Condorcet=none
+- **[tie_break_09_five_star_tied_nonzero](cases/CYCLE_OR_THREE_WAY/tie_break_09_five_star_tied_nonzero.md)** — `01_STAR/tie_break_dead_rung/tie_break_09_five_star_tied_nonzero.yaml` (2c/2b)  
+    STAR=**Ben** · IRV=Ann · RR=Ben · Approval=Ben · Condorcet=none
 - **[BV_Library_star_runoff_tie_score_resolves](cases/CYCLE_OR_THREE_WAY/BV_Library_star_runoff_tie_score_resolves.md)** — `method_comparisons/BV_Library/BV_Library_star_runoff_tie_score_resolves.yaml` (2c/2b)  
     STAR=**Bill** · IRV=Bill · RR=Allison · Approval=Allison · Condorcet=none
 - **[monotonicity_star_after](cases/CYCLE_OR_THREE_WAY/monotonicity_star_after.md)** — `method_comparisons/monotonicity/monotonicity_star_after.yaml` (3c/34b)  
@@ -109,8 +123,7 @@ _Only Approval (or a minor method) differs — usually a threshold story, not an
     STAR=**Blair** · IRV=Blair · RR=Blair · Approval=Alex · Condorcet=Blair  
     _flags: 1 tied-score ballot(s); IRV flips on reversed priority_
 - **[BV_Library_star_runoff_score_tie_five_star](cases/APPROVAL_OR_MINOR/BV_Library_star_runoff_score_tie_five_star.md)** — `method_comparisons/BV_Library/BV_Library_star_runoff_score_tie_five_star.yaml` (2c/2b)  
-    STAR=**Allison** · IRV=Allison · RR=Allison · Approval=Bill · Condorcet=none  
-    _flags: IRV flips on reversed priority_
+    STAR=**Allison** · IRV=Allison · RR=Allison · Approval=Bill · Condorcet=none
 - **[count_simplicity_star_vs_irv](cases/APPROVAL_OR_MINOR/count_simplicity_star_vs_irv.md)** — `method_comparisons/_main/count_simplicity_star_vs_irv.yaml` (5c/40b)  
     STAR=**Carmen** · IRV=Carmen · RR=Carmen · Approval=Andre · Condorcet=Carmen
 - **[Black_Curtain_01_c3_b5_hidden-consensus](cases/APPROVAL_OR_MINOR/Black_Curtain_01_c3_b5_hidden-consensus.md)** — `method_comparisons/black_curtain/Black_Curtain_01_c3_b5_hidden-consensus.yaml` (3c/5b)  

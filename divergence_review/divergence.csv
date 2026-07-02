@@ -1,7 +1,7 @@
 bucket,file,candidates,ballots,STAR,IRV,IRV_rev,RR_weak,RR_strict,Approval,Condorcet_weak,Condorcet_strict,tie_ballots,irv_fragile,rr_conv_sensitive,cycle
 AGREE,01_STAR/Flat_scores_ties/Flat_scores_ties_01_baseline_clean.yaml,3,2,Apple,Apple,Apple,Apple,Apple,Apple,Apple,Apple,0,False,False,False
 AGREE,01_STAR/Flat_scores_ties/Flat_scores_ties_02_runoff_tie_2cand.yaml,2,2,Almond,Almond,Brownie,Almond,Almond,Almond,,Almond,2,True,False,True
-AGREE,01_STAR/Flat_scores_ties/Flat_scores_ties_03_runoff_tie_split.yaml,3,2,Athens,Athens,Berlin,Athens,Athens,Athens,,,0,True,False,True
+AGREE,01_STAR/Flat_scores_ties/Flat_scores_ties_03_runoff_tie_split.yaml,3,2,Athens,Athens,Athens,Athens,Athens,Athens,,,0,False,False,True
 AGREE,01_STAR/Flat_scores_ties/Flat_scores_ties_04_scoring_tie_2way.yaml,3,3,Aral,Aral,Aral,Aral,Aral,Aral,Aral,Aral,2,False,False,False
 AGREE,01_STAR/Flat_scores_ties/Flat_scores_ties_05_scoring_tie_3way_xmyf7k.yaml,5,2,A,A,C,A,A,A,,A,2,True,False,True
 AGREE,01_STAR/Flat_scores_ties/Flat_scores_ties_06_scoring_tie_4way.yaml,5,2,Ava,Ava,Dan,Ava,Ava,Ava,,Ava,2,True,False,True
@@ -35,6 +35,9 @@ AGREE,01_STAR/pet_real_bv_election/small_abstention_c2_b5.yaml,2,5,A,A,A,A,A,A,A
 AGREE,01_STAR/runoff_overturns_leader/04_c4_b3_runoff-confirms-leader.yaml,4,3,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,0,False,False,False
 AGREE,01_STAR/runoff_overturns_leader/Runoff_01_confirms_leader_r2pvc9.yaml,3,3,Aspen,Aspen,Aspen,Aspen,Aspen,Aspen,Aspen,Aspen,0,False,False,False
 AGREE,01_STAR/runoff_overturns_leader/Runoff_06_confirms_at_scale_d664xw.yaml,3,5,Wren,Wren,Wren,Wren,Wren,Wren,Wren,Wren,0,False,False,False
+AGREE,01_STAR/tie_break_dead_rung/tie_break_01_scoring_five_star_breaks.yaml,3,2,Alice,Alice,Alice,Alice,Alice,Alice,Alice,Alice,1,False,False,False
+AGREE,01_STAR/tie_break_dead_rung/tie_break_02_scoring_no_fives_to_lot.yaml,3,2,Alice,Alice,Alice,Alice,Alice,Alice,Alice,Alice,1,False,False,False
+AGREE,01_STAR/tie_break_dead_rung/tie_break_03_runoff_no_fives_to_lot.yaml,2,2,Alice,Alice,Alice,Alice,Alice,Alice,,,0,False,False,True
 AGREE,YAML_library/1_positive/_generated/S_W1_N_CopyOfIceCreamFlavorOfTheYear6FlavorsTemplate_bk6ymd.yaml,6,2,Strawberry,Strawberry,Strawberry,Strawberry,Strawberry,Strawberry,,,2,False,False,True
 AGREE,YAML_library/1_positive/_generated/S_W1_N_TestTestTestElection_kgbf8w.yaml,7,1,Almond Choco (CAm),Almond Choco (CAm),Almond Choco (CAm),Almond Choco (CAm),Almond Choco (CAm),Almond Choco (CAm),Almond Choco (CAm),Almond Choco (CAm),1,False,False,False
 AGREE,method_comparisons/BV_Library/BV_Library_star_condorcet_winner.yaml,4,10,Allison,Allison,Allison,Allison,Allison,Allison,Allison,Allison,1,False,False,False
@@ -62,19 +65,25 @@ APPROVAL_OR_MINOR,01_STAR/runoff_overturns_leader/Runoff_03_enthusiasts_vs_major
 APPROVAL_OR_MINOR,01_STAR/runoff_overturns_leader/Runoff_04_reversal_at_scale_bfjqmg.yaml,3,9,Olive,Olive,Olive,Olive,Olive,Maple,Olive,Olive,0,False,False,False
 APPROVAL_OR_MINOR,01_STAR/runoff_overturns_leader/Runoff_05_reversal_with_equal_support_xgkw3w.yaml,3,5,Sage,Sage,Rosa,Sage,Sage,Rosa,Sage,Sage,2,True,False,False
 APPROVAL_OR_MINOR,01_STAR/runoff_overturns_leader/Runoff_07_flat_ballot_bv_bug_tf73v9.yaml,3,4,Blair,Blair,Alex,Blair,Blair,Alex,Blair,,1,True,False,True
-APPROVAL_OR_MINOR,method_comparisons/BV_Library/BV_Library_star_runoff_score_tie_five_star.yaml,2,2,Allison,Allison,Bill,Allison,Allison,Bill,,,0,True,False,True
+APPROVAL_OR_MINOR,method_comparisons/BV_Library/BV_Library_star_runoff_score_tie_five_star.yaml,2,2,Allison,Allison,Allison,Allison,Allison,Bill,,,0,False,False,True
 APPROVAL_OR_MINOR,method_comparisons/_main/count_simplicity_star_vs_irv.yaml,5,40,Carmen,Carmen,Carmen,Carmen,Carmen,Andre,Carmen,Carmen,0,False,False,False
 APPROVAL_OR_MINOR,method_comparisons/black_curtain/Black_Curtain_01_c3_b5_hidden-consensus.yaml,3,5,Cal,Cal,Cal,Cal,Cal,Bob,Cal,Cal,0,False,False,False
 APPROVAL_OR_MINOR,method_comparisons/black_curtain/Black_Curtain_02_c3_b5_near-clones.yaml,3,5,Cal,Cal,Cal,Cal,Cal,Ann,Cal,Cal,0,False,False,False
 APPROVAL_OR_MINOR,method_comparisons/black_curtain/Black_Curtain_03_c3_b5_polarized-on-cal.yaml,3,5,Cal,Cal,Cal,Cal,Cal,Ann,Cal,Cal,0,False,False,False
 APPROVAL_OR_MINOR,method_comparisons/paradoxes_and_whoops/Whoops_03_condorcet_cycle_rps.yaml,3,100,Rock,Rock,Rock,Rock,Rock,Paper,,,0,False,False,True
 APPROVAL_OR_MINOR,method_comparisons/summability_demo/star_district_B.yaml,3,3,Oak,Oak,Oak,Oak,Oak,Pine,Oak,Oak,0,False,False,False
+CYCLE_OR_THREE_WAY,01_STAR/tie_break_dead_rung/tie_break_04_runoff_five_star_breaks.yaml,2,2,Alice,Ben,Ben,Alice,Alice,Alice,,,0,False,False,True
+CYCLE_OR_THREE_WAY,01_STAR/tie_break_dead_rung/tie_break_07_runoff_five_star_vs_adversarial_lot.yaml,2,2,Ann,Ben,Ben,Ben,Ben,Ben,,,0,False,False,True
+CYCLE_OR_THREE_WAY,01_STAR/tie_break_dead_rung/tie_break_08_runoff_dead_rung_adversarial_lot.yaml,2,2,Ben,Ann,Ann,Ben,Ben,Ben,,,0,False,False,True
+CYCLE_OR_THREE_WAY,01_STAR/tie_break_dead_rung/tie_break_09_five_star_tied_nonzero.yaml,2,2,Ben,Ann,Ann,Ben,Ben,Ben,,,0,False,False,True
 CYCLE_OR_THREE_WAY,method_comparisons/BV_Library/BV_Library_star_runoff_tie_score_resolves.yaml,2,2,Bill,Bill,Bill,Allison,Allison,Allison,,,0,False,False,True
 CYCLE_OR_THREE_WAY,method_comparisons/monotonicity/monotonicity_star_after.yaml,3,34,X,Z,Z,X,X,X,,,0,False,False,True
 CYCLE_OR_THREE_WAY,method_comparisons/monotonicity/monotonicity_star_before.yaml,3,34,X,X,X,Y,Y,Y,,,0,False,False,True
 CYCLE_OR_THREE_WAY,method_comparisons/paradoxes_and_whoops/Whoops_02_star_misses_condorcet.yaml,3,100,Ada,Ada,Bruno,Cleo,Cleo,Ada,Cleo,Cleo,25,True,False,False
 IRV_DIFFERS_ARTIFACT,01_STAR/_main/Approval_ballot.yaml,4,8,D,A,D,D,A,A,D,A,4,True,True,False
 IRV_DIFFERS_ARTIFACT,01_STAR/_main/display_options_demo.yaml,4,4,Don,Bob,Don,Don,Bob,Ann,Don,,2,True,True,True
+IRV_DIFFERS_ARTIFACT,01_STAR/tie_break_dead_rung/tie_break_05_scoring_five_star_vs_adversarial_lot.yaml,3,5,Ben,Cara,Ben,Ann,Cara,Ann,,,2,True,True,True
+IRV_DIFFERS_ARTIFACT,01_STAR/tie_break_dead_rung/tie_break_06_scoring_dead_rung_adversarial_lot.yaml,3,5,Ann,Cara,Ben,Ann,Cara,Ann,,,2,True,True,True
 IRV_OUTLIER_RR_WITH_STAR,01_STAR/_main/09_c4_b100_tennessee-capital.yaml,4,100,Nashville,Knoxville,Knoxville,Nashville,Nashville,Nashville,Nashville,Nashville,0,False,False,False
 IRV_OUTLIER_RR_WITH_STAR,method_comparisons/center_squeeze/center_squeeze_star.yaml,3,27,Center,Left,Left,Center,Center,Left,Center,Center,0,False,False,False
 IRV_OUTLIER_RR_WITH_STAR,method_comparisons/center_squeeze/center_squeeze_voteline_1d.yaml,3,998,Green,Yellow,Yellow,Green,Green,Green,Green,Green,0,False,False,False

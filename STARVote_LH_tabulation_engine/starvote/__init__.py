@@ -1658,7 +1658,7 @@ def _maximum_score_count_round(ballots, maximum_score, candidates):
             ballot_get = ballot.get
             if ballot_get(candidate0, 0) == maximum_score:
                 score0 += 1
-            if ballot_get(candidate1, 1) == maximum_score:
+            if ballot_get(candidate1, 0) == maximum_score:
                 score1 += 1
         scores = {candidate0: score0, candidate1: score1}
     else:

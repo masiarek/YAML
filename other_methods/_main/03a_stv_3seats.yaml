@@ -1,4 +1,12 @@
 election_title: "STV — 3 seats, 7 candidates (proportional RCV)"
+
+scenario_description: |-
+  STV — the proportional method for RANKED ballots — fills 3 seats from a
+  100-voter, 7-candidate field: a 58-voter community-services wing and a
+  42-voter business wing. Proportionality gives the majority two seats
+  (Housing, Schools) and the minority one (SmallBiz), where Bloc voting would
+  hand the majority a 3-0 sweep. Score-ballot counterpart: 03_STAR_PR/
+  (same electorate logic under sss / allocated / rrv).
 voting_method: STV   # Single Transferable Vote — proportional RCV (multi-winner)
 num_winners: 3
 

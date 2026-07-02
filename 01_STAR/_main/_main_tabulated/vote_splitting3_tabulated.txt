@@ -1,13 +1,19 @@
 ======================================================================
 SOURCE FILE:     vote_splitting3.yaml
-SOURCE MODIFIED: 2026-06-27 21:59:47
+SOURCE MODIFIED: 2026-07-02 13:00:37
 TABULATED FILE:  vote_splitting3_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:14
+TABULATED AT:    2026-07-02 13:00:52
 ======================================================================
 
 election_title: Vote splitting — two chocolates split the majority
+
 scenario_description: |-
-  tbd
+  Two chocolate flavors court the same majority while Vanilla consolidates the
+  rest — the classic vote-splitting shape. STAR shrugs it off: scores add up
+  per candidate, BOTH chocolates reach the runoff, and DarkChoco wins the
+  head-to-head 14-7. The blocs: entry makes the engine quantify the Chocolate
+  split explicitly ([Vote-Splitting Check]). For versions where splitting
+  actually flips a Choose-One winner, see method_comparisons/split_voting/.
 blocs:
   Chocolate: [DarkChoco, MilkChoco]
 
@@ -42,7 +48,12 @@ TABULATION RESULTS
 ======================================================================
 
 === Vote splitting — two chocolates split the majority ===
-  tbd
+  Two chocolate flavors court the same majority while Vanilla consolidates the
+  rest — the classic vote-splitting shape. STAR shrugs it off: scores add up
+  per candidate, BOTH chocolates reach the runoff, and DarkChoco wins the
+  head-to-head 14-7. The blocs: entry makes the engine quantify the Chocolate
+  split explicitly ([Vote-Splitting Check]). For versions where splitting
+  actually flips a Choose-One winner, see method_comparisons/split_voting/.
 
 --- Runoff (Preference) Matrix ---
 Head-to-head / pairwise comparison

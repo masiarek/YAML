@@ -1,4 +1,12 @@
 election_title: "Non-monotonicity (RCV-IRV) — part 2: raising X makes X lose"
+
+scenario_description: |-
+  Part 2 of the RCV-IRV monotonicity pair: four Y>Z voters move X up to first
+  (12:X>Y becomes 16:X>Y), a pure GAIN of support for X — and X now loses.
+  The extra support changed the elimination order: Y goes out first, Y's
+  ballots feed Z, and Z beats X 18-16. More support made the winner lose —
+  IRV's non-monotonicity. STAR cannot do this (more points never hurt); see
+  the monotonicity_star_* pair and the monotonicity topic hub.
 voting_method: RCV_IRV   # RCV-IRV — monotonicity demo (AFTER: X now LOSES)
 num_winners: 1
 

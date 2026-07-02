@@ -1,0 +1,33 @@
+election_title: Dead rung 03 — runoff tie broken by five-star
+
+scenario_description: |-
+  Two candidates, two voters, a perfect standoff: tied head-to-head (1-1) and
+  tied on total score (5-5). The runoff ladder's five-star rung decides —
+  Ann has one 5, Ben none, so Ann wins. The lot order deliberately favors
+  Ben: the expected winner (Ann) proves five-star outranks the lot.
+
+options:
+  show_description: false
+  show_matrix: false
+  show_condorcet: false
+  show_score_counts: true
+  show_irv: false
+  show_runoff_percent: true
+  brief: true
+  collapse_ballots: false
+  count_separator: "×"
+
+voting_method: STAR
+num_winners: 1
+
+lot_numbers: [Ben, Ann]   # lot favors Ben — five-star must outrank it
+
+ballots: |-
+  Ann,Ben
+  5,1   # Ann enthusiast
+  0,4   # Ben supporter, tops out at 4
+
+expected_winners:
+  - Ann
+
+# file: tie_break_07_runoff_five_star_vs_adversarial_lot.yaml

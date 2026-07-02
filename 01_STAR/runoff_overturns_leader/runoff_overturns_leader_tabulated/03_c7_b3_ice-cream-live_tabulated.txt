@@ -2,7 +2,7 @@
 SOURCE FILE:     03_c7_b3_ice-cream-live.yaml
 SOURCE MODIFIED: 2026-06-26 18:49:12
 TABULATED FILE:  03_c7_b3_ice-cream-live_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:11
+TABULATED AT:    2026-07-02 12:52:11
 ======================================================================
 
 election_title: Ice Cream — Flavor of the Year (the real recorded race)

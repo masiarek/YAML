@@ -79,11 +79,11 @@ Set under `options:` (top level or per race). All are booleans unless noted.
 ## Output conventions
 
 - **Equal Support** is the relabeled "no preference" bucket in the runoff,
-  shown as `Equal Support -- N (aka Equal Preference, No Preference)`.
+  shown as `Equal Support -- N` (plain — the aka is documented once in GLOSSARY.md).
   ("Equal Support" is the Equal Vote Coalition's term.)
 - **Runoff colors** mirror the matrix legend: the winner's count is green
   (For), the other finalist's is red (Against), and Equal Support is blue
-  (Equal Preference). A tie is left neutral until it resolves; tiebreaker
+  (Equal Support). A tie is left neutral until it resolves; tiebreaker
   rounds (raw scores) are uncolored.
 - **Round separators**: in multi-round methods (e.g. Bloc STAR) a faint rule is
   drawn before each new round after the first, grouping the output into blocks.

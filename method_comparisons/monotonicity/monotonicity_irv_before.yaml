@@ -1,4 +1,11 @@
 election_title: "Non-monotonicity (RCV-IRV) — part 1: baseline, X wins"
+
+scenario_description: |-
+  Part 1 of the RCV-IRV monotonicity pair: 34 voters, X wins (Z is eliminated,
+  Z's ballots transfer to X). This is the baseline for the paradox — in part 2
+  (monotonicity_irv_after.yaml) four voters RAISE X from second to first
+  choice, change nothing else, and X LOSES. Keep both files side by side; the
+  ballots differ only in those four voters.
 voting_method: RCV_IRV   # RCV-IRV — monotonicity demo (BEFORE: X wins)
 num_winners: 1
 

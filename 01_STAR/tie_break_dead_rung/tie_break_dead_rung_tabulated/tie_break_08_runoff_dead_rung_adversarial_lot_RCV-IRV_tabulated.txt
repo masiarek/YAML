@@ -1,0 +1,15 @@
+--- RCV / Instant-Runoff Voting (single winner) ---
+  Dead rung 04 — runoff tie, nobody scored a 5, lot decides
+ Tabulating 2 ballots (converted from score ballots; 0 = unranked, equal scores broken by candidate priority).
+
+FINAL RESULT
+Candidate      Votes  Status
+-----------  -------  --------
+Ann                1  Elected
+Ben                1  Rejected
+
+
+Winner(s) — RCV / Instant-Runoff Voting (single winner)
+  Ann
+
+NOTE: a generated cross-method view of the STAR ballots, for comparison only — not the official STAR result.

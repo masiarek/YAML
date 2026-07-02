@@ -2,7 +2,7 @@
 SOURCE FILE:     Runoff_03_enthusiasts_vs_majority_rkgtpk.yaml
 SOURCE MODIFIED: 2026-06-28 18:58:15
 TABULATED FILE:  Runoff_03_enthusiasts_vs_majority_rkgtpk_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:11
+TABULATED AT:    2026-07-02 12:52:12
 ======================================================================
 
 election:

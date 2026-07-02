@@ -1,0 +1,23 @@
+--- RCV / Instant-Runoff Voting (single winner) ---
+  Dead rung 01 — scoring tie, five-star rung ALIVE
+ Tabulating 5 ballots (converted from score ballots; 0 = unranked, equal scores broken by candidate priority).
+
+ROUND 1
+Candidate      Votes  Status
+-----------  -------  --------
+Cara               2  Hopeful
+Ben                2  Hopeful
+Ann                1  Rejected
+
+FINAL RESULT
+Candidate      Votes  Status
+-----------  -------  --------
+Cara               3  Elected
+Ben                2  Rejected
+Ann                0  Rejected
+
+
+Winner(s) — RCV / Instant-Runoff Voting (single winner)
+  Cara
+
+NOTE: a generated cross-method view of the STAR ballots, for comparison only — not the official STAR result.

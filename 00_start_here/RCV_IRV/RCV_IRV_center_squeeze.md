@@ -31,7 +31,7 @@ property of ranked ballots in general, nor even of every instant-runoff variant:
   winner can never be squeezed out. Fittingly, **Nanson** — quoted at the bottom of
   this page warning about exactly this flaw in **1882** — designed one of those fixes.
 
-So the precise statement isn't "RCV has center squeeze," or even "IRV" — it's
+So the precise statement isn't "RCV has center squeeze," or even "IRV" — it's <!-- terminology-ok: quotes the imprecise claim -->
 **RCV-IRV (Hare)**. For the full family, see
 [Which RCV-IRV? — Hare and the other variants](RCV_IRV_variants.md) and
 [`TIPS_terminology.md`](../TIPS_terminology.md).

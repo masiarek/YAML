@@ -35,7 +35,7 @@ system threw it away. That's not what happened. The voter looked at the two
 finalists and said, explicitly, "these two are equal to me." The system recorded
 that exactly. A tie vote can't break a tie — but it wasn't ignored, it was
 *counted as what it was*: **Equal Support** — neutral between those two. (That's the
-exact label STAR's runoff gives it: "Equal Support," aka Equal Preference / No
+exact label STAR's runoff gives it: "Equal Support," aka Equal Preference / No <!-- terminology-ok: documents the aka -->
 Preference.)
 
 **Larry:** And "Equal Support" is one bucket for everyone who tied the two finalists?
@@ -190,4 +190,4 @@ first-contact audience; you'd be planting a doubt they didn't have. Place it as:
 
 Cross-references: `LINKS.md` →
 **"Discounted votes — RCV-IRV FairVote False Talking Points"**,
-**"Equal Support vs Equal Preference"**, **"Exhausted Ballots"**.
+**"Equal Support vs Equal Preference"**, **"Exhausted Ballots"**. <!-- terminology-ok: slide titles -->

@@ -1,6 +1,12 @@
 election_title: Vote splitting — two chocolates split the majority
+
 scenario_description: |-
-  tbd
+  Two chocolate flavors court the same majority while Vanilla consolidates the
+  rest — the classic vote-splitting shape. STAR shrugs it off: scores add up
+  per candidate, BOTH chocolates reach the runoff, and DarkChoco wins the
+  head-to-head 14-7. The blocs: entry makes the engine quantify the Chocolate
+  split explicitly ([Vote-Splitting Check]). For versions where splitting
+  actually flips a Choose-One winner, see method_comparisons/split_voting/.
 blocs:
   Chocolate: [DarkChoco, MilkChoco]
 

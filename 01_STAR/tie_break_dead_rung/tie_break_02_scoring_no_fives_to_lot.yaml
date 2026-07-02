@@ -1,0 +1,35 @@
+election_title: "Tie-break 02 — scoring-round tie, NO fives, five-star is a dead rung → LOT"
+
+scenario_description: |-
+  The same tie structure as tie_break_01, but every score is capped at 4, so NO
+  candidate has a single max-score (5) vote. Alice leads (8); Ben and Cara tie at
+  4 and are tied head-to-head (pairwise 1-1). The five-star rung still runs, but
+  reads 0-0 — it cannot separate them — so the tie falls through to the LOT.
+  lot_numbers pins the order, so Ben advances by lot priority (not by five-star).
+  The eventual winner is still Alice; what changed is WHICH rung chose the second
+  finalist. See 00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md.
+
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: true
+  show_irv: false
+  show_runoff_percent: true
+  brief: true
+  collapse_ballots: false
+  count_separator: "×"
+
+num_winners: 1
+voting_method: STAR
+lot_numbers: [Alice, Ben, Cara]
+ballots: |-
+  Alice,Ben,Cara
+  4,4,2
+  4,0,2
+
+expected_winners:
+  - Alice
+
+# file: tie_break_02_scoring_no_fives_to_lot.yaml

@@ -1,0 +1,54 @@
+======================================================================
+SOURCE FILE:     RCV_ballot_example.yaml
+SOURCE MODIFIED: 2026-07-02 13:00:37
+TABULATED FILE:  RCV_ballot_example_tabulated.txt
+TABULATED AT:    2026-07-02 13:01:33
+======================================================================
+
+election_title: "RCV-IRV — a basic ranked-ballot example (3 candidates)"
+
+scenario_description: |-
+  A first ranked-ballot count: 100 voters, three candidates, weighted rows
+  like "40:A>C>B". A leads with 40 first choices but no majority; C (25) is
+  eliminated, C's ballots transfer to A, and A wins 65-35. Use it to learn the
+  round-by-round report before the pathology cases (center_squeeze,
+  monotonicity, summability in method_comparisons/) show what elimination
+  order can do.
+voting_method: RCV_IRV   # RCV-IRV Example  - Single-winner
+
+num_winners: 1
+ballots: |-
+  40:A>C>B
+  35:B>C>A
+  25:C>A>B
+
+expected_winners:
+  - A
+
+# file: RCV_ballot_example.yaml
+
+======================================================================
+TABULATION RESULTS
+======================================================================
+
+--- RCV / Instant-Runoff Voting (single winner) ---
+  RCV-IRV — a basic ranked-ballot example (3 candidates)
+ Tabulating 100 ballots (ranked ballots).
+
+ROUND 1
+Candidate      Votes  Status
+-----------  -------  --------
+A                 40  Hopeful
+B                 35  Hopeful
+C                 25  Rejected
+
+FINAL RESULT
+Candidate      Votes  Status
+-----------  -------  --------
+A                 65  Elected
+B                 35  Rejected
+C                  0  Rejected
+
+
+Winner(s) — RCV / Instant-Runoff Voting (single winner)
+  A

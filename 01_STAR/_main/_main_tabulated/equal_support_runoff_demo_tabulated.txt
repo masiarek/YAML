@@ -2,7 +2,7 @@
 SOURCE FILE:     equal_support_runoff_demo.yaml
 SOURCE MODIFIED: 2026-06-24 07:58:37
 TABULATED FILE:  equal_support_runoff_demo_tabulated.txt
-TABULATED AT:    2026-07-02 12:16:14
+TABULATED AT:    2026-07-02 12:52:16
 ======================================================================
 
 election_title: Equal Support — counted in both rounds, neutral only in the tie-break

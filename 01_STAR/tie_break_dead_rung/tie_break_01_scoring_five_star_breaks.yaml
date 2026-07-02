@@ -1,0 +1,33 @@
+election_title: "Tie-break 01 — scoring-round tie, FIVE-STAR breaks it (a 5 exists)"
+
+scenario_description: |-
+  A scoring-round tie for the second finalist slot that the five-star rung DOES
+  resolve, because a max-score (5) vote exists. Alice leads (10); Ben and Cara
+  tie at 6 and are also tied head-to-head (pairwise 1-1), so the tie falls to the
+  second rung — most score-5 votes. Ben has one 5, Cara has none, so Ben advances.
+  Contrast with tie_break_02 (same shape, capped so no 5 exists -> the lot decides).
+  See 00_start_here/STAR_Voting/Tie_Breaking_STAR/tie_breaking.md ("dead rung").
+
+options:
+  show_description: false
+  show_matrix: true
+  matrix_finalists_only: true
+  show_condorcet: false
+  show_score_counts: true
+  show_irv: false
+  show_runoff_percent: true
+  brief: true
+  collapse_ballots: false
+  count_separator: "×"
+
+num_winners: 1
+voting_method: STAR
+ballots: |-
+  Alice,Ben,Cara
+  5,5,3
+  5,1,3
+
+expected_winners:
+  - Alice
+
+# file: tie_break_01_scoring_five_star_breaks.yaml
