@@ -1,0 +1,35 @@
+--- Ranked Robin (RCV-RR / Copeland) Method (single winner) ---
+ Tabulating 6 ballots (score ballots).
+
+Ballots:
+   columns = Alice, Bob, Carol, Dave      (scores  →  the ranking Ranked Robin reads;  "=" = tied)
+     3 × 4, 3, 2, 1   →   Alice > Bob > Carol > Dave
+     3 × 3, 4, 2, 1   →   Bob > Alice > Carol > Dave
+
+Round-Robin — every pair, head-to-head (For – Against):
+   Alice  ties  Bob     3 – 3
+   Alice  beats Carol   6 – 0
+   Alice  beats Dave    6 – 0
+   Bob    beats Carol   6 – 0
+   Bob    beats Dave    6 – 0
+   Carol  beats Dave    6 – 0
+
+--- Pairwise (Round-Robin) Matrix ---
+Head-to-head / pairwise comparison — the Ranked Robin tally
+Legend: For - Equal Support - Against   (row vs column)
+          |   Alice   |   Bob    |  Carol   |  Dave    |
+--------------------------------------------------------
+  Alice > |    ---    |3 - 0 - 3 |6 - 0 - 0 |6 - 0 - 0 |
+    Bob > | 3 - 0 - 3 |   ---    |6 - 0 - 0 |6 - 0 - 0 |
+  Carol > | 0 - 0 - 6 |0 - 0 - 6 |   ---    |6 - 0 - 0 |
+   Dave > | 0 - 0 - 6 |0 - 0 - 6 |0 - 0 - 6 |   ---    |
+
+Win–loss record — Copeland score = wins + ½·ties (most wins wins; ties broken by total margin, then lot order):
+    #  Candidate  W–L–T  Copeland  Margin  Beats
+    1  Alice      2–0–1       2.5     +12  Carol, Dave
+    2  Bob        2–0–1       2.5     +12  Carol, Dave
+    3  Carol      1–2–0         1      -6  Dave
+    4  Dave       0–3–0         0     -18  —
+
+Winner — Ranked Robin (RCV-RR): Alice
+   *** 2 candidates tie on wins (Alice, Bob) — a Condorcet cycle. Resolved by total margin, then lot order. (This is where Minimax / Ranked Pairs / Schulze differ — see 00_start_here/RCV_Ranked_Robin/cycle_resolution.md.)

@@ -1,0 +1,22 @@
+election_title: "BV parity — Ranked Robin: Copeland tie broken by tiebreak order"
+scenario_description: |-
+  Ported from BetterVoting's tabulator unit tests (RankedRobin.test.ts :: "Ties").
+  Alice and Bob split the head-to-head (3-3), tying on Copeland score; BetterVoting
+  breaks the tie by tiebreak (lot) order and elects Alice. Rank ballots (1 = best)
+  converted to scores for the LH engine (rank 1->4, 2->3, 3->2, 4->1).
+
+num_winners: 1
+voting_method: RankedRobin
+ballots: |-
+  Alice,Bob,Carol,Dave
+  4,3,2,1
+  4,3,2,1
+  4,3,2,1
+  3,4,2,1
+  3,4,2,1
+  3,4,2,1
+
+expected_winners:
+  - Alice
+
+# file: BV_Library_ranked_robin_ties.yaml

@@ -1,0 +1,33 @@
+election_title: "BV parity — Plurality (choose-one): most first-marks wins"
+scenario_description: |-
+  Ported from BetterVoting's tabulator unit tests (Plurality.test.ts :: "Single Winner Test").
+  Choose-one ballots (a single 1 per voter); Dave has the most and wins. The original
+  had three spoiled/invalid ballots — one abstention, two out-of-bounds marks, and one
+  overvote — which BetterVoting counts as zero support; here the abstention is written
+  as blanks and the invalid rows as all-zero so the file validates while preserving the
+  winner. This engine tabulates choose-one 0/1 ballots via its STAR path, which for
+  single-mark ballots is equivalent to a plurality count.
+
+num_winners: 1
+voting_method: Plurality
+ballots: |-
+  Alice,Bob,Carol,Dave
+  0,1,0,0
+  0,1,0,0
+  0,0,1,0
+  0,0,1,0
+  0,0,1,0
+  0,0,0,1
+  0,0,0,1
+  0,0,0,1
+  0,0,0,1
+  0,0,0,1
+  -,-,-,-
+  0,0,0,0
+  0,0,0,0
+  0,0,0,0
+
+expected_winners:
+  - Dave
+
+# file: BV_Library_plurality_single_winner.yaml
