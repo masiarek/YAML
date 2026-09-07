@@ -10,7 +10,7 @@
 **/_generated/
 
 # Local virtualenv (uv/venv both land here; recreate with `uv sync`)
-.venv/
+.venv
 
 # Python bytecode caches (regenerable)
 __pycache__/
