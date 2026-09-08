@@ -140,59 +140,7 @@ taxonomy from memory:** see `07_Concepts/tips/TIPS_terminology.md` and `GLOSSARY
   **RCTab 2.0.0**, which reports the same transfers and the same shrinking
   thresholds. Wording locked by `tests/test_irv_transfers.py`. Changing the block
   means re-running every ranked case (179 files) and rebuilding pages.
-- **The machine-readable result contract (`--json`) — never re-derive a count into it**
-  (added 2026-08-10). `starvote_larry_hastings.py <case.yaml> --json` emits one versioned
-  JSON object per election — winners, the rounds that produced them, the pairwise matrix,
-  and which tie-break rung fired — built by
-  [`result_json.py`](STARVote_LH_tabulation_engine/result_json.py) against the published
-  [`star_result.schema.json`](STARVote_LH_tabulation_engine/star_result.schema.json).
-  The implementer-facing door is
-  [`result_schema.md`](07_Concepts/tabulation_engines/result_schema.md); it is Track A's
-  A-1/A-2 and the built half of D3 in
-  [`star_reference_package.md`](07_Concepts/tabulation_engines/star_reference_package.md).
-  **The one rule:** every number in it comes from the same function the printed report
-  calls. Five tallies were split out of their printers for exactly this —
-  `classify_method` (the method-alias table, one place, read by the CLI dispatch *and* the
-  contract), `ranked_robin_tally`, `approval_tally`, `plurality_single_tally` /
-  `plurality_multi_tally`, and `rcv_irv_tabulation.tabulate` — so adding a family means
-  extending the shared tally, **never** writing a second count inside `result_json.py`.
-  Two things the build proved, worth not re-learning: **multi-winner Choose-One counts
-  every MARK while single-winner Choose-One SPOILS an overvote**, so neither can be
-  derived from the other (it elected the wrong slate on five block-voting cases); and
-  `tiebreaks: []` is a **positive claim** that no rung fired — which is how a
-  right-winner-wrong-path result gets caught, and what 567 winner-only answer keys never
-  could. A claim that strong has to be *earned*, and for a year it was not: the builder
-  could see one kind of tie (the finalists ladder `resolve_finalists()` replays for
-  single-winner STAR), so every seat the **lot** bought — a Bloc/PR seat, and a
-  single-winner Automatic Runoff too — emitted `tiebreaks: []`, on **23 cases**, most of
-  them cases whose whole subject is the lot. Fixed 2026-08-21 (schema **1.1.0**, +
-  `tiebreaks[].round`) the only way that respects the never-re-derive rule:
-  `LotNumberTiebreaker` now logs its own calls in `self.events`, and `_lot_ties()` reads
-  that log — the count is not replayed, it is *read off the object that broke the tie*.
-  The invariant to keep is a mirror one, and it is tested over the whole score corpus:
-  **one `rung: "lot"` entry per `[Tiebreaker: Lot Number Priority]` banner the report
-  prints** — no fewer, and no more (the finalists replay must not double-count the banner
-  it shares). **The mirror gap closed the same day (schema 1.2.0):** 1.1.0 taught the
-  builder to see the *lot*, but a runoff tie broken by a **deterministic** rung fires no lot
-  event and belongs to neither replay, so **16 more cases** emitted `tiebreaks: []` on an
-  election whose report says in full *"Automatic Runoff Round: First tiebreaker"* — including
-  `bv830_vb3xv2_no_condorcet_tie_score` and `tie_break_04_runoff_five_star_breaks`, files
-  named for the rung the JSON did not mention (12 `score`, 4 `five-star`). `resolve_runoff()`
-  is the mirror of `resolve_finalists()` — same replay discipline, starvote's own round
-  functions — and the mirror invariant is tested too: `rounds.runoff.tied` and a
-  `stage: "winner"` entry must agree in **both** directions, so a swallowed tie and an
-  invented one both fail. It was found by pointing
-  [`tie_taxonomy_sweep.py`](STARVote_LH_tabulation_engine/tools_adam/tie_taxonomy_sweep.py)
-  at the contract — a quarter-million coarse-scale elections, every tie classified against the
-  published taxonomy — which is the general lesson: a claim this strong needs something
-  adversarial aimed at it, not more cases that happen to agree. Still invisible, and said so
-  in print: the rungs *below* the lot inside a Bloc/PR round, which run in starvote's own
-  counting functions and report nothing back. Locked by
-  [`tests/test_result_json.py`](STARVote_LH_tabulation_engine/tests/test_result_json.py)
-  (every case validates against the schema and meets its answer key through the JSON path;
-  `--json` must stay pure — JSON on stdout, no report, no `_tabulated` mirror). A method
-  the engine does not count (Range 0–9, CAV, 3-2-1) raises `UnsupportedMethod` rather than
-  being answered: "out of scope" must stay distinguishable from "wrong".
+- **The machine-readable result contract (`--json`) → load the `result-contract` skill.** The one rule worth carrying without it: every number in the JSON comes from the same function the printed report calls, so adding a family means extending the shared tally and **never** writing a second count inside [`result_json.py`](STARVote_LH_tabulation_engine/result_json.py).
 - **Voter counts — keep examples SMALL.** Default to the *fewest ballots* that
   make the point; prefer **individual ballots** (one row per voter, a handful of
   them) over large weighted blocs. A 3-voter example that shows the effect beats a
@@ -325,58 +273,7 @@ taxonomy from memory:** see `07_Concepts/tips/TIPS_terminology.md` and `GLOSSARY
   file's `# H1` (e.g. `# 01_STAR — single-winner STAR`). A folder may keep *secondary*
   docs under descriptive names (e.g. `README_larry_hastings.md`, `FORK_NOTES.md`), but
   the one overview is always `README.md`.
-- **The repo publishes as a searchable website** — <https://masiarek.github.io/star-voting-library/>,
-  built by root `mkdocs.yml` (MkDocs Material + `mkdocs-same-dir` + `mkdocs-redirects`)
-  straight from the
-  repo's own Markdown (no `docs/` copy; `.yaml` / `_tabulated` files carried through)
-  and deployed by `.github/workflows/docs.yml` on every push to master. Folder
-  `README.md`s become the site's section index pages (one more reason that naming rule
-  matters), and links keep GitHub's file-relative semantics (`use_directory_urls:
-  false` — don't flip it). Local preview: `uv run --group docs mkdocs serve` (the
-  docs toolchain is pinned in `pyproject.toml`'s `docs` dependency group + `uv.lock`;
-  `mkdocs-same-dir`/`mkdocs-redirects` are capped at the last releases free of the
-  MkDocs-impersonating `properdocs` package — investigate before raising those pins).
-  `site/` is generated output — never commit.
-  Details + known nits: `07_Concepts/about_this_repo/website_build.md`.
-  **Site-only redirects (`redirects.redirect_maps` in `mkdocs.yml`) — two kinds, only
-  one of them discretionary.** A redirect replaces the *built* page at a URL; if the
-  source `.md` is still on disk, GitHub keeps rendering it but **the site never shows
-  it**. The **relocation** kind is mandatory and permanent — the file really moved (the
-  `00_start_here/*` concept pages into their method folders is the big set) and the old
-  URL has to keep resolving forever, for the reason the reorganization bullet above
-  gives: a deleted redirect is an unfixable 404. As of 2026-08-09 every live entry in
-  the map is this kind. The **hide-a-live-page** kind — redirecting a page that still
-  exists, to push site visitors somewhere better — is the one to use sparingly, because
-  the reason for it can disappear out from under it. **Retired case, worth reading:**
-  `05_Ranked_Robin/README.md` → the Ranked Robin concept page, added back when the
-  concept pages sat in a separate `00_start_here` tree and the case folder was the only
-  top-level door for a visitor wanting "Ranked Robin"; the "one door per method"
-  reorganization moved the concepts *into* `05_Ranked_Robin`, so the folder's own README
-  became the method front door in the right place and the redirect only pushed readers
-  past it (retired 2026-08-04 — the story is kept as a comment where it used to sit in
-  `mkdocs.yml`). So: **re-check these after any reorganization**, and whenever you add
-  one, **move or mirror whatever the source said onto the destination** and leave a
-  maintainer note in the redirected README — otherwise edits there silently never ship.
-  Adding a plugin means updating **two** places: `mkdocs.yml` plugins and the `docs`
-  dependency group in `pyproject.toml` (then `uv lock`). CI and the local preview both
-  resolve from `uv.lock`, so there is no separate install command to keep in sync.
-  **Prefer a hook over a plugin** for small build-time fixes: `hooks:` in `mkdocs.yml`
-  loads a plain repo file (`mkdocs_hooks.py`) with no dependency and no lock churn.
-  It already carries the sidebar acronym casing (`rr_tiebreaks` → "RR tiebreaks"),
-  which is fixed at build time precisely *because* renaming the folder would move
-  permanent URLs.
-  **Sidebar reading order lives there too** — `NAV_ORDER` in `mkdocs_hooks.py`,
-  keyed by folder path, listing children by on-disk name. Auto-nav is
-  alphabetical, which for a *lesson* folder is actively wrong (`01_Learn` opened
-  on the ballot page, with "Welcome to STAR Voting" third). Set the order there,
-  **never by renaming files to `01_`, `02_`…**: that is a number in a permanent
-  URL, and inserting one lesson later moves a whole run of them. Unlisted pages
-  keep their alphabetical slot at the bottom, so adding a page needs no edit;
-  a folder's `README.md` is always pinned first (`navigation.indexes` needs the
-  index at `children[0]`). Entries before `SPINE_BREAK` get a visible `N. ` in
-  the sidebar — keep that run short and mostly *sections*, since numbering a
-  page also prefixes that page's `<title>`. `tests/test_nav_labels.py` fails if
-  a listed name no longer exists on disk.
+- **The repo publishes as a searchable website** — <https://masiarek.github.io/star-voting-library/>, built by root `mkdocs.yml` (MkDocs Material) straight from the repo's own Markdown and deployed by `.github/workflows/docs.yml` on every push to master. Two rules stay here because they bite outside any site task: **`site/` is generated output — never commit**, and a **`redirects.redirect_maps` entry is permanent** — published URLs are quoted in BetterVoting election descriptions that can never be edited, so a deleted redirect is an unfixable 404. For everything else — the plugin-vs-hook decision, `NAV_ORDER` and sidebar order, local preview, the two kinds of redirect and when to retire one → **load the `site-build` skill**. Details + known nits: [`website_build.md`](07_Concepts/about_this_repo/website_build.md).
 - **Companion repo — research-paper topics live OUTSIDE this repo.**
   <https://github.com/masiarek/star-voting-research-topics> (**private**) holds the
   vetted research-paper prospectuses that use this library as their reproducibility
@@ -533,95 +430,14 @@ taxonomy from memory:** see `07_Concepts/tips/TIPS_terminology.md` and `GLOSSARY
   discovery and `discover()` glob both `*.yaml` and `cases/*.yaml`, so either layout works.
 - **Markdown prose: do NOT hard-wrap paragraphs (Adam's preference).** Write each
   paragraph as a single unwrapped line (soft wrap) — no fixed ~76/80-char line limit. Hard-wrapping is cosmetic: Markdown collapses single newlines inside a paragraph into spaces, so wrapped and unwrapped prose render identically. Keep real line breaks only where they're semantic: blank lines between paragraphs, fenced code blocks, tables, and list items.
-- **Embed LH output as text in Markdown (Adam's preference), sized to the election.**
-  When a teaching/reporting `.md` discusses a result, paste the actual LH output inline
-  as a fenced code block (strip ANSI) rather than only linking the `_tabulated` file —
-  the reader should see the output on the page. **Match the depth to the election:**
-  - **Small / simple** examples → embed the **short on-screen report** (the on-screen render with
-    the file's minimal options), not a full dump.
-  - **Large or complex** elections (many ballots/candidates), or docs whose point *is*
-    the matrix / Condorcet / score-distribution detail → embed the fuller
-    **`_tabulated`** report, or just the specific section being discussed.
-
-  Either way, keep a link to the full `_tabulated` mirror too.
-  - **Route the short snippet to the full report (Adam likes the long LH reports).** When a
-    hand-authored teaching page embeds a *short* on-screen snippet **and the example is a real
-    case file**, add a one-click pointer to that case's **full generated page**
-    (`…/cases_pages/<stem>.md`, which carries the matrix / Condorcet / score-distribution audit)
-    or its `_tabulated` mirror — e.g. *"Want the whole count? see the full LH report → `…/cases_pages/<stem>.md`."* Keep
-    the crisp snippet for the lesson; the full report stays one click away and never drifts (the
-    link auto-updates; a pasted long report would go stale). **Skip this for *generic
-    illustrations*** (invented candidates with no backing case file) — a "full report" link there
-    is a dead end. Prefer the generated page over pasting the long report inline on a teaching
-    page, which buries the lesson (e.g. the runoff page is *about* the reversal, not the matrix).
-  - **Engine reports get GENERATED into the page, never hand-pasted.** To show a case's
-    count, mark the spot and let `build_yaml_pages.py` fill it:
-
-    ```
-    <!-- report:<stem> -->
-    <!-- /report -->
-    ```
-
-    The generator copies in the report fence from that case's generated page
-    (`<set>/cases/cases_pages/<stem>.md`, wrapped there in `[start:report]` / `[end:report]`
-    markers for exactly this), so there is still one source of truth and
-    `tests/test_yaml_pages_current.py::test_report_blocks_are_current` fails on drift.
-    Same contract as `case-meta` and `ballots:` — inside the markers is generated, outside
-    is yours. The `<stem>` is a bare case stem, no path: generated-page stems are unique
-    repo-wide. Reach for a *different* case's stem when the block is a different election —
-    a page can show several (`ex06_bullet_backfire.md` embeds `ex06_bullet_honest` for its
-    honest-ballot half).
-    **Do NOT use `--8<-- "…:report"` for this** (the idiom this replaced, 2026-08-04).
-    `pymdownx.snippets` is a MkDocs extension, so the include renders on the site and
-    prints as a **line of literal text on GitHub** — 82 pages showed a "the LH report"
-    heading followed by `--8<-- "…"` and no report at all to anyone reading the repo on
-    GitHub. `test_no_snippet_report_includes_remain` now fails on a new one. Snippets are
-    still right for whole-file embeds *inside* a fence (a `.yaml`, say):
-    `--8<-- "<repo-relative path>"`, paths resolving from the repo root, `title="…"` naming
-    the file — those degrade to a visible placeholder inside a code block rather than to
-    broken prose. **Never embed the `_tabulated` mirror** — it drags in its ~50-line YAML
-    echo and, for a big field like `Runoff_08_ca_governor_reversal_gvdy42`, 785 lines of
-    audit; link it instead.
-    `check_repo_hygiene.py::check_pasted_reports` (gated by `tests/test_md_links.py`) fails
-    on a new ≥8-line engine-shaped fence that is outside a `report:` block and not labelled
-    abridged.
-  - **Deliberate compressions stay — label them, don't convert them.** Put
-    `title="Abridged for the lesson — not verbatim engine output"` on the fence: it renders as
-    a visible caption and satisfies the gate. `bv750_tie_breaking_bloc.md`'s
-    `a 15 ; b 15 ; c 15  ← three-way tie` is the lesson, not stale output.
-  - **An annotated fence is NEVER convertible.** If a block carries `←` margin notes
-    (`Ada -- 15  ← Ada is now THIRD`), a `#` aside, or `·`-joined tallies, it is a rendition
-    the author built for the lesson — replacing it with an include deletes the annotation that
-    was the entire point. Nine were destroyed that way before this was written down; they are
-    restored and labelled. **Annotation ⇒ abridged, always.** The same goes for a *curated
-    excerpt* (just the matrix, just the divergence block): the selection is authorial, so
-    label it rather than swapping in the whole report.
+- **Embedding an engine report or an output snippet in a Markdown page → load the `embedding-reports` skill.** The two rules that bite without it: engine reports are **generated** into a page (`<!-- report:<stem> -->` … `<!-- /report -->`), never hand-pasted; and an **annotated or curated** fence is never convertible — label it `title="Abridged for the lesson — not verbatim engine output"` rather than replacing it.
 - **Companion pages carry a generated `case-meta` block.** A case with both a generated page
   (`<set>/cases/cases_pages/<stem>.md`) and a hand-authored companion (`<set>/<stem>.md`) gets a
   method / seats / expected-winners line plus a full-count link under the companion's H1,
   written by `build_yaml_pages.py` between `<!-- case-meta:start -->` / `<!-- case-meta:end -->`.
   **Don't hand-edit inside the markers or restate those facts alongside them** — change the YAML
   and rerun the generator. `tests/test_yaml_pages_current.py` fails when a block drifts.
-- **Ballot art on a case page is drawn, not hand-embedded** (added 2026-08-04). `tools_adam/scripts/build_style_ballot_images.py --from-yaml <case.yaml>` draws the repo's 0–5 ballot — the same art as the voting-style gallery — one image per ballot row, into `<yaml dir>/img/<stem>_ballot_<n>.png` (+ `.svg`, kept so the art stays editable). `build_yaml_pages.py` then puts whatever art it finds into the page's **Ballots** section as a table: the marked-up ballot beside the very numbers the file records, **one column per candidate**, so a beginner reads a filled bubble straight across into its column. Three things to know:
-  - **Which cases get pictures is editorial; keeping them current is not.** `regen_all.py` runs `--refresh`, which redraws (and prunes) art **only for cases that already have some** — so edit a `ballots:` block and the pictures follow, but the other ~300 cases stay text. Worth drawing for the small 101 rungs (2–3 candidates, a handful of ballots) and the ballot-style sets; pointless for a 100-ballot field.
-  - **Blanks and markers (`-` `~` `&` `?` `%`) draw as no mark at all.** The engine counts them 0; the voter marked nothing. That gap is the whole reason the abstention cases have pictures. On an Approval ballot the same rule reads as: `1` fills **Yes**, `0` fills **No** (a real 0 *is* a No on a double-bubble ballot), a blank fills neither. Ranked cases are refused outright.
-  - **The title on each ballot is that row's `#` comment** (else "Voter N" / "N voters"), and the alt text is generated from the same parse — so a good trailing comment in the YAML *is* the figure caption. Long titles shrink to fit; they don't wrap. Adding comments to a case's ballot rows is a real improvement — but the `_tabulated` mirror echoes the YAML, so **re-run the engine on that file** afterwards or `test_tabulated_mirrors_current.py` fails.
-  - **Three ballots are drawn, and only three** — the 0–5 STAR grid (`SCORE_METHODS`: STAR, Bloc STAR, the PR variants, Score/Range); since 2026-08-04 the **Approval Yes/No double bubble** (`APPROVAL_METHODS`, single- *and* multi-winner: bloc changes the count, not the paper); and since 2026-08-07 the **grade ballot** (`GRADE_METHODS`), a column per grade *word* for Majority Judgment. They are separate renderers, not one drawing with a flag, because they are separate pieces of paper. Everything else — Plurality, every ranked method — is refused rather than approximated; all three sets are allowlists on purpose, so a new method defaults to no picture, not to a wrong one. An Approval file holding a real score (a `3`) is refused too: `parse_ballot_block(..., max_score=1)` won't round it to a bubble.
-  - **The grade ballot is drawn from a `grades:` file, which is transposed** — its header names the voters and each row is a *candidate*, so `parse_grade_block()` transposes it back into one ballot per voter. Three consequences: a voter's caption cannot ride on a `#` comment (use the optional **`voter_notes:`** map, read only by the drawer); the scale travels *with* the ballot rather than being a constant, since a grade ballot's columns are the election's own words (`grade_scale: "To Reject|Poor|…|Excellent"`, the pipe form both the drawer and `grade_methods_report.py` accept alongside `1-10` / `A-H`); and its width is computed from the labels, so a page shows it at roughly **twice** the score ballot's width or the headings — which *are* the ballot — would be illegible. A grade case has **no generated page**, so its `<!-- ballots: -->` block on a hand-authored lesson is the only place a reader ever sees the art.
-  Covered by `tests/test_ballot_art.py` (parser, the method allowlist, and "every drawn ballot appears on *a* page" — the generated one, or a lesson's block for the grade cases that have no generated page).
-- **A hand-authored page shows its election with a `<!-- ballots:<stem> -->` block — art if the case has any, otherwise the YAML's own `ballots:` text in a fence.** The generated page's table can't be pulled in with `--8<--`: its `<img>` paths are relative to `cases/cases_pages/`, and a snippet is pasted verbatim, so every picture would 404 from a page at a different depth. Instead the lesson marks the spot and `build_yaml_pages.py` fills it, with paths relative to *that* page:
-
-  ```
-  <!-- ballots:small_abstention_c2_b5 -->
-  <!-- /ballots -->
-  ```
-
-  Same contract as `case-meta`: inside the markers is generated, outside is yours, and `tests/test_yaml_pages_current.py` fails on drift. The stem is looked up as `cases/<stem>.yaml` (or `<stem>.yaml`) beside the page or one level up, so it works from a folder-top lesson and from a flat case folder — and failing that, searched *downward* through the page's own subtree (unique hit only, never widened to the repo root), so a **method front door** like `04_Approval/README.md` can show a ballot from a case two levels below it — and failing *that*, resolved through the **generated-page index**, exactly the way a `report:` stem is, so a cross-method page in `07_Concepts/` can show a case that lives under `method_comparisons/`. (Proximity still goes first: it is the only step that can tell two same-named cases apart, and the index drops those rather than guess.) **The block may sit on any hand-authored page in the repo** — until 2026-08-07 discovery walked the case roots only, so a block outside them was never even looked at, got no fill *and no note*, and `check_ballot_blocks()` couldn't see it either; both markers now go through one walk. **This is the mechanism that matters** — a beginner usually lands on the *lesson*, not on the generated case page, which is exactly the gap the first pass left. When you place one, prefer it *in place of* a hand-typed ballot table (the block already carries the numbers) and keep the annotations by moving them into the YAML's row comments.
-
-  **A case with no picture still fills the block** — with the file's `ballots:` text in a `text` fence under the same "how to read" line its generated page uses (added 2026-08-08). That closes the gap that made this rule unenforceable for **ranked** cases: nothing draws a ranked ballot (the drawer refuses them outright), so a ranked lesson had no generated ballots surface at all, and **38 pages** hand-typed their profile as a Markdown table instead — an election transcribed by hand directly above a generated report of *the same file*, with nothing checking that the two agreed. Write the block; don't retype the ballots. Three things that sweep taught:
-  - **The leading column had acquired two meanings.** `| 9 | A > B > C |` is nine voters; `| 3 | Clara > Amy > Bruno |` is voter #3 — and both forms are live on `07_Concepts/topics/ties/batch_elimination.md`. Same failure mode as the trailing-`×3` bug: a number in a ballot row whose job the reader has to infer per page. The schema form has one reading, because a parser depends on it.
-  - **A summary table can quietly contradict its own page.** `copeland_vs_borda_margins/README.md` weighted its rows 5/3/2/2 directly above the sentence *"Twelve individual ballots, no weighting"* — the case file has twelve unweighted rows, and the fence now says so.
-  - **Annotated tables are NOT convertible**, exactly as the pasted-report rule has it. Left as tables on purpose: `batch_elimination.md` (**bold** marks the one ballot that changed between its before/after pair), `05_Ranked_Robin/03_Criteria/burial/README.md` (per-row gloss naming the buriers), `alaska_2022/alaska_201.md` (`*(only)*` marks the truncated ballots). And a **ranked table over a score case** is a deliberate ordinal projection, not a transcription — `edelman_condorcet_myth.md` and `dark_horse_borda/README.md` encode their profiles as 0–5 scores with the ranking in row comments, so the fence there would print scores into an ordinal argument. Don't "fix" those five.
+- **Ballot art, and showing a case's ballots on a page → load the `ballot-art` skill.** Art is drawn by `tools_adam/scripts/build_style_ballot_images.py`, never hand-embedded, and a hand-authored page shows its election with a `<!-- ballots:<stem> -->` block rather than a retyped Markdown table — the block already carries the numbers.
 - **Cross-reference slides by title** via `07_Concepts/LINKS.md`
   short names — never page numbers or `#slide=id…` deep links.
 - **Case-file naming.** **LH-only** cases (no BV election) → descriptive name, no bvid
@@ -874,24 +690,12 @@ reproduce loop is in the **`bettervoting` skill**.
   refused as input.
 
 ## Tests
-- `STARVote_LH_tabulation_engine/tests/test_single_winner_positive.py` — every
-  single-winner STAR file with `expected_winners` (in `01_STAR/`, `method_comparisons/`,
-  `YAML_library/1_positive/`) is run through the CLI (which also
-  writes its `_tabulated` copy) and checked for exit 0 + correct winner.
-- `…/tests/test_harness_selfcheck.py` — meta-tests proving the winner check isn't
-  vacuous: deliberately-wrong answer keys (single- and multi-winner) in
-  `tests/harness_cases/` must NOT match the engine's real result.
-- `…/tests/test_json_to_yaml_conversion.py` — guards the BetterVoting-JSON →
-  YAML pipeline (`YAML_library/1_positive/01_convert_json_yaml.py`): converts a
-  real export in an isolated tmp dir and checks the produced YAML tabulates to the
-  embedded winners (catches engine-signature drift like the `parse_ballots_from_string`
-  arity bug).
-- `…/tests/test_negative_validation.py` — malformed fixtures (in `tests/negative_cases/`
-  **and** the migrated `YAML_library/2_negative/`) must exit 1 with the right
-  message and no traceback; covers single messages and multiple-errors-in-one-file.
-- Run: `pytest tests/test_single_winner_positive.py tests/test_negative_validation.py`
-  from the engine dir. A repo pre-commit hook (`STARVote_LH_tabulation_engine/tools_adam/scripts/git-hooks/`, wired via
-  `git config core.hooksPath STARVote_LH_tabulation_engine/tools_adam/scripts/git-hooks`) runs these on every commit.
+The suite lives in `STARVote_LH_tabulation_engine/tests/`; read the modules for what each one covers. Four things about it are not visible from the code:
+- **`test_harness_selfcheck.py` exists to prove the winner check is not vacuous** — deliberately-wrong answer keys in `tests/harness_cases/` must NOT match the engine's real result. Don't "fix" a failing harness case; it is supposed to disagree.
+- **`test_json_to_yaml_conversion.py` was written for a specific class of breakage** — engine-signature drift, of which the `parse_ballots_from_string` arity bug was the instance. It converts a real export in an isolated tmp dir, so it catches the drift a unit test on the converter would miss.
+- **Run from the engine dir**, not the repo root: `pytest tests/test_single_winner_positive.py tests/test_negative_validation.py`.
+- **The pre-commit hook is wired by hand and does not survive a fresh clone:**
+  `git config core.hooksPath STARVote_LH_tabulation_engine/tools_adam/scripts/git-hooks`
 
 ## Git
 - **Commit after every significant addition or completed piece of work** (Adam's
